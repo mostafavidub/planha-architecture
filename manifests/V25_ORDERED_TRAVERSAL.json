@@ -32,8 +32,11 @@
     },
     {
       "id": "V25-06",
-      "status": "PARTIAL",
-      "evidence": "PRD زنده n=۱یا۲ و ورودی W/L/n را می‌خواهد؛ adapter فقط n=۲ و سه‌خواب آزمایشی. برنامه مناسب خودکار پیاده‌شده نیست. سیاست محصول روشن‌تر شد اما تحقق کد باز است."
+      "status": "PARTIAL_EXPLICIT_PROGRAM_API",
+      "evidence": "API صریح دوخوابه بدون fallback اضافه و در ۱۵×۲۵ آزموده شد؛ پیش‌فرض همچنان سه‌خوابه است. انتخاب خودکار برنامه و n1 و فرم۲ باز است.",
+      "evidence_runs": [
+        44405056710
+      ]
     },
     {
       "id": "V25-07",
@@ -57,8 +60,12 @@
     },
     {
       "id": "V25-11",
-      "status": "BLOCKED",
-      "evidence": "n=۱ و خانواده‌های جدید قرارداد/مولد/شاهد کافی ندارند؛ n=۲ فقط دو خانواده موجود."
+      "status": "PARTIAL_EXPLICIT_TWO_BEDROOM",
+      "evidence": "مسیر FRONT_REAR صریح دوخوابه واقعی تولید می‌کند؛ n1 و LEFT_RIGHT و پوشش کافی کل دامنه بازند.",
+      "evidence_runs": [
+        44401790896,
+        44405056710
+      ]
     },
     {
       "id": "V25-12",
@@ -77,33 +84,57 @@
     },
     {
       "id": "V25-15",
-      "status": "NOT_OBSERVED_CURRENT_RANGE",
-      "evidence": "۹درخواستمرزیواقعی همproposalنداد؛ردفیزیکیطبیعی برایrepairهنوزمشاهده نشد."
+      "status": "NATURAL_REJECTION_OBSERVED_EXPLORATORY",
+      "evidence": "والد۲۰×۲۰ صریح۲ واقعاً رد و با هش دقیق دوباره تازه رد شد؛ شش pending محفوظ. نمونه HTTP جدید۶ مدل همگی PASS فیزیکی بود و رد واجدشرایط در آن مشاهده نشد.",
+      "evidence_runs": [
+        44403413844,
+        44407576996
+      ]
     },
     {
       "id": "V25-16",
-      "status": "PARTIAL_PASS",
-      "evidence": "کد عملگر و پیش‌شرط‌ها خوانده شد؛ FRONT_REAR/collision و fallback route محدود، شاهد تازه و حفاظت اشیا لازم. ۴تست مصنوعی رسید در dd496bfe موفق؛ اجرای عملگر و witness واقعی تازه نه."
+      "status": "PARTIAL_SEPARATE_EXPLORATORY_OPERATOR",
+      "evidence": "عملگر جدا با exact replay/fresh narrow rejection و حفظ برنامه/وسایل/core اجرا شد. رسیدهای متصل و شمار child/nochild آزموده شدند؛ repair129 ضعیف نشده و موفقیت endpoint ادامه هنوز مشاهده نشده.",
+      "evidence_runs": [
+        44406994713,
+        44408782701
+      ]
     },
     {
       "id": "V25-17",
-      "status": "BLOCKED",
-      "evidence": "runnerرفع شد ولیparentردشدهطبیعی جاری هنوزموجودنیست؛sourceidentity/tracebindingتقویت شد."
+      "status": "PASS_EXPLORATORY_NOT_PRODUCTION",
+      "evidence": "سه child مستقل و سپس callable محدود variant1 ساخته شدند؛ مسیر HTTP از والد تازه هنوز مسدود به نبود رد طبیعی در نمونه محدود است.",
+      "evidence_runs": [
+        44403413844,
+        44406994713,
+        44407576996
+      ]
     },
     {
       "id": "V25-18",
-      "status": "BLOCKED",
-      "evidence": "بدون child تازه، بازبینی و regression واقعی child انجام نشده؛ قرارداد receipt شاهد این گام نیست."
+      "status": "PASS_FRESH_PHYSICAL_EXPLORATORY_ONLY",
+      "evidence": "فرزندان اکتشافی تازه PASS فیزیکی با errors/pending خالی گرفتند؛ چهار UNKNOWN و پذیرش معماری باز است.",
+      "evidence_runs": [
+        44403413844,
+        44406994713
+      ]
     },
     {
       "id": "V25-19",
-      "status": "BLOCKED",
-      "evidence": "چرخه طبیعی کامل generate→reject→repair→rebuild→review در۵..۲۵ هنوز اثبات نشده."
+      "status": "BLOCKED_PRODUCTION_CYCLE",
+      "evidence": "چرخه اکتشافی از والد واقعی replay شد؛ چرخه یکپارچه محصول و ادامه HTTP از تولید تازه و qualification هنوز کامل نیست.",
+      "evidence_runs": [
+        44406994713,
+        44407576996
+      ]
     },
     {
       "id": "V25-20",
-      "status": "PARTIAL_PASS",
-      "evidence": "۱۱تستloopbackHTTP و۸syntheticDOM درآزمونmechanics؛livebrowser workflow هنوزاجرا نشده."
+      "status": "PARTIAL_REAL_BROWSER_PASS",
+      "evidence": "Chromium واقعی، سرور و worker واقعی، ورودی۲۶رد، تولید۲۵×۲۵، history، export403 و پاک‌شدن نتیجه با تغییر ورودی آزموده شد. UI صریح۲ و بازطراحی طبیعی هنوز باز.",
+      "evidence_runs": [
+        44400938194
+      ]
     },
     {
       "id": "V25-21",
@@ -112,8 +143,13 @@
     },
     {
       "id": "V25-22",
-      "status": "PARTIAL",
-      "evidence": "۴مسیرمهمان×۲واحد باپروفایلمنبع وoperationsشاهد مستقل دارند؛چهارUNKNOWN کامل،counterfactualدیواروliving وبرنامه مناسب هنوزباز.تشخیصcounterfactualتک‌دیواردرحالاجرا."
+      "status": "PARTIAL_LIVING_DIAGNOSTIC_IN_PROGRESS",
+      "evidence": "۸مسیر مهمان و counterfactual یک دیوار با privacy سازگار بررسی شد. Living diagnostic مستقل آغاز؛ چهار الزام کامل UNKNOWN، هیچ useful area یا qualification ادعا نشده.",
+      "evidence_runs": [
+        44399621847,
+        44402005886,
+        44409041217
+      ]
     },
     {
       "id": "V25-23",
@@ -122,8 +158,11 @@
     },
     {
       "id": "V25-24",
-      "status": "PARTIAL_AUDIT_COMPLETE",
-      "evidence": "closureوrunnerرفع‌شده و تولیدمتغیرمحدودثبت‌شده؛چرخهطبیعی،پوششکلدامنه/n1/چهارUNKNOWN/qualifieddiversity باز؛۳۰۳آغازنشده."
+      "status": "PARTIAL_AUDIT_AND_DURABLE_EVIDENCE",
+      "evidence": "۱۱ آرشیو و۱۲۵عضو پس از push از remote دوباره SHA256/اندازه تطبیق شد. ممیزی نهایی پس از closure محصول؛۳۰۳ هنوز آغاز نشده.",
+      "evidence_runs": [
+        44408447751
+      ]
     }
   ],
   "tests": [
@@ -167,6 +206,22 @@
       "runs": [
         44399621847
       ]
+    },
+    {
+      "commit": "f70862d1918f28658125b1cdaf91aba95cf671f6",
+      "scope": "56+9+11Python scoped mechanics; synthetic JS; guard and input audit green",
+      "runs": [
+        44407859644,
+        44407858880,
+        44407858868
+      ]
+    },
+    {
+      "commit": "35c853fa67fa70b8968115c659c0484edbe7ac21",
+      "scope": "Additional retained-parent/new-child counting regression plus scoped mechanics; not successful live continuation",
+      "runs": [
+        44408782701
+      ]
     }
   ],
   "migration_restarted": true,
@@ -177,5 +232,13 @@
     "start": "2026-11-18T19:38:00Z",
     "end": "2026-11-18T19:40:20.656Z"
   },
-  "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim"
+  "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
+  "last_evidence_update_utc": "2026-11-18T22:13:43Z",
+  "current_independent_operation": {
+    "id": "V25-22-LIVING-WITNESS",
+    "start_utc": "2026-11-18T22:07:31Z",
+    "deadline_utc": "2026-11-19T01:07:31Z",
+    "state": "RUNNING",
+    "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage"
+  }
 }
