@@ -41,3 +41,9 @@ jobs:
           test_validation_server.HttpTests.test_content_type_and_body_limit
           test_validation_server.DisconnectedResponseTests
           test_repair_gateway
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Independent input UI synthetic race tests, not browser evidence
+        working-directory: app/local_integration
+        run: node test_ui.cjs
