@@ -105,6 +105,18 @@ jobs:
           run-id: 44410163467
           name: v25-explicit-program-api
           path: _artifact_input/44410163467
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44410459233
+          name: v25-circulation-comparison
+          path: _artifact_input/44410459233
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44410953889
+          name: v25-circulation-comparison
+          path: _artifact_input/44410953889
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
