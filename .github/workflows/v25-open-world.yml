@@ -42,7 +42,7 @@ jobs:
           assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']['bedrooms_per_unit']==2
           assert digest(m)!=saved['model_digest'] and origin['origin_verified']
           negative=[]
-          for name in ['model','raw','proposal','source','admission','integer_to_float','boolean_to_zero']:
+          for name in ['model','raw','proposal','source','admission','integer_to_float','boolean_to_zero','proposal_type','proposal_capacity','proposal_macro','raw_type']:
               p=deepcopy(packet);tr=deepcopy(trace)
               if name=='model':p['world_model']['accepted']=True
               elif name=='raw':
@@ -51,6 +51,10 @@ jobs:
               elif name=='source':tr['sources']={}
               elif name=='integer_to_float':p['world_model']['program']['units']=2.0
               elif name=='boolean_to_zero':p['world_model']['accepted']=0
+              elif name=='proposal_type':tr['proposals']['A']['bedrooms']=2.0
+              elif name=='proposal_capacity':tr['proposals']['A']['capacity_profile']='SIX_PERSON_INTERNAL_PROGRAM121'
+              elif name=='proposal_macro':tr['proposals']['A']['ordered_macro']={'kind':'L3_EXPERIMENTAL131'}
+              elif name=='raw_type':tr['raw']['n']=2.0
               else:tr['qualified']=True
               try:verify(p,tr)
               except (ValueError,KeyError):negative.append(name)
