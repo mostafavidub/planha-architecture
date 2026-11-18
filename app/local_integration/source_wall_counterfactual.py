@@ -22,6 +22,32 @@ def bound_source(model,source_id):
     if len(matches)!=1:raise ValueError('UNIQUE_SOURCE_MODULE_WALL_REQUIRED')
     return matches[0]
 
+def interval_difference(positive,cuts):
+    result=[]
+    for lo,hi in positive:
+        remaining=[(F(lo),F(hi))]
+        for a,b in sorted((F(a),F(b)) for a,b in cuts):
+            next_parts=[]
+            for x,y in remaining:
+                if b<=x or y<=a:next_parts.append((x,y));continue
+                if x<a:next_parts.append((x,min(a,y)))
+                if b<y:next_parts.append((max(b,x),y))
+            remaining=next_parts
+        result.extend((x,y) for x,y in remaining if x<y)
+    return result
+
+def exact_closure_change(regions,before,after,apertures):
+    from privacy115 import boundary,crosses
+    rows=[]
+    for edge in sorted(boundary(regions)):
+        axis,high,p,lo,hi=edge;k=1-axis
+        def missing(walls):
+            covered=[(max(lo,q[k]),min(hi,q[k+2])) for q in list(walls)+list(apertures) if crosses(q,edge)]
+            return interval_difference([(lo,hi)],covered)
+        b,a=missing(before),missing(after);new=interval_difference(a,b)
+        rows.append({'edge':[str(x) for x in edge],'before_missing':[list(map(str,q)) for q in b],'after_missing':[list(map(str,q)) for q in a],'newly_missing':[list(map(str,q)) for q in new],'newly_uncovered_length_m':str(sum((y-x for x,y in new),F(0)))})
+    return rows
+
 def assess(model,physical_review,source_id,expected_model_digest):
     mh=digest(model)
     if mh!=expected_model_digest:raise ValueError('EXPECTED_PARENT_HASH')
@@ -45,9 +71,9 @@ def assess(model,physical_review,source_id,expected_model_digest):
             role=u['id']+'.'+name
             openings=[Q(o['rect']) for o in model['openings'] if role in o.get('connects',[])]
             b=closure_gaps(list(map(Q,regions)),oldunion,openings);a=closure_gaps(list(map(Q,regions)),newunion,openings)
-            closure.append({'room':u['id']+'.'+name,'before_gaps':b,'after_gaps':a})
+            closure.append({'room':u['id']+'.'+name,'before_gaps':b,'after_gaps':a,'exact_intervals':exact_closure_change(list(map(Q,regions)),oldunion,newunion,openings)})
     base_routes=guest_routes(model);probe_routes=guest_routes(probe)
     privacy_before=check_whole_privacy117(model);privacy_after=check_whole_privacy117(probe)
     assert digest(model)==mh
     assert digest(probe['units'])==digest(model['units']) and digest(probe['operations'])==digest(model['operations'])
-    return {'schema':'V25_SOURCE_WALL_PROBE_V1','scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY_NOT_CONSTRUCTED_MODEL','base_model_digest':mh,'fresh_physical_review_digest':digest(physical_review),'source_id':source_id,'source_rect':model['walls'][source_id],'source_binding':binding,'physical_aliases':model['physical_wall_network']['source_aliases'][source_id],'removed_material_cells':removed,'free_geometric_gain_m2':str(released),'material_union_unchanged':not cells(before,after) and not cells(after,before),'useful_area_gain':'NOT_PROVEN','closure_metric':'Coarse boundary edge coverage only; unchanged edge list does not prove unchanged missing interval or all function','closure':closure,'baseline_routes':base_routes,'probe_routes':probe_routes,'privacy_before':privacy_before,'privacy_after':privacy_after,'state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'remaining':['A source role and removal consequence do not prove optimal placement or absence of an alternative','Room/operation inventories fixed; no layout benefit or useful area assumed','Probe never fed into full historical provenance checker or returned as a constructed model']}
+    return {'schema':'V25_SOURCE_WALL_PROBE_V1','scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY_NOT_CONSTRUCTED_MODEL','base_model_digest':mh,'fresh_physical_review_digest':digest(physical_review),'source_id':source_id,'source_rect':model['walls'][source_id],'source_binding':binding,'physical_aliases':model['physical_wall_network']['source_aliases'][source_id],'removed_material_cells':removed,'free_geometric_gain_m2':str(released),'material_union_unchanged':not cells(before,after) and not cells(after,before),'useful_area_gain':'NOT_PROVEN','closure_metric':'Coarse source edge flags plus exact residual intervals and newly uncovered boundary length; neither proves all function or optimality','closure':closure,'baseline_routes':base_routes,'probe_routes':probe_routes,'privacy_before':privacy_before,'privacy_after':privacy_after,'state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'remaining':['A source role and removal consequence do not prove optimal placement or absence of an alternative','Room/operation inventories fixed; no layout benefit or useful area assumed','Probe never fed into full historical provenance checker or returned as a constructed model']}
