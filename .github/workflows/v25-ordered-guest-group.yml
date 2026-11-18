@@ -1,0 +1,72 @@
+name: V25 ordered guest group diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-ordered-guest-group.yml'
+      - 'app/local_integration/ordered_guest_group_diagnostic.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44415900223
+          name: v25-four-seat-master
+          path: _bath_group
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44416903509
+          name: v25-grouped-rejection
+          path: _motion_group
+      - name: Fresh reconstruction and ordered guest source-profile study
+        run: |
+          timeout 800s python -B - <<'PY'
+          import sys,json,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from engine114 import revision
+          from constructor127 import build,context
+          from evaluate_pair127 import evaluate
+          from review_cycle import digest
+          from ordered_guest_group_diagnostic import assess
+          paths=['app/local_integration/ordered_guest_group_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-ordered-guest-group.yml']
+          sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
+          for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          cases=[('_bath_group/four-seat-master.json','a083d513dee841210430b9e28489aa983790c01f8b084fad9f5c6d769ee1e044'),('_motion_group/grouped-rejection.json','073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44')]
+          out={'scope':'ARCHIVED_MODELS_FRESH_REPLAY_ORDERED_ROUTE_EXISTENCE_ONLY','source_files':sources,'source_revision':source,'rows':[],'accepted':False,'qualified':False,'delivery_allowed':False}
+          for path,mh in cases:
+              saved=json.loads(Path(path).read_text());row=next(r for r in saved['rows'] if r.get('model_digest')==mh);t=row['context']['construction_trace'];ps=t['proposals']
+              packet=build(t['raw'],'FRONT_REAR',ps['A'],ps['B']);ctx=context(t['raw'],packet,ps);model=packet['world_model'];review=evaluate(packet,ctx)
+              assert digest(model)==mh and digest(ctx)==digest(row['context'])
+              origin=review['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['model_hash']==mh and origin['source_revision']==source
+              assert review['status']=='PASS_CONCEPT_SCOPED_REVIEW' and review['errors']==[] and review['pending']==[]
+              study=assess(model);assert study['model_digest']==mh and digest(model)==mh and all(study[k] is False for k in ('accepted','qualified','delivery_allowed','display_allowed'))
+              out['rows'].append({'source_artifact':path,'model_digest':mh,'fresh_review':review,'study':study,'current_producer_claim':False})
+              Path('ordered-guest-group.json').write_text(json.dumps(out,ensure_ascii=False))
+          require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
+          print('ORDERED_GUEST_GROUP '+json.dumps([{'model':r['model_digest'],'missing':r['study'].get('missing'),'units':[{'unit':u['unit'],'state':u['state'],'legs':[{'id':l['id'],'path_found':bool(l['path']),'reason':l['reason'],'length_m':l.get('length_m'),'turns':l.get('turns')} for l in u['legs']]} for u in r['study']['units']]} for r in out['rows']]),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-ordered-guest-group
+          path: ordered-guest-group.json
+          retention-days: 30
