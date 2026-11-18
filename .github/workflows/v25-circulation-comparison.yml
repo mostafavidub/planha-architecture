@@ -71,7 +71,7 @@ jobs:
               assert inventory(m)==protected and m['profile']==baseline['world_model']['profile'] and m['inputs']==baseline['world_model']['inputs'] and digest(packet['core'])==digest(baseline['core'])
               alt=record(packet,ctx,variant);alt['programme_fixtures_core_profile_preserved']=True
               alt['fresh_physical_pass']=alt['review']['status']=='PASS_CONCEPT_SCOPED_REVIEW' and alt['review']['errors']==[] and alt['review']['pending']==[]
-              alt['shorter_in_both_units']=all(a['connected'] and b['connected'] and F(a['sum_anchor_path_m'])<F(b['sum_anchor_path_m']) for a,b in zip(alt['metrics'],base['metrics']))
+              alt['shorter_in_both_units']=len(alt['metrics'])==len(base['metrics'])==2 and all(a['unit']==b['unit'] and a['connected'] and b['connected'] and F(a['sum_anchor_path_m'])<F(b['sum_anchor_path_m']) for a,b in zip(alt['metrics'],base['metrics']))
               alt['not_global_optimum_or_useful_area_proof']=True
               result['alternatives'].append(alt);Path('circulation-comparison.json').write_text(json.dumps(result,ensure_ascii=False))
           require_unchanged(root,hashes);assert revision()==source and guard(FREEZE)==pins
