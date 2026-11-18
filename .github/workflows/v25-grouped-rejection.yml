@@ -1,0 +1,81 @@
+name: V25 grouped search on recorded natural route rejection
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-grouped-rejection.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Exact replay real HTTP parent then bounded structurally different search
+        run: |
+          timeout 900s python -B - <<'PY'
+          import sys,json,tarfile,hashlib,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE,inventory,require_rejection
+          from producer_provenance import snapshot,require_unchanged
+          from engine114 import revision
+          from review_cycle import digest
+          from parametric_worker import prepare
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from four_seat_group_candidate import propose
+          from functional_review import assess
+          from local_seating_group_diagnostic import assess as local_group
+          from guest_four_route_diagnostic import assess as guest_routes
+          paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/explicit_pair_redirection.py','app/local_integration/producer_provenance.py','.github/workflows/v25-grouped-rejection.yml']
+          sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
+          assert Path(inspect.getsourcefile(propose)).resolve()==(root/paths[0]).resolve()
+          for fn,name in [(frame,'constructor127.py'),(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py'),(revision,'engine114.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44412011025)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          prefix='evidence/requests/69ab1f69-ee92-4f7d-bbbf-f8ee48c7d095/'
+          def read_member(tar,name):
+              data=tar.extractfile(prefix+name).read()
+              assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']==prefix+name)
+              return data
+          with tarfile.open(archive,'r:gz') as tar:
+              old=json.loads(read_member(tar,'result.json'));body=read_member(tar,'request.json')
+          envelope,raw=prepare(body);assert envelope['canonical_request'].get('program')=={'bedrooms_per_unit':2}
+          assert len(old['candidates'])==1
+          parent=old['candidates'][0];ctx0=parent['generation_context'];trace=ctx0['construction_trace'];ps=trace['proposals']
+          assert trace['raw']==raw and trace['source_revision']==source and trace['model_hash']==digest(parent['model'])
+          packet0=build(raw,'FRONT_REAR',ps['A'],ps['B']);ctx=context(raw,packet0,ps);fresh=evaluate(packet0,ctx)
+          assert digest(packet0['world_model'])==digest(parent['model']) and digest(ctx)==digest(ctx0)
+          assert fresh['multiproposal_provenance127']['verified'] is True
+          require_rejection(fresh)
+          protected=inventory(parent['model']);core,_=frame(raw,'FRONT_REAR')
+          out={'scope':'ARCHIVED_HTTP_PARENT_REPLAY_GROUPED_SEARCH_NOT_LIVE_CYCLE','parent_run':'69ab1f69-ee92-4f7d-bbbf-f8ee48c7d095','parent_digest':digest(parent['model']),'fresh_parent_review':fresh,'parent_pending_preserved':fresh['pending'],'source_files':sources,'source_revision':source,'request_digest':envelope['canonical_request_digest'],'rows':[],'accepted':False,'delivery_allowed':False,'qualified':False}
+          for variant in range(4):
+              p=propose(core,2,time_limit=12,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+              row={'variant':variant,'proposal':p}
+              if p.get('status')=='PROPOSAL_ONLY':
+                  packet=build(raw,'FRONT_REAR',p,p);context1=context(raw,packet,{'A':p,'B':p});m=packet['world_model'];r=evaluate(packet,context1)
+                  assert inventory(m)==protected and m['profile']==parent['model']['profile'] and m['program']==parent['model']['program'] and m['inputs']==parent['model']['inputs'] and digest(packet['core'])==digest(packet0['core'])
+                  origin=r['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['model_hash']==digest(m) and origin['source_revision']==source
+                  row.update(packet=packet,context=context1,review=r,model_digest=digest(m),functional_review=assess(m,r,source),guest_routes=guest_routes(m),local_group=local_group(m),local_group_seated=local_group(m,actor_scenario='OTHER_SEATS_OCCUPIED'))
+                  assert digest(m)==row['model_digest']
+              out['rows'].append(row);Path('grouped-rejection.json').write_text(json.dumps(out,ensure_ascii=False))
+          require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
+          print('GROUPED_REJECTION '+json.dumps({'parent':out['parent_digest'],'rows':[{'variant':r['variant'],'proposal_status':r['proposal']['status'],'model':r.get('model_digest'),'physical':r.get('review',{}).get('status'),'errors':[e['code'] for e in r.get('review',{}).get('errors',[])],'guest_routes':r.get('guest_routes',{}).get('all_four_routes_have_witness'),'strict_local':[u['state'] for u in r.get('local_group',{}).get('units',[])],'seated_local':[u['state'] for u in r.get('local_group_seated',{}).get('units',[])]} for r in out['rows']],'accepted':False,'scope':out['scope']}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-grouped-rejection
+          path: grouped-rejection.json
+          retention-days: 30
