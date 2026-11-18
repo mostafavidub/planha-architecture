@@ -57,5 +57,13 @@ jobs:
               elif hashlib.sha256(p.read_bytes()).hexdigest()!=digest: mismatched.append(name)
               else: present+=1
           print('closure_audit',json.dumps({'references':len(pins),'normalized_paths':len(normalized),'present_matching':present,'missing':len(missing),'mismatched':len(mismatched),'missing_with_same_bytes_registered_elsewhere':len(reusable),'missing_without_registered_match':len(missing)-len(reusable),'first_missing':missing[:10],'first_mismatched':mismatched[:10],'first_reusable':reusable[:10]}),flush=True)
+          alias_entries=[]
+          for item in reusable:
+              b=Path(item['existing']).read_bytes()
+              sha=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+              alias_entries.append({'path':item['target'],'mode':'100644','type':'blob','sha':sha})
+          for offset in range(0,len(alias_entries),100):
+              print('ALIAS_PLAN_CHUNK '+json.dumps(alias_entries[offset:offset+100],separators=(',',':')),flush=True)
+          print('ALIAS_PLAN_TOTAL',len(alias_entries),flush=True)
           print('guard_pin_count', guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'))
           PY
