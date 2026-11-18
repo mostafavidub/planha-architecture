@@ -138,3 +138,47 @@ jobs:
             app/local_integration/explicit-ui*
             app/local_integration/evidence/requests
           retention-days: 30
+      - name: Prepare bounded essential evidence without trace or cancelled requests
+        if: always()
+        working-directory: app/local_integration
+        run: |
+          python - <<'PY'
+          import json,hashlib,shutil,os,io,zipfile
+          from datetime import datetime,timedelta,timezone
+          from pathlib import Path
+          dest=Path('explicit-ui-essential');dest.mkdir()
+          report=Path('explicit-ui-result.json')
+          if not report.is_file():raise SystemExit('NO_UI_REPORT')
+          r=json.loads(report.read_text());shutil.copyfile(report,dest/report.name)
+          screenshot=Path('explicit-ui.png')
+          if screenshot.is_file():shutil.copyfile(screenshot,dest/screenshot.name)
+          copied=[]
+          if r.get('passed') is True:
+              for kind in ('parent_run','child_run'):
+                  rid=r[kind]
+                  for name in ('request.json','result.json','lifecycle.json','exploratory_evidence.json'):
+                      src=Path('evidence/requests')/rid/name
+                      if src.is_file():
+                          target=dest/'requests'/rid/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,target);copied.append(str(target.relative_to(dest)))
+          def compressed_size():
+              buf=io.BytesIO()
+              with zipfile.ZipFile(buf,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+                  for p in sorted(dest.rglob('*')):
+                      if p.is_file():z.write(p,str(p.relative_to(dest)))
+              return len(buf.getvalue())
+          reduced=False
+          if compressed_size()>1450000:
+              if (dest/'requests').exists():shutil.rmtree(dest/'requests')
+              copied=[];reduced=True
+          manifest={'scope':'Generated UI test report/screenshot and only successful parent-child records; no trace, cancelled requests, credentials or database','run':int(os.environ['GITHUB_RUN_ID']),'commit':os.environ['GITHUB_SHA'],'browser_passed':r.get('passed') is True,'records_preserved':copied,'report_screenshot_only':reduced,'full_artifact_name':'v25-explicit-ui','full_artifact_retention_days':30,'full_artifact_expires_not_before_utc':(datetime.now(timezone.utc)+timedelta(days=29)).isoformat(),'reproduction':'Run .github/workflows/v25-explicit-ui.yml at this commit on GitHub Actions. Solver output can vary; reproducing the pipeline does not promise identical models. Exact recorded witnesses require the preserved records or full artifact before expiry.','files':[{'path':str(p.relative_to(dest)),'size':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(dest.rglob('*')) if p.is_file()]}
+          (dest/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
+          size=compressed_size();assert size<=1500000,size
+          print('EXPLICIT_UI_ESSENTIAL '+json.dumps({'compressed_bytes':size,'records':copied,'report_screenshot_only':reduced,'passed':r.get('passed') is True}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-explicit-ui-essential
+          path: app/local_integration/explicit-ui-essential
+          compression-level: 9
+          retention-days: 30
