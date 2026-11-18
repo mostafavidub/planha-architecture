@@ -1,0 +1,32 @@
+name: V25 unchanged guard diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-guard-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unchanged-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run original guard without bypass; missing closure is a failure
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, str(Path('frontend').resolve()))
+          from guard400 import guard, HISTORICAL_FREEZE, PARENT_FREEZE, CURRENT_FREEZE
+          for path in (HISTORICAL_FREEZE, PARENT_FREEZE, CURRENT_FREEZE):
+              print('freeze_exists', path.relative_to(Path.cwd()), path.is_file(), flush=True)
+          print('guard_pin_count', guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'))
+          PY
