@@ -84,30 +84,31 @@
     },
     {
       "id": "V25-15",
-      "status": "NATURAL_REJECTION_OBSERVED_EXPLORATORY",
-      "evidence": "والد۲۰×۲۰ صریح۲ واقعاً رد و با هش دقیق دوباره تازه رد شد؛ شش pending محفوظ. نمونه HTTP جدید۶ مدل همگی PASS فیزیکی بود و رد واجدشرایط در آن مشاهده نشد.",
+      "status": "NATURAL_REJECTION_OBSERVED",
+      "evidence": "رد طبیعی HTTP۱۸×۲۰ واجد پیش‌شرط و۲۴×۱۸ خارج دامنه عملگر مشاهده شد؛ مورد دوم apron حمام وارد dining است.",
       "evidence_runs": [
-        44403413844,
-        44407576996
+        44412011025,
+        44413136071,
+        44414249134
       ]
     },
     {
       "id": "V25-16",
       "status": "PARTIAL_SEPARATE_EXPLORATORY_OPERATOR",
-      "evidence": "عملگر جدا با exact replay/fresh narrow rejection و حفظ برنامه/وسایل/core اجرا شد. رسیدهای متصل و شمار child/nochild آزموده شدند؛ repair129 ضعیف نشده و موفقیت endpoint ادامه هنوز مشاهده نشده.",
+      "evidence": "endpoint جدا روی والد طبیعی۱۸×۲۰ اجرا شد ولی جست‌وجوی محدود فرزند موفق نداشت؛ parent حفظ و generated_count=0. عملگر129 تغییر نکرد.",
       "evidence_runs": [
-        44406994713,
-        44408782701
+        44412011025,
+        44409718206
       ]
     },
     {
       "id": "V25-17",
-      "status": "PASS_EXPLORATORY_NOT_PRODUCTION",
-      "evidence": "سه child مستقل و سپس callable محدود variant1 ساخته شدند؛ مسیر HTTP از والد تازه هنوز مسدود به نبود رد طبیعی در نمونه محدود است.",
+      "status": "PARTIAL_EXPLORATORY_NOT_LIVE_SUCCESS",
+      "evidence": "بازپخش والد تاریخی فرزند فیزیکی موفق می‌سازد؛ سه نمونه HTTP تازه فرزند موفق تولید نکردند. روش گروهی مستقل اکنون روی replay والد طبیعی آزموده می‌شود.",
       "evidence_runs": [
-        44403413844,
-        44406994713,
-        44407576996
+        44409718206,
+        44412011025,
+        44413136071
       ]
     },
     {
@@ -143,12 +144,12 @@
     },
     {
       "id": "V25-22",
-      "status": "PARTIAL_LIVING_DIAGNOSTIC_IN_PROGRESS",
-      "evidence": "۸مسیر مهمان و counterfactual یک دیوار با privacy سازگار بررسی شد. Living diagnostic مستقل آغاز؛ چهار الزام کامل UNKNOWN، هیچ useful area یا qualification ادعا نشده.",
+      "status": "PARTIAL_GROUP_WITNESS_NOT_QUALIFICATION",
+      "evidence": "master مستقل۶حالت physicalPASS باbaseline واقعی؛۱۲واحد اتصال محلی سناریوی نشسته و۴واحد سناریوی ایستاده محافظه‌کار. چهار UNKNOWN باز؛ قید apron حمام در fork مستقل در آزمون است.",
       "evidence_runs": [
-        44399621847,
-        44402005886,
-        44409041217
+        44413801814,
+        44414249134,
+        44410953889
       ]
     },
     {
@@ -159,9 +160,9 @@
     {
       "id": "V25-24",
       "status": "PARTIAL_AUDIT_AND_DURABLE_EVIDENCE",
-      "evidence": "۱۱ آرشیو و۱۲۵عضو پس از push از remote دوباره SHA256/اندازه تطبیق شد. ممیزی نهایی پس از closure محصول؛۳۰۳ هنوز آغاز نشده.",
+      "evidence": "۲۴آرشیو۲۵۰عضو۱۷۴۸۱۳۵۹بایت پس ازpush ازremote باSHA256/size تک‌عضو تأیید؛ نه اثبات کل تاریخچه یاپذیرش.۳۰۳آغازنشده.",
       "evidence_runs": [
-        44408447751
+        44415348190
       ]
     }
   ],
@@ -233,12 +234,17 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-18T22:13:43Z",
+  "last_evidence_update_utc": "2026-11-18T22:58:00Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "RUNNING",
+    "state": "RUNNING_GROUP_MASTER_TYPED_BATH_APPROACH_REGRESSION",
     "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage"
+  },
+  "live_cycle_operation": {
+    "start_utc": "2026-11-18T21:27:35Z",
+    "deadline_utc": "2026-11-19T00:27:35Z",
+    "state": "RUNNING_DISTINCT_GROUPED_SEARCH_REPLAY_STUDY_NO_LIVE_SUCCESS"
   }
 }
