@@ -1,0 +1,92 @@
+{
+  "schema": "V25_SCOPED_INPUT_AUDIT_V1",
+  "operation_start_utc": "2026-11-18T19:35:00Z",
+  "operation_deadline_utc": "2026-11-18T22:35:00Z",
+  "completed_at_utc": "2026-11-18T19:36:55.114Z",
+  "tested_commit": "df778025dedc1b771b2309c541909b259474ae9e",
+  "results": [
+    {
+      "scope": "V25 independent input-only audit",
+      "run_id": 44382047693,
+      "job_id": 135076684781,
+      "tests": 5,
+      "result": "PASS",
+      "log_verified": true
+    },
+    {
+      "scope": "Existing scoped contract tests",
+      "run_id": 44382048102,
+      "job_id": 135076686078,
+      "tests": 35,
+      "result": "PASS",
+      "log_verified": true
+    }
+  ],
+  "matrix": {
+    "pairs": [
+      [
+        "5",
+        "5"
+      ],
+      [
+        "5",
+        "15"
+      ],
+      [
+        "5",
+        "25"
+      ],
+      [
+        "15",
+        "5"
+      ],
+      [
+        "15",
+        "15"
+      ],
+      [
+        "15",
+        "25"
+      ],
+      [
+        "25",
+        "5"
+      ],
+      [
+        "25",
+        "15"
+      ],
+      [
+        "25",
+        "25"
+      ],
+      [
+        "10",
+        "20"
+      ],
+      [
+        "20",
+        "10"
+      ],
+      [
+        "24.5",
+        "23.25"
+      ]
+    ],
+    "scope": "exact parsing and prepare binding only; geometry NOT run",
+    "units": 2,
+    "requested_count": 1
+  },
+  "migration_gate": "OPEN_PARTIAL",
+  "generation_verified": false,
+  "natural_repair_in_current_range_verified": false,
+  "architectural_acceptance": false,
+  "notes": [
+    "Outside-range test mocked subprocess and evidence-directory creation to assert neither was called. This is a contract test, not operational process monitoring.",
+    "Persian, Arabic and Latin representations tested. JSON decimal numeric tokens explicitly rejected; exact decimals supplied as strings.",
+    "40 test methods across two suites; subtest iterations are not counted as additional independent methods.",
+    "V25-05 partially verified at adapter level only; whole active-entrypoint and UI coverage remain open.",
+    "V25-07 input matrix pre-registration complete; V25-13 geometric matrix execution not started.",
+    "No production source was changed. No Mac or cloud filesystem project writes."
+  ]
+}
