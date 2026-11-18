@@ -3,6 +3,7 @@ Historical replay proves reconstruction, not the identity of this new producer.
 """
 import hashlib
 from pathlib import Path
+import inspect,sys
 from review_cycle import digest
 
 def snapshot(root,paths):
@@ -17,8 +18,17 @@ def snapshot(root,paths):
 def require_unchanged(root,before):
     if snapshot(root,list(before))!=before:raise ValueError('EXPERIMENTAL_PRODUCER_SOURCE_CHANGED')
 
-def receipt(*,sources,request_digest,proposal,packet,context,review,engine_revision):
+def require_imported(module,expected,private_expected):
+    if Path(module.__file__).resolve()!=Path(expected).resolve():raise ValueError('PRODUCER_IMPORT_PATH_MISMATCH')
+    fn=module.private_source
+    owner=sys.modules[fn.__module__]
+    if Path(owner.__file__).resolve()!=Path(private_expected).resolve() or Path(inspect.getsourcefile(fn)).resolve()!=Path(private_expected).resolve():
+        raise ValueError('PRODUCER_PRIVATE_IMPORT_PATH_MISMATCH')
+
+def receipt(*,sources,request_digest,raw,proposal,packet,context,review,engine_revision):
     if not sources:raise ValueError('PRODUCER_SOURCES_REQUIRED')
+    trace=context['construction_trace']
+    if trace.get('raw')!=raw or trace.get('proposal')!=proposal:raise ValueError('PRODUCER_TRACE_BINDING')
     model_hash=digest(packet['world_model'])
     if context['construction_trace']['model_hash']!=model_hash or review.get('model_hash')!=model_hash:
         raise ValueError('PRODUCER_MODEL_BINDING')
