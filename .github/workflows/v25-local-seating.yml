@@ -1,0 +1,64 @@
+name: V25 local shared seating study
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-local-seating.yml'
+      - 'app/local_integration/local_seating_group_diagnostic.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-group:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Exact baseline and alternative replay with local shared-body study
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1000s python -B - <<'PY'
+          import sys,json,tarfile,hashlib,copy
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from constructor127 import build,context
+          from evaluate_pair127 import evaluate
+          from engine114 import revision
+          from review_cycle import digest
+          from local_seating_group_diagnostic import assess
+          assert guard(FREEZE)==12991;source=revision()
+          index=json.loads((root/'evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44410953889)
+          archive=root/'evidence/archive'/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz') as tar:data=tar.extractfile('circulation-comparison.json').read()
+          member=next(m for m in a['members'] if m['path']=='circulation-comparison.json');assert hashlib.sha256(data).hexdigest()==member['sha256']
+          prior=json.loads(data);out={'scope':'LOCAL_GROUP_STUDY_ONLY','rows':[],'accepted':False,'delivery_allowed':False,'source_sha256':hashlib.sha256(Path('app/local_integration/local_seating_group_diagnostic.py').read_bytes()).hexdigest()}
+          for old in [prior['baseline']]+prior['alternatives']:
+              if 'packet' not in old:continue
+              trace=old['context']['construction_trace'];raw=trace['raw'];ps=trace['proposals']
+              packet=build(raw,'FRONT_REAR',ps['A'],ps['B']);ctx=context(raw,packet,ps);model=packet['world_model']
+              assert digest(model)==old['model_digest'] and digest(ctx)==digest(old['context'])
+              fresh=evaluate(packet,ctx);mh=digest(model);study=assess(model)
+              assert digest(model)==mh and study['model_digest']==mh and all(study[k]is False for k in ['accepted','display_allowed','delivery_allowed','qualified','historical_shared_gate_invoked'])
+              assert 'missing' not in study,study.get('missing')
+              bad=copy.deepcopy(model);bad['units'][0]['public_program']['capacity']['living_seats']=[]
+              assert 'missing' in assess(bad)
+              out['rows'].append({'variant':old['variant'],'model_digest':mh,'fresh_review':fresh,'study':study,'empty_inventory_rejected':True})
+              Path('local-seating-group.json').write_text(json.dumps(out,ensure_ascii=False))
+          assert guard(FREEZE)==12991 and revision()==source
+          assert hashlib.sha256(Path('app/local_integration/local_seating_group_diagnostic.py').read_bytes()).hexdigest()==out['source_sha256']
+          print('LOCAL_SEATING '+json.dumps([{'variant':r['variant'],'model':r['model_digest'],'physical_status':r['fresh_review']['status'],'units':[{'unit':u['unit'],'state':u['state'],'candidate_count':u['candidate_count'],'attempted':len(u['attempts']),'nonseating_crossings':u['nonseating_fixture_crossings'],'successful_routes':max([sum(bool(x['path']) for x in a['routes']) for a in u['attempts']],default=0),'seat_count':len(u['actual_seat_ids'])} for u in r['study']['units']]} for r in out['rows']]),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-local-seating-study
+          path: local-seating-group.json
+          retention-days: 30
