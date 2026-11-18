@@ -6,6 +6,11 @@ from fractions import Fraction as F
 from review_cycle import digest
 from kitchen_guest_review import rect,sweeps
 
+def same_point(a,b):
+    for p in (a,b):
+        if type(p) is not list or len(p)!=2 or any(type(v) not in (str,int) for v in p):raise ValueError('EXACT_POINT_REQUIRED')
+    return tuple(map(F,a))==tuple(map(F,b))
+
 def center(r):
     a,b,c,d=rect(r)
     return [str((a+c)/2),str((b+d)/2)]
@@ -29,9 +34,9 @@ def assess(model):
                 d=dest[name]
                 if d['fixture_id'] not in u['fixtures']:raise ValueError('DESTINATION_FIXTURE_BINDING')
                 targets[name]=center(u['activities'][d['activity_id']])
-                if u['scenario_routes'][name][-1]!=targets[name]:raise ValueError('SOURCE_DESTINATION_BINDING')
+                if not same_point(u['scenario_routes'][name][-1],targets[name]):raise ValueError('SOURCE_DESTINATION_BINDING')
             wc=center(u['activities']['WC_use'])
-            if u['route_targets']['WC_use']!=wc:raise ValueError('WC_DESTINATION_BINDING')
+            if not same_point(u['route_targets']['WC_use'],wc):raise ValueError('WC_DESTINATION_BINDING')
             operations=[x for x in model['operations']['kitchen'] if x['unit']==uid]
             if len(operations)!=1:raise ValueError('KITCHEN_OPERATION_INVENTORY')
             op=operations[0]
@@ -56,7 +61,7 @@ def assess(model):
                 path,why=route(start,end,box,obstacles,body=str(body))
                 row={'id':name,'start':start,'end':end,'body_m':str(body),'obstacle_digest':digest(obstacles),'obstacle_count':len(obstacles),'path':path,'reason':why,'state':'NO_WITNESS_THIS_CONSERVATIVE_SCENARIO'}
                 if path:
-                    if path[0]!=start or path[-1]!=end:raise ValueError('FRESH_ROUTE_ENDPOINT_BINDING')
+                    if not same_point(path[0],start) or not same_point(path[-1],end):raise ValueError('FRESH_ROUTE_ENDPOINT_BINDING')
                     bands=sweeps(path,body)
                     for band in bands:
                         if not(F(box[0])<=band[0] and F(box[1])<=band[1] and band[2]<=F(box[2]) and band[3]<=F(box[3])):raise ValueError('FRESH_ROUTE_OUTSIDE_OWNERSHIP')
