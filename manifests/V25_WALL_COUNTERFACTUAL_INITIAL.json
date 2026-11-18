@@ -1,0 +1,196 @@
+{
+  "commit": "4c57eb838a436da0706fe3cef5950946879b6ea7",
+  "run": 44400265301,
+  "job": 135141055908,
+  "finished_utc": "2026-11-18T21:20:54Z",
+  "deadline_utc": "2026-11-19T00:19:00Z",
+  "artifact_id": 14472685049,
+  "artifact_sha256": "25e21d3d2d909a5d0b0a126fb800b23a759e5aef1aa6bee5047825d8fbb79d18",
+  "report": {
+    "scope": "COUNTERFACTUAL_DIAGNOSTIC_ONLY",
+    "state": "UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION",
+    "accepted": false,
+    "delivery_allowed": false,
+    "base_model_digest": "8a7b0b6ec4c0e86e91fd460c82f23e5af59219269c6b80d374e6c6e19a493e41",
+    "removed_source_id": "A.private_hall.back_left",
+    "source_rect": [
+      "2.5",
+      "5.9",
+      "12.775",
+      "6.05"
+    ],
+    "source_aliases": [
+      "physical_wall_34"
+    ],
+    "removed_material_cells": [
+      [
+        "2.5",
+        "5.9",
+        "12.775",
+        "6.05"
+      ]
+    ],
+    "free_geometric_gain_m2": "1233/800",
+    "useful_area_gain": "NOT_PROVEN",
+    "closure": [
+      {
+        "room": "A.bed1",
+        "before_gaps": [],
+        "after_gaps": []
+      },
+      {
+        "room": "A.bed2",
+        "before_gaps": [],
+        "after_gaps": []
+      },
+      {
+        "room": "A.bed3",
+        "before_gaps": [],
+        "after_gaps": []
+      },
+      {
+        "room": "B.bed1",
+        "before_gaps": [],
+        "after_gaps": []
+      },
+      {
+        "room": "B.bed2",
+        "before_gaps": [],
+        "after_gaps": []
+      },
+      {
+        "room": "B.bed3",
+        "before_gaps": [],
+        "after_gaps": []
+      }
+    ],
+    "producer_sha256": "7a8daecd2fa5b2dc1e6ddefc5f66e091b37a20e29930303a241d4fce18cc7229",
+    "remaining": [
+      "No full private-domain/visibility comparison yet",
+      "No alternative wall placement or shorter organization tested",
+      "No architectural acceptance inferred from source replay mismatch or area gain"
+    ],
+    "baseline_routes": {
+      "missing": null,
+      "routes": [
+        {
+          "unit": "A",
+          "route": "entry_living",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "123/10",
+          "segments": 4
+        },
+        {
+          "unit": "A",
+          "route": "entry_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "317/20",
+          "segments": 8
+        },
+        {
+          "unit": "A",
+          "route": "entry_WC",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "12",
+          "segments": 15
+        },
+        {
+          "unit": "A",
+          "route": "living_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "133/20",
+          "segments": 7
+        },
+        {
+          "unit": "B",
+          "route": "entry_living",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "123/10",
+          "segments": 4
+        },
+        {
+          "unit": "B",
+          "route": "entry_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "317/20",
+          "segments": 8
+        },
+        {
+          "unit": "B",
+          "route": "entry_WC",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "12",
+          "segments": 15
+        },
+        {
+          "unit": "B",
+          "route": "living_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "133/20",
+          "segments": 7
+        }
+      ]
+    },
+    "probe_routes": {
+      "missing": null,
+      "routes": [
+        {
+          "unit": "A",
+          "route": "entry_living",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "123/10",
+          "segments": 4
+        },
+        {
+          "unit": "A",
+          "route": "entry_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "317/20",
+          "segments": 8
+        },
+        {
+          "unit": "A",
+          "route": "entry_WC",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "12",
+          "segments": 15
+        },
+        {
+          "unit": "A",
+          "route": "living_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "133/20",
+          "segments": 7
+        },
+        {
+          "unit": "B",
+          "route": "entry_living",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "123/10",
+          "segments": 4
+        },
+        {
+          "unit": "B",
+          "route": "entry_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "317/20",
+          "segments": 8
+        },
+        {
+          "unit": "B",
+          "route": "entry_WC",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "12",
+          "segments": 15
+        },
+        {
+          "unit": "B",
+          "route": "living_dining",
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "length_m": "133/20",
+          "segments": 7
+        }
+      ]
+    }
+  }
+}
