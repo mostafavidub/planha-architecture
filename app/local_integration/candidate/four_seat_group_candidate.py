@@ -384,15 +384,20 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
     for expr,z in zip([plus(seg[2],neg(ob[0])),plus(ob[2],neg(seg[0])),plus(seg[3],neg(ob[1])),plus(ob[3],neg(seg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
   network.append((name,px,py,bend,side))
  group="independent_source_kitchen_motion_guest_network"
+ def guest_span(a,b,low,high):
+  lo=var(low,high,0,0);hi=var(low,high,0,0)
+  lin(plus(aff(lo),neg(a)),hi=0);lin(plus(aff(lo),neg(b)),hi=0)
+  lin(plus(aff(hi),neg(a)),lo=0);lin(plus(aff(hi),neg(b)),lo=0)
+  return aff(lo),aff(hi)
  kitchen_motion,kitchen_motion_binding=source_kitchen_motion()
  kk=4*next(i for i,z in enumerate(specs) if z[0]=='kitchen')
  guest_motion=[[plus(aff(kk+(axis%2)),const(float(v))) for axis,v in enumerate(q)] for q in kitchen_motion]
  # Restrict guest terminals only, not the source kitchen task/own operation.
  for name,px,py,bend,side in network:
   if not name.startswith(('sofa','chair','dining_')):continue
-  ylo,yhi=group_span(({},rooty),aff(bend),y0/scale,y1/scale)
-  xlo,xhi=group_span(aff(junction),aff(px),x0/scale,x1/scale)
-  plo,phi=group_span(aff(py),aff(bend),y0/scale,y1/scale)
+  ylo,yhi=guest_span(({},rooty),aff(bend),y0/scale,y1/scale)
+  xlo,xhi=guest_span(aff(junction),aff(px),x0/scale,x1/scale)
+  plo,phi=guest_span(aff(py),aff(bend),y0/scale,y1/scale)
   guest_segments=[sharedseg,
    [plus(aff(junction),({},-half)),plus(ylo,({},-half)),plus(aff(junction),({},half)),plus(yhi,({},half))],
    [plus(xlo,({},-half)),plus(aff(bend),({},-half)),plus(xhi,({},half)),plus(aff(bend),({},half))],
