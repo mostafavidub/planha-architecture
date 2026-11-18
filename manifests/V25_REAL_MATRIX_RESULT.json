@@ -1,0 +1,323 @@
+{
+  "schema": "V25_REAL_MATRIX_RESULT_V1",
+  "operation_start_utc": "2026-11-18T20:43:00Z",
+  "deadline_utc": "2026-11-18T23:43:00Z",
+  "completed_utc": "2026-11-18T20:44:00Z",
+  "tested_commit": "a1672e7a9dfe49de0126547aa32f0538beb08a99",
+  "run_id": 44393966010,
+  "job_id": 135118772330,
+  "real_dispatch": true,
+  "pairs": [
+    {
+      "W": "5",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "8ed18247-91eb-4545-829e-6135060e91c7",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "36424e3c0ff8c219c7b9fad0b7fd56659daa6430e97c2e2a227efdcbad327113"
+    },
+    {
+      "W": "5",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "f95868d9-4201-47a6-b5e1-1569ca1166c6",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "df61dc550be9d2d96d58475dba786d45989ccaf819cb9fd17a54922cc435258e"
+    },
+    {
+      "W": "5",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "6497e0d6-8077-458b-a2c6-4f12fb827d26",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "b41906fde7b3754592c0c21ca6a73dc1c3ac542a17468bb9c30b6a50ba243b88"
+    },
+    {
+      "W": "15",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "98f44a39-0a1a-4a2d-b44b-60eccfa1cdab",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "a86c33931ed0af6dbf7bb32f9baea42d6a62eb58b4fdb666229a1109e713fe39"
+    },
+    {
+      "W": "15",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "85421e0a-b7da-45bb-93b9-44dbe0e7b340",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "9bfc6b9e420c231aec66a38982e4e6aeb78a84f149db3a61888cc6c1fc27786f"
+    },
+    {
+      "W": "15",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "a24c0b09-4c2c-4c5b-8c32-3b090579b373",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "2c85a409bf88eb40c4c65a4e13a8f9da0f5bf640dbf5a580de6a5c5d8054fdec"
+    },
+    {
+      "W": "25",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "ffbaaf60-3522-43af-b4e3-43610bc71135",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "9ffc7bb3d88f0183ebeb2bb321f2f339cbb9c681cf44674cbf73b25f31c941f7"
+    },
+    {
+      "W": "25",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "81fdce9e-3b0d-4e7e-95f0-5cb9eb1a3870",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "7a88af73185d700142acda15343a7881ee5e992e9b40ca71b229afe05a8fd1fd"
+    },
+    {
+      "W": "25",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "1d2c158b-4323-4419-bbe6-a61a88dc76b3",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "ffdb065ed57be5ab243bbd1d5f18745b3e9ddf984af807f96b8a8e02d4ef6e49"
+    },
+    {
+      "W": "10",
+      "L": "20",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "7a0070cb-5ee2-4bb3-96ff-eb3762f0a12d",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "7673c73737456b46e3a6569ed5a8cfcd1d46c95dcb6ac9288b950c6dad29c9d3"
+    },
+    {
+      "W": "20",
+      "L": "10",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "69aa4756-8e80-4db6-aa7b-3117b11e7815",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "b905a679c505ac6bb08d71a0fba4f15618430f309e37617a121b7a7886309565"
+    },
+    {
+      "W": "24.5",
+      "L": "23.25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "e21a3c5a-1eae-477b-8f62-a52d8ac9c13d",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "f5ea9ed24154088316c3fa0bf2edf47c6211f908c68a621670ca671300627e23"
+    }
+  ],
+  "generated_total": 0,
+  "qualified_total": 0,
+  "elapsed_seconds": 18.040989637374878,
+  "artifact": {
+    "id": 14468378796,
+    "digest": "sha256:ac5fba0a304c8aff14d988236f5ac4771779fb27b377320190a30f9ffb86379a",
+    "expires": "2026-12-18"
+  },
+  "interpretation": "12 real requests completed; original restricted source families produced no models. Not proof of geometric infeasibility or successful variable-plan generation.",
+  "acceptance": false,
+  "full_cycle_verified": false
+}
