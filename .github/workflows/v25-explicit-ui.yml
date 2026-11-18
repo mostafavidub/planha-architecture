@@ -99,10 +99,21 @@ jobs:
                       report['checks'].append('history_reload_without_fresh_full_proof_exposes_no_pair_action')
                       for key,value in [('W','25'),('L','25'),('n','2'),('requested_count','1')]:page.locator('input[name="'+key+'"]').fill(value)
                       with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=180000) as pending:page.locator('#generate').click()
-                      data=pending.value.json();assert pending.value.status==200 and data['envelope']['canonical_request']['program']=={'bedrooms_per_unit':3}
+                      data=pending.value.json();assert pending.value.status==200 and data['envelope']['canonical_request']['program']=={'bedrooms_per_unit':3} and data['generated_count']==1
                       expect(page.locator('#status')).to_contain_text('واجدشرایط صفر',timeout=30000);expect(page.locator('#plans')).to_be_empty()
                       assert all('hierarchical_provenance129' in c['physical_review'] for c in data['candidates'])
                       report['checks'].append('explicit_three_retains_original_constructor_and_zero_preview')
+                      with page.expect_request(lambda r:r.url.endswith('/generate')):page.locator('#generate').click()
+                      page.locator('#generation-cancel').click()
+                      expect(page.locator('#status')).to_contain_text('اجرا لغو شد')
+                      expect(page.locator('#generate')).to_be_enabled();expect(page.locator('#generation-cancel')).to_be_disabled()
+                      expect(page.locator('#result')).to_be_hidden();expect(page.locator('#plans')).to_be_empty()
+                      report['checks'].append('explicit_cancel_button_aborts_and_withholds_late_reply')
+                      page.locator('input[name="W"]').fill('26')
+                      with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=30000) as invalid:page.locator('#generate').click()
+                      assert invalid.value.status==422 and invalid.value.json()['code']=='DIMENSION_OUT_OF_OWNER_RANGE'
+                      expect(page.locator('#status')).to_contain_text('بزرگ‌تر از ۲۵');expect(page.locator('#plans')).to_be_empty()
+                      report['checks'].append('range_26_rejected_without_clamp_after_programme_switch')
                       assert not errors,errors
                       report['passed']=True;report['browser_version']=browser.version;page.screenshot(path='explicit-ui.png',full_page=True)
                   finally:
