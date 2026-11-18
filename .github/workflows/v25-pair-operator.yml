@@ -27,7 +27,7 @@ jobs:
           import sys,json,tarfile,hashlib,copy
           from pathlib import Path
           root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
-          from explicit_pair_redirection import redirect,require_rejection
+          from explicit_pair_redirection import redirect,require_rejection,inventory
           from review_cycle import digest
           index=json.loads((root/'evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text())
           archive=next(a for a in index['archives'] if a['run_id']==44401790896)
@@ -40,6 +40,11 @@ jobs:
           row=next(r for r in source['rows'] if r['raw']=={'W':'20','L':'20','n':2,'requested_count':1} and r['family']=='FRONT_REAR')
           model=row['packet']['world_model'];ctx=row['context'];mh=digest(model)
           body=json.dumps(dict(row['raw'],program={'bedrooms_per_unit':2})).encode()
+          changed=copy.deepcopy(model);unit=changed['units'][0];fid=next(iter(unit['fixtures']))
+          from fractions import Fraction as F
+          unit['fixtures'][fid][2]=str(F(str(unit['fixtures'][fid][2]))+F('0.1'))
+          assert inventory(changed)!=inventory(model),'Actual geometry changed with identical metadata'
+          
           negatives=[]
           for label,review in [('pending_only',dict(row['review'],errors=[],status='UNKNOWN')),('other_error',dict(row['review'],errors=[{'code':'OTHER'}])),('unknown_pending',dict(row['review'],pending=['RULE_NOT_EVALUATED:other']))]:
               try:require_rejection(review)
