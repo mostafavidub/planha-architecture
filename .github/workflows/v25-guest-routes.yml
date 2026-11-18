@@ -23,6 +23,7 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
+          python -B -m unittest -v test_guest_four_route_diagnostic
           timeout 600s python -B - <<'PY'
           import json,sys
           from pathlib import Path
