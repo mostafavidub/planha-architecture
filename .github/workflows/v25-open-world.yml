@@ -1,0 +1,74 @@
+name: V25 new-origin open kitchen world study
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-open-world.yml'
+      - 'app/local_integration/open_front_world*.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Independently replay new-origin world and retain historical checker disagreement
+        run: |
+          timeout 600s python -B - <<'PY'
+          import sys,json,tarfile,hashlib
+          from pathlib import Path
+          from copy import deepcopy
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from open_front_world_origin import build,verify
+          from review_cycle import digest
+          from checker114 import evaluate
+          from producer_provenance import snapshot,require_unchanged
+          sources=snapshot(root,['.github/workflows/v25-open-world.yml']);assert guard(FREEZE)==12991
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives']if x['run_id']==44417514104)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz')as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256']for m in a['members']if m['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];t=saved['generation_context']['construction_trace']
+          packet,trace=build(t['raw'],t['proposals']);origin=verify(packet,trace);m=packet['world_model']
+          assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']==saved['model']['program'] if 'model'in saved else m['schema']=='OPEN_FRONT_WORLD_STUDY_V1'
+          assert digest(m)!=saved['model_digest'] and origin['origin_verified']
+          negative=[]
+          for name in ['model','raw','proposal','source','admission']:
+              p=deepcopy(packet);tr=deepcopy(trace)
+              if name=='model':p['world_model']['accepted']=True
+              elif name=='raw':tr['raw']=tr['raw']+' '
+              elif name=='proposal':tr['proposal_hashes']['A']='0'*64
+              elif name=='source':tr['sources']={}
+              else:tr['qualified']=True
+              try:verify(p,tr)
+              except (ValueError,KeyError):negative.append(name)
+              else:
+                  if name=='raw':
+                      tr['raw']='26 20 2'
+                      try:verify(p,tr)
+                      except (ValueError,KeyError):negative.append(name)
+                      else:raise AssertionError('INPUT_MUTATION_ACCEPTED')
+                  else:raise AssertionError('ORIGIN_MUTATION_ACCEPTED:'+name)
+          try:historical=evaluate(m)
+          except Exception as e:historical={'status':'CHECKER_EXCEPTION_NOT_APPROVAL','exception':type(e).__name__,'detail':str(e)}
+          assert historical.get('status') not in ('PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED')
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
+          Path('open-world.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'historical_status':historical.get('status'),'historical_errors':historical.get('errors',[]),'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-open-kitchen-world
+          path: open-world.json
+          retention-days: 30
