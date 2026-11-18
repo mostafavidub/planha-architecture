@@ -43,19 +43,22 @@ def assess(model):
             allq=list(map(rect,obstacles+list(uses.values())))
             xs={g[0],g[2]-body};ys={g[1],g[3]-body}
             for a,b,c,d in allq:xs.update([a-body,c]);ys.update([b-body,d])
-            free=[]
+            free=[];enumeration_truncated=False
             for x in sorted(xs):
+                if time.monotonic()-started>20:enumeration_truncated=True;break
                 if not g[0]<=x<=g[2]-body:continue
                 for y in sorted(ys):
+                    if time.monotonic()-started>20:enumeration_truncated=True;break
                     if not g[1]<=y<=g[3]-body:continue
                     q=(x,y,x+body,y+body)
                     if not any(hit(q,o) for o in allq) and covered(q,list(map(rect,floor))):free.append(q)
             free.sort(key=lambda q:(abs((q[0]+q[2])-(g[0]+g[2]))+abs((q[1]+q[3])-(g[1]+g[3])),q))
-            row={'unit':u['id'],'actual_seat_ids':ids,'group_search_domain':group,'group_domain_not_useful_area':True,'source_body_m':str(body),'candidate_count':len(free),'candidate_limit':3,'time_budget_seconds':20,'nonseating_fixture_crossings':[k for k,q in protected.items() if hit(g,rect(q))],'attempts':[],'state':'NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY'}
+            row={'unit':u['id'],'actual_seat_ids':ids,'group_search_domain':group,'group_domain_not_useful_area':True,'source_body_m':str(body),'candidate_count':len(free),'candidate_limit':3,'cooperative_time_budget_seconds':20,'enumeration_truncated':enumeration_truncated,'nonseating_fixture_crossings':[k for k,q in protected.items() if hit(g,rect(q))],'attempts':[],'state':'NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY'}
             for q in free[:3]:
                 if time.monotonic()-started>20:row['budget_exhausted']=True;break
                 point=center(list(map(str,q)));attempt={'body_rect':list(map(str,q)),'routes':[]}
                 for k in ids:
+                    if time.monotonic()-started>20:row['budget_exhausted']=True;break
                     target=center(activities[k]);obs=obstacles+[r for other,r in activities.items() if other!=k]
                     path,reason=route(point,target,group,obs,body=str(body))
                     entry={'fixture_id':k,'activity_id':seatmap[k]['access_activity_id'],'path':path,'reason':reason}
