@@ -28,3 +28,16 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: python -B -m unittest -v test_failure_recovery test_cancellation
+      - name: V25 independent real HTTP and repair gateway negatives
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: >-
+          python -B -m unittest -v
+          test_validation_server.HttpTests.test_real_post_preserves_request
+          test_validation_server.HttpTests.test_generation_rejects_unsupported_before_dispatch
+          test_validation_server.HttpTests.test_invalid_requests
+          test_validation_server.HttpTests.test_health_and_no_generation_route
+          test_validation_server.HttpTests.test_content_type_and_body_limit
+          test_validation_server.DisconnectedResponseTests
+          test_repair_gateway
