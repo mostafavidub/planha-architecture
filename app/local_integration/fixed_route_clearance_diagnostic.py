@@ -1,11 +1,13 @@
 """Exact clearance of an already witnessed fixed orthogonal polyline, not global routing."""
 from fractions import Fraction as F
 from review_cycle import digest
-from kitchen_guest_review import rect
+from kitchen_guest_review import rect,sweeps
 from guest_four_route_diagnostic import assess as guest_assess
 
 def fixed_polyline_capacity(path,box,obstacles):
+    if len(box)!=4 or any(len(p)!=2 for p in path):raise ValueError('EXACT_RECT_AND_POINT_SHAPE_REQUIRED')
     b=list(map(F,box))
+    if b[0]>=b[2] or b[1]>=b[3]:raise ValueError('INVALID_ROUTE_DOMAIN')
     if len(path)<2:raise ValueError('NONZERO_ORTHOGONAL_ROUTE_REQUIRED')
     limits=[];moving=False
     for index,(pa,pb) in enumerate(zip(path,path[1:])):
@@ -59,7 +61,18 @@ def assess(model,physical_review):
             row={'id':name,'path':source_route['path'],'source_body_m':source_route['body_m'],'obstacle_digest':digest(obstacles)}
             if source_route['path']:
                 row['capacity']=fixed_polyline_capacity(source_route['path'],box,obstacles)
-                if F(row['capacity']['maximum_uniform_axis_aligned_square_width_m'])<F(source_route['body_m']):raise ValueError('CAPACITY_CONTRADICTS_SOURCE_WITNESS')
+                capacity=F(row['capacity']['maximum_uniform_axis_aligned_square_width_m'])
+                if capacity<F(source_route['body_m']):raise ValueError('CAPACITY_CONTRADICTS_SOURCE_WITNESS')
+                def clear(width):
+                    b=list(map(F,box))
+                    for band in sweeps(source_route['path'],width):
+                        if not(b[0]<=band[0] and b[1]<=band[1] and band[2]<=b[2] and band[3]<=b[3]):return False
+                        for q in map(rect,obstacles):
+                            if max(band[0],q[0])<min(band[2],q[2]) and max(band[1],q[1])<min(band[3],q[3]):return False
+                    return True
+                epsilon=F(1,1000000)
+                if not clear(capacity) or clear(capacity+epsilon):raise ValueError('FIXED_CAPACITY_SWEEP_CERTIFICATE')
+                row['capacity']['independent_sweep_certificate']={'at_capacity_clear':True,'capacity_plus_test_epsilon_clear':False,'test_epsilon_m':str(epsilon),'epsilon_not_design_threshold':True}
             else:row['state']='NO_ROUTE_WITNESS_NOT_GLOBAL_INFEASIBILITY'
             routes.append(row)
         result['units'].append({'unit':uid,'scenario':source['scenario'],'routes':routes})
