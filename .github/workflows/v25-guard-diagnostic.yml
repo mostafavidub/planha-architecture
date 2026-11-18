@@ -22,10 +22,19 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           python -B - <<'PY'
-          import sys
+          import sys, hashlib
           from pathlib import Path
           sys.path.insert(0, str(Path('frontend').resolve()))
           from guard400 import guard, HISTORICAL_FREEZE, PARENT_FREEZE, CURRENT_FREEZE
+          wanted={'3c77b90d4bbf425148c1c8482c7127cb07ae9503c54f94271debad7728a7f0f1','1a2994cc77c897519d2c4877099b0bb9c1b7cedc99e42d8cc4b6cd7ccd938519','530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'}
+          found=[]
+          for candidate in Path('.').rglob('*'):
+              if '.git' in candidate.parts or not candidate.is_file() or candidate.is_symlink():
+                  continue
+              digest=hashlib.sha256(candidate.read_bytes()).hexdigest()
+              if digest in wanted:
+                  found.append({'sha256':digest,'path':str(candidate)})
+          print('registered_exact_freeze_matches', found, flush=True)
           for path in (HISTORICAL_FREEZE, PARENT_FREEZE, CURRENT_FREEZE):
               print('freeze_exists', path.relative_to(Path.cwd()), path.is_file(), flush=True)
           print('guard_pin_count', guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'))
