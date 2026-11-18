@@ -24,7 +24,7 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           timeout 1300s python -B - <<'PY'
-          import sys,json,inspect,ast
+          import sys,json,inspect,ast,tarfile,hashlib
           from pathlib import Path
           root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
           from guard400 import guard
@@ -38,9 +38,18 @@ jobs:
           from four_seat_group_candidate import propose
           from functional_review import assess
           from local_seating_group_diagnostic import assess as local_group
-          paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py']
+          paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/explicit_pair_redirection.py','app/local_integration/producer_provenance.py','.github/workflows/v25-four-seat-master.yml']
           sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
           assert Path(inspect.getsourcefile(propose)).resolve()==(root/paths[0]).resolve()
+          for fn,name in [(frame,'constructor127.py'),(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py'),(revision,'engine114.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads((root/'evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());archive=next(a for a in index['archives'] if a['run_id']==44410953889)
+          path=root/'evidence/archive'/archive['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==archive['sha256']
+          with tarfile.open(path,'r:gz') as tar:raw_evidence=tar.extractfile('circulation-comparison.json').read()
+          member=next(m for m in archive['members'] if m['path']=='circulation-comparison.json');assert hashlib.sha256(raw_evidence).hexdigest()==member['sha256']
+          baseline=json.loads(raw_evidence)['baseline'];bt=baseline['context']['construction_trace'];bp=build(bt['raw'],'FRONT_REAR',bt['proposals']['A'],bt['proposals']['B']);bc=context(bt['raw'],bp,bt['proposals']);br=evaluate(bp,bc)
+          assert digest(bp['world_model'])==baseline['model_digest'] and digest(bc)==digest(baseline['context']) and br['multiproposal_provenance127']['verified'] is True
+          expected_inventory=inventory(bp['world_model']);expected_profile=bp['world_model']['profile'];expected_program=bp['world_model']['program']
           # Syntax-retention check: every original AST node/field remains in order.
           # This proves additive source preservation, not solver or architectural correctness.
           def retains(old,new):
@@ -58,7 +67,7 @@ jobs:
           assert retains(ast.parse((root/'engine/search114.py').read_text()),ast.parse((root/paths[0]).read_text())),'UPSTREAM_STATEMENT_REMOVED_OR_CHANGED'
           cases=[('15','25',0),('15','25',1),('15','25',2),('15','25',3),('20','20',0),('25','25',0)]
           evidence={'scope':'INDEPENDENT_GROUP_MASTER_EXPERIMENT_NOT_ACTIVE_PRODUCER','source_files':sources,'historical_source_revision':source,'upstream_ast_preserved_additively':True,'preregistered_cases':cases,'rows':[],'accepted':False,'delivery_allowed':False}
-          protected=None
+          protected=expected_inventory
           for W,L,variant in cases:
               body=json.dumps({'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}}).encode();env,raw=prepare(body);core,_=frame(raw,'FRONT_REAR')
               proposal=propose(core,2,time_limit=12,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
@@ -66,14 +75,15 @@ jobs:
               if proposal.get('status')=='PROPOSAL_ONLY':
                   packet=build(raw,'FRONT_REAR',proposal,proposal);ctx=context(raw,packet,{'A':proposal,'B':proposal});review=evaluate(packet,ctx);model=packet['world_model'];mh=digest(model)
                   assert model['inputs']==[W,L,2]
-                  if protected is None:protected=inventory(model)
-                  else:assert inventory(model)==protected
+                  assert inventory(model)==protected and model['profile']==expected_profile and model['program']==expected_program and digest(packet['core'])==digest(core)
+                  assert ctx['construction_trace']['raw']==raw and ctx['construction_trace']['proposals']=={'A':proposal,'B':proposal} and ctx['construction_trace']['model_hash']==mh
+                  origin=review['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['model_hash']==mh and origin['source_revision']==source
                   assert all(p['bedrooms']==2 and p['sleep_roles']==['double','twin'] for p in ctx['construction_trace']['proposals'].values())
-                  functional=assess(model,review,source);group=local_group(model);assert digest(model)==mh
-                  row.update(packet=packet,context=ctx,review=review,functional_review=functional,local_group_study=group,model_digest=mh,local_producer_receipt={'source_files':sources,'request_digest':env['canonical_request_digest'],'proposal_digest':digest({'A':proposal,'B':proposal}),'model_digest':mh,'context_digest':digest(ctx),'fresh_review_digest':digest(review),'historical_shared_marker_claimed':False})
+                  functional=assess(model,review,source);group=local_group(model);seated_group=local_group(model,actor_scenario='OTHER_SEATS_OCCUPIED');assert digest(model)==mh
+                  row.update(packet=packet,context=ctx,review=review,functional_review=functional,local_group_study=group,local_group_seated_study=seated_group,model_digest=mh,local_producer_receipt={'source_files':sources,'request_digest':env['canonical_request_digest'],'proposal_digest':digest({'A':proposal,'B':proposal}),'model_digest':mh,'context_digest':digest(ctx),'fresh_review_digest':digest(review),'historical_shared_marker_claimed':False})
               evidence['rows'].append(row);Path('four-seat-master.json').write_text(json.dumps(evidence,ensure_ascii=False))
           require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
-          print('FOUR_SEAT_MASTER '+json.dumps([{'raw':r['raw'],'variant':r['variant'],'proposal_status':r['proposal']['status'],'physical_status':r.get('review',{}).get('status'),'errors':r.get('review',{}).get('errors'),'pending':r.get('review',{}).get('pending'),'model':r.get('model_digest'),'local_group':[{'unit':u['unit'],'state':u['state'],'nonseating_crossings':u['nonseating_fixture_crossings']} for u in r.get('local_group_study',{}).get('units',[])]} for r in evidence['rows']]),flush=True)
+          print('FOUR_SEAT_MASTER '+json.dumps([{'raw':r['raw'],'variant':r['variant'],'proposal_status':r['proposal']['status'],'physical_status':r.get('review',{}).get('status'),'errors':r.get('review',{}).get('errors'),'pending':r.get('review',{}).get('pending'),'model':r.get('model_digest'),'seated_only_group':[{'unit':u['unit'],'state':u['state']} for u in r.get('local_group_seated_study',{}).get('units',[])],'local_group':[{'unit':u['unit'],'state':u['state'],'nonseating_crossings':u['nonseating_fixture_crossings']} for u in r.get('local_group_study',{}).get('units',[])]} for r in evidence['rows']]),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
