@@ -14,7 +14,7 @@ from dimension_contract import InputError, parse
 SCHEMA='PLANHA_MAC_PARAMETRIC_EXPERIMENT_V1'
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'manifests/WORKTREE_STATE.json').is_file())
 ENGINE=ROOT/'app/reconstruction357/planha_general150_runtime_work'
-FAMILIES=(('ROW','FRONT_REAR','coarse_master129'),('ROW','LEFT_RIGHT','coarse_master129'))
+FAMILIES=(('ROW','FRONT_REAR','coarse_kitchen305_candidate'),('ROW','LEFT_RIGHT','coarse_kitchen305_candidate'))
 
 
 def prepare(body):
@@ -44,6 +44,11 @@ def run(body):
     freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
     pin_count=guard(freeze)
     sys.path.insert(0,str(ENGINE))
+    candidate_root=ROOT/'app/local_integration/candidate/bundle25'
+    sys.path.insert(0,str(candidate_root))
+    from producer_provenance import snapshot,require_unchanged,require_imported,receipt as producer_receipt
+    producer_paths=['app/local_integration/candidate/bundle25/coarse_kitchen305_candidate.py','app/local_integration/candidate/bundle25/private_kitchen305_candidate.py','app/local_integration/parametric_worker.py','app/local_integration/producer_provenance.py']
+    producer_sources=snapshot(ROOT,producer_paths)
     from constructor129 import frame,build,context
     from evaluate_hierarchical129 import evaluate
     from engine114 import revision
@@ -66,7 +71,9 @@ def run(body):
                 raise
             if core is None:
                 attempt['state']='UNSUPPORTED_CURRENT_CORE_FIT';continue
-            proposal=importlib.import_module(module_name).propose(core,time_limit=2)
+            producer=importlib.import_module(module_name)
+            require_imported(producer,candidate_root/'coarse_kitchen305_candidate.py',candidate_root/'private_kitchen305_candidate.py')
+            proposal=producer.propose(core,time_limit=3)
             attempt['proposal']=proposal
             if proposal.get('status')!='PROPOSAL_ONLY':
                 attempt['state']=proposal.get('status','UNKNOWN_PROPOSAL_STATE');continue
@@ -76,6 +83,8 @@ def run(body):
                 raise ValueError('CONSTRUCTED_INPUT_BINDING_MISMATCH')
             ctx=context(raw,proposal,packet)
             review=evaluate(packet,ctx)
+            production=producer_receipt(sources=producer_sources,request_digest=envelope['canonical_request_digest'],raw=raw,proposal=proposal,packet=packet,context=ctx,review=review,engine_revision=before)
+            attempt['initial_producer_receipt']=production
             repair_result=None
             if review.get('status')=='FAIL' and review.get('errors') and not review.get('pending'):
                 if time.monotonic()-started<80:
@@ -89,6 +98,8 @@ def run(body):
                 else:attempt['repair_state']='NOT_ATTEMPTED_SHARED_BUDGET'
             attempt['state']='CONSTRUCTED_AND_FRESHLY_REVIEWED'
             candidate={'family':family,'organization':organization,'model':model,'model_digest':digest(model),'generation_context':ctx,'physical_review':review,'accepted':False,'delivery_allowed':False,'qualified':False}
+            candidate['initial_producer_receipt']=production
+            candidate['producer_lineage']={'initial_model_digest':production['initial_model_digest'],'final_model_digest':candidate['model_digest'],'repair_receipt_digest':digest(repair_result['receipt']) if repair_result else None,'accepted':False,'delivery_allowed':False}
             candidate['candidate_id']=digest({'request_digest':envelope['canonical_request_digest'],'model_digest':candidate['model_digest'],'family':family})
             from review_cycle import decide
             if repair_result:candidate['repair_receipt']=repair_result['receipt']
@@ -98,11 +109,12 @@ def run(body):
             candidates.append(candidate)
         except Exception as error:
             attempt.update(state='EXECUTION_ERROR',reason=type(error).__name__+':'+str(error))
+    require_unchanged(ROOT,producer_sources)
     if revision()!=before:raise ValueError('ENGINE_SOURCE_CHANGED')
     if guard(freeze)!=pin_count:raise ValueError('HISTORICAL_PINS_CHANGED')
     from diversity_review import audit
     diversity=audit(candidates,envelope['canonical_request_digest'],before)
-    return {'diversity_report':diversity,'diversity_report_digest':digest(diversity),'schema':SCHEMA,'outcome':'EXPERIMENT_COMPLETED','envelope':envelope,'engine_raw_request':raw,'engine_source_revision':before,'historical_pins':pin_count,'attempts':attempts,'candidates':candidates,'generated_count':len(candidates),'qualified_count':0,'requested_count':raw['requested_count'],'qualified_shortfall':raw['requested_count'],'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'elapsed_seconds':time.monotonic()-started,'program_policy':{'bedrooms_per_unit':3,'source':'existing constructor129 three-bedroom experimental profile','capacity_suitability':'NOT_VERIFIED','fallback_to_lower_capacity':False},'scope':'two existing ROW ownership families; not general topology coverage, six qualified options or whole architecture validation'}
+    return {'diversity_report':diversity,'diversity_report_digest':digest(diversity),'schema':SCHEMA,'outcome':'EXPERIMENT_COMPLETED','envelope':envelope,'engine_raw_request':raw,'engine_source_revision':before,'historical_pins':pin_count,'attempts':attempts,'candidates':candidates,'generated_count':len(candidates),'qualified_count':0,'requested_count':raw['requested_count'],'qualified_shortfall':raw['requested_count'],'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'elapsed_seconds':time.monotonic()-started,'program_policy':{'bedrooms_per_unit':3,'source':'existing constructor129 three-bedroom experimental profile','capacity_suitability':'NOT_VERIFIED','fallback_to_lower_capacity':False},'producer_sources':producer_sources,'scope':'experimental kitchen305 producer, two ROW ownership families; not general topology coverage, six qualified options or whole architecture validation'}
 
 
 def main():
