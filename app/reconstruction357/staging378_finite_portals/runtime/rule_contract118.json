@@ -1,0 +1,3049 @@
+{
+  "schema": "PLANHA_RULE_CONTRACT121_OWNER_EXCLUDES_LIGHT_VENT",
+  "authority": "Traceable implementation of source conditions; not a new owner rule or legal approval",
+  "precedence": [
+    "Latest owner messages: 5..45 domain and authorized development override old three-plot/no-code scope only",
+    "Current PRD/Blueprint owner decisions",
+    "Local Concept profile is reconciliation, not permission to suppress owner conditions"
+  ],
+  "sources": {
+    "retrieved_at_utc": "2026-11-14",
+    "sources": [
+      {
+        "kind": "bp",
+        "title": "Planha | Architecture MVP — Pre-Implementation Blueprint & Decision Workbook v0.2",
+        "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit",
+        "id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "created_time": "2026-11-05T21:38:09.419Z",
+        "content_chars": 1542744
+      },
+      {
+        "kind": "prd",
+        "title": "Planha | PRD معماری MVP | سند زنده",
+        "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit",
+        "id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+        "modified_time": "2026-11-13T10:36:49.262Z",
+        "created_time": "2026-11-05T15:54:57.983Z",
+        "content_chars": 157529
+      }
+    ]
+  },
+  "required_profile_warning": "concept_gate_profile calls itself local reconciliation proposal; current owner subconditions remain",
+  "registry": [
+    {
+      "id": "H01",
+      "source_text": "H01 INPUT — فقط سه مقدار W/L/n طبق بخش۴ PRD: W افقی و L عمودی تصویر مثبت و متناهی در متر، n صحیح عضو {1,2} برای همان تراز. خالی INPUT_REQUIRED و فرمت/مقدار نامعتبر INVALID_BRIEF، هر دو پیش از تولید؛ خام حفظ و تبدیل نگارشی بدون تغییر معنا مجاز است. شهر، اقلیم و نوع عرفی نه بررسی ورودی می‌شوند و نه کمبودشان خطا می‌سازد. BRIEF_VALID امکان‌پذیری یا پذیرش طرح نیست. نمونه‌های منفی: n=0/3/4/کسری، بعد صفر/منفی/غیرمتناهی، قالب/واحد مبهم و جابه‌جایی بی‌اعلان محور. کنترل عدم اثر داده حذف‌شده نیز NOT_RUN است.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 564,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "input_exact_domain",
+        "no_hidden_project_inputs"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "contract114.parse; checker114:43–45",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "n=1 accepted input requirement but current whole checker requires n=2; hidden program/extra fields exceed three-field product contract."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H02",
+      "source_text": "H02 CONTAINMENT — همه فضاها، دیوارهای ضخامت‌دار، هسته و بازشو داخل E باشند. روش: تفاضل ناحیه واقعی از E؛ بخش خارج غیرتهی→FAIL، عدم‌قطعیت در مرز→INDETERMINATE. QA: هم‌مرزی واقعی مثبت؛ ضخامت دیوار بیرون‌زده منفی؛ نزدیک epsilon مرزی. مرجع:B1/B2؛ اثر: رد Candidate.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 565,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "containment_all_entities"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "checker114 containment/ownership/fixture checks",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Only rectangle-union profile; no universal polygon-domain claim."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H03",
+      "source_text": "H03 VALID_POLYGON — ورودی: vertices و حلقه‌ها. حلقه بسته، مساحت مثبت، نبود خودتقاطع و حفره معتبر با روش برداری کنترل شود. QA: L ساده مثبت؛ bowtie یا حفره بیرونی منفی. داده حلقه ناقص → INDETERMINATE با علت MISSING_EVIDENCE؛ فقدان شاهد با نقض هندسی اثبات‌شده یکی نیست. مرجع:B2.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 566,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "valid_exact_regions"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "rect positive dimensions + exact cells",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Arbitrary polygon/hole representation unsupported; scope must be explicit."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H04",
+      "source_text": "H04 PARTITION — داخل F_u/F_c/S/W/X/O مشترک نباشد و اجتماعشان E را بپوشاند؛ روش، intersection/union/residual همراه دفتر مساحت است. همپوشانی یا شکاف قطعی خارج از قرارداد دقت → FAIL_SCOPED؛ بازه عدم‌قطعیت که مرز تصمیم را قطع کند → INDETERMINATE؛ دقت/پروفایل تعیین‌نشده → PROFILE_NOT_READY. تلرانس عددی نقص قطعی یا افزودن مساحت را مجاز نمی‌کند. نورگیر/آسانسور/لابی با مالک مشخص نمونه مثبت؛ دوباره‌شماری یا باقی‌مانده بی‌مالک نمونه منفی‌اند. مرجع B3.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 567,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "owners/rooms overlap and coverage",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Room-label coverage is not semantic functional coverage; whole envelope ledger must include every category."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H05",
+      "source_text": "H05 OWNERSHIP — هر اتاق/ناحیه یک مالک و دقیقاً n∈{1,2} واحد مستقل همان طبقه داشته باشد. روش: شناسه، انتساب، ورودی و عملکرد مستقل. QA پیشنهادی: دو واحد مستقل U01/U02 مثبت؛ دو برچسب روی یک واحد یا ورودی یکی از داخل دیگری منفی. دو تراز یک دوبلکس دو واحد مستقل محسوب نمی‌شوند و نمونهٔ وابسته به چندتراز، Golden مثبت تک‌تراز نیست. مالک/انتساب داخلی نامعلوم → INDETERMINATE با علت MISSING_EVIDENCE؛ حذف یا ادغام پنهانی واحد ممنوع.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 568,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "unit_independence"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "UNIT_COUNT,UNIT_OWNERSHIP_OVERLAP,common routes",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Current implementation two units only; n=1 missing. Distinct entrances/functional independence need explicit role/path proof."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H06",
+      "source_text": "H06 AREA_BASIS — مبنای اندازه‌گیری و جمع مفید/مشاع/دیوار/باز سازگار باشد. QA: زیرناحیه غذاخوری بدون افزایش جمع مثبت؛ دوباره‌شماری کمد یا دیوار مشترک منفی. مبنای اندازه‌گیریِ ثبت‌نشده → INDETERMINATE با علت MISSING_EVIDENCE؛ قرارداد/پروفایل لازمِ اندازه‌گیریِ آماده‌نشده → INDETERMINATE با علت PROFILE_NOT_READY. مرجع:B3؛ اثر: توقف پذیرش گزارش مساحت.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 569,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "exact union and ownership accounting",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Net/gross/functional useful area three ledgers not equivalent; residual living is not useful-area proof."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H07",
+      "source_text": "H07 ACCESS_GRAPH — از رابط مشاع، ورودی مستقل هر واحد و عملکردهای ضروری با در واقعی قابل رسیدن باشند، نه صرف تماس دو فضا. تکمیل الزام قطعی مالک در ۱۰ نوامبر ۲۰۲۶: هر واحد دست‌کم یک حمام قابل استفاده ساکنان با مسیر از فضای غیرخصوصی داخل همان واحد و بدون عبور از هیچ خواب، حتی تنها خواب، یا فضای خصوصیِ واسط داشته باشد. حذف گره‌های خواب/فضاهای خصوصی و درهای وابسته نباید این مسیر را قطع کند. حمام اضافه اختصاصی فقط با تأمین حمام لازمِ مستقل طبق A3 مجاز است. QA: هال مشترک داخل واحد→در واقعی حمام، شاهد توپولوژی مثبت؛ تنها مسیر از خواب، از واحد دیگر یا از مشاع ساختمان، منفی. portal/کاربری واسط نامعلوم → INDETERMINATE با علت MISSING_EVIDENCE؛ نبود مسیر→FAIL_SCOPED. حکم عرض و حرکت جدا در H08/H10/H11 است. نقض یا نامعلومی مؤثر مانع G_DESIGN و ارائه نهایی است. مرجع:B5 و G15.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 570,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "guest_living_route",
+        "guest_dining_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "actual aperture crossing/body routes/common routes",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Named graph-deletion test excluding every bedroom/private vestibule for bath not identified as standalone whole gate."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H08",
+      "source_text": "H08 CLEAR_PATH — مسیر در فضای آزاد پس از دیوار، تجهیزات، مبلمان و envelope بدن/فعالیت بررسی شود. QA: مسیر واقعی مثبت؛ خط وسط از شکاف غیرقابل عبور منفی. profile نامصوب→PROFILE_NOT_READY. فقط اشتراک فعالیتِ مجاز در profile استثناست. مرجع:B5 و AD-MERRELL.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 571,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "body_route_sweeps",
+        "actual_opening_geometry"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "sweeps BODY=.7, obstacles, activity endpoints",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Guest/dining/serving forbidden work-zone traversal, occupied-chair scenarios need named tests; caller-supplied activity inventory not full source contract."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H09",
+      "source_text": "H09 WALL_NETWORK — شبکه دیوار یکتا، ضخامت‌دار و متصل با faces معلوم باشد. QA: اتصال T معتبر مثبت؛ دیوار با ضخامت صفر، دیوار مشترک دوبله یا شکاف ناخواسته منفی. نازک‌کاری ثبت‌نشده در مدل → INDETERMINATE با علت MISSING_EVIDENCE؛ سامانه/پروفایل لازمِ جداره و نازک‌کاریِ آماده‌نشده → INDETERMINATE با علت PROFILE_NOT_READY. مرجع:B2.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 572,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "wall_network"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "walls/host cut accounting; actual pocket skins",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full wall-network uniqueness/connectivity/finished-face model not generally proven."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H10",
+      "source_text": "H10 OPENING_HOST — میزبان، بازه روی دیوار، عرض و دو فضای مرتبط هر بازشو معلوم باشند. QA: در روی مرز صحیح مثبت؛ در در فضای خالی یا پنجره بی‌میزبان منفی. میزبان نامعلوم → INDETERMINATE با علت MISSING_EVIDENCE؛ بی‌میزبان‌بودنِ اثبات‌شده با میزبانِ هنوز ثبت‌نشده فرق دارد. مرجع:B2؛ ترمیم مستلزم کنترل دوباره روابط است.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 573,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "opening_hosts"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "host containment/cut plus pocket_source113 branch",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Two-room relation and actual joint boundary must remain verified after placement, not merely host ID."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H11",
+      "source_text": "H11 DOOR_OPERATION — عرض آزاد، جهت و ناحیه حرکت در و approach کنترل شوند؛ در نباید پاگرد، مبلمان یا ورودی دیگر را مسدود کند. QA: بازشدن و عبور واقعی مثبت؛ لنگه داخل کمد منفی. نوع/مدل یا پروفایل عملکردی لازمِ در آماده نیست → INDETERMINATE با علت PROFILE_NOT_READY؛ شاهد هندسی/حالت استفاده در مدل غایب است → INDETERMINATE با علت MISSING_EVIDENCE. مرجع:B2؛ حدود قانونی فقط با ارجاع واجد شرایط.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 574,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "door_operation"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "operation_check114 doors + pocket checks; service module saved tests",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Explicit motion state scope; all simultaneous relevant doors/approaches and transfer coverage must be enumerated."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H12",
+      "source_text": "H12 FURNITURE_BUNDLE — اشیای لازم با اندازه واقعی، بدون کوچک‌نمایی دلخواه، و نواحی عملکرد/دسترس کامل جا بگیرند. کمد دیواری در تک‌تک خواب‌ها طبق تصمیم ۱۰ نوامبر ۲۰۲۶ الزامی است و فضای استفاده آن باید مستقل شاهد داشته باشد. QA: تخت و کمد دیواری قابل استفاده مثبت؛ تخت کوچک‌شده یا کمد غیرقابل بازشدن منفی. کاتالوگ نامصوب→PROFILE_NOT_READY. مرجع:A5؛ اثر: اتاق فاقد شاهد خواب شمرده نشود.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 575,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "body_route_sweeps",
+        "fixture_inventory_use",
+        "closet_operation",
+        "chair_capacity_movement"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "immutable fixture catalogue + room membership + operations",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Fixed dimensions alone do not prove every required use scenario or living/dining capacity."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H13",
+      "source_text": "H13 ROOM_PROGRAM — عملکردهای لازم هر واحد و خواب از instanceهای شاهددار استخراج شوند. DEC-AP-03: حداقل یک خواب مستقل بسته، بدون استودیو؛ هر خواب کمد دیواری الزامی دارد. DEC-AP-05P با تکمیل مالک در ۱۰ نوامبر ۲۰۲۶: دست‌کم یک WC و یک حمام قابل استفاده برای ساکنان هر واحد لازم است؛ حمام لازم باید با آزمون H07 از فضای غیرخصوصی همان واحد مستقل از تمام خواب‌ها و فضاهای خصوصیِ واسط دسترس داشته باشد. حمام اختصاصی اضافه جای این عملکرد را نمی‌گیرد. جداسازی حمام/WC ترجیحی و ادغام در واحد کوچک فقط با ضوابط و شاهد تجهیزات/دسترس است. QA: حمام مشترک مستقلِ شاهددار مثبت؛ تنها حمام از خواب، حذف WC/حمام، اتاق برچسبی یا استودیو منفی. سیاست مصوب است؛ فقدان پروفایل یا مرجع معتبر→PROFILE_NOT_READY/SOURCE_REVIEW_REQUIRED، نه POLICY_REQUIRED. مرجع:A3/A6 و G15. تکمیل جاری: وجود آشپزخانه عملکردی با دسترسی قابل استفاده و مسیر مهمان مستقل برای هر واحد شرط ضروری است؛ فقدان آشپزخانه یا شاهد ضروری استفاده، ارائه آن گزینه به کاربر را ممنوع می‌کند. ثبت نقص با عنوان مصالحه یا پیش‌نویس مجوز نمایش گزینه فاقد آشپزخانه نیست. روش شاهد و کنترل در تکمیل G15 ثبت شده است.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 576,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "fixture_inventory_use",
+        "program_functional_roles",
+        "zero_laundry"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "inventory bed/closet/bath/kitchen; 1..4 implementation cap",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Automatic area/55 and max4 are software policy, not owner program. Required named activity inventory, no laundry and useful living cannot be replaced by labels."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H14",
+      "source_text": "H14 QUALIFIED_MINIMA — حدهای ابعاد/مساحت با منبع، شمول و روش برداشت همان بند بررسی شوند. QA: حد و مبنای صحیح مثبت؛ حد عمومی به جای اختصاصی یا unit_net به جای زیربنای شاخه منفی. قاعده فاقد تأیید→SOURCE_REVIEW_REQUIRED. مرجع:IR-M04-96 و بسته پایه آینده؛ فعال‌سازی فعلی نداریم.",
+      "classification": "conditional_inactive",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 577,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No active legal-minimum gate",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No source-qualified current national/legal applicability package; do not invent numeric minima or claim compliance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "H15",
+      "source_text": "H15 CORE_2D — در MVP فقط جانمایی مفهومی یک هسته پله مشترک، آسانسور، لابی مستقل بیرون محفظه پله و دسترسی مستقل و پیوسته هر واحد در قاب طراحی کنترل می‌شود. حذف اجزای الزامی، تداخل قطعی یا عبور اجباری از محفظه پله ایراد مفهومی است. ظرفیت و مدل اجرایی، مقطع و سرگیر پله، نصب آسانسور، چاهک و بالاسری و تأیید ابعاد اجرایی POST_MVP / NOT_EVALUATED هستند و فقدان آنها به‌تنهایی گام دوم MVP را متوقف نمی‌کند. حضور شماتیک هیچ تأیید قانونی یا اجرایی ایجاد نمی‌کند.",
+      "classification": "mandatory_limited",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 579,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "core_concept"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "one stair/lift/lobby + common body routes",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Physical stairs/lift installation beyond Concept; preserve independent lobby access, no forced traversal through stair enclosure."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "H16",
+      "source_text": "H16 DAYLIGHT_OPPORTUNITY — اقامت نیازمند نور در profile باید بازشوی میزبان‌دار مستقیم به جبهه‌های بازِ مفروض پروژه، بدون استنتاج جهت جغرافیایی، یا V آسمانیِ مفروض داشته باشد. QA: بازشوی مستقیم مثبت؛ پنجره به شفت بسته یا واحد دیگر منفی. فرض جبهه باز/آسمانیِ ثبت‌نشده → INDETERMINATE با علت MISSING_EVIDENCE؛ پروفایل لازمِ تشخیص اتاق‌های مشمولِ آماده‌نشده → INDETERMINATE با علت PROFILE_NOT_READY. مرجع:B6؛ گواه روشنایی واقعی یا حق بازشو نیست.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 580,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "window inventory/host/edge/contact/sill/head/projection",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "H17",
+      "source_text": "تعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. H17 SERVICES_RESERVATION — برای پخت/حمام/WC و آرایش ادغامی یا تفکیکی DEC-AP-05P باید تجهیزات واقعی، footprint، activity envelope، در و فضای هماهنگی با مشخصات جاری و سابقه تغییر جا بگیرند. QA: دو عملکرد در اتاق مشترکِ واقعاً قابل استفاده فقط در صورت شمول و source-qualified مثبت؛ تجهیز روی دیوار/بدون استفاده یا ادغام فاقد مرجع مردود. نوع پایه ایرانی/فرنگی تکمیلی در پروفایل تخصصی بازبینی شود؛ فقدان داده→PROFILE_NOT_READY/SOURCE_REVIEW_REQUIRED. طراحی تأسیسات/تهویه واقعی NOT_EVALUATED باقی می‌ماند.",
+      "classification": "mandatory_limited",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 581,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "kitchen_essential_operation",
+        "bath_service_operation"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "bathroom/kitchen real fixtures and operations117",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full MEP/ventilation not mandatory; required functional service use remains mandatory."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "H18",
+      "source_text": "H18 EXPORT_PARITY — Preview و DXF باید projection تحویلیِ همان canonical revision را با مقیاس، جهت، ابعاد، تعداد، بازشو، نام فضا و هشدار یکسان منعکس کنند؛ ستون و مبلمان متحرک در هر دو غایب‌اند؛ آسانسور و کمد دیواری به‌عنوان اجزای ثابت معماری در هر دو مشخص‌اند. شواهد داخلی جاگیری وسایل صادر نمی‌شوند و QA خود را دارند. بایت دقیق فایل منتخب بررسی شود؛ فایل قدیمی پس از repair، مبلمان ناخواسته، ستون یا خطای ضریب۱۰۰۰ منفی‌اند. فایل بازخوانی‌نشده→EXPORT_QA_REQUIRED. مرجع:E7.",
+      "classification": "mandatory_product",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 582,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "export_parity",
+        "actual_opening_geometry"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "export117 saved evidence/summary and parity tests",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Audit every served final revision; check dimensions/fixed closets/lift/names and no movable furniture, not solely matching SVG/DXF hashes."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H19",
+      "source_text": "H19 IMMUTABLE_PROVENANCE — ورودی،profile،مولد،seed،findings وartifact به یک revision متصل باشند. QA: دانلود مجدد همان hash مثبت؛ Preview ازrev2 و فایلrev1 منفی. snapshot گمشده→ARTIFACT_INTEGRITY_ERROR. مرجع:مصوبه ذخیره وE7.",
+      "classification": "mandatory_product",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 583,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "immutable_history",
+        "per_option_rule_report"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "source hashes/model IDs/service reopen checks",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Complete provenance incl rules/catalogue/final artifact and immutable history must bind; source audit finds missing row-level criteria receipts."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H20",
+      "source_text": "H20 CLAIM_BOUNDARY — محدودیت Concept و عدم بررسی شهر/پلاک/کل ساختمان در Preview،DXF و خلاصه دیده شود. QA: پله شماتیک با محدودیت روشن مثبت؛ ادعای «مطابق تمام مقررات» منفی. هشدار گمشده→FAIL. مرجع:مصوبه MVP.",
+      "classification": "mandatory_product",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 584,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "claim_boundary",
+        "per_option_rule_report",
+        "claim_boundary_display"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "scope117 labels + accepted/release false",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "A limitation label cannot excuse mandatory functionality/Q11 failure; same warning in all downloads required."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H21",
+      "source_text": "H21 OWNER_ACCESS — دانلود/تاریخچه فقط با مالکیت یا مجوز معتبر و بدون DB مکانیک. QA: مالک پروژه مثبت؛ شناسه پروژه کاربر دیگر منفی. هویت نامعلوم→AUTHORIZATION_FAILED. مرجع:Blueprint؛ اینجا فقط مشخصات امنیت است.",
+      "classification": "mandatory_product",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 585,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "owner_access"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "local service token/namespace checks",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No evidence of production multi-owner authentication/authorization and support audit; local single-owner service scope only."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "H22",
+      "source_text": "H22 BUDGET_INTEGRITY — پیش از تماس LLM، هزینه خرج‌شده + رزروهای درحال اجرا + حداکثر تماس تازه≤۲دلار. QA: رزرو قبلی مثبت؛ retry بدون جمع هزینه منفی. قیمت/مصرف نامعلوم→تماس تازه انجام نشود. سقف جست‌وجو مستقل است. مرجع:مصوبه محصول/E.",
+      "classification": "conditional_product",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 586,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "llm_budget"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "no LLM calls in geometric producer",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "LLM budget is inactive only if no call; future calls require aggregate reservation/cost<=2USD including retries. CPU cap not same contract."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q01",
+      "source_text": "Q01 FURNISHABILITY — تعداد bundleهای واقعاً قابل استفاده، دسترس به تجهیزات و امکان چیدمان جایگزین به‌ازای اتاق/واحد. شاهد:H12 و مشاهده بدون تزئین. حداقل عملکرد از کیفیت مطلوب جداست. مرجع:A5/AD-MERRELL.",
+      "classification": "mixed_required_and_preference",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 588,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "fixture_inventory_use",
+        "program_functional_roles",
+        "chair_capacity_movement"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "fixture inventory/routes",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Required capacity access separate from optional alternate furnishing; living capacity not inferred from remaining area."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q02",
+      "source_text": "Q02 PROPORTION — نسبت اضلاع قابل استفاده، بزرگ‌ترین مستطیل عملکردی و باریک‌شدگی‌ها با چیدمان مبلمان ارزیابی شوند؛ bbox کافی نیست. هیچ نسبت طلایی الزامی تعیین نشده است.",
+      "classification": "quality_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 589,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "no dedicated room proportion/usable-rectangle review",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No arbitrary golden ratio; unprogrammed giant living remains named unresolved quality."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q03",
+      "source_text": "Q03 USEFUL_EFFICIENCY — نسبت مفید عملکردی به A_gross و جداگانه به A_enclosed_projection؛ همراه سهم نورگیر،مشاع و دیوار گزارش شود. این معیار اجبار بیشینه‌کردن ساخت نیست.",
+      "classification": "quality_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 590,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "area accounting",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Functional efficiency denominators and useful-vs-unassigned classification missing; 45–55 universal threshold unjustified."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q04",
+      "source_text": "Q04 CIRCULATION — طول مسیر واقعی ورود تا عملکردها، دورزدن نسبت به مسیر مرجع، تعداد گلوگاه و پیچ و سطح مصرف‌شده گردش؛ profile فعالیت معلوم باشد. حذف راهرو با تخریب استفاده واقعی برتری نیست.",
+      "classification": "mixed_required_and_preference",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 591,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "circulation_functional_integrity"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "body route paths stored",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q05",
+      "source_text": "Q05 PRIVACY — الزام جاری مالک برای همه طرح‌ها و همه واحدها: حریم دید از آستانه ورودی واحد، مسیر ورود/مهمان و نقاط مرتبط فضای عمومی تا داخل حوزه خصوصی خواب و فضای استفاده سرویس بررسی و رعایت شود. صرف دیدن درِ خواب یا سرویس، یا نزدیک‌بودن دو در، به‌تنهایی نقض نیست؛ خط دید به داخل و ناحیه قابل مشاهده باید مشخص شود. دید مستقیم نامناسب به حوزه خصوصیِ مشخص‌شده، مانند تخت/تعویض لباس یا ناحیه استفاده WC/دوش، در سناریوی قابل وقوع، عدم تحقق این الزام محصول است و پیش از معرفی طرح به‌عنوان پذیرفته باید اصلاح شود. این الزام، قانون کشوری یا حد فاصله/زاویه عددیِ بی‌منبع نیست.",
+      "classification": "mandatory",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 592,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "privacy_scenarios"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "privacy115/116/service117 proofs",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Scoped all-aperture barriers proven only for declared targets/state assumptions. Full public source inventory and simultaneous scenario applicability must be documented."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q06",
+      "source_text": "Q06 PUBLIC_PRIVATE — مسیر مهمان به نشیمن و سرویس بدون ورود به حوزه خواب و وضوح ناحیه خصوصی. داوری از پلان تمیزِ دارای نام فضا و توضیح مسیر استفاده می‌کند؛ شاهد داخلیِ جاگیری وسایل و فعالیت جدا در دسترس داور است و در خروجی کاربر ترسیم نمی‌شود.",
+      "classification": "mixed_required_and_preference",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 595,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "unit_independence",
+        "guest_living_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "common and unit routes",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Mandatory guest/dining/bath independence needs explicit forbidden-region scenario tests; depth/layering preference not numeric rule."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q07",
+      "source_text": "Q07 KITCHEN_DINING — مسیر حمل از پخت به غذا، برخورد با اجاق/دستگاه و استفاده واقعی میز. مثلث کار الگوی پیشنهادی است، نه اجبار عددی ثابت برای همه آشپزخانه‌ها.",
+      "classification": "mandatory_functional_subconditions",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 596,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "kitchen_essential_operation",
+        "guest_living_route",
+        "guest_dining_route",
+        "chair_capacity_movement",
+        "serving_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "kitchen117/operation checks",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Guest-to-living, guest-to-dining, kitchen-to-dining serving and occupied-chair movement need separate all-unit witnesses."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q08",
+      "source_text": "Q08 LIGHT_POTENTIAL — سهم اقامت با بازشوی مستقیم مفروض و عمق عملکرد تا جبهه؛ مبنای فرض روشن باشد. lux، انرژی یا ساعت آفتاب بدون داده تولید نشود.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 597,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "H16 opportunity",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "Q09",
+      "source_text": "تعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. Q09 VENT_POTENTIAL — مسیر فرضی دو بازشو در جبهه‌های متمایز یا امکان هماهنگی خدمات. تهویه متقاطع واقعی بدون مقطع/باد/بازشوی فعال تأیید نشود.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 598,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "scope117 SERVICE_VENTILATION exclusion",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "Q10",
+      "source_text": "Q10 ENTRY_QUALITY — بازشدن راحت در، فضای مکثِ واقعاً لازم، دید و مسیر روان به عمومی؛ ارزیابی با هندسه و شاهد داخلی فعالیت/جاگیری وسایل، بدون الزام نمایش مبلمان در پلان تحویلی.",
+      "classification": "mixed_required_and_preference",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 599,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "entry door actor/motion",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Arrival with shopping/standing and simultaneous circulation not proved merely by one door actor."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q11",
+      "source_text": "Q11 RESIDUAL_WASTE — نواحی باریک بی‌کارکرد، گوشه غیرقابل استفاده و گردش اضافه جدا از دسترسی ضروری ثبت شوند. تصمیم صریح جاری مالک: دیوار یا بازوی L که فقط دید به خواب/فضای خصوصی را می‌پوشاند و مرزِ یک فضای واقعاً قابل استفاده نیست، طراحی نشود و از طرح حذف شود. اتصال یک سر دیوار، تغییر نام به «دسترسی خواب»، «حائل عملکردی»، «هال» یا «ذخیره»، و موفقیت آزمون دید این ممنوعیت را رفع نمی‌کند. دیوار واقعی اتاق، حمام یا کمدِ قابل استفاده مجاز است، مشروط به اثبات عملکرد همان فضا؛ ساخت فضای صوری برای توجیه دیوار پذیرفته نیست. راه‌حل حریم طبق Q05 باید از سازمان فضایی، جای/جهت در یا مرز واقعی و مفید فضا حاصل شود. پیش و پس از اصلاح، مساحت خالص/ناخالص، طول و عرض آزاد مسیر، فعالیت و نور مفروض بررسی شوند؛ سطح آزادشده خودکار مفید نیست. نقض خواسته حذف حائل فقط‌دید، حتی با قبولی آزمون حریم، موجب بازگشت طرح است. اگر حذف دیوار دید نامناسب ایجاد کرد، جانمایی بازطراحی شود؛ هیچ‌یک از دو نقص با امتیاز دیگری جبران نمی‌شود. تضاد حل‌نشده یا اثر بررسی‌نشده پذیرش نمی‌سازد و مصالحه خلاف خواسته مالک به تصمیم او نیاز دارد. روش و شواهد در IR-P11/G15 ثبت می‌شوند.",
+      "classification": "mandatory_named_subcondition",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 600,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "q11_functional_boundary"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "q11_boundary118 pending; 117 had no such physical-function gate",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No view-only baffle; actual useful room/closet boundary and before/after functional impact proof missing. Residual labels do not cure."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q12",
+      "source_text": "Q12 MULTIUNIT_FAIRNESS — بدترین واحد در هر معیار و تفاوت جبهه،کیفیت،مفید و خواب؛ میانگین خوب ضعف یک واحد را پنهان نکند. هم‌مساحتی به معنی هم‌کیفیتی نیست.",
+      "classification": "mixed_required_and_preference",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 601,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "worst_unit_function"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "per-unit errors not average",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Worst-unit quality vector/functional minima comparison not implemented as full rubric."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q13",
+      "source_text": "Q13 GEOMETRIC_ORDER — شکست بی‌کارکرد دیوار، نظم بازشوها/تجهیزات و خوانایی؛ معمار با دلیل مکانی داوری کند، نه نمره ظاهری ساختگی AI.",
+      "classification": "quality_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 602,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "no professional geometry-order assessment",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No invented beauty score; reason for wall breaks/opening placement remains review."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "Q14",
+      "source_text": "Q14 DISTINCTNESS — تفاوت واقعی در گراف هسته/تقسیم/روابط، برنامه خواب، V و تخصیص جبهه؛ رنگ،نام،شناسه،seed یا آینه بی‌تفاوت کیفی گزینه تازه نیست.",
+      "classification": "mandatory_if_multiple",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 603,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "geometric_diversity"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "distinct111 only reference113; general engine counts candidates",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Need all-pairs functional geometric dedup; hash/seed/mirror/jitter not diversity. Up to6 conditional not promise."
+      },
+      "mandatory": true,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P01",
+      "source_text": "IR-P01 | فضای مکث و تحویل خرید\nدر همه واحدها؛ بازشدن در، توقف نفر و کیسه خرید بدون انسداد مسیر با شاهد فعالیت کنترل شود؛ حذف پیش‌فضا صرفاً برای افزایش مفید برتری نیست. منبع و ردیابی: S01؛ Q10. مصالحه: کاهش مساحت در برابر مکث و حریم.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3979,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q10,H11; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P02",
+      "source_text": "IR-P02 | کفش، لباس و ذخیره ورودی\nدر همه واحدها؛ حجم و دسترس ذخیره متناسب با سناریوی فرض‌شده ثبت شود؛ کمد ترسیمی بدون عمق/بازشدن کافی شاهد نیست. منبع و ردیابی: S01,S09؛ Q10. مصالحه: انبار یکپارچه در واحد کوچک. الزام جاری این پروژه: فضای مستقلی با عنوان نامشخص «ذخیره» صرفاً برای پرکردن باقیمانده هندسه طراحی نشود. کفش و لباس ورودی با جزء مشخص و برنامه لازم حل شوند؛ انبار مستقل فقط با نیاز صریح مالک، وسایل/تجهیزات معلوم، در و دسترسی قابل استفاده قابل پیشنهاد است. در غیر این صورت سطح حذف، ادغام یا به کاربری واقعی تخصیص یابد، نه فقط تغییر نام.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3981,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "program_functional_roles"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H13,Q11; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Independent unspecified storage forbidden without explicit owner need/equipment/usable access; do not fill residual with storage."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P03",
+      "source_text": "IR-P03 | دید مستقیم از ورودی\nدر همه طرح‌ها و همه واحدها، طبق درخواست صریح مالک، بررسی و رعایت حریم دید الزامی است. از آستانه ورودی، مسیر مهمان/عبور و نقاط مرتبط عمومی تا داخل حوزه خصوصی خواب و محل استفاده سرویس، مبدأ، مقصد، مانع، درهای مؤثر و بخش قابل مشاهده مشخص شوند. دیدن صرفِ در با دیدن تخت/حوزه خصوصی خواب یا ناحیه استفاده WC/دوش یکی نیست و نزدیکی دو در به‌تنهایی حکم رد نمی‌سازد. حالت باز و بسته درها و ترکیب‌های هم‌زمانِ قابل اجرا برای ورود مهمان و زندگی روزمره بررسی شوند؛ محدودکردن بررسی به حالت بسته یا حذف سناریو بدون دلیل ممنوع است. محل ایستادن، حرکت و فعالیت هم‌زمان، عرض/جهت بازشو و ارتفاع/زاویه دید/شفافیت مانع معلوم یا صریحاً مفروض باشند.\nشاهد IR-P03 باید به همان وضعیت پلان و شناسه واحد/فضا/در/دیوار وصل باشد و خط/مخروط دید و بخش مقصدِ قابل مشاهده یا پوشیده را قابل ردگیری کند. شاهد دوبعدی فقط همان دامنه را اثبات می‌کند. دید نامناسب اثبات‌شده به حوزه خصوصیِ مشخص‌شده → رعایت‌نشده و مانع پذیرش محصول تا اصلاح؛ داده یا روش مؤثرِ ناکافی → نامشخص، نه قبول یا نامربوط. رعایت محدود فقط با پوشش همه سناریوهای لازم و شاهد کافی مجاز است. فرض در همیشه بسته، پرده نامشخص یا برچسب هشتی شاهد رفع دید نیست. این الزام جاری محصول در همان IR-P03/Q05 ثبت شده؛ قاعده/شماره تازه یا قانون فاصله و زاویه بی‌سند ایجاد نمی‌کند. منبع و ردیابی: S01,S02؛ Q05؛ درخواست جاری مالک برای بررسی و رعایت حریم در هر طراحی.\nاصلاح IR-P03 برحسب علت به P07 برای در/بازشو، P05 برای ابعاد/جانمایی یا P03 برای سازمان فضایی برمی‌گردد؛ کمبود داده به P02 و بررسی منبع/پروفایل مربوط ارجاع می‌شود. سپس بازسازی و مرور دستی همه معیارها/واحدها طبق E3A/G15 انجام شود. IR-P11 هزینه فضای واسط/پرت/گردش، Q04 حرکت و IR-P21 دید سرویس نسبت به عمومی/پخت را جدا کنترل می‌کنند. حریم بهتر با بستن مسیر، اختلال استفاده یا کاهش نورِ بررسی‌نشده، قبولی کامل نمی‌سازد.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3983,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "privacy_scenarios"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P04",
+      "source_text": "IR-P04 | مسیر مهمان\nدر همه واحدها؛ مسیر ورودی تا نشیمن و WC نباید نیازمند ورود به خواب باشد؛ عدم عبور از خواب حد عملکردی C/H07 است، کیفیت تفکیک لایه ترجیحی است. منبع و ردیابی: S02؛ Q06,H07. مصالحه: دالان کوتاه مفید در برابر گردش اضافی. تکمیل مصوب ۱۰ نوامبر ۲۰۲۶: مسیر مهمان از در واحد تا نشیمن/پذیرایی و WC روی هندسه همان طرح رسم شود و از محدوده کار آشپزخانه یا حوزه خصوصی خواب عبور نکند. نزدیکی سرویس به ورودی با طول واقعی مسیر و تعداد پیچ‌ها سنجیده شود، نه فاصله مستقیم؛ دید به ناحیه استفاده سرویس طبق IR-P03 جدا کنترل شود. شاهد شامل مسیر، محدوده فعالیت و عرض آزاد است؛ تداخل اثبات‌شده رعایت‌نشده و نبود شاهد بررسی‌نشده است. مقصد نخست ورود مهمان در این پروژه نشیمن یا پذیرایی است؛ محور عبور اصلی نباید از پهنه اشغال میز غذاخوری و صندلی عقب‌کشیده بگذرد. آزمون با جای واقعی مبلمان شاهد و مسیر عرض‌دار انجام شود. عوض‌کردن برچسب غذاخوری به نشیمن، بدون اصلاح سازمان و چیدمان، رفع ایراد نیست. تکمیل دسترسی حمام: این ردیفِ مسیر مهمان به نشیمن/WC، شاهد دسترسی حمام نیست. برای هر واحد، مسیر مستقل ساکنان از فضای غیرخصوصی داخل واحد به حمام لازم جدا در H07/H13 و G15 ثبت شود؛ قبولی WC یا عدم عبور مهمان از خواب به حمام کپی نشود. راهروی مشترک ساکنان می‌تواند به خواب‌ها نیز خدمت دهد، مشروط به اینکه مسیر حمام وارد خود خواب یا فضای خصوصی وابسته نشود؛ کیفیت تفکیک مهمان در Q06 مستقل است.\nتکمیل مقصد غذاخوری، ۱۱ نوامبر ۲۰۲۶: برای هر واحد، ورودی→نشیمن/پذیرایی و ورودی→غذاخوری دو زیرآزمون الزامیِ همین شناسه‌اند. هرکدام شاهد مسیر عرض‌دار تا مقصد قابل استفاده، مستقل از محدوده کار/بازشدن تجهیزات/فعالیت آشپزخانه می‌خواهد. عبور غذاخوری از نشیمن مجاز است؛ عبور اجباری از کار آشپزی مردود است. قبولی مسیر نشیمن جای نتیجه غذاخوری نیست؛ جزئیات شاهد و نمونه منفی در بخش «تکمیل کنترل مقصد غذاخوری» همین تب و اثر بر پذیرش در G15 آمده‌اند. کنترل‌های WC، حمام و حریم محفوظ‌اند.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3987,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "guest_living_route",
+        "guest_dining_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H07,H08,Q06,Q07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P05",
+      "source_text": "IR-P05 | حریم شنیداری و بویایی\nدر همه واحدها؛ همجواری خواب با پخت، سرویس، رایزر و مشاع علامت‌گذاری شود؛ فاصله پلان به‌تنهایی عایق صوت/بو را اثبات نمی‌کند. منبع و ردیابی: S03؛ Q05. مصالحه: حمام نزدیک سالمند در برابر صدا.",
+      "classification": "deferred_or_outside_active_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3990,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-P06",
+      "source_text": "IR-P06 | حریم روز و شب\nبا نمای باز به همسایه/مشاع؛ دید متقابل روز و شب، پرده، جان‌پناه و سایه‌بان بررسی شود؛ نبود اطلاعات همسایه نتیجه نامشخص است. منبع و ردیابی: S02,S11؛ Q05. مصالحه: حریم در برابر چشم‌انداز/نور.\nپله و مشاع",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3992,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05,H16; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P07",
+      "source_text": "IR-P07 | آزادی جای پله و سنجش گزینه‌ها\nتعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. در همه طرح‌ها؛ جای هسته قید ثابت نیست؛ مسیر ورودی، مصرف جبهه نور و تقسیم واحدها در جلو/میانه/عقب مقایسه شود؛ هندسه پله تابع H15 است. منبع و ردیابی: F تصمیم ۸ نوامبر؛ S12؛ Q04. مصالحه: کوتاهی مسیر در برابر تخصیص نور. قید مالک در ۹ نوامبر ۲۰۲۶: فقط یک هسته پله مشترک با دسترسی مستقل دو واحد از لابی مشترک مستقل بیرون محفظه راه‌پله؛ دو پله مستقل/هسته اختصاصی هر واحد از پیشنهاد و تولید حذف‌اند. دو بازوی یک راه‌پله مشترک، دو هسته نیست. این قید قانون کشوری نیست و شناسه/شمار معیار تازه‌ای نمی‌سازد؛ تعارض ایمنی/قانونی با شاهد برای تصمیم و متخصص گزارش شود، نه ادعای انطباق یا نقض خودسرانه قید. سابقه ناسازگار فقط کنارگذاشته‌شده می‌ماند. در هر گزینه، اثر محل پله و آسانسور بر طول و مساحت گردش، سهم جبهه باز و استقلال دسترسی واحدها مقایسه شود؛ اگر حل مشکل نیازمند راهروی طولانی یا قربانی‌کردن عمومی است، اصلاح به سازمان هسته و تقسیم واحدها برگردد، نه افزودن پی‌درپی حائل. خوانایی پله با نقطه آغاز، فلش صعود، پاگرد/اتصال، خط برش و تراز یا فرض تراز کنترل شود؛ دایره آغاز به‌تنهایی شاهد درستی مقطع نیست. آسانسور الزامی است؛ کابین، چاه، در مفید، بازشوی سازه، فضای انتظار، چاهک و بالاسری جدا گزارش شوند و نمونه ابعاد سازنده، حد همگانی یا تأیید قانونی نیست. تعادل دسترسی آسانسور الزام کیفی مصوب پروژه است: مسیر واقعی از در کابین تا در هر واحد، طول، تعداد پیچ، عرض آزاد، برخورد درها و فضای انتظار ثبت و دو واحد مقایسه شوند؛ فاصله مستقیم یا تقارن ظاهری کافی نیست. اختلاف محسوس باید با جابه‌جایی هسته/ورودی‌ها یا لابی مستقل متعادل اصلاح شود؛ هیچ حد عددی عمومی برای «ناچیز» اختراع نشود و اختلاف حل‌نشده بدون تصمیم مالک پذیرفته نیست. آسانسور دودرب راهکار اختیاری مقایسه است، نه الزام نصب: نقشه و کنترل درها برای مدل مناسب همان تراز احراز شود و ابعاد تک‌درب خودکار به آن منتقل نشوند. هر راهروی اختصاصی باید با آسانسور خارج از سرویس هم به پله مشترک دسترسی داشته باشد، بدون عبور از واحد دیگر؛ کابین پل اتصال یا مسیر خروج محسوب نشود.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3995,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H15,Q04; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Compare core placements when relevant; fixed-core layout is implementation not mandatory owner location."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P08",
+      "source_text": "IR-P08 | پله به‌عنوان حائل\nدر دو واحد یا مجاورت مشاع؛ امکان نقش حائل دید/صدا سنجیده شود؛ وجود پله به‌تنهایی حریم یا ایمنی حریق نیست. منبع و ردیابی: S12؛ Q05,Q12. مصالحه: سطح مشاع در برابر استقلال واحد.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3997,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05,H15; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P09",
+      "source_text": "IR-P09 | آستانه و برخورد درهای ورودی\nدر همه واحدها؛ در باز واحد/پله و توقف مهمان روی پاگرد و مسیر مشترک سنجیده شود؛ جدایی ورودی با جابه‌جایی صرف برچسب حاصل نمی‌شود. منبع و ردیابی: S12؛ H11,H15. مصالحه: حریم در برابر عرض و طول مشاع.\nاقتصاد و تناسب",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 3999,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "door_operation"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H11,Q10; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P10",
+      "source_text": "IR-P10 | گردش آشکار و پنهان\nدر همه پلان‌ها؛ مسیر عبور از میان مبلمان فرضی، مقابل تلویزیون و ناحیه غذاخوری نیز گردش است؛ مساحت یک‌بار شمرده شود. منبع و ردیابی: S04؛ Q04. مصالحه: راهروی حذف‌شده در برابر اختلال فعالیت. زیرآزمون جاری: مساحت گردش اختصاصی و گردش داخل نشیمن/غذاخوری جدا اندازه‌گیری و بدون دوباره‌شماری گزارش شوند؛ نوار باریک با نام «ادامه نشیمن» فقط وقتی سطح نشستن محسوب شود که چیدمان و عبور هم‌زمان قابل استفاده شاهد داشته باشند. حذف نام راهرو یا دیوار، به‌تنهایی فضای مفید ایجاد نمی‌کند.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4002,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "circulation_functional_integrity"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H06,Q04; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P11",
+      "source_text": "IR-P11 | پرت واقعی و گردش ضروری\nدر همه پلان‌ها، پرت واقعی از دسترسی لازم جدا و بر مبنای عملکرد سنجیده شود. تصمیم صریح جاری مالک: دیوار یا بازوی L که فقط دید به خواب/فضای خصوصی را می‌پوشاند و مرزِ یک فضای واقعاً قابل استفاده نیست، طراحی نشود و از طرح حذف شود. اتصال یک سر دیوار، تغییر نام به «دسترسی خواب»، «حائل عملکردی»، «هال» یا «ذخیره»، و موفقیت آزمون دید این ممنوعیت را رفع نمی‌کند. دیوار واقعی اتاق، حمام یا کمدِ قابل استفاده مجاز است، مشروط به اثبات عملکرد همان فضا؛ ساخت فضای صوری برای توجیه دیوار پذیرفته نیست. برای هر دیوار افزوده، نقش، فضای خدمت‌گیرنده، هندسه، عرض آزاد و امکان استفاده ثبت شود؛ حالت بدون آن با طرح پیشنهادی از نظر مساحت مفید، طول مسیر، چیدمان و دید مقایسه شود. مساحت آزادشده خودکار مفید نیست و گردش ضروری حذف نمی‌شود. حریم با سازمان فضایی، جای/جهت در و مرز واقعی فضاها حل شود. اگر هم‌زمان رفع دید و حذف حائل اضافی حل نشد، طرح برای بازطراحی بازگردد؛ تضاد حل‌نشده صریح گزارش شود و قبولی داده نشود. امتیاز حریم مجوز نقض خواسته مالک نیست و حذف حائل نیز خودکار قبولی حریم نمی‌سازد. هر مصالحه خلاف خواسته صریح به تصمیم مالک نیاز دارد. درصد ثابت پرت وضع نشده است. منبع و ردیابی: S04؛ Q11,Q03,Q05؛ آخرین دستور مالک در ۱۰ نوامبر ۲۰۲۶. دیوار L خواب با دیوار واقعی WC اشتباه نشود؛ تشخیص بر هندسه و کارکرد است، نه نام.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4004,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "q11_functional_boundary",
+        "circulation_functional_integrity"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q11; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P12",
+      "source_text": "IR-P12 | کارایی با مخرج روشن\nدر همه پلان‌ها؛ مفید عملکردی/ناخالص و مفید/سطح بسته جدا گزارش شود؛ فضای باز و نورگیر پرت فرض نشوند. منبع و ردیابی: C/H06,Q03. مصالحه: بیشینه ساخت در برابر کیفیت.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4006,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q03,H06; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P13",
+      "source_text": "IR-P13 | تناسب و مستطیل قابل استفاده\nدر هر اتاق؛ عرض‌های آزاد، تنگ‌شدگی و مستطیل عملکردی با bundle واقعی کنترل شود؛ نسبت طلایی یا طول‌به‌عرض ثابت الزام نیست. منبع و ردیابی: S04؛ Q01,Q02,H12. مصالحه: شکل منظم در برابر سازگاری سایت. در برنامه چندخوابه، پیش‌فرض این پروژه گروه‌بندی خواب‌ها در حوزه خصوصی فشرده است؛ پراکندگی باید دلیل عملکردی و مقایسه مسیر خواب تا حمام، ورود و عمومی داشته باشد. جای کمد در همه خواب‌ها، عمق/طول مفید و عرض آزاد باقیمانده همراه تخت و بازشوی در بررسی شود؛ کمد فقط نماد یا سطح اسمی نیست. در اتاق کشیده، جانمایی کمد روی دیوار عرضی نخست با حالت طولی مقایسه شود تا عرض مفید حفظ شود؛ این پیش‌فرض پروژه است، نه حکم مطلق. عرض و طول خالص پس از دیوار، بدنه کمد، فضای ایستادن و در/کشوی باز با تخت و پنجره سنجیده شود. اگر حالت طولی بهتر است، شاهد مقایسه و دلیل انتخاب ثبت شود؛ عدد اسمی قبل از کسرها نتیجه خالص نیست.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4008,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "private_grouping"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01,Q02,H12; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Compact private bedroom grouping default; dispersion needs actual route/functional comparison, not a new numeric cap."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P14",
+      "source_text": "IR-P14 | مسیر جابه‌جایی وسایل\nدر همه واحدها؛ مسیر ورود وسایل بزرگ فرض‌شده از ورودی/پیچ/در کنترل شود؛ بدون ابعاد وسیله و مسیر نتیجه نامشخص است. منبع و ردیابی: پیشنهاد عملیاتی؛ H08,H11. مصالحه: در بزرگ‌تر در برابر دیوار مفید.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4010,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P15",
+      "source_text": "IR-P15 | گشودن در و کمد و دستگاه\nدر تمام تجهیزات لازم؛ footprint و ناحیه استفاده و بازشدن همزمان لازم سنجیده شود؛ شاهد داخلی است و مبلمان به خروجی اضافه نمی‌شود. منبع و ردیابی: C/H11,H12؛ S09. مصالحه: کمبود سطح در برابر استفاده همزمان. کمد دیواری هر خواب جزء ثابت الزامی و در تصویر مشخص است؛ شاهد داخلی باید ایستادن، در/کشوی باز، استفاده از تخت و عبور را با هم نشان دهد. عمق حدود ۶۰ سانتی‌متر فقط فرض اولیه پیشنهادی است، نه حد قانونی و نه جایگزین مدل انتخابی. برای هر تعارض، شیء و حالت دقیق ثبت و به اصلاح جانمایی برگردانده شود.\nزندگی و مهمان",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4012,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "door_operation",
+        "closet_operation",
+        "bath_service_operation",
+        "chair_capacity_movement"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H11,H12,H17; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P16",
+      "source_text": "IR-P16 | تعادل زندگی روزمره و پذیرایی\nدر همه واحدها؛ کیفیت و سطح قابل استفاده عمومی/خصوصی گزارش شود، نه تحمیل درصد مشاهده‌شده در پژوهش؛ پذیرایی نباید بی‌دلیل خواب/کار روزانه را قربانی کند. منبع و ردیابی: S05؛ Q01,Q06. مصالحه: مهمانی کم‌تکرار در برابر نیاز روزانه. تناسب در جهت معکوس هم کنترل شود: بزرگ‌کردن خواب، سرویس یا رخت‌کن نباید نشیمن/پذیرایی را به پهنه غیرقابل چیدمان تقلیل دهد. ظرفیت و اندازه وسایل فرضی، سطح قابل استفاده و مسیر عبور هر نقش ثبت شود؛ درصد ثابت برای همه واحدها تصویب نشده است. کاهش تعداد خواب در مقایسه گزینه‌ها باید صریح باشد و برنامه لازم بدون مجوز حذف نشود.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4015,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "program_functional_roles",
+        "chair_capacity_movement"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01,Q07,Q12; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Daily/guest capacity needs scenario, no mandatory percentage adopted."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P17",
+      "source_text": "IR-P17 | سناریوهای مهمان و چندنسلی\nفقط اگر نیاز مستند یا سناریوی صریح باشد؛ مهمان رسمی، شب‌مان و دو نسل جدا بررسی شوند؛ نیاز مذهبی/فرهنگی خانواده خاص به همه تعمیم نیابد. منبع و ردیابی: S13؛ Q06. مصالحه: استقلال در برابر فضای مشترک.\nآشپزخانه و خدمات",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4017,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01,Q06; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Multigeneration/overnight guest scenarios not supplied; do not impose cultural program."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P18",
+      "source_text": "IR-P18 | کار روزانه آشپزخانه\nدر همه واحدها؛ مسیر ذخیره، شست‌وشو، آماده‌سازی، پخت و سرو و تداخل با عبور بررسی شود؛ مثلث کار عدد اجباری نیست. منبع و ردیابی: S06؛ Q07,H17. مصالحه: کوتاهی مسیر در برابر سطح آماده‌سازی. برای این پروژه آشپزخانه تا حد امکان نزدیک نشیمن/پذیرایی و در کناره پهنه عمومی قرار گیرد؛ کوتاهی مسیر واقعی سرو و ارتباط روزمره سنجیده شود، نه صرف تماس دو برچسب. پیشنهاد جابه‌جایی آشپزخانه و اتاق خواب فقط با بازآرایی کل پهنه بررسی شود تا خواب‌ها کنار هم بمانند، مسیر مهمان از محدوده کار آشپزی عبور نکند و نور/هوا و حریم حل شوند. صرف تعویض نام دو فضا اصلاح نیست.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4020,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "kitchen_essential_operation"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H17,Q07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Kitchen near living and at public-area edge; essential use plus independent guest route; fixed recipe alone not whole organization proof."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P19",
+      "source_text": "IR-P19 | پخت تا غذا و خرید تا ذخیره\nدر همه واحدها؛ طول و تقاطع مسیر حمل غذا/خرید با نشستن، اجاق و خواب ثبت شود؛ کوتاهی مسیر تنها معیار نیست. منبع و ردیابی: S06؛ Q07. مصالحه: نزدیکی خدمات در برابر دید و بو.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4022,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "serving_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P20",
+      "source_text": "IR-P20 | باز یا بسته بودن آشپزخانه\nدر همه واحدها؛ وضعیت باز، نیمه‌باز یا بسته و قابلیت کنترل بو/دید توضیح داده شود؛ ترجیح ساکن در فرم MVP پرسیده نمی‌شود و فرض باید صریح باشد. منبع و ردیابی: S06؛ Q05,Q07. مصالحه: تعامل در برابر بو، صدا و مهمان. درخواست مالک برای مسیر مهمان مستقل از کار آشپزی به معنی الزام همگانی آشپزخانه بسته نیست. فرض باز/نیمه‌باز/بسته و اثر آن بر دید، بو، ارتباط خانوادگی و نور در گزارش جدا ثبت شود؛ پژوهش نمونه‌ای به ترجیح تمام خانوارهای ایرانی تعمیم نیابد.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4024,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H13,Q07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Open/closed/linear kitchen can be internally searched without extra preference questions; disclose assumption."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P21",
+      "source_text": "IR-P21 | WC و آشپزخانه: دسترسی و دید\nدر همه واحدها؛ در مستقیم، خط دید، مسیر مهمان و امکان کنترل بو جدا از فاصله هندسی ثبت شوند؛ قاعده عمومی فاصله چندمتری مستند نشده؛ دیوار مشترک به‌تنهایی رد نیست. منبع و ردیابی: S07؛ Q05,Q07؛ L01–L03. مصالحه: تجمیع لوله‌ها در برابر حریم. دسترسی سرویس مهمان در این پروژه از حوزه ورودی و تا حد امکان نزدیک آن باشد، نه روبه‌روی محل نشستن. جهت در به سمت ورود به معنی هم‌محوری در WC و در اصلی نیست: دید پاگرد، آستانه، مسیر مهمان و نشیمن به پهنه استفاده با حالت‌های قابل وقوع درها کنترل شود. چرخش خود سرویس/در بر افزودن دالان‌ها و حائل‌های متعدد اولویت مقایسه دارد.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4026,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "bath_service_operation",
+        "privacy_scenarios"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05,H07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P22",
+      "source_text": "IR-P22 | تجمیع نواحی تر\nدر همه واحدها در حد رزرو دوبعدی؛ مجاورت پخت/حمام/WC و مسیر فرضی خدمات سنجیده شود؛ تأسیسات واقعی و انطباق رایزر عمودی بررسی نشده‌اند. منبع و ردیابی: S08؛ H17. مصالحه: هزینه خدمات در برابر نور و انعطاف.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4028,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H17; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P23",
+      "source_text": "IR-P23 | نبود رختشویی در MVP\nدامنه MVP: تعداد فضای، تجهیز و رزرو رختشویی در هندسه، جدول مساحت و تصویر نهایی باید صفر باشد. هر حضور اثبات‌شده FAIL_SCOPED است و برای اصلاح بازمی‌گردد. زنجیره جمع‌آوری/شستن/خشک‌کردن/اتو از برنامه فعلی خارج و صرفاً پژوهش آینده است؛ حمام و فضای خشک لازمِ استفاده از آن باقی‌اند. این تصمیم جایگزین همه الزام‌های قبلی اتصال لباسشویی به حمام است.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4030,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "zero_laundry"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H13; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "ZERO laundry spaces/equipment/reserves; historical laundry requirements superseded, not pending laundry operation."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P24",
+      "source_text": "IR-P24 | ذخیره روزانه و فصلی\nدر همه واحدها؛ حجم قابل دسترس و بازشدن واقعی جدا از مساحت اسمی انباری ثبت شود؛ گوشه باقیمانده بدون شاهد ذخیره انبار نیست. منبع و ردیابی: S09,S10؛ Q11,H12. مصالحه: حجم ذخیره در برابر دیوار نورگیر.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4032,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "program_functional_roles"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H12,Q11; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P25",
+      "source_text": "IR-P25 | دسترسی تعمیرات\nبرای تجهیزات و محل خدمات پیشنهادی؛ مسیر تعویض و دریچه دسترس بدون تخریب نامتناسب بررسی شود؛ در MVP فقط امکان رزرو و نامعلوم‌های فنی گزارش شود. منبع و ردیابی: پیشنهاد عملیاتی؛ H17. مصالحه: فشردگی هسته در برابر نگهداری.\nانعطاف",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4034,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H17; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P26",
+      "source_text": "IR-P26 | چیدمان جایگزین\nدر اتاق‌های اصلی؛ در صورت امکان دو چیدمان واقعی داخلی با وسایل هم‌اندازه مقایسه شود؛ الزام همگانی دو چیدمان مصوب نیست و خروجی همچنان بدون مبلمان است. منبع و ردیابی: S08,S09؛ Q01. مصالحه: ثبات تجهیزات در برابر چندکاربردی.",
+      "classification": "preference_or_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4037,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Two alternate layouts desirable if feasible, not universal mandatory pair."
+      },
+      "mandatory": false,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P27",
+      "source_text": "IR-P27 | تغییر کارکرد بدون جابه‌جایی خدمات\nدر اتاق‌های قابل تغییر؛ تبدیل خواب/کار با نور، حریم و دسترس ثابت سنجیده شود؛ اتاق برچسبی یا حذف خواب لازم مجاز نیست. منبع و ردیابی: S08؛ H13,Q01. مصالحه: انعطاف در برابر کارایی حال.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4039,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H13,Q01; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P28",
+      "source_text": "IR-P28 | کاربری عناصر متحرک\nفقط اگر تخت/پارتیشن/میز متحرک پیشنهاد شود؛ فضای باز و بسته، ذخیره و زحمت تبدیل بررسی شود؛ نمونه کوچک یک دفتر اثبات راحتی همه کاربران نیست. منبع و ردیابی: S09؛ Q01. مصالحه: صرفه‌جویی سطح در برابر نگهداری و توان کاربر.\nنور و اقلیم",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4041,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H11,H12; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P29",
+      "source_text": "IR-P29 | نور به محل فعالیت\nتعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. در فضاهای اقامت؛ عمق فعالیت تا بازشو، موانع و توزیع نور بررسی شود؛ فرصت بازشو یا درصد پنجره معادل روشنایی کافی نیست. منبع و ردیابی: S14؛ H16,Q08. مصالحه: سطح شیشه در برابر گرما و خیرگی. برای حمام و WC نیز وجود پنجره/مسیر نور، نور طبیعی مؤثر و تهویه طبیعی یا مکانیکی سه نتیجه جدا ثبت شوند. داکت بسته نورگیر نیست و شکل پنجره به‌تنهایی کفایت نور یا تهویه را اثبات نمی‌کند؛ داده غایب با علت مشخص گزارش شود.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4044,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H16,Q08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-P30",
+      "source_text": "IR-P30 | تخصیص جبهه نور\nتعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. در همه واحدها؛ سهم خواب و زندگی از جبهه مفروض و اشغال آن با کمد/خدمات ثبت شود؛ آشپزخانه مرکزی فقط با راه‌حل تهویه قابل بررسی است. منبع و ردیابی: S15؛ Q08. مصالحه: نور نشیمن در برابر نور پخت.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4046,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H16,Q08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-P31",
+      "source_text": "IR-P31 | خیرگی و آسایش دید\nاگر محل تلویزیون/کار فرض شده؛ جهت دید نسبت به پنجره و امکان کنترل تابش سنجیده شود؛ بدون هندسه و ساعات تابش ادعای قطعی ممنوع. منبع و ردیابی: S14؛ Q08. مصالحه: دید بیرون در برابر صفحه نمایش.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4048,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-P32",
+      "source_text": "IR-P32 | تهویه متقاطع مشروط\nتعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. در همه واحدها؛ بازشوهای فعال، مسیر هوا و موانع احتمالی ثبت شوند؛ دو پنجره لزوماً تهویه متقاطع نیست؛ بدون باد/مقطع فقط پتانسیل گزارش شود. منبع و ردیابی: S16؛ Q09. مصالحه: تهویه در برابر آلودگی، صدا و سرما.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4050,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q09; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-P33",
+      "source_text": "IR-P33 | جهت و اقلیم محلی | محفوظ برای پس از MVP\nPOST_MVP_ARCHIVE / DEFERRED: جهت جغرافیایی و اقلیم محلی، شهر و تحلیل گرمایش/سرمایش در MVP فعال نیستند؛ این معیار بر تولید، امتیاز، رد یا پذیرش اثر نمی‌گذارد و داده‌ای از کاربر نمی‌خواهد. منابع S11/S14 و سابقه Q08/Q09 برای پس از MVP محفوظ‌اند. فرصت نور و بازشو فقط با هندسه و فرض آشکارِ معیارهای مستقل سنجیده می‌شود؛ عدم بررسی اقلیم، انطباق یا معافیت قانونی نیست.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4052,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q08,Q09; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-P34",
+      "source_text": "IR-P34 | نورگیر و سطح باز\nاگر فضای آسمان‌باز پیشنهاد شود؛ مالکیت، بازبودن به آسمان و نقش نور/هوا ثبت شود؛ نه پرت خودکار و نه مجوز قانونی نورگیری تلقی شود. منبع و ردیابی: S11,S17؛ H04,H16. مصالحه: کاهش سطح بسته در برابر کیفیت.\nتراس و نما",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4054,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H04,H16; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No forced courtyard; open void conditional real need and source scope; no assumed sky/rights."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P35",
+      "source_text": "IR-P35 | تراس قابل استفاده\nاگر تراس هست؛ سطح خالص پس از تجهیزات، ابعاد آزاد و سناریوی نشستن/خدمات بررسی شود؛ معیار پیشنهادی مطالعه رشت قانون نیست. منبع و ردیابی: S18,S04؛ Q01. مصالحه: مساحت اسمی در برابر سطح واقعاً قابل استفاده.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4057,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P36",
+      "source_text": "IR-P36 | دسترسی متناسب با نقش تراس\nاگر تراس هست؛ نقش خصوصی/مهمان/خدمات و دسترسی از فضای مناسب ثبت شود؛ الزام همگانی دسترسی از آشپزخانه نداریم. منبع و ردیابی: S11؛ Q06,Q07. مصالحه: خدمت‌رسانی در برابر حریم خواب.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4059,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P37",
+      "source_text": "IR-P37 | نور و حریم تراس\nاگر تراس هست؛ دید همسایه، عمق، سایه و فیلتر قابل تنظیم بررسی شود؛ دید واقعی بدون اطلاعات پیرامون نامشخص است. منبع و ردیابی: S11,S18؛ Q05,Q08. مصالحه: سایه و حریم در برابر روشنایی داخل.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4061,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05,Q08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P38",
+      "source_text": "IR-P38 | نگهداری نما و پنجره\nبرای بازشو/سایه‌بان/گیاه پیشنهادی؛ امکان دسترس پاک‌سازی و نگهداری ثبت شود؛ دسترس ایمن ارتفاع با پلان دوبعدی اثبات نمی‌شود. منبع و ردیابی: S17؛ Q13. مصالحه: عمق پوسته در برابر هزینه و ایمنی.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4063,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H16; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P39",
+      "source_text": "IR-P39 | هماهنگی نما و پلان\nدر همه طرح‌ها در حد محل بازشو؛ قرارگیری پنجره با عملکرد داخلی، کمد و حریم هماهنگ باشد؛ تقارن نما هدف برتر از استفاده اتاق نیست. منبع و ردیابی: S11,S19؛ Q13. مصالحه: نظم نما در برابر نیاز اتاق.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4065,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "actual_opening_geometry"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H16,Q13; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P40",
+      "source_text": "IR-P40 | پاسخ متفاوت جبهه‌ها\nوقتی زمینه معلوم است؛ جهت، مدرسه/معبر/همسایه و منظره هر جبهه جدا ثبت شود؛ یکسان‌سازی همه نماها قاعده نیست. منبع و ردیابی: S12؛ Q05,Q08. مصالحه: بسته‌شدن حریم در برابر نور و دید.\nهماهنگی و آینده",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4067,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q05,Q08; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P41",
+      "source_text": "IR-P41 | هماهنگی سازه\nدر مرجع جامع باقی می‌ماند ولی در MVP نامربوط با دلیل «ستون/سازه خارج دامنه»؛ هیچ ستون، دهانه مجاز یا ذخیره سازه‌ای از این بند وارد مدل نمی‌شود. منبع و ردیابی: PRD D04؛ پیشنهاد مرحله بعد. مصالحه: آزادی پلان در برابر قابلیت ساخت آینده.",
+      "classification": "deferred_or_outside_active_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4070,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H15; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "No columns/structure in MVP, not waiver of laws."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-P42",
+      "source_text": "IR-P42 | تداوم عمودی تأسیسات\nدر طراحی کل ساختمان؛ در MVP نامربوط با دلیل تک‌تراز؛ رزرو دوبعدی جاری ذیل P22 و H17 باقی است. منبع و ردیابی: S08؛ PRD D05. مصالحه: استقلال طبقات در برابر اقتصاد رایزر.",
+      "classification": "deferred_or_outside_active_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4072,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H17; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Single-level scope, not vertical MEP certification."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-P43",
+      "source_text": "IR-P43 | زمین نامنظم\nبرای قطعه غیرمستطیل در آینده؛ در MVP نامربوط چون ورودی مستطیل است؛ تجربه بنا مثلثی مجوز تغییر دامنه نیست. منبع و ردیابی: S19؛ PRD D06. مصالحه: نظم اتاق در برابر هندسه زمین.\nمقایسه",
+      "classification": "deferred_or_outside_active_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4074,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: H01; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Rectangular inputs only; irregular parcel outside."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-P44",
+      "source_text": "IR-P44 | کیفیت بدترین واحد\nدر دو واحد؛ کمترین کیفیت نور، دسترس، حریم و مفید جدا از میانگین و اختلاف واحدها گزارش شود؛ برابری مساحت کافی نیست. منبع و ردیابی: C/Q12. مصالحه: بازده کل در برابر عدالت کیفیت.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4077,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "worst_unit_function"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q12; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P45",
+      "source_text": "IR-P45 | مصالحه و تنوع واقعی\nدر همه گزینه‌ها؛ مزیت و هزینه هر تغییر و گزینه مغلوب ثبت شود؛ وزن یا آستانه ساختگی نسازید؛ گزینه تکراری با رنگ متفاوت گزینه تازه نیست. منبع و ردیابی: C/Q14,C4؛ Q03–Q13. مصالحه: Pareto و انتخاب شفاف به‌جای نمره پنهان.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4079,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "geometric_diversity"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q14; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-L01",
+      "source_text": "IR-L01 | مسیر دسترسی و آشپزخانه. برای دسترسی اقامت/کار و نقش آشپزخانه در مسیر؛ مبحث۴ نسخه۱۳۹۶ بند ۴-۵-۵-۱-۲ در L-S01 بررسی شود. روش: گراف در و مسیر واقعی همراه کاربری و نوع آشپزخانه. تفسیر/شمول و نسخه رسمی باید تأیید شود؛ روایت S20 جای قانون نیست. وضعیت پیش‌فرض بدون این بررسی نامشخص است.",
+      "classification": "conditional_legal_not_activated",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4082,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-L02",
+      "source_text": "تعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. IR-L02 | نور و تهویه آشپزخانه. برای نوع مستقل/باز/دیواری؛ بخش ۴-۵-۵-۳ نسخه۱۳۹۶ در L-S01 با زیرحالت مربوط و متن کامل تطبیق شود. روش: نوع آشپزخانه، بازشو و مسیر تخلیه؛ بدون مشخصات تهویه فقط پتانسیل گزارش شود، نه انطباق.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4083,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "IR-L03",
+      "source_text": "تعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. IR-L03 | فضای بهداشتی. برای WC/حمام و آرایش ادغام/تفکیک؛ بخش ۴-۵-۶ نسخه۱۳۹۶ در L-S01. ابعاد مفید، تجهیزات، دسترسی و تهویه به بند دقیق و شمول مرتبط شوند. عدد عمومی بدون مبنای اندازه‌گیری درج نشود.",
+      "classification": "conditional_legal_not_activated",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4084,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-L04",
+      "source_text": "IR-L04 | پله، خروج، دسترس‌پذیری و بازشو. در طراحی کامل ساختمان نیازمند منابع رسمی جاری و شرایط طبقات/جمعیت/ارتفاع است؛ در این پژوهش مجموعه بندهای لازم تأیید نشده. H15 فقط رزرو دوبعدی است؛ این ردیف برای ادعای کامل قانونی نامشخص/بررسی‌نشده می‌ماند و طراحی تمام ساختمان خارج دامنه گزارش می‌شود.",
+      "classification": "deferred_legal_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4085,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-L05",
+      "source_text": "IR-L05 | اقلیم، انرژی، صوت، سازه و تأسیسات. بسته مقرراتی جامع این حوزه‌ها در این پژوهش تأیید نشده؛ شهر به‌تنهایی شاهد انطباق نیست. در MVP بررسی کامل خارج دامنه است؛ ثبت «نامربوط به ارزیابی جاری، نه معاف از قانون» همراه مرز ادعا لازم است. بررسی محدود هر بند در آینده ردیف و نسخه اختصاصی می‌گیرد.",
+      "classification": "deferred_legal_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4086,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true
+    },
+    {
+      "id": "IR-P46",
+      "source_text": "IR-P46 | نوع P | هزینه فرصت و کفایت حیاطک\nتعیین دامنه ۱۲ نوامبر ۲۰۲۶: هر بخش این بند درباره کفایت نور/تهویه یا تأیید فنی و اجرای پله/آسانسور فقط POST_MVP / NOT_EVALUATED است و گیت MVP نیست؛ سایر کنترل‌های هندسی و کارکردیِ داخل دامنه محفوظ‌اند. شرط کاربرد: هر پلان دارای فضای باز داخلی یا عقب‌نشستگی پیشنهادی. روش: برای هر فضای باز، نوع، مساحت و ابعاد خالص، نسبت آن به ناخالص قاب با مخرج ثابت، عملکرد و اتاق‌های نورگیر وابسته ثبت شود. با گزینه کوچک‌تر یا جابه‌جا‌شده مقایسه گردد؛ گزینه حذف فقط اگر جایگزین عملکرد واقعاً ممکن باشد. اندازه ۲×۳ متر که در بازخورد مالک پیشنهاد شده، نامزد مقایسه است نه حد مصوب برای همه پلان‌ها. کاهش مساحت حیاطک فقط با بررسی اتاق‌های وابسته، بازشوها، ارتفاع/موانع یا فرض صریح آن‌ها، تهویه، اشراف و نگهداری قابل دفاع است؛ اختلاف عددی مساحت خودکار مساحت خالص قابل استفاده نمی‌شود. در طرح چندحیاطکی، گزینه مشترک با بازشوهای جابه‌جا و کنترل اشراف با گزینه مستقل مقایسه شود. در هر کاهش، سطح بازیافتی و کاربرد آن اندازه‌گیری شود؛ نوار باریک بدون بهبود کارکرد، منفعت قطعی نیست. حیاطکی که خدمات از نما پنجره دارند و فقط برای عمق عمومی پیشنهاد شده باید در برابر حذف و جانمایی جایگزین هم سنجیده شود. اندازه ۶، ۱۲ یا ۵٫۲۲ مترمربع سابقه طرح است، نه کمینه مصوب. دسترسی نگهداری باید با طبقه و ارتفاع واقعی حیاطک سازگار باشد؛ برچسب اتاق بازدید اثبات ضرورت مساحت نیست.\nشاهد لازم: پلان قبلی و تازه با revision؛ اندازه و محل V/حیاطک؛ سطح مفید نشیمن/پخت قبل و بعد با مبنای یکسان؛ عرض‌ها و جاگیری داخلی؛ بازشوهای واقعی و فرض‌های جبهه؛ هزینه حریم/نور/هوا؛ وضعیت IR-L06. کل مساحت آزادشده نباید بدون محاسبه به مفید اضافه شود و سهم فضای باز با درصد ثابت دلخواه PASS/FAIL نشود.\nهدف ترجیحی این مأموریت: سطح باز بیش از نیازِ قابل توجیه، به سود فضای زندگی قابل استفاده کاهش یابد. «رعایت شده» فقط در حد مقایسه مفهومی و با شاهدِ بهبود و نبود افت معلوم در قیود ضروری اعلام شود؛ کفایت واقعی نور/هوا و قانون اگر داده ندارد جدا نامشخص بماند. اگر داده حیاتی برای خود تصمیم کاهش موجود نیست، معیار نامشخص است، نه قبول خودکار. مصالحه: سطح زندگی در برابر نور، هوا، حریم و استفاده واقعی بیرونی. منابع: S22،S23،S25؛ پیوند P12/P29–P34 و H06/H16/H17.",
+      "classification": "conditional",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4169,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "nonmandatory_review_or_outside_scope",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q03,H16; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance."
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-P47",
+      "source_text": "IR-P47 | نوع P | پیوند نشیمن و پذیرایی و جای آشپزخانه\nشرط کاربرد: پلان دارای دو نقش نشیمن خانوادگی و پذیرایی مهمان، حتی در یک فضای مشترک. روش: پیوند مستقیم یا مسیر مستقل بین دو نقش، طول و گلوگاه مسیر، برخورد آن با محدوده کار آشپزخانه، قابلیت چیدمان و تغییرپذیری پهنه جمعی، دید مهمان به پخت و امکان کنترل آلودگی/بو/صدا ثبت شود. تماس هندسی دو ناحیه یا نام‌گذاری اتاق برای اثبات پیوستگی کافی نیست. پیش‌فرض کیفیت این پروژه پیوستگی نشیمن و پذیرایی و آشپزخانه در کناره‌ای است که مسیر مهمان و ارتباط عمومی را قطع نکند. تقسیم فضای عمومی با آشپزخانه یا ورود/غذاخوری پراکنده باید با گزینه پیوسته مقایسه شود؛ باقیمانده بی‌کارکرد حذف شود، نه مسیر ضروری. نتیجه بر مبنای چیدمان، طول/گلوگاه مسیر و تداخل فعالیت ثبت شود؛ حکم کلی «هیچ‌گاه در معماری ایرانی» صادر نشود.\nگزینه مبنای این مأموریت: نشیمن/پذیرایی پیوسته و قابل استفاده با آشپزخانه در کنار آن. برای این پروژه آشپزخانه تا حد امکان نزدیک نشیمن/پذیرایی و در کناره پهنه عمومی قرار گیرد؛ کوتاهی مسیر واقعی سرو و ارتباط روزمره سنجیده شود، نه صرف تماس دو برچسب. پیشنهاد جابه‌جایی آشپزخانه و اتاق خواب فقط با بازآرایی کل پهنه بررسی شود تا خواب‌ها کنار هم بمانند، مسیر مهمان از محدوده کار آشپزی عبور نکند و نور/هوا و حریم حل شوند. صرف تعویض نام دو فضا اصلاح نیست. استثنای خلاف خواسته صریح مالک بدون تصمیم او پذیرفته نیست؛ مسئله مسیر قانونی آشپزخانه جداگانه در IR-L01 بررسی شود.\nشاهد لازم: مسیر ورودی مهمان و مسیر نشیمن↔پذیرایی روی revision مشخص؛ envelope داخلی اجاق، سینک، کابینت و فعالیت؛ پهنه مفید چیدمان؛ محل بازشو و امکان تخلیه هوا به‌عنوان فرض یا طراحی تأییدشده؛ توضیح هزینه و مزیت. آستانه ثابت فاصله/عرض یا رتبه عددی جدید از این بند استخراج نمی‌شود. مصالحه: پیوستگی و مهمانی در برابر حریم روزمره، نزدیکی خدمات و کنترل پخت. منابع S06،S20،S24؛ پیوند P04/P10/P16/P18–P20 و H07/H08/H17.",
+      "classification": "mandatory_subcondition_plus_review",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4173,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [
+        "program_functional_roles",
+        "serving_route"
+      ],
+      "condition": {
+        "kind": "rule_specific_required_conditions",
+        "note": "Read full source_text; a mixed row is not wholly mandatory or wholly exempt."
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "Related controls: Q01,Q07; not a row-level independent PASS",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": "Actual living/dining/kitchen relationship and use, not residual-floor assignment."
+      },
+      "mandatory": true,
+      "preference_component": true,
+      "out_of_scope_component": false
+    },
+    {
+      "id": "IR-L06",
+      "source_text": "IR-L06 | نوع L مشروط | شمول و ابعاد فضای باز نورگیر\nشرط کاربرد: وقتی از حیاطک/پاسیو برای ادعای تأمین نور و هوا استفاده می‌شود. پیش از حدگذاری: نوع فضای باز، کاربری اتاق‌های وابسته، مساحت واقعی زمین در برابر قاب طراحی، گروه و ارتفاع ساختمان، پنجره‌های روبه‌رو و استقلال تصرف‌ها، ضوابط محلی و ویرایش/اصلاحیه منبع روشن شود.\nارجاع برای بازبینی: مبحث۴ نسخه۱۳۹۶، بخش ۴-۵-۸-۳ و مقررات اختصاصی مسکونی/نورگیری مرتبط؛ این ارجاع فهرست جست‌وجو است و بسته بندهای اجرایی تأییدشده نیست. دسترسی جاری به لینک رسمی قدیمی ناموفق بود و آخرین مجموعه رسمی لازم‌الاجرا/شمول محلی تأیید نشد. اعداد رایج ۶/۱۲ مترمربع یا ۳/۶ درصد، بدون شاخه و شرایط مربوط وارد قاعده فعال نمی‌شوند. مساحت مستطیل MVP خودکار مساحت ثبتی زمین نیست.\nنتیجه پیش‌فرض در فقدان منبع و داده: نامشخص / SOURCE_REVIEW_REQUIRED یا INPUT_REQUIRED. خارج‌بودن طراحی کل ساختمان از MVP، معافیت حقوقی نورگیر نیست. هیچ تخفیف ابعادی یا تأیید شهرداری با این افزوده صادر نمی‌شود.",
+      "classification": "excluded_by_latest_owner_scope",
+      "observed": "Read-only source/code comparison; no new generator or validation run",
+      "source": {
+        "document": "Blueprint",
+        "path": "planha_rules_audit118/blueprint_full.txt",
+        "line": 4177,
+        "modified_time": "2026-11-12T19:13:23.746Z",
+        "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+      },
+      "requirement_ids": [],
+      "condition": {
+        "kind": "owner_excluded_light_vent121"
+      },
+      "implemented_evidence_mapping": {
+        "code_reference": "No current-source/applicability legal validator",
+        "status": "PARTIAL_MAPPING_NOT_PROOF",
+        "known_gap": ""
+      },
+      "mandatory": false,
+      "preference_component": false,
+      "out_of_scope_component": true,
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "id": "input_exact_domain",
+      "source_rule_ids": [
+        "H01"
+      ],
+      "criterion": "Exact W/L 5..45 and n1/2; invalid input rejected before generation",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": "input_exact_domain",
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "no_hidden_project_inputs",
+      "source_rule_ids": [
+        "H01"
+      ],
+      "criterion": "Three-field project brief; no city/north/typology hidden defaults",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "containment_all_entities",
+      "source_rule_ids": [
+        "H02"
+      ],
+      "criterion": "All actual geometry incl walls/openings/core inside exact frame",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "valid_exact_regions",
+      "source_rule_ids": [
+        "H03"
+      ],
+      "criterion": "Positive rectangle-union geometry, no bbox substitution for holes",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": "valid_exact_regions",
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "partition_ledger",
+      "source_rule_ids": [
+        "H04",
+        "H06",
+        "Q03",
+        "IR-P12"
+      ],
+      "criterion": "Full disjoint ownership/common/walls/open/unallocated ledger; net/gross/functional areas distinct",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "unit_independence",
+      "source_rule_ids": [
+        "H05",
+        "Q06"
+      ],
+      "criterion": "Exactly requested independent units and entrances; no hidden merge",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "bath_nonprivate_access",
+      "source_rule_ids": [
+        "H07",
+        "H13",
+        "IR-P04"
+      ],
+      "criterion": "Remove bedroom/private-vestibule nodes; usable common-resident bath remains reachable",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "body_route_sweeps",
+      "source_rule_ids": [
+        "H08",
+        "H12"
+      ],
+      "criterion": "Every required target has source-bound body-width continuous collision-free route",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "wall_network",
+      "source_rule_ids": [
+        "H09"
+      ],
+      "criterion": "Actual unique connected wall network, thickness and finished-face assumptions bound",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "opening_hosts",
+      "source_rule_ids": [
+        "H10"
+      ],
+      "criterion": "Actual cut host, correct two regions and free aperture",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "door_operation",
+      "source_rule_ids": [
+        "H11",
+        "IR-P09",
+        "IR-P15"
+      ],
+      "criterion": "All applicable real leaves: panel/actor/approach/transfer and relevant simultaneous state collisions",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "fixture_inventory_use",
+      "source_rule_ids": [
+        "H12",
+        "H13",
+        "Q01"
+      ],
+      "criterion": "Immutable fixture count/dimensions and every required per-room use target; no scale",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "closet_operation",
+      "source_rule_ids": [
+        "H12",
+        "IR-P15"
+      ],
+      "criterion": "Each bedroom actual closet panels/body/use paths and storage boundary",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "program_functional_roles",
+      "source_rule_ids": [
+        "H13",
+        "Q01",
+        "IR-P02",
+        "IR-P16",
+        "IR-P24",
+        "IR-P47"
+      ],
+      "criterion": "Actual programmed usable spaces, no residual-floor living or unnamed storage substitution",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "zero_laundry",
+      "source_rule_ids": [
+        "H13",
+        "IR-P23"
+      ],
+      "criterion": "Zero laundry room/equipment/reserve in geometry/report/export",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": "zero_laundry",
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "core_concept",
+      "source_rule_ids": [
+        "H15"
+      ],
+      "criterion": "One shared stair, lift, independent lobby and routes; no execution claim",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "window_opportunities",
+      "source_rule_ids": [
+        "H16",
+        "Q08",
+        "IR-P30",
+        "IR-P39"
+      ],
+      "criterion": "Every bedroom/main living actual host/contact/open-edge/height and equipment projection",
+      "mandatory": false,
+      "condition": "owner_excluded_light_vent121",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted",
+      "classification": "excluded_by_latest_owner_scope",
+      "scope_authority": {
+        "date": "2026-11-14",
+        "source": "Latest direct owner instruction relayed by parent in this task",
+        "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+        "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+      }
+    },
+    {
+      "id": "kitchen_essential_operation",
+      "source_rule_ids": [
+        "H17",
+        "Q07",
+        "IR-P18"
+      ],
+      "criterion": "Essential actual refrigerator/sink/prep/cooker/storage operations and task paths, not optional oven/full-MEP",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "bath_service_operation",
+      "source_rule_ids": [
+        "H17",
+        "IR-P15",
+        "IR-P21"
+      ],
+      "criterion": "WC/shower/basin entry-close-use-exit and actual use clearances",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "privacy_scenarios",
+      "source_rule_ids": [
+        "Q05",
+        "IR-P03",
+        "IR-P21"
+      ],
+      "criterion": "All relevant public/entry/guest sources to bed/changing/WC/shower; actual open/closed simultaneous states; conditional proofs labelled",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "guest_living_route",
+      "source_rule_ids": [
+        "H07",
+        "Q06",
+        "Q07",
+        "IR-P04"
+      ],
+      "criterion": "Entry to living independent of bedrooms/kitchen work/open-equipment areas and dining occupied/pulled chairs",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "guest_dining_route",
+      "source_rule_ids": [
+        "H07",
+        "Q07",
+        "IR-P04"
+      ],
+      "criterion": "Separate entry-to-dining usable route independent of kitchen work/equipment use",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "chair_capacity_movement",
+      "source_rule_ids": [
+        "H12",
+        "Q01",
+        "Q07",
+        "IR-P15",
+        "IR-P16"
+      ],
+      "criterion": "Required dining chairs pull/stand with other required seats occupied; living capacity access",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "serving_route",
+      "source_rule_ids": [
+        "Q07",
+        "IR-P19",
+        "IR-P47"
+      ],
+      "criterion": "Actual kitchen-to-dining serving path independent of occupied furniture/activity conflicts",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "long_corridor_necessity",
+      "source_rule_ids": [
+        "Q04",
+        "IR-P10",
+        "IR-P11"
+      ],
+      "criterion": "Review actual alternative, lengths/area/bends and reasons/tradeoffs for relevant corridor issues; no dominance/global necessity requirement. Absence remains visible REVIEW_REQUIRED, not hard rejection.",
+      "mandatory": false,
+      "condition": "corridor_issue_requires_applicability",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted",
+      "classification": "documented_comparison_review",
+      "historical_name_preserved": true
+    },
+    {
+      "id": "private_grouping",
+      "source_rule_ids": [
+        "IR-P13"
+      ],
+      "criterion": "Multiple bedrooms grouped compactly or explicit functional route comparison for dispersion",
+      "mandatory": true,
+      "condition": "multi_bedroom",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "q11_functional_boundary",
+      "source_rule_ids": [
+        "Q11",
+        "IR-P11"
+      ],
+      "criterion": "No sight-only baffle; actual useful room/bath/closet boundary and operation, before/after impacts, privacy preserved",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "worst_unit_function",
+      "source_rule_ids": [
+        "Q12",
+        "IR-P44"
+      ],
+      "criterion": "All mandatory functional subconditions per unit; never average-away failure",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "geometric_diversity",
+      "source_rule_ids": [
+        "Q14",
+        "IR-P45"
+      ],
+      "criterion": "If multiple: all unordered pairs functional-geometric distinction; no mirror/id/seed/jitter duplication",
+      "mandatory": true,
+      "condition": "multiple_candidates",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "export_parity",
+      "source_rule_ids": [
+        "H18"
+      ],
+      "criterion": "Final served preview/DXF same canonical geometry/labels/scale/windows/fixed elements/warnings; no movable furniture/columns",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "immutable_history",
+      "source_rule_ids": [
+        "H19"
+      ],
+      "criterion": "Inputs/model/profile/rules/evidence/final artifacts same revision; old final history preserved",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "claim_boundary",
+      "source_rule_ids": [
+        "H20"
+      ],
+      "criterion": "Pre-render declaration in canonical model/report: explicit Concept scope, assumptions and no national/full-building/technical approval. This does not prove visible warnings.",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "owner_access",
+      "source_rule_ids": [
+        "H21"
+      ],
+      "criterion": "Owner authorization for history/download, no identifier-only access; scoped local mode explicit",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "llm_budget",
+      "source_rule_ids": [
+        "H22"
+      ],
+      "criterion": "If LLM used aggregate spend+reservations+next max<=2USD incl retries; otherwise verified no-call path",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "per_option_rule_report",
+      "source_rule_ids": [
+        "H19",
+        "H20"
+      ],
+      "criterion": "G6/G15 complete row/subcondition findings bound to same option, evidence, source/date, limitations and remaining actions",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "claim_boundary_display",
+      "source_rule_ids": [
+        "H20"
+      ],
+      "criterion": "Post-export actual visible Concept warning and limitations in final preview/DXF/report, same canonical revision. Declaration alone is insufficient.",
+      "mandatory": true,
+      "condition": "product_stage",
+      "built_in_method": null,
+      "evidence_policy": "Computed by trusted in-process evaluator on this model; caller PASS receipt never accepted"
+    },
+    {
+      "id": "circulation_functional_integrity",
+      "source_rule_ids": [
+        "Q04",
+        "IR-P10",
+        "IR-P11"
+      ],
+      "criterion": "Fresh actual route/body and functional destination checks; circulation measured without double counting, no nonfunctional dead end or relabeling residual floor as useful. No global-shortest/necessity proof.",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Fresh independent geometry and role witnesses, not producer role labels or generic errors=[]"
+    },
+    {
+      "id": "actual_opening_geometry",
+      "source_rule_ids": [
+        "H08",
+        "H18",
+        "IR-P39"
+      ],
+      "criterion": "Only existing modeled opening geometry, actual host/aperture dimensions, physical collisions and artifact consistency; no required daylight/window inventory, light/air potential, sufficiency or rights assessment",
+      "mandatory": true,
+      "condition": "always",
+      "built_in_method": null,
+      "evidence_policy": "Trusted independent model evaluator; no producer receipt"
+    }
+  ],
+  "limits": [
+    "89 registry rows are not 89 equal mandatory tests",
+    "Missing mandatory named evidence is NOT_EVALUATED, not PASS",
+    "No numeric long-corridor, beauty, area ratio or global optimum criterion invented",
+    "Callbacks are trusted internal code, not externally supplied evidence; integration must register real independent tests",
+    "Light and ventilation excluded entirely from MVP checks and remaining work by latest owner instruction; no certification implied."
+  ],
+  "circulation_authority119": {
+    "decision": "Authorized119: actual access and useful function remain hard; documented comparison is review preference, not absolute necessity/global optimality proof.",
+    "prior_contract118_preserved": true,
+    "direct_owner_evidence": "Blueprint1271 quotes objection to marked long corridors without function; parent/root history reports8Nov reduce waste as possible and10Nov specific long-corridor rejection. Exact history verification belongs to root.",
+    "document_policy_evidence": {
+      "Blueprint": [
+        7,
+        3953,
+        3955,
+        3956,
+        4002,
+        4003,
+        4005
+      ],
+      "PRD": [
+        127,
+        128,
+        129
+      ]
+    },
+    "authority_limit": "Document labels12Nov decision but no direct owner message/author binding for stronger comparison sentence established in this audit. Do not conflate document-derived policy with verbatim owner approval.",
+    "absolute_necessity_requirement": "NOT_SUPPORTED",
+    "preserved_required": "Real access/body/functional destination/accounting and no useless circulation disguised by naming. No loss of privacy or function to reduce area."
+  },
+  "light_vent_authority121": {
+    "date": "2026-11-14",
+    "source": "Latest direct owner instruction relayed by parent in this task",
+    "quote": "نور و تهویه رو که قرار شد فعلا از فاز MVP حذف کنی و اصلا بررسی نکنیم",
+    "effect": "No light/ventilation checks, gates, pending items or remaining MVP work; historical evidence preserved, no technical approval. Actual modeled opening geometry/hosts and door safety remain independently checked."
+  }
+}

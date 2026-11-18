@@ -1,0 +1,73 @@
+from fractions import Fraction as F
+import heapq,math
+from contract114 import S
+D=lambda x:F(str(x))
+def Q(r):return tuple(map(D,r))
+def area(r):return max(F(0),r[2]-r[0])*max(F(0),r[3]-r[1])
+def hit(a,b):return max(a[0],b[0])<min(a[2],b[2]) and max(a[1],b[1])<min(a[3],b[3])
+def contained(r,box):return box[0]<=r[0]<r[2]<=box[2]and box[1]<=r[1]<r[3]<=box[3]
+def inside(p,rs):return any(r[0]<=p[0]<=r[2]and r[1]<=p[1]<=r[3]for r in rs)
+def cells(gross,subtract):
+ g=list(map(Q,gross));s=list(map(Q,subtract));rr=g+s
+ xs=sorted({r[i]for r in rr for i in(0,2)});ys=sorted({r[i]for r in rr for i in(1,3)});out=[]
+ for a,b in zip(xs,xs[1:]):
+  for c,d in zip(ys,ys[1:]):
+   p=((a+b)/2,(c+d)/2)
+   if inside(p,g)and not inside(p,s):out.append([S(a),S(c),S(b),S(d)])
+ # Merge only edge-adjacent cells with identical intervals; union is unchanged.
+ rows={}
+ for r in out:
+  a,c,b,d=Q(r);rows.setdefault((c,d),[]).append((a,b))
+ horizontal=[]
+ for (c,d),ivs in rows.items():
+  merged=[]
+  for a,b in sorted(ivs):
+   if merged and merged[-1][1]==a:merged[-1]=(merged[-1][0],b)
+   else:merged.append((a,b))
+  horizontal.extend((a,c,b,d)for a,b in merged)
+ cols={}
+ for a,c,b,d in horizontal:cols.setdefault((a,b),[]).append((c,d))
+ result=[]
+ for (a,b),ivs in cols.items():
+  merged=[]
+  for c,d in sorted(ivs):
+   if merged and merged[-1][1]==c:merged[-1]=(merged[-1][0],d)
+   else:merged.append((c,d))
+  result.extend([S(a),S(c),S(b),S(d)]for c,d in merged)
+ return result
+
+def route(start,end,floor,obstacles,body='.7',max_nodes=18000):
+ start,end=Q(start),Q(end);floor=Q(floor);half=D(body)/2;obs=list(map(Q,obstacles))
+ # Exact integer lifting, not float rounding. Speeds repeated body-clearance queries.
+ den=math.lcm(*(v.denominator for r in [start,end,floor,*obs,(half,)] for v in r))
+ start=tuple(int(v*den)for v in start);end=tuple(int(v*den)for v in end);floor=tuple(int(v*den)for v in floor);obs=[tuple(int(v*den)for v in r)for r in obs];half=int(half*den)
+ inflated=[(r[0]-half,r[1]-half,r[2]+half,r[3]+half)for r in obs]
+ xs=sorted({start[0],end[0],floor[0]+half,floor[2]-half}|{x for r in inflated for x in(r[0],r[2])if floor[0]+half<=x<=floor[2]-half})
+ ys=sorted({start[1],end[1],floor[1]+half,floor[3]-half}|{y for r in inflated for y in(r[1],r[3])if floor[1]+half<=y<=floor[3]-half})
+ if len(xs)*len(ys)>max_nodes:return None,'ROUTE_NODE_BUDGET'
+ def valid(p):return floor[0]+half<=p[0]<=floor[2]-half and floor[1]+half<=p[1]<=floor[3]-half and not any(r[0]<p[0]<r[2]and r[1]<p[1]<r[3]for r in inflated)
+ if not valid(start)or not valid(end):return None,'ROUTE_ENDPOINT_BLOCKED'
+ ix={x:i for i,x in enumerate(xs)};iy={y:i for i,y in enumerate(ys)};a=(ix[start[0]],iy[start[1]]);b=(ix[end[0]],iy[end[1]])
+ def edge(p,q):
+  r=(min(p[0],q[0])-half,min(p[1],q[1])-half,max(p[0],q[0])+half,max(p[1],q[1])+half)
+  return not any(hit(r,o)for o in obs)
+ heap=[(0,a)];dist={a:0};prev={}
+ while heap:
+  dd,k=heapq.heappop(heap)
+  if dd!=dist[k]:continue
+  if k==b:
+   out=[k]
+   while out[-1]!=a:out.append(prev[out[-1]])
+   points=[(xs[i],ys[j])for i,j in out[::-1]];compact=[]
+   for point in points:
+    if len(compact)>1 and ((compact[-2][0]==compact[-1][0]==point[0])or(compact[-2][1]==compact[-1][1]==point[1])):compact[-1]=point
+    else:compact.append(point)
+   return [[S(F(x,den)),S(F(y,den))]for x,y in compact],None
+  i,j=k;p=(xs[i],ys[j])
+  for ni,nj in((i-1,j),(i+1,j),(i,j-1),(i,j+1)):
+   if not 0<=ni<len(xs)or not 0<=nj<len(ys):continue
+   q=(xs[ni],ys[nj]);nk=(ni,nj)
+   if not valid(q)or not edge(p,q):continue
+   cost=dd+abs(p[0]-q[0])+abs(p[1]-q[1])
+   if nk not in dist or cost<dist[nk]:dist[nk]=cost;prev[nk]=k;heapq.heappush(heap,(cost,nk))
+ return None,'NO_CONNECTED_BODY_ROUTE'

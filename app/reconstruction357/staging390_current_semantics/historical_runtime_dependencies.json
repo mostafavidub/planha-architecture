@@ -1,0 +1,394 @@
+{
+  "scope": "All explicit cohort384 historical authority/definitions/ledger/rank0/retained-terminal direct reads; not a general transitive Python closure proof",
+  "definition_source": "reconstruction357/staging382_cohort_binding_fix/cohort382.py",
+  "definition_source_sha256": "0ca25b01738a4385d8f72840fecb847983f4240f10070c05df5b524e455c1de5",
+  "files": [
+    {
+      "path": "independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636/fresh.json",
+      "sha256": "d654f55177653ffcc58924caecdad5c1e5fc7bbaf6f7fe412cb11480a42765ee",
+      "bytes": 1062299,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636/record.json",
+      "sha256": "4ae13e185196e13111dc0f3a642d36f601015679ee724c8517f8b743f8805c05",
+      "bytes": 4904671,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/actual_run/actual_response.json",
+      "sha256": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+      "bytes": 7871762,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/finite_comparison358/bound_comparison_actual358.json",
+      "sha256": "f3be8f9ce1711a57bd7be26265321ddb9bc7451e9c040d19b9015e6a46cd2cde",
+      "bytes": 128412,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/approach_contract123.py",
+      "sha256": "091fae45b5500cce65559941e6330cae33301724c443974f9a252cd1d70ffb68",
+      "bytes": 1334,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/contract114.py",
+      "sha256": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+      "bytes": 6021,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/face_threshold118.py",
+      "sha256": "af70ba3e88e1d40f9a5ebd2e2e20cd33d26f80e16f94fe8e18ca92877a782247",
+      "bytes": 7138,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/final_public_floor120.py",
+      "sha256": "3d81ad3d48a8838b4566dbd1013081270fd85eabdd95fa9267366c995116524b",
+      "bytes": 2867,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/geometry114.py",
+      "sha256": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+      "bytes": 3849,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/nonseating144.py",
+      "sha256": "579eeca44e00b29f55c3ba0968870f08b71e742d4f919bfe48d06ad13dfe64e0",
+      "bytes": 3670,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/nonseating146.py",
+      "sha256": "aa1583cf99d429ced4169deab1bac50b88a1b9e181e6914fc1a9dd3f59a84337",
+      "bytes": 476,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/operations115.py",
+      "sha256": "bd890d2e8c1034085982ecccb15b5e741bf21b77787e2e26815401e96b8ad6ba",
+      "bytes": 2769,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/place_bathroom117.py",
+      "sha256": "60e2ac45337fc9d4e77c972d8ae3ea660aee4d1ccf941b9fabe04b5c63d16d6b",
+      "bytes": 3449,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/place_kitchen117.py",
+      "sha256": "e3b8d024c50f6026dd143b8f39eb64035e2a756c68f6c8dd1e9900e207f9f0dc",
+      "bytes": 4187,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/place_module116.py",
+      "sha256": "128e1545104de9dd3ae3c347c08e2d3f857bd0968dce4ea972a5157f43bfce6a",
+      "bytes": 4201,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/place_module133.py",
+      "sha256": "a945f87b0ef909b166d35da2862251fe3063325c450990c4bde9ce24a38bc007",
+      "bytes": 5979,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/private_branch_hall146.py",
+      "sha256": "69916ef74e925434c8c639cb78e0ee7ce67a719e16428356f4a3287f92fd764a",
+      "bytes": 1893,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/public_witness144.py",
+      "sha256": "4920286ac4eee3fa5aa4e13971c9d28cd873af75e763939a8ae0b469390de828",
+      "bytes": 6167,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/source_rotation133.py",
+      "sha256": "32f28ab42359bac6fdc806cfeaff021e1fb90bad4f89cac5e14c97c4f32a4032",
+      "bytes": 1046,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/spatial_roles118.py",
+      "sha256": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+      "bytes": 4423,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/planha_general150_runtime_work/wall_union118.py",
+      "sha256": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+      "bytes": 1142,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review357_source_identity/result.json",
+      "sha256": "e9a209ea670d380dc5fd74dac8c65169557eb72f20585d80120490050ae39824",
+      "bytes": 1191328,
+      "present_in_385_freeze": false,
+      "matches_385_pin": null
+    },
+    {
+      "path": "reconstruction357/review358_source_validation/result.json",
+      "sha256": "e3646ca62bc89e6cac932204c1ce6608a1156c4edef19b02972a049e815238c8",
+      "bytes": 1186189,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review359_source_validation/result.json",
+      "sha256": "18aae94aca5d25b31d3a630bee12dfce7efe50ac79b32fd1409c517e011538ec",
+      "bytes": 1190911,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review362_source_validation/result.json",
+      "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181",
+      "bytes": 1197438,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review364_diagnostic/geometry_operations.json",
+      "sha256": "3fe393580f14f9a2f262ca10e2c1477345793dee6f6862c369dc0f7e304f551b",
+      "bytes": 8755,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review365_balanced_source_validation/result.json",
+      "sha256": "48b212c9ae234bbb8eb54be8ca5f8697f86cea0eba1276c8afb011472752e690",
+      "bytes": 1211661,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review365_service_source_validation/result.json",
+      "sha256": "0182ab1fd9ddd50e6908ffd0a33f272722c88ecf1934be1eaa6b3c07ae9bb282",
+      "bytes": 1174461,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review367_joint_attempt2/actual367.json",
+      "sha256": "a1cd7a8399d224d447d6c7fab939f1afe977e96c9205d6d048673b3fd069242e",
+      "bytes": 5549826,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/review367_joint_source_validation_attempt2/result.json",
+      "sha256": "406e1f1466b728afb2a36b5361078d82dd6b77eb11e26ab47256523354482dfd",
+      "bytes": 1782100,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual357_finalpin.json",
+      "sha256": "60e3ac107f533824b34c42d26da070e8dd69d02c187e297dc459f08f9d8526bf",
+      "bytes": 7793,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual358.json",
+      "sha256": "744a3a8b0606d99522a95117ca0c81ee9458a634c087e7bd327d878ced71308e",
+      "bytes": 7794,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual359.json",
+      "sha256": "a9c813088c23a9e75ee25161b96b252837aad08b9bc4cecc451a2d5cc3952cb2",
+      "bytes": 7711,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual362.json",
+      "sha256": "bcc5c4fa5cee8cd090b470d376491e01fb93601a29bc68c417b03d56f99c269b",
+      "bytes": 7716,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual365.json",
+      "sha256": "a5d7172247b9cff6f54e87c5add211e54966d05aee083a45d39a429f4bebf464",
+      "bytes": 7663,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual367.json",
+      "sha256": "81bb5fa60dc85ee6828cf97a85a3d1ba66a3a13386d5f612bf97511f3933d75b",
+      "bytes": 7663,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_service_actual365.json",
+      "sha256": "7bb938684f3d784c257f5e9db4877b56f71a5ddc687f0dfd8d10f198b8a23f8d",
+      "bytes": 6081,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging357_comparative/attached_service_final357.json",
+      "sha256": "834402fd3a2251056509954e25d25dbd4c6f440dcc72b0e9fa3b71187f708cf8",
+      "bytes": 5489958,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging358_comparative/row_candidate358.json",
+      "sha256": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+      "bytes": 4732858,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging359_hall_clamp/actual359.json",
+      "sha256": "13aa33694b45bdc5dc04fe50251b2b867efa521da970fc639690d3975bb04d03",
+      "bytes": 4808148,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging362_core_notch/actual362.json",
+      "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+      "bytes": 4835934,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging364_balanced_portals/actual364.json",
+      "sha256": "0d52194b46506e5336d545d93a6303cc2575e4cab96b7786ad74b2540be2d813",
+      "bytes": 4869127,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging365_balanced_portals/actual365.json",
+      "sha256": "2e1c567ab8b6771d6b4f3f907ba464eb48fa49b1a0f3ccd31537a41b9cc1b108",
+      "bytes": 4858667,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging365_balanced_portals/assemble365.py",
+      "sha256": "d41b888207753a0661bbf753f1e2437ae520069622e03f56d45beadaa2cf51bb",
+      "bytes": 15266,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging365_service_grammar/candidate365.json",
+      "sha256": "8807b7f2e8ba841d8e1a38ba6787f72161c9d04f64d69e71112859be92976ad9",
+      "bytes": 5256286,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging366_service_balance_preflight/actual_selection366.json",
+      "sha256": "37f3f3709776dfcae52087c4eeec67d509ca59a1fb97b1b6e0beafa39129168c",
+      "bytes": 924,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging366_service_balance_preflight/adapter366.py",
+      "sha256": "4ff50ef272df4caec2cc2c09269b23e6d2de823318ca3e1b0d4ebf1340827628",
+      "bytes": 1875,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging366_service_balance_preflight/assemble366.py",
+      "sha256": "c6b1de06daf8d832b55d22f0da45e27da28716001a5c1e7ca1783d71935d9852",
+      "bytes": 15287,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging366_service_balance_preflight/constructor366.py",
+      "sha256": "83a6aa9320f9187c5eef6087b681d56d67c5e40a76cfb9885b3c72c74e7f5ba7",
+      "bytes": 2979,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging366_service_balance_preflight/entry366.py",
+      "sha256": "f85b91ee919d8346ed394a3894fdb17eadecc3062f7954f837b38d18e5c35e9e",
+      "bytes": 3074,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging382_cohort_binding_fix/cohort382.py",
+      "sha256": "0ca25b01738a4385d8f72840fecb847983f4240f10070c05df5b524e455c1de5",
+      "bytes": 6564,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "reconstruction357/staging384_rank2_semantics/historical_authority.json",
+      "sha256": "696bb34f0a124d64a1a6a76685a14d2d83a88b54225302d1aefd591412303ac6",
+      "bytes": 731,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "review381_actual_v1/result.json",
+      "sha256": "927cb0a6482899268140fba0d57eda4eabfbc60ddf63879508407356a910332c",
+      "bytes": 1555709,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    },
+    {
+      "path": "review382_actual_v1/result.json",
+      "sha256": "8f09238128c3341aa7541c680f0aa6c393c912162562ffd6f9a42db5dc219956",
+      "bytes": 262218,
+      "present_in_385_freeze": true,
+      "matches_385_pin": true
+    }
+  ],
+  "missing_from_385": [
+    {
+      "path": "reconstruction357/review357_source_identity/result.json",
+      "sha256": "e9a209ea670d380dc5fd74dac8c65169557eb72f20585d80120490050ae39824",
+      "bytes": 1191328,
+      "present_in_385_freeze": false,
+      "matches_385_pin": null
+    }
+  ]
+}

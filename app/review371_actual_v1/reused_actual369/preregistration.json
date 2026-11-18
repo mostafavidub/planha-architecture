@@ -1,0 +1,25 @@
+{
+  "run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21",
+  "freeze_sha256": "e13b3957bf7c66678e815060582b97b0224bf754cdc0233688a572cd4407676c",
+  "overall_seconds": 240,
+  "construct_max_seconds": 45,
+  "fresh_max_each": 90,
+  "repair_reconstruct_max_seconds": 90,
+  "operator_max_seconds": 3,
+  "test_only": true,
+  "retry": false,
+  "translation": {
+    "source_key": "sofa1_use",
+    "dx": "-3/2",
+    "dy": "0"
+  },
+  "expected_collision": {
+    "unit": "A",
+    "fixtures": [
+      "sofa1",
+      "armchair2"
+    ]
+  },
+  "natural_generation_failure": false,
+  "form_path_executed": false
+}
