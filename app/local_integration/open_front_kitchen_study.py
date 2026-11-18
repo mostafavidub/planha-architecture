@@ -17,8 +17,12 @@ def build(width,depth):
     m['schema']=SCHEMA;m['contract_version']='OPEN_FRONT_CONTROLLED_DELTA_V1'
     del m['walls']['front.right']
     m['openings'][0]['rect']=[S(F('.6')),S(F('-.15')),S(F(str(width))),'0']
+    from geometry114 import cells
+    apron=cells(base['reserved_approach_gross']+[m['openings'][0]['rect']],list(m['walls'].values()))
+    m['unit']['rooms']['public_access']=apron
+    m['unit']['ownership']=deepcopy(m['unit']['rooms']['kitchen'])+apron
     m['source_binding']={'producer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'base_module_digest':digest(base),'base_producer_sha256':base['source_binding']['producer_sha256'],
         'fixture_source_sha256':base['source_binding']['fixture_source_sha256'],
-        'delta_contract':'remove front.right; expand existing permanent arch to W; retain every other value'}
+        'delta_contract':'remove front.right; expand existing permanent arch to W and exact threshold floor; retain every other value'}
     return m
