@@ -24,7 +24,7 @@ jobs:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |
           timeout 1300s python -B - <<'PY'
-          import sys,json,inspect
+          import sys,json,inspect,ast
           from pathlib import Path
           root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
           from guard400 import guard
@@ -41,8 +41,23 @@ jobs:
           paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py']
           sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
           assert Path(inspect.getsourcefile(propose)).resolve()==(root/paths[0]).resolve()
+          # Syntax-retention check: every original AST node/field remains in order.
+          # This proves additive source preservation, not solver or architectural correctness.
+          def retains(old,new):
+              if isinstance(old,ast.AST):
+                  return type(old)is type(new) and all(retains(v,getattr(new,k)) for k,v in ast.iter_fields(old))
+              if isinstance(old,list):
+                  if not isinstance(new,list):return False
+                  at=0
+                  for item in old:
+                      while at<len(new) and not retains(item,new[at]):at+=1
+                      if at==len(new):return False
+                      at+=1
+                  return True
+              return old==new
+          assert retains(ast.parse((root/'engine/search114.py').read_text()),ast.parse((root/paths[0]).read_text())),'UPSTREAM_STATEMENT_REMOVED_OR_CHANGED'
           cases=[('15','25',0),('15','25',1),('15','25',2),('15','25',3),('20','20',0),('25','25',0)]
-          evidence={'scope':'INDEPENDENT_GROUP_MASTER_EXPERIMENT_NOT_ACTIVE_PRODUCER','source_files':sources,'historical_source_revision':source,'preregistered_cases':cases,'rows':[],'accepted':False,'delivery_allowed':False}
+          evidence={'scope':'INDEPENDENT_GROUP_MASTER_EXPERIMENT_NOT_ACTIVE_PRODUCER','source_files':sources,'historical_source_revision':source,'upstream_ast_preserved_additively':True,'preregistered_cases':cases,'rows':[],'accepted':False,'delivery_allowed':False}
           protected=None
           for W,L,variant in cases:
               body=json.dumps({'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}}).encode();env,raw=prepare(body);core,_=frame(raw,'FRONT_REAR')
