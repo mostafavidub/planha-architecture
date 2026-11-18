@@ -135,6 +135,30 @@ jobs:
           run-id: 44411988933
           name: v25-explicit-program-api
           path: _artifact_input/44411988933
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44413136071
+          name: v25-pair-http
+          path: _artifact_input/44413136071
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44412740546
+          name: v25-four-seat-master
+          path: _artifact_input/44412740546
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44413801814
+          name: v25-four-seat-master
+          path: _artifact_input/44413801814
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44414249134
+          name: v25-observation-audit
+          path: _artifact_input/44414249134
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
