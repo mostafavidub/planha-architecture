@@ -1,0 +1,393 @@
+{
+  "commit": "d0c6055e0e7bf44283e3bb4af427c04f9357deea",
+  "run": 44397669969,
+  "job": 135131832978,
+  "started_utc": "2026-11-18T21:05:11Z",
+  "finished_utc": "2026-11-18T21:08:41Z",
+  "deadline_utc": "2026-11-19T00:00:00Z",
+  "generated": 4,
+  "qualified": 0,
+  "elapsed_seconds": 208.7025215625763,
+  "artifact_id": 14470897623,
+  "artifact_sha256": "d842e3e358f46c863357a365377367a778ef9794d865d71a1acaaba0c580aed0",
+  "receipt_bindings_asserted": true,
+  "acceptance_blocked": true,
+  "scope": "Actual gateway requests and subprocess generated four models; no full architecture acceptance or completed natural repair-cycle claim",
+  "rows": [
+    {
+      "W": "5",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "ee69687f-3b0e-4f5c-897c-a47e3a7d8105",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "36424e3c0ff8c219c7b9fad0b7fd56659daa6430e97c2e2a227efdcbad327113"
+    },
+    {
+      "W": "5",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "b71e91b6-69fd-4c56-ac16-6d6b356f4064",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "df61dc550be9d2d96d58475dba786d45989ccaf819cb9fd17a54922cc435258e"
+    },
+    {
+      "W": "5",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "4360dea4-e742-4d71-8176-050d22bf25a7",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": null,
+          "proposal_status": null
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "b41906fde7b3754592c0c21ca6a73dc1c3ac542a17468bb9c30b6a50ba243b88"
+    },
+    {
+      "W": "15",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "3743d078-392f-416b-a414-cd7fb5871aec",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "a86c33931ed0af6dbf7bb32f9baea42d6a62eb58b4fdb666229a1109e713fe39"
+    },
+    {
+      "W": "15",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "fd8156a5-bb4c-45ba-914d-71546297ee4c",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "9bfc6b9e420c231aec66a38982e4e6aeb78a84f149db3a61888cc6c1fc27786f"
+    },
+    {
+      "W": "15",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "0be281ef-28a6-432b-ae29-33ce3764a8e4",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "2c85a409bf88eb40c4c65a4e13a8f9da0f5bf640dbf5a580de6a5c5d8054fdec"
+    },
+    {
+      "W": "25",
+      "L": "5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "d531d6ab-7812-4d09-928c-997d2eeaccc6",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_CORE_FIT",
+          "reason": "OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "9ffc7bb3d88f0183ebeb2bb321f2f339cbb9c681cf44674cbf73b25f31c941f7"
+    },
+    {
+      "W": "25",
+      "L": "15",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "cff86e84-15b3-44e2-82d5-79fdd450b43d",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "7a88af73185d700142acda15343a7881ee5e992e9b40ca71b229afe05a8fd1fd"
+    },
+    {
+      "W": "25",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "b3af2832-b63f-47ba-a5fa-960fe6890894",
+      "generated_count": 1,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+          "reason": null,
+          "proposal_status": "PROPOSAL_ONLY"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "NOT_ATTEMPTED_REQUESTED_COUNT_REACHED",
+          "reason": null,
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "ffdb065ed57be5ab243bbd1d5f18745b3e9ddf984af807f96b8a8e02d4ef6e49"
+    },
+    {
+      "W": "10",
+      "L": "20",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "ac898207-57ae-443b-866b-5a7ddd779ed6",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "7673c73737456b46e3a6569ed5a8cfcd1d46c95dcb6ac9288b950c6dad29c9d3"
+    },
+    {
+      "W": "20",
+      "L": "10",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "db7fcbf5-0a08-4d28-9e0b-29ff1268bb43",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "b905a679c505ac6bb08d71a0fba4f15618430f309e37617a121b7a7886309565"
+    },
+    {
+      "W": "24.5",
+      "L": "23.25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "5f0195ae-6e2f-41b2-85ab-03c8702817a3",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "body_sha256": "f5ea9ed24154088316c3fa0bf2edf47c6211f908c68a621670ca671300627e23"
+    },
+    {
+      "W": "24.5",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "9a5c186a-b955-4e39-811b-c89fe70e7d44",
+      "generated_count": 1,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+          "reason": null,
+          "proposal_status": "PROPOSAL_ONLY"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "NOT_ATTEMPTED_REQUESTED_COUNT_REACHED",
+          "reason": null,
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "006d08395709c8a33ba36537f747785a2b7f5a5f8ac1445f5b5f7dead523f058"
+    },
+    {
+      "W": "23",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "66934d5b-dfe9-4b1d-a63c-a4917168a54a",
+      "generated_count": 1,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+          "reason": null,
+          "proposal_status": "PROPOSAL_ONLY"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "NOT_ATTEMPTED_REQUESTED_COUNT_REACHED",
+          "reason": null,
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "21235e13a855e244dd2226770d7ebff2ef49b1d43c39f176a16fc6c4cdfa4fc8"
+    },
+    {
+      "W": "20",
+      "L": "25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "06646236-da00-4884-8cf4-d82fc773f284",
+      "generated_count": 1,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+          "reason": null,
+          "proposal_status": "PROPOSAL_ONLY"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "NOT_ATTEMPTED_REQUESTED_COUNT_REACHED",
+          "reason": null,
+          "proposal_status": null
+        }
+      ],
+      "body_sha256": "13f6f92819e9293a0f161d3e49205141e55e449b48f0ddaa07a0dd01df45f61f"
+    }
+  ]
+}
