@@ -1,0 +1,46 @@
+name: V25 four guest routes source-profile study
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-guest-routes.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Fresh model and four independent guest-route studies
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 600s python -B - <<'PY'
+          import json,sys
+          from pathlib import Path
+          from generation_gateway import generate
+          from parametric_worker import ENGINE
+          from guest_four_route_diagnostic import assess
+          sys.path.insert(0,str(ENGINE))
+          status,result=generate(json.dumps({'W':'25','L':'25','n':2,'requested_count':1}).encode())
+          assert status==200 and result['generated_count']==1
+          candidate=result['candidates'][0];study=assess(candidate['model'])
+          assert study['accepted'] is False and study['display_allowed'] is False
+          Path('four-guest-routes.json').write_text(json.dumps({'result':result,'study':study},ensure_ascii=False))
+          print('FOUR_GUEST_ROUTES '+json.dumps(study,ensure_ascii=False),flush=True)
+          if study.get('missing'):raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-four-guest-route-study
+          path: app/local_integration/four-guest-routes.json
+          retention-days: 30
