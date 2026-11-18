@@ -16,7 +16,7 @@ def assess(model,physical_review,source_revision):
     if result['evidence']['model_hash']!=model_hash:raise ValueError('CAPACITY_MODEL_BINDING')
     status='FAIL'if result['errors']else'UNKNOWN'if result['pending']else'PASS_SCOPED'
     requirements=[{'id':'INTERNAL_INSTANCE_CAPACITY','state':status,'basis':'actual source-profile instances and limited planar access, not area or room labels'},
-      {'id':'CURRENT_PROGRAM_SUITABILITY','state':'UNKNOWN','basis':'source three-bedroom/six-person profile is provisional; no current automatic programme suitability proof'},
+      {'id':'CURRENT_PROGRAM_SUITABILITY','state':'UNKNOWN','basis':'actual supplied source profile is provisional; no current automatic programme suitability proof'},
       {'id':'KITCHEN_GUEST_PATH_SEPARATION','state':'UNKNOWN','basis':'four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven'},
       {'id':'CONTINUOUS_USEFUL_LIVING','state':'UNKNOWN','basis':'seat capacity alone does not establish continuous useful living or lack of waste'},
       {'id':'NONFUNCTIONAL_WALL_EXCLUSION','state':'UNKNOWN','basis':'no per-wall alternative/removal comparison proving current owner requirement'}]
@@ -27,6 +27,6 @@ def assess(model,physical_review,source_revision):
     local_hashes={n:hashlib.sha256((Path(__file__).parent/n).read_bytes()).hexdigest() for n in local_files}
     files=['program_capacity_audit118.py','dining_motion_audit118.py','public_program_audit118.py','fixture_catalog114.json']
     return {'schema':'MAC_FUNCTIONAL_REVIEW_V1','model_digest':model_hash,'physical_review_digest':digest(physical_review),'source_revision':source_revision,
-      'internal_capacity':result,'guest_four_route_study':guest,'local_review_source_hashes':local_hashes,'requirements':requirements,'state':'REJECTED_FUNCTIONAL'if status=='FAIL'else'UNKNOWN_REQUIRED_FUNCTIONAL_PROOF',
+      'declared_source_program':model.get('program',{}),'internal_capacity':result,'guest_four_route_study':guest,'local_review_source_hashes':local_hashes,'requirements':requirements,'state':'REJECTED_FUNCTIONAL'if status=='FAIL'else'UNKNOWN_REQUIRED_FUNCTIONAL_PROOF',
       'display_allowed':False,'accepted':False,'delivery_allowed':False,'qualified':False,'source_hashes':{n:hashlib.sha256((ENGINE/n).read_bytes()).hexdigest()for n in files},
       'scope':'Internal planar capacity of provisional source profile only. Furniture omitted from user Preview/DXF. No complete architectural, ergonomic, programme or regulatory approval.'}
