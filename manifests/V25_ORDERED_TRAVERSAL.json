@@ -1,0 +1,153 @@
+{
+  "schema": "V25_ORDERED_TRAVERSAL_V1",
+  "review_start_utc": "2026-11-18T19:38:00Z",
+  "review_end_utc": "2026-11-18T19:40:20.656Z",
+  "review_deadline_utc": "2026-11-18T22:38:00Z",
+  "review_scope": "sequential triage and independent scoped execution; not full implementation",
+  "items": [
+    {
+      "id": "V25-01",
+      "status": "PARTIAL",
+      "evidence": "ممیزی checkpoint انجام شد؛ انتقال۱۴۶۸/۱۶۸۷ و aliasها ناقص. تأیید منشأ همه کدها بسته نشده."
+    },
+    {
+      "id": "V25-02",
+      "status": "BLOCKED",
+      "evidence": "closure guard400 ناقص و gateway وابسته به .venv؛ اجرای مستقل محصول ممکن نیست. عملیات انتقال timeoutشده دوباره شروع نشد."
+    },
+    {
+      "id": "V25-03",
+      "status": "PARTIAL",
+      "evidence": "کد gateway و review_cycle خوانده شد؛ وضعیت خطای ورودی، unsupported، خطای وابستگی، لغو، timeout و رد/UNKNOWN جداست. ۸تست review در۳۵تست موفق؛ ممیزی جامع تمام وضعیت‌ها نه."
+    },
+    {
+      "id": "V25-04",
+      "status": "PARTIAL",
+      "evidence": "dimension_contract، prepare، generation_gateway و repair_saved_run کنترل دامنه دارند. ورودی‌های legacy و UI همگی این دور ممیزی نشده‌اند؛ این گام کامل نیست."
+    },
+    {
+      "id": "V25-05",
+      "status": "PARTIAL_PASS",
+      "evidence": "۵تست تازه ورودی روی df778025، همراه۳۵تست قبلی موفق؛ پوشش parser/adapter نه کل محصول."
+    },
+    {
+      "id": "V25-06",
+      "status": "PARTIAL",
+      "evidence": "PRD زنده n=۱یا۲ و ورودی W/L/n را می‌خواهد؛ adapter فقط n=۲ و سه‌خواب آزمایشی. برنامه مناسب خودکار پیاده‌شده نیست. سیاست محصول روشن‌تر شد اما تحقق کد باز است."
+    },
+    {
+      "id": "V25-07",
+      "status": "DONE_PREREGISTRATION_ONLY",
+      "evidence": "۱۲زوج ورودی ثبت شدند؛ شمار واحد۲، شمارگزینه۱. parsing دقیق آزموده شد؛ اجرای هندسه موضوع۱۳ است."
+    },
+    {
+      "id": "V25-08",
+      "status": "BLOCKED",
+      "evidence": "ردیابی تازه۲۵×۲۵ نیازمند runner/closure معتبر است. صفرمدل تاریخی حکم ناممکنی نیست."
+    },
+    {
+      "id": "V25-09",
+      "status": "BLOCKED",
+      "evidence": "bundle25 آزمایشی، بدون بسته شواهد برنامه/ظرفیت و اجرای مستقل. ادغام یا کاهش اندازه اتاق برای ساختن PASS انجام نشد."
+    },
+    {
+      "id": "V25-10",
+      "status": "BLOCKED",
+      "evidence": "ساخت تازه در دامنه در این GitHub commit اجرا نشده؛ گیت runner باز است."
+    },
+    {
+      "id": "V25-11",
+      "status": "BLOCKED",
+      "evidence": "n=۱ و خانواده‌های جدید قرارداد/مولد/شاهد کافی ندارند؛ n=۲ فقط دو خانواده موجود."
+    },
+    {
+      "id": "V25-12",
+      "status": "BLOCKED",
+      "evidence": "سه مدل تازه معتبر اعشاری/نامتقارن موجود نیست؛ ۱۲ورودی parseشده مدل هندسی نیستند."
+    },
+    {
+      "id": "V25-13",
+      "status": "BLOCKED",
+      "evidence": "ماتریس هندسی تا رفع runner/closure قابل اجرا نیست؛ ترتیب پیش‌ثبت حفظ شد."
+    },
+    {
+      "id": "V25-14",
+      "status": "PARTIAL",
+      "evidence": "پیوند review→decision و functional_review بررسی شد؛ چهار الزام ضروری UNKNOWN. نگاشت جامع همه قواعد فعال به داده/checker/تصمیم کامل نیست."
+    },
+    {
+      "id": "V25-15",
+      "status": "NOT_OBSERVED_CURRENT_RANGE",
+      "evidence": "رد طبیعی جدید در۵..۲۵ مشاهده/اجرا نشده؛۴۵×۴۵ و fixture تزریقی جای این شاهد نیست."
+    },
+    {
+      "id": "V25-16",
+      "status": "PARTIAL_PASS",
+      "evidence": "کد عملگر و پیش‌شرط‌ها خوانده شد؛ FRONT_REAR/collision و fallback route محدود، شاهد تازه و حفاظت اشیا لازم. ۴تست مصنوعی رسید در dd496bfe موفق؛ اجرای عملگر و witness واقعی تازه نه."
+    },
+    {
+      "id": "V25-17",
+      "status": "BLOCKED",
+      "evidence": "parent ردشده معتبر در دامنه جاری و runner لازم است؛ child تازه ساخته نشد."
+    },
+    {
+      "id": "V25-18",
+      "status": "BLOCKED",
+      "evidence": "بدون child تازه، بازبینی و regression واقعی child انجام نشده؛ قرارداد receipt شاهد این گام نیست."
+    },
+    {
+      "id": "V25-19",
+      "status": "BLOCKED",
+      "evidence": "چرخه طبیعی کامل generate→reject→repair→rebuild→review در۵..۲۵ هنوز اثبات نشده."
+    },
+    {
+      "id": "V25-20",
+      "status": "BLOCKED",
+      "evidence": "UI واقعی به runner و خروجی معتبر نیاز دارد؛ مرورگر/سابقه زنده در این دور اجرا نشده."
+    },
+    {
+      "id": "V25-21",
+      "status": "PARTIAL_PASS",
+      "evidence": "۸تست کنترل‌شده شکست/لغو در dd496bfe موفق: executable مفقود در موقت، timeout با ساعت تسریع‌شده، پایان worker خواب واقعی و socket. این‌ها تولید هندسه، endurance۱۵۰ثانیه یا تمام رقابت‌های UI نیستند."
+    },
+    {
+      "id": "V25-22",
+      "status": "PARTIAL",
+      "evidence": "چهار UNKNOWN عملکردی پابرجاست. PRD کفایت نور/تهویه و مهندسی اجرای پله/آسانسور را POST_MVP می‌داند، نه PASS؛ حضور و جانمایی مفهومی هسته و باقی کنترل‌های هندسی محفوظ."
+    },
+    {
+      "id": "V25-23",
+      "status": "BLOCKED",
+      "evidence": "diversity_review همه جفت‌ها را می‌سنجد ولی مدل واجدشرایط تازه نداریم؛ نام خانواده/کپی/آینه تنوع اثبات‌شده نیست."
+    },
+    {
+      "id": "V25-24",
+      "status": "PARTIAL_AUDIT_COMPLETE",
+      "evidence": "پیمایش وضعیت۲۴ردیف انجام شد، نه اجرای موفق۲۴گام. commit/CI محدود ثبت شد؛ G0، تولید و چرخه طبیعی بازند. آمادگی محصول یا تکمیل کل مرحله ادعا نمی‌شود."
+    }
+  ],
+  "tests": [
+    {
+      "commit": "df778025dedc1b771b2309c541909b259474ae9e",
+      "count": 40,
+      "scope": "5 input audit plus 35 scoped contracts",
+      "runs": [
+        44382047693,
+        44382048102
+      ]
+    },
+    {
+      "commit": "dd496bfe1a9a5184a18ccdbb7ddd16f2069f2f51",
+      "count": 47,
+      "scope": "35 existing scoped contracts, 4 synthetic receipt tests, 8 controlled failure/cancellation tests; 5 input-audit methods not rerun at this commit",
+      "runs": [
+        44382481442,
+        44382481461
+      ]
+    }
+  ],
+  "migration_restarted": false,
+  "all_tasks_successful": false,
+  "whole_cycle_verified": false,
+  "stage303_execution_started": false
+}
