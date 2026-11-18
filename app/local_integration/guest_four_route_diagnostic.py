@@ -37,7 +37,7 @@ def assess(model):
                 raise ValueError('KITCHEN_OPERATION_EVIDENCE_MISSING')
             zones=[u['activities']['kitchen_work']]+op['motion_envelopes']
             # Do not prohibit the whole kitchen floor: PRD prohibits occupied work/operation regions.
-            for station in op['workstations'].values():zones.append(station['actor_rect'])
+            for station in op['workstations']:zones.append(station['actor_rect'])
             walls=list(model['walls'].values())+[x['open_panel'] for x in model['operations']['doors']]
             chairs=[]
             for chair in model['operations']['dining_chairs']:
