@@ -1,0 +1,43 @@
+{
+  "schema": "V25_SOURCE_FIT_DIAGNOSIS_V1",
+  "start_utc": "2026-11-18T20:46:00Z",
+  "deadline_utc": "2026-11-18T23:46:00Z",
+  "completed_at_utc": "2026-11-18T20:47:35.943Z",
+  "tested_commit": "2032bc6da67893d3c5d09ab6b972e1a170b2e1d7",
+  "run": 44394376819,
+  "job": 135120210196,
+  "source_guard_before_and_after": 12991,
+  "raw": {
+    "W": "25",
+    "L": "25",
+    "n": 2,
+    "requested_count": 1
+  },
+  "families": [
+    {
+      "family": "FRONT_REAR",
+      "unit_width": "49/2",
+      "unit_depth": "429/40",
+      "original_template_required_depth": "11",
+      "original_template_exists": false,
+      "candidate_template_required_depth": "10.7",
+      "candidate_template_exists": true,
+      "candidate_solver_status": 2,
+      "candidate_proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "variables": 378,
+      "constraints": 456
+    },
+    {
+      "family": "LEFT_RIGHT",
+      "unit_width": "49/2",
+      "unit_depth": "393/40",
+      "original_template_exists": false,
+      "candidate_template_exists": false
+    }
+  ],
+  "scope": "Unmodified original and isolated existing TEST_ONLY depth-4.5 candidate. Candidate template threshold is not proof of full-module fit; solver also enforces real approach reservations.",
+  "global_infeasibility_proven": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "candidate_integrated": false
+}
