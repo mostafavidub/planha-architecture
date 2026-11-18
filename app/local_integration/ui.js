@@ -38,6 +38,7 @@ function stable(value) {
 }
 function canonical(raw) {
   const value={dimensions_m:{W:exact(String(raw.W)),L:exact(String(raw.L))},unit_count:Number(latin(String(raw.n))),requested_count:Number(latin(String(raw.requested_count))),program_present:Object.hasOwn(raw,'program')};
+  if(!Number.isSafeInteger(value.unit_count)||!Number.isSafeInteger(value.requested_count)||value.unit_count<1||value.requested_count<1)throw Error('UNSAFE_UI_COUNT');
   if(value.program_present)value.program=raw.program;
   return value;
 }
@@ -85,7 +86,9 @@ form.addEventListener('submit', async event => {
 });
 
 /* Preserve JSON numeric lexemes for Python source receipts (e.g. 7.0 vs 7).
-   This is transport identity, not a numeric coercion or an acceptance rule. */
+   This is server-receipt consistency, not an authenticity signature or acceptance.
+   Lexemes preserve transport; parsed JS numbers can still round large integers.
+   Meaningful unit/count fields are independently restricted to safe integers. */
 function readExactWire(text) {
   let i=0; const numbers=new Map();
   const ws=()=>{while(/\s/.test(text[i]||'')&&i<text.length)i++;};
@@ -102,7 +105,7 @@ function readExactWire(text) {
   return {data:JSON.parse(text),numbers};
 }
 function exactWireCanonical(value,numbers,path=[]) {
-  if(typeof value==='number'){const raw=numbers?.get(JSON.stringify(path));return raw!==undefined&&Object.is(Number(raw),value)?raw:JSON.stringify(value);}
+  if(typeof value==='number'){if(numbers===null||numbers===undefined)return JSON.stringify(value);const raw=numbers.get(JSON.stringify(path));if(raw===undefined||!Object.is(Number(raw),value))throw Error('NUMBER_WIRE_BINDING');return raw;}
   if(Array.isArray(value))return '['+value.map((v,i)=>exactWireCanonical(v,numbers,[...path,i])).join(',')+']';
   if(value&&typeof value==='object')return '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+exactWireCanonical(value[k],numbers,[...path,k])).join(',')+'}';
   return JSON.stringify(value);
