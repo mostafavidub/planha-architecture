@@ -33,7 +33,7 @@ jobs:
           from kitchen_module117 import build as base_build
           from contract114 import digest
           from producer_provenance import snapshot,require_unchanged
-          paths=['app/local_integration/open_front_kitchen_study.py','app/local_integration/open_front_kitchen_check.py','.github/workflows/v25-open-kitchen.yml']
+          paths=['app/local_integration/open_front_kitchen_study.py','app/local_integration/open_front_kitchen_check.py','app/local_integration/open_front_kitchen_place.py','.github/workflows/v25-open-kitchen.yml']
           sources=snapshot(root,paths);assert guard(FREEZE)==12991
           rows=[];negative=[]
           for W,H in [('2.35','3.05'),('3.6','3.05'),('3.6','4.2')]:
@@ -53,10 +53,46 @@ jobs:
           for name,change in mutations:
               m=deepcopy(original);change(m);r=assess(m);assert r['status']=='FAIL_STUDY',(name,r)
               negative.append({'case':name,'errors':r['errors']})
+          from fractions import Fraction as F
+          from open_front_kitchen_place import install
+          placements=[]
+          for uid,sy in [('A',1),('B',-1)]:
+              m={'walls':{},'wall_hosts':{},'source_wall_hosts':{},'openings':[]};u={'rooms':{},'fixtures':{},'fixture_metadata':{},'activities':{}}
+              install(original,m,u,uid,['2','3','5.6','6.05'],'20')
+              placement=m['module_placements'][0];ids=placement['id_map']
+              def pt(q):return [F(q[0])+2,3+F(q[1]) if sy==1 else 17-F(q[1])]
+              def rr(q):
+                  a=pt(q[:2]);b=pt(q[2:]);return [min(a[0],b[0]),min(a[1],b[1]),max(a[0],b[0]),max(a[1],b[1])]
+              def eq(actual,expected):assert list(map(F,actual))==expected,(actual,expected)
+              for key,q in original['walls'].items():eq(m['walls'][ids[key]],rr(q))
+              for key,q in original['wall_hosts'].items():eq(m['wall_hosts'][uid+'.kitchen.'+key],rr(q))
+              for key,q in original['unit']['fixtures'].items():eq(u['fixtures'][key],rr(q))
+              for key,q in original['unit']['activities'].items():eq(u['activities'][key],rr(q))
+              for actual,source in zip(m['openings'],original['openings']):eq(actual['rect'],rr(source['rect']))
+              for actual,source in zip(m['module_ports'],original['external_ports']):
+                  eq(actual['rect'],rr(source['rect']));eq(actual['center'],pt(source['center']))
+              assert len(m['module_aprons'][uid+'.kitchen'])==len(original['unit']['rooms']['public_access'])
+              for actual,source in zip(m['module_aprons'][uid+'.kitchen'],original['unit']['rooms']['public_access']):eq(actual,rr(source))
+              actual=m['operations']['kitchen'][0];source=original['operations']['kitchen'][0]
+              for key in ('access_point','workpoint'):eq(actual[key],pt(source[key]))
+              for key in ('hinge','closed_actor','open_actor','open_access','shelf_target','held_target'):eq(actual['fridge'][key],pt(source['fridge'][key]))
+              eq(actual['fridge']['actor_offset_m'],[F(source['fridge']['actor_offset_m'][0]),sy*F(source['fridge']['actor_offset_m'][1])])
+              for key,src in source['drawers'].items():
+                  act=actual['drawers'][key]
+                  for k in ('closed_actor','open_actor','grip_closed','grip_open','storage_target','held_target'):eq(act[k],pt(src[k]))
+                  for k in ('closed_tray','open_tray'):eq(act[k],rr(src[k]))
+                  eq(act['translation'],[F(src['translation'][0]),sy*F(src['translation'][1])])
+              for act,src in zip(actual['workstations'],source['workstations']):eq(act['actor_rect'],rr(src['actor_rect']));eq(act['hand_point'],pt(src['hand_point']))
+              assert placement['module_hash']==digest(original) and placement['module']==original
+              placements.append({'unit':uid,'placed_fragment':m,'unit_data':u,'state':'EXACT_RIGID_PLACEMENT_ONLY','whole_neighbor_validation':False})
+          for uid,rect in [('C',['2','3','5.6','6.05']),('A',['2','3','5.7','6.05'])]:
+              try:install(original,{}, {},uid,rect,'20')
+              except ValueError:pass
+              else:raise AssertionError('INVALID_PLACEMENT_ACCEPTED')
           require_unchanged(root,sources);assert guard(FREEZE)==12991
-          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','source_snapshot':sources,'rows':rows,'negative_tests':negative,'scope':'Standalone module only, no whole-plan integration, no new127 provenance, no functional qualification. Added threshold floor is not a full-width body approach. Preserved old route is valid, not optimized. Reference113 hypothetical operation profile.','whole_model_pass':False,'accepted':False,'delivery_allowed':False}
+          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','source_snapshot':sources,'rows':rows,'negative_tests':negative,'placement_studies':placements,'scope':'Standalone module only, no whole-plan integration, no new127 provenance, no functional qualification. Added threshold floor is not a full-width body approach. Preserved old route is valid, not optimized. Reference113 hypothetical operation profile.','whole_model_pass':False,'accepted':False,'delivery_allowed':False}
           Path('open-kitchen.json').write_text(json.dumps(out,ensure_ascii=False))
-          print('OPEN_KITCHEN '+json.dumps({'positive':len(rows),'negative':len(negative),'digests':[digest(r['model'])for r in rows],'whole_model_pass':False}),flush=True)
+          print('OPEN_KITCHEN '+json.dumps({'positive':len(rows),'negative':len(negative),'placement_units':len(placements),'placement_negative':2,'digests':[digest(r['model'])for r in rows],'whole_model_pass':False}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
