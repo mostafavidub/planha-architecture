@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import signal
+import sys
 import subprocess
 import uuid
 import time
@@ -16,7 +17,7 @@ def generate(body, cancelled=None):
     except InputError as error:
         return error.status,{'schema':SCHEMA,'outcome':'INVALID_INPUT' if error.status==422 else 'UNSUPPORTED','code':error.code,'field':error.field,'accepted':False,'delivery_allowed':False}
     here=Path(__file__).resolve().parent
-    python=ROOT/'app/local_integration/.venv/bin/python'
+    python=sys.executable
     run_id=str(uuid.uuid4())
     evidence=ROOT/'app/local_integration/evidence/requests'/run_id
     evidence.mkdir(parents=True,exist_ok=False)
