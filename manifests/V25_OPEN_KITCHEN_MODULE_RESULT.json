@@ -1,0 +1,43 @@
+{
+  "schema": "V25_OPEN_KITCHEN_MODULE_RESULT_V1",
+  "start_utc": "2026-11-18T23:41:09Z",
+  "completed_utc": "2026-11-18T23:44:12Z",
+  "deadline_utc": "2026-11-19T01:07:31Z",
+  "run": 44423221029,
+  "commit": "8a05e7b358541d3b6272fd994c11866b6e6fc5e3",
+  "positive_dimensions": [
+    [
+      "2.35",
+      "3.05"
+    ],
+    [
+      "3.6",
+      "3.05"
+    ],
+    [
+      "3.6",
+      "4.2"
+    ]
+  ],
+  "negative_cases": 7,
+  "whole_model_pass": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "scope": "Exact independent open-front module delta, threshold floor, fresh local source operations and retained-route validity; no source127 claim, whole-plan integration, optimality or functional closure",
+  "artifact": {
+    "name": "v25-open-kitchen-module",
+    "id": 14483220767,
+    "bytes": 3700,
+    "retention_days": 30
+  },
+  "initial_runner_failure": {
+    "run": 44423131791,
+    "reason": "guard400 frontend import path absent; corrected without guard change"
+  },
+  "remaining": [
+    "Independent installer with rigid geometry and module-source binding",
+    "Independent assembler/constructor/replay trace",
+    "Independent whole-checker and named adapters without filtering historical source errors",
+    "Whole-plan privacy/public routing and functional alternatives"
+  ]
+}
