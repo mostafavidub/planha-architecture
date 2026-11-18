@@ -69,6 +69,12 @@ jobs:
           run-id: 44405056710
           name: v25-explicit-program-api
           path: _artifact_input/44405056710
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44406994713
+          name: v25-explicit-pair-operator
+          path: _artifact_input/44406994713
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
