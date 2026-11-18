@@ -34,8 +34,16 @@ def summary(run_id,base=BASE):
             decision=decide(candidate,result['envelope']['canonical_request_digest'],result['engine_source_revision'],candidate.get('repair_receipt'))
             if candidate.get('review_decision')!=decision:raise ValueError('HISTORICAL_REVIEW_DECISION_MISMATCH')
             rows.append({k:decision[k]for k in ('candidate_id','model_digest','review_digest','decision_id','state')})
-        if result['generated_count']!=len(rows) or result.get('qualified_count')!=0:raise ValueError('COUNT_MISMATCH')
-    return {'schema':'MAC_HISTORICAL_SUMMARY_V1','run_id':run_id,'historical_only':True,'within_current_owner_range':current_range,'current_owner_range_m':[5,25],'live_model_restored':False,'request':json.loads(body),'outcome':result['outcome'],'candidates':rows,'generated_count':len(rows),'qualified_count':0,'saved_at_ns':(folder/'result.json').stat().st_mtime_ns,'accepted':False,'delivery_allowed':False,'scope':'saved record consistency, not current-source reevaluation or architecture acceptance'}
+        expected_generated=len(rows)
+        if result.get('scope')=='EXPLORATORY_ONLY_NOT_PRODUCTION_REPAIR':
+            if len(rows)!=1 or result.get('reviewed_candidate_count')!=1:raise ValueError('EXPLORATORY_REVIEW_COUNT')
+            receipt=result['candidates'][0]['exploratory_redirection_receipt']
+            created=receipt.get('child_created')
+            if type(created)is not bool or result.get('reused_parent')is not (not created):raise ValueError('EXPLORATORY_GENERATION_COUNT')
+            if (receipt['final_model_digest']!=receipt['parent_model_digest'])is not created:raise ValueError('EXPLORATORY_CHILD_IDENTITY')
+            expected_generated=int(created)
+        if result['generated_count']!=expected_generated or result.get('qualified_count')!=0:raise ValueError('COUNT_MISMATCH')
+    return {'schema':'MAC_HISTORICAL_SUMMARY_V1','run_id':run_id,'historical_only':True,'within_current_owner_range':current_range,'current_owner_range_m':[5,25],'live_model_restored':False,'request':json.loads(body),'outcome':result['outcome'],'candidates':rows,'generated_count':result.get('generated_count',len(rows)),'reviewed_candidate_count':len(rows),'qualified_count':0,'saved_at_ns':(folder/'result.json').stat().st_mtime_ns,'accepted':False,'delivery_allowed':False,'scope':'saved record consistency, not current-source reevaluation or architecture acceptance'}
 
 def list_history(base=BASE):
     folders=sorted((p for p in base.iterdir()if p.is_dir()and not p.is_symlink()and valid_id(p.name)),key=lambda p:p.stat().st_mtime_ns,reverse=True)[:50] if base.exists()else []
