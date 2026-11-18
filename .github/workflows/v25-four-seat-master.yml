@@ -35,7 +35,7 @@ jobs:
           from parametric_worker import prepare
           from constructor127 import frame,build,context
           from evaluate_pair127 import evaluate
-          from four_seat_group_candidate import propose
+          from four_seat_group_candidate import propose,bath_apron_dining_separated
           from functional_review import assess
           from local_seating_group_diagnostic import assess as local_group
           paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/explicit_pair_redirection.py','app/local_integration/producer_provenance.py','.github/workflows/v25-four-seat-master.yml']
@@ -65,7 +65,10 @@ jobs:
                   return True
               return old==new
           assert retains(ast.parse((root/'engine/search114.py').read_text()),ast.parse((root/paths[0]).read_text())),'UPSTREAM_STATEMENT_REMOVED_OR_CHANGED'
-          cases=[('15','25',0),('15','25',1),('15','25',2),('15','25',3),('20','20',0),('25','25',0)]
+          # Exact observed overlap fails; boundary contact is allowed with zero invented margin.
+          assert bath_apron_dining_separated({'bath':['7.275','5.14','10.425','7.39'],'dining':['7.845','.94','10.945','4.44']}) is False
+          assert bath_apron_dining_separated({'bath':['7.275','5.14','10.425','7.39'],'dining':['7.845','.69','10.945','4.19']}) is True
+          cases=[('15','25',0),('15','25',1),('15','25',2),('15','25',3),('20','20',0),('25','25',0),('24','18',0),('24','18',1)]
           evidence={'scope':'INDEPENDENT_GROUP_MASTER_EXPERIMENT_NOT_ACTIVE_PRODUCER','source_files':sources,'historical_source_revision':source,'upstream_ast_preserved_additively':True,'preregistered_cases':cases,'rows':[],'accepted':False,'delivery_allowed':False}
           protected=expected_inventory
           for W,L,variant in cases:
