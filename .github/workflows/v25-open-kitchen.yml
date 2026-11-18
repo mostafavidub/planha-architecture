@@ -49,7 +49,9 @@ jobs:
             ('operation',lambda m:m['operations']['kitchen'][0]['fridge'].update(leaf_radius_m='0.8')),
             ('producer_hash',lambda m:m['source_binding'].update(producer_sha256='0'*64)),
             ('fake_historical_schema',lambda m:m.update(schema='KITCHEN_MODULE117')),
-            ('unlisted_value',lambda m:m.update(accepted=True))]
+            ('unlisted_value',lambda m:m.update(accepted=True)),
+            ('boolean_to_zero',lambda m:m.update(accepted=0)),
+            ('rotation_to_boolean',lambda m:m['unit']['fixture_metadata']['fridge'].update(rotation_deg=False))]
           for name,change in mutations:
               m=deepcopy(original);change(m);r=assess(m);assert r['status']=='FAIL_STUDY',(name,r)
               negative.append({'case':name,'errors':r['errors']})
