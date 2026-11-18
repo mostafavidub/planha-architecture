@@ -1,13 +1,13 @@
 {
-  "workflow_commit": "e3d20b47e659a140a587a44a2cf34a257ebe5b14",
-  "archive_commit": "aecf13dce27c88494883b8870c5b8959d5f6243f",
-  "run": 44415348190,
-  "job": 135194057729,
-  "verified_utc": "2026-11-18T22:51:27Z",
+  "workflow_commit": "ca7bbb114e1cf44b510dc7421199674bb73df971",
+  "archive_commit": "8646c05db23b99c28cf6b2e205ea4d5494bdb044",
+  "run": 44418041655,
+  "job": 135203387400,
+  "verified_utc": "2026-11-18T23:09:13Z",
   "deadline_utc": "2026-11-19T00:36:00Z",
-  "archives": 24,
-  "members": 250,
-  "compressed_bytes": 17481359,
+  "archives": 30,
+  "members": 268,
+  "compressed_bytes": 22779411,
   "index": "evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json",
   "verification": "After push, fetch origin/main; read archive/index bytes with git show; verify SHA256 and size of every archive and every tar member",
   "scope": "Selected generated test/geometry/loopback-browser evidence only; not all historical changes, full repository completeness or architectural qualification",
@@ -35,6 +35,12 @@
     44412740546,
     44413136071,
     44413801814,
-    44414249134
+    44414249134,
+    44415606870,
+    44415900223,
+    44416886004,
+    44416903509,
+    44417404259,
+    44417514104
   ]
 }
