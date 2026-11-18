@@ -1,0 +1,36 @@
+{
+  "schema": "V25_CLOSURE_DIAGNOSTIC_V1",
+  "operation_start_utc": "2026-11-18T19:43:00Z",
+  "deadline_utc": "2026-11-18T22:43:00Z",
+  "completed_at_utc": "2026-11-18T19:45:46.055Z",
+  "scope": "read-only registered-object/ref/guard diagnosis; not a restart of timed-out migration",
+  "examined_ref": "main",
+  "registered_refs": [
+    "refs/heads/main"
+  ],
+  "tree_observation": {
+    "commit": "5d3a0520519d7980047d324565a205df3bec4acf",
+    "entries": 2209,
+    "truncated": false
+  },
+  "tested_commit": "bc381a36fc5493d7c392fb30c6fabc74708d9c60",
+  "run": 44383513299,
+  "job": 135081797925,
+  "conclusion": "FAILURE_BLOCKED_MISSING_FROZEN_CLOSURE",
+  "log_verified": true,
+  "required_missing_files": [
+    "app/review390_preaudit/source_freeze.json",
+    "app/review399_e1_5_identity_preaudit/source_freeze.json",
+    "app/review400_e1_5_schema_preaudit/source_freeze.json"
+  ],
+  "registered_exact_freeze_matches": [],
+  "guard_preserved": true,
+  "guard_first_failure": "FileNotFoundError: app/review390_preaudit/source_freeze.json",
+  "unsupported_recovery_claims": [
+    "No known complete SHA for previous worker's uncommitted staged tree; no matching registered ref found.",
+    "Exact freeze bytes cannot be reconstructed from SHA256 alone.",
+    "No equivalence proof permitting removal of historical keyset/pin checks is available."
+  ],
+  "remaining_options": "Recover exact original freeze/closure bytes or a verifiable staged tree SHA through authorized source work. Existing timebox must not be bypassed by renaming/repeating the same migration. Parent must reconcile this blocker with continuation constraints.",
+  "stage303_started": false
+}
