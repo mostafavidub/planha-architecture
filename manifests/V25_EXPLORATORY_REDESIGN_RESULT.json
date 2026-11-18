@@ -1,0 +1,83 @@
+{
+  "commit": "565290d6a75dfd69c09d8ab28d785ec2cd52c40b",
+  "run": 44403413844,
+  "job": 135152153604,
+  "parent_source_run": 44401790896,
+  "finished_utc": "2026-11-18T21:39:37Z",
+  "deadline_utc": "2026-11-19T00:27:35Z",
+  "artifact_id": 14473398065,
+  "artifact_sha256": "b2aa5dda55817a423a67a66a4f1b198d6a0a33310ec0aa2e14261051387bf725",
+  "report": {
+    "scope": "EXPLORATORY_REDIRECTION_NOT_REGISTERED_PRODUCTION_REPAIR",
+    "parent": {
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "model_digest": "f475b286a6e033552a6d0cfa786d51ff3ba16b9f66201f2e997f2f26d570cf4f",
+      "changed_model": null,
+      "physical_status": "FAIL",
+      "errors": [
+        {
+          "code": "MISSING_REQUIRED_ACTIVITY_ROUTES",
+          "failures": [
+            {
+              "unit": "A",
+              "route": "guest_dining",
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+            },
+            {
+              "unit": "B",
+              "route": "guest_dining",
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+            }
+          ]
+        }
+      ],
+      "pending": [
+        "RULE_NOT_EVALUATED:circulation_functional_integrity",
+        "RULE_NOT_EVALUATED:guest_dining_route",
+        "RULE_NOT_EVALUATED:guest_living_route",
+        "RULE_NOT_EVALUATED:private_grouping",
+        "RULE_NOT_EVALUATED:program_functional_roles",
+        "RULE_NOT_EVALUATED:serving_route"
+      ],
+      "protected_inventory_and_core_unchanged": null
+    },
+    "children": [
+      {
+        "variant": 1,
+        "proposal_status": "PROPOSAL_ONLY",
+        "model_digest": "59ccf2bc893ed2ed771cb28ee3ade7c05bb04bd74e778fe159a7c781b2654a7c",
+        "changed_model": true,
+        "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+        "errors": [],
+        "pending": [],
+        "protected_inventory_and_core_unchanged": true
+      },
+      {
+        "variant": 2,
+        "proposal_status": "PROPOSAL_ONLY",
+        "model_digest": "71403f3f26d27d789efd7fd3c83a9a349919f2a04010e93f72ff3e7d9356ae7f",
+        "changed_model": true,
+        "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+        "errors": [],
+        "pending": [],
+        "protected_inventory_and_core_unchanged": true
+      },
+      {
+        "variant": 3,
+        "proposal_status": "PROPOSAL_ONLY",
+        "model_digest": "932368679023543aec678fdc4aee14d8b5e5690240955a47f9ae6d40fbc34256",
+        "changed_model": true,
+        "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+        "errors": [],
+        "pending": [],
+        "protected_inventory_and_core_unchanged": true
+      }
+    ],
+    "blocked": null,
+    "accepted": false,
+    "delivery_allowed": false
+  }
+}
