@@ -35,6 +35,9 @@ jobs:
           from search114 import propose
           from engine114 import revision
           from functional_review import assess
+          from living_connectivity_diagnostic import direction_changes
+          assert direction_changes([['0','0'],['1','0'],['2','0'],['2','1']])==1
+          assert direction_changes([['0','0'],['0','0'],['1','0']])==0
           from producer_provenance import snapshot,require_unchanged
           pins=guard(FREEZE);assert pins==12991;source=revision()
           hashes=snapshot(root,['app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/explicit_pair_redirection.py'])
@@ -59,7 +62,7 @@ jobs:
               for u in functional['living_connectivity_study']['units']:
                   study=next(s for s in u['studies'] if s['label']=='CONCEPTUAL_PUBLIC_UNION_PROBE')
                   ready=bool(study['paths']) and all(p['path'] for p in study['paths'])
-                  metric.append({'unit':u['unit'],'connected':ready,'sum_anchor_path_m':str(sum(F(p['length_m']) for p in study['paths'])) if ready else None,'max_path_m':str(max(F(p['length_m']) for p in study['paths'])) if ready else None,'sum_turns':sum(p['turns'] for p in study['paths']) if ready else None})
+                  metric.append({'unit':u['unit'],'anchor_fixture_id':study['anchor_fixture_id'],'target_fixture_ids':study['target_fixture_ids'],'connected':ready,'sum_anchor_path_m':str(sum(F(p['length_m']) for p in study['paths'])) if ready else None,'max_path_m':str(max(F(p['length_m']) for p in study['paths'])) if ready else None,'sum_turns':sum(p['turns'] for p in study['paths']) if ready else None})
               return {'variant':variant,'packet':packet,'context':ctx,'review':review,'functional_review':functional,'model_digest':digest(m),'metrics':metric,'accepted':False,'delivery_allowed':False}
           base=record(baseline,bctx,'ARCHIVED_BASELINE_FRESH_REPLAY')
           result={'scope':'COUNTERFACTUAL_ORGANIZATION_COMPARISON_ONLY_NOT_REPAIR_OR_ACCEPTANCE','raw':raw,'source_revision':source,'source_hashes':hashes,'baseline':base,'alternatives':[],'accepted':False,'delivery_allowed':False,'deadline_utc':'2026-11-19T01:07:31Z'}
@@ -71,11 +74,12 @@ jobs:
               assert inventory(m)==protected and m['profile']==baseline['world_model']['profile'] and m['inputs']==baseline['world_model']['inputs'] and digest(packet['core'])==digest(baseline['core'])
               alt=record(packet,ctx,variant);alt['programme_fixtures_core_profile_preserved']=True
               alt['fresh_physical_pass']=alt['review']['status']=='PASS_CONCEPT_SCOPED_REVIEW' and alt['review']['errors']==[] and alt['review']['pending']==[]
-              alt['shorter_in_both_units']=len(alt['metrics'])==len(base['metrics'])==2 and all(a['unit']==b['unit'] and a['connected'] and b['connected'] and F(a['sum_anchor_path_m'])<F(b['sum_anchor_path_m']) for a,b in zip(alt['metrics'],base['metrics']))
+              alt['metric_shorter_in_both_units']=len(alt['metrics'])==len(base['metrics'])==2 and all(a['unit']==b['unit'] and a['anchor_fixture_id']==b['anchor_fixture_id'] and a['target_fixture_ids']==b['target_fixture_ids'] and a['connected'] and b['connected'] and F(a['sum_anchor_path_m'])<F(b['sum_anchor_path_m']) for a,b in zip(alt['metrics'],base['metrics']))
+              alt['fresh_physical_shorter_candidate']=alt['fresh_physical_pass'] and alt['metric_shorter_in_both_units']
               alt['not_global_optimum_or_useful_area_proof']=True
               result['alternatives'].append(alt);Path('circulation-comparison.json').write_text(json.dumps(result,ensure_ascii=False))
           require_unchanged(root,hashes);assert revision()==source and guard(FREEZE)==pins
-          def brief(r):return {k:r.get(k) for k in ['variant','model_digest','metrics','fresh_physical_pass','shorter_in_both_units','programme_fixtures_core_profile_preserved']}
+          def brief(r):return {k:r.get(k) for k in ['variant','model_digest','metrics','fresh_physical_pass','metric_shorter_in_both_units','fresh_physical_shorter_candidate','programme_fixtures_core_profile_preserved']}
           print('CIRCULATION_COMPARISON '+json.dumps({'baseline':brief(base),'baseline_physical_status':base['review']['status'],'alternatives':[brief(a) for a in result['alternatives']],'accepted':False,'delivery_allowed':False}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
