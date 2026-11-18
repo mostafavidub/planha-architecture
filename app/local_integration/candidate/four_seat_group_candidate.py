@@ -1,5 +1,6 @@
 # Independent experimental fork of frozen search114; upstream blob 65e0f278c9f9ef480388d3ea8056161c0a938a36.
-# Adds four-seat protected envelope and shared-body constraints only; no source guard or historical marker change.
+# Adds protected seating group, source bath typed-floor and kitchen-motion guest constraints.
+# Historical guard, source producers, roles and acceptance checks remain unchanged.
 """Bounded rectangle-variable proposal. A solver incumbent is NEVER admission.
 Core and real entry apron are fixed first. Room dimensions and locations are
 variables; no historical plan file is loaded or selected by requested dimensions.
@@ -10,9 +11,18 @@ from scipy.optimize import milp,Bounds,LinearConstraint
 from scipy.sparse import lil_matrix
 from contract114 import GRID,BODY
 
+def require_source_import(fn,name):
+ import inspect
+ from pathlib import Path
+ root=next(p for p in Path(__file__).resolve().parents if (p/'manifests/WORKTREE_STATE.json').is_file())
+ expected=(root/'app/reconstruction357/planha_general150_runtime_work'/name).resolve()
+ if Path(inspect.getsourcefile(fn)).resolve()!=expected:raise ValueError('INDEPENDENT_MASTER_SOURCE_IMPORT:'+name)
+ return expected.parent
+
 def bath_apron_dining_separated(rectangles):
  from fractions import Fraction as F
  from bathroom_module117 import build
+ require_source_import(build,'bathroom_module117.py')
  bath=list(map(lambda v:F(str(v)),rectangles['bath']));dining=list(map(lambda v:F(str(v)),rectangles['dining']))
  module=build(str(bath[2]-bath[0]),str(bath[3]-bath[1]))
  gross=module['reserved_approach_gross']
@@ -23,6 +33,7 @@ def bath_apron_dining_separated(rectangles):
 def source_kitchen_motion(width='2.35',depth='3.05'):
  from fractions import Fraction as F
  from kitchen_module117 import build
+ engine=require_source_import(build,'kitchen_module117.py')
  m=build(width,depth);op=m['operations']['kitchen'][0];out=[]
  half=F(op['assumptions']['body_m'])/2
  if half!=BODY/2 or half!=F('.35'):raise ValueError('PUBLIC_SOURCE_BODY_PROFILE_CHANGED')
@@ -35,7 +46,9 @@ def source_kitchen_motion(width='2.35',depth='3.05'):
  out.append([x-radius,y-radius,x+radius,y+radius])
  a,b=list(map(F,fr['closed_actor'])),list(map(F,fr['open_actor']))
  out.append([min(a[0],b[0])-half,min(a[1],b[1])-half,max(a[0],b[0])+half,max(a[1],b[1])+half])
- return out,m['source_binding']
+ import hashlib
+ binding=dict(m['source_binding']);binding['related_source_sha256']={name:hashlib.sha256((engine/name).read_bytes()).hexdigest() for name in ('kitchen_module117.py','public_witness118.py','place_kitchen117.py')}
+ return out,binding
 
 def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED"):
  box=list(map(lambda x:float(__import__('fractions').Fraction(str(x))),core['units']['A']));x0,y0,x1,y1=box;ar=(x1-x0)*(y1-y0);scale=float(GRID)
@@ -440,6 +453,7 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  # Full source approach must not enter dining, a different typed floor role.
  # Preserve every previous obstacle constraint; zero extra architectural margin.
  from bathroom_module117 import build as source_bath
+ require_source_import(source_bath,'bathroom_module117.py')
  if [list(map(F,q)) for q in source_bath()['reserved_approach_gross']]!=[list(map(F,['.7','-.95','2.3','0']))]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
  dk=4*next(i for i,z in enumerate(specs) if z[0]=='dining')
  dining_floor=[aff(dk),aff(dk+1),plus(aff(dk),aff(dk+2)),plus(aff(dk+1),aff(dk+3))]
