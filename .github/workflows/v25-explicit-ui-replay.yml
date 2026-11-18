@@ -1,0 +1,33 @@
+name: V25 explicit UI replay regressions
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-explicit-ui-replay.yml'
+      - 'app/local_integration/test_explicit_program_ui.cjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44417514104
+          name: v25-pair-http
+          path: _input
+      - name: Synthetic response tampering using real recorded pair evidence
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          from pathlib import Path
+          r=json.loads(Path('_input/pair-http.json').read_text())
+          parent=r['continuations'][0]['parent_run'];child=r['continuation']['run_id']
+          subprocess.run(['node','app/local_integration/test_explicit_program_ui.cjs',str(Path('_input/evidence/requests')/parent/'result.json'),str(Path('_input/evidence/requests')/child/'result.json')],check=True)
+          PY
