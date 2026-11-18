@@ -9,7 +9,16 @@ def digest(value):
 
 def decide(candidate, request_digest, source_revision, repair_receipt=None):
     model_hash=digest(candidate['model']); review=candidate['physical_review']
-    origin=review.get('hierarchical_provenance129',{})
+    if 'multiproposal_provenance127' in review:
+        if 'hierarchical_provenance129' in review:raise ValueError('AMBIGUOUS_CONSTRUCTION_PROVENANCE')
+        trace=candidate.get('generation_context',{}).get('construction_trace',{})
+        if trace.get('schema')!='CONSTRUCTION_TRACE127_PAIR_V1' or trace.get('model_hash')!=model_hash or trace.get('source_revision')!=source_revision:
+            raise ValueError('EXPLICIT_PAIR_TRACE_REQUIRED')
+        proposals=trace.get('proposals',{})
+        if set(proposals)!={'A','B'} or any(p.get('bedrooms')!=2 or p.get('sleep_roles')!=['double','twin'] for p in proposals.values()):
+            raise ValueError('EXPLICIT_TWO_BEDROOM_SOURCE_REQUIRED')
+        origin=review['multiproposal_provenance127']
+    else:origin=review.get('hierarchical_provenance129',{})
     if candidate.get('model_digest')!=model_hash or review.get('model_hash')!=model_hash or origin.get('model_hash')!=model_hash:
         raise ValueError('CURRENT_REVIEW_MODEL_BINDING')
     if origin.get('verified') is not True or origin.get('source_revision')!=source_revision or origin.get('errors')!=[] or origin.get('pending')!=[]:
