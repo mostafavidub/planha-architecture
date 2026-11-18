@@ -45,7 +45,11 @@ jobs:
           from constructor127 import build,context
           from evaluate_pair127 import evaluate
           from review_cycle import digest
-          from ordered_guest_group_diagnostic import assess
+          from ordered_guest_group_diagnostic import assess,first_positive_body_contact
+          assert first_positive_body_contact([['0','0'],['4','0']],'.7',[['2','-.1','3','.1']])=='33/20'
+          assert first_positive_body_contact([['0','0'],['4','0']],'.7',[['2','.35','3','1']]) is None
+          assert first_positive_body_contact([['4','0'],['0','0']],'.7',[['2','-.1','3','.1']])=='13/20'
+          assert first_positive_body_contact([['0','0'],['0','0'],['4','0']],'.7',[['2','-.1','3','.1']])=='33/20'
           paths=['app/local_integration/ordered_guest_group_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-ordered-guest-group.yml']
           sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
           for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
@@ -62,7 +66,7 @@ jobs:
               out['rows'].append({'source_artifact':path,'model_digest':mh,'fresh_review':review,'study':study,'current_producer_claim':False})
               Path('ordered-guest-group.json').write_text(json.dumps(out,ensure_ascii=False))
           require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
-          print('ORDERED_GUEST_GROUP '+json.dumps([{'model':r['model_digest'],'missing':r['study'].get('missing'),'units':[{'unit':u['unit'],'state':u['state'],'legs':[{'id':l['id'],'path_found':bool(l['path']),'reason':l['reason'],'length_m':l.get('length_m'),'turns':l.get('turns')} for l in u['legs']]} for u in r['study']['units']]} for r in out['rows']]),flush=True)
+          print('ORDERED_GUEST_GROUP '+json.dumps([{'model':r['model_digest'],'missing':r['study'].get('missing'),'units':[{'unit':u['unit'],'state':u['state'],'direct_comparison':u.get('direct_dining_comparison'),'legs':[{'id':l['id'],'path_found':bool(l['path']),'reason':l['reason'],'length_m':l.get('length_m'),'turns':l.get('turns')} for l in u['legs']]} for u in r['study']['units']]} for r in out['rows']]),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
