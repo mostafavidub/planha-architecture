@@ -257,6 +257,32 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
     bind(py,plus(Y,const(1.1 if name=='sofa1_use'and not horizontal else 1.25)))
    else:bind(px,plus(X,const(.4)));bind(py,plus(Y,const(.35)))
    terminaldefs.append((name,px,py,None))
+ group="independent_four_seat_local_body_routes"
+ # Additional restricted local network from the shared body to actual source
+ # seat ports. These constraints add to, never replace, the entry network.
+ def group_span(a,b,low,high):
+  lo=var(low,high,-.0001,0);hi=var(low,high,.0001,0)
+  lin(plus(aff(lo),neg(a)),hi=0);lin(plus(aff(lo),neg(b)),hi=0)
+  lin(plus(aff(hi),neg(a)),lo=0);lin(plus(aff(hi),neg(b)),lo=0)
+  return aff(lo),aff(hi)
+ group_routes=[];group_startx=plus(aff(wx),({},bs/2));group_starty=plus(aff(wy),({},bs/2))
+ seat_names={specs[i][0] for i in seat_indices}
+ for name,px,py,_side in terminaldefs:
+  if name not in seat_names:continue
+  jx=var(x0/scale,x1/scale)
+  xa,xb=group_span(group_startx,aff(jx),x0/scale,x1/scale)
+  ya,yb=group_span(group_starty,aff(py),y0/scale,y1/scale)
+  xc,xd=group_span(aff(jx),aff(px),x0/scale,x1/scale)
+  segments=[[plus(xa,({},-bs/2)),plus(group_starty,({},-bs/2)),plus(xb,({},bs/2)),plus(group_starty,({},bs/2))],
+            [plus(aff(jx),({},-bs/2)),plus(ya,({},-bs/2)),plus(aff(jx),({},bs/2)),plus(yb,({},bs/2))],
+            [plus(xc,({},-bs/2)),plus(aff(py),({},-bs/2)),plus(xd,({},bs/2)),plus(aff(py),({},bs/2))]]
+  for seg in segments:
+   lin(plus(seg[0],neg(aff(gl))),lo=0);lin(plus(seg[1],neg(aff(gb))),lo=0)
+   lin(plus(seg[2],neg(aff(gr))),hi=0);lin(plus(seg[3],neg(aff(gt))),hi=0)
+   for oname,ob in obstacles:
+    zz=[var(0,1) for _ in range(4)];row({j:1 for j in zz},hi=3)
+    for expr,z in zip([plus(seg[2],neg(ob[0])),plus(ob[2],neg(seg[0])),plus(seg[3],neg(ob[1])),plus(ob[3],neg(seg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
+  group_routes.append((name,px,py,jx))
  group="paired_private_apron"
  # Adjacent private modules face one actual 1.0m clear common approach:
  # 0.15m side wall + 1.0m clear floor + 0.15m side wall.
@@ -416,9 +442,13 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   uses=[list(map(lambda v:F(str(v)),out['rectangles'][specs[i][0]])) for i in seat_indices]
   actual=[min(q[0] for q in uses),min(q[1] for q in uses),max(q[2] for q in uses),max(q[3] for q in uses)]
   def intersects(a,b):return max(a[0],b[0])<min(a[2],b[2]) and max(a[1],b[1])<min(a[3],b[3])
-  protected=[list(map(lambda v:F(str(v)),out['rectangles'][sp[0]])) for i,sp in enumerate(specs) if i not in seat_indices]
-  if group_box!=actual or not(group_box[0]<=witness[0]<witness[2]<=group_box[2] and group_box[1]<=witness[1]<witness[3]<=group_box[3]) or any(intersects(witness,q) for q in uses) or any(intersects(group_box,q) for q in protected):
+  protected=[(list(map(lambda v:F(str(v)),out['rectangles'][sp[0]])),F('.15') if sp[7] in ('private_room','service','open_room') else F(0)) for i,sp in enumerate(specs) if i not in seat_indices]
+  exact_core=list(map(lambda v:F(str(v)),core['units']['A']))
+  def separated(a,b,margin):return a[2]+margin<=b[0] or b[2]+margin<=a[0] or a[3]+margin<=b[1] or b[3]+margin<=a[1]
+  source_body=F(str(BODY))
+  if group_box!=actual or not(group_box[0]<=witness[0]<witness[2]<=group_box[2] and group_box[1]<=witness[1]<witness[3]<=group_box[3]) or any(intersects(witness,q) for q in uses) or any(not separated(group_box,q,margin) for q,margin in protected) or witness[2]-witness[0]!=source_body or witness[3]-witness[1]!=source_body or not(exact_core[0]<=group_box[0]<group_box[2]<=exact_core[2] and exact_core[1]<=group_box[1]<group_box[3]<=exact_core[3]):
    out['status']='EXACT_GROUP_PREFILTER_REJECTED';return out
+  out['independent_shared_group_study']['network_paths']={name:[[round((vals[wx]+bs/2)*scale,6),round((vals[wy]+bs/2)*scale,6)],[round(vals[jx]*scale,6),round((vals[wy]+bs/2)*scale,6)],[round(vals[jx]*scale,6),round(vals[py]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]] for name,px,py,jx in group_routes}
   out['roles']={s[0]:s[7]for s in specs}
   out['network_paths']={name:[[round(rootx*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]]for name,px,py,bend,side in network}
   out['bed_door_sides']={name:('right'if vals[side]>.5 else'left')for name,px,py,bend,side in network if side is not None}
