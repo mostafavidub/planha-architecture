@@ -1,0 +1,436 @@
+{
+  "baseline": {
+    "inventory": {
+      "errors": [],
+      "pending": [],
+      "model_hash": "164f0d92b2a43d91d7be718881dc59debfe0d864206c656bdbe97a7c9e500e1a",
+      "local_model_hash": "fa8007f29500a2aea94db417f9c005fad62289514b03165913078842204cc67e",
+      "derived_requirements": [
+        "fresh physical_wall_network",
+        "fresh spatial_accounting"
+      ],
+      "scope": "Exact enumerated D4 fields; not whole admission; fixture rotation is axis only, operation angles canonical"
+    },
+    "binding": {
+      "status": "PASS_SOURCE_BOUND_ACTUAL_PRIVATE_L3_ONLY",
+      "errors": [],
+      "pending": [],
+      "boundary_wall_ids": [
+        "A.private_l3.bottom",
+        "A.private_l3.right_exposed",
+        "B.private_l3.bottom",
+        "B.private_l3.right_exposed"
+      ],
+      "verified_wall_rects": {
+        "A.private_l3.right_exposed": [
+          "1/4",
+          "2177/200",
+          "29/5",
+          "2207/200"
+        ],
+        "A.private_l3.bottom": [
+          "1/4",
+          "1947/200",
+          "2/5",
+          "2177/200"
+        ],
+        "B.private_l3.right_exposed": [
+          "633/20",
+          "2177/200",
+          "186/5",
+          "2207/200"
+        ],
+        "B.private_l3.bottom": [
+          "741/20",
+          "1947/200",
+          "186/5",
+          "2177/200"
+        ]
+      },
+      "witness": {
+        "local_topology": {
+          "errors": [],
+          "pending": [],
+          "domains": [
+            {
+              "unit": "A",
+              "bedrooms": [
+                "A.bed1",
+                "A.bed2",
+                "A.bed3"
+              ],
+              "domain_parts": [
+                [
+                  "9.735",
+                  "0.6",
+                  "10.885",
+                  "1.6"
+                ],
+                [
+                  "9.735",
+                  "5.25",
+                  "10.885",
+                  "6.15"
+                ],
+                [
+                  "9.735",
+                  "6.15",
+                  "11.035",
+                  "6.25"
+                ],
+                [
+                  "9.885",
+                  "0.4",
+                  "10.885",
+                  "0.6"
+                ],
+                [
+                  "9.885",
+                  "1.6",
+                  "10.885",
+                  "5.25"
+                ],
+                [
+                  "9.885",
+                  "7.15",
+                  "10.885",
+                  "9.55"
+                ],
+                [
+                  "9.885",
+                  "6.25",
+                  "11.035",
+                  "7.15"
+                ]
+              ],
+              "boundary_gaps": [],
+              "visibility_status": "NOT_EVALUATED_BY_TOPOLOGY",
+              "all_private_targets_retained": true
+            },
+            {
+              "unit": "B",
+              "bedrooms": [
+                "B.bed1",
+                "B.bed2",
+                "B.bed3"
+              ],
+              "domain_parts": [
+                [
+                  "9.735",
+                  "31.2",
+                  "11.035",
+                  "31.3"
+                ],
+                [
+                  "9.735",
+                  "31.3",
+                  "10.885",
+                  "32.2"
+                ],
+                [
+                  "9.735",
+                  "35.85",
+                  "10.885",
+                  "36.85"
+                ],
+                [
+                  "9.885",
+                  "27.9",
+                  "10.885",
+                  "30.3"
+                ],
+                [
+                  "9.885",
+                  "32.2",
+                  "10.885",
+                  "35.85"
+                ],
+                [
+                  "9.885",
+                  "36.85",
+                  "10.885",
+                  "37.05"
+                ],
+                [
+                  "9.885",
+                  "30.3",
+                  "11.035",
+                  "31.2"
+                ]
+              ],
+              "boundary_gaps": [],
+              "visibility_status": "NOT_EVALUATED_BY_TOPOLOGY",
+              "all_private_targets_retained": true
+            }
+          ],
+          "scope": "Conservative proof method for one declared connected domain with one axis-aligned public interface. These topology restrictions are NOT owner requirements and unsupported domains are NOT proven infeasible. Physical collision, actual access and inventory falsification remain errors. No all-scenario privacy, wardrobe capacity, minimal-corridor or whole-plan approval."
+        },
+        "world_topology": {
+          "errors": [],
+          "pending": [],
+          "domains": [
+            {
+              "unit": "A",
+              "bedrooms": [
+                "A.bed1",
+                "A.bed2",
+                "A.bed3"
+              ],
+              "domain_parts": [
+                [
+                  "0.6",
+                  "9.735",
+                  "1.6",
+                  "10.885"
+                ],
+                [
+                  "5.25",
+                  "9.735",
+                  "6.15",
+                  "10.885"
+                ],
+                [
+                  "6.15",
+                  "9.735",
+                  "6.25",
+                  "11.035"
+                ],
+                [
+                  "0.4",
+                  "9.885",
+                  "0.6",
+                  "10.885"
+                ],
+                [
+                  "1.6",
+                  "9.885",
+                  "5.25",
+                  "10.885"
+                ],
+                [
+                  "7.15",
+                  "9.885",
+                  "9.55",
+                  "10.885"
+                ],
+                [
+                  "6.25",
+                  "9.885",
+                  "7.15",
+                  "11.035"
+                ]
+              ],
+              "boundary_gaps": [],
+              "visibility_status": "NOT_EVALUATED_BY_TOPOLOGY",
+              "all_private_targets_retained": true
+            },
+            {
+              "unit": "B",
+              "bedrooms": [
+                "B.bed1",
+                "B.bed2",
+                "B.bed3"
+              ],
+              "domain_parts": [
+                [
+                  "31.2",
+                  "9.735",
+                  "31.3",
+                  "11.035"
+                ],
+                [
+                  "31.3",
+                  "9.735",
+                  "32.2",
+                  "10.885"
+                ],
+                [
+                  "35.85",
+                  "9.735",
+                  "36.85",
+                  "10.885"
+                ],
+                [
+                  "27.9",
+                  "9.885",
+                  "30.3",
+                  "10.885"
+                ],
+                [
+                  "32.2",
+                  "9.885",
+                  "35.85",
+                  "10.885"
+                ],
+                [
+                  "36.85",
+                  "9.885",
+                  "37.05",
+                  "10.885"
+                ],
+                [
+                  "30.3",
+                  "9.885",
+                  "31.2",
+                  "11.035"
+                ]
+              ],
+              "boundary_gaps": [],
+              "visibility_status": "NOT_EVALUATED_BY_TOPOLOGY",
+              "all_private_targets_retained": true
+            }
+          ],
+          "scope": "Conservative proof method for one declared connected domain with one axis-aligned public interface. These topology restrictions are NOT owner requirements and unsupported domains are NOT proven infeasible. Physical collision, actual access and inventory falsification remain errors. No all-scenario privacy, wardrobe capacity, minimal-corridor or whole-plan approval."
+        }
+      },
+      "source_sha256": {
+        "twin": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+        "double": "c876cb026c2f227a10ed6a36ba6e49f0dc9c92fcf2c7ab300d42236ed2bf3fc1"
+      },
+      "accepted": false,
+      "scope": "Restricted reviewed L3 source/module wall inventory, residual core union, actual D4, fresh topology and private role. Not whole-plan, operational, visibility or quality approval."
+    }
+  },
+  "mutations": {
+    "shared_unknown": {
+      "inventory": {
+        "errors": [
+          "UNKNOWN_RECORD_FIELDS:root.ordered_macro",
+          "UNKNOWN_RECORD_FIELDS:root.ordered_macro"
+        ],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_SCHEMA:local",
+          "L3_MACRO_SCHEMA:world"
+        ],
+        "pending": []
+      }
+    },
+    "world_origin": {
+      "inventory": {
+        "errors": [
+          "WORLD_FIELD_BINDING:ordered_macro"
+        ],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_ORIGIN:world"
+        ],
+        "pending": []
+      }
+    },
+    "shared_origin": {
+      "inventory": {
+        "errors": [],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_ORIGIN:local",
+          "L3_MACRO_ORIGIN:world"
+        ],
+        "pending": []
+      }
+    },
+    "world_scalar": {
+      "inventory": {
+        "errors": [
+          "WORLD_FIELD_BINDING:ordered_macro"
+        ],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_CENTER:world"
+        ],
+        "pending": []
+      }
+    },
+    "shared_scalar": {
+      "inventory": {
+        "errors": [],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_CENTER:local",
+          "L3_MACRO_CENTER:world"
+        ],
+        "pending": []
+      }
+    },
+    "shared_rectangles": {
+      "inventory": {
+        "errors": [],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_RECTANGLES:local",
+          "L3_MACRO_RECTANGLES:world"
+        ],
+        "pending": []
+      }
+    },
+    "shared_door_sides": {
+      "inventory": {
+        "errors": [],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MACRO_DOOR_SIDES:local",
+          "L3_MACRO_DOOR_SIDES:world"
+        ],
+        "pending": []
+      }
+    },
+    "world_source_transform": {
+      "inventory": {
+        "errors": [
+          "WORLD_FIELD_BINDING:module_placements"
+        ],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_MODULE_D4_COMPOSITION"
+        ],
+        "pending": []
+      }
+    },
+    "shared_source_transform": {
+      "inventory": {
+        "errors": [],
+        "pending": []
+      },
+      "binding": {
+        "errors": [
+          "L3_LOCAL_MODULE_HOST:A.bed1.back",
+          "L3_LOCAL_MODULE_HOST:A.bed1.front",
+          "L3_LOCAL_MODULE_HOST:A.bed1.left",
+          "L3_LOCAL_MODULE_HOST:A.bed1.right",
+          "L3_LOCAL_MODULE_WALL:walls:A.bed1.back",
+          "L3_LOCAL_MODULE_WALL:walls:A.bed1.front",
+          "L3_LOCAL_MODULE_WALL:walls:A.bed1.left.lower",
+          "L3_LOCAL_MODULE_WALL:walls:A.bed1.left.upper",
+          "L3_LOCAL_MODULE_WALL:walls:A.bed1.right",
+          "L3_SOURCE_FLOOR:A.bed1",
+          "L3_WORLD_MODULE_HOST:A.bed1.back",
+          "L3_WORLD_MODULE_HOST:A.bed1.front",
+          "L3_WORLD_MODULE_HOST:A.bed1.left",
+          "L3_WORLD_MODULE_HOST:A.bed1.right",
+          "L3_WORLD_MODULE_WALL:walls:A.bed1.back",
+          "L3_WORLD_MODULE_WALL:walls:A.bed1.front",
+          "L3_WORLD_MODULE_WALL:walls:A.bed1.left.lower",
+          "L3_WORLD_MODULE_WALL:walls:A.bed1.left.upper",
+          "L3_WORLD_MODULE_WALL:walls:A.bed1.right"
+        ],
+        "pending": []
+      }
+    }
+  }
+}

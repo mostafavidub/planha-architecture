@@ -1,0 +1,43 @@
+{
+  "schema": "TABLE6_SOURCE_RESEARCH_ONLY",
+  "observed_date": "2026-11-14",
+  "manufacturer": "IKEA",
+  "model": "MÖRBYLÅNGA",
+  "article": "202.937.66",
+  "source_page": "https://www.ikea.com/se/en/p/moerbylanga-table-oak-veneer-brown-stained-20293766/",
+  "page_evidence_lines": {
+    "article": 90,
+    "nominal_seats": 144,
+    "dimensions": [
+      181,
+      182,
+      183
+    ]
+  },
+  "fixed_outer_dimensions_m": {
+    "length": "2.20",
+    "width": "1.00",
+    "height": ".74"
+  },
+  "plan_shape": "Rectangular tabletop; engineering footprint envelope must remain fixed, no resizing",
+  "manufacturer_nominal_seats": 6,
+  "nominal_seating_is_not_planha_operational_proof": true,
+  "assembly_url": "https://www.ikea.com/se/en/assembly_instructions/moerbylanga-table-oak-veneer-brown-stained__AA-1924803-2-2.pdf",
+  "assembly_document": "AA-1924803-2",
+  "assembly_date_printed": "2019-12-11",
+  "assembly_sha256": "24ad6e419508b4f8cb87d7f270e84df5deb5523f60e02098fab39759f8cb7d71",
+  "visual_review_pdf_pages": [
+    6,
+    8
+  ],
+  "support_geometry": "Assembly shows paired side supports and connecting lower rail; exact foot/rail sections, coordinates, knee clearances not dimensioned in reviewed pages. Do not infer exact geometry from perspective pixels.",
+  "suggested_profile_id": "PROPOSED_IKEA_MORBYLANGA_20293766_FIXED_2200x1000",
+  "integration_status": "RESEARCH_ONLY_NOT_IN_RUNTIME_CATALOG",
+  "required_next_proofs": [
+    "Six actual source-sized chair instances, simultaneous occupied-body clearance, pull and planar seat-exit",
+    "Serving and separate guest destinations in full unit",
+    "Support/knee geometry kept NOT_VERIFIED unless primary dimensions acquired; no walking beneath tabletop assumed",
+    "Real six-person living/storage/day-to-day program, not only sleep count"
+  ],
+  "accepted": false
+}
