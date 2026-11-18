@@ -42,13 +42,15 @@ jobs:
           assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']['bedrooms_per_unit']==2
           assert digest(m)!=saved['model_digest'] and origin['origin_verified']
           negative=[]
-          for name in ['model','raw','proposal','source','admission']:
+          for name in ['model','raw','proposal','source','admission','integer_to_float','boolean_to_zero']:
               p=deepcopy(packet);tr=deepcopy(trace)
               if name=='model':p['world_model']['accepted']=True
               elif name=='raw':
                   key=next(iter(tr['raw']));tr['raw'][key]=str(tr['raw'][key])+' '
               elif name=='proposal':tr['proposal_hashes']['A']='0'*64
               elif name=='source':tr['sources']={}
+              elif name=='integer_to_float':p['world_model']['program']['units']=2.0
+              elif name=='boolean_to_zero':p['world_model']['accepted']=0
               else:tr['qualified']=True
               try:verify(p,tr)
               except (ValueError,KeyError):negative.append(name)
@@ -59,7 +61,7 @@ jobs:
           require_unchanged(root,sources);assert guard(FREEZE)==12991
           out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
           Path('open-world.json').write_text(json.dumps(out,ensure_ascii=False))
-          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'historical_status':historical.get('status'),'historical_errors':historical.get('errors',[]),'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
+          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'historical_status':historical.get('status'),'historical_errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in historical.get('errors',[])],'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
