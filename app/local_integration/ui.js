@@ -83,3 +83,27 @@ form.addEventListener('submit', async event => {
     if (fresh()) { button.disabled=false;controller=null; }
   }
 });
+
+/* Preserve JSON numeric lexemes for Python source receipts (e.g. 7.0 vs 7).
+   This is transport identity, not a numeric coercion or an acceptance rule. */
+function readExactWire(text) {
+  let i=0; const numbers=new Map();
+  const ws=()=>{while(/\s/.test(text[i]||'')&&i<text.length)i++;};
+  function stringToken(){const start=i++;while(i<text.length){const c=text[i++];if(c==='\\'){i++;continue;}if(c==='"')return JSON.parse(text.slice(start,i));}throw Error('INVALID_JSON_WIRE');}
+  function visit(path){ws();const c=text[i];
+    if(c==='{'){i++;ws();const seen=new Set();if(text[i]==='}'){i++;return;}while(true){ws();if(text[i]!=='"')throw Error('INVALID_JSON_WIRE');const key=stringToken();if(seen.has(key))throw Error('DUPLICATE_JSON_WIRE_KEY');seen.add(key);ws();if(text[i++]!==':')throw Error('INVALID_JSON_WIRE');visit([...path,key]);ws();const end=text[i++];if(end==='}')return;if(end!==',')throw Error('INVALID_JSON_WIRE');}}
+    if(c==='['){i++;ws();if(text[i]===']'){i++;return;}let index=0;while(true){visit([...path,index++]);ws();const end=text[i++];if(end===']')return;if(end!==',')throw Error('INVALID_JSON_WIRE');}}
+    if(c==='"'){stringToken();return;}
+    for(const token of ['true','false','null'])if(text.startsWith(token,i)){i+=token.length;return;}
+    const match=/^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/.exec(text.slice(i));
+    if(!match)throw Error('INVALID_JSON_WIRE');numbers.set(JSON.stringify(path),match[0]);i+=match[0].length;
+  }
+  visit([]);ws();if(i!==text.length)throw Error('INVALID_JSON_WIRE');
+  return {data:JSON.parse(text),numbers};
+}
+function exactWireCanonical(value,numbers,path=[]) {
+  if(typeof value==='number'){const raw=numbers?.get(JSON.stringify(path));return raw!==undefined&&Object.is(Number(raw),value)?raw:JSON.stringify(value);}
+  if(Array.isArray(value))return '['+value.map((v,i)=>exactWireCanonical(v,numbers,[...path,i])).join(',')+']';
+  if(value&&typeof value==='object')return '{'+Object.keys(value).sort().map(k=>JSON.stringify(k)+':'+exactWireCanonical(value[k],numbers,[...path,k])).join(',')+'}';
+  return JSON.stringify(value);
+}
