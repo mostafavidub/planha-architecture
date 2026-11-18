@@ -1,0 +1,12 @@
+{
+  "files": {
+    "service_anchor365.py": "41df300829bc50dc75ac761ad6c29bf58c7c6ee299e7b8a161cfc3b7cdf44984",
+    "coarse_branch365.py": "e472e3ecd90fef3ed2999ebdacea6e4a8fed34b9daf71ed4e26e6b75a55ea9da",
+    "test_anchor365.py": "5032b47b156f5be3e95b3c681d90de70a7970e40cd27ed4fd9e96877cdeaeaa0",
+    "source_delta.diff": "1ac1558272dfa46183ba4a4280aec1a001f634834e08219caa06642b25bf90f7",
+    "preregistered.json": "8a2e668fcdfbae7e87446f582929ba26879b1c07b62674a564cfec56f1d31ca3"
+  },
+  "source146_sha256": "ad56543fffd75848f8950275184e3172bcb3d40eff18c756c172d68319f123d0",
+  "tests_passed": 6,
+  "solver_build_fresh_runs": 0
+}

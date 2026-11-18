@@ -1,0 +1,38 @@
+{
+  "phase": "CODE_AND_PURE_TESTS_ONLY_PENDING_AUDIT",
+  "raw_source": "staging362_core_notch/actual362.json",
+  "finite_preflight_cases": [
+    "BATH_RIGHT_KITCHEN_LEFT",
+    "BATH_LEFT_KITCHEN_RIGHT"
+  ],
+  "future_execution_case": "BATH_RIGHT_KITCHEN_LEFT",
+  "future_max_solver_calls": 1,
+  "future_solver_seconds": 3,
+  "execution_authorized_now": false,
+  "generation_not_repair": true,
+  "source_assets_and_program_unchanged": true,
+  "orientation": "identity_A/source_reflectY_B only",
+  "replacement_map": {
+    "bath_core_x_interval": "actual module wall-host/physical-solid contact to unit boundary plus source extent containment",
+    "kitchen_relative_to_bath_xy": "independent opposite source boundary anchor and bounded y from complete declared reservations",
+    "bath_kitchen_skip_nonoverlap": "removed skip; explicit exact same source margins and nonoverlap now required"
+  },
+  "retained": [
+    "private block",
+    "entry apron/trunk",
+    "public strips",
+    "source approaches",
+    "seating envelope",
+    "opposing group",
+    "all other nonoverlap rows",
+    "quantization rejection",
+    "no-through guards"
+  ],
+  "still_required": [
+    "source-constructor/replay registry binding",
+    "complete independent fresh operations/private deletion/full wall-network/guest/serving checks",
+    "actual organization pair",
+    "source-selected set"
+  ],
+  "full_acceptance": false
+}
