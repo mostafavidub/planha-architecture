@@ -63,6 +63,12 @@ jobs:
           run-id: 44403413844
           name: v25-explicit-two-bedroom-redesign
           path: _artifact_input/44403413844
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44405056710
+          name: v25-explicit-program-api
+          path: _artifact_input/44405056710
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
