@@ -45,7 +45,8 @@ jobs:
           for name in ['model','raw','proposal','source','admission']:
               p=deepcopy(packet);tr=deepcopy(trace)
               if name=='model':p['world_model']['accepted']=True
-              elif name=='raw':tr['raw']=tr['raw']+' '
+              elif name=='raw':
+                  key=next(iter(tr['raw']));tr['raw'][key]=str(tr['raw'][key])+' '
               elif name=='proposal':tr['proposal_hashes']['A']='0'*64
               elif name=='source':tr['sources']={}
               else:tr['qualified']=True
