@@ -1,0 +1,71 @@
+name: V25 observed rejection and archived group audit
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-observation-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44413136071
+          name: v25-pair-http
+          path: _http_observation
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44412740546
+          name: v25-four-seat-master
+          path: _group_observation
+      - name: Inspect observed failure and replay archived positive group with frozen inventory
+        run: |
+          timeout 500s python -B - <<'PY'
+          import sys,json,tarfile,hashlib
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE,inventory
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from review_cycle import digest
+          from local_seating_group_diagnostic import assess
+          assert guard(FREEZE)==12991
+          r=json.loads(Path('_http_observation/evidence/requests/c83cf665-67df-4150-8e9c-cabf8be3a192/result.json').read_text())
+          rejected=[{'model':c['model_digest'],'errors':c['physical_review']['errors'],'pending':c['physical_review']['pending'],'state':c['review_decision']['state']} for c in r['candidates']]
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44410953889)
+          path=Path('evidence/archive')/a['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(path,'r:gz') as tar:data=tar.extractfile('circulation-comparison.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']=='circulation-comparison.json')
+          baseline=json.loads(data)['baseline'];bt=baseline['context']['construction_trace'];bp=build(bt['raw'],'FRONT_REAR',bt['proposals']['A'],bt['proposals']['B'])
+          assert digest(bp['world_model'])==baseline['model_digest']
+          prior=json.loads(Path('_group_observation/four-seat-master.json').read_text());row=next(x for x in prior['rows'] if x.get('model_digest')=='48dacc9cd2860aa683d9a0d2f32b56b8451afa18ea42d7c171c4a12d50393a80')
+          trace=row['context']['construction_trace'];ps=trace['proposals'];packet=build(trace['raw'],'FRONT_REAR',ps['A'],ps['B']);ctx=context(trace['raw'],packet,ps);model=packet['world_model'];fresh=evaluate(packet,ctx)
+          assert digest(model)==row['model_digest'] and digest(ctx)==digest(row['context'])
+          assert inventory(model)==inventory(bp['world_model']) and model['profile']==bp['world_model']['profile'] and model['program']==bp['world_model']['program'] and digest(packet['core'])==digest(bp['core'])
+          assert fresh['multiproposal_provenance127']['verified'] is True and fresh['errors']==[] and fresh['pending']==[]
+          study=assess(model);assert all(u['state']=='LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY' for u in study['units'])
+          assert guard(FREEZE)==12991
+          out={'rejected_24x18':rejected,'historical_group_replay':{'model':digest(model),'fresh_review':fresh,'study':study,'frozen_baseline_inventory_profile_program_core_equal':True,'current_producer_claim':False,'source_run':44412740546},'accepted':False,'delivery_allowed':False}
+          Path('observation-audit.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('OBSERVATION_AUDIT '+json.dumps({'rejected_24x18':rejected,'group_model':digest(model),'group_replayed_with_independent_baseline_invariants':True,'states':[u['state'] for u in study['units']],'current_producer_claim':False,'accepted':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-observation-audit
+          path: observation-audit.json
+          retention-days: 30
