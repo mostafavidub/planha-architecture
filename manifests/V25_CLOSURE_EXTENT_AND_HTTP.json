@@ -1,0 +1,45 @@
+{
+  "schema": "V25_CLOSURE_EXTENT_AND_HTTP_V1",
+  "start_utc": "2026-11-18T19:50:00Z",
+  "deadline_utc": "2026-11-18T22:50:00Z",
+  "completed_at_utc": "2026-11-18T19:52:44.862Z",
+  "first_failure": {
+    "path": "app/independent378actual/evidence/review378_actual_v1/fresh.json",
+    "source_sha256": "eaef756df8336ea2980c5c549ec4266d0be84d1746f1b6f7b0ee4e42be21a88b",
+    "source_matches_pin": true,
+    "remote_path": "MISSING_404",
+    "existing_remote_blob": "cfc8ae827413f642aed079b3bf29dff878af6b51",
+    "restored": false
+  },
+  "closure_audit": {
+    "commit": "23eb25bbf99943656a50fe4344621ef3c144685a",
+    "run": 44384749778,
+    "job": 135086099498,
+    "references": 12991,
+    "normalized_paths": 8178,
+    "present_matching": 1988,
+    "missing": 6190,
+    "mismatched": 0,
+    "missing_with_same_bytes_registered_elsewhere": 5928,
+    "missing_without_registered_match": 262,
+    "scope": "Registered checkout only; unreferenced Git blobs not exhaustively enumerated",
+    "guard_result": "FAILURE"
+  },
+  "independent_tests": {
+    "commit": "8f9b0ed3c68bfbc3fe3af62fc08b6a1a74c61035",
+    "run": 44384863325,
+    "job": 135086513072,
+    "methods": 64,
+    "groups": [
+      44,
+      9,
+      11
+    ],
+    "result": "PASS_SCOPED",
+    "new_scope": "Real loopback HTTP input/unsupported/bad requests/content limits and disconnected response; repair gateway shape/identity/owned-worker cancellation/nonzero exit. Historical fixture-dependent history/export tests not selected and not claimed."
+  },
+  "bulk_migration_restarted": false,
+  "generation_verified": false,
+  "natural_cycle_verified": false,
+  "remaining_decision": "5928 alias paths and 262 paths without checkout matches require closure restoration, which is the timed-out bulk operation, not a separate portability fix. No automatic rename/restart performed."
+}
