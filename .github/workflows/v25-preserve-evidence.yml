@@ -70,16 +70,17 @@ jobs:
                   for p in sorted(folder.rglob('*')):
                       if p.is_symlink():raise ValueError('SYMLINK_FORBIDDEN')
                       if not p.is_file():continue
-                      if p.suffix.lower() not in ('.json','.png','.zip'):raise ValueError('UNEXPECTED_GENERATED_EVIDENCE_FILE:'+p.name)
+                      if p.suffix.lower() not in ('.json','.png','.zip') and p.name!='stderr.txt':raise ValueError('UNEXPECTED_GENERATED_EVIDENCE_FILE:'+p.name)
                       data=p.read_bytes()
-                      if len(data)>12_000_000:raise ValueError('MEMBER_SIZE_LIMIT')
-                      if p.suffix=='.json':
-                          json.loads(data)
+                      if len(data)>128_000_000:raise ValueError('MEMBER_SIZE_LIMIT')
+                      if p.suffix=='.json':json.loads(data)
+                      if p.suffix=='.json' or p.name=='stderr.txt':
                           if re.search(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{40,}|AKIA[A-Z0-9]{16}',data):raise ValueError('POSSIBLE_CREDENTIAL_CONTENT')
                       relative=str(p.relative_to(folder))
                       info=tarfile.TarInfo(relative);info.size=len(data);info.mtime=0;info.mode=0o644
                       tar.addfile(info,io.BytesIO(data))
                       members.append({'path':relative,'size':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+              if raw.tell()>512_000_000:raise ValueError('UNCOMPRESSED_ARCHIVE_LIMIT')
               packed=gzip.compress(raw.getvalue(),mtime=0)
               if len(packed)>10_000_000:raise ValueError('ARCHIVE_SIZE_LIMIT')
               name='V25_run_'+folder.name+'.tar.gz';(dest/name).write_bytes(packed)
