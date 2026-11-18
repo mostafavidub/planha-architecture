@@ -23,7 +23,7 @@ def construct(raw,proposals):
     core=core_first(w,l)
     if core is None:raise ValueError('STUDY_CORE_UNAVAILABLE')
     m=assemble(w,l,core,proposals['A'],unit_proposals=proposals)
-    return {'family':'FRONT_REAR','world_model':m,'core':core,'admission_claim':False}
+    return {'raw_input_digest':digest(raw),'family':'FRONT_REAR','world_model':m,'core':core,'admission_claim':False}
 def build(raw,proposals):
     from engine114 import revision
     from producer_provenance import require_unchanged
