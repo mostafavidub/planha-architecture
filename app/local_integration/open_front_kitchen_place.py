@@ -8,6 +8,7 @@ def install(base,m,u,uid,clearrect,L):
  gate=check_kitchen_module(base)
  if gate['status']!='PASS_MODULE_STUDY_ONLY':raise ValueError('KITCHEN_MODULE_REJECT:'+str(gate['errors'])+' pending='+str(gate['pending']))
  if uid not in ('A','B'):raise ValueError('STUDY_UNIT_ID')
+ if 'kitchen' in u.get('rooms',{}) or any(k.startswith(uid+'.kitchen.') for key in ('walls','wall_hosts') for k in m.get(key,{})) or any(p.get('unit_id')==uid and p.get('room_id')=='kitchen' for p in m.get('module_placements',[])):raise ValueError('STUDY_KITCHEN_ALREADY_INSTALLED')
  if len(clearrect)!=4:raise ValueError('STUDY_CLEARRECT')
  a,b,c,d=map(lambda x:F(str(x)),clearrect)
  if c-a!=F(base['input_program']['width']) or d-b!=F(base['input_program']['depth']):raise ValueError('STUDY_RIGID_DIMENSIONS')
