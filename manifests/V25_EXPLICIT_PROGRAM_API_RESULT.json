@@ -1,0 +1,31 @@
+{
+  "commit": "c786882c9437e483ce5cedc0ed8d5c42940b38d6",
+  "run": 44405056710,
+  "job": 135157951595,
+  "finished_utc": "2026-11-18T21:48:22Z",
+  "deadline_utc": "2026-11-19T00:27:35Z",
+  "unit_tests": 12,
+  "artifact_id": 14472779141,
+  "artifact_sha256": "d5e798bd0dded946ab1302e6595f8ab352811a7e287dd36be334143c2c48517c",
+  "export_status": 403,
+  "unregistered_repair_status": 422,
+  "ui_scope": "Main form still uses default3. Programme2 is explicit API only, not automatic selection.",
+  "report": {
+    "checks": [
+      "default_and_explicit3_do_not_fallback_to2; explicit2_generated_bound_pair_model",
+      "range_unit_and_unsupported_program_rejected_before_worker"
+    ],
+    "runs": [
+      "2c6702b4-873f-4afb-8b83-ce43724355e4",
+      "d7a016b6-167e-41c3-8f0c-4868029c49f7",
+      "6f2d39d7-a00b-4451-a9c8-03b8ea09c485"
+    ],
+    "generated": [
+      0,
+      0,
+      1
+    ],
+    "qualified": 0,
+    "accepted": false
+  }
+}
