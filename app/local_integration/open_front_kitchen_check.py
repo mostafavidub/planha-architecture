@@ -24,10 +24,14 @@ def assess(module):
         expected['schema']=SCHEMA;expected['contract_version']='OPEN_FRONT_CONTROLLED_DELTA_V1'
         del expected['walls']['front.right']
         expected['openings'][0]['rect']=[S(F('.6')),S(F('-.15')),S(W),'0']
+        from geometry114 import cells
+        apron=cells(base['reserved_approach_gross']+[expected['openings'][0]['rect']],list(expected['walls'].values()))
+        expected['unit']['rooms']['public_access']=apron
+        expected['unit']['ownership']=deepcopy(expected['unit']['rooms']['kitchen'])+apron
         expected['source_binding']={'producer_sha256':hashlib.sha256(Path(inspect.getsourcefile(producer.build)).read_bytes()).hexdigest(),
             'base_module_digest':digest(base),'base_producer_sha256':base['source_binding']['producer_sha256'],
             'fixture_source_sha256':base['source_binding']['fixture_source_sha256'],
-            'delta_contract':'remove front.right; expand existing permanent arch to W; retain every other value'}
+            'delta_contract':'remove front.right; expand existing permanent arch to W and exact threshold floor; retain every other value'}
         if module!=expected:errors.append('NOT_EXACT_ALLOWED_SOURCE_DELTA')
         walls=[checker114.rect(q) for q in module['walls'].values()]
         host=checker114.rect(module['wall_hosts']['front'])
@@ -37,6 +41,10 @@ def assess(module):
         if not checker114.covered(host,[q for q in walls if checker114.encloses(host,q)]+[ap]):errors.append('ARCH_HOST_PARTITION')
         if not checker114.encloses(host,ap) or any(checker114.intersects(ap,q) for q in walls):errors.append('ARCH_ACTUAL_CUT')
         u=module['unit'];owner=[checker114.rect(q) for q in u['ownership']]
+        if not checker114.covered(ap,owner):errors.append('ARCH_THRESHOLD_FLOOR')
+        for role,parts in u['rooms'].items():
+            for q in map(checker114.rect,parts):
+                if not checker114.covered(q,owner) or any(checker114.intersects(q,w) for w in walls):errors.append('ACTUAL_ROLE_FLOOR:'+role)
         fixtures=[checker114.rect(q) for q in u['fixtures'].values()]
         centers={tuple(map(F,p['center'])) for p in module['external_ports']}
         for k,path in u['routes'].items():
