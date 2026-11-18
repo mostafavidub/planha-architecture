@@ -18,6 +18,8 @@ def assess(model):
         from geometry114 import route
         body=F(model['profile']['body_m'])
         if body<=0:raise ValueError('BODY_PROFILE_MISSING')
+        ids=[u['id'] for u in model['units']]
+        if not ids or len(ids)!=len(set(ids)):raise ValueError('UNIT_INVENTORY')
         out['source_profile']=model['profile'];out['source_profile_digest']=digest(model['profile'])
         for u in model['units']:
             uid=u['id'];entry=u['entry_point'];box=u['ownership'][0]
