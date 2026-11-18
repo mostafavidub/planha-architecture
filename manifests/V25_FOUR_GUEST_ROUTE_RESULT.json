@@ -1,0 +1,622 @@
+{
+  "commit": "9b7c068be5a8b385764a2808757e045a6381a06a",
+  "run": 44399621847,
+  "job": 135138755064,
+  "finished_utc": "2026-11-18T21:16:44Z",
+  "deadline_utc": "2026-11-19T00:13:00Z",
+  "artifact_id": 14470769743,
+  "artifact_sha256": "f0bd9166236a4ce157a6845ddb9aa09a0b83d3cd93b4ee9391bbc2b6cb415b96",
+  "point_binding_tests": 4,
+  "study": {
+    "schema": "V25_FOUR_GUEST_ROUTE_STUDY_V1",
+    "model_digest": "d71204b74f8a0283012a97c05fb9f0cfa2f71a1f77b4e448634cd6af721c6759",
+    "state": "UNKNOWN_PRD_CLOSURE",
+    "units": [
+      {
+        "unit": "A",
+        "scenario": "all open panels plus chair swept/occupied and conservative kitchen operation bounds",
+        "kitchen_operation_digest": "68d8bd13398a851a0c9536dc3576c794a52adc2cb271948e6db8a9958a287283",
+        "routes": [
+          {
+            "id": "entry_living",
+            "start": [
+              "13.325",
+              "10.575"
+            ],
+            "end": [
+              "95/8",
+              "59/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "09ed3011a1d552b29c29139c455689556d95a6aa90c0a11d6263b6f7558e27cb",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "13.325",
+                "10.575"
+              ],
+              [
+                "13.325",
+                "7.425"
+              ],
+              [
+                "12.975",
+                "7.425"
+              ],
+              [
+                "12.975",
+                "7.375"
+              ],
+              [
+                "11.875",
+                "7.375"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "93/20",
+            "segments": 4
+          },
+          {
+            "id": "entry_dining",
+            "start": [
+              "13.325",
+              "10.575"
+            ],
+            "end": [
+              "857/40",
+              "77/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "09ed3011a1d552b29c29139c455689556d95a6aa90c0a11d6263b6f7558e27cb",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "13.325",
+                "10.575"
+              ],
+              [
+                "13.325",
+                "8.925"
+              ],
+              [
+                "15.625",
+                "8.925"
+              ],
+              [
+                "15.625",
+                "9.725"
+              ],
+              [
+                "17.05",
+                "9.725"
+              ],
+              [
+                "17.05",
+                "9.825"
+              ],
+              [
+                "17.225",
+                "9.825"
+              ],
+              [
+                "17.225",
+                "10.525"
+              ],
+              [
+                "20.725",
+                "10.525"
+              ],
+              [
+                "20.725",
+                "10.325"
+              ],
+              [
+                "20.825",
+                "10.325"
+              ],
+              [
+                "20.825",
+                "9.625"
+              ],
+              [
+                "21.425",
+                "9.625"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "49/4",
+            "segments": 12
+          },
+          {
+            "id": "entry_WC",
+            "start": [
+              "13.325",
+              "10.575"
+            ],
+            "end": [
+              "433/40",
+              "67/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "10feb93fd6acdb024a115e7dc6cd73a64f25dc9351691e63daed0d097d425115",
+            "obstacle_count": 180,
+            "path": [
+              [
+                "13.325",
+                "10.575"
+              ],
+              [
+                "13.325",
+                "7.425"
+              ],
+              [
+                "12.975",
+                "7.425"
+              ],
+              [
+                "12.975",
+                "7.375"
+              ],
+              [
+                "9.825",
+                "7.375"
+              ],
+              [
+                "9.825",
+                "7.445"
+              ],
+              [
+                "9.775",
+                "7.445"
+              ],
+              [
+                "9.775",
+                "9.045"
+              ],
+              [
+                "9.825",
+                "9.045"
+              ],
+              [
+                "9.825",
+                "9.125"
+              ],
+              [
+                "9.885",
+                "9.125"
+              ],
+              [
+                "9.885",
+                "9.175"
+              ],
+              [
+                "10.625",
+                "9.175"
+              ],
+              [
+                "10.625",
+                "9.125"
+              ],
+              [
+                "10.675",
+                "9.125"
+              ],
+              [
+                "10.675",
+                "8.925"
+              ],
+              [
+                "10.825",
+                "8.925"
+              ],
+              [
+                "10.825",
+                "8.375"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "52/5",
+            "segments": 17
+          },
+          {
+            "id": "living_dining",
+            "start": [
+              "95/8",
+              "59/8"
+            ],
+            "end": [
+              "857/40",
+              "77/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "09ed3011a1d552b29c29139c455689556d95a6aa90c0a11d6263b6f7558e27cb",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "11.875",
+                "7.375"
+              ],
+              [
+                "12.975",
+                "7.375"
+              ],
+              [
+                "12.975",
+                "8.345"
+              ],
+              [
+                "15.2",
+                "8.345"
+              ],
+              [
+                "15.2",
+                "8.925"
+              ],
+              [
+                "15.625",
+                "8.925"
+              ],
+              [
+                "15.625",
+                "9.725"
+              ],
+              [
+                "17.05",
+                "9.725"
+              ],
+              [
+                "17.05",
+                "9.825"
+              ],
+              [
+                "17.225",
+                "9.825"
+              ],
+              [
+                "17.225",
+                "10.525"
+              ],
+              [
+                "20.725",
+                "10.525"
+              ],
+              [
+                "20.725",
+                "10.325"
+              ],
+              [
+                "20.825",
+                "10.325"
+              ],
+              [
+                "20.825",
+                "9.625"
+              ],
+              [
+                "21.425",
+                "9.625"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "68/5",
+            "segments": 15
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "scenario": "all open panels plus chair swept/occupied and conservative kitchen operation bounds",
+        "kitchen_operation_digest": "e98c103036689394b114079d56d8312412c3cc1d22b240b6077ac42914e42ce9",
+        "routes": [
+          {
+            "id": "entry_living",
+            "start": [
+              "13.325",
+              "14.425"
+            ],
+            "end": [
+              "95/8",
+              "141/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "c76f58f34168d153bc537e1812c0997e728f2eb94a27771080960c707f77c666",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "13.325",
+                "14.425"
+              ],
+              [
+                "13.325",
+                "17.575"
+              ],
+              [
+                "12.975",
+                "17.575"
+              ],
+              [
+                "12.975",
+                "17.625"
+              ],
+              [
+                "11.875",
+                "17.625"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "93/20",
+            "segments": 4
+          },
+          {
+            "id": "entry_dining",
+            "start": [
+              "13.325",
+              "14.425"
+            ],
+            "end": [
+              "857/40",
+              "123/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "c76f58f34168d153bc537e1812c0997e728f2eb94a27771080960c707f77c666",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "13.325",
+                "14.425"
+              ],
+              [
+                "13.325",
+                "16.075"
+              ],
+              [
+                "15.625",
+                "16.075"
+              ],
+              [
+                "15.625",
+                "15.275"
+              ],
+              [
+                "17.05",
+                "15.275"
+              ],
+              [
+                "17.05",
+                "15.175"
+              ],
+              [
+                "17.225",
+                "15.175"
+              ],
+              [
+                "17.225",
+                "14.475"
+              ],
+              [
+                "20.725",
+                "14.475"
+              ],
+              [
+                "20.725",
+                "14.675"
+              ],
+              [
+                "20.825",
+                "14.675"
+              ],
+              [
+                "20.825",
+                "15.375"
+              ],
+              [
+                "21.425",
+                "15.375"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "49/4",
+            "segments": 12
+          },
+          {
+            "id": "entry_WC",
+            "start": [
+              "13.325",
+              "14.425"
+            ],
+            "end": [
+              "433/40",
+              "133/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "729a248f946f6c525fda15c364c455aacddcf1d812e058520d6b6f1350b0b800",
+            "obstacle_count": 180,
+            "path": [
+              [
+                "13.325",
+                "14.425"
+              ],
+              [
+                "13.325",
+                "17.575"
+              ],
+              [
+                "12.975",
+                "17.575"
+              ],
+              [
+                "12.975",
+                "17.625"
+              ],
+              [
+                "9.825",
+                "17.625"
+              ],
+              [
+                "9.825",
+                "17.555"
+              ],
+              [
+                "9.775",
+                "17.555"
+              ],
+              [
+                "9.775",
+                "15.955"
+              ],
+              [
+                "9.825",
+                "15.955"
+              ],
+              [
+                "9.825",
+                "15.875"
+              ],
+              [
+                "9.885",
+                "15.875"
+              ],
+              [
+                "9.885",
+                "15.825"
+              ],
+              [
+                "10.625",
+                "15.825"
+              ],
+              [
+                "10.625",
+                "15.875"
+              ],
+              [
+                "10.675",
+                "15.875"
+              ],
+              [
+                "10.675",
+                "16.075"
+              ],
+              [
+                "10.825",
+                "16.075"
+              ],
+              [
+                "10.825",
+                "16.625"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "52/5",
+            "segments": 17
+          },
+          {
+            "id": "living_dining",
+            "start": [
+              "95/8",
+              "141/8"
+            ],
+            "end": [
+              "857/40",
+              "123/8"
+            ],
+            "body_m": "7/10",
+            "obstacle_digest": "c76f58f34168d153bc537e1812c0997e728f2eb94a27771080960c707f77c666",
+            "obstacle_count": 181,
+            "path": [
+              [
+                "11.875",
+                "17.625"
+              ],
+              [
+                "12.975",
+                "17.625"
+              ],
+              [
+                "12.975",
+                "16.655"
+              ],
+              [
+                "15.2",
+                "16.655"
+              ],
+              [
+                "15.2",
+                "16.075"
+              ],
+              [
+                "15.625",
+                "16.075"
+              ],
+              [
+                "15.625",
+                "15.275"
+              ],
+              [
+                "17.05",
+                "15.275"
+              ],
+              [
+                "17.05",
+                "15.175"
+              ],
+              [
+                "17.225",
+                "15.175"
+              ],
+              [
+                "17.225",
+                "14.475"
+              ],
+              [
+                "20.725",
+                "14.475"
+              ],
+              [
+                "20.725",
+                "14.675"
+              ],
+              [
+                "20.825",
+                "14.675"
+              ],
+              [
+                "20.825",
+                "15.375"
+              ],
+              [
+                "21.425",
+                "15.375"
+              ]
+            ],
+            "reason": null,
+            "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+            "length_m": "68/5",
+            "segments": 15
+          }
+        ]
+      }
+    ],
+    "accepted": false,
+    "display_allowed": false,
+    "delivery_allowed": false,
+    "scope": "Four newly constructed width-aware routes under conservative source-profile bounds. Not final guest-first-living, all door scenarios, ergonomics or programme proof.",
+    "source_profile": {
+      "body_m": ".7"
+    },
+    "source_profile_digest": "d9c67380bd637f879d7e114a49b99363b794f49c88983b8cbb1d2e3d9c936499",
+    "all_four_routes_have_witness": true,
+    "remaining": [
+      "Independent source profile is hypothetical, not ergonomic approval",
+      "Guest-first-living and furnished dining axis need separate proof",
+      "Door-state scenario completeness and bottleneck/opening classification not yet closed",
+      "No continuous-living or wall counterfactual evidence"
+    ]
+  }
+}
