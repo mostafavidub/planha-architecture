@@ -1,0 +1,221 @@
+{
+  "schema": "GENERAL114_IMMUTABLE_FIXTURE_CATALOG_V1",
+  "source_file": "references/lr_option2_125x20_model.json",
+  "source_file_sha256": "2def7c7b7237eec7665f6a410096c9902166ef0fb6c3a880cd2f58b1b1c783e4",
+  "source_model_hash_owner_reference": "dbcde7adc6566952206d86eef3f292b1a54afcfe2c734bf4688c58764fe74b2f",
+  "types": {
+    "bed": {
+      "width_m": "2",
+      "depth_m": "8/5",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "bed",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "closet": {
+      "width_m": "3/5",
+      "depth_m": "41/20",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "closet",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "WC_iranian": {
+      "width_m": "7/10",
+      "depth_m": "7/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "WC_iranian",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "shower_floor": {
+      "width_m": "9/10",
+      "depth_m": "9/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "shower_floor",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "basin": {
+      "width_m": "9/20",
+      "depth_m": "9/20",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "basin",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "fridge": {
+      "width_m": "7/10",
+      "depth_m": "7/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "fridge",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "sink": {
+      "width_m": "3/5",
+      "depth_m": "7/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "sink",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "prep": {
+      "width_m": "3/5",
+      "depth_m": "7/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "prep",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "cooker": {
+      "width_m": "3/5",
+      "depth_m": "7/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "cooker",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "sofa1": {
+      "width_m": "11/5",
+      "depth_m": "9/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "sofa1",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "sofa2": {
+      "width_m": "11/5",
+      "depth_m": "9/10",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "sofa2",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "armchair1": {
+      "width_m": "4/5",
+      "depth_m": "4/5",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "armchair1",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "armchair2": {
+      "width_m": "4/5",
+      "depth_m": "4/5",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "armchair2",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "dining_table": {
+      "width_m": "4/5",
+      "depth_m": "6/5",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "dining_table",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "dining_chair_front": {
+      "width_m": "1/2",
+      "depth_m": "1/2",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "dining_chair_front",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    },
+    "dining_chair_back": {
+      "width_m": "1/2",
+      "depth_m": "1/2",
+      "allowed_plan_rotations_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "scale_allowed": false,
+      "source_fixture_key": "dining_chair_back",
+      "scope": "Exact source equipment footprint only. Rotation/translation must still pass actual clearances, wall backing and operation checks."
+    }
+  },
+  "limits": [
+    "Footprints are source-derived, not legal universal minimum sizes.",
+    "This catalog supplies no door/closet/appliance operation acceptance witness.",
+    "Room envelopes and fixture arrangements must be independently checked; source coordinates are not a placement requirement."
+  ]
+}

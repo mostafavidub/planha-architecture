@@ -1,0 +1,56 @@
+{
+  "baseline": {
+    "errors": [],
+    "counts": {
+      "source_rects": 48,
+      "motion_geometry": 300,
+      "segments": 16,
+      "frame_rects": 372
+    }
+  },
+  "negative_tests": {
+    "source_fixture": {
+      "rejected": true,
+      "errors": [
+        "FRAME:bed1.closet",
+        "SOURCE_fixtures:bed1.closet"
+      ]
+    },
+    "actor": {
+      "rejected": true,
+      "errors": [
+        "MOTION:A:actor_rect"
+      ]
+    },
+    "path_obstacle": {
+      "rejected": true,
+      "errors": [
+        "FRAME:walls:injected",
+        "FRAME_IDS",
+        "PATH_COLLISION",
+        "PHYSICAL_HASH",
+        "PHYSICAL_UNION"
+      ]
+    },
+    "frame_wall": {
+      "rejected": true,
+      "errors": [
+        "FRAME:walls:left"
+      ]
+    },
+    "frame_path": {
+      "rejected": true,
+      "errors": [
+        "FRAME_PATH"
+      ]
+    },
+    "source_hash": {
+      "rejected": true,
+      "errors": [
+        "SOURCE_HASH"
+      ]
+    }
+  },
+  "local_sha256": "51ef40208fc305aed9e9aa961a680a3f521f4b9e007c57ad640eabaf58688a33",
+  "world_sha256": "70a8c2a30c9bc73e280405f6cf54f1b06db0796d19b517934d33f0a5b9dfd1e7"
+}
