@@ -12,6 +12,18 @@ class FailureRecovery(unittest.TestCase):
  def test_real_missing_repair_executable(self):
   with tempfile.TemporaryDirectory()as t,patch.object(repair,'BASE',Path(t)),patch.object(repair.sys,'executable',str(Path(t)/'nonexistent-python')):
    status,r=repair.execute('parent','candidate',BODY);self.assertEqual(status,503);self.assertFalse(json.loads((Path(t)/r['run_id']/'lifecycle.json').read_text())['worker_started'])
+ def test_active_interpreter_dispatch_without_project_venv(self):
+  real=subprocess.Popen;calls=[]
+  def launch(argv,**kw):
+   self.assertEqual(argv[0],sys.executable);calls.append(argv)
+   return real([argv[0],'-B','-c','print("{}")'],**kw)
+  with tempfile.TemporaryDirectory()as t,patch.object(generation,'ROOT',Path(t)),patch.object(generation.subprocess,'Popen',side_effect=launch):
+   status,r=generation.generate(BODY)
+   self.assertEqual(len(calls),1);self.assertEqual(status,500)
+   self.assertEqual(r['code'],'WORKER_RESPONSE_CONTRACT')
+   self.assertFalse(r['accepted'])
+   life=json.loads((Path(t)/'app/local_integration/evidence/requests'/r['run_id']/'lifecycle.json').read_text())
+   self.assertIsNotNone(life['pid']);self.assertEqual(life['returncode'],0);self.assertTrue(life['wait_completed'])
  def timeout_case(self,module,is_repair):
   real=subprocess.Popen;children=[]
   def child(*a,**kw):
