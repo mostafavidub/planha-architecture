@@ -1,0 +1,75 @@
+{
+  "audit_run": 44418627439,
+  "audit_commit": "dad39fa907af0b9c0c238ab5e9a599cfd7a53cba",
+  "verified_utc": "2026-11-18T23:12:11Z",
+  "source_run": 44417514104,
+  "parent_run": "3ae91ee0-edc0-4077-a81c-b85c2f4d842a",
+  "child_run": "4ac2d52f-e014-4c02-80d7-89f033ab93aa",
+  "parent_model": "b8a87574df5573b256b04b201af11d9fc2ff47d08f319c4d5ffd140faab28d49",
+  "child_model": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+  "request_digest": "29944c04be9db6681d7db61ae112133964f494ba2c3005e55ca4b338cc40b724",
+  "receipt_digest": "cf7c05dd9b2019613a8a77f26964085838ac2cca3fba74226c972e4521a4525c",
+  "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+  "decision": {
+    "schema": "MAC_FRESH_REVIEW_DECISION_V1",
+    "candidate_id": "ef6c58eb973bddec93eae3891f6dcc584d60c00ccabad0595dc08fecd5619504",
+    "request_digest": "29944c04be9db6681d7db61ae112133964f494ba2c3005e55ca4b338cc40b724",
+    "model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "review_digest": "19d7a605398c1c34e132e3d9d6a11ff2755a9632f040270b2cc29052a3adcffb",
+    "source_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+    "state": "PHYSICAL_PASS_SEMANTIC_UNKNOWN",
+    "reason": "NO_CURRENT_PHYSICAL_REJECTION",
+    "errors": [],
+    "pending": [],
+    "repair_attempted": false,
+    "operator_invoked": false,
+    "accepted": false,
+    "delivery_allowed": false,
+    "qualified": false,
+    "scope": "explicit two-bedroom exploratory continuation only; not production repair or acceptance",
+    "exploratory_redirection_receipt_digest": "794b3198d0ac5c765b85ed40febf812663845d7624ead9f8c45a6b1375b383cd",
+    "exploratory_operator_invoked": true,
+    "functional_review_digest": "28cf361759c87033240ea75207f3a7beb2e455ffa07390ffdd7aa79466901818",
+    "design_display_allowed": false,
+    "decision_id": "798472eee2d4ddaf89e815787fde73014cc16e358471588f05b8134342736cad"
+  },
+  "functional_requirements": [
+    {
+      "id": "INTERNAL_INSTANCE_CAPACITY",
+      "state": "PASS_SCOPED",
+      "basis": "actual source-profile instances and limited planar access, not area or room labels"
+    },
+    {
+      "id": "CURRENT_PROGRAM_SUITABILITY",
+      "state": "UNKNOWN",
+      "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+    },
+    {
+      "id": "KITCHEN_GUEST_PATH_SEPARATION",
+      "state": "UNKNOWN",
+      "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+    },
+    {
+      "id": "CONTINUOUS_USEFUL_LIVING",
+      "state": "UNKNOWN",
+      "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+    },
+    {
+      "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+      "state": "UNKNOWN",
+      "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+    }
+  ],
+  "checks": [
+    "real_http_parent_created_not_archived_import",
+    "legacy_repair_refuses_pair",
+    "same_request_parent_and_pending_bound",
+    "fresh_final_decision_bound",
+    "history_only",
+    "export_and_download_403",
+    "no_production_repair_authority"
+  ],
+  "scope": "Stored evidence integrity of actual live run; no new geometry run",
+  "accepted": false,
+  "delivery_allowed": false
+}
