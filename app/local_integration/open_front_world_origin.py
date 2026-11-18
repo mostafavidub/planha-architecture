@@ -5,9 +5,10 @@ from fractions import Fraction as F
 from copy import deepcopy
 from contract114 import parse,core_first,digest
 from open_front_kitchen_study import ROOT,ENGINE
-FILES=['open_front_world_origin.py','open_front_world_assembly.py','open_front_kitchen_study.py','open_front_kitchen_check.py','open_front_kitchen_place.py']
+FILES=['open_front_world_origin.py','open_front_world_assembly.py','open_front_kitchen_study.py','open_front_kitchen_check.py','open_front_kitchen_place.py','producer_provenance.py']
 def bindings():
     from producer_provenance import snapshot
+    if Path(inspect.getsourcefile(snapshot)).resolve()!=Path(__file__).with_name('producer_provenance.py').resolve():raise ValueError('SNAPSHOT_IMPORT_PATH')
     import open_front_world_assembly as assembly,open_front_kitchen_study as producer,open_front_kitchen_place as placer,open_front_kitchen_check as checker
     for fn,name in [(assembly.assemble,'open_front_world_assembly.py'),(producer.build,'open_front_kitchen_study.py'),(placer.install,'open_front_kitchen_place.py'),(checker.assess,'open_front_kitchen_check.py'),(parse,'contract114.py'),(core_first,'contract114.py')]:
         expected=(ENGINE/name) if name=='contract114.py' else Path(__file__).with_name(name)
