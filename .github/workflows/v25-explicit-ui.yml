@@ -1,0 +1,125 @@
+name: V25 explicit programme actual Chromium
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-explicit-ui.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1 playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Syntax and existing synthetic UI contracts
+        run: |
+          node --check app/local_integration/ui.js
+          node --check app/local_integration/generation_ui.js
+          node --check app/local_integration/history_ui.js
+          node app/local_integration/test_ui.cjs
+      - name: Real explicit generation and exploratory continuation
+        working-directory: app/local_integration
+        run: |
+          timeout 1000s python -B - <<'PY'
+          import sys,json,subprocess
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright,expect
+          server=subprocess.Popen([sys.executable,'-B','validation_server.py','--port','0'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+          report={'scope':'Actual Chromium, loopback server, workers, explicit programme and separate exploration; no qualification','started_utc':'2026-11-18T23:08:56Z','deadline_utc':'2026-11-19T02:08:56Z','checks':[],'accepted':False,'delivery_allowed':False}
+          try:
+              address=json.loads(server.stdout.readline());url='http://127.0.0.1:'+str(address['port'])
+              with sync_playwright() as p:
+                  browser=p.chromium.launch();ctx=browser.new_context();ctx.tracing.start(screenshots=True,snapshots=True,sources=True)
+                  page=ctx.new_page();errors=[];requests=[]
+                  page.on('pageerror',lambda e:errors.append(str(e)));page.on('request',lambda r:requests.append({'url':r.url,'method':r.method,'body':r.post_data}) if r.method=='POST' else None)
+                  try:
+                      page.goto(url);choice=page.locator('select[name="bedrooms_per_unit"]');expect(choice).to_have_value('3')
+                      for key,value in [('W','18'),('L','20'),('n','2'),('requested_count','1')]:page.locator('input[name="'+key+'"]').fill(value)
+                      choice.select_option('2');parent=None
+                      for attempt in range(3):
+                          before=len([x for x in requests if x['url'].endswith('/generate')])
+                          with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=180000) as pending:
+                              page.locator('#generate').click()
+                              page.evaluate("document.querySelector('#generate').dispatchEvent(new Event('click'))")
+                          response=pending.value;data=response.json();assert response.status==200
+                          expect(page.locator('#generate')).to_be_enabled(timeout=30000)
+                          expect(page.locator('#status')).to_contain_text('واجدشرایط صفر',timeout=30000)
+                          assert len([x for x in requests if x['url'].endswith('/generate')])==before+1
+                          assert data['envelope']['canonical_request']['program']=={'bedrooms_per_unit':2}
+                          expect(page.locator('#plans')).to_be_empty()
+                          assert page.locator('#plans svg').count()==0
+                          from explicit_pair_redirection import require_rejection
+                          for c in data['candidates']:
+                              try:require_rejection(c['physical_review'])
+                              except ValueError:continue
+                              parent=(data,c);break
+                          if parent:break
+                      assert parent,'NO_NARROW_NATURAL_PARENT_IN_THREE_BOUNDED_REQUESTS'
+                      report['checks']+=['explicit_two_request_bound_without_fallback','fresh_pair_provenance_verified_in_browser','double_generate_one_request','unknown_preview_withheld']
+                      data,c=parent;report['parent_run']=data['run_id'];report['parent_model']=c['model_digest']
+                      pair=page.locator('#history-list button').filter(has_text='بازطراحی اکتشافی دوخواب').filter(has_text=data['run_id'])
+                      expect(pair).to_have_count(1,timeout=15000)
+                      before=len([r for r in requests if r['url'].endswith('/redesign-explicit-two')])
+                      with page.expect_response(lambda r:r.url.endswith('/redesign-explicit-two'),timeout=180000) as pending:
+                          pair.click()
+                          pair.evaluate("(el)=>el.dispatchEvent(new Event('click'))")
+                      response=pending.value;child=response.json();assert response.status==200,(response.status,child)
+                      expect(page.locator('#generate')).to_be_enabled(timeout=30000)
+                      expect(page.locator('#status')).to_contain_text('بازطراحی اکتشافی دوخواب',timeout=30000)
+                      assert len([r for r in requests if r['url'].endswith('/redesign-explicit-two')])==before+1
+                      assert not any(r['url'].endswith('/repair') for r in requests)
+                      assert child['qualified_count']==0 and child['accepted'] is False and child['delivery_allowed'] is False
+                      cr=child['candidates'][0]['exploratory_redirection_receipt'];assert cr['parent_run_id']==data['run_id'] and cr['parent_candidate_id']==c['candidate_id']
+                      report.update(child_run=child['run_id'],child_model=child['candidates'][0]['model_digest'],child_state=cr['state'],generated_count=child['generated_count'])
+                      expect(page.locator('#plans')).to_be_empty();report['checks']+=['explicit_pair_endpoint_not_legacy_repair','double_continue_one_request','child_receipt_verified_no_authority']
+                      for route in ('export','download'):
+                          denied=ctx.request.get(url+'/'+route+'/'+child['run_id']);assert denied.status==403 and denied.json()['artifact_bytes_sent']==0
+                      page.locator('#history-refresh').click()
+                      history=page.locator('#history-list button').filter(has_text='سابقه '+child['run_id']).first
+                      expect(history).to_be_visible(timeout=15000);history.click()
+                      expect(page.locator('#history-detail')).to_contain_text('سابقه ذخیره‌شده',timeout=15000)
+                      expect(page.locator('#plans')).to_be_empty();expect(choice).to_have_value('2')
+                      page.go_back();expect(page.locator('#plans')).to_be_empty()
+                      report['checks']+=['history_back_never_restores_design','export_download_403']
+                      # A request change aborts the browser request and invalidates all late results.
+                      with page.expect_request(lambda r:r.url.endswith('/generate')):page.locator('#generate').click()
+                      choice.select_option('3')
+                      expect(page.locator('#generate')).to_be_enabled();expect(page.locator('#result')).to_be_hidden();expect(page.locator('#plans')).to_be_empty()
+                      report['checks'].append('programme_change_cancels_and_invalidates_current_request')
+                      page.reload();expect(choice).to_have_value('3')
+                      expect(page.locator('#history-list button').filter(has_text='بازطراحی اکتشافی دوخواب')).to_have_count(0)
+                      report['checks'].append('history_reload_without_fresh_full_proof_exposes_no_pair_action')
+                      for key,value in [('W','25'),('L','25'),('n','2'),('requested_count','1')]:page.locator('input[name="'+key+'"]').fill(value)
+                      with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=180000) as pending:page.locator('#generate').click()
+                      data=pending.value.json();assert pending.value.status==200 and data['envelope']['canonical_request']['program']=={'bedrooms_per_unit':3}
+                      expect(page.locator('#status')).to_contain_text('واجدشرایط صفر',timeout=30000);expect(page.locator('#plans')).to_be_empty()
+                      assert all('hierarchical_provenance129' in c['physical_review'] for c in data['candidates'])
+                      report['checks'].append('explicit_three_retains_original_constructor_and_zero_preview')
+                      assert not errors,errors
+                      report['passed']=True;report['browser_version']=browser.version;page.screenshot(path='explicit-ui.png',full_page=True)
+                  finally:
+                      report['browser_errors']=errors;report['status_text']=page.locator('#status').inner_text();report['post_requests']=requests
+                      ctx.tracing.stop(path='explicit-ui-trace.zip');browser.close()
+          finally:
+              server.terminate()
+              try:server.communicate(timeout=10)
+              except subprocess.TimeoutExpired:server.kill();server.communicate()
+              Path('explicit-ui-result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+              print('EXPLICIT_UI '+json.dumps(report,ensure_ascii=False),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-explicit-ui
+          path: |
+            app/local_integration/explicit-ui*
+            app/local_integration/evidence/requests
+          retention-days: 30
