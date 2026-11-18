@@ -1,0 +1,22 @@
+{
+  "schema": "SERVICE359_OUTER_PINNING_HANDOFF_NOT_SELF_AUTHORITY",
+  "files": {
+    "finite_comparison358/service_closure359.py": "faffbd25bf12fb5d42c3bba845964f89970fba9173ad0e7845f5f09886ff3b3b",
+    "finite_comparison358/service_component_policy359.py": "92b53808658c293ca8a3b65a8d3976f2383156700ca084be4f770b87c58fb326",
+    "finite_comparison358/service_roles_measurement.py": "9ab4d8520948bc1f419a348d62a3269bb85997e35a8274a7024662f32b252673",
+    "finite_comparison358/build_ledger.py": "90439f4a01a4dff432b3199a9fa01c4bc3f5232b6edbb49b65566ac018df32d6",
+    "semantic_rules357/comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524",
+    "semantic_rules357/modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "semantic_rules357/circulation_role358.py": "e7009b2460f9fe4f55e060569b98b39ceaede18deb0c6cf86308dbf1e24af588",
+    "semantic_rules357/guest_closure.py": "979074be240994bc5a7604c500b1e007c4e4021b046978c53e05e0e341552415",
+    "semantic_rules357/group_readsets358.py": "217c7d6d9f93ee139d3543a76171724c1871392e5ea9f0733e2dbd641c22183e",
+    "semantic_rules357/group_readsets359.py": "cdacc2aaf067ebf03825e8a7fb0adfef5070548177ca375827e0f06ae231389c",
+    "semantic_rules357/group_readsets358_pins.json": "58f46cce11dd150e851470c79d52702bb679ada0e9a0dc61f79e02085768dbe7",
+    "semantic_rules357/group_readsets359_pins.json": "a60113141185746353c12bed9f868ffcd18e212230ba243656f96f2c49900620",
+    "semantic_rules357/method_registry_source358.json": "f47ab1a49439b01d079df3341ba8eb1c73083c30aacac4a2823767deb02cd224",
+    "semantic_rules357/method_registry_source359.json": "86f6f9428fa55e8839df6bbb08f0c7ae5fab4f66ab3f09354db7c94a857e2200",
+    "semantic_rules357/common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "staging274_evaluator_transport_fix/quality_contract.json": "57c46d27813d8e80200746923a1b4e3c96045d1111e9cf2698cd64adfa76ecb9"
+  },
+  "integration_requirement": "Outer trusted engine must pin this manifest and all transitive imported source. Standalone JSON receipt is not live authority."
+}

@@ -1,0 +1,8 @@
+{
+  "wall_timeout_seconds": 120,
+  "max_distinct_candidate_rebuilds": 1,
+  "solver_allowed": false,
+  "fresh_allowed": false,
+  "audit": "progress_audit explicit diagnostic rebuild permission; nine tests independently passed",
+  "started_utc": "2026-11-16T10:24:32.726356+00:00"
+}

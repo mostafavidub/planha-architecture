@@ -1,0 +1,10 @@
+{
+  "record": {
+    "path": "independent378actual/evidence/review378_actual_v1/record.json",
+    "sha256": "3f53fe4165b763267e5f31ae9b9aa661daf839e590ec066e70f7337f4a76e2bf"
+  },
+  "fresh": {
+    "path": "independent378actual/evidence/review378_actual_v1/fresh.json",
+    "sha256": "eaef756df8336ea2980c5c549ec4266d0be84d1746f1b6f7b0ee4e42be21a88b"
+  }
+}

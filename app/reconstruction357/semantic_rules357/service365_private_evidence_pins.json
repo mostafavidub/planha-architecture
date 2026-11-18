@@ -1,0 +1,12 @@
+{
+  "files": {
+    "group_readsets_service365.py": "d3091aedbebe9e926ff46b1ad8028a8d1f0d9b3f54de555d743ac9f60cb6431d",
+    "group_readsets_service365_pins.json": "94513acbe1e1201621703c54fecfec06ac03948c9051578323efa077df64aaef",
+    "method_registry_service365.json": "ceeebd989b5ebcee61c73e522567ef31fb5bd173fdb641d98f25b1adee43b7a3",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "bedroom_sections358.py": "61301890eb2edbe28c91568956b131d206ba570de2e91e18cccd4782f5fa281e",
+    "bedroom_route_witness358.py": "1a2f7bf9956491a5392c07b4d190e21eaa2a580e6dff8b20b136c7f50085164f",
+    "bedroom_grouping358.py": "d7ae4be6fb99ecfb5741faad6a3c36524dfa17b53396ce92d87956c60a7d9306"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "checks": {
+    "all_frozen_sources_and_prior_evidence_unchanged": true,
+    "before_raw_carried_unchanged": true,
+    "before_review_binding": true,
+    "prior_record_binding": true,
+    "construct_supervision_clean": true,
+    "fresh_supervision_clean": true,
+    "compare_supervision_clean": true,
+    "outer_supervision_clean": true,
+    "propose_supervision_clean": true,
+    "tracked_processes_gone": true,
+    "protected_fields_equal": true,
+    "input_request_equal": true,
+    "new_model": true,
+    "new_review": true,
+    "child_model_binding": true,
+    "child_record_binding": true,
+    "lineage_parent_binding": true,
+    "lineage_review_binding": true,
+    "fresh_replayed": true,
+    "no_semantic_reuse": true,
+    "test_only": true,
+    "no_acceptance": true
+  },
+  "changed_sources_or_evidence": [],
+  "frozen_file_count": 10248,
+  "tracked_remaining": [],
+  "actual_operator": {
+    "name": "EXACT_SEATING_COMPOUND_TRANSLATION",
+    "fixture_id": "sofa1",
+    "source_key": "sofa1_use",
+    "dx": "0",
+    "dy": "-1/10",
+    "collision_units": [
+      "A",
+      "B"
+    ],
+    "pair": [
+      "sofa1",
+      "armchair2"
+    ]
+  },
+  "before_error_counts": {
+    "FIXTURE_COLLISION": 2,
+    "MISSING_REQUIRED_ACTIVITY_ROUTES": 1,
+    "ROUTE_TARGET_BINDING": 4,
+    "RULE_FAILED": 8
+  },
+  "before_pending": [],
+  "before_original_pending": [
+    "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+  ],
+  "result_status": "REPAIR_NOT_VERIFIED",
+  "after_error_counts": {
+    "MISSING_REQUIRED_ACTIVITY_ROUTES": 1,
+    "ROUTE_TARGET_BINDING": 4,
+    "RULE_FAILED": 8
+  },
+  "after_pending": [],
+  "after_original_pending": [
+    "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+  ],
+  "collision_units_remaining": [],
+  "parent_model_digest": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+  "current_model_digest": "25e456b34e77a127fa8d48ae21368f6ae7082fb4c111d210ecfab9f5d52b0b1c",
+  "current_review_id": "d298ce43-e3c2-43ee-a538-8c77292a00e7",
+  "current_candidate_id": "f2fc39fe7f7ce673261f39924c4b64cb8907018590ca0ab45b6ae4818a772b19",
+  "current_raw_status": "FAIL",
+  "all_checks_passed": true
+}

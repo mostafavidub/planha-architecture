@@ -1,0 +1,3734 @@
+{
+  "coverage_roots": [
+    {
+      "root": "reconstruction357/staging365_balanced_portals",
+      "noncache_files": 14,
+      "uncovered_after376": []
+    },
+    {
+      "root": "reconstruction357/staging359_hall_clamp",
+      "noncache_files": 24,
+      "uncovered_after376": []
+    },
+    {
+      "root": "reconstruction357/planha_general150_runtime_work",
+      "noncache_files": 485,
+      "uncovered_after376": []
+    },
+    {
+      "root": "reconstruction357/staging369_current_source_validation",
+      "noncache_files": 491,
+      "uncovered_after376": []
+    },
+    {
+      "root": "reconstruction357/staging372_route_aware_repair",
+      "noncache_files": 7,
+      "uncovered_after376": []
+    },
+    {
+      "root": "reconstruction357/staging375_same_run_form",
+      "noncache_files": 9,
+      "uncovered_after376": []
+    }
+  ],
+  "read_calls": [
+    {
+      "source": "reconstruction357/staging365_balanced_portals/adapter365.py",
+      "line": 19,
+      "call": "LINEAGE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/adapter365.py",
+      "line": 10,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/adapter365.py",
+      "line": 14,
+      "call": "LINEAGE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/core_variant365.py",
+      "line": 10,
+      "call": "P.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/test_selector365.py",
+      "line": 8,
+      "call": "(B/'staging362_core_notch/actual362.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/run_once365.py",
+      "line": 7,
+      "call": "(HERE/'preregistration.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/run_once365.py",
+      "line": 12,
+      "call": "(BASE/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/supervisor.py",
+      "line": 14,
+      "call": "begin.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/supervisor.py",
+      "line": 20,
+      "call": "end.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging365_balanced_portals/assemble365.py",
+      "line": 23,
+      "call": "(Path(__file__).resolve().parents[1]/'planha_general150_runtime_work'/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/adapter359.py",
+      "line": 19,
+      "call": "LINEAGE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/adapter359.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/test_operations359.py",
+      "line": 13,
+      "call": "(Path(__file__).resolve().parents[1]/'staging358_comparative/row_candidate358.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/assemble359.py",
+      "line": 23,
+      "call": "(Path(__file__).resolve().parents[1]/'planha_general150_runtime_work'/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/constructor359.py",
+      "line": 44,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging359_hall_clamp/attempt1_pregeometry_failure/assemble359.py",
+      "line": 23,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_replay125_negative.py",
+      "line": 7,
+      "call": "(p/'fresh_world125_composed_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/world_inventory125.py",
+      "line": 41,
+      "call": "schema_path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/world_inventory125.py",
+      "line": 39,
+      "call": "schema_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 48,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 261,
+      "call": "(Path(__file__).parent/catalog['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 493,
+      "call": "(Path(__file__).parent/catalog['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 567,
+      "call": "Path(__file__).with_name('bathroom_source117.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 47,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 261,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 493,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 571,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 212,
+      "call": "scope_doc.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 496,
+      "call": "producer.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 569,
+      "call": "Path(__file__).with_name('bathroom_module117.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 255,
+      "call": "producer_file.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 287,
+      "call": "Path(__file__).with_name('bedroom_module116.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 271,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker114.py",
+      "line": 98,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_private_binding121.py",
+      "line": 9,
+      "call": "Path('evidence/program6/deterministic_macro_assembly121.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve126.py",
+      "line": 33,
+      "call": "(ROOT/'reference126/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve126.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve126.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/capacity_program118.py",
+      "line": 11,
+      "call": "SOURCE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/capacity_program118.py",
+      "line": 12,
+      "call": "SOURCE.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve150.py",
+      "line": 33,
+      "call": "(ROOT/'reference150/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve150.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve150.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_diversity124.py",
+      "line": 8,
+      "call": "(Path(__file__).parent/'evidence124/service_shared_case1_current_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve136.py",
+      "line": 33,
+      "call": "(ROOT/'reference136/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve136.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve136.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_whole118.py",
+      "line": 5,
+      "call": "(ROOT/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/seating_binding142.py",
+      "line": 19,
+      "call": "(Path(__file__).parent/'references/lr_option2_125x20_model.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve124.py",
+      "line": 33,
+      "call": "(ROOT/'reference124/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve124.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve124.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve134.py",
+      "line": 33,
+      "call": "(ROOT/'reference134/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve134.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve134.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_public_endpoint118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve130.py",
+      "line": 33,
+      "call": "(ROOT/'reference130/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve130.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve130.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_program_capacity118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_private_l3_binding131.py",
+      "line": 9,
+      "call": "(D/'local.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_private_l3_binding131.py",
+      "line": 9,
+      "call": "(D/'world.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/frame_audit125.py",
+      "line": 31,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_frame_circulation125.py",
+      "line": 8,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining_motion_audit118.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence/dining118_3.1x3.5_body_study.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/whole_impact118.py",
+      "line": 10,
+      "call": "(P/f'evidence/q11_whole118_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/whole_impact118.py",
+      "line": 9,
+      "call": "(P/f'evidence/general118_changed_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/program_capacity_audit118.py",
+      "line": 8,
+      "call": "CAT.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/assemble146.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/operation_check114.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('bathroom_source117.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining6_gate121.py",
+      "line": 8,
+      "call": "Path('../planha_program6_study/evidence/module6_5.4x4.4.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/probe_l3_admission131.py",
+      "line": 7,
+      "call": "Path('evidence_l3_whole131/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/impact_q11_118.py",
+      "line": 8,
+      "call": "(P/'evidence/bedroom_before_q11.py.txt').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve141.py",
+      "line": 33,
+      "call": "(ROOT/'reference141/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve141.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve141.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve115.py",
+      "line": 20,
+      "call": "(ROOT/'reference115/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve115.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve115.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/core_partition_audit125.py",
+      "line": 44,
+      "call": "p.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/core_partition_audit125.py",
+      "line": 52,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence126/ab_actual_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence126/alternate_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence125/fresh_world125_composed_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/reassemble_compact118.py",
+      "line": 9,
+      "call": "(P/'evidence/compact118_first_actual.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve132.py",
+      "line": 33,
+      "call": "(ROOT/'reference132/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve132.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve132.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay128.py",
+      "line": 26,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay125.py",
+      "line": 17,
+      "call": "(Path(__file__).parent/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining_module118.py",
+      "line": 27,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve120.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve120.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve120.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_light_scope121.py",
+      "line": 8,
+      "call": "Path('evidence/program6/deterministic_macro_assembly121.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/privacy116.py",
+      "line": 61,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve128.py",
+      "line": 33,
+      "call": "(ROOT/'reference128/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve128.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve128.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_paired_private_zone118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve118.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve118.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve118.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_nonleaf_typed120.py",
+      "line": 6,
+      "call": "open('evidence/correction120/prefreeze_typed_kitchen_case5_assembly_only.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_nonleaf_typed120.py",
+      "line": 10,
+      "call": "open('evidence/correction120/fresh_case5_automatic120.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_nonleaf_typed120.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_nonleaf_typed120.py",
+      "line": 10,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/constructor126.py",
+      "line": 26,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining_inventory119.py",
+      "line": 6,
+      "call": "open('../planha_hybrid_independent/baseline118/random_5/response.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining_inventory119.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/source_rotation133.py",
+      "line": 14,
+      "call": "Path(__file__).with_name(name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/assemble144.py",
+      "line": 25,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_world_inventory125.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence125/world125_annotated39x7.07.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/finalize_capacity_metadata118.py",
+      "line": 9,
+      "call": "(P/'evidence/capacity118_whole18x24_explicit2.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve129.py",
+      "line": 33,
+      "call": "(ROOT/'reference129/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve129.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve129.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve117.py",
+      "line": 20,
+      "call": "(ROOT/'reference117/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve117.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve117.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_inventory129.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence129/case4_first_assembly.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/checker_source133.py",
+      "line": 37,
+      "call": "Path(__file__).with_name(filename).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_annotation_inventory130.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence130/case1_saved_rebuilt.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_annotation_inventory130.py",
+      "line": 18,
+      "call": "(Path(__file__).parent/'evidence129/case4_first_assembly.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/reassemble_q11_118.py",
+      "line": 10,
+      "call": "(P/f'evidence/general118_changed_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/probe_t_admission133.py",
+      "line": 7,
+      "call": "Path('../review133_study/whole_case3/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve131.py",
+      "line": 33,
+      "call": "(ROOT/'reference131/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve131.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve131.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_privacy_module116.py",
+      "line": 7,
+      "call": "(P/'evidence/module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/privacy115.py",
+      "line": 153,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining_whole118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve133.py",
+      "line": 33,
+      "call": "(ROOT/'reference133/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve133.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve133.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_circulation_named118.py",
+      "line": 8,
+      "call": "(Path(__file__).parent/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_circulation_named118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_explicit2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining6_audit121.py",
+      "line": 25,
+      "call": "source.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining6_audit121.py",
+      "line": 28,
+      "call": "(source.parent/filename).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_l3_schema131.py",
+      "line": 5,
+      "call": "(R/'world_record_schema129.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_l3_schema131.py",
+      "line": 17,
+      "call": "(R/'evidence_l3_admission131/packet.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_l3_schema131.py",
+      "line": 21,
+      "call": "(R/'world_record_schema131.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_core_wall_audit118.py",
+      "line": 7,
+      "call": "(P/f'evidence/q11_whole118_case{i}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/reassemble_l3_whole131.py",
+      "line": 10,
+      "call": "(out/'proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_integrity_registration119.py",
+      "line": 8,
+      "call": "Path('evidence/alternative119/case5_diningports_variant2_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_integrity_registration119.py",
+      "line": 14,
+      "call": "Path('evidence/correction120/case2_final_floor_only.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_core_comparison_audit118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/twin_module118.py",
+      "line": 28,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/twin_module118.py",
+      "line": 28,
+      "call": "(P/'bedroom_module116.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/twin_module118.py",
+      "line": 27,
+      "call": "(P/'references/CAPACITY_PROGRAM118_SOURCE.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/constructor128.py",
+      "line": 19,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bathroom_module117.py",
+      "line": 15,
+      "call": "sourcepath.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bathroom_module117.py",
+      "line": 15,
+      "call": "(P/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bathroom_module117.py",
+      "line": 51,
+      "call": "sourcepath.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bathroom_module117.py",
+      "line": 51,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/assemble114.py",
+      "line": 23,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/common_core125.py",
+      "line": 29,
+      "call": "src.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_singlebed_circulation120.py",
+      "line": 9,
+      "call": "Path('../planha_hybrid_independent/baseline119/random_4/response.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve125.py",
+      "line": 33,
+      "call": "(ROOT/'reference125/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve125.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve125.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/diagnose118.py",
+      "line": 11,
+      "call": "source.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_module_isometry116.py",
+      "line": 11,
+      "call": "(B/'module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_module_isometry116.py",
+      "line": 11,
+      "call": "(B/'module116_6x4.2_reflected.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/project_input_audit118.py",
+      "line": 21,
+      "call": "(ROOT/'reference150/index.html').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/project_input_audit118.py",
+      "line": 19,
+      "call": "(ROOT/p).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/rooted_bath139.py",
+      "line": 21,
+      "call": "(root/'bathroom_source117.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/rooted_bath139.py",
+      "line": 12,
+      "call": "(root/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining_module121.py",
+      "line": 35,
+      "call": "source.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining_module121.py",
+      "line": 36,
+      "call": "pdf.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining_module121.py",
+      "line": 37,
+      "call": "source.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/dining_module121.py",
+      "line": 37,
+      "call": "(ROOT/'references/program6/chair_reference_model.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/engine114.py",
+      "line": 17,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/engine114.py",
+      "line": 21,
+      "call": "(root/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_typed_public_access120.py",
+      "line": 6,
+      "call": "open('evidence/correction120/fresh_case5_automatic120.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_typed_public_access120.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_circulation_integrity119.py",
+      "line": 6,
+      "call": "Path('evidence/alternative119/case5_diningports_variant2_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_impact118.py",
+      "line": 10,
+      "call": "(ROOT/'evidence/q11_module118_impact_ledger.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_impact118.py",
+      "line": 11,
+      "call": "(ROOT/'evidence/bedroom_before_q11.py.txt').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_impact118.py",
+      "line": 16,
+      "call": "(ROOT/f'evidence/{prefix}{suffix}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/q11_boundary118.py",
+      "line": 13,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/q11_boundary118.py",
+      "line": 78,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/q11_boundary118.py",
+      "line": 80,
+      "call": "path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/q11_boundary118.py",
+      "line": 123,
+      "call": "(Path(__file__).parent/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve121.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve121.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve121.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_final_scope117.py",
+      "line": 9,
+      "call": "(ROOT/'evidence/general117_complete_explicit2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/run_changed118.py",
+      "line": 6,
+      "call": "(P.parent/f'planha_hybrid_independent/baseline117/random_{case}/request.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_replay127.py",
+      "line": 8,
+      "call": "(P/'compact_packet.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_replay127.py",
+      "line": 8,
+      "call": "(P/'compact_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/seating_source142.py",
+      "line": 11,
+      "call": "(ROOT/CAT['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/seating_source142.py",
+      "line": 11,
+      "call": "(ROOT/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_scope_input_binding121.py",
+      "line": 8,
+      "call": "Path('assemble114.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_circulation_binding118.py",
+      "line": 10,
+      "call": "open('evidence/finish_threshold118_saved_geometry.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_circulation_binding118.py",
+      "line": 10,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_replay128.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence128/coarse_wallbound_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/diagnose_groups118.py",
+      "line": 13,
+      "call": "(d/'request.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/assemble142.py",
+      "line": 23,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_world_consumer125.py",
+      "line": 8,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/kitchen_module117.py",
+      "line": 14,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/kitchen_module117.py",
+      "line": 35,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/public_program_audit118.py",
+      "line": 132,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/public_program_audit118.py",
+      "line": 120,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_protocol121.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_private_hall_binding129.py",
+      "line": 7,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_protocol119.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/core_comparison_audit118.py",
+      "line": 14,
+      "call": "BASELINE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve145.py",
+      "line": 33,
+      "call": "(ROOT/'reference145/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve145.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve145.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_frame_audit125.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence125/local_core39x7.07.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/constructor125.py",
+      "line": 21,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_fast_geometry120.py",
+      "line": 7,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_whole_circulation_compare119.py",
+      "line": 6,
+      "call": "Path('evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_dining_geometry118.py",
+      "line": 26,
+      "call": "f.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay127.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay127.py",
+      "line": 39,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_independent_geometry120.py",
+      "line": 8,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_independent_geometry120.py",
+      "line": 17,
+      "call": "(ROOT/f).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve122.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve122.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve122.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/private_hall_binding129.py",
+      "line": 40,
+      "call": "Path(__file__).with_name('private_hall_producer121.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve140.py",
+      "line": 33,
+      "call": "(ROOT/'reference140/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve140.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve140.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve135.py",
+      "line": 33,
+      "call": "(ROOT/'reference135/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve135.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve135.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve116.py",
+      "line": 20,
+      "call": "(ROOT/'reference116/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve116.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve116.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/assemble149.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_protocol120.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay129.py",
+      "line": 26,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_module116.py",
+      "line": 6,
+      "call": "Path('evidence/module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/constructor129.py",
+      "line": 44,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_protocol122.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay118.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_public_program_audit118.py",
+      "line": 7,
+      "call": "(P/'evidence/dining118_3.1x3.5.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_closet118.py",
+      "line": 10,
+      "call": "(ROOT/'evidence/q11_module118_5.45x3.6.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_q11_closet118.py",
+      "line": 8,
+      "call": "(ROOT/f'evidence/q11_module118_{suffix}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve114.py",
+      "line": 20,
+      "call": "(ROOT/'reference114/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve114.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve114.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_access_schema132.py",
+      "line": 5,
+      "call": "(R/'world_record_schema131.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_access_schema132.py",
+      "line": 17,
+      "call": "(R/'evidence_access_admission132/packet.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/build_access_schema132.py",
+      "line": 21,
+      "call": "(R/'world_record_schema132.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_core_circulation_scope118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/probe_access_admission132.py",
+      "line": 7,
+      "call": "Path('evidence_access132/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_threshold_check118.py",
+      "line": 6,
+      "call": "json.load(open('evidence/finish_threshold118_saved_geometry.json'))",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_threshold_check118.py",
+      "line": 6,
+      "call": "open('evidence/finish_threshold118_saved_geometry.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_profile_annotation130.py",
+      "line": 17,
+      "call": "(R/'world_transform125.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_profile_annotation130.py",
+      "line": 6,
+      "call": "(R/'world_record_schema129.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/probe_stagger_admission132.py",
+      "line": 7,
+      "call": "Path('evidence_stagger132/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay126.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/construction_replay126.py",
+      "line": 39,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_typed_kitchen_actual120.py",
+      "line": 7,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_twin_gate118.py",
+      "line": 7,
+      "call": "(R/'evidence/twin118_5.45x4.5.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_twin_gate118.py",
+      "line": 6,
+      "call": "(R/f'evidence/twin118_{name}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve127.py",
+      "line": 33,
+      "call": "(ROOT/'reference127/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve127.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve127.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/constructor127.py",
+      "line": 26,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/test_bedroom_approach123.py",
+      "line": 8,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/shared_binding137.py",
+      "line": 14,
+      "call": "Path(__file__).with_name(name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bedroom_module116.py",
+      "line": 13,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/bedroom_module116.py",
+      "line": 65,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/rule_contract118.py",
+      "line": 15,
+      "call": "PATH.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve119.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve119.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/serve119.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/audit_l3_independent/check.py",
+      "line": 86,
+      "call": "(P/'evidence_l3_primitive131/model.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/audit_l3_independent/negative.py",
+      "line": 2,
+      "call": "(P/'evidence_l3_primitive131/model.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/audit_l3_whole_independent/check.py",
+      "line": 61,
+      "call": "(P/'evidence_l3_whole131/local.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/audit_l3_whole_independent/check.py",
+      "line": 61,
+      "call": "(P/'evidence_l3_whole131/world.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/planha_general150_runtime_work/audit_l3_whole_independent/test_schema_review.py",
+      "line": 7,
+      "call": "(P/'evidence_l3_admission131/packet.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/source369.py",
+      "line": 91,
+      "call": "json.load(sys.stdin)",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/source369.py",
+      "line": 20,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/evaluate369.py",
+      "line": 9,
+      "call": "(ROOT/'staging368_ui_api/source_manifest.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/evaluate369.py",
+      "line": 38,
+      "call": "json.load(sys.stdin)",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/evaluate369.py",
+      "line": 12,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/evaluate369.py",
+      "line": 11,
+      "call": "(ROOT/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/test_registry369.py",
+      "line": 22,
+      "call": "(canonical/n).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/test_registry369.py",
+      "line": 22,
+      "call": "(HERE/'runtime'/n).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/test_registry369.py",
+      "line": 27,
+      "call": "(parent/n).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/test_registry369.py",
+      "line": 27,
+      "call": "(HERE/'runtime'/n).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_replay125_negative.py",
+      "line": 7,
+      "call": "(p/'fresh_world125_composed_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/world_inventory125.py",
+      "line": 41,
+      "call": "schema_path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/world_inventory125.py",
+      "line": 39,
+      "call": "schema_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 48,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 261,
+      "call": "(Path(__file__).parent/catalog['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 493,
+      "call": "(Path(__file__).parent/catalog['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 567,
+      "call": "Path(__file__).with_name('bathroom_source117.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 47,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 261,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 493,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 571,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 212,
+      "call": "scope_doc.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 496,
+      "call": "producer.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 569,
+      "call": "Path(__file__).with_name('bathroom_module117.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 255,
+      "call": "producer_file.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 287,
+      "call": "Path(__file__).with_name('bedroom_module116.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 271,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker114.py",
+      "line": 98,
+      "call": "source_path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_private_binding121.py",
+      "line": 9,
+      "call": "Path('evidence/program6/deterministic_macro_assembly121.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve126.py",
+      "line": 33,
+      "call": "(ROOT/'reference126/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve126.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve126.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/capacity_program118.py",
+      "line": 11,
+      "call": "SOURCE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/capacity_program118.py",
+      "line": 12,
+      "call": "SOURCE.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve150.py",
+      "line": 33,
+      "call": "(ROOT/'reference150/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve150.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve150.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_diversity124.py",
+      "line": 8,
+      "call": "(Path(__file__).parent/'evidence124/service_shared_case1_current_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve136.py",
+      "line": 33,
+      "call": "(ROOT/'reference136/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve136.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve136.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_whole118.py",
+      "line": 5,
+      "call": "(ROOT/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/seating_binding142.py",
+      "line": 19,
+      "call": "(Path(__file__).parent/'references/lr_option2_125x20_model.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve124.py",
+      "line": 33,
+      "call": "(ROOT/'reference124/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve124.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve124.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve134.py",
+      "line": 33,
+      "call": "(ROOT/'reference134/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve134.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve134.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_public_endpoint118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve130.py",
+      "line": 33,
+      "call": "(ROOT/'reference130/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve130.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve130.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_program_capacity118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_private_l3_binding131.py",
+      "line": 9,
+      "call": "(D/'local.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_private_l3_binding131.py",
+      "line": 9,
+      "call": "(D/'world.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/frame_audit125.py",
+      "line": 31,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_frame_circulation125.py",
+      "line": 8,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining_motion_audit118.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence/dining118_3.1x3.5_body_study.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/whole_impact118.py",
+      "line": 10,
+      "call": "(P/f'evidence/q11_whole118_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/whole_impact118.py",
+      "line": 9,
+      "call": "(P/f'evidence/general118_changed_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/program_capacity_audit118.py",
+      "line": 8,
+      "call": "CAT.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/assemble146.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/operation_check114.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('bathroom_source117.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining6_gate121.py",
+      "line": 8,
+      "call": "Path('../planha_program6_study/evidence/module6_5.4x4.4.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/probe_l3_admission131.py",
+      "line": 7,
+      "call": "Path('evidence_l3_whole131/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/impact_q11_118.py",
+      "line": 8,
+      "call": "(P/'evidence/bedroom_before_q11.py.txt').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve141.py",
+      "line": 33,
+      "call": "(ROOT/'reference141/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve141.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve141.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve115.py",
+      "line": 20,
+      "call": "(ROOT/'reference115/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve115.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve115.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/core_partition_audit125.py",
+      "line": 44,
+      "call": "p.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/core_partition_audit125.py",
+      "line": 52,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence126/ab_actual_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence126/alternate_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_construction_replay126.py",
+      "line": 8,
+      "call": "(ROOT/'evidence125/fresh_world125_composed_gate.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/reassemble_compact118.py",
+      "line": 9,
+      "call": "(P/'evidence/compact118_first_actual.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve132.py",
+      "line": 33,
+      "call": "(ROOT/'reference132/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve132.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve132.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay128.py",
+      "line": 26,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay125.py",
+      "line": 17,
+      "call": "(Path(__file__).parent/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining_module118.py",
+      "line": 27,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve120.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve120.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve120.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_light_scope121.py",
+      "line": 8,
+      "call": "Path('evidence/program6/deterministic_macro_assembly121.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/privacy116.py",
+      "line": 61,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve128.py",
+      "line": 33,
+      "call": "(ROOT/'reference128/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve128.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve128.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_paired_private_zone118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve118.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve118.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve118.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_nonleaf_typed120.py",
+      "line": 6,
+      "call": "open('evidence/correction120/prefreeze_typed_kitchen_case5_assembly_only.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_nonleaf_typed120.py",
+      "line": 10,
+      "call": "open('evidence/correction120/fresh_case5_automatic120.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_nonleaf_typed120.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_nonleaf_typed120.py",
+      "line": 10,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/constructor126.py",
+      "line": 26,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining_inventory119.py",
+      "line": 6,
+      "call": "open('../planha_hybrid_independent/baseline118/random_5/response.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining_inventory119.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/source_rotation133.py",
+      "line": 14,
+      "call": "Path(__file__).with_name(name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/assemble144.py",
+      "line": 25,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_world_inventory125.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence125/world125_annotated39x7.07.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/finalize_capacity_metadata118.py",
+      "line": 9,
+      "call": "(P/'evidence/capacity118_whole18x24_explicit2.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve129.py",
+      "line": 33,
+      "call": "(ROOT/'reference129/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve129.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve129.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve117.py",
+      "line": 20,
+      "call": "(ROOT/'reference117/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve117.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve117.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_inventory129.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence129/case4_first_assembly.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/checker_source133.py",
+      "line": 37,
+      "call": "Path(__file__).with_name(filename).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_annotation_inventory130.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence130/case1_saved_rebuilt.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_annotation_inventory130.py",
+      "line": 18,
+      "call": "(Path(__file__).parent/'evidence129/case4_first_assembly.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/reassemble_q11_118.py",
+      "line": 10,
+      "call": "(P/f'evidence/general118_changed_case{case}.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/probe_t_admission133.py",
+      "line": 7,
+      "call": "Path('../review133_study/whole_case3/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve131.py",
+      "line": 33,
+      "call": "(ROOT/'reference131/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve131.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve131.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_privacy_module116.py",
+      "line": 7,
+      "call": "(P/'evidence/module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/privacy115.py",
+      "line": 153,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining_whole118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_metadata_bound.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve133.py",
+      "line": 33,
+      "call": "(ROOT/'reference133/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve133.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve133.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_circulation_named118.py",
+      "line": 8,
+      "call": "(Path(__file__).parent/'evidence/q11_whole118_case1.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_circulation_named118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/capacity118_whole18x24_explicit2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining6_audit121.py",
+      "line": 25,
+      "call": "source.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining6_audit121.py",
+      "line": 28,
+      "call": "(source.parent/filename).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_l3_schema131.py",
+      "line": 5,
+      "call": "(R/'world_record_schema129.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_l3_schema131.py",
+      "line": 17,
+      "call": "(R/'evidence_l3_admission131/packet.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_l3_schema131.py",
+      "line": 21,
+      "call": "(R/'world_record_schema131.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_core_wall_audit118.py",
+      "line": 7,
+      "call": "(P/f'evidence/q11_whole118_case{i}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/reassemble_l3_whole131.py",
+      "line": 10,
+      "call": "(out/'proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_integrity_registration119.py",
+      "line": 8,
+      "call": "Path('evidence/alternative119/case5_diningports_variant2_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_integrity_registration119.py",
+      "line": 14,
+      "call": "Path('evidence/correction120/case2_final_floor_only.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_core_comparison_audit118.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/twin_module118.py",
+      "line": 28,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/twin_module118.py",
+      "line": 28,
+      "call": "(P/'bedroom_module116.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/twin_module118.py",
+      "line": 27,
+      "call": "(P/'references/CAPACITY_PROGRAM118_SOURCE.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/constructor128.py",
+      "line": 19,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bathroom_module117.py",
+      "line": 15,
+      "call": "sourcepath.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bathroom_module117.py",
+      "line": 15,
+      "call": "(P/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bathroom_module117.py",
+      "line": 51,
+      "call": "sourcepath.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bathroom_module117.py",
+      "line": 51,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/assemble114.py",
+      "line": 23,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/common_core125.py",
+      "line": 29,
+      "call": "src.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_singlebed_circulation120.py",
+      "line": 9,
+      "call": "Path('../planha_hybrid_independent/baseline119/random_4/response.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve125.py",
+      "line": 33,
+      "call": "(ROOT/'reference125/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve125.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve125.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/diagnose118.py",
+      "line": 11,
+      "call": "source.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_module_isometry116.py",
+      "line": 11,
+      "call": "(B/'module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_module_isometry116.py",
+      "line": 11,
+      "call": "(B/'module116_6x4.2_reflected.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/project_input_audit118.py",
+      "line": 26,
+      "call": "(ROOT/'reference150/index.html').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/project_input_audit118.py",
+      "line": 19,
+      "call": "(ROOT/p).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/rooted_bath139.py",
+      "line": 21,
+      "call": "(root/'bathroom_source117.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/rooted_bath139.py",
+      "line": 12,
+      "call": "(root/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining_module121.py",
+      "line": 35,
+      "call": "source.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining_module121.py",
+      "line": 36,
+      "call": "pdf.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining_module121.py",
+      "line": 37,
+      "call": "source.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/dining_module121.py",
+      "line": 37,
+      "call": "(ROOT/'references/program6/chair_reference_model.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/engine114.py",
+      "line": 17,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/engine114.py",
+      "line": 21,
+      "call": "(root/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_typed_public_access120.py",
+      "line": 6,
+      "call": "open('evidence/correction120/fresh_case5_automatic120.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_typed_public_access120.py",
+      "line": 6,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_circulation_integrity119.py",
+      "line": 6,
+      "call": "Path('evidence/alternative119/case5_diningports_variant2_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_impact118.py",
+      "line": 10,
+      "call": "(ROOT/'evidence/q11_module118_impact_ledger.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_impact118.py",
+      "line": 11,
+      "call": "(ROOT/'evidence/bedroom_before_q11.py.txt').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_impact118.py",
+      "line": 16,
+      "call": "(ROOT/f'evidence/{prefix}{suffix}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/q11_boundary118.py",
+      "line": 13,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/q11_boundary118.py",
+      "line": 78,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/q11_boundary118.py",
+      "line": 80,
+      "call": "path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/q11_boundary118.py",
+      "line": 125,
+      "call": "(Path(__file__).parent/name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve121.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve121.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve121.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_final_scope117.py",
+      "line": 9,
+      "call": "(ROOT/'evidence/general117_complete_explicit2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/run_changed118.py",
+      "line": 6,
+      "call": "(P.parent/f'planha_hybrid_independent/baseline117/random_{case}/request.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_replay127.py",
+      "line": 8,
+      "call": "(P/'compact_packet.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_replay127.py",
+      "line": 8,
+      "call": "(P/'compact_smoke.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/seating_source142.py",
+      "line": 11,
+      "call": "(ROOT/CAT['source_file']).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/seating_source142.py",
+      "line": 11,
+      "call": "(ROOT/'fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_scope_input_binding121.py",
+      "line": 8,
+      "call": "Path('assemble114.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_circulation_binding118.py",
+      "line": 10,
+      "call": "open('evidence/finish_threshold118_saved_geometry.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_circulation_binding118.py",
+      "line": 10,
+      "call": "json.load(f)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_replay128.py",
+      "line": 7,
+      "call": "(Path(__file__).parent/'evidence128/coarse_wallbound_whole.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/source_identity365.py",
+      "line": 33,
+      "call": "(CANONICAL/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/source_identity365.py",
+      "line": 33,
+      "call": "(HERE/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/diagnose_groups118.py",
+      "line": 13,
+      "call": "(d/'request.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/assemble142.py",
+      "line": 23,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_world_consumer125.py",
+      "line": 8,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/kitchen_module117.py",
+      "line": 14,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/kitchen_module117.py",
+      "line": 35,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/public_program_audit118.py",
+      "line": 132,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/public_program_audit118.py",
+      "line": 120,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_protocol121.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_private_hall_binding129.py",
+      "line": 7,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_protocol119.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/core_comparison_audit118.py",
+      "line": 14,
+      "call": "BASELINE.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve145.py",
+      "line": 33,
+      "call": "(ROOT/'reference145/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve145.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve145.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_frame_audit125.py",
+      "line": 5,
+      "call": "(Path(__file__).parent/'evidence125/local_core39x7.07.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/constructor125.py",
+      "line": 21,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_fast_geometry120.py",
+      "line": 7,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_whole_circulation_compare119.py",
+      "line": 6,
+      "call": "Path('evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_dining_geometry118.py",
+      "line": 26,
+      "call": "f.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay127.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay127.py",
+      "line": 39,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_independent_geometry120.py",
+      "line": 8,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_independent_geometry120.py",
+      "line": 17,
+      "call": "(ROOT/f).read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve122.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve122.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve122.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/private_hall_binding129.py",
+      "line": 40,
+      "call": "Path(__file__).with_name('private_hall_producer121.py').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve140.py",
+      "line": 33,
+      "call": "(ROOT/'reference140/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve140.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve140.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve135.py",
+      "line": 33,
+      "call": "(ROOT/'reference135/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve135.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve135.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve116.py",
+      "line": 20,
+      "call": "(ROOT/'reference116/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve116.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve116.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/assemble149.py",
+      "line": 26,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_protocol120.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay129.py",
+      "line": 26,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_module116.py",
+      "line": 6,
+      "call": "Path('evidence/module116_6x4.2.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/constructor129.py",
+      "line": 44,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_protocol122.py",
+      "line": 21,
+      "call": "(Path(__file__).parent/'reference118/index.html').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay118.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_public_program_audit118.py",
+      "line": 7,
+      "call": "(P/'evidence/dining118_3.1x3.5.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_closet118.py",
+      "line": 10,
+      "call": "(ROOT/'evidence/q11_module118_5.45x3.6.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_q11_closet118.py",
+      "line": 8,
+      "call": "(ROOT/f'evidence/q11_module118_{suffix}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve114.py",
+      "line": 20,
+      "call": "(ROOT/'reference114/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve114.py",
+      "line": 28,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve114.py",
+      "line": 13,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_access_schema132.py",
+      "line": 5,
+      "call": "(R/'world_record_schema131.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_access_schema132.py",
+      "line": 17,
+      "call": "(R/'evidence_access_admission132/packet.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/build_access_schema132.py",
+      "line": 21,
+      "call": "(R/'world_record_schema132.json').read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_core_circulation_scope118.py",
+      "line": 6,
+      "call": "(Path(__file__).parent/'evidence/compact118_reassembled_actual.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/probe_access_admission132.py",
+      "line": 7,
+      "call": "Path('evidence_access132/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_threshold_check118.py",
+      "line": 6,
+      "call": "json.load(open('evidence/finish_threshold118_saved_geometry.json'))",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_threshold_check118.py",
+      "line": 6,
+      "call": "open('evidence/finish_threshold118_saved_geometry.json')",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_profile_annotation130.py",
+      "line": 17,
+      "call": "(R/'world_transform125.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_profile_annotation130.py",
+      "line": 6,
+      "call": "(R/'world_record_schema129.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/probe_stagger_admission132.py",
+      "line": 7,
+      "call": "Path('evidence_stagger132/proposal.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay126.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/construction_replay126.py",
+      "line": 39,
+      "call": "path.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_typed_kitchen_actual120.py",
+      "line": 7,
+      "call": "P.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_twin_gate118.py",
+      "line": 7,
+      "call": "(R/'evidence/twin118_5.45x4.5.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_twin_gate118.py",
+      "line": 6,
+      "call": "(R/f'evidence/twin118_{name}.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve127.py",
+      "line": 33,
+      "call": "(ROOT/'reference127/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve127.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve127.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/constructor127.py",
+      "line": 26,
+      "call": "(root/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/test_bedroom_approach123.py",
+      "line": 8,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/shared_binding137.py",
+      "line": 14,
+      "call": "Path(__file__).with_name(name).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bedroom_module116.py",
+      "line": 13,
+      "call": "Path(__file__).with_name('fixture_catalog114.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/bedroom_module116.py",
+      "line": 65,
+      "call": "Path(__file__).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/rule_contract118.py",
+      "line": 15,
+      "call": "PATH.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve119.py",
+      "line": 33,
+      "call": "(ROOT/'reference118/index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve119.py",
+      "line": 41,
+      "call": "self.rfile.read(size)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/serve119.py",
+      "line": 14,
+      "call": "p.read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/audit_l3_independent/check.py",
+      "line": 86,
+      "call": "(P/'evidence_l3_primitive131/model.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/audit_l3_independent/negative.py",
+      "line": 2,
+      "call": "(P/'evidence_l3_primitive131/model.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/audit_l3_whole_independent/check.py",
+      "line": 61,
+      "call": "(P/'evidence_l3_whole131/local.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/audit_l3_whole_independent/check.py",
+      "line": 61,
+      "call": "(P/'evidence_l3_whole131/world.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging369_current_source_validation/runtime/audit_l3_whole_independent/test_schema_review.py",
+      "line": 7,
+      "call": "(P/'evidence_l3_admission131/packet.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/test372.py",
+      "line": 8,
+      "call": "(A/'fixture_record.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/test372.py",
+      "line": 8,
+      "call": "(A/'fresh_first.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/test372.py",
+      "line": 8,
+      "call": "(A/'fixture_binding.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 12,
+      "call": "read(A/'fixture_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 12,
+      "call": "read(A/'fresh_first.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 12,
+      "call": "read(A/'fixture_binding.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 5,
+      "call": "p.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 7,
+      "call": "(P/n).open('x')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 19,
+      "call": "read(P/'plan.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 27,
+      "call": "read(P/'fresh.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 27,
+      "call": "read(P/'repaired_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 27,
+      "call": "read(P/'lineage.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 24,
+      "call": "read(P/'repaired_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/worker372.py",
+      "line": 28,
+      "call": "read(P/'plan.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/launch372.py",
+      "line": 7,
+      "call": "F.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/launch372.py",
+      "line": 6,
+      "call": "F.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/launch372.py",
+      "line": 11,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/cycle372.py",
+      "line": 16,
+      "call": "(P/'comparison.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging372_route_aware_repair/cycle372.py",
+      "line": 12,
+      "call": "(P/'events.jsonl').open('a')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/launch375.py",
+      "line": 12,
+      "call": "(P/'server_shutdown.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/server375.py",
+      "line": 22,
+      "call": "(folder/'result.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/server375.py",
+      "line": 35,
+      "call": "(HERE/'index.html').read_bytes()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/server375.py",
+      "line": 42,
+      "call": "events.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/server375.py",
+      "line": 59,
+      "call": "self.rfile.read(n)",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 20,
+      "call": "(p/'repaired_record.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 20,
+      "call": "(p/'fresh.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 20,
+      "call": "(p/'reviewed_lineage.json').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 53,
+      "call": "(HERE/'browser375.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 52,
+      "call": "p.read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/test375.py",
+      "line": 58,
+      "call": "(HERE/'server375.py').read_text()",
+      "test_or_server_file": true
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/guard375.py",
+      "line": 7,
+      "call": "p.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/guard375.py",
+      "line": 6,
+      "call": "p.read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/guard375.py",
+      "line": 9,
+      "call": "(W/n).read_bytes()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 15,
+      "call": "read('request.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 6,
+      "call": "(P/n).read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 8,
+      "call": "(P/n).open('x')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 15,
+      "call": "(ROOT/'staging369_controlled_cycle/parent368.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 21,
+      "call": "read('fixture_record.json'if mode=='fresh_first'else'repaired_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 27,
+      "call": "read('fresh_first.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 23,
+      "call": "read('request.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 29,
+      "call": "read('fixture_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 29,
+      "call": "read('fresh_first_binding.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 34,
+      "call": "read('fixture_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 34,
+      "call": "read('plan.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 39,
+      "call": "read('repaired_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 39,
+      "call": "read('lineage.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 42,
+      "call": "read('fresh_second_binding.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 23,
+      "call": "read('lineage.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 39,
+      "call": "read('fresh_first.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 39,
+      "call": "read('fresh_second.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 40,
+      "call": "read('fixture_record.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 40,
+      "call": "read('plan.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 52,
+      "call": "(ROOT/'staging365_balanced_portals/actual365.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 52,
+      "call": "(ROOT/'review365_balanced_source_validation/result.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 52,
+      "call": "(ROOT/'semantic_rules357/eligibility_intrinsic_actual365.json').read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 47,
+      "call": "path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 58,
+      "call": "read('fresh_first_binding.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 58,
+      "call": "read('request.json')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/phase375.py",
+      "line": 49,
+      "call": "path.read_text()",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/cycle375.py",
+      "line": 14,
+      "call": "(P/'events.jsonl').open('a')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/cycle375.py",
+      "line": 18,
+      "call": "(P/'events.jsonl').open('a')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/cycle375.py",
+      "line": 21,
+      "call": "(P/'result.json').open('x')",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/browser375.py",
+      "line": 10,
+      "call": "json.load(r)",
+      "test_or_server_file": false
+    },
+    {
+      "source": "reconstruction357/staging375_same_run_form/browser375.py",
+      "line": 15,
+      "call": "(P/'server_address.json').read_text()",
+      "test_or_server_file": false
+    }
+  ],
+  "scope": "Static callsite enumeration plus full noncache filesystem closure; not a claim of observed dynamic execution",
+  "comparison375_extra_active_kernel": "semantic_rules357/comparison_metrics.py already frozen; q04 functions AST-extracted from frozen sources"
+}

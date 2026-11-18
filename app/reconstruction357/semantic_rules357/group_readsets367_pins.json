@@ -1,0 +1,9 @@
+{
+  "schema": "JOINT367_STORED_ARTIFACT_REASSESSMENT_ONLY",
+  "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+  "result_digest": "e3214547e6eaf74f28463011be8c1108b0338d421161dc17fe358acb777a68ab",
+  "registry_sha256": "1291a217e8f56e8bfff89b8bda2f9cfe661eeac3aa41be00c15c7a8f1072665c",
+  "bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+  "common_sha256": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+  "expected_schema": "JOINT367_SOURCE_VALIDATION"
+}

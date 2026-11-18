@@ -1,0 +1,11 @@
+test_exact_six_limited_parents_six_pending (test_engine367_v2.Integrated367.test_exact_six_limited_parents_six_pending) ... ok
+test_no_parent_reentry (test_engine367_v2.Integrated367.test_no_parent_reentry) ... ok
+test_old_service_result_fails_closed (test_engine367_v2.Integrated367.test_old_service_result_fails_closed) ... ok
+test_raw_only_never_admits (test_engine367_v2.Integrated367.test_raw_only_never_admits) ... ok
+test_wrong_actual_result_fails_closed (test_engine367_v2.Integrated367.test_wrong_actual_result_fails_closed) ... ok
+test_wrong_source_profile_rejected (test_engine367_v2.Integrated367.test_wrong_source_profile_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 22.077s
+
+OK

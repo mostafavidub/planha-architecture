@@ -1,0 +1,10 @@
+test_failure_group_finally_killed (test_final_role_joint367_launcher.Containment.test_failure_group_finally_killed) ... ok
+test_fixed_modes (test_final_role_joint367_launcher.Containment.test_fixed_modes) ... ok
+test_fixed_source_preimport_script (test_final_role_joint367_launcher.Containment.test_fixed_source_preimport_script) ... ok
+test_success_group_finally_killed (test_final_role_joint367_launcher.Containment.test_success_group_finally_killed) ... ok
+test_timeout_group_finally_killed (test_final_role_joint367_launcher.Containment.test_timeout_group_finally_killed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.805s
+
+OK

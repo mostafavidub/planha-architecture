@@ -1,0 +1,1207 @@
+{
+  "schema": "BALANCED365_FIXED_PATH_SQUARE_CAPACITY_DIAGNOSTIC_ONLY",
+  "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+  "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+  "record_sha256": "2e1c567ab8b6771d6b4f3f907ba464eb48fa49b1a0f3ccd31537a41b9cc1b108",
+  "profile": {
+    "body_m": ".7"
+  },
+  "rows": [
+    {
+      "route_id": "lift_A",
+      "actual_path": [
+        [
+          "16.325",
+          "14.6125"
+        ],
+        [
+          "15.05",
+          "14.6125"
+        ],
+        [
+          "15.05",
+          "12.075"
+        ]
+      ],
+      "source_domain_digest": "6e29589e5ca05717bd8889d0ec2aa671ef1ec4286ea5c28bccce173ffedefb22",
+      "obstacle_inventory_digest": "680ec2752ce99f6786328d1b6133ff052ad3e9dfd5da74972f628acb8b3af7aa",
+      "obstacle_count": 251,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "1",
+        "limiting_witnesses": [
+          {
+            "segment": 1,
+            "obstacle": "FIXTURE:A:armchair3",
+            "half_width_m": "1/2"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "1",
+        "limiting_witnesses": [
+          {
+            "segment": 1,
+            "obstacle": "FIXTURE:A:armchair3",
+            "half_width_m": "1/2"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+          "fraction": "1",
+          "open_state_digests": [
+            "007052dfe22f5e07eea5d06a151d6c6fb37e3e40efc8fc3948263191b4512c73",
+            "759c9ae37975838b1fc5def89dc9827b73092b627675e624209b4bffc340d5cc"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+          "fraction": "1",
+          "open_state_digests": [
+            "62e53d3c6f279a20cc3db4d6acab61a883a38a0cbbe923dfebc807118cb9ab57",
+            "1deafa90b2d9b98ff80481cd449e517d93f8396024f1807a7b74105c3e907cbd"
+          ]
+        }
+      ],
+      "length_m": "61/16",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "3/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "lift_B",
+      "actual_path": [
+        [
+          "16.325",
+          "14.6125"
+        ],
+        [
+          "13.825",
+          "14.6125"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_domain_digest": "d96a6100e856a64ea2d632af85f05e95f1ff2ce0bae3fd7b2519dde6485e8ee7",
+      "obstacle_inventory_digest": "6d9cf860c44682d7c27348cbd848182ea833e01b65fefc5e1d91cf4a50d7f78d",
+      "obstacle_count": 254,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "1",
+        "limiting_witnesses": [
+          {
+            "segment": 1,
+            "obstacle": "FIXTURE:B:armchair3",
+            "half_width_m": "1/2"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "1",
+        "limiting_witnesses": [
+          {
+            "segment": 1,
+            "obstacle": "FIXTURE:B:armchair3",
+            "half_width_m": "1/2"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+          "fraction": "1",
+          "open_state_digests": [
+            "007052dfe22f5e07eea5d06a151d6c6fb37e3e40efc8fc3948263191b4512c73",
+            "759c9ae37975838b1fc5def89dc9827b73092b627675e624209b4bffc340d5cc"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+          "fraction": "1",
+          "open_state_digests": [
+            "62e53d3c6f279a20cc3db4d6acab61a883a38a0cbbe923dfebc807118cb9ab57",
+            "1deafa90b2d9b98ff80481cd449e517d93f8396024f1807a7b74105c3e907cbd"
+          ]
+        }
+      ],
+      "length_m": "61/16",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "3/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "stair_A",
+      "actual_path": [
+        [
+          "12.575",
+          "13.3875"
+        ],
+        [
+          "15.05",
+          "13.3875"
+        ],
+        [
+          "15.05",
+          "12.075"
+        ]
+      ],
+      "source_domain_digest": "77023824b16c0714373ac39d4a04098a847207ed5db3ceb69c0d6aa496216680",
+      "obstacle_inventory_digest": "0a239d4b85d9697369badc836b99dd93b317c3df3bb6a41a3e71cac1472b8814",
+      "obstacle_count": 252,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_16",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_17",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_18",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_19",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_16",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_17",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_18",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_19",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+          "fraction": "1",
+          "open_state_digests": [
+            "007052dfe22f5e07eea5d06a151d6c6fb37e3e40efc8fc3948263191b4512c73",
+            "759c9ae37975838b1fc5def89dc9827b73092b627675e624209b4bffc340d5cc"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+          "fraction": "1",
+          "open_state_digests": [
+            "62e53d3c6f279a20cc3db4d6acab61a883a38a0cbbe923dfebc807118cb9ab57",
+            "1deafa90b2d9b98ff80481cd449e517d93f8396024f1807a7b74105c3e907cbd"
+          ]
+        }
+      ],
+      "length_m": "303/80",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "2/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "stair_B",
+      "actual_path": [
+        [
+          "12.575",
+          "13.3875"
+        ],
+        [
+          "13.825",
+          "13.3875"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_domain_digest": "c381fd8ec3b88e9efc44b77d283514abd42e741289a1373695d3a42bfcde5196",
+      "obstacle_inventory_digest": "bc58220bb893db1da63a0b208ab01eda596b5a41a6116eae99cee7d197e1ce74",
+      "obstacle_count": 253,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_15",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_16",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_17",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_18",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_15",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_16",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_17",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_18",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+          "fraction": "1",
+          "open_state_digests": [
+            "007052dfe22f5e07eea5d06a151d6c6fb37e3e40efc8fc3948263191b4512c73",
+            "759c9ae37975838b1fc5def89dc9827b73092b627675e624209b4bffc340d5cc"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+          "fraction": "1",
+          "open_state_digests": [
+            "62e53d3c6f279a20cc3db4d6acab61a883a38a0cbbe923dfebc807118cb9ab57",
+            "1deafa90b2d9b98ff80481cd449e517d93f8396024f1807a7b74105c3e907cbd"
+          ]
+        }
+      ],
+      "length_m": "303/80",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "2/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    }
+  ],
+  "prior_primitive_diagnostic": {
+    "path": "review365_balanced_diagnostic/geometry_operations_privacy.json",
+    "sha256": "d97c4fe7f579b5bfaf4f112564579796c3a00ad9e037098c273e41a367a2758d",
+    "result": {
+      "scope": "INDEPENDENT_PRIMITIVE_GEOMETRY_OPERATION_PRIVACY_ONLY_NOT_FULL_FRESH",
+      "core": {
+        "status": "PASS_LIMITED",
+        "witness": {
+          "rule": "H15",
+          "source": {
+            "source_line": 579,
+            "source_text": "H15 CORE_2D — در MVP فقط جانمایی مفهومی یک هسته پله مشترک، آسانسور، لابی مستقل بیرون محفظه پله و دسترسی مستقل و پیوسته هر واحد در قاب طراحی کنترل می‌شود. حذف اجزای الزامی، تداخل قطعی یا عبور اجباری از محفظه پله ایراد مفهومی است. ظرفیت و مدل اجرایی، مقطع و سرگیر پله، نصب آسانسور، چاهک و بالاسری و تأیید ابعاد اجرایی POST_MVP / NOT_EVALUATED هستند و فقدان آنها به‌تنهایی گام دوم MVP را متوقف نمی‌کند. حضور شماتیک هیچ تأیید قانونی یا اجرایی ایجاد نمی‌کند.",
+            "source_modified": "2026-11-12T19:13:23.746Z"
+          },
+          "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+          "errors": [],
+          "pending": [],
+          "routes": [
+            {
+              "route": "stair_A",
+              "segments": 2,
+              "source": "stair",
+              "destination": "A"
+            },
+            {
+              "route": "lift_A",
+              "segments": 2,
+              "source": "lift",
+              "destination": "A"
+            },
+            {
+              "route": "stair_B",
+              "segments": 2,
+              "source": "stair",
+              "destination": "B"
+            },
+            {
+              "route": "lift_B",
+              "segments": 2,
+              "source": "lift",
+              "destination": "B"
+            }
+          ],
+          "body_m": "7/10",
+          "hardware_and_external_entry": "NOT_EVALUATED_OUTSIDE_CONCEPT"
+        },
+        "scope": "Actual same-model exact 2D geometry for H15; no hardware, legal, daylight or architectural-quality approval."
+      },
+      "opening_hosts": {
+        "status": "PASS_LIMITED",
+        "witness": {
+          "rule": "H10",
+          "source": {
+            "source_line": 573,
+            "source_text": "H10 OPENING_HOST — میزبان، بازه روی دیوار، عرض و دو فضای مرتبط هر بازشو معلوم باشند. QA: در روی مرز صحیح مثبت؛ در در فضای خالی یا پنجره بی‌میزبان منفی. میزبان نامعلوم → INDETERMINATE با علت MISSING_EVIDENCE؛ بی‌میزبان‌بودنِ اثبات‌شده با میزبانِ هنوز ثبت‌نشده فرق دارد. مرجع:B2؛ ترمیم مستلزم کنترل دوباره روابط است.",
+            "source_modified": "2026-11-12T19:13:23.746Z"
+          },
+          "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+          "errors": [],
+          "pending": [],
+          "openings": [
+            {
+              "opening": "A.entry",
+              "host": "A.unit_boundary",
+              "regions": [
+                "lobby",
+                "A.public_access"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.entry",
+              "host": "B.unit_boundary",
+              "regions": [
+                "lobby",
+                "B.public_access"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "stair.entry",
+              "host": "core.stair.right",
+              "regions": [
+                "stair",
+                "lobby"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "lift.entry",
+              "host": "core.lift.left",
+              "regions": [
+                "lift",
+                "lobby"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.bed1.entry",
+              "host": "A.bed1.left",
+              "regions": [
+                "A.private_access",
+                "A.bed1"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.bed2.entry",
+              "host": "A.bed2.left",
+              "regions": [
+                "A.private_access",
+                "A.bed2"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.bed3.entry",
+              "host": "A.bed3.left",
+              "regions": [
+                "A.private_access",
+                "A.bed3"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.bath",
+              "host": "A.bath.A.bath_right1",
+              "regions": [
+                "A.public_access",
+                "A.bath"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.WC",
+              "host": "A.bath.A.WC_right",
+              "regions": [
+                "A.vanity",
+                "A.WC"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.shower",
+              "host": "A.bath.A.shower_right",
+              "regions": [
+                "A.vanity",
+                "A.shower"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "A.kitchen.entry",
+              "host": "A.kitchen.front",
+              "regions": [
+                "A.kitchen_public_access",
+                "A.kitchen"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.bed1.entry",
+              "host": "B.bed1.left",
+              "regions": [
+                "B.private_access",
+                "B.bed1"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.bed2.entry",
+              "host": "B.bed2.left",
+              "regions": [
+                "B.private_access",
+                "B.bed2"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.bed3.entry",
+              "host": "B.bed3.left",
+              "regions": [
+                "B.private_access",
+                "B.bed3"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.bath",
+              "host": "B.bath.A.bath_right1",
+              "regions": [
+                "B.public_access",
+                "B.bath"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.WC",
+              "host": "B.bath.A.WC_right",
+              "regions": [
+                "B.vanity",
+                "B.WC"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.shower",
+              "host": "B.bath.A.shower_right",
+              "regions": [
+                "B.vanity",
+                "B.shower"
+              ],
+              "crossing_found": true
+            },
+            {
+              "opening": "B.kitchen.entry",
+              "host": "B.kitchen.front",
+              "regions": [
+                "B.kitchen_public_access",
+                "B.kitchen"
+              ],
+              "crossing_found": true
+            },
+            {
+              "window": "A.bed1.window",
+              "host": "front",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "A.bed2.window",
+              "host": "front",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "A.bed3.window",
+              "host": "front",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "B.bed1.window",
+              "host": "back",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "B.bed2.window",
+              "host": "back",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "B.bed3.window",
+              "host": "back",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "A.living.window",
+              "host": "front",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            },
+            {
+              "window": "B.living.window",
+              "host": "back",
+              "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+            }
+          ],
+          "body_m": "7/10",
+          "logical_bath_regions_scope": "Actual explicit partition regions must also have source-placement binding in separate mandatory gate."
+        },
+        "scope": "Actual same-model exact 2D geometry for H10; no hardware, legal, daylight or architectural-quality approval."
+      },
+      "door_operations": {
+        "errors": [],
+        "pending": []
+      },
+      "privacy": {
+        "errors": [],
+        "pending": [],
+        "evidence": {
+          "whole_model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+          "targets": [
+            {
+              "unit": "A",
+              "room": "bed1",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "52b0707435e2b677376fe7611ec8e22a3ab94b9385d5c2303a3d46141f7cd937",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed1.bed",
+                    "opening": "A.bed1.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed1.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "749/100",
+                      "projected_interval": [
+                        "4399/5700",
+                        "3401/1540"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "A.bed1.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed1.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "749/100",
+                      "projected_interval": [
+                        "3313/2850",
+                        "23111/10300"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "A",
+              "room": "bed2",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "da6194acd188a68e2cc1902d23b2c75bc7fe268ed887a5df58cb00b6336d2096",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed2.bedA",
+                    "opening": "A.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "1741/2850",
+                        "13207/7900"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "bed2.bedB",
+                    "opening": "A.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "292/285",
+                        "18463/7900"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "A.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "143/114",
+                        "24279/10300"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "A",
+              "room": "bed3",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "b0f64b8b8cc20faf53c6b0418ae653ca27dd8b281f8b0168849d8872ee817c56",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed3.bedA",
+                    "opening": "A.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "1741/2850",
+                        "13207/7900"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "bed3.bedB",
+                    "opening": "A.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "292/285",
+                        "18463/7900"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "A.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "A.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "143/114",
+                        "24279/10300"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "A",
+              "room": "bath",
+              "kind": "actual_necessary_inner_boundary_face",
+              "evidence": [
+                {
+                  "target": "WC_use",
+                  "opening": "A.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "75/8",
+                    "85/8",
+                    "75/8"
+                  ],
+                  "strict": {
+                    "wall": "A.bath.A.WC_right.assembly0",
+                    "axis": 0,
+                    "plane": "213/20",
+                    "projected_interval": [
+                      "7503/800",
+                      "5019/500"
+                    ],
+                    "conditional_closed_boundary": false
+                  },
+                  "conditional_closed_boundary": null,
+                  "counterexample": null
+                },
+                {
+                  "target": "shower_use",
+                  "opening": "A.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "75/8",
+                    "85/8",
+                    "75/8"
+                  ],
+                  "strict": {
+                    "wall": "A.bath.A.shower_right.assembly0",
+                    "axis": 0,
+                    "plane": "191/20",
+                    "projected_interval": [
+                      "1427/152",
+                      "1211/120"
+                    ],
+                    "conditional_closed_boundary": false
+                  },
+                  "conditional_closed_boundary": null,
+                  "counterexample": null
+                },
+                {
+                  "target": "shower_floor",
+                  "opening": "A.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "75/8",
+                    "85/8",
+                    "75/8"
+                  ],
+                  "strict": null,
+                  "conditional_closed_boundary": {
+                    "wall": "A.bath.A.shower_right.assembly0",
+                    "axis": 0,
+                    "plane": "191/20",
+                    "projected_interval": [
+                      "75/8",
+                      "564/55"
+                    ],
+                    "conditional_closed_boundary": true
+                  },
+                  "counterexample": null
+                }
+              ]
+            },
+            {
+              "unit": "B",
+              "room": "bed1",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "7fe173692205cd8a535cf810192ab75dde00b6daa99e51b8ee161df45eb49426",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed1.bed",
+                    "opening": "B.bed1.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed1.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "749/100",
+                      "projected_interval": [
+                        "39719/1540",
+                        "155201/5700"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "B.bed1.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed1.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "749/100",
+                      "projected_interval": [
+                        "265289/10300",
+                        "76487/2850"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "B",
+              "room": "bed2",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "80ce58c46acd42ebf22c9172bc3ed4ca1eddd8bd96bfb305af657cd91e909b1d",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed2.bedA",
+                    "opening": "B.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "207993/7900",
+                        "78059/2850"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "bed2.bedB",
+                    "opening": "B.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "202737/7900",
+                        "7688/285"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "B.bed2.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed2.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1141/100",
+                      "projected_interval": [
+                        "264121/10300",
+                        "3049/114"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "B",
+              "room": "bed3",
+              "kind": "full_actual_aperture_strict_bedroom",
+              "evidence": {
+                "status": "PASS_SCOPED_MODULE_PRIVACY",
+                "model_hash": "d537f3fed0744626180b3a56b3d045e2467722d73d9e6a87707107869409a6f5",
+                "checker_sha256": "c0636bc7b1a42833bfc19e40718723d8db1002a94d99ce8e0426695331fd79f7",
+                "targets": [
+                  {
+                    "target": "bed3.bedA",
+                    "opening": "B.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "207993/7900",
+                        "78059/2850"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "bed3.bedB",
+                    "opening": "B.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "202737/7900",
+                        "7688/285"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  },
+                  {
+                    "target": "changing",
+                    "opening": "B.bed3.entry",
+                    "strict_certificate": {
+                      "wall": "B.bed3.closet.actual_skin2",
+                      "axis": 0,
+                      "plane": "1851/100",
+                      "projected_interval": [
+                        "264121/10300",
+                        "3049/114"
+                      ],
+                      "conditional_closed_boundary": false
+                    },
+                    "counterexample": null
+                  }
+                ],
+                "accepted": false,
+                "release_allowed": false,
+                "scope": "Only full-aperture to full bed/changing targets in one bedroom module. No whole-model, operation, real-height or professional approval. Closet envelopes never prove opacity."
+              }
+            },
+            {
+              "unit": "B",
+              "room": "bath",
+              "kind": "actual_necessary_inner_boundary_face",
+              "evidence": [
+                {
+                  "target": "WC_use",
+                  "opening": "B.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "149/8",
+                    "85/8",
+                    "149/8"
+                  ],
+                  "strict": {
+                    "wall": "B.bath.A.WC_right.assembly0",
+                    "axis": 0,
+                    "plane": "213/20",
+                    "projected_interval": [
+                      "8981/500",
+                      "14897/800"
+                    ],
+                    "conditional_closed_boundary": false
+                  },
+                  "conditional_closed_boundary": null,
+                  "counterexample": null
+                },
+                {
+                  "target": "shower_use",
+                  "opening": "B.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "149/8",
+                    "85/8",
+                    "149/8"
+                  ],
+                  "strict": {
+                    "wall": "B.bath.A.shower_right.assembly0",
+                    "axis": 0,
+                    "plane": "191/20",
+                    "projected_interval": [
+                      "2149/120",
+                      "2829/152"
+                    ],
+                    "conditional_closed_boundary": false
+                  },
+                  "conditional_closed_boundary": null,
+                  "counterexample": null
+                },
+                {
+                  "target": "shower_floor",
+                  "opening": "B.bath",
+                  "necessary_actual_boundary_face": [
+                    "387/40",
+                    "149/8",
+                    "85/8",
+                    "149/8"
+                  ],
+                  "strict": null,
+                  "conditional_closed_boundary": {
+                    "wall": "B.bath.A.shower_right.assembly0",
+                    "axis": 0,
+                    "plane": "191/20",
+                    "projected_interval": [
+                      "976/55",
+                      "149/8"
+                    ],
+                    "conditional_closed_boundary": true
+                  },
+                  "counterexample": null
+                }
+              ]
+            }
+          ],
+          "status": "PASS_SCOPED_PRIVACY",
+          "closed_boundary_means": "Non-strict opaque boundary/tangency convention, NEVER a closed-door assumption",
+          "accepted": false
+        }
+      },
+      "seconds": 1.3125242949990934,
+      "fresh_executed": false,
+      "accepted": false
+    }
+  },
+  "fresh_executed": false,
+  "source362_review_borrowed": false,
+  "eligibility": "NOT_ESTABLISHED; primitive operation/privacy evidence retained, no full fresh or eligibility",
+  "accepted": false,
+  "balance_accepted": false,
+  "scope": "Exact current model365 fixed-path square-body capacity under static plus fully-open entry passage only; primitive operation/privacy checks do not establish full eligibility; no all-state clearance claim."
+}

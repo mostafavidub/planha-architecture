@@ -1,0 +1,11 @@
+test_covers_exact_existing_gap (test_entry_separation365.Separation365.test_covers_exact_existing_gap) ... ok
+test_does_not_cover_extra_cell (test_entry_separation365.Separation365.test_does_not_cover_extra_cell) ... ok
+test_missing_fresh_door_rejected (test_entry_separation365.Separation365.test_missing_fresh_door_rejected) ... ok
+test_source_exact_margin_not_usable (test_entry_separation365.Separation365.test_source_exact_margin_not_usable) ... ok
+test_stale_profile_rejected (test_entry_separation365.Separation365.test_stale_profile_rejected) ... ok
+test_wrong_mount_rejected (test_entry_separation365.Separation365.test_wrong_mount_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.591s
+
+OK

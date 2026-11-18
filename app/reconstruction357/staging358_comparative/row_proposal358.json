@@ -1,0 +1,245 @@
+{
+  "status": "PROPOSAL_ONLY",
+  "solver_status": 1,
+  "solver_message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "variables": 378,
+  "constraints": 456,
+  "seconds": 3.026866264999626,
+  "not_global_infeasibility": true,
+  "scope": "Restricted coarse bundle master, no full-network or operational acceptance.",
+  "source_approach_reservations": {
+    "bath": {
+      "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "role": "S.public_access",
+      "parts": [
+        [
+          "0.7",
+          "-0.95",
+          "2.3",
+          "-0.15"
+        ],
+        [
+          "1.05",
+          "-0.15",
+          "2",
+          "-0.09"
+        ],
+        [
+          "1.05",
+          "-0.04",
+          "2",
+          "0"
+        ],
+        [
+          "1.05",
+          "-0.09",
+          "2.3",
+          "-0.04"
+        ],
+        [
+          "0.7",
+          "-0.95",
+          "2.3",
+          "-0.15"
+        ],
+        [
+          "1.175",
+          "-0.85",
+          "1.875",
+          "-0.15"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ]
+      ],
+      "bbox": [
+        "0.7",
+        "-0.95",
+        "2.3",
+        "0"
+      ],
+      "policy": "Reserve source public apron, port body, external door actor sweeps against other room/use envelopes. Shared circulation reservations may overlap; no new simultaneous-use law."
+    },
+    "kitchen": {
+      "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+      "role": "K.public_access",
+      "parts": [
+        [
+          "0.45",
+          "-1",
+          "1.75",
+          "-0.15"
+        ],
+        [
+          "0.6",
+          "-0.15",
+          "1.6",
+          "0"
+        ],
+        [
+          "0.45",
+          "-1",
+          "1.75",
+          "-0.15"
+        ],
+        [
+          "0.75",
+          "-0.9",
+          "1.45",
+          "-0.2"
+        ]
+      ],
+      "bbox": [
+        "0.45",
+        "-1",
+        "1.75",
+        "0"
+      ],
+      "policy": "Reserve source public apron, port body, external door actor sweeps against other room/use envelopes. Shared circulation reservations may overlap; no new simultaneous-use law."
+    }
+  },
+  "rectangles": {
+    "bed1": [
+      "3",
+      "0.25",
+      "8.8",
+      "5.05"
+    ],
+    "bed2": [
+      "10.1",
+      "0.25",
+      "15.9",
+      "5.05"
+    ],
+    "bed3": [
+      "17.2",
+      "0.25",
+      "23",
+      "5.05"
+    ],
+    "bath": [
+      "8.625",
+      "9.375",
+      "12.925",
+      "12.475"
+    ],
+    "kitchen": [
+      "4.875",
+      "8.275",
+      "8.475",
+      "12.475"
+    ],
+    "dining": [
+      "14.975",
+      "6.475",
+      "20.375",
+      "10.875"
+    ],
+    "sofa1_use": [
+      "18.775",
+      "10.875",
+      "20.975",
+      "12.475"
+    ],
+    "sofa2_use": [
+      "10.925",
+      "7.625",
+      "13.125",
+      "9.225"
+    ],
+    "chair1_use": [
+      "15.775",
+      "10.975",
+      "16.575",
+      "12.475"
+    ],
+    "chair2_use": [
+      "17.275",
+      "10.975",
+      "18.075",
+      "12.475"
+    ],
+    "chair3_use": [
+      "14.175",
+      "10.075",
+      "14.975",
+      "11.575"
+    ],
+    "chair4_use": [
+      "14.175",
+      "7.875",
+      "14.975",
+      "9.375"
+    ]
+  },
+  "bedrooms": 3,
+  "sleep_roles": [
+    "double",
+    "twin",
+    "twin"
+  ],
+  "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+  "variant": 2,
+  "bed_door_sides": {
+    "bed1": "right",
+    "bed2": "left",
+    "bed3": "left"
+  },
+  "ordered_macro": {
+    "kind": "PARAMETRIC_THREE_SOURCE_ROOMS_REAL_PRIVATE_HALL129",
+    "rectangles": {
+      "bed1": [
+        "3",
+        "0.25",
+        "8.8",
+        "5.05"
+      ],
+      "bed2": [
+        "10.1",
+        "0.25",
+        "15.9",
+        "5.05"
+      ],
+      "bed3": [
+        "17.2",
+        "0.25",
+        "23",
+        "5.05"
+      ]
+    },
+    "bed_door_sides": {
+      "bed1": "right",
+      "bed2": "left",
+      "bed3": "left"
+    },
+    "private_hall_clear_depth": "1.0",
+    "private_interface_center_x": "13.825",
+    "module_parameters": {
+      "width": "5.8",
+      "depth": "4.8",
+      "minimum_width": "5.45",
+      "minimum_twin_depth": "4.5",
+      "source": "bedroom_module116.py and twin_module118.py actual study bounds; not universal room minimum"
+    },
+    "scope": "Restricted real-front-wall-attached domain; no lighting criterion. One actual hall and three source-bound operational rooms, not entire envelope useful floor.",
+    "raw_inputs_not_rounded": true,
+    "internal_position_grid_m": "0.005"
+  },
+  "quantization_m": ".001",
+  "generation_method": "ROW_SOURCE_BODY_SEPARATED358_NOT_FULL_NETWORK_SOLVER"
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "member": "baseline351",
+    "path": "reconstruction357/actual_run/actual_response.json",
+    "sha256": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+    "previously_registered": true
+  },
+  {
+    "member": "translated357",
+    "path": "reconstruction357/staging357_comparative/attached_service_final357.json",
+    "sha256": "834402fd3a2251056509954e25d25dbd4c6f440dcc72b0e9fa3b71187f708cf8",
+    "previously_registered": true
+  },
+  {
+    "member": "translated357",
+    "path": "reconstruction357/review357_source_identity/result.json",
+    "sha256": "e9a209ea670d380dc5fd74dac8c65169557eb72f20585d80120490050ae39824",
+    "previously_registered": false
+  },
+  {
+    "member": "translated357",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual357_finalpin.json",
+    "sha256": "60e3ac107f533824b34c42d26da070e8dd69d02c187e297dc459f08f9d8526bf",
+    "previously_registered": true
+  },
+  {
+    "member": "row358",
+    "path": "reconstruction357/staging358_comparative/row_candidate358.json",
+    "sha256": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+    "previously_registered": true
+  },
+  {
+    "member": "row358",
+    "path": "reconstruction357/review358_source_validation/result.json",
+    "sha256": "e3646ca62bc89e6cac932204c1ce6608a1156c4edef19b02972a049e815238c8",
+    "previously_registered": true
+  },
+  {
+    "member": "row358",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual358.json",
+    "sha256": "744a3a8b0606d99522a95117ca0c81ee9458a634c087e7bd327d878ced71308e",
+    "previously_registered": true
+  },
+  {
+    "member": "clamped359",
+    "path": "reconstruction357/staging359_hall_clamp/actual359.json",
+    "sha256": "13aa33694b45bdc5dc04fe50251b2b867efa521da970fc639690d3975bb04d03",
+    "previously_registered": true
+  },
+  {
+    "member": "clamped359",
+    "path": "reconstruction357/review359_source_validation/result.json",
+    "sha256": "18aae94aca5d25b31d3a630bee12dfce7efe50ac79b32fd1409c517e011538ec",
+    "previously_registered": true
+  },
+  {
+    "member": "clamped359",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual359.json",
+    "sha256": "a9c813088c23a9e75ee25161b96b252837aad08b9bc4cecc451a2d5cc3952cb2",
+    "previously_registered": true
+  },
+  {
+    "member": "notched362",
+    "path": "reconstruction357/staging362_core_notch/actual362.json",
+    "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+    "previously_registered": true
+  },
+  {
+    "member": "notched362",
+    "path": "reconstruction357/review362_source_validation/result.json",
+    "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181",
+    "previously_registered": true
+  },
+  {
+    "member": "notched362",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual362.json",
+    "sha256": "bcc5c4fa5cee8cd090b470d376491e01fb93601a29bc68c417b03d56f99c269b",
+    "previously_registered": true
+  },
+  {
+    "member": "service_anchor365",
+    "path": "reconstruction357/staging365_service_grammar/candidate365.json",
+    "sha256": "8807b7f2e8ba841d8e1a38ba6787f72161c9d04f64d69e71112859be92976ad9",
+    "previously_registered": true
+  },
+  {
+    "member": "service_anchor365",
+    "path": "reconstruction357/review365_service_source_validation/result.json",
+    "sha256": "0182ab1fd9ddd50e6908ffd0a33f272722c88ecf1934be1eaa6b3c07ae9bb282",
+    "previously_registered": true
+  },
+  {
+    "member": "service_anchor365",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_service_actual365.json",
+    "sha256": "7bb938684f3d784c257f5e9db4877b56f71a5ddc687f0dfd8d10f198b8a23f8d",
+    "previously_registered": true
+  },
+  {
+    "member": "balanced365",
+    "path": "reconstruction357/staging365_balanced_portals/actual365.json",
+    "sha256": "2e1c567ab8b6771d6b4f3f907ba464eb48fa49b1a0f3ccd31537a41b9cc1b108",
+    "previously_registered": true
+  },
+  {
+    "member": "balanced365",
+    "path": "reconstruction357/review365_balanced_source_validation/result.json",
+    "sha256": "48b212c9ae234bbb8eb54be8ca5f8697f86cea0eba1276c8afb011472752e690",
+    "previously_registered": true
+  },
+  {
+    "member": "balanced365",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual365.json",
+    "sha256": "a5d7172247b9cff6f54e87c5add211e54966d05aee083a45d39a429f4bebf464",
+    "previously_registered": true
+  },
+  {
+    "member": "joint367",
+    "path": "reconstruction357/review367_joint_attempt2/actual367.json",
+    "sha256": "a1cd7a8399d224d447d6c7fab939f1afe977e96c9205d6d048673b3fd069242e",
+    "previously_registered": true
+  },
+  {
+    "member": "joint367",
+    "path": "reconstruction357/review367_joint_source_validation_attempt2/result.json",
+    "sha256": "406e1f1466b728afb2a36b5361078d82dd6b77eb11e26ab47256523354482dfd",
+    "previously_registered": true
+  },
+  {
+    "member": "joint367",
+    "path": "reconstruction357/semantic_rules357/eligibility_intrinsic_actual367.json",
+    "sha256": "81bb5fa60dc85ee6828cf97a85a3d1ba66a3a13386d5f612bf97511f3933d75b",
+    "previously_registered": true
+  }
+]

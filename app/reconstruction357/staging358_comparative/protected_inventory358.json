@@ -1,0 +1,21 @@
+{
+  "raw_inputs_equal": true,
+  "core_equal": true,
+  "program_equal": true,
+  "profile_equal": true,
+  "units": {
+    "A": {
+      "fixture_ids_equal": true,
+      "fixture_dimension_mismatches": [],
+      "ownership_equal": true,
+      "target_ids_equal": true
+    },
+    "B": {
+      "fixture_ids_equal": true,
+      "fixture_dimension_mismatches": [],
+      "ownership_equal": true,
+      "target_ids_equal": true
+    }
+  },
+  "functional_eligibility_proven": false
+}

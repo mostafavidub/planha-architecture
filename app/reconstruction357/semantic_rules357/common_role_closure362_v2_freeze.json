@@ -1,0 +1,16 @@
+{
+  "schema": "COMMON362_V2_CLEAR_INTERIOR_PREAUDIT",
+  "tests": 11,
+  "files": {
+    "common_role_closure362_v2.py": "d5342cf9d9a2892a3974d6b242534d791584dcbe119bfee3b7825aed8d123d60",
+    "common_role_closure_actual362_v2.json": "a85b73bcc12c7f4b3fbbee44a018921c92d4a08dc4af37585b53d6dfaa8c54ce",
+    "test_common_role_closure362_v2.py": "c8b215fd48c6b80d1caa7c5a515ce078251ac885229fc3c22127cc13c9c025bc",
+    "common_role_closure_tests362_v2.log": "db17733d9cbb81db256d56209fdc1a581939af271bb58bdd0f6d844f07eee8b8",
+    "lobby_junction_bound362.py": "6b24bfd6eaf013837fad6c865dbdf699a006e6113e295242eb414cf5a0ba3798",
+    "group_readsets362.py": "a3f4a840e82821728d438caaa4e8c123eabc9fe4d3f3af07edc3e7b9558b5d40",
+    "group_readsets362_pins.json": "8c25081ccbcb510b6195508c946e5004834fa1b4aa68de41d8fd470fae66bbeb",
+    "method_registry_source362.json": "acf0dd7e4719ded87da87bb5ae35e97f533b6900dae32389ed53952ffa56128d",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6"
+  }
+}

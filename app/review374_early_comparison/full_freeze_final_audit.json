@@ -1,0 +1,18 @@
+{
+  "scope": "BEFORE_AND_AFTER_FINAL_PACKAGING_EDITS_NOT_DIAGNOSTIC_RERUN",
+  "freeze_sha256": "df1c187835ed74bb9d9f604acdbf3c528e7cf3327bfebac118bb044729099b7e",
+  "before": {
+    "file_count": 10326,
+    "changed": [],
+    "all_unchanged": true
+  },
+  "after": {
+    "file_count": 10326,
+    "changed": [],
+    "all_unchanged": true
+  },
+  "diagnostic_source_sha256_before": "0132cb27ec2cd13d1ac0255b76a8dcb7b44fa64e89f6f768588691e18cd548b2",
+  "diagnostic_source_sha256_after": "0132cb27ec2cd13d1ac0255b76a8dcb7b44fa64e89f6f768588691e18cd548b2",
+  "rejected369_371_included": true,
+  "candidate_or_diagnostic_rerun": false
+}

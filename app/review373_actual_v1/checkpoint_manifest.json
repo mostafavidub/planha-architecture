@@ -1,0 +1,25 @@
+{
+  "files": {
+    "review373_actual_v1/source_evidence_unchanged.json": "98a2981818c2be8b5e5e5fbb529b3c36432f5a354bca4b172b3227b0534809d9",
+    "review373_actual_v1/REPORT.md": "18acf0c4da80de44bea194151bddaa1d2d93af23b185d5bc1acba1917ad66360",
+    "review373_actual_v1/preregistration.json": "00440f7992999d5d36d53bfec2f996f668bfe9a306d24c7abccd7851f25ee365",
+    "review373_actual_v1/input_payload.json": "5e2befd8584cc5170915693224aef640c19c1ce693e759f9ee9d3037a8858110",
+    "review373_actual_v1/preregistered_source_freeze.json": "df1c187835ed74bb9d9f604acdbf3c528e7cf3327bfebac118bb044729099b7e",
+    "review373_actual_v1/audited_subset.json": "c30b47a56e6ea3f424c66610b0d74b8ecb01904733ff0d540c46740d0f17160a",
+    "review373_actual_v1/supervision.json": "714920d3fada76e90c14feebbe9913bb951ae1f6cb6b45facf3f09b243a03eb3",
+    "review373_actual_v1/result.json": "173656d593416108bf26ddac6775f25c0619ef78104dcb399ce34aec1108b8d8",
+    "review373_actual_v1/independent_audit.json": "52a8aee784a036a063d2ec36015aaf57f83b5d24a12e94689cb92b77b40ec804",
+    "review373_actual_v1/audit373.py": "de320e74492dab4274afb633fbff388640383bb8e8e91dce9d65045e571e5506",
+    "reconstruction357/staging373_current_semantics/launch373.py": "f59ddb0261b63b1145a7df9e24fda57a6e3d79b8094e86ccc7a7939b1ce97a6e",
+    "reconstruction357/staging373_current_semantics/kitchen_closure373.py": "cb5f76ba88ee66159278e847f6d7664e05bc7a52dd1d742bbdcc2eec46020c17",
+    "reconstruction357/staging373_current_semantics/test373.py": "a8ca3854b007b850d7cbb711aa403ccf649a6c571b46e4d463ed397d35f45517",
+    "reconstruction357/staging373_current_semantics/worker373.py": "bb577b22e5846dd093b59b4f08d950830b6c59b23b2192d99d2821ebf8e57f80",
+    "reconstruction357/staging373_current_semantics/semantic373.py": "e817b47e0751813959cbfdd37e85cefadaea29e0fee2ad366ddde0a4f46d33f6",
+    "reconstruction357/staging373_current_semantics/network373.py": "8f5d3065e2f1da4649f04121a032167263f8bb62b716085e5a847e89c074f86d",
+    "reconstruction357/staging373_current_semantics/living_closure373.py": "6cf6befbf954f774b682df081a9a3ef6e017d96e66e55d1dca7fc5347b41e1b9",
+    "reconstruction357/staging373_current_semantics/transformations.json": "59088e6c8bab83176c2263298c0353de5eed462544b0af0caaca0657e0be1bed",
+    "reconstruction357/staging373_current_semantics/guest_closure373.py": "df4e7df6dd602787f7411a894346b6fe6b2e471fc617dfa01efcd552812d6fa6",
+    "reconstruction357/staging373_current_semantics/gate373.py": "b466a510a2035338d61950d7def9efc24b8731d1f1f1675ce5c07ba44813e903",
+    "reconstruction357/staging373_current_semantics/inputs.json": "56995bea400fe7d3b601816de527a88017e4b81108ea0d4ab232eeac52936a42"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "tests": "9 passed",
+  "scope": "Model359 artifact reassessment; pinned SERVICE dependency only; no parent acceptance, no fresh run, B18 unchanged",
+  "files": {
+    "role_registry_model359_v2.py": "9a24f0b04c1b32e6a05c86f46bd334b091674de883b783ccd54a9414e7c5a692",
+    "test_role_model359_v2.py": "25689af881914eb4480e3f366034471699a741199ab83bcca02e320fb3e13f97",
+    "role_registry_on359_v2.json": "bd6f4a7eba115a886a395e0baa697ff116b57afcc8fa32becfd7b6b13c035587",
+    "service_runner359.py": "7220ada1e6bb78a6d09ea2cb895fda2dd0a1b77e767ef9e80d6e3dcdcf721432"
+  }
+}

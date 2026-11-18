@@ -1,0 +1,260 @@
+{
+  "schema": "ENGINEERING_OPERATIONALIZATION357_INTRINSIC_ELIGIBILITY",
+  "verdict": "PASS",
+  "eligible": true,
+  "live_authority": false,
+  "repair_authority": false,
+  "delivery_allowed": false,
+  "parent_complete": false,
+  "new_fresh_execution": false,
+  "rows": [
+    {
+      "id": "B01",
+      "source_section": "H01",
+      "source_requirement_ids": [
+        "input_exact_domain"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "input_exact_domain": "880179fc449b2e455f311ba535f7515f7b85dd4a47e8c01ef1a47f81f9aa4330"
+      }
+    },
+    {
+      "id": "B02",
+      "source_section": "H02/H03",
+      "source_requirement_ids": [
+        "containment_all_entities",
+        "valid_exact_regions"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "containment_all_entities": "1c4fe6d734c19f44635d538178bdcb66c10ecd1c43b72335fa535bf60a04bbc0",
+        "valid_exact_regions": "507c8c321fdb2a43ded02c05d77be5ef0fee736f2bce42eaf78651772a35303a"
+      }
+    },
+    {
+      "id": "B03",
+      "source_section": "H04/H06",
+      "source_requirement_ids": [
+        "partition_ledger"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "partition_ledger": "a1bf43bfdeb589edfbff16e57189c628cb3a2d87676a2b81adaad3e817331453"
+      }
+    },
+    {
+      "id": "B04",
+      "source_section": "H05",
+      "source_requirement_ids": [
+        "unit_independence"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "unit_independence": "0de2668d57e3ff2fb6eb76916348413f5b796745281d865a9200e9e6278b16f6"
+      }
+    },
+    {
+      "id": "B05",
+      "source_section": "H07",
+      "source_requirement_ids": [
+        "bath_nonprivate_access"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "bath_nonprivate_access": "e4b6b01787dd3793a0974939eb7baefa98f47a6923779dfc1787750b26629d67"
+      }
+    },
+    {
+      "id": "B06",
+      "source_section": "H08",
+      "source_requirement_ids": [
+        "body_route_sweeps"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "body_route_sweeps": "dbebf6d3416684e134f5aa045467742a09df8892e314b110e5660b4edc3c30af"
+      }
+    },
+    {
+      "id": "B07",
+      "source_section": "H09",
+      "source_requirement_ids": [
+        "wall_network"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "wall_network": "a116cb3bf10abcff45868356e574a06ee423c9d3e01ecd88bee5281b20d98732"
+      }
+    },
+    {
+      "id": "B08",
+      "source_section": "H10",
+      "source_requirement_ids": [
+        "opening_hosts",
+        "actual_opening_geometry"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "opening_hosts": "a2b6fee3d354a1ed8890c4fcdbca0c36038c4bd5f2f795be290c6a67085ae854",
+        "actual_opening_geometry": "7cae0f2b047dde395598e82ac4768ebdb546c5bf665620436f803119a1c72be2"
+      }
+    },
+    {
+      "id": "B09",
+      "source_section": "H11",
+      "source_requirement_ids": [
+        "door_operation",
+        "closet_operation"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "door_operation": "41649dd0c8bf7e66e46396409854b2c9e0a8cc1fa1764700faa3e51c407b0e6b",
+        "closet_operation": "209e66a959948ce3f280d4f7be67eeb998e870e130c96d2482aef89dab6f03eb"
+      }
+    },
+    {
+      "id": "B10",
+      "source_section": "H12",
+      "source_requirement_ids": [
+        "fixture_inventory_use"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "fixture_inventory_use": "4d0338d0443cdba0721943a5771d7416296ea6dbc5aa1894c906ec1730f031b1"
+      }
+    },
+    {
+      "id": "B11",
+      "source_section": "H13/Q01",
+      "source_requirement_ids": [
+        "program_functional_roles",
+        "zero_laundry"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "program_functional_roles": "533ede7e3136a7d87807e4287a98bb1a2ed4f5f2c9bcf7d0cbda49e161cc0bca",
+        "zero_laundry": "6a9844b413eddcf434e976591969eb7a4bd6079884e859d4b4b56255353ebdd5"
+      }
+    },
+    {
+      "id": "B12",
+      "source_section": "H15",
+      "source_requirement_ids": [
+        "core_concept"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "core_concept": "dc759f0a924a7d4c0cebf66d8574d98d53edc88c8e895064d2bae1e0bc5ff9cd"
+      }
+    },
+    {
+      "id": "B13",
+      "source_section": "H17",
+      "source_requirement_ids": [
+        "kitchen_essential_operation",
+        "bath_service_operation"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "kitchen_essential_operation": "8b51a885e46eeb84553d7d65f3de0c3deb587caae70ef3f6c92ee6d49caf7db9",
+        "bath_service_operation": "f59492ec66e885fe89c5ee22d84ab10c326b2f70269a0115bf8769541db434d1"
+      }
+    },
+    {
+      "id": "B14",
+      "source_section": "Q05.VISIBILITY_ONLY",
+      "source_requirement_ids": [
+        "privacy_scenarios"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "privacy_scenarios": "0f58fc627a6e83aad83b4f228c8e536c2983a7b1b7aa73875198314eb5f80fef"
+      }
+    },
+    {
+      "id": "B15",
+      "source_section": "Q06",
+      "source_requirement_ids": [
+        "guest_living_route",
+        "guest_dining_route"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "guest_living_route": "df2302e60b8fae554c5a57994675be61ddfa1be178a0d36f0621e47c9091046d",
+        "guest_dining_route": "e31a8d92388491d77cda5d1a39f2948f795ae8ad7bc470399453bfceb710e7aa"
+      }
+    },
+    {
+      "id": "B16",
+      "source_section": "Q07.ESSENTIAL_USE",
+      "source_requirement_ids": [
+        "serving_route"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "serving_route": "e8e2b18b6e948520dbba0a1e366da0c9bae0b41a45aec30ac1fa0d51e6119f44"
+      }
+    },
+    {
+      "id": "B17",
+      "source_section": "Q10.ARRIVAL_USE",
+      "source_requirement_ids": [
+        "core_concept"
+      ],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {
+        "core_concept": "dc759f0a924a7d4c0cebf66d8574d98d53edc88c8e895064d2bae1e0bc5ff9cd"
+      }
+    },
+    {
+      "id": "B18",
+      "source_section": "H19",
+      "source_requirement_ids": [],
+      "verdict": "PASS",
+      "missing": [],
+      "row_digests": {}
+    }
+  ],
+  "missing": [],
+  "excluded_dependencies": [
+    "Q04",
+    "Q11_FINAL",
+    "Q12",
+    "ALL_12_PARENT_PASS",
+    "long_corridor_necessity"
+  ],
+  "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROFILE; STORED_ARTIFACT; OPEN_TRANSIT_AND_DECLARED_SOURCE_OPERATION_SCENARIOS; NOT_GLOBAL_OPTIMUM_OR_TECHNICAL_CORE",
+  "source_profile": "SOURCE351",
+  "evidence": {
+    "record_digest": "f37db26c3915f4afa69542355555ec0076db53f01754ba3ecb312e9e75edb3b2",
+    "new_result_digest": "11b3d28cac8c7003564f963ce44ab5b318be932ce36b7d7e0bc7ff3c26df4732",
+    "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "group_digest": "cb6a32db270e43c9898569bdaf0db23af9fa80af1a0df57d13c35715ff634c5d",
+    "component_digests": {
+      "access": "8fb09fca574355b6b3aca9d5d8e23d50c89849d9c04a502e4bec2dd9e78283a7",
+      "openings": "99e5f379ea774954b2c6e0d080163ce747fa0547ebcfcea5c9d0a5df30c1518b",
+      "guest": "54f6fdfe07ab7524e66a685ec742ba4ed6d329de0342ffe96e2579b00ddfcf87",
+      "kitchen": "054d9f7232af4e884d8a870d59259d7e06a8afa0a1b5fbd44435237172a8ca0d"
+    },
+    "source_pins_digest": "b0d22d8c25accc3da80151cbaf5c5630fc4e9f5a8f1083654571444da2c9be7c"
+  },
+  "elapsed_seconds": 1.0915815770003974
+}

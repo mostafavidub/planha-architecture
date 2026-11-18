@@ -1,0 +1,534 @@
+{
+  "path_evidence": {
+    "source_primitives": {
+      "actual_body_owner_wall_fixture": {
+        "status": "PASS_LIMITED",
+        "witness": {
+          "routes": [
+            {
+              "unit": "A",
+              "route": "bed1.bed_front",
+              "points": 10,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed1.bed_back",
+              "points": 12,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed1.closet_front",
+              "points": 11,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed1.changing",
+              "points": 11,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.closet_front",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.bedA_front",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.bedA_back",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.bedB_front",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.bedB_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed2.changing",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.closet_front",
+              "points": 6,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.bedA_front",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.bedA_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.bedB_front",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.bedB_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "bed3.changing",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "WC_front",
+              "points": 19,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "WC_use",
+              "points": 24,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "shower_use",
+              "points": 20,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "basin_front",
+              "points": 16,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "kitchen_work",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_front_left",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_front_right",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_back_left",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_back_right",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_left",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "dining_right",
+              "points": 5,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "sofa1_front",
+              "points": 4,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "sofa2_front",
+              "points": 4,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "armchair1_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "armchair2_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "armchair3_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "armchair4_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "A",
+              "route": "kitchen",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed1.bed_front",
+              "points": 10,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed1.bed_back",
+              "points": 12,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed1.closet_front",
+              "points": 11,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed1.changing",
+              "points": 11,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.closet_front",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.bedA_front",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.bedA_back",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.bedB_front",
+              "points": 9,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.bedB_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed2.changing",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.closet_front",
+              "points": 6,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.bedA_front",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.bedA_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.bedB_front",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.bedB_back",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "bed3.changing",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "WC_front",
+              "points": 19,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "WC_use",
+              "points": 24,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "shower_use",
+              "points": 20,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "basin_front",
+              "points": 16,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "kitchen_work",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_front_left",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_front_right",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_back_left",
+              "points": 8,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_back_right",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_left",
+              "points": 7,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "dining_right",
+              "points": 5,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "sofa1_front",
+              "points": 4,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "sofa2_front",
+              "points": 4,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "armchair1_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "armchair2_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "armchair3_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "armchair4_front",
+              "points": 3,
+              "body_m": ".7"
+            },
+            {
+              "unit": "B",
+              "route": "kitchen",
+              "points": 8,
+              "body_m": ".7"
+            }
+          ],
+          "errors": [],
+          "pending": []
+        },
+        "scope": "All declared activity route swept bodies against actual owners/walls/all open panels/fixtures; required named guest/chair/service inventory separately remains mandatory"
+      },
+      "actual_public_required_scenarios": {
+        "status": "PASS_LIMITED",
+        "witness": {
+          "status": "PASS_PUBLIC_SCOPED",
+          "model_hash": "39111c523050ef3fb761195edc74d5a5628459b2e7824f015c00b417ae517fe9",
+          "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+          "routes": [
+            {
+              "unit": "A",
+              "route": "guest_living",
+              "body_width": "7/10",
+              "segments": 5,
+              "all_occupied_chair_motion_included": true
+            },
+            {
+              "unit": "A",
+              "route": "guest_dining",
+              "body_width": "7/10",
+              "segments": 4,
+              "all_occupied_chair_motion_included": true
+            },
+            {
+              "unit": "A",
+              "route": "kitchen_to_dining_floor",
+              "body_width": "7/10",
+              "segments": 15,
+              "all_occupied_chair_motion_included": true
+            },
+            {
+              "unit": "B",
+              "route": "guest_living",
+              "body_width": "7/10",
+              "segments": 5,
+              "all_occupied_chair_motion_included": true
+            },
+            {
+              "unit": "B",
+              "route": "guest_dining",
+              "body_width": "7/10",
+              "segments": 4,
+              "all_occupied_chair_motion_included": true
+            },
+            {
+              "unit": "B",
+              "route": "kitchen_to_dining_floor",
+              "body_width": "7/10",
+              "segments": 15,
+              "all_occupied_chair_motion_included": true
+            }
+          ],
+          "source_lines": {
+            "Blueprint": [
+              286,
+              293,
+              294,
+              295,
+              377,
+              378,
+              382,
+              3988,
+              3989,
+              3990
+            ],
+            "PRD": [
+              161
+            ]
+          },
+          "accepted": false,
+          "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance.",
+          "errors": [],
+          "pending": []
+        },
+        "scope": "Combined named public guest/chair/capacity/service scenario audit. Missing any applicable witness is retained; no blanket capacity PASS or reduction of occupant count."
+      }
+    },
+    "private_domain_paths": [
+      {
+        "target": "A.bed1",
+        "path_digest": "e84630022da2cbfad390a50ef5865e59f119d52628ad4d66c6150c0192e5fbdd"
+      },
+      {
+        "target": "A.bed2",
+        "path_digest": "7ab3e671d5e36a70b67af0b5c95476e17d7cbf2408ff64a905c692b5fc912ffe"
+      },
+      {
+        "target": "A.bed3",
+        "path_digest": "b75758d8a2f1a2f4b4856cd8fc4c7515ee9d1e4c6c046ce7c90a6172a2fda49d"
+      },
+      {
+        "target": "B.bed1",
+        "path_digest": "fc8af0b32fd49953dba7de90d9e5f61817c311acd5e2874a60cef442a1956557"
+      },
+      {
+        "target": "B.bed2",
+        "path_digest": "53e3c42736da2b381cbd7ef98cf1a19739e25056e8f477aa872980c408bea559"
+      },
+      {
+        "target": "B.bed3",
+        "path_digest": "3e161eace67b62151f8be1aa8770f3207630e76507c711d310d3d0a37a95cfd8"
+      }
+    ],
+    "scope": "Stored model static/body and source public-scenario rechecks only; no whole fresh review or all-rule acceptance."
+  },
+  "status": "PASS_EXACT_BRANCH_ONLY_ALLOWED_DELTA_PREFLIGHT",
+  "new_model_digest": "39111c523050ef3fb761195edc74d5a5628459b2e7824f015c00b417ae517fe9",
+  "proposal_digest": "7228e630aaa80334b5e35af27df0aa00ee3c4dcdcff53cd2f9ac913cec4a5d37",
+  "expected_projection_digest": "39111c523050ef3fb761195edc74d5a5628459b2e7824f015c00b417ae517fe9",
+  "fixed_parent_record_file_sha256": "8807b7f2e8ba841d8e1a38ba6787f72161c9d04f64d69e71112859be92976ad9",
+  "scope": "Complete model comparison; only source-derived branch wall/private domain and independently recomputed floor/window/network/threshold/accounting fields may differ. Wrapper must verify fixed parent file SHA before propose. No entry/core changes in this stage.",
+  "fresh_required": true,
+  "all_quality_unknown": true,
+  "admission_allowed": false
+}

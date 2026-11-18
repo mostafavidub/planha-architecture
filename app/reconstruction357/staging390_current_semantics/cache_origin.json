@@ -1,0 +1,16 @@
+[
+  {
+    "source": "reconstruction357/staging388_current_semantics/frozen388.py",
+    "source_sha256": "ff0e7096f18e7f76d42589b741d6b23b261195c1122703c3b6a32f7fcb72d800",
+    "target": "reconstruction357/staging390_current_semantics/frozen390.py",
+    "target_sha256": "5ca4c44a749cbc5d4cedb7be39419b4899bef287cf6291167a6e29d67d03fd90",
+    "exact_version_only_copy": true
+  },
+  {
+    "source": "reconstruction357/staging388_current_semantics/adapters388.py",
+    "source_sha256": "98e84d42d52ba5f87508bc65b6b882536aa819fd395dc8682fd5eb5179baf8dd",
+    "target": "reconstruction357/staging390_current_semantics/adapters390.py",
+    "target_sha256": "832b4263096cbef2e21c8ad119cda711a5eabd40aabab7293572b283fd97402d",
+    "exact_version_only_copy": true
+  }
+]

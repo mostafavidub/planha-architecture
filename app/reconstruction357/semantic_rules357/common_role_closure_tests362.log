@@ -1,0 +1,12 @@
+test_actual_use_not_minrect_only (test_common_role_closure362.CommonRole362.test_actual_use_not_minrect_only) ... ok
+test_bound_alone_no_wholeclaim (test_common_role_closure362.CommonRole362.test_bound_alone_no_wholeclaim) ... ok
+test_extra_lobby_extent_unsupported (test_common_role_closure362.CommonRole362.test_extra_lobby_extent_unsupported) ... ok
+test_missing_actual_continuous_actor (test_common_role_closure362.CommonRole362.test_missing_actual_continuous_actor) ... ok
+test_missing_actual_required_route (test_common_role_closure362.CommonRole362.test_missing_actual_required_route) ... ok
+test_missing_fresh_operation (test_common_role_closure362.CommonRole362.test_missing_fresh_operation) ... ok
+test_stale_review (test_common_role_closure362.CommonRole362.test_stale_review) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.519s
+
+OK

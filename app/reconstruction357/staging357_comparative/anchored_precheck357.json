@@ -1,0 +1,2139 @@
+{
+  "binding": {
+    "status": "PASS_TRANSLATED_SOURCE_SCOPE_ONLY",
+    "errors": [],
+    "accepted": false,
+    "scope": "SOURCE_PRIMITIVE_TRANSLATION_REFLECTION_HALL_ONLY_NOT_NETWORK_OR_FUNCTIONAL_ELIGIBILITY",
+    "reconstruction": "NEW357_NOT_RECOVERED354_BYTES"
+  },
+  "wall_network": {
+    "status": "FAIL",
+    "witness": {
+      "rule": "H09",
+      "source": {
+        "source_line": 572,
+        "source_text": "H09 WALL_NETWORK — شبکه دیوار یکتا، ضخامت‌دار و متصل با faces معلوم باشد. QA: اتصال T معتبر مثبت؛ دیوار با ضخامت صفر، دیوار مشترک دوبله یا شکاف ناخواسته منفی. نازک‌کاری ثبت‌نشده در مدل → INDETERMINATE با علت MISSING_EVIDENCE؛ سامانه/پروفایل لازمِ جداره و نازک‌کاریِ آماده‌نشده → INDETERMINATE با علت PROFILE_NOT_READY. مرجع:B2.",
+        "source_modified": "2026-11-12T19:13:23.746Z"
+      },
+      "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+      "errors": [
+        "DISCONNECTED_PARTITION_HOST_NETWORK"
+      ],
+      "pending": [],
+      "face_layer_profile": {
+        "status": "PASS_CONCEPT_FACE_LAYER_GEOMETRY",
+        "errors": [],
+        "pending": [],
+        "rows": [
+          {
+            "host": "left",
+            "role": "exterior_envelope",
+            "orientation": "vertical",
+            "axis": "1/8",
+            "offsets": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "actual_faces": [
+              "0",
+              "1/4"
+            ],
+            "finished_thickness_m": "1/4",
+            "layer_sums": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "right",
+            "role": "exterior_envelope",
+            "orientation": "vertical",
+            "axis": "207/8",
+            "offsets": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "actual_faces": [
+              "103/4",
+              "26"
+            ],
+            "finished_thickness_m": "1/4",
+            "layer_sums": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "front",
+            "role": "exterior_envelope",
+            "orientation": "horizontal",
+            "axis": "1/8",
+            "offsets": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "actual_faces": [
+              "0",
+              "1/4"
+            ],
+            "finished_thickness_m": "1/4",
+            "layer_sums": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "back",
+            "role": "exterior_envelope",
+            "orientation": "horizontal",
+            "axis": "223/8",
+            "offsets": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "actual_faces": [
+              "111/4",
+              "28"
+            ],
+            "finished_thickness_m": "1/4",
+            "layer_sums": {
+              "minus": "1/8",
+              "plus": "1/8"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.unit_boundary",
+            "role": "unit_to_common_boundary",
+            "orientation": "horizontal",
+            "axis": "251/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "499/40",
+              "101/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.unit_boundary",
+            "role": "unit_to_common_boundary",
+            "orientation": "horizontal",
+            "axis": "309/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "123/8",
+              "621/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "unit_shared_wing_left",
+            "role": "interunit_boundary",
+            "orientation": "horizontal",
+            "axis": "14",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "557/40",
+              "563/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "unit_shared_wing_right",
+            "role": "interunit_boundary",
+            "orientation": "horizontal",
+            "axis": "14",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "557/40",
+              "563/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.lobby.outer_right",
+            "role": "common_core_boundary",
+            "orientation": "vertical",
+            "axis": "353/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "703/40",
+              "709/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.stair.left",
+            "role": "common_core_boundary",
+            "orientation": "vertical",
+            "axis": "167/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "331/40",
+              "337/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.stair.right",
+            "role": "common_core_boundary",
+            "orientation": "vertical",
+            "axis": "261/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "519/40",
+              "105/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.stair.bottom",
+            "role": "common_core_boundary",
+            "orientation": "horizontal",
+            "axis": "127/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "101/8",
+              "511/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.stair.top",
+            "role": "common_core_boundary",
+            "orientation": "horizontal",
+            "axis": "153/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "609/40",
+              "123/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.lift.left",
+            "role": "common_core_boundary",
+            "orientation": "vertical",
+            "axis": "317/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "631/40",
+              "637/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.lift.right",
+            "role": "common_core_boundary",
+            "orientation": "vertical",
+            "axis": "353/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "703/40",
+              "709/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.lift.bottom",
+            "role": "common_core_boundary",
+            "orientation": "horizontal",
+            "axis": "27/2",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "537/40",
+              "543/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "core.lift.top",
+            "role": "common_core_boundary",
+            "orientation": "horizontal",
+            "axis": "153/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "609/40",
+              "123/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed1.left",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "231/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "57/10",
+              "117/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed1.right",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "7/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/10",
+              "1/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed1.front",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "871/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "217/10",
+              "437/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed1.back",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "1021/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "509/20",
+              "128/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed2.left",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "589/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "293/20",
+              "74/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed2.right",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "73/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "181/20",
+              "46/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed2.front",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "7/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/10",
+              "1/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed2.back",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "193/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "19/4",
+              "49/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed3.left",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "127/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "79/5",
+              "319/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed3.right",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "859/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "107/5",
+              "431/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed3.front",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "7/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/10",
+              "1/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bed3.back",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "193/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "19/4",
+              "49/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.bath_bottom",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.bath_right0",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "93/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "369/40",
+              "75/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.bath_right1",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "93/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "369/40",
+              "75/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.WC_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "47/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "91/40",
+              "97/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.WC_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "47/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "91/40",
+              "97/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.shower_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "5/4",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "47/40",
+              "53/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.shower_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "5/4",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "47/40",
+              "53/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.service_back",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "251/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "499/40",
+              "101/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.service_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "93/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "183/40",
+              "189/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.service_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.bath.A.core_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "93/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "183/40",
+              "189/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.kitchen.left",
+            "role": "kitchen_service_partition",
+            "orientation": "vertical",
+            "axis": "361/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "719/40",
+              "145/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.kitchen.right",
+            "role": "kitchen_service_partition",
+            "orientation": "vertical",
+            "axis": "109/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "869/40",
+              "175/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.kitchen.back",
+            "role": "kitchen_service_partition",
+            "orientation": "horizontal",
+            "axis": "251/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "499/40",
+              "101/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.kitchen.front",
+            "role": "kitchen_service_partition",
+            "orientation": "horizontal",
+            "axis": "41/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "65/8",
+              "331/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.bottom",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "7/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/10",
+              "1/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.stem_left",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "589/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "293/20",
+              "74/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.stem_right",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "127/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "79/5",
+              "319/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.cap_lower",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "231/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "57/10",
+              "117/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.cap_upper_left",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "277/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "137/20",
+              "7"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.cap_upper_right",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "277/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "137/20",
+              "7"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "A.private_sidecar.cap_end",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "1027/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "128/5",
+              "103/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed1.left",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "889/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "443/20",
+              "223/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed1.right",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "1113/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "111/4",
+              "279/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed1.front",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "871/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "217/10",
+              "437/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed1.back",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "1021/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "509/20",
+              "128/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed2.left",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "589/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "293/20",
+              "74/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed2.right",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "73/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "181/20",
+              "46/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed2.front",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "1113/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "111/4",
+              "279/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed2.back",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "927/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "231/10",
+              "93/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed3.left",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "127/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "79/5",
+              "319/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed3.right",
+            "role": "private_dry_partition",
+            "orientation": "vertical",
+            "axis": "859/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "107/5",
+              "431/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed3.front",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "1113/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "111/4",
+              "279/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bed3.back",
+            "role": "private_dry_partition",
+            "orientation": "horizontal",
+            "axis": "927/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "231/10",
+              "93/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.bath_bottom",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.bath_right0",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "187/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "149/8",
+              "751/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.bath_right1",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "187/10",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "149/8",
+              "751/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.WC_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "47/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "91/40",
+              "97/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.WC_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "47/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "91/40",
+              "97/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.shower_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "5/4",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "47/40",
+              "53/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.shower_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "5/4",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "47/40",
+              "53/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.service_back",
+            "role": "wet_service_partition",
+            "orientation": "horizontal",
+            "axis": "309/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "123/8",
+              "621/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.service_right",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "93/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "183/40",
+              "189/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.service_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "1/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "1/8",
+              "11/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.bath.A.core_left",
+            "role": "wet_service_partition",
+            "orientation": "vertical",
+            "axis": "93/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "183/40",
+              "189/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.kitchen.left",
+            "role": "kitchen_service_partition",
+            "orientation": "vertical",
+            "axis": "361/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "719/40",
+              "145/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.kitchen.right",
+            "role": "kitchen_service_partition",
+            "orientation": "vertical",
+            "axis": "109/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "869/40",
+              "175/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.kitchen.back",
+            "role": "kitchen_service_partition",
+            "orientation": "horizontal",
+            "axis": "309/20",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "123/8",
+              "621/40"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.kitchen.front",
+            "role": "kitchen_service_partition",
+            "orientation": "horizontal",
+            "axis": "99/5",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "789/40",
+              "159/8"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.bottom",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "1113/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "111/4",
+              "279/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.stem_left",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "589/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "293/20",
+              "74/5"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.stem_right",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "127/8",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "79/5",
+              "319/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.cap_lower",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "889/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "443/20",
+              "223/10"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.cap_upper_left",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "843/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "21",
+              "423/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.cap_upper_right",
+            "role": "explicit_other_source_host",
+            "orientation": "horizontal",
+            "axis": "843/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "21",
+              "423/20"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          },
+          {
+            "host": "B.private_sidecar.cap_end",
+            "role": "explicit_other_source_host",
+            "orientation": "vertical",
+            "axis": "1027/40",
+            "offsets": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "actual_faces": [
+              "128/5",
+              "103/4"
+            ],
+            "finished_thickness_m": "3/20",
+            "layer_sums": {
+              "minus": "3/40",
+              "plus": "3/40"
+            },
+            "nominal_value_status": "DECLARED_CONCEPT_ASSUMPTION_ONLY",
+            "composition_status": "DECLARED_LAYER_HYPOTHESIS_NOT_TECHNICALLY_VERIFIED",
+            "system_materials_installation": "NOT_VERIFIED",
+            "tolerance": "UNKNOWN_NOT_ZERO"
+          }
+        ],
+        "scope": "Axis, asymmetric offsets, ordered-side layer sums and actual modeled clear faces only. Assumed aggregate thickness is not a selected material system or manufacturer/structural/fire/acoustic/moisture/installation approval. Unknown technical layer composition and construction tolerance are not set to zero."
+      },
+      "physical_union_verified": true,
+      "duplicate_source_aliases": [],
+      "solid_count": 115,
+      "host_count": 87,
+      "host_components": [
+        [
+          "A.bath.A.WC_left",
+          "A.bath.A.WC_right",
+          "A.bath.A.bath_bottom",
+          "A.bath.A.bath_right0",
+          "A.bath.A.bath_right1",
+          "A.bath.A.core_left",
+          "A.bath.A.service_back",
+          "A.bath.A.service_left",
+          "A.bath.A.service_right",
+          "A.bath.A.shower_left",
+          "A.bath.A.shower_right",
+          "A.bath.left",
+          "A.bed1.back",
+          "A.bed1.front",
+          "A.bed1.left",
+          "A.bed1.right",
+          "A.bed2.back",
+          "A.bed2.front",
+          "A.bed2.left",
+          "A.bed2.right",
+          "A.bed3.back",
+          "A.bed3.front",
+          "A.bed3.left",
+          "A.bed3.right",
+          "A.private_sidecar.bottom",
+          "A.private_sidecar.cap_end",
+          "A.private_sidecar.cap_lower",
+          "A.private_sidecar.cap_upper_left",
+          "A.private_sidecar.cap_upper_right",
+          "A.private_sidecar.stem_left",
+          "A.private_sidecar.stem_right",
+          "A.unit_boundary",
+          "B.bath.A.WC_left",
+          "B.bath.A.WC_right",
+          "B.bath.A.bath_bottom",
+          "B.bath.A.bath_right0",
+          "B.bath.A.bath_right1",
+          "B.bath.A.core_left",
+          "B.bath.A.service_back",
+          "B.bath.A.service_left",
+          "B.bath.A.service_right",
+          "B.bath.A.shower_left",
+          "B.bath.A.shower_right",
+          "B.bath.left",
+          "B.bed1.back",
+          "B.bed1.front",
+          "B.bed1.left",
+          "B.bed1.right",
+          "B.bed2.back",
+          "B.bed2.front",
+          "B.bed2.left",
+          "B.bed2.right",
+          "B.bed3.back",
+          "B.bed3.front",
+          "B.bed3.left",
+          "B.bed3.right",
+          "B.private_sidecar.bottom",
+          "B.private_sidecar.cap_end",
+          "B.private_sidecar.cap_lower",
+          "B.private_sidecar.cap_upper_left",
+          "B.private_sidecar.cap_upper_right",
+          "B.private_sidecar.stem_left",
+          "B.private_sidecar.stem_right",
+          "B.unit_boundary",
+          "back",
+          "core.lift.bottom",
+          "core.lift.left",
+          "core.lift.right",
+          "core.lift.top",
+          "core.lobby.outer_right",
+          "core.stair.bottom",
+          "core.stair.left",
+          "core.stair.right",
+          "core.stair.top",
+          "front",
+          "left",
+          "right",
+          "unit_shared_wing_left",
+          "unit_shared_wing_right"
+        ],
+        [
+          "B.kitchen.back",
+          "B.kitchen.front",
+          "B.kitchen.left",
+          "B.kitchen.right"
+        ],
+        [
+          "A.kitchen.back",
+          "A.kitchen.front",
+          "A.kitchen.left",
+          "A.kitchen.right"
+        ]
+      ],
+      "thicknesses_m": [
+        "1/4",
+        "3/20"
+      ]
+    },
+    "scope": "Actual same-model exact 2D geometry for H09; no hardware, legal, daylight or architectural-quality approval."
+  },
+  "route_failures": []
+}

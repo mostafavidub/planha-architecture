@@ -1,0 +1,433 @@
+{
+  "schema": "UNSUPPORTED_EXTENT_CAUSES357",
+  "model_hash": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+  "support_digest": "106d53b0de221ffa4d05e9e0c93acf83817b9f802daab55f95f3be5f08e36bee",
+  "units": [
+    {
+      "unit": "A",
+      "fragment_count": 7,
+      "unsupported_area_m2": "1319/200",
+      "components": [
+        {
+          "fragment_indices": [
+            0,
+            2
+          ],
+          "regions": [
+            [
+              "431/20",
+              "1/4",
+              "217/10",
+              "49/10"
+            ],
+            [
+              "319/20",
+              "49/10",
+              "217/10",
+              "57/10"
+            ]
+          ],
+          "area_m2": "2119/400",
+          "classification": "SOLID_ENCLOSED_FLOOR_ISLAND",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "23/4",
+            "109/20"
+          ],
+          "wall_boundary_openings": [],
+          "actual_adjacent_wall_ids": [
+            "front",
+            "A.bed1.front",
+            "A.bed3.right",
+            "A.bed3.back",
+            "A.private_sidecar.stem_right",
+            "A.private_sidecar.cap_lower"
+          ],
+          "actual_adjacent_fixture_ids": [],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        },
+        {
+          "fragment_indices": [
+            1
+          ],
+          "regions": [
+            [
+              "128/5",
+              "1/4",
+              "103/4",
+              "57/10"
+            ]
+          ],
+          "area_m2": "327/400",
+          "classification": "SOLID_ENCLOSED_FLOOR_ISLAND",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "3/20",
+            "109/20"
+          ],
+          "wall_boundary_openings": [],
+          "actual_adjacent_wall_ids": [
+            "right",
+            "front",
+            "A.bed1.back",
+            "A.private_sidecar.cap_end"
+          ],
+          "actual_adjacent_fixture_ids": [],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        },
+        {
+          "fragment_indices": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "regions": [
+            [
+              "663/40",
+              "467/40",
+              "687/40",
+              "471/40"
+            ],
+            [
+              "663/40",
+              "471/40",
+              "687/40",
+              "2471/200"
+            ],
+            [
+              "663/40",
+              "2471/200",
+              "687/40",
+              "497/40"
+            ],
+            [
+              "663/40",
+              "497/40",
+              "687/40",
+              "499/40"
+            ]
+          ],
+          "area_m2": "12/25",
+          "classification": "BLIND_STRIP_BELOW_SOURCE_BODY",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "3/5",
+            "4/5"
+          ],
+          "wall_boundary_openings": [
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "467/40",
+                "471/40"
+              ],
+              "width_m": "1/10"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "467/40",
+                "471/40"
+              ],
+              "width_m": "1/10"
+            },
+            {
+              "axis": 1,
+              "coordinate": "467/40",
+              "span": [
+                "663/40",
+                "687/40"
+              ],
+              "width_m": "3/5"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "471/40",
+                "2471/200"
+              ],
+              "width_m": "29/50"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "471/40",
+                "2471/200"
+              ],
+              "width_m": "29/50"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "2471/200",
+                "497/40"
+              ],
+              "width_m": "7/100"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "2471/200",
+                "497/40"
+              ],
+              "width_m": "7/100"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "497/40",
+                "499/40"
+              ],
+              "width_m": "1/20"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "497/40",
+                "499/40"
+              ],
+              "width_m": "1/20"
+            }
+          ],
+          "actual_adjacent_wall_ids": [
+            "A.unit_boundary.solid1"
+          ],
+          "actual_adjacent_fixture_ids": [
+            "armchair3",
+            "armchair4"
+          ],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        }
+      ]
+    },
+    {
+      "unit": "B",
+      "fragment_count": 7,
+      "unsupported_area_m2": "1319/200",
+      "components": [
+        {
+          "fragment_indices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "regions": [
+            [
+              "663/40",
+              "621/40",
+              "687/40",
+              "623/40"
+            ],
+            [
+              "663/40",
+              "623/40",
+              "687/40",
+              "3129/200"
+            ],
+            [
+              "663/40",
+              "3129/200",
+              "687/40",
+              "649/40"
+            ],
+            [
+              "663/40",
+              "649/40",
+              "687/40",
+              "653/40"
+            ]
+          ],
+          "area_m2": "12/25",
+          "classification": "BLIND_STRIP_BELOW_SOURCE_BODY",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "3/5",
+            "4/5"
+          ],
+          "wall_boundary_openings": [
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "621/40",
+                "623/40"
+              ],
+              "width_m": "1/20"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "621/40",
+                "623/40"
+              ],
+              "width_m": "1/20"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "623/40",
+                "3129/200"
+              ],
+              "width_m": "7/100"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "623/40",
+                "3129/200"
+              ],
+              "width_m": "7/100"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "3129/200",
+                "649/40"
+              ],
+              "width_m": "29/50"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "3129/200",
+                "649/40"
+              ],
+              "width_m": "29/50"
+            },
+            {
+              "axis": 0,
+              "coordinate": "663/40",
+              "span": [
+                "649/40",
+                "653/40"
+              ],
+              "width_m": "1/10"
+            },
+            {
+              "axis": 0,
+              "coordinate": "687/40",
+              "span": [
+                "649/40",
+                "653/40"
+              ],
+              "width_m": "1/10"
+            },
+            {
+              "axis": 1,
+              "coordinate": "653/40",
+              "span": [
+                "663/40",
+                "687/40"
+              ],
+              "width_m": "3/5"
+            }
+          ],
+          "actual_adjacent_wall_ids": [
+            "B.unit_boundary.solid1"
+          ],
+          "actual_adjacent_fixture_ids": [
+            "armchair3",
+            "armchair4"
+          ],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        },
+        {
+          "fragment_indices": [
+            4,
+            6
+          ],
+          "regions": [
+            [
+              "319/20",
+              "223/10",
+              "217/10",
+              "231/10"
+            ],
+            [
+              "431/20",
+              "231/10",
+              "217/10",
+              "111/4"
+            ]
+          ],
+          "area_m2": "2119/400",
+          "classification": "SOLID_ENCLOSED_FLOOR_ISLAND",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "23/4",
+            "109/20"
+          ],
+          "wall_boundary_openings": [],
+          "actual_adjacent_wall_ids": [
+            "back",
+            "B.bed1.front",
+            "B.bed3.right",
+            "B.bed3.back",
+            "B.private_sidecar.stem_right",
+            "B.private_sidecar.cap_lower"
+          ],
+          "actual_adjacent_fixture_ids": [],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        },
+        {
+          "fragment_indices": [
+            5
+          ],
+          "regions": [
+            [
+              "128/5",
+              "223/10",
+              "103/4",
+              "111/4"
+            ]
+          ],
+          "area_m2": "327/400",
+          "classification": "SOLID_ENCLOSED_FLOOR_ISLAND",
+          "source_body_m": "7/10",
+          "bounding_width_depth_m": [
+            "3/20",
+            "109/20"
+          ],
+          "wall_boundary_openings": [],
+          "actual_adjacent_wall_ids": [
+            "right",
+            "back",
+            "B.bed1.back",
+            "B.private_sidecar.cap_end"
+          ],
+          "actual_adjacent_fixture_ids": [],
+          "evidence_scope": "Exact unsupported component geometry and actual solid enclosure/width. Does not prove absence of every conceivable other activity."
+        }
+      ]
+    }
+  ],
+  "parent_complete": false,
+  "geometry_mutated": false,
+  "producer_constraints": [
+    {
+      "id": "SOURCE_BUNDLE_NO_SEALED_PUBLIC_RESIDUAL",
+      "constraint": "After constructing immutable private modules and hallway, compute owned residual floor components with actual walls; reject proposals containing solid-enclosed residual counted as public useful floor unless an independently verified source function serves it.",
+      "scope": "No re-labeling or arbitrary wall removal; change eligible source topology/placement then full functional recheck."
+    },
+    {
+      "id": "SOURCE_SEATING_REACHABLE_GAP_OR_FLUSH",
+      "constraint": "Between actual source seating compounds and enclosing walls/fixtures, require a source-function witness, or a full source-body configuration-space connection; otherwise revise compound placement with its activity intact. Flush only when permitted by source operation profile.",
+      "scope": "0.7m applies only to current pinned body profile; no new universal rule, fixture shrinking or deleted activity."
+    }
+  ]
+}

@@ -1,0 +1,549 @@
+{
+  "schema": "ACTUAL_SOURCE_FULL_BAND_BRANCH358",
+  "raw": {
+    "W": "26",
+    "L": "28",
+    "n": 2,
+    "requested_count": 2
+  },
+  "raw_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+  "current_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+  "current_core_digest": "2391c6cd08acbd32ad0226d7f0e99a651771640deb0245d924fdf1c1c277f268",
+  "full_band_core_digest": "10f53bf8db1aede07212551bab4a873c11bcf797a9d5129a79288d49fc0c5736",
+  "compact_core": {
+    "kind": "COMPACT_CONNECTED_CENTRAL_CORE118",
+    "band": [
+      ".25",
+      "12.625",
+      "25.75",
+      "15.375"
+    ],
+    "stair": [
+      "8.425",
+      "12.775",
+      "12.975",
+      "15.225"
+    ],
+    "lift": [
+      "15.925",
+      "13.575",
+      "17.575",
+      "15.225"
+    ],
+    "lobby": [
+      [
+        "13.125",
+        "12.625",
+        "15.775",
+        "15.375"
+      ],
+      [
+        "15.775",
+        "12.625",
+        "17.575",
+        "13.425"
+      ]
+    ],
+    "entry_centers": {
+      "A": [
+        "13.825",
+        "12.55"
+      ],
+      "B": [
+        "13.825",
+        "15.45"
+      ]
+    },
+    "units": {
+      "A": [
+        ".25",
+        ".25",
+        "25.75",
+        "12.475"
+      ],
+      "B": [
+        ".25",
+        "15.525",
+        "25.75",
+        "27.75"
+      ]
+    },
+    "assumptions": [
+      "Stair/lift clear rectangles preserve source dimensions; structural/vertical circulation certification is not established.",
+      "Only one central-band topology is currently implemented. Failure is not global infeasibility.",
+      "Common graph begins at modeled stair/lift doors on this storey, not a proven street entrance.",
+      "Compact 9.45m central core alternative preserves clear stair4.55x2.45 and lift1.65x1.65; outside-band wings are exact unit-owned floor, not promised useful rooms.",
+      "Old full-band topology preserved for comparison; centered entry shift can require different functional placement."
+    ],
+    "unit_ownership": {
+      "A": [
+        [
+          ".25",
+          ".25",
+          "25.75",
+          "12.475"
+        ],
+        [
+          "0.25",
+          "12.475",
+          "8.275",
+          "13.925"
+        ],
+        [
+          "17.725",
+          "12.475",
+          "25.75",
+          "13.925"
+        ]
+      ],
+      "B": [
+        [
+          ".25",
+          "15.525",
+          "25.75",
+          "27.75"
+        ],
+        [
+          "0.25",
+          "14.075",
+          "8.275",
+          "15.525"
+        ],
+        [
+          "17.725",
+          "14.075",
+          "25.75",
+          "15.525"
+        ]
+      ]
+    },
+    "core_extent_x": [
+      "8.275",
+      "17.725"
+    ],
+    "outside_band_unit_separator_y": [
+      "13.925",
+      "14.075"
+    ]
+  },
+  "full_band_core": {
+    "kind": "CONNECTED_CENTRAL_BAND_SEED",
+    "band": [
+      ".25",
+      "12.625",
+      "25.75",
+      "15.375"
+    ],
+    "stair": [
+      "0.4",
+      "12.775",
+      "4.95",
+      "15.225"
+    ],
+    "lift": [
+      "23.95",
+      "13.575",
+      "25.6",
+      "15.225"
+    ],
+    "lobby": [
+      [
+        "5.1",
+        "12.625",
+        "23.8",
+        "15.375"
+      ],
+      [
+        "23.8",
+        "12.625",
+        "25.75",
+        "13.425"
+      ]
+    ],
+    "entry_centers": {
+      "A": [
+        "5.8",
+        "12.55"
+      ],
+      "B": [
+        "5.8",
+        "15.45"
+      ]
+    },
+    "units": {
+      "A": [
+        ".25",
+        ".25",
+        "25.75",
+        "12.475"
+      ],
+      "B": [
+        ".25",
+        "15.525",
+        "25.75",
+        "27.75"
+      ]
+    },
+    "assumptions": [
+      "Stair/lift clear rectangles preserve source dimensions; structural/vertical circulation certification is not established.",
+      "Only one central-band topology is currently implemented. Failure is not global infeasibility.",
+      "Common graph begins at modeled stair/lift doors on this storey, not a proven street entrance."
+    ]
+  },
+  "ownership_rows": [
+    {
+      "unit": "A",
+      "before_regions": [
+        [
+          ".25",
+          ".25",
+          "25.75",
+          "12.475"
+        ],
+        [
+          "0.25",
+          "12.475",
+          "8.275",
+          "13.925"
+        ],
+        [
+          "17.725",
+          "12.475",
+          "25.75",
+          "13.925"
+        ]
+      ],
+      "after_regions": [
+        [
+          "1/4",
+          "1/4",
+          "103/4",
+          "499/40"
+        ]
+      ],
+      "before_exact_m2": "33501/100",
+      "after_exact_m2": "24939/80",
+      "delta_exact_m2": "-9309/400",
+      "nondeterioration": false
+    },
+    {
+      "unit": "B",
+      "before_regions": [
+        [
+          ".25",
+          "15.525",
+          "25.75",
+          "27.75"
+        ],
+        [
+          "0.25",
+          "14.075",
+          "8.275",
+          "15.525"
+        ],
+        [
+          "17.725",
+          "14.075",
+          "25.75",
+          "15.525"
+        ]
+      ],
+      "after_regions": [
+        [
+          "1/4",
+          "621/40",
+          "103/4",
+          "111/4"
+        ]
+      ],
+      "before_exact_m2": "33501/100",
+      "after_exact_m2": "24939/80",
+      "delta_exact_m2": "-9309/400",
+      "nondeterioration": false
+    }
+  ],
+  "branch_disposition": "PROTECTED_AREA_NONDETERIORATION_COUNTEREXAMPLE",
+  "restriction_authority": "EXPLICIT_SAME_PROGRAM_PROTECTED_AREA_COMPARATIVE_BRANCH_NOT_GENERAL_ARCHITECTURAL_INVALIDITY",
+  "solver_executed": false,
+  "fresh_executed": false,
+  "full_plan_constructed": false,
+  "not_global_infeasibility": true,
+  "adapter_status": {
+    "full_band_has_core_extent_x": false,
+    "coarse129_requires_core_extent_x": true,
+    "constructor129_FRONT_REAR_uses_compact": true,
+    "full_band_solver_supported_without_new_adapter": false
+  },
+  "current_lobby_role": {
+    "arrival_intrinsic": {
+      "schema": "INTRINSIC_ACCESS358",
+      "verdict": "PASS_SCOPED_INTRINSIC_ACCESS",
+      "minima": {
+        "A": {
+          "H07": {
+            "verdict": "PASS_SCOPED_INTRINSIC",
+            "routes": [
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "A",
+                "target": "WC_front",
+                "private_union_area": "22717/200"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "A",
+                "target": "shower_use",
+                "private_union_area": "22717/200"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "A",
+                "target": "basin_front",
+                "private_union_area": "22717/200"
+              }
+            ]
+          },
+          "H05_H15_Q10_ARRIVAL": {
+            "verdict": "PASS_SCOPED_INTRINSIC",
+            "routes": [
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "A",
+                "source": "stair",
+                "entry_opening": "A.entry",
+                "operation_digest": "a015db9dbce55e06a5c008d66ef8a5b9edd44138c23c8e9ceaca5230a85319a6",
+                "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "A",
+                "source": "lift",
+                "entry_opening": "A.entry",
+                "operation_digest": "a015db9dbce55e06a5c008d66ef8a5b9edd44138c23c8e9ceaca5230a85319a6",
+                "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+              }
+            ]
+          }
+        },
+        "B": {
+          "H07": {
+            "verdict": "PASS_SCOPED_INTRINSIC",
+            "routes": [
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "B",
+                "target": "WC_front",
+                "private_union_area": "22717/200"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "B",
+                "target": "shower_use",
+                "private_union_area": "22717/200"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "B",
+                "target": "basin_front",
+                "private_union_area": "22717/200"
+              }
+            ]
+          },
+          "H05_H15_Q10_ARRIVAL": {
+            "verdict": "PASS_SCOPED_INTRINSIC",
+            "routes": [
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "B",
+                "source": "stair",
+                "entry_opening": "B.entry",
+                "operation_digest": "7dc3aa71f16ffd5cefc95dff66d3d44e83012a98d5e5cca474514af0b8a33ce4",
+                "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+              },
+              {
+                "verdict": "PASS_SCOPED_PATH",
+                "collisions": [],
+                "uncovered_segments": [],
+                "sweep_profile_m": "7/10",
+                "unit": "B",
+                "source": "lift",
+                "entry_opening": "B.entry",
+                "operation_digest": "7dc3aa71f16ffd5cefc95dff66d3d44e83012a98d5e5cca474514af0b8a33ce4",
+                "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+              }
+            ]
+          }
+        }
+      },
+      "parent_complete": false,
+      "fresh_executed": false,
+      "missing": [],
+      "evidence": {
+        "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+        "raw_digest": "cd18f1da649c7352475afba09e7201b4398256966fae21581db845d9eb9bdb85",
+        "profile": "SOURCE358",
+        "bound_requirement_ids": [
+          "actual_opening_geometry",
+          "bath_nonprivate_access",
+          "bath_service_operation",
+          "body_route_sweeps",
+          "chair_capacity_movement",
+          "circulation_functional_integrity",
+          "claim_boundary",
+          "claim_boundary_display",
+          "closet_operation",
+          "containment_all_entities",
+          "core_concept",
+          "door_operation",
+          "export_parity",
+          "fixture_inventory_use",
+          "geometric_diversity",
+          "guest_dining_route",
+          "guest_living_route",
+          "immutable_history",
+          "input_exact_domain",
+          "kitchen_essential_operation",
+          "llm_budget",
+          "long_corridor_necessity",
+          "no_hidden_project_inputs",
+          "opening_hosts",
+          "owner_access",
+          "partition_ledger",
+          "per_option_rule_report",
+          "privacy_scenarios",
+          "private_grouping",
+          "program_functional_roles",
+          "q11_functional_boundary",
+          "serving_route",
+          "unit_independence",
+          "valid_exact_regions",
+          "wall_network",
+          "window_opportunities",
+          "worst_unit_function",
+          "zero_laundry"
+        ]
+      },
+      "scope": "SOURCE_0.7M_OPEN_TRANSIT_STORED_PATHS; NO_TECHNICAL_CORE_CERTIFICATION_OR_FULL_12_RULE_PASS",
+      "seconds": 0.14179228200009675
+    },
+    "lobby_area_m2": "3491/400",
+    "actual_arrival_swept_union_m2": "329/100",
+    "entry_actor_staging_overlap_m2": "49/25",
+    "union_arrival_and_bound_entry_actor_m2": "3381/800",
+    "unassigned_by_these_witnesses_m2": "3601/800",
+    "residual_regions": [
+      [
+        "581/40",
+        "101/8",
+        "631/40",
+        "281/20"
+      ],
+      [
+        "567/40",
+        "101/8",
+        "581/40",
+        "507/40"
+      ],
+      [
+        "567/40",
+        "107/8",
+        "581/40",
+        "281/20"
+      ],
+      [
+        "581/40",
+        "59/4",
+        "631/40",
+        "123/8"
+      ],
+      [
+        "567/40",
+        "613/40",
+        "581/40",
+        "123/8"
+      ],
+      [
+        "105/8",
+        "101/8",
+        "539/40",
+        "507/40"
+      ],
+      [
+        "105/8",
+        "107/8",
+        "539/40",
+        "273/20"
+      ],
+      [
+        "105/8",
+        "287/20",
+        "539/40",
+        "117/8"
+      ],
+      [
+        "105/8",
+        "613/40",
+        "539/40",
+        "123/8"
+      ],
+      [
+        "631/40",
+        "101/8",
+        "703/40",
+        "537/40"
+      ]
+    ],
+    "whole_lobby_minimality_proven": false,
+    "scope": "ACTUAL_SOURCE_ARRIVAL_AND_DECLARED_ENTRY_ACTOR_POSES_ONLY; NO_INVENTED_STAGING_OR_TECHNICAL_CORE_CERTIFICATION"
+  },
+  "readset": {
+    "staging358_core_branch/prove.py": "f32d6657d9c6737e3258189c84b33874cf57131d3aba4e30e369fd970f719474",
+    "semantic_rules357/modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "semantic_rules357/intrinsic_access358.py": "c5d87ff97289893f8113479f57ca5a6790570b3ca8e36c0bd0c506623ec85669",
+    "semantic_rules357/method_registry_source358.json": "f47ab1a49439b01d079df3341ba8eb1c73083c30aacac4a2823767deb02cd224",
+    "staging358_comparative/row_candidate358.json": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+    "review358_source_validation/result.json": "e3646ca62bc89e6cac932204c1ce6608a1156c4edef19b02972a049e815238c8"
+  },
+  "source_before": {
+    "contract114.py": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+    "constructor129.py": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+    "coarse_master129.py": "a9e59d7cc0fd95ddff0f0abe6ca66d9babcfbfccebc73d2961a6f283e380f164",
+    "core_wall_audit118.py": "4ec7e3fccced8c21cf89884ddef2099bb252620921fc94230f5cac639ab0e8c4"
+  },
+  "source_after": {
+    "contract114.py": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+    "constructor129.py": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+    "coarse_master129.py": "a9e59d7cc0fd95ddff0f0abe6ca66d9babcfbfccebc73d2961a6f283e380f164",
+    "core_wall_audit118.py": "4ec7e3fccced8c21cf89884ddef2099bb252620921fc94230f5cac639ab0e8c4"
+  },
+  "source_unchanged": true,
+  "accepted": false,
+  "delivery_allowed": false
+}

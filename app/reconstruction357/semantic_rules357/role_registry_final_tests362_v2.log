@@ -1,0 +1,15 @@
+test_balance_gap_not_waived_by_functional_role (test_role_registry_final362_v2.FinalRole362.test_balance_gap_not_waived_by_functional_role) ... ok
+test_changed_model_rejected (test_role_registry_final362_v2.FinalRole362.test_changed_model_rejected) ... ok
+test_current_binding (test_role_registry_final362_v2.FinalRole362.test_current_binding) ... ok
+test_explicit_parent_bindings (test_role_registry_final362_v2.FinalRole362.test_explicit_parent_bindings) ... ok
+test_hall_exact_eight_closed (test_role_registry_final362_v2.FinalRole362.test_hall_exact_eight_closed) ... ok
+test_no_pending_role_parents (test_role_registry_final362_v2.FinalRole362.test_no_pending_role_parents) ... ok
+test_outputset_not_waived (test_role_registry_final362_v2.FinalRole362.test_outputset_not_waived) ... ok
+test_q10_not_inferred (test_role_registry_final362_v2.FinalRole362.test_q10_not_inferred) ... ok
+test_q12_internal_only (test_role_registry_final362_v2.FinalRole362.test_q12_internal_only) ... ok
+test_stale_review_rejected (test_role_registry_final362_v2.FinalRole362.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 21.645s
+
+OK

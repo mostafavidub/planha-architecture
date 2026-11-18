@@ -1,0 +1,11 @@
+{
+  "files": {
+    "intrinsic_access.py": "a82eff1568beb538a2505505a3eea31898dcdc5116dd64980a5f965b3510e675",
+    "test_intrinsic_access.py": "3ef1bd17cbbb28a542058f0f917584b399169ab5d67bbbbb28eaa88f0c22896c",
+    "intrinsic_access_actual357.json": "469f7cbb4fff028e183084390ebfb771823199504850b9374323f6c5dfb27746"
+  },
+  "tests": 7,
+  "passed": 7,
+  "fresh": false,
+  "audit_status": "PENDING"
+}

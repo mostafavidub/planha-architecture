@@ -1,0 +1,4 @@
+# شواهد مستقل مدل JOINT367
+مدل b125 به record/fresh اختصاصی خود bind شد. هر ۱۸ حداقل ذاتی/کارکردی منبع‌پروفایل با کد واقعی محاسبه و PASS محدود شد؛ این نه همه قواعد سخت قرارداد و نه پذیرش دوازده والد است. ۶ آزمون eligibility پاس.
+مقاطع شش ماژول از خود moduleهای فعلی محاسبه شد؛ ۱۰۰ مسیر task از هندسه جهان فعلی با کف، موانع، private و حالت open-transit دوباره اعتبارسنجی شد. نتایج SERVICE به‌عنوان verdict منتقل نشد. فقط دو counterfactual محلی کمد پس exact module digest equality قابل استفاده‌اند؛ اثر هندسه جهانی آنها تعمیم داده نشد. مسیرها globalshortest یا occupied/concurrent همه سناریوها نیستند.
+IR-P13 finite tradeoff با مقایسه هر واحد جدا و افشای area loss نسبت اتاق‌های بزرگ‌تر محاسبه شد؛۵ آزمون پاس. current pending فقط ممیزی مستقل است و parent_initial=false باقی ماند. historical paths فقط آرشیو پین‌شده‌اند نه eligibility زنده. هیچ fresh/solver جدید اجرا نشده و نسخه SERVICE/359 محفوظ.

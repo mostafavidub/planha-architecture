@@ -1,0 +1,11 @@
+{
+  "files": {
+    "adapter365.py": "8242d118a4954acedb7d5f2a7da2485efd8231ea1036633db7c3397a23c9efee",
+    "service_anchor365.py": "2a5ba2e4a551fb34a6737321ee979fba89b4785ff6e0b0791be479d5bec62ee0",
+    "coarse_branch365.py": "e472e3ecd90fef3ed2999ebdacea6e4a8fed34b9daf71ed4e26e6b75a55ea9da",
+    "test_anchor365.py": "cfeb4c75f6f3a9935a129655878c68099060400ef8b509227b8fd9c209f4e461",
+    "preregistered_v2.json": "4787453a0490b4f5a22040ba671b6c28dbf378e3a1d7dba1e459bd981efcc50d"
+  },
+  "tests_passed": 11,
+  "solver_build_fresh_runs": 0
+}

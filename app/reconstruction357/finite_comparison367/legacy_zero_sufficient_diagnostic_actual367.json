@@ -1,0 +1,795 @@
+{
+  "schema": "SOURCE365_SERVICE_TWO_BOUND_BASELINES",
+  "verdict": "UNKNOWN",
+  "against362": {
+    "schema": "ENGINEERING365_SERVICE_COMPACTNESS_CLOSURE",
+    "verdict": "UNKNOWN",
+    "units": [
+      {
+        "unit": "A",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "0",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "2551200/645743",
+        "A_unit_net_m2": "645743/2000",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      },
+      {
+        "unit": "B",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "0",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "159450/40163",
+        "A_unit_net_m2": "40163/125",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      }
+    ],
+    "evidence": [
+      {
+        "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+        "source_row_digests": {
+          "bath_service_operation": "a92b428d307c46c603ff787fa58b071f65095969018f9762a98652c70ac216bc",
+          "fixture_inventory_use": "eed0f4563d98adc91e4fc5de69b1d4d2a5a4db5b006959d29b902b5bf64b8fc5",
+          "body_route_sweeps": "62745fad3e3cfd138a25dad85cbf29b6daa5356dba0ac94138d0b06e2f7454e1",
+          "door_operation": "cb20694df16975b1fda676039da3ba24ff64f06b5bf722ab53ade272dc1f0391",
+          "serving_route": "dd920a8b5b21a9d5112bb6702c216c240014cebf0c66fa979dd3a8d31b056c1e",
+          "bath_nonprivate_access": "d81860e4042e87f52ee111d216054acf53e5e1fd9dc9de0f8ec1075e74fece89",
+          "partition_ledger": "ecefa4f4d166ce0c6b4319c80253cc056d60bba71d1a0ad4a86f8dd6c564697f"
+        },
+        "group_digest": "92ccbb0f3d004eae61559955f52c16f303c5be6cb16879b517ccc70bdd1ffc05",
+        "units": [
+          {
+            "unit": "A",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                ".25",
+                "25.75",
+                "12.475"
+              ],
+              [
+                "0.25",
+                "12.475",
+                "8.275",
+                "13.925"
+              ],
+              [
+                "17.725",
+                "12.475",
+                "25.75",
+                "13.925"
+              ],
+              [
+                "15.925",
+                "12.475",
+                "17.575",
+                "13.425"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "41021/2000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "0",
+              "exclusive_regions": [],
+              "complete": true
+            },
+            "outside_entry_service_reconciled": true,
+            "outside_entry_unassigned_m2": "0",
+            "source_approach_and_opening_exact": true
+          },
+          {
+            "unit": "B",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                "15.525",
+                "25.75",
+                "27.75"
+              ],
+              [
+                "0.25",
+                "14.075",
+                "8.275",
+                "15.525"
+              ],
+              [
+                "17.725",
+                "14.075",
+                "25.75",
+                "15.525"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "41021/2000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "0",
+              "exclusive_regions": [],
+              "complete": true
+            },
+            "outside_entry_service_reconciled": true,
+            "outside_entry_unassigned_m2": "0",
+            "source_approach_and_opening_exact": true
+          }
+        ]
+      },
+      {
+        "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+        "source_row_digests": {
+          "bath_service_operation": "50dc0c2f95cf2d4e6eedff1351249c49dacc45c3a956b5d46cd1151f06e2b433",
+          "fixture_inventory_use": "63a911fbd98345c5ad29f52583c006b3b90a642c1b114130e357dfcbc4c5c7db",
+          "body_route_sweeps": "7275fed89b84cec85d9944881a146fa020b16e8d8346ba8b628a121f1191c135",
+          "door_operation": "857944bbbe5a8d4378b57a36c902de4e92e7cb57008ddc589262c7971a1e99c3",
+          "serving_route": "4e3c2a8a158b7b9c2d4d664d8ec0d7cb9a95e65aa50e233c325d346bcd866d58",
+          "bath_nonprivate_access": "d6fcd556e3c43328bd32a5a617e11b735321da0715e0b533b646607e80e9fb69",
+          "partition_ledger": "771209197ba76879850b520dcf3387f8952d7cf969cbc3695e8bc41e32b4ca2c"
+        },
+        "group_digest": "2cd0f8ce968f735d092ffbf47b44d474d41f192bd38a7599c7bab1ed9ffac0d0",
+        "units": [
+          {
+            "unit": "A",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                ".25",
+                "25.75",
+                "12.475"
+              ],
+              [
+                "0.25",
+                "12.475",
+                "8.275",
+                "13.925"
+              ],
+              [
+                "17.725",
+                "12.475",
+                "25.75",
+                "13.925"
+              ],
+              [
+                "15.925",
+                "12.475",
+                "17.575",
+                "13.425"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "11860916666666666666666666666666666666666666666666666666666661/250000000000000000000000000000000000000000000000000000000000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "946833333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+              "exclusive_regions": [
+                [
+                  "729/40",
+                  "31/8",
+                  "22",
+                  "183/40"
+                ],
+                [
+                  "729/40",
+                  "183/40",
+                  "757/40",
+                  "6"
+                ],
+                [
+                  "709/40",
+                  "6",
+                  "757/40",
+                  "67/10"
+                ],
+                [
+                  "709/40",
+                  "67/10",
+                  "737/40",
+                  "137/20"
+                ],
+                [
+                  "683/40",
+                  "137/20",
+                  "737/40",
+                  "7"
+                ],
+                [
+                  "681/40",
+                  "7",
+                  "737/40",
+                  "143/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "143/20",
+                  "737/40",
+                  "151/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "151/20",
+                  "711/40",
+                  "77/10"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "77/10",
+                  "709/40",
+                  "157/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "157/20",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "97/10"
+                ],
+                [
+                  "147916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "97/10",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "52/5"
+                ],
+                [
+                  "147916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "52/5",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "439/40"
+                ]
+              ],
+              "complete": false
+            },
+            "outside_entry_service_reconciled": false,
+            "outside_entry_unassigned_m2": "946833333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+            "source_approach_and_opening_exact": true
+          },
+          {
+            "unit": "B",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                "15.525",
+                "25.75",
+                "27.75"
+              ],
+              [
+                "0.25",
+                "14.075",
+                "8.275",
+                "15.525"
+              ],
+              [
+                "17.725",
+                "14.075",
+                "25.75",
+                "15.525"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "95796499999999999999999999999999999999999999999999999999999773/2000000000000000000000000000000000000000000000000000000000000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "959583333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+              "exclusive_regions": [
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "681/40",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "403/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "403/20",
+                  "709/40",
+                  "203/10"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "203/10",
+                  "711/40",
+                  "409/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "409/20",
+                  "737/40",
+                  "417/20"
+                ],
+                [
+                  "681/40",
+                  "417/20",
+                  "737/40",
+                  "21"
+                ],
+                [
+                  "683/40",
+                  "21",
+                  "737/40",
+                  "423/20"
+                ],
+                [
+                  "709/40",
+                  "423/20",
+                  "737/40",
+                  "213/10"
+                ],
+                [
+                  "709/40",
+                  "213/10",
+                  "757/40",
+                  "22"
+                ],
+                [
+                  "729/40",
+                  "22",
+                  "757/40",
+                  "937/40"
+                ],
+                [
+                  "729/40",
+                  "937/40",
+                  "22",
+                  "193/8"
+                ]
+              ],
+              "complete": false
+            },
+            "outside_entry_service_reconciled": false,
+            "outside_entry_unassigned_m2": "959583333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+            "source_approach_and_opening_exact": true
+          }
+        ]
+      }
+    ],
+    "source274_required_subclaims": {
+      "id": "SERVICE_COMPACTNESS",
+      "sources": [
+        "PRD:703"
+      ],
+      "metrics": [
+        "A_bath_WC_union",
+        "A_exclusive_service_circulation",
+        "R_service_percent",
+        "A_smallest_tested_valid_service_program"
+      ],
+      "acceptance": [
+        "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once",
+        "Baseline is smallest actually validated same-service-program layout, not claimed theoretical minimum",
+        "Excess requires verified functional reason and alternative comparison; missing baseline=unknown",
+        "Do not shrink required activities to meet a percentage"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    "source_formula": "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once; A_exclusive_service_circulation separately reconciled; finite actually validated baseline not theoretical minimum",
+    "source274_rule_sha256": "57c46d27813d8e80200746923a1b4e3c96045d1111e9cf2698cd64adfa76ecb9",
+    "definition": "Exact cellwise circulation coverage. Shared atoms require actual nonservice traversal. Sole-service atoms must be wholly source-bound service approach/threshold; otherwise explicit additional exclusive area or unknown. Internal source bath bundle counted once.",
+    "engineering_scope_exclusions": [
+      "Private nonservice tail necessity remains Q04",
+      "Unassigned public noncirculation floor purpose remains Q11",
+      "No assertion of global service minimum"
+    ],
+    "live_authority": false,
+    "new_fresh_execution": false,
+    "all_parent_acceptance": false,
+    "audit_status": "OWN_SERVICE_CANDIDATE_REASSESSMENT_PENDING_AUDIT"
+  },
+  "against359": {
+    "schema": "ENGINEERING365_SERVICE_COMPACTNESS_CLOSURE",
+    "verdict": "UNKNOWN",
+    "units": [
+      {
+        "unit": "A",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "627/400",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "2551200/645743",
+        "A_unit_net_m2": "645743/2000",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      },
+      {
+        "unit": "B",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "0",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "159450/40163",
+        "A_unit_net_m2": "40163/125",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      }
+    ],
+    "evidence": [
+      {
+        "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+        "source_row_digests": {
+          "bath_service_operation": "ba76dca5ccb2203929bb979ac8b3b43b363895c7d7087fe1e1e9502f1db15333",
+          "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd",
+          "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3",
+          "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+          "serving_route": "adb6e27dc25656510c4e7d03fa8a020bf62b2117628169968e475b0e3d884f98",
+          "bath_nonprivate_access": "935ccd96ea17cb254db8745c723b4dc31da98c1ac295a3ec49269034061afad7",
+          "partition_ledger": "17d4655cb7b1181c8660f98a836303649bf363ad934368f400056854d64bea98"
+        },
+        "group_digest": "08a4b8d64ce0367cb736a703d2507a4cebfe5faad10c29ca62af987279cb8bfb",
+        "units": [
+          {
+            "unit": "A",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                ".25",
+                "25.75",
+                "12.475"
+              ],
+              [
+                "0.25",
+                "12.475",
+                "8.275",
+                "13.925"
+              ],
+              [
+                "17.725",
+                "12.475",
+                "25.75",
+                "13.925"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "41021/2000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "0",
+              "exclusive_regions": [],
+              "complete": true
+            },
+            "outside_entry_service_reconciled": true,
+            "outside_entry_unassigned_m2": "0",
+            "source_approach_and_opening_exact": true
+          },
+          {
+            "unit": "B",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                "15.525",
+                "25.75",
+                "27.75"
+              ],
+              [
+                "0.25",
+                "14.075",
+                "8.275",
+                "15.525"
+              ],
+              [
+                "17.725",
+                "14.075",
+                "25.75",
+                "15.525"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "41021/2000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "0",
+              "exclusive_regions": [],
+              "complete": true
+            },
+            "outside_entry_service_reconciled": true,
+            "outside_entry_unassigned_m2": "0",
+            "source_approach_and_opening_exact": true
+          }
+        ]
+      },
+      {
+        "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+        "source_row_digests": {
+          "bath_service_operation": "50dc0c2f95cf2d4e6eedff1351249c49dacc45c3a956b5d46cd1151f06e2b433",
+          "fixture_inventory_use": "63a911fbd98345c5ad29f52583c006b3b90a642c1b114130e357dfcbc4c5c7db",
+          "body_route_sweeps": "7275fed89b84cec85d9944881a146fa020b16e8d8346ba8b628a121f1191c135",
+          "door_operation": "857944bbbe5a8d4378b57a36c902de4e92e7cb57008ddc589262c7971a1e99c3",
+          "serving_route": "4e3c2a8a158b7b9c2d4d664d8ec0d7cb9a95e65aa50e233c325d346bcd866d58",
+          "bath_nonprivate_access": "d6fcd556e3c43328bd32a5a617e11b735321da0715e0b533b646607e80e9fb69",
+          "partition_ledger": "771209197ba76879850b520dcf3387f8952d7cf969cbc3695e8bc41e32b4ca2c"
+        },
+        "group_digest": "2cd0f8ce968f735d092ffbf47b44d474d41f192bd38a7599c7bab1ed9ffac0d0",
+        "units": [
+          {
+            "unit": "A",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                ".25",
+                "25.75",
+                "12.475"
+              ],
+              [
+                "0.25",
+                "12.475",
+                "8.275",
+                "13.925"
+              ],
+              [
+                "17.725",
+                "12.475",
+                "25.75",
+                "13.925"
+              ],
+              [
+                "15.925",
+                "12.475",
+                "17.575",
+                "13.425"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "11860916666666666666666666666666666666666666666666666666666661/250000000000000000000000000000000000000000000000000000000000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "946833333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+              "exclusive_regions": [
+                [
+                  "729/40",
+                  "31/8",
+                  "22",
+                  "183/40"
+                ],
+                [
+                  "729/40",
+                  "183/40",
+                  "757/40",
+                  "6"
+                ],
+                [
+                  "709/40",
+                  "6",
+                  "757/40",
+                  "67/10"
+                ],
+                [
+                  "709/40",
+                  "67/10",
+                  "737/40",
+                  "137/20"
+                ],
+                [
+                  "683/40",
+                  "137/20",
+                  "737/40",
+                  "7"
+                ],
+                [
+                  "681/40",
+                  "7",
+                  "737/40",
+                  "143/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "143/20",
+                  "737/40",
+                  "151/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "151/20",
+                  "711/40",
+                  "77/10"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "77/10",
+                  "709/40",
+                  "157/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "157/20",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "97/10"
+                ],
+                [
+                  "147916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "97/10",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "52/5"
+                ],
+                [
+                  "147916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "52/5",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "439/40"
+                ]
+              ],
+              "complete": false
+            },
+            "outside_entry_service_reconciled": false,
+            "outside_entry_unassigned_m2": "946833333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+            "source_approach_and_opening_exact": true
+          },
+          {
+            "unit": "B",
+            "bath_union_m2": "3189/250",
+            "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+            "ownership": [
+              [
+                ".25",
+                "15.525",
+                "25.75",
+                "27.75"
+              ],
+              [
+                "0.25",
+                "14.075",
+                "8.275",
+                "15.525"
+              ],
+              [
+                "17.725",
+                "14.075",
+                "25.75",
+                "15.525"
+              ]
+            ],
+            "partition": {
+              "entry_domain_area_m2": "95796499999999999999999999999999999999999999999999999999999773/2000000000000000000000000000000000000000000000000000000000000",
+              "entry_uncovered_area_m2": "0",
+              "entry_uncovered_regions": [],
+              "private_service_intersection_m2": "0",
+              "exclusive_after_source_clearance_m2": "959583333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+              "exclusive_regions": [
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "681/40",
+                  "153916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "403/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "403/20",
+                  "709/40",
+                  "203/10"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "203/10",
+                  "711/40",
+                  "409/20"
+                ],
+                [
+                  "146916666666666666666666666666666666666666666666666666666667/10000000000000000000000000000000000000000000000000000000000",
+                  "409/20",
+                  "737/40",
+                  "417/20"
+                ],
+                [
+                  "681/40",
+                  "417/20",
+                  "737/40",
+                  "21"
+                ],
+                [
+                  "683/40",
+                  "21",
+                  "737/40",
+                  "423/20"
+                ],
+                [
+                  "709/40",
+                  "423/20",
+                  "737/40",
+                  "213/10"
+                ],
+                [
+                  "709/40",
+                  "213/10",
+                  "757/40",
+                  "22"
+                ],
+                [
+                  "729/40",
+                  "22",
+                  "757/40",
+                  "937/40"
+                ],
+                [
+                  "729/40",
+                  "937/40",
+                  "22",
+                  "193/8"
+                ]
+              ],
+              "complete": false
+            },
+            "outside_entry_service_reconciled": false,
+            "outside_entry_unassigned_m2": "959583333333333333333333333333333333333333333333333333333331/100000000000000000000000000000000000000000000000000000000000",
+            "source_approach_and_opening_exact": true
+          }
+        ]
+      }
+    ],
+    "source274_required_subclaims": {
+      "id": "SERVICE_COMPACTNESS",
+      "sources": [
+        "PRD:703"
+      ],
+      "metrics": [
+        "A_bath_WC_union",
+        "A_exclusive_service_circulation",
+        "R_service_percent",
+        "A_smallest_tested_valid_service_program"
+      ],
+      "acceptance": [
+        "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once",
+        "Baseline is smallest actually validated same-service-program layout, not claimed theoretical minimum",
+        "Excess requires verified functional reason and alternative comparison; missing baseline=unknown",
+        "Do not shrink required activities to meet a percentage"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    "source_formula": "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once; A_exclusive_service_circulation separately reconciled; finite actually validated baseline not theoretical minimum",
+    "source274_rule_sha256": "57c46d27813d8e80200746923a1b4e3c96045d1111e9cf2698cd64adfa76ecb9",
+    "definition": "Exact cellwise circulation coverage. Shared atoms require actual nonservice traversal. Sole-service atoms must be wholly source-bound service approach/threshold; otherwise explicit additional exclusive area or unknown. Internal source bath bundle counted once.",
+    "engineering_scope_exclusions": [
+      "Private nonservice tail necessity remains Q04",
+      "Unassigned public noncirculation floor purpose remains Q11",
+      "No assertion of global service minimum"
+    ],
+    "live_authority": false,
+    "new_fresh_execution": false,
+    "all_parent_acceptance": false,
+    "audit_status": "OWN_SERVICE_CANDIDATE_REASSESSMENT_PENDING_AUDIT"
+  },
+  "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+  "fresh_result_digest": "e3214547e6eaf74f28463011be8c1108b0338d421161dc17fe358acb777a68ab",
+  "source_profile": "SOURCE_JOINT367",
+  "accepted": false,
+  "new_fresh_execution": false
+}

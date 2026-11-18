@@ -1,0 +1,787 @@
+--- reconstruction357/staging387_current_semantics/adapters387.py
++++ reconstruction357/staging390_current_semantics/adapters390.py
+@@ -2,19 +2,19 @@
+ import importlib,hashlib,json,sys
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent;SEM=HERE.parent/'semantic_rules357';W=HERE.parents[1]
+-MAP={'group_readsets365_v2':'groups387','living_closure365':'living_closure387','guest_closure365':'guest_closure387','kitchen_closure365':'kitchen_closure387','closure_room_program365':'room387','primitive_review365':'primitive387'}
++MAP={'group_readsets365_v2':'groups390','living_closure365':'living_closure390','guest_closure365':'guest_closure390','kitchen_closure365':'kitchen_closure390','closure_room_program365':'room390','primitive_review365':'primitive390'}
+ def require_origin(module,name):
+- expected=(HERE if name.endswith('387')else SEM)/(name+'.py')
++ expected=(HERE if name.endswith('390')else SEM)/(name+'.py')
+  actual=Path(getattr(module,'__file__','')).resolve()
+  if actual!=expected.resolve()or not expected.is_file():raise ValueError('SEMANTIC_MODULE_ORIGIN:'+name)
+- files=json.loads((W/'review387_preaudit/source_freeze.json').read_text())['files'];key=str(expected.relative_to(W))
+- if hashlib.sha256(expected.read_bytes()).hexdigest()!=files.get(key):raise ValueError('SEMANTIC_MODULE_HASH:'+name)
++ from frozen390 import bytes_for
++ bytes_for(expected)
+  return module
+ 
+ def load(name):
+  target=MAP.get(name,name)
+  # Closed local module profile: no fallback to external modules or arbitrary paths.
+- expected=(HERE if target.endswith('387')else SEM)/(target+'.py')
++ expected=(HERE if target.endswith('390')else SEM)/(target+'.py')
+  if not expected.is_file():raise ValueError('UNREGISTERED_SEMANTIC_MODULE:'+target)
+  return require_origin(importlib.import_module(target),target)
+ 
+--- reconstruction357/staging387_current_semantics/balanced_access387.py
++++ reconstruction357/staging390_current_semantics/balanced_access390.py
+@@ -4,7 +4,7 @@
+ from fractions import Fraction as F
+ import common
+ from common import digest,rows
+-from groups387 import build
++from groups390 import build
+ ROOT=Path(__file__).resolve().parents[1]
+ PINS = {'balance363/assessor.py': '7049854a37e0d60126744704f08079582a4eb8ff15280f3f888c4808b1265372', 'balance363/clearance_kernel.py': '8f71fdb97812226fe8c7da769097163de22794bfbfdf533fdaf3fe6761baba8c', 'semantic_rules357/comparison_metrics.py': '952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524'}
+ def evaluate(record,review):
+--- reconstruction357/staging387_current_semantics/bedroom387.py
++++ reconstruction357/staging390_current_semantics/bedroom390.py
+@@ -10,7 +10,7 @@
+ 
+ 
+ def _loader():
+- from adapters387 import load
++ from adapters390 import load
+  return load
+ 
+ def ownership_protection(new,old):
+--- reconstruction357/staging387_current_semantics/circulation_role387.py
++++ reconstruction357/staging390_current_semantics/circulation_role390.py
+@@ -6,10 +6,10 @@
+ import json
+ import common
+ from common import digest,rows
+-from groups387 import build
++from groups390 import build
+ from modules_spatial import rect,intersection,union_area,difference,source_sweeps
+ from wall_purpose import touches
+-from wall_origin387 import hall as bound_hall365
++from wall_origin390 import hall as bound_hall365
+ from unsupported_extent_causes357 import boundary_openings
+ ROOT=Path(__file__).resolve().parents[1]
+ def components(regions):
+--- reconstruction357/staging387_current_semantics/cohort387.py
++++ reconstruction357/staging390_current_semantics/cohort390.py
+@@ -1,32 +1,32 @@
+ """Current finite cohort; current rank2 comparison plus exact-readset history.
+ Rank2 intrinsic384 is an explicitly stored proof for immutable actual383, not
+-new387 semantic execution of rank2. Current rank1 intrinsic is freshly computed.
++new390 semantic execution of rank2. Current rank1 intrinsic is freshly computed.
+ """
+ import copy,sys
+-from gate387 import validate,D,ROOT,W
+-from frozen387 import read,module
++from gate390 import validate,D,ROOT,W
++from frozen390 import read,module
+ 
+ def evaluate(record,fresh,intrinsic):
+  binding=validate(record,fresh)
+- from historical_readset387 import verify as verify_historical_readset
++ from historical_readset390 import verify as verify_historical_readset
+  dependency_audit=verify_historical_readset()
+  path=ROOT/'staging384_rank2_semantics';spec=read(path/'inputs.json')
+  alternative={k:read(W/spec[k]['path'])for k in('record','fresh')}
+  proof=read(W/'review384_actual_v1/result.json')
+  ar,af=alternative['record'],alternative['fresh']
+- rank2_gate=module(path/'gate384.py','_current387_rank2_gate384');rank2_binding=rank2_gate.validate(ar,af)
++ rank2_gate=module(path/'gate384.py','_current390_rank2_gate384');rank2_binding=rank2_gate.validate(ar,af)
+  if proof['binding']!=rank2_binding:raise ValueError('AUTHENTIC_RANK2_SOURCE_GATE')
+  supervision=read(W/'review384_actual_v1/supervision.json');pre=read(W/'review384_actual_v1/preregistration.json');unchanged=read(W/'review384_actual_v1/source_unchanged.json');state=read(W/'review384_actual_v1/state.json')
+  if not(supervision.get('reason')=='COMPLETED'and supervision.get('worker_returncode')==0 and supervision.get('worker_reaped')is True and supervision.get('cleanup_verified')is True and supervision.get('unresolved')==[] and unchanged.get('verified')is True and state.get('state')=='COMPLETED'):raise ValueError('RANK2_INTRINSIC_EXECUTION_NOT_VERIFIED')
+  if pre['binding']!=rank2_binding:raise ValueError('RANK2_INTRINSIC_PREREGISTRATION_BINDING')
+- from frozen387 import bytes_for
++ from frozen390 import bytes_for
+  import hashlib
+  if hashlib.sha256(bytes_for(W/'review384_preaudit/source_freeze.json')).hexdigest()!=pre['freeze_sha256']:raise ValueError('RANK2_INTRINSIC_SOURCE_FREEZE')
+  if proof.get('schema')!='ACTUAL383_RANK2_INTRINSIC_AND_CURRENT379_FINITE_JOIN384'or proof.get('rank2_intrinsic_recomputed')is not True:raise ValueError('AUTHENTIC_RANK2_INTRINSIC_REQUIRED')
+  if any(proof['binding'].get(k)!=v for k,v in {'record_digest':D(ar),'fresh_digest':D(af),'model_digest':D(ar['candidate']['model'])}.items()):raise ValueError('RANK2_PROOF_BINDING')
+  if ar['trace']['schema']!='FINITE_PORTALS383_SOURCE_TRACE_V1'or ar['trace']['selection_rank']!=2:raise ValueError('ACTUAL_RANK2_SOURCE_REQUIRED')
+  ai=proof['evidence']['rank2_intrinsic']
+- compare=module(path/'cohort384.py','_current387_cohort384')
++ compare=module(path/'cohort384.py','_current390_cohort384')
+  # This call verifies the actual383 own record/fresh/intrinsic correspondence.
+  compare.bind_intrinsic(ar,af,ai)
+  historical=read(W/'review382_actual_v1/result.json');old_digest=D(historical)
+@@ -36,8 +36,8 @@
+  compare.verify_historical(historical,record)
+  out=compare.compare_registered(record,fresh,intrinsic,ar,af,ai,historical)
+  out.update(historical_dependency_audit=dependency_audit,historical_comparisons_recomputed=False,historical_template_digest=old_digest,historical_comparison_reuse_scope='EXACT_PINNED382_OBJECT_IDENTICAL_FULL_CURRENT_MODEL_AND_BRIEF_WITH_EIGHT_OWN_RECEIPTS_RECHECKED',
+-            rank2_intrinsic_proof_digest=D(proof),rank2_intrinsic_recomputed_in387=False,rank2_proof_reuse_scope='IMMUTABLE_ACTUAL383_OWN_RECORD_FRESH_INTRINSIC_ONLY',
+-            current_intrinsic_recomputed_in387=True,old_rank1_parent_pass_reused=False)
++            rank2_intrinsic_proof_digest=D(proof),rank2_intrinsic_recomputed_in390=False,rank2_proof_reuse_scope='IMMUTABLE_ACTUAL383_OWN_RECORD_FRESH_INTRINSIC_ONLY',
++            current_intrinsic_recomputed_in390=True,old_rank1_parent_pass_reused=False)
+  if verify_historical_readset()!=dependency_audit:raise ValueError('HISTORICAL_READSET_CHANGED_DURING_COMPUTE')
+  validate(record,fresh)
+  return out
+--- reconstruction357/staging387_current_semantics/common_role_closure387.py
++++ reconstruction357/staging390_current_semantics/common_role_closure390.py
+@@ -10,7 +10,7 @@
+ import common
+ from common import digest,rows
+ from modules_spatial import rect,intersection,difference,union_area,source_sweeps
+-from groups387 import build
++from groups390 import build
+ from lobby_junction_bound362 import analyze
+ ROOT=Path(__file__).resolve().parents[1]
+ def interior_clearance(model,junction):
+--- reconstruction357/staging387_current_semantics/eligibility387.py
++++ reconstruction357/staging390_current_semantics/eligibility390.py
+@@ -20,7 +20,7 @@
+ 
+ def _loader():
+  import importlib
+- from adapters387 import load
++ from adapters390 import load
+  pins=json.loads((HERE/'eligibility_intrinsic365_pins.json').read_text())
+  return load,pins
+ 
+--- reconstruction357/staging387_current_semantics/entry_separation387.py
++++ reconstruction357/staging390_current_semantics/entry_separation390.py
+@@ -9,8 +9,8 @@
+ from common import digest,rows
+ from modules_spatial import rect,intersection,difference,union_area
+ from guest_closure import transformed_rect
+-from groups387 import build
+-from wall_origin387 import base
++from groups390 import build
++from wall_origin390 import base
+ ROOT=Path(__file__).resolve().parents[1]
+ def require_registered_selection(policy):
+  from family378 import enumerate_family,load_parent
+--- reconstruction357/staging387_current_semantics/extended387.py
++++ reconstruction357/staging390_current_semantics/extended390.py
+@@ -1,28 +1,28 @@
+-"""Same-run387 balanced role computation; no automatic parent admission."""
++"""Same-run390 balanced role computation; no automatic parent admission."""
+ import json,sys,time,copy
+ from pathlib import Path
+-from gate387 import ROOT,HERE,D,validate
++from gate390 import ROOT,HERE,D,validate
+ SEM=ROOT/'semantic_rules357'
+ sys.path[:0]=[str(HERE),str(SEM),str(ROOT/'staging378_finite_portals'),str(ROOT/'finite_comparison358')]
+ def run(record,fresh):
+  start=time.monotonic();before=D([record,fresh]);binding=validate(record,fresh)
+- from semantic387 import run as essential
++ from semantic390 import run as essential
+  e={'essential':essential(record,fresh)};errors={}
+  import common
+  common.REGISTRY_NAME='method_registry_source365.json'
+- from adapters387 import audit_loaded
++ from adapters390 import audit_loaded
+  audit_loaded()
+  def capture(key,fn):
+   try:e[key]=fn()
+   except Exception as error:errors[key]=type(error).__name__+':'+str(error)
+- from reassess_spatial387 import evaluate as spatial
+- from circulation_role387 import evaluate as circulation
+- from common_role_closure387 import evaluate as common_role
+- from entry_separation387 import evaluate as reservation
+- from balanced_access387 import evaluate as balance
+- from service387 import evaluate as service
+- from cohort387 import evaluate as cohort
+- from role_registry_model387 import room_inventory,DAG,ordered_dag
++ from reassess_spatial390 import evaluate as spatial
++ from circulation_role390 import evaluate as circulation
++ from common_role_closure390 import evaluate as common_role
++ from entry_separation390 import evaluate as reservation
++ from balanced_access390 import evaluate as balance
++ from service390 import evaluate as service
++ from cohort390 import evaluate as cohort
++ from role_registry_model390 import room_inventory,DAG,ordered_dag
+  from support_reservation365 import reconcile
+  capture('source_room_roles',lambda:room_inventory(record['candidate']['model'],common.rows(record['candidate']['model'],fresh['raw_report'])))
+  capture('spatial',lambda:spatial(record,fresh))
+@@ -34,7 +34,7 @@
+  capture('public_reconciliation',lambda:reconcile(e['spatial']['support'],e['operational_reservation']))
+  capture('cohort',lambda:cohort(record,fresh,e['essential']['evidence']['intrinsic_eligibility']))
+  n={k:{'status':'UNKNOWN','missing':['REQUIRED_CURRENT_EVIDENCE_NOT_COMPLETE']}for k in DAG}
+- n['SOURCE_GATE']={'status':'PASS_REGISTERED_CURRENT387_SUPERVISED_MEMBER','binding':binding}
++ n['SOURCE_GATE']={'status':'PASS_REGISTERED_CURRENT390_SUPERVISED_MEMBER','binding':binding}
+  if 'source_room_roles'in e:n['SOURCE_ROOM_USE']={'status':'PASS_SCOPED_WHOLE_SOURCE_ROOM_ROLES','evidence':e['source_room_roles']};n['PARTITION']={'status':'PASS_EXACT_GEOMETRIC_PARTITION_NOT_ROLE_ACCEPTANCE','scope':'room_inventory requires exact named-floor inventory and same current partition row'}
+  rec=e.get('public_reconciliation',{})
+  if rec:n['PUBLIC_SUPPORT']={'status':'UNKNOWN_UNRESOLVED_FUNCTIONAL_EXTENT'if rec['unresolved_positive_extent']else'PASS_SCOPED_FUNCTIONAL_EXTENT_WITH_SEPARATE_NONUSABLE_OPERATIONAL_RESERVATION','evidence':rec}
+@@ -56,4 +56,4 @@
+  parents['SERVICE_COMPACTNESS']={'verdict':'UNKNOWN_PENDING_INDEPENDENT_AUDIT'if svc.get('verdict')=='PASS_SCOPED_FINITE_SERVICE_COMPACTNESS'else'UNKNOWN_CURRENT_SERVICE_PROOF_INCOMPLETE','evidence_digest':D(svc),'model_digest':binding['model_digest']}
+  origins=audit_loaded();validate(record,fresh)
+  if before!=D([record,fresh]):raise ValueError('INPUT_MUTATION')
+- return {'schema':'SAME_RUN387_ESSENTIAL_AND_ROLE_COMPUTATION','binding':binding,'evidence':e,'errors':errors,'nodes':n,'parent_candidates':parents,'source_module_origins':origins,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in e.items()},'new_fresh_checker_executed':False,'full_candidate_constructed':False,'source_prefix_geometry_reexecuted':True,'post_form_stored_artifact_reassessment':False,'same_browser_run_semantic_execution':True,'full_q04_closed':False,'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
++ return {'schema':'SAME_RUN390_ESSENTIAL_AND_ROLE_COMPUTATION','binding':binding,'evidence':e,'errors':errors,'nodes':n,'parent_candidates':parents,'source_module_origins':origins,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in e.items()},'new_fresh_checker_executed':False,'full_candidate_constructed':False,'source_prefix_geometry_reexecuted':True,'post_form_stored_artifact_reassessment':False,'same_browser_run_semantic_execution':True,'full_q04_closed':False,'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
+--- reconstruction357/staging387_current_semantics/frozen387.py
++++ reconstruction357/staging390_current_semantics/frozen390.py
+@@ -1,16 +1,40 @@
+-"""Read only files explicitly in the current387 frozen dependency closure."""
++"""Canonical index cached by exact manifest bytes; every read rechecks manifest and target."""
+ import json,hashlib,importlib.util
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent;ROOT=HERE.parent;W=ROOT.parent
++MANIFEST=W/'review390_preaudit/source_freeze.json'
++_EXPECTED=None
++_CACHE={}
++
++def configure(expected):
++ global _EXPECTED
++ if _EXPECTED is not None and _EXPECTED!=expected:raise ValueError('FREEZE_CONTEXT_ALREADY_CONFIGURED')
++ _EXPECTED=expected
++ _index()
++
++def _index():
++ if _EXPECTED is None:raise ValueError('FREEZE_CONTEXT_REQUIRED')
++ raw=MANIFEST.read_bytes();sha=hashlib.sha256(raw).hexdigest()
++ if sha!=_EXPECTED:raise ValueError('FREEZE_CHANGED')
++ if sha not in _CACHE:
++  canonical={}
++  for name,h in json.loads(raw)['files'].items():
++   p=(W/name).resolve()
++   if not p.is_relative_to(W.resolve()):raise ValueError('FROZEN_PATH_OUTSIDE_WORKSPACE')
++   if p in canonical and canonical[p]!=h:raise ValueError('CONFLICTING_CANONICAL_PINS')
++   canonical[p]=h
++  _CACHE[sha]=(raw,canonical)
++ cached,index=_CACHE[sha]
++ if cached!=raw:raise ValueError('MANIFEST_BYTES_CHANGED')
++ return index
+ 
+ def bytes_for(path):
+  path=Path(path).resolve()
+- if not path.is_relative_to(W):raise ValueError('FROZEN_PATH_OUTSIDE_WORKSPACE')
+- files=json.loads((W/'review387_preaudit/source_freeze.json').read_text())['files']
+- matches={h for n,h in files.items()if(W/n).resolve()==path}
+- if len(matches)!=1:raise ValueError('UNREGISTERED_FROZEN_DEPENDENCY:'+str(path.relative_to(W)))
++ if not path.is_relative_to(W.resolve()):raise ValueError('FROZEN_PATH_OUTSIDE_WORKSPACE')
++ index=_index()
++ if path not in index:raise ValueError('UNREGISTERED_FROZEN_DEPENDENCY:'+str(path.relative_to(W)))
+  data=path.read_bytes()
+- if hashlib.sha256(data).hexdigest()!=next(iter(matches)):raise ValueError('FROZEN_DEPENDENCY_CHANGED:'+str(path.relative_to(W)))
++ if hashlib.sha256(data).hexdigest()!=index[path]:raise ValueError('FROZEN_DEPENDENCY_CHANGED:'+str(path.relative_to(W)))
+  return data
+ 
+ def read(path):return json.loads(bytes_for(path))
+--- reconstruction357/staging387_current_semantics/gate387.py
++++ reconstruction357/staging390_current_semantics/gate390.py
+@@ -9,13 +9,15 @@
+ _STATE=None
+ 
+ def _contract():
+- sys.path.insert(0,str(ROOT/'staging387_form'))
+- import contract387
+- if Path(contract387.__file__).resolve()!=ROOT/'staging387_form/contract387.py':raise ValueError('CURRENT_CONTRACT_ORIGIN')
+- return contract387
++ sys.path.insert(0,str(ROOT/'staging390_form'))
++ import contract390
++ if Path(contract390.__file__).resolve()!=ROOT/'staging390_form/contract390.py':raise ValueError('CURRENT_CONTRACT_ORIGIN')
++ return contract390
+ 
+ def configure(folder,expected_freeze):
+  global _STATE
++ from frozen390 import configure as freeze_configure
++ freeze_configure(expected_freeze)
+  if _STATE is not None:raise ValueError('SEMANTIC_CONTEXT_ALREADY_CONFIGURED')
+  folder=Path(folder).resolve()
+  if not folder.is_relative_to(W)or folder.name!='balanced':raise ValueError('INTERNAL_BALANCED_FOLDER_REQUIRED')
+@@ -51,12 +53,12 @@
+  for n,h in reg['sources'].items():
+   if hashlib.sha256((ROOT/n).read_bytes()).hexdigest()!=h:raise ValueError('CURRENT_SOURCE_CHANGED:'+n)
+  return {'record_digest':D(record),'fresh_digest':D(fresh),'model_digest':mh,'review_id':fresh['review_id'],'candidate_id':record['candidate_id'],'run_id':t['run_id'],
+-         'current_source_inventory_digest':D(reg['sources']),'request_envelope_digest':D(request),'form_binding_digest':D(b),'test_only':False,'authority':'SAME_RUN_SUPERVISED387_MEMBER'}
++         'current_source_inventory_digest':D(reg['sources']),'request_envelope_digest':D(request),'form_binding_digest':D(b),'test_only':False,'authority':'SAME_RUN_SUPERVISED390_MEMBER'}
+ 
+ def views(record,fresh):
+  b=validate(record,fresh);c=record['candidate'];t=record['trace']
+- env={'schema':'CURRENT387_SEMANTIC_VIEW','candidate_id':D(c),'raw':copy.deepcopy(c['request']),'packet':copy.deepcopy(c['packet']),'input_record_digest':D(record),'outer_trace_digest':D(t),'original_result_digest':D(fresh),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
+- res={'schema':'CURRENT387_SEMANTIC_RESULT','candidate_digest':D(env),'raw_fresh_report':copy.deepcopy(fresh['raw_report']),'original_result_digest':D(fresh),'input_record_digest':D(record),'outer_trace_digest':D(t),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
++ env={'schema':'CURRENT390_SEMANTIC_VIEW','candidate_id':D(c),'raw':copy.deepcopy(c['request']),'packet':copy.deepcopy(c['packet']),'input_record_digest':D(record),'outer_trace_digest':D(t),'original_result_digest':D(fresh),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
++ res={'schema':'CURRENT390_SEMANTIC_RESULT','candidate_digest':D(env),'raw_fresh_report':copy.deepcopy(fresh['raw_report']),'original_result_digest':D(fresh),'input_record_digest':D(record),'outer_trace_digest':D(t),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
+  return env,res,b
+ 
+ def validate_views(env,res):
+--- reconstruction357/staging387_current_semantics/groups387.py
++++ reconstruction357/staging390_current_semantics/groups390.py
+@@ -1,18 +1,18 @@
+ """Current378 views plus unchanged351 semantic predicates; no old artifact gate."""
+ import ast,copy,types
+-from gate387 import views,validate,D,ROOT
++from gate390 import views,validate,D,ROOT
+ _CACHE=None
+ def build(record,new_result,seconds=8,source_profile='SOURCE_BALANCED365'):
+  global _CACHE
+  binding=validate(record,new_result)
+  if _CACHE is not None:return copy.deepcopy(_CACHE)
+  env,res,_=views(record,new_result)
+- path=ROOT/'staging351_collision_lineage/fresh_bridge.py';code=path.read_text();mod=types.ModuleType('_semantic387_pinned351');mod.__file__=str(path);exec(compile(code,str(path),'exec'),mod.__dict__)
++ path=ROOT/'staging351_collision_lineage/fresh_bridge.py';code=path.read_text();mod=types.ModuleType('_semantic390_pinned351');mod.__file__=str(path);exec(compile(code,str(path),'exec'),mod.__dict__)
+  contract,_=mod._group_sources285();mod._network_sources288()
+  node=next(n for n in ast.parse(code).body if isinstance(n,ast.FunctionDef)and n.name=='source_groups285');s=ast.get_source_segment(code,node);body=s[s.index(" raw=result['raw_fresh_report']"):s.index(" _phase293('network.begin')")]
+- ns=dict(mod.__dict__);exec(compile("def predicates387(envelope,result,contract,methods):\n model=envelope['packet']['world_model'];mh=_digest_model282(model)\n"+body+" return summaries\n",'<UNCHANGED351_SEMANTIC_PREDICATES>','exec'),ns)
+- rows=ns['predicates387'](env,res,contract,{k:new_result['expected_method_registry']['methods'][k]for k in mod.GROUP285_IDS})
+- from network387 import evaluate
++ ns=dict(mod.__dict__);exec(compile("def predicates390(envelope,result,contract,methods):\n model=envelope['packet']['world_model'];mh=_digest_model282(model)\n"+body+" return summaries\n",'<UNCHANGED351_SEMANTIC_PREDICATES>','exec'),ns)
++ rows=ns['predicates390'](env,res,contract,{k:new_result['expected_method_registry']['methods'][k]for k in mod.GROUP285_IDS})
++ from network390 import evaluate
+  rows.append(evaluate(env,res,rows,min(seconds,2)))
+- groups={'schema':'CURRENT387_RECOMPUTED_GROUPS','model_hash':binding['model_digest'],'fresh_result_digest':D(res),'original_result_digest':D(new_result),'rows':rows,'review_verdict':'FAIL'if any(g['verdict']=='FAIL'for g in rows)else'UNKNOWN'if any(g['verdict']=='UNKNOWN'for g in rows)else'SCOPED_PASS'}
++ groups={'schema':'CURRENT390_RECOMPUTED_GROUPS','model_hash':binding['model_digest'],'fresh_result_digest':D(res),'original_result_digest':D(new_result),'rows':rows,'review_verdict':'FAIL'if any(g['verdict']=='FAIL'for g in rows)else'UNKNOWN'if any(g['verdict']=='UNKNOWN'for g in rows)else'SCOPED_PASS'}
+  _CACHE={'envelope':env,'result':res,'groups':groups};return copy.deepcopy(_CACHE)
+--- reconstruction357/staging387_current_semantics/guest_closure387.py
++++ reconstruction357/staging390_current_semantics/guest_closure390.py
+@@ -5,7 +5,7 @@
+ import time
+ from common import rows,digest
+ from modules_spatial import rect,intersection,union_area,source_sweeps,difference
+-from living_closure387 import evaluate as living
++from living_closure390 import evaluate as living
+ 
+ def point(p):
+  if type(p)is not list or len(p)!=2 or any(type(x)not in(str,int)for x in p):raise ValueError('EXACT_POINT')
+--- reconstruction357/staging387_current_semantics/historical_readset387.py
++++ reconstruction357/staging390_current_semantics/historical_readset390.py
+@@ -1,7 +1,7 @@
+ """Explicit preflight of unchanged384 historical lexical reads; no proof promotion."""
+ import ast,json
+ from pathlib import Path
+-from frozen387 import bytes_for
++from frozen390 import bytes_for
+ ROOT=Path(__file__).resolve().parent.parent;W=ROOT.parent
+ 
+ def verify():
+--- reconstruction357/staging387_current_semantics/integration387.py
++++ reconstruction357/staging390_current_semantics/integration390.py
+@@ -1,16 +1,16 @@
+-"""Balanced member semantic entrypoint for the supervised387 pipeline."""
+-from gate387 import configure,load_inputs,verify_end,views,ROOT,D
+-from frozen387 import module
++"""Balanced member semantic entrypoint for the supervised390 pipeline."""
++from gate390 import configure,load_inputs,verify_end,views,ROOT,D
++from frozen390 import module
+ 
+ def run_member(folder,expected):
+  configure(folder,expected)
+- from extended387 import run
+- from qualification387 import qualify,RULES
++ from extended390 import run
++ from qualification390 import qualify,RULES
+  i=load_inputs();record,fresh=i['record'],i['fresh'];roles=run(record,fresh);joined=None;raw_join=None;errors={}
+  if 'cohort'in roles['evidence']:
+   try:
+-   raw_join=module(ROOT/'staging386_view_binding/final_join386.py','_current387_final_join386').join(record,fresh,roles,roles['evidence']['cohort'],views(record,fresh))
+-   sealing=module(ROOT/'staging387_current_semantics/semantic_seal387.py','_current387_semantic_seal')
++   raw_join=module(ROOT/'staging386_view_binding/final_join386.py','_current390_final_join386').join(record,fresh,roles,roles['evidence']['cohort'],views(record,fresh))
++   sealing=module(ROOT/'staging390_current_semantics/semantic_seal390.py','_current390_semantic_seal')
+    joined=sealing.seal_current(record,fresh,roles,raw_join)
+   except Exception as error:errors['role_join']=type(error).__name__+':'+str(error)
+  try:q=qualify(record,fresh,roles,joined)
+@@ -19,8 +19,8 @@
+   q={'qualified':False,'parent_verdicts':{k:'UNKNOWN'for k in RULES},'q12_verdict':'UNKNOWN','cohort_closed':False,'missing':['CURRENT_QUALIFICATION_BINDING_OR_PREREQUISITE_FAILURE',errors['qualification']]}
+  end=verify_end()
+  if end!=roles['binding']:raise ValueError('POST_SEMANTIC_BINDING_CHANGED')
+- from gate387 import _load_all
++ from gate390 import _load_all
+  member_binding=_load_all()['binding']
+- return {'schema':'SAME_RUN387_BALANCED_SEMANTIC_QUALIFICATION','binding':member_binding,'semantic_binding':end,'qualification':q,'roles':roles,'raw_role_join':raw_join,'role_join':joined,'errors':errors,
++ return {'schema':'SAME_RUN390_BALANCED_SEMANTIC_QUALIFICATION','binding':member_binding,'semantic_binding':end,'qualification':q,'roles':roles,'raw_role_join':raw_join,'role_join':joined,'errors':errors,
+          'role_evidence_digest':D(roles),'role_join_digest':D(joined)if joined is not None else None,'same_pipeline_run_semantic_execution':True,
+          'current_essential_and_role_kernels_recomputed':True,'fresh_checker_executed_by_semantic_phase':False,'accepted':False,'delivery_allowed':False}
+--- reconstruction357/staging387_current_semantics/kitchen_closure387.py
++++ reconstruction357/staging390_current_semantics/kitchen_closure390.py
+@@ -4,7 +4,7 @@
+ import time
+ from fractions import Fraction as F
+ from common import rows,digest
+-from guest_closure387 import evaluate as guest,point
++from guest_closure390 import evaluate as guest,point
+ from modules_spatial import rect,intersection,union_area,source_sweeps
+ from comparison_metrics import route_metrics
+ 
+--- reconstruction357/staging387_current_semantics/living_closure387.py
++++ reconstruction357/staging390_current_semantics/living_closure390.py
+@@ -20,7 +20,7 @@
+   for rid in bridge.GROUP285_IDS:
+    found=[g for g in groups['rows']if g.get('requirement_id')==rid];need(len(found)==1,'GROUP_INVENTORY');g=found[0];row=rs[rid]
+    need(g['verdict']=='SCOPED_PASS'and row['status']=='PASS_LIMITED','SOURCE_SUBCONDITION:'+rid);need(g['row_hash']==digest(row)and g['witness_hash']==digest(row['evidence']['witness']),'SOURCE_ROW_BINDING');need(row['method']==methods[rid],'SOURCE_METHOD');prereq.append(g)
+-  from network387 import evaluate as network_evaluate
++  from network390 import evaluate as network_evaluate
+   network=network_evaluate(envelope,result,prereq,seconds-(time.monotonic()-start));need(network['verdict']=='SCOPED_PASS','SOURCE_NETWORK')
+   cap=rs['fixture_inventory_use']['evidence']['witness']['capacity'];need(cap['errors']==[]and cap['pending']==[]and cap['evidence']['status']=='PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY','SOURCE_CAPACITY');need(cap['evidence']['model_hash']==mh,'CAPACITY_MODEL')
+   unitrows=[]
+--- reconstruction357/staging387_current_semantics/network387.py
++++ reconstruction357/staging390_current_semantics/network390.py
+@@ -1,5 +1,5 @@
+ """New current-view gate around unchanged365 network kernel; no old verdict reuse."""
+-from gate387 import validate_views,D
++from gate390 import validate_views,D
+ 
+ def evaluate(envelope,result,prerequisites,seconds):
+  validate_views(envelope,result)
+--- reconstruction357/staging387_current_semantics/primitive387.py
++++ reconstruction357/staging390_current_semantics/primitive390.py
+@@ -1,6 +1,6 @@
+ """Current validated primitive computation; scoped closures only."""
+ import time,importlib,copy
+-from gate387 import D,validate_views
++from gate390 import D,validate_views
+ _CACHE=None
+ def evaluate(model,raw,*,source_profile,post_fresh):
+  global _CACHE
+@@ -9,5 +9,5 @@
+  if _CACHE is not None:return copy.deepcopy(_CACHE)
+  start=time.monotonic();out={}
+  for name in('living','guest','kitchen'):
+-  out[name+'_closure']=importlib.import_module(name+'_closure387').evaluate(env,res,groups,seconds=8 if name!='living'else 6)
++  out[name+'_closure']=importlib.import_module(name+'_closure390').evaluate(env,res,groups,seconds=8 if name!='living'else 6)
+  _CACHE={'source_closures':out,'seconds':time.monotonic()-start,'model_hash':D(model),'raw_hash':D(raw),'fresh_executed':False};return copy.deepcopy(_CACHE)
+--- reconstruction357/staging387_current_semantics/qualification387.py
++++ reconstruction357/staging390_current_semantics/qualification390.py
+@@ -2,15 +2,15 @@
+ No heuristic promotion. Missing/unknown evidence stays unknown; source assumptions
+ and finite comparison limits are retained. Q14 is outside member qualification.
+ """
+-from gate387 import D
++from gate390 import D
+ RULES=('SPACE_ACCOUNTING','GUEST_ROUTE_INDEPENDENCE','LIVING_USEFUL_CONTIGUITY','CIRCULATION_NECESSITY','ROOM_PROGRAM_CAPACITY','BEDROOM_GROUPING','SERVICE_COMPACTNESS','COMMON_CORE_COMPACTNESS','PRIVACY_WITHOUT_FAKE_BAFFLE','OPENINGS_REAL','KITCHEN_PROXIMITY')
+ HTML='046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108'
+ SECTIONS='98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3'
+ 
+ def verify_joined_provenance(record,fresh,roles,joined):
+- from frozen387 import module
+- from gate387 import ROOT
+- sealing=module(ROOT/'staging387_current_semantics/semantic_seal387.py','_current387_qualification_seal')
++ from frozen390 import module
++ from gate390 import ROOT
++ sealing=module(ROOT/'staging390_current_semantics/semantic_seal390.py','_current390_qualification_seal')
+  dag=sealing.expected_dag();tools=sealing.dependency_tools();nodes=joined['nodes'];mh=D(record['candidate']['model'])
+  tools.verify(nodes,dag)
+  if joined['topological_order']!=tools.order(dag):raise ValueError('CURRENT_TOPOLOGICAL_ORDER')
+--- reconstruction357/staging387_current_semantics/reassess_spatial387.py
++++ reconstruction357/staging390_current_semantics/reassess_spatial390.py
+@@ -3,9 +3,9 @@
+ from pathlib import Path
+ import common
+ from common import digest
+-from groups387 import build
+-from support_review387 import evaluate as support
+-from wall_purpose387 import evaluate as walls
++from groups390 import build
++from support_review390 import evaluate as support
++from wall_purpose390 import evaluate as walls
+ ROOT=Path(__file__).resolve().parents[1]
+ def evaluate(record,review):
+  before=digest([record,review]);views=build(record,review,source_profile='SOURCE_BALANCED365');old=common.REGISTRY_NAME
+--- reconstruction357/staging387_current_semantics/role_registry_model387.py
++++ reconstruction357/staging390_current_semantics/role_registry_model390.py
+@@ -61,9 +61,9 @@
+ 
+ def evaluate(record,review,source_profile='SOURCE_BALANCED365'):
+  if source_profile!='SOURCE_BALANCED365':raise ValueError('MODEL_SPECIFIC_SOURCE_GATE_NOT_REGISTERED_NO_358_REUSE')
+- from groups387 import build
+- from reassess_spatial387 import evaluate as spatial
+- from circulation_role387 import evaluate as circulation
++ from groups390 import build
++ from reassess_spatial390 import evaluate as spatial
++ from circulation_role390 import evaluate as circulation
+  before=digest([record,review]);views=build(record,review,source_profile='SOURCE_BALANCED365');model=record['candidate']['model'];old=common.REGISTRY_NAME
+  try:
+   common.REGISTRY_NAME='method_registry_source365.json';req=rows(model,review['raw_report']);rooms=room_inventory(model,req)
+@@ -93,7 +93,7 @@
+   perunit.append({'unit':uid,'whole_unit_verdict':'UNKNOWN','source_room_roles':[r for r in rooms if r['unit']==uid],'capacity_use_access_source_rows':{k:digest(req[k])for k in ('fixture_inventory_use','body_route_sweeps','chair_capacity_movement','bath_service_operation','kitchen_essential_operation','guest_living_route','guest_dining_route','serving_route')},'current_source_public_extent_unresolved_m2':sr['unresolved_area_m2'],'entry_component_targets':[c['required_targets_served']for c in cr['entry_circulation_components']],'exact_pending':pending,'not_a_parent_acceptance_filter':True})
+  nodes['Q12_PER_UNIT']={'status':'UNKNOWN_PER_UNIT_ROLE_DEPENDENCIES','evidence':perunit,'scope':'Direct same-model per-unit source capacity/use/access evidence and role gaps; no all12-PASS prerequisite and no dependency on Q12 verdict.'}
+  nodes['Q14_SELECTION_SET']={'status':'UNKNOWN_SELECTION_SET_NOT_SUPPLIED','evidence':{'raw_requested_count':record['candidate']['request']['requested_count'],'actual_supplied_candidate_count':1,'actual_selection_set':None,'rule':'Single internal candidate is not a demonstrated final selection set. Requested count is not generated-set evidence. No N_A inferred from absent set.'}}
+- from common_role_closure387 import evaluate as common_evaluate
++ from common_role_closure390 import evaluate as common_evaluate
+  common_proof=common_evaluate(record,review)
+  if common_proof['model_hash']!=mh or common_proof['raw_review_digest']!=digest(review)or common_proof['verdict']!='PASS_SCOPED_CONCEPTUAL_COMMON_TRANSFER_JUNCTION_ROLE':raise ValueError('COMMON365_SOURCE_CLOSURE_BINDING')
+  nodes['COMMON_ROLE']={'status':common_proof['verdict'],'evidence':common_proof}
+--- reconstruction357/staging387_current_semantics/room387.py
++++ reconstruction357/staging390_current_semantics/room390.py
+@@ -3,14 +3,14 @@
+ import json,hashlib,time
+ from common import digest
+ from intrinsic_access365 import bound_rows,require_row,need,evaluate as access
+-from guest_closure387 import transformed_rect
++from guest_closure390 import transformed_rect
+ from modules_spatial import rect,difference
+ from applicability import rliv_applicability
+ HERE=Path(__file__).resolve().parent;BASE=HERE.parent
+ 
+ def view_for(record,result,profile):
+  need(profile=='SOURCE_BALANCED365','UNREGISTERED_PROFILE')
+- from groups387 import build
++ from groups390 import build
+  return build(record,result,source_profile=profile)
+ 
+ def bundle_inventory(m,rs):
+@@ -42,7 +42,7 @@
+   for key in('containment_all_entities','unit_independence','body_route_sweeps','fixture_inventory_use','closet_operation','program_functional_roles','bath_service_operation','kitchen_essential_operation','door_operation','private_grouping','zero_laundry'):require_row(rs,key)
+   need(rs['zero_laundry']['evidence']['witness']['forbidden_entities']==[]and rs['zero_laundry']['evidence']['witness']['entity_count']>0,'LAUNDRY_PRESENT_OR_EMPTY_INVENTORY');units=bundle_inventory(m,rs)
+   intrinsic=access(m,raw,profile);need(intrinsic['verdict']=='PASS_SCOPED_INTRINSIC_ACCESS','H07_OR_ARRIVAL_INCOMPLETE')
+-  from primitive387 import evaluate as primitive_evaluate
++  from primitive390 import evaluate as primitive_evaluate
+   quality=primitive_evaluate(m,raw,source_profile=source_profile,post_fresh={'envelope':view['envelope'],'result':view['result'],'groups':view['groups'],'seconds':10})
+   closures=quality['source_closures'];need(closures['guest_closure']['verdict']=='PASS_SCOPED_FOUR_SOURCE_GUEST_RELATIONS','GUEST_ACCESS_REQUIRED');need(closures['kitchen_closure']['verdict']=='PASS_SCOPED_ESSENTIAL_KITCHEN_RELATIONS','KITCHEN_USE_REQUIRED');need(closures['living_closure']['verdict']=='PASS_SCOPED_INTRINSIC_LIVING','LIVING_USE_REQUIRED')
+   trigger=rliv_applicability(m);need(trigger['state']=='NOT_APPLICABLE','R_LIV_APPLICABLE_OR_SCOPE_UNKNOWN_REQUIRES_RATIO_AND_TWO_OPTIONS')
+--- reconstruction357/staging387_current_semantics/semantic387.py
++++ reconstruction357/staging390_current_semantics/semantic390.py
+@@ -1,7 +1,7 @@
+-"""Current387 essential semantic computation; unresolved role DAG stays UNKNOWN."""
++"""Current390 essential semantic computation; unresolved role DAG stays UNKNOWN."""
+ import ast,json,sys,time,copy
+ from fractions import Fraction as F
+-from gate387 import HERE,ROOT,D,validate
++from gate390 import HERE,ROOT,D,validate
+ SEM=ROOT/'semantic_rules357'
+ sys.path.insert(0,str(SEM));sys.path.insert(0,str(HERE))
+ RULES=('SPACE_ACCOUNTING','GUEST_ROUTE_INDEPENDENCE','LIVING_USEFUL_CONTIGUITY','CIRCULATION_NECESSITY','ROOM_PROGRAM_CAPACITY','BEDROOM_GROUPING','SERVICE_COMPACTNESS','COMMON_CORE_COMPACTNESS','PRIVACY_WITHOUT_FAKE_BAFFLE','OPENINGS_REAL','KITCHEN_PROXIMITY','DISTINCTNESS_AND_FAIRNESS')
+@@ -22,22 +22,22 @@
+ def run(record,fresh):
+  start=time.monotonic();binding=validate(record,fresh);before=D([record,fresh]);m=record['candidate']['model'];raw=fresh['raw_report'];evidence={};errors={}
+  import common
+- from adapters387 import audit_loaded
++ from adapters390 import audit_loaded
+  origins_before=audit_loaded()
+  common.REGISTRY_NAME='method_registry_source365.json'
+- from groups387 import build
++ from groups390 import build
+  view=build(record,fresh);evidence['nine_prerequisites']=view['groups']
+  def capture(key,fn):
+   try:evidence[key]=fn()
+   except Exception as error:errors[key]=type(error).__name__+':'+str(error)
+- from primitive387 import evaluate as primitive
++ from primitive390 import evaluate as primitive
+  capture('primitive',lambda:primitive(m,raw,source_profile='SOURCE_BALANCED365',post_fresh={**view,'seconds':10}))
+- import closure_openings,intrinsic_access365,room387,eligibility387,bedroom387,author233_spatial_mapping
++ import closure_openings,intrinsic_access365,room390,eligibility390,bedroom390,author233_spatial_mapping
+  capture('openings',lambda:closure_openings.evaluate(m,raw))
+  capture('intrinsic_access',lambda:intrinsic_access365.evaluate(m,raw,profile='SOURCE_BALANCED365'))
+- capture('intrinsic_eligibility',lambda:eligibility387.evaluate(record,fresh,seconds=30))
+- capture('room_program',lambda:room387.evaluate(record,fresh))
+- capture('bedroom_grouping',lambda:bedroom387.evaluate(record,fresh,seconds=15))
++ capture('intrinsic_eligibility',lambda:eligibility390.evaluate(record,fresh,seconds=30))
++ capture('room_program',lambda:room390.evaluate(record,fresh))
++ capture('bedroom_grouping',lambda:bedroom390.evaluate(record,fresh,seconds=15))
+  capture('q04_baseline365',lambda:q04(m))
+  closures=evidence.get('primitive',{}).get('source_closures',{})
+  capture('author_mapping',lambda:author233_spatial_mapping.evaluate(view['envelope'],closures.get('living_closure',{}),closures.get('guest_closure',{})))
+@@ -54,7 +54,7 @@
+  'DISTINCTNESS_AND_FAIRNESS':['ONLY_ONE_BRANCH_OF_TWO_REQUESTED','NO_QUALIFIED_OPTION_SET']}
+  quality=[]
+  for rid in RULES:
+-  entry={'rule_id':rid,'verdict':'UNKNOWN','model_digest':binding['model_digest'],'scope':'CURRENT387_PRIMITIVES_BEFORE_FINAL_JOIN','missing':missing.get(rid,['INDEPENDENT_AUDIT_OF_CURRENT_EVIDENCE_REQUIRED']),'base_result':base.get(rid),'old_parent_pass_reused':False}
++  entry={'rule_id':rid,'verdict':'UNKNOWN','model_digest':binding['model_digest'],'scope':'CURRENT390_PRIMITIVES_BEFORE_FINAL_JOIN','missing':missing.get(rid,['INDEPENDENT_AUDIT_OF_CURRENT_EVIDENCE_REQUIRED']),'base_result':base.get(rid),'old_parent_pass_reused':False}
+   if rid in missing:entry['blocker_kind']='TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION'
+   keys={'OPENINGS_REAL':'openings','LIVING_USEFUL_CONTIGUITY':'primitive','GUEST_ROUTE_INDEPENDENCE':'primitive','KITCHEN_PROXIMITY':'primitive','ROOM_PROGRAM_CAPACITY':'room_program','BEDROOM_GROUPING':'bedroom_grouping'}
+   key=keys.get(rid)
+@@ -63,4 +63,4 @@
+  origins_after=audit_loaded()
+  validate(record,fresh)
+  if D([record,fresh])!=before:raise ValueError('INPUT_MUTATION')
+- return {'schema':'CURRENT387_ESSENTIAL_SEMANTICS','binding':binding,'module_origins':{'before':origins_before,'after':origins_after},'quality':quality,'evidence':evidence,'errors':errors,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in evidence.items()},'fresh_checker_executed':False,'construction_executed':False,'semantic_reassessment_executed':True,'same_pipeline_run_semantic_execution':True,'semantic_qualification':'UNKNOWN_PENDING_FULL_ROLE_AND_COMPARISON_CLOSURE','accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
++ return {'schema':'CURRENT390_ESSENTIAL_SEMANTICS','binding':binding,'module_origins':{'before':origins_before,'after':origins_after},'quality':quality,'evidence':evidence,'errors':errors,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in evidence.items()},'fresh_checker_executed':False,'construction_executed':False,'semantic_reassessment_executed':True,'same_pipeline_run_semantic_execution':True,'semantic_qualification':'UNKNOWN_PENDING_FULL_ROLE_AND_COMPARISON_CLOSURE','accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
+--- reconstruction357/staging387_current_semantics/semantic_seal387.py
++++ reconstruction357/staging390_current_semantics/semantic_seal390.py
+@@ -2,8 +2,8 @@
+ Raw386 role join is retained separately. This derives no new geometric verdict.
+ """
+ import ast,copy
+-from gate387 import D,ROOT
+-from frozen387 import bytes_for,module
++from gate390 import D,ROOT
++from frozen390 import bytes_for,module
+ CAPACITY=('fixture_inventory_use','body_route_sweeps','chair_capacity_movement','bath_service_operation','kitchen_essential_operation','guest_living_route','guest_dining_route','serving_route')
+ 
+ def expected_dag():
+@@ -18,7 +18,7 @@
+  ns={'copy':copy,'ORIGINAL_DAG':dag};exec(compile(ast.Module(body=selected,type_ignores=[]),'<UNCHANGED_FINAL_DAG>','exec'),ns)
+  return ns['DAG']
+ 
+-def dependency_tools():return module(ROOT/'semantic_rules357/role_dependency_seal367.py','_current387_unchanged_dependency_seal')
++def dependency_tools():return module(ROOT/'semantic_rules357/role_dependency_seal367.py','_current390_unchanged_dependency_seal')
+ 
+ def seal_current(record,fresh,roles,joined):
+  before=D([record,fresh,roles,joined]);mh=D(record['candidate']['model']);binding={'record_digest':D(record),'fresh_digest':D(fresh),'model_digest':mh}
+@@ -48,7 +48,7 @@
+  tools=dependency_tools();nodes=tools.seal(nodes,dag)
+  for unit in nodes['Q12_PER_UNIT']['evidence']:unit['dependency_digests']={k:D(nodes[k])for k in dag['Q12_PER_UNIT']}
+  nodes=tools.seal(nodes,dag);tools.verify(nodes,dag)
+- out.update(schema='CURRENT387_CANONICALLY_SEALED_ROLE_DAG',nodes=nodes,topological_order=tools.order(dag),model_hash=mh,record_digest=D(record),review_digest=D(fresh),raw_role_join_digest=D(joined),dependency_dag_source='UNMODIFIED_BALANCED365_EXPANDED367_V3_DAG',new_geometric_verdicts_added=False)
++ out.update(schema='CURRENT390_CANONICALLY_SEALED_ROLE_DAG',nodes=nodes,topological_order=tools.order(dag),model_hash=mh,record_digest=D(record),review_digest=D(fresh),raw_role_join_digest=D(joined),dependency_dag_source='UNMODIFIED_BALANCED365_EXPANDED367_V3_DAG',new_geometric_verdicts_added=False)
+  for name,proof in out['parent_evidence'].items():
+   if name=='DISTINCTNESS_AND_FAIRNESS':continue
+   proof['unsealed_parent_evidence_digest']=D(joined['parent_evidence'][name])
+--- reconstruction357/staging387_current_semantics/service387.py
++++ reconstruction357/staging390_current_semantics/service390.py
+@@ -6,7 +6,7 @@
+ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/"finite_comparison358"))
+ from service_component_policy359 import *
+ import types
+-from groups387 import build as build365
++from groups390 import build as build365
+ from group_readsets362 import build as build362
+ H=ROOT/'semantic_rules357'
+ REQUIRED=('bath_service_operation','fixture_inventory_use','body_route_sweeps','door_operation','serving_route','bath_nonprivate_access','partition_ledger')
+--- reconstruction357/staging387_current_semantics/support_review387.py
++++ reconstruction357/staging390_current_semantics/support_review390.py
+@@ -6,7 +6,7 @@
+ from common import rows,digest
+ from supporting_floor import analyze
+ from modules_spatial import rect,intersection,union_area,difference
+-from living_closure387 import evaluate as living
++from living_closure390 import evaluate as living
+ from door_reservations import derive as door_reservations
+ 
+ def evaluate(envelope,result,groups,seconds=20):
+--- reconstruction357/staging387_current_semantics/test387.py
++++ reconstruction357/staging390_current_semantics/test390.py
+@@ -3,7 +3,7 @@
+ from pathlib import Path
+ from unittest.mock import patch
+ H=Path(__file__).resolve().parent;W=H.parents[1];sys.path.insert(0,str(H))
+-import gate387 as g
++import gate390 as g
+ class GateTests(unittest.TestCase):
+  def setUp(self):
+   old=W/'independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636'
+@@ -14,11 +14,12 @@
+   g._STATE=None
+   self.contract=types.SimpleNamespace(validate_member_folder=lambda *a,**k:copy.deepcopy(self.data),validate_member=lambda env,r,f,b,rid,kind:copy.deepcopy(b))
+   self.p=patch.object(g,'_contract',return_value=self.contract);self.p.start()
+- def tearDown(self):self.p.stop();g._STATE=None;self.tmp.cleanup()
++  self.cache=patch('frozen390.configure');self.cache_mock=self.cache.start()
++ def tearDown(self):self.cache.stop();self.p.stop();g._STATE=None;self.tmp.cleanup()
+  def test_no_unconfigured_authority(self):
+   with self.assertRaises(ValueError):g.load_inputs()
+  def test_mock_current_gate_binding(self):
+-  b=g.configure(self.folder,'MOCK_FREEZE');self.assertEqual(b['model_digest'],self.data['fresh']['model_digest']);self.assertEqual(b['authority'],'SAME_RUN_SUPERVISED387_MEMBER')
++  b=g.configure(self.folder,'MOCK_FREEZE');self.assertEqual(b['model_digest'],self.data['fresh']['model_digest']);self.assertEqual(b['authority'],'SAME_RUN_SUPERVISED390_MEMBER');self.cache_mock.assert_called_once_with('MOCK_FREEZE')
+  def test_configure_once(self):
+   g.configure(self.folder,'MOCK_FREEZE')
+   with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
+@@ -38,7 +39,7 @@
+   (self.folder/'binding.json').write_text('{}')
+   with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
+  def test_views_bound_to_current_inputs(self):
+-  g.configure(self.folder,'MOCK_FREEZE');env,res,b=g.views(self.data['record'],self.data['fresh']);g.validate_views(env,res);env['packet']['world_model']['inputs'][0]='27'
++  g.configure(self.folder,'MOCK_FREEZE');env,res,b=g.views(self.data['record'],self.data['fresh']);g.validate_views(env,res);self.assertTrue(env['same_pipeline_run']);self.assertFalse(env['artifact_reassessment_only']);self.assertTrue(res['same_pipeline_run']);env['packet']['world_model']['inputs'][0]='27'
+   with self.assertRaises(ValueError):g.validate_views(env,res)
+  def test_wrong_member_kind_folder(self):
+   with self.assertRaises(ValueError):g.configure(self.folder.parent,'MOCK_FREEZE')
+@@ -49,21 +50,21 @@
+    for n in ast.walk(ast.parse(p.read_text())):
+     if isinstance(n,ast.ImportFrom):self.assertNotIn(n.module,('source378','evaluate378','checker114','constructor378','source383','evaluate383'))
+  def test_no_pinned_prior_input_loader(self):
+-  s=(H/'gate387.py').read_text();self.assertNotIn('inputs.json',s);self.assertIn('validate_member_folder',s)
++  s=(H/'gate390.py').read_text();self.assertNotIn('inputs.json',s);self.assertIn('validate_member_folder',s)
+ class QualificationTests(unittest.TestCase):
+  def setUp(self):
+   p=W/'independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636';self.r=json.loads((p/'record.json').read_text());self.f=json.loads((p/'fresh.json').read_text());self.roles=json.loads((W/'review381_actual_v1/result.json').read_text())
+  def test_stored_primitives_not_member_admission(self):
+-  from qualification387 import qualify
++  from qualification390 import qualify
+   q=qualify(self.r,self.f,self.roles,None)
+   self.assertFalse(q['qualified']);self.assertEqual(q['q12_verdict'],'UNKNOWN');self.assertFalse(q['cohort_closed'])
+   for k in('OPENINGS_REAL','LIVING_USEFUL_CONTIGUITY','GUEST_ROUTE_INDEPENDENCE','KITCHEN_PROXIMITY','ROOM_PROGRAM_CAPACITY','BEDROOM_GROUPING','SERVICE_COMPACTNESS'):self.assertEqual(q['parent_verdicts'][k],'PASS')
+  def test_evidence_digest_tamper_rejected(self):
+-  from qualification387 import qualify
++  from qualification390 import qualify
+   self.roles['evidence']['exact_balance']['verdict']='PASS_FAKE'
+   with self.assertRaises(ValueError):qualify(self.r,self.f,self.roles,None)
+  def test_join_wrong_identity_rejected(self):
+-  from qualification387 import qualify
++  from qualification390 import qualify
+   with self.assertRaises(ValueError):qualify(self.r,self.f,self.roles,{'binding':{'record_digest':'wrong'}})
+ class CanonicalSealTests(unittest.TestCase):
+  @classmethod
+@@ -82,7 +83,7 @@
+   join=direct(R/'staging386_view_binding/final_join386.py','_pure_test_join386')
+   cls.raw=join.join(cls.r,cls.f,cls.roles,cls.cohort,views(cls.r,cls.f))
+  def contexts(self):
+-  import semantic_seal387 as sealing
++  import semantic_seal390 as sealing
+   return sealing,patch.object(sealing,'bytes_for',side_effect=lambda p:Path(p).read_bytes()),patch.object(sealing,'module',side_effect=self.direct)
+  def test_canonical_seal_and_all_unit_sources(self):
+   sealing,a,b=self.contexts()
+@@ -91,10 +92,10 @@
+    node=out['nodes']['Q12_PER_UNIT'];self.assertIn('Q04_COMPARISON',node['sealed_dependency_digests'])
+    for u in node['evidence']:self.assertTrue(u['source_room_roles']);self.assertEqual(set(u['capacity_use_access_source_rows']),set(sealing.CAPACITY))
+  def test_complete_qualified_only_with_exact_sealed_provenance(self):
+-  import frozen387
+-  from qualification387 import qualify
++  import frozen390
++  from qualification390 import qualify
+   sealing,a,b=self.contexts()
+-  with a,b,patch.object(frozen387,'module',return_value=sealing):
++  with a,b,patch.object(frozen390,'module',return_value=sealing):
+    out=sealing.seal_current(self.r,self.f,self.roles,self.raw)
+    q=qualify(self.r,self.f,self.roles,out);self.assertTrue(q['qualified']);self.assertEqual(set(q['parent_verdicts'].values()),{'PASS'})
+    for alteration in ('dependency','unit_source','balance'):
+@@ -106,17 +107,17 @@
+ class PinRegressionTests(unittest.TestCase):
+  def test_version_copy_preserves_other_hex_pins(self):
+   import re
+-  old=H.parent/'staging385_current_semantics'
++  old=H.parent/'staging387_current_semantics'
+   wrong='952dbed32324f2d48d1428293bf68c438556801c70b9008168dea041f7365524'
+   fixed='952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524'
+   for p in old.glob('*.py'):
+    if p.name.startswith('test'):continue
+    expected=set(re.findall(r'\b[0-9a-f]{64}\b',p.read_text()))
+-   if p.name=='balanced_access385.py':expected.discard(wrong);expected.add(fixed)
+-   self.assertEqual(expected,set(re.findall(r'\b[0-9a-f]{64}\b',(H/p.name.replace('385','387')).read_text())),p.name)
++   if p.name=='balanced_access387.py':expected.discard(wrong);expected.add(fixed)
++   self.assertEqual(expected,set(re.findall(r'\b[0-9a-f]{64}\b',(H/p.name.replace('387','390')).read_text())),p.name)
+ 
+  def test_correct_balance_pins_equal_actual_frozen_bytes(self):
+-  p=H/'balanced_access387.py';tree=ast.parse(p.read_text())
++  p=H/'balanced_access390.py';tree=ast.parse(p.read_text())
+   pins=ast.literal_eval(next(n.value for n in tree.body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id=='PINS'for t in n.targets)))
+   old=json.loads((W/'review385_preaudit/source_freeze.json').read_text())['files']
+   for path,sha in pins.items():
+@@ -126,7 +127,7 @@
+   for row in json.loads((H/'source_relation.json').read_text()):
+    self.assertEqual(hashlib.sha256((W/row['source']).read_bytes()).hexdigest(),row['source_sha256'])
+  def test_complete_historical_readset_preflight(self):
+-  import historical_readset387 as h
++  import historical_readset390 as h
+   with patch.object(h,'bytes_for',side_effect=lambda p:Path(p).read_bytes()):out=h.verify()
+   target='reconstruction357/review357_source_identity/result.json'
+   self.assertEqual(out['files'][target],'e9a209ea670d380dc5fd74dac8c65169557eb72f20585d80120490050ae39824')
+@@ -135,7 +136,7 @@
+   proof=json.loads((H.parent/'semantic_rules357/eligibility_intrinsic_actual357_finalpin.json').read_text())
+   self.assertEqual(g.D(json.loads((W/target).read_text())),proof['evidence']['new_result_digest'])
+  def test_missing_historical_pin_fails_before_compute(self):
+-  import historical_readset387 as h
++  import historical_readset390 as h
+   def denied(p):
+    if str(p).endswith('review357_source_identity/result.json'):raise ValueError('UNREGISTERED_FROZEN_DEPENDENCY')
+    return Path(p).read_bytes()
+--- reconstruction357/staging387_current_semantics/wall_origin387.py
++++ reconstruction357/staging390_current_semantics/wall_origin390.py
+@@ -7,7 +7,7 @@
+ ROOT=Path(__file__).resolve().parents[1];HERE=ROOT/'staging365_balanced_portals';SRC=ROOT/'planha_general150_runtime_work'
+ def load_origin(record):
+  trace=record['trace'];c=record['candidate'];m=c['model']
+- from gate387 import load_inputs,validate
++ from gate390 import load_inputs,validate
+  validate(record,load_inputs()['fresh'])
+  for name,sha in trace['source_inventory'].items():
+   if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=sha:raise ValueError('SOURCE_BALANCED365_ORIGIN_SOURCE_DRIFT')
+--- reconstruction357/staging387_current_semantics/wall_purpose387.py
++++ reconstruction357/staging390_current_semantics/wall_purpose390.py
+@@ -7,7 +7,7 @@
+ from common import rows,digest
+ from modules_spatial import rect,intersection,difference,union_area
+ from guest_closure import transformed_rect
+-from wall_origin387 import base as bound_base365,hall as bound_hall365
++from wall_origin390 import base as bound_base365,hall as bound_hall365
+ ROOT=Path(__file__).resolve().parents[1];SRC=ROOT/'planha_general150_runtime_work'
+ def touches(a,b):
+  return ((a[2]==b[0]or b[2]==a[0])and min(a[3],b[3])>max(a[1],b[1]))or((a[3]==b[1]or b[3]==a[1])and min(a[2],b[2])>max(a[0],b[0]))
+--- reconstruction357/staging387_current_semantics/worker387.py
++++ reconstruction357/staging390_current_semantics/worker390.py
+@@ -3,7 +3,7 @@
+ from pathlib import Path
+ P=Path(sys.argv[1]);start=time.monotonic()
+ try:
+- from integration387 import run_member
++ from integration390 import run_member
+  result=run_member(P,sys.argv[2])
+  with(P/'semantic.json').open('x')as f:json.dump(result,f,indent=2)
+ except Exception as error:

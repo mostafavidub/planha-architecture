@@ -1,0 +1,35 @@
+{
+  "worker_returncode": 0,
+  "reason": "COMPLETED",
+  "worker_reaped": true,
+  "tracked_processes": [
+    {
+      "pid": 5,
+      "create_time": 1794846703.13
+    },
+    {
+      "pid": 6,
+      "create_time": 1794846703.18
+    },
+    {
+      "pid": 7,
+      "create_time": 1794846703.86
+    },
+    {
+      "pid": 8,
+      "create_time": 1794846730.19
+    },
+    {
+      "pid": 9,
+      "create_time": 1794846731.21
+    },
+    {
+      "pid": 26,
+      "create_time": 1794846789.97
+    }
+  ],
+  "unresolved": [],
+  "cleanup_verified": true,
+  "elapsed_seconds": 87.42061260700211,
+  "delivery_allowed": false
+}

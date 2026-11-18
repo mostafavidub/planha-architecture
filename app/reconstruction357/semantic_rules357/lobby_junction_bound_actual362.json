@@ -1,0 +1,109 @@
+{
+  "verdict": "PASS_RECTANGULAR_FIXED_PORTAL_BOUND_ONLY",
+  "parent_complete": false,
+  "delivery_allowed": false,
+  "live_authority": false,
+  "missing": [
+    "CURRENT_SOURCE_REQUIRED_ARRIVAL_TRANSFER_ONWARD_USE",
+    "WHOLE_JUNCTION_ROLE_SCOPE_REVIEW",
+    "ELIGIBLE_FINITE_COMPARISON_PROTECTED_VECTOR"
+  ],
+  "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+  "record_digest": "908cd2bc9e944433da3e38bc60f0cc7e57f11a2f3d9f5fa53d06fffb75a6ca28",
+  "ports": [
+    {
+      "id": "A.entry",
+      "side": "bottom",
+      "connects": [
+        "lobby",
+        "A.public_access"
+      ],
+      "opening_rect": [
+        "13.175",
+        "12.475",
+        "14.475",
+        "12.625"
+      ],
+      "body_approach": [
+        "539/40",
+        "101/8",
+        "567/40",
+        "533/40"
+      ]
+    },
+    {
+      "id": "B.entry",
+      "side": "top",
+      "connects": [
+        "lobby",
+        "B.public_access"
+      ],
+      "opening_rect": [
+        "13.175",
+        "15.375",
+        "14.475",
+        "15.525"
+      ],
+      "body_approach": [
+        "539/40",
+        "587/40",
+        "567/40",
+        "123/8"
+      ]
+    },
+    {
+      "id": "stair.entry",
+      "side": "left",
+      "connects": [
+        "stair",
+        "lobby"
+      ],
+      "opening_rect": [
+        "12.975",
+        "13.55",
+        "13.125",
+        "14.45"
+      ],
+      "body_approach": [
+        "105/8",
+        "273/20",
+        "553/40",
+        "287/20"
+      ]
+    },
+    {
+      "id": "lift.entry",
+      "side": "right",
+      "connects": [
+        "lift",
+        "lobby"
+      ],
+      "opening_rect": [
+        "15.775",
+        "13.85",
+        "15.925",
+        "14.95"
+      ],
+      "body_approach": [
+        "603/40",
+        "281/20",
+        "631/40",
+        "59/4"
+      ]
+    }
+  ],
+  "rectangle": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "minimum_rectangle": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "area_m2": "583/80",
+  "engineering_assumption": "Axis-aligned single rectangle with immutable portal faces and centered inboard source-body approach poses. No moved-portal or other-topology claim."
+}

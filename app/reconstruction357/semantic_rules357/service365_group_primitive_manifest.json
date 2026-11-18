@@ -1,0 +1,22 @@
+{
+  "files": {
+    "group_readsets_service365.py": "d3091aedbebe9e926ff46b1ad8028a8d1f0d9b3f54de555d743ac9f60cb6431d",
+    "group_readsets_service365_pins.json": "94513acbe1e1201621703c54fecfec06ac03948c9051578323efa077df64aaef",
+    "method_registry_service365.json": "ceeebd989b5ebcee61c73e522567ef31fb5bd173fdb641d98f25b1adee43b7a3",
+    "test_group_readsets_service365.py": "22af0c7c96e176351cb1993fe596c45084012bbc63019e8f14670828c56b64e9",
+    "group_readsets_service_actual365.json": "82e620b129662d9bdaf13ac276667e46e48781b4ed495b16635c4ccc5aa54485",
+    "service365_gate_setup_failure.json": "fcafe4bcfb53b5e1dacaf0367a7b055190d006214e8c46afc941879fd130ca99",
+    "primitive_review_service365.py": "c232642c5fff419b9be86cd83147a6173b18efde250d9aa67ea9ce8c234f6b86",
+    "primitive_review_service365_manifest.json": "f37deded7c4f4230742ae83ae3fd602d85e7eda60d5396fdc6e41b9369eef5f3",
+    "primitive_review_service_actual365.json": "98da524340b35b22018152c31e730abdd83cec75b56853e73b8e3f57b776a13d",
+    "test_primitive_service365.py": "fb7babf39e3556d065b31ef0781b5e483c4a5c572802354eb34da5b7c78cb101",
+    "living_closure_service365.py": "4f06f16cf9f89abc8f81c17a6b0492797455fb01dcca4b08fe90b2a4ab8b9053",
+    "guest_closure_service365.py": "c17faf3f2af6a66a4f5c24b776c084e7f0fbdc8e8f2430b870c6d2bad4453168",
+    "kitchen_closure_service365.py": "b2a53e98a30cbaead217fcdddd31125060338294c742c7cbc6f538e4f878edf8",
+    "SERVICE365_GROUP_PRIMITIVE_FA.md": "885c7b9ae58607d5d2dc36f0c2f46386fe4758192f54b3c8d051300ed96f660c"
+  },
+  "gate_tests": 6,
+  "primitive_negative_tests": 4,
+  "positive_primitive_reassessment": 1,
+  "new_fresh": 0
+}

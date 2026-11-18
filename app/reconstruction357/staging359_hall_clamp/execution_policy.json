@@ -1,0 +1,8 @@
+{
+  "wall_timeout_seconds": 120,
+  "max_distinct_candidates": 1,
+  "retry_reason": "AUDITED_RESOURCE_BINDING_ONLY_PREGEOMETRY_FAILURE",
+  "solver_allowed": false,
+  "fresh_allowed": false,
+  "started_utc": "2026-11-16T10:25:53.475661+00:00"
+}

@@ -1,0 +1,499 @@
+{
+  "schema": "JOINT367_CURRENT_FRESH_ACCESS_METRICS",
+  "verdict": "PASS_SCOPED_EXACT_BALANCED_CURRENT_SOURCE_ACCESS",
+  "model_hash": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+  "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+  "fresh_result_digest": "e3214547e6eaf74f28463011be8c1108b0338d421161dc17fe358acb777a68ab",
+  "comparisons": [
+    {
+      "origin": "stair",
+      "equal_fixed_source_metrics": true,
+      "length_A_m": "19/5",
+      "length_B_m": "19/5",
+      "turns_A": 1,
+      "turns_B": 1,
+      "square_capacity_A_m": "9/10",
+      "square_capacity_B_m": "9/10",
+      "body_m": "7/10",
+      "scope": "Same-source fixed actual centerline, static plus fully-open entry passage; movement operations separately fresh-checked, not all-state simultaneous traversal."
+    },
+    {
+      "origin": "lift",
+      "equal_fixed_source_metrics": true,
+      "length_A_m": "19/5",
+      "length_B_m": "19/5",
+      "turns_A": 1,
+      "turns_B": 1,
+      "square_capacity_A_m": "11/10",
+      "square_capacity_B_m": "11/10",
+      "body_m": "7/10",
+      "scope": "Same-source fixed actual centerline, static plus fully-open entry passage; movement operations separately fresh-checked, not all-state simultaneous traversal."
+    }
+  ],
+  "recomputed_route_evidence": [
+    {
+      "route_id": "lift_A",
+      "actual_path": [
+        [
+          "16.325",
+          "14.2916666666666666666666666666666666666666666666666666666667"
+        ],
+        [
+          "14.7416666666666666666666666666666666666666666666666666666667",
+          "14.2916666666666666666666666666666666666666666666666666666667"
+        ],
+        [
+          "14.7416666666666666666666666666666666666666666666666666666667",
+          "12.075"
+        ]
+      ],
+      "source_domain_digest": "9270e7c7888fb9fdc1a7f5948ec1545e94b92fcf99c46a639ab96c5cafabd0c2",
+      "obstacle_inventory_digest": "bc6a2d893df0c106d497666b54edbb4c7da58e62e18928589f3fdfba9cbfe5dd",
+      "obstacle_count": 247,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "11/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_22",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_23",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid0",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid1",
+            "half_width_m": "11/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "11/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_22",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_23",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid0",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid1",
+            "half_width_m": "11/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "ea4926f4ce20a8fd8190a52ddbd8a028a1c1a40a86ef9bedaf57e6cf573f5735",
+          "fraction": "1",
+          "open_state_digests": [
+            "4920e158e967e720e96d69e77e33466a068f7922297a5c70e60f05474455905e",
+            "ca0d2b2e5ebeb6f9778d1bade354c5c571afee1a4811377210b77c78cf385b54"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e8afb32f8e68f303021c2b17890c480fb24e906c9d55d5015ee350dd6a20b659",
+          "fraction": "1",
+          "open_state_digests": [
+            "ef31d4ad4c6a34b239b94beb43144864f1987deb657f3a5a059d5041e428fbac",
+            "909b33af959a814078f054cf82a434c4ca90287e7df6c04ceb04b4a5ab23d54e"
+          ]
+        }
+      ],
+      "length_m": "19/5",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "4/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "lift_B",
+      "actual_path": [
+        [
+          "16.325",
+          "14.2916666666666666666666666666666666666666666666666666666667"
+        ],
+        [
+          "14.1583333333333333333333333333333333333333333333333333333333",
+          "14.2916666666666666666666666666666666666666666666666666666667"
+        ],
+        [
+          "14.1583333333333333333333333333333333333333333333333333333333",
+          "15.925"
+        ]
+      ],
+      "source_domain_digest": "b45d44ed01be252934d75a1f24afa6a6bf65fee2598d5fe51ab21d6f25340b30",
+      "obstacle_inventory_digest": "5c542af3d6967c494217c6e0d1ca4f92e11b66ed78c3b6669b05d7beb5affac0",
+      "obstacle_count": 254,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "11/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_25",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_26",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid0",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid1",
+            "half_width_m": "11/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "11/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_25",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_26",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid0",
+            "half_width_m": "11/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.lift.left.solid1",
+            "half_width_m": "11/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "ea4926f4ce20a8fd8190a52ddbd8a028a1c1a40a86ef9bedaf57e6cf573f5735",
+          "fraction": "1",
+          "open_state_digests": [
+            "4920e158e967e720e96d69e77e33466a068f7922297a5c70e60f05474455905e",
+            "ca0d2b2e5ebeb6f9778d1bade354c5c571afee1a4811377210b77c78cf385b54"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e8afb32f8e68f303021c2b17890c480fb24e906c9d55d5015ee350dd6a20b659",
+          "fraction": "1",
+          "open_state_digests": [
+            "ef31d4ad4c6a34b239b94beb43144864f1987deb657f3a5a059d5041e428fbac",
+            "909b33af959a814078f054cf82a434c4ca90287e7df6c04ceb04b4a5ab23d54e"
+          ]
+        }
+      ],
+      "length_m": "19/5",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "4/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "stair_A",
+      "actual_path": [
+        [
+          "12.575",
+          "13.7083333333333333333333333333333333333333333333333333333333"
+        ],
+        [
+          "14.7416666666666666666666666666666666666666666666666666666667",
+          "13.7083333333333333333333333333333333333333333333333333333333"
+        ],
+        [
+          "14.7416666666666666666666666666666666666666666666666666666667",
+          "12.075"
+        ]
+      ],
+      "source_domain_digest": "7c41581c95db6c120429f9708dcb4c859f6b8646473944c5fb4e921fa1e6be5f",
+      "obstacle_inventory_digest": "1f80125c97fb3f7beda5c28950a6a55e381956f392e1f5c177b855768c35affa",
+      "obstacle_count": 249,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_22",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_23",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_22",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_23",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "ea4926f4ce20a8fd8190a52ddbd8a028a1c1a40a86ef9bedaf57e6cf573f5735",
+          "fraction": "1",
+          "open_state_digests": [
+            "4920e158e967e720e96d69e77e33466a068f7922297a5c70e60f05474455905e",
+            "ca0d2b2e5ebeb6f9778d1bade354c5c571afee1a4811377210b77c78cf385b54"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e8afb32f8e68f303021c2b17890c480fb24e906c9d55d5015ee350dd6a20b659",
+          "fraction": "1",
+          "open_state_digests": [
+            "ef31d4ad4c6a34b239b94beb43144864f1987deb657f3a5a059d5041e428fbac",
+            "909b33af959a814078f054cf82a434c4ca90287e7df6c04ceb04b4a5ab23d54e"
+          ]
+        }
+      ],
+      "length_m": "19/5",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "2/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    },
+    {
+      "route_id": "stair_B",
+      "actual_path": [
+        [
+          "12.575",
+          "13.7083333333333333333333333333333333333333333333333333333333"
+        ],
+        [
+          "14.1583333333333333333333333333333333333333333333333333333333",
+          "13.7083333333333333333333333333333333333333333333333333333333"
+        ],
+        [
+          "14.1583333333333333333333333333333333333333333333333333333333",
+          "15.925"
+        ]
+      ],
+      "source_domain_digest": "014dbefe0d9de3ebd427927673b0c62d1a8c1aa539c371bd312df8d01bb734f8",
+      "obstacle_inventory_digest": "14390c47a816cf72b55f6e54348837a87a210113e109de207ea08c1484d1af70",
+      "obstacle_count": 254,
+      "architectural_static_fixed_path_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_25",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_26",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "fully_open_entry_passage_square_capacity": {
+        "max_axis_aligned_square_width_m": "9/10",
+        "limiting_witnesses": [
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_25",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "FLOOR_COMPLEMENT_26",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid0",
+            "half_width_m": "9/20"
+          },
+          {
+            "segment": 0,
+            "obstacle": "WALL:core.stair.right.solid1",
+            "half_width_m": "9/20"
+          }
+        ],
+        "scope": "Fixed recorded centerline, exact static blocked set and frame. Not circular-body clearance or best route, legal width, or universal profile."
+      },
+      "scenario_entry_bindings": [
+        {
+          "opening_id": "A.entry",
+          "operation_digest": "ea4926f4ce20a8fd8190a52ddbd8a028a1c1a40a86ef9bedaf57e6cf573f5735",
+          "fraction": "1",
+          "open_state_digests": [
+            "4920e158e967e720e96d69e77e33466a068f7922297a5c70e60f05474455905e",
+            "ca0d2b2e5ebeb6f9778d1bade354c5c571afee1a4811377210b77c78cf385b54"
+          ]
+        },
+        {
+          "opening_id": "B.entry",
+          "operation_digest": "e8afb32f8e68f303021c2b17890c480fb24e906c9d55d5015ee350dd6a20b659",
+          "fraction": "1",
+          "open_state_digests": [
+            "ef31d4ad4c6a34b239b94beb43144864f1987deb657f3a5a059d5041e428fbac",
+            "909b33af959a814078f054cf82a434c4ca90287e7df6c04ceb04b4a5ab23d54e"
+          ]
+        }
+      ],
+      "length_m": "19/5",
+      "turns": 1,
+      "profile_body_m": "7/10",
+      "profile_feasible_in_declared_scenario": true,
+      "profile_scaled_width_margin": "2/7",
+      "critical_width_recheck": true,
+      "epsilon_exact_m": "1/1000000",
+      "at_bound_valid": true,
+      "above_bound_invalid": true,
+      "unassessed": [
+        "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+        "Hardware/technical stair-lift clearance outside Concept scope"
+      ],
+      "not_claimed": [
+        "GENERAL_ARCHITECTURAL_CLEAR_WIDTH",
+        "BEST_ROUTE_CLEARANCE",
+        "ALL_OPERATION_STATES_FEASIBLE",
+        "BALANCE_ACCEPTANCE"
+      ]
+    }
+  ],
+  "source_pins": {
+    "balance363/assessor.py": "7049854a37e0d60126744704f08079582a4eb8ff15280f3f888c4808b1265372",
+    "balance363/clearance_kernel.py": "8f71fdb97812226fe8c7da769097163de22794bfbfdf533fdaf3fe6761baba8c",
+    "semantic_rules357/comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524"
+  },
+  "fresh_prerequisite_digests": {
+    "core_concept": "7be4147f4e244f948f6907cf7f5a7f9e74c5e33e3f8281344f1271d61e725565",
+    "door_operation": "857944bbbe5a8d4378b57a36c902de4e92e7cb57008ddc589262c7971a1e99c3",
+    "opening_hosts": "b77fddcc17da1e480b90b7ca991ccdf34efe6dabe3b33c58d8412e7072e765b6",
+    "wall_network": "817a4645a832e039ae6cd6eaf2d6ca57575ff2ceea5c1e9521369880ad7c2951",
+    "partition_ledger": "771209197ba76879850b520dcf3387f8952d7cf969cbc3695e8bc41e32b4ca2c"
+  },
+  "scope": "Equality of actual route lengths/turns and independently exact fixed-path square capacities under declared source passage profile; no tolerance invented. Not other profiles, best-route or whole-plan/fair output-set approval.",
+  "source_assumptions_retained": [
+    "Other moving operation states not included in SOURCE_CORE_STATIC_PLUS_FULLY_OPEN_ENTRIES scenario",
+    "Hardware/technical stair-lift clearance outside Concept scope"
+  ],
+  "admission_allowed": false,
+  "new_fresh": false,
+  "whole_parent_complete": false
+}

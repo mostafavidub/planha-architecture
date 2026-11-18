@@ -1,0 +1,76 @@
+{
+  "schema": "FIXED_TWO_MEMBER_CONCEPTUAL_SELECTED_SET367",
+  "members": [
+    {
+      "member": "balanced365",
+      "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+      "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+      "fresh_digest": "4db681280c9563b430dbdd417edbe8d1ff0b87a77e445a06191a1117d3e18a71",
+      "qualification_digest": "8f3eea3ac0c99ea7578c9fee93c4984c4053307cc9fd5440f3c938ca75ca9cd4",
+      "q12_digest": "0316eaf9a9a5bfc8c8b765b28e095c3117276e0b80e704e35384453bd8a11c58",
+      "program_digest": "6659dcff8cb4954f3ebf2d6e7693a4ad8f330cc9a4c9adc787fb6d42f08184b5",
+      "profile_digest": "d9c67380bd637f879d7e114a49b99363b794f49c88983b8cbb1d2e3d9c936499",
+      "request_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+      "unit_ids": [
+        "A",
+        "B"
+      ],
+      "scope": "PINNED_CURRENT_SOURCE_CONCEPTUAL_REVIEW",
+      "parent_scopes": {
+        "SPACE_ACCOUNTING": "CURRENT_BALANCED365_WITH_EXPANDED367_FINITE_DOMAIN",
+        "GUEST_ROUTE_INDEPENDENCE": "All four required source guest relations per unit, complete source private exclusion and conservative source kitchen operations; source open-transit profile only; H07 separate",
+        "LIVING_USEFUL_CONTIGUITY": "Required source seating/use/access connected by verified source body sweeps; no whole residual-use or aesthetic optimum claim; R-LIV exact trigger N_A",
+        "CIRCULATION_NECESSITY": "CURRENT_BALANCED365_WITH_EXPANDED367_FINITE_DOMAIN",
+        "ROOM_PROGRAM_CAPACITY": "H12/H13/Q01 current source required bedroom/closet/program counts, rigid assets, usable operations and access per unit; R-LIV trigger N_A; no IR-P13 comparative grouping or alternative furnishing optimum claim",
+        "BEDROOM_GROUPING": "IR-P13_FINITE_SOURCE_PROFILE: baseline351/translated357/row358/current_balanced365 plus two tested closet counterfactuals; SOURCE0.7_OPEN_TRANSIT; exact source-state net sections; reviewed tradeoffs NOT DOMINANCE/GLOBAL_OPTIMUM/ALL_PLACEMENTS/ALL_JOINT_SCENARIOS",
+        "SERVICE_COMPACTNESS": "Current source117 bath/WC program; same-program actually reviewed365/362/359 cohort, tested room-union minimum and exact source approach/shared circulation reconciliation. Not global minimum, general kitchen services, whole-Q04 or final Q11.",
+        "COMMON_CORE_COMPACTNESS": "CURRENT_BALANCED365_WITH_EXPANDED367_FINITE_DOMAIN",
+        "PRIVACY_WITHOUT_FAKE_BAFFLE": "CURRENT_BALANCED365_WITH_EXPANDED367_FINITE_DOMAIN",
+        "OPENINGS_REAL": "Source233 H08/H10/H11 opening-host, aperture, window geometry and required source operation profile only; no technical core or light/ventilation approval",
+        "KITCHEN_PROXIMITY": "Q07 required source cooking-to-dining and living essential-use relations with protected guest/private access; sequential source operation profile; optional proximity ranking not claimed"
+      }
+    },
+    {
+      "member": "joint367",
+      "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+      "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+      "fresh_digest": "e3214547e6eaf74f28463011be8c1108b0338d421161dc17fe358acb777a68ab",
+      "qualification_digest": "9a2acce8fa08076348a146967f73b87060a3572aee7ec07a2d44ef3ca504fc3a",
+      "q12_digest": "2669c26c8611f723a9c10fb027d969a4b391410bf1466a82e3d34b7d8f6bdad8",
+      "program_digest": "6659dcff8cb4954f3ebf2d6e7693a4ad8f330cc9a4c9adc787fb6d42f08184b5",
+      "profile_digest": "d9c67380bd637f879d7e114a49b99363b794f49c88983b8cbb1d2e3d9c936499",
+      "request_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+      "unit_ids": [
+        "A",
+        "B"
+      ],
+      "scope": "PINNED_CURRENT_SOURCE_CONCEPTUAL_REVIEW",
+      "parent_scopes": {
+        "SPACE_ACCOUNTING": "Current registered joint367 internal Concept review only; no all-domain or output-set admission.",
+        "GUEST_ROUTE_INDEPENDENCE": "All four required source guest relations per unit, complete source private exclusion and conservative source kitchen operations; source open-transit profile only; H07 separate",
+        "LIVING_USEFUL_CONTIGUITY": "Required source seating/use/access connected by verified source body sweeps; no whole residual-use or aesthetic optimum claim; R-LIV exact trigger N_A",
+        "CIRCULATION_NECESSITY": "Current registered joint367 internal Concept review only; no all-domain or output-set admission.",
+        "ROOM_PROGRAM_CAPACITY": "H12/H13/Q01 current source required bedroom/closet/program counts, rigid assets, usable operations and access per unit; R-LIV trigger N_A; no IR-P13 comparative grouping or alternative furnishing optimum claim",
+        "BEDROOM_GROUPING": "IR-P13 FINITE OWN JOINT367 BRANCH; SOURCE OPEN_TRANSIT TASKS; TWO LOCAL LONGITUDINAL PROBES; HISTORICAL SAME_PROGRAM PATH COMPARISON; NOT_GLOBAL_OPTIMUM_OR_NONSHRINK_REPAIR",
+        "SERVICE_COMPACTNESS": "Nonzero source-route cost retained and justified by independent intrinsic access function plus finite noncompensatory comparison. Global service exclusivity and global minimum not claimed.",
+        "COMMON_CORE_COMPACTNESS": "Actual common functional role, finite registered-source comparison and exact equality of source route length/turn/fixed-square capacity; not all-state or technical-core certification.",
+        "PRIVACY_WITHOUT_FAKE_BAFFLE": "Current registered joint367 internal Concept review only; no all-domain or output-set admission.",
+        "OPENINGS_REAL": "Source233 H08/H10/H11 opening-host, aperture, window geometry and required source operation profile only; no technical core or light/ventilation approval",
+        "KITCHEN_PROXIMITY": "Q07 required source cooking-to-dining and living essential-use relations with protected guest/private access; sequential source operation profile; optional proximity ranking not claimed"
+      }
+    }
+  ],
+  "pair_digest": "3a53aceb6f60eaf5732ae2c910e4af808ba73d8f050e6242131b8b2fe8a8d343",
+  "pair_identity": "515130049b1f0d3ba9be5b374a394a9d1ca0f1b267baa7cbcf36530af506cf1f",
+  "registry_sha256": "7fa43802507e03349aeb88af7dfb02fba10cc366707ebc9d10826235e53b083d",
+  "requested_count": 2,
+  "qualified_selected_count": 2,
+  "request_fulfilled_for_fixed_concept_profile": true,
+  "membership_authority": "FIXED_PINNED_REVIEWED_CONCEPT_SET_ONLY",
+  "accepted": false,
+  "delivery_allowed": false,
+  "live_authority": false,
+  "global_domain_complete": false,
+  "scope": "ONLY_FIXED_REQUEST_26x28_N2_COUNT2_AND_REGISTERED_SOURCE_PROGRAM_PROFILE; NOT_GENERAL_MVP_OR_TECHNICAL_APPROVAL",
+  "immutable_set_digest": "2260c47faeb46587737ecc661508467d6e636b5c3440ea2966e3ad35b835a7eb"
+}

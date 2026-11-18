@@ -1,0 +1,13 @@
+{
+  "schema": "FIXED_PRIMITIVE_NO_PARENT_DAG357",
+  "files": {
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "living_closure.py": "4f06f16cf9f89abc8f81c17a6b0492797455fb01dcca4b08fe90b2a4ab8b9053",
+    "guest_closure.py": "979074be240994bc5a7604c500b1e007c4e4021b046978c53e05e0e341552415",
+    "kitchen_closure.py": "204b4b3879cbe8b28dc7f446b28fcd39e768627aee8ca35db813a8642e4387e8",
+    "method_registry.json": "3f8c9b0edefbf84c7b56fe744f7a2fb326aea182913239f1c20beea57ec319bf",
+    "method_registry_source357.json": "24a92b778588d77f7c8df148dcd8486a63b6f8af1a67553929af89df0a768262",
+    "method_registry_identity357.json": "176cc11695235e4a08396cdd7113cfab24b28a43d18db9c0971611ad3b28bb13"
+  }
+}

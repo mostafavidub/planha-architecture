@@ -1,0 +1,20 @@
+{
+  "files": {
+    "construct_supervision.json": "a41f0b8b8f09154e4d9e6fe4a1e2ae18960624b86f2efa0dcaa123c2634e3004",
+    "REPORT.md": "7e719949e6009d6b372ffdc7a8fabb43646b0f5afe5e0a89b04ccf9c95db99e6",
+    "audit_actual369.py": "72b3240578ea9585a654f3bd3dc7ff2e44afe4a8b417514bc45c5d2c6fe53f0f",
+    "preregistration.json": "eb9b84c7d821e75c8b572aac6d313326759daa372610141cf382a45252f1a2a6",
+    "fresh_first.json": "e2e3353357994044bc287e1a3a3929b2a9067ff8a90e3533818cdebe1988b0f9",
+    "preregistered_source_freeze.json": "e13b3957bf7c66678e815060582b97b0224bf754cdc0233688a572cd4407676c",
+    "proposal_result.json": "028151694c7295b7e0168dde0f6fc5cc3697e3128be5abb773aac081145c8bd6",
+    "events.jsonl": "da975d99f91aeee11f5164b91b0ff1eb3acddd186244a2063f0452735cf77325",
+    "fresh_first_supervision.json": "eb355323b1d51f3d8a06ddda4911e19919b34e58a6997f7e5a1461a67769e2e6",
+    "fixture_record.json": "be6f9a79d45851193a13e010e5d2384603f7b313d4c70a566a2cfc45d23df4b8",
+    "cycle_result.json": "ae94cb0750c6eedb6c564ab65b26563b03cbaa5f4f7100e246fd9c1214d17340",
+    "source_unchanged.json": "ac3a0ec61a01f1e1850e1ee33e68a4d09ac2d01130a3aca1c8521caa6a74abfb",
+    "outer_supervision.json": "77c76b2677f34f7919b9a851e748b9e3a0813604e0d820e7523f47d286b0b128",
+    "propose_supervision.json": "68161b3ec27a5b4a3bf6f31f16f8409845d1e46c6f98b1a9eb8cca26f8d190dc",
+    "fixture_binding.json": "667a6a370355793a36fced6b5d2e597028f96cfaace8fb511ac00d096f0f5753",
+    "independent_audit.json": "a97ecc7109a15582400090f76b3d0a3f666ad879390eae0dc10135a95bdb5080"
+  }
+}

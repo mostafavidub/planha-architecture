@@ -1,0 +1,13 @@
+{
+  "schema": "SPATIAL362_INDEPENDENT_REASSESSMENT_CHECKPOINT_NOT_SOURCE_CHANGE",
+  "historical_freeze_preserved": "spatial362_v2_freeze.json",
+  "historical_result_backup": "role_registry_on362_v2_checkpoint22.json",
+  "audit_result": "role_registry_on362_v2_independent_audit.json",
+  "reason": "Independent testsetUp wrote elapsed-bearing reassessment into previous artifact; preserved separately, no old hash asserted for new result. Future readonly tests do not write artifact.",
+  "files": {
+    "role_registry_on362_v2_independent_audit.json": "1dd06cdd58b5a02cfde9dedbed6d5a4423d963efcfad20d806b65ce963153b26",
+    "role_registry_on362_v2_checkpoint22.json": "aa8f9e4fef83cd2263d1acdfb9e4cfb09ec31ef64e5935481dbb48087308f23f",
+    "test_role_model362_v2_readonly.py": "b2e81ed96acbe8528ee1347a19c132a8e59601b1c00522449293c321ec5244a4"
+  },
+  "source_code_unchanged_from_checkpoint22": true
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "SOURCE_BRANCH146_END_PREFLIGHT366",
+  "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "source_origin": {
+    "file": "planha_general150_runtime_work/private_branch_hall146.py",
+    "sha256": "69916ef74e925434c8c639cb78e0ee7ce67a719e16428356f4a3287f92fd764a",
+    "selector": "Executed source branch146 install prefix before gross/routing; actual origin/unit transform and source wall formulas",
+    "not_necessity_proof": true
+  },
+  "units": [
+    {
+      "unit": "A",
+      "source_end_before": "729/40",
+      "derived_end": "135/8",
+      "wall_thickness_m": "3/20",
+      "old_branch_floor": [
+        "533/40",
+        "6",
+        "729/40",
+        "7"
+      ],
+      "removed_floor_candidate": [
+        "135/8",
+        "6",
+        "729/40",
+        "7"
+      ],
+      "wall_replacements": {
+        "A.private_branch146.branch_end": [
+          "135/8",
+          "117/20",
+          "681/40",
+          "143/20"
+        ],
+        "A.private_branch146.branch_top": [
+          "573/40",
+          "7",
+          "681/40",
+          "143/20"
+        ]
+      },
+      "bound_witnesses": [
+        {
+          "source_id": "source_port:A.bed1.entry",
+          "intersection": [
+            "579/40",
+            "6",
+            "135/8",
+            "137/20"
+          ]
+        }
+      ],
+      "complete_declared_protected_domain_digest": "f87b4e603130c140c7f7d7c3961916c626f44dd4fb447f66318c7a3c0d490a22",
+      "declared_protected_domain_count": 349
+    },
+    {
+      "unit": "B",
+      "source_end_before": "729/40",
+      "derived_end": "135/8",
+      "wall_thickness_m": "3/20",
+      "old_branch_floor": [
+        "533/40",
+        "21",
+        "729/40",
+        "22"
+      ],
+      "removed_floor_candidate": [
+        "135/8",
+        "21",
+        "729/40",
+        "22"
+      ],
+      "wall_replacements": {
+        "B.private_branch146.branch_end": [
+          "135/8",
+          "417/20",
+          "681/40",
+          "443/20"
+        ],
+        "B.private_branch146.branch_top": [
+          "573/40",
+          "417/20",
+          "681/40",
+          "21"
+        ]
+      },
+      "bound_witnesses": [
+        {
+          "source_id": "source_port:B.bed1.entry",
+          "intersection": [
+            "579/40",
+            "423/20",
+            "135/8",
+            "22"
+          ]
+        }
+      ],
+      "complete_declared_protected_domain_digest": "eedc4fac168f3ba48e352d00e6ded773d2c223aade4c14971db859cd12616ce5",
+      "declared_protected_domain_count": 349
+    }
+  ],
+  "status": "PROPOSAL_ONLY_REBUILD_AND_FRESH_REQUIRED",
+  "scope": "Registered source146 declared ports/tasks and complete linear door actor/panel motions only. No claim all conceivable activities, uselessness, or post-construction validity.",
+  "admission_allowed": false,
+  "fresh_execution": false
+}

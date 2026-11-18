@@ -1,0 +1,1143 @@
+{
+  "schema": "ENGINEERING_SERVICE_COMPONENT359_SOURCE_RELATIONS",
+  "parent_acceptance": false,
+  "models": {
+    "baseline351": {
+      "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+      "rows": [
+        {
+          "unit": "A",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "351/500",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "227/40",
+                  "297/40",
+                  "115/8",
+                  "65/8"
+                ],
+                [
+                  "227/40",
+                  "65/8",
+                  "261/40",
+                  "331/40"
+                ],
+                [
+                  "439/50",
+                  "65/8",
+                  "567/40",
+                  "337/40"
+                ],
+                [
+                  "531/40",
+                  "127/20",
+                  "115/8",
+                  "297/40"
+                ],
+                [
+                  "539/40",
+                  "337/40",
+                  "567/40",
+                  "75/8"
+                ],
+                [
+                  "399/40",
+                  "337/40",
+                  "427/40",
+                  "1719/200"
+                ],
+                [
+                  "397/40",
+                  "1719/200",
+                  "427/40",
+                  "1859/200"
+                ],
+                [
+                  "397/40",
+                  "1859/200",
+                  "85/8",
+                  "1867/200"
+                ],
+                [
+                  "397/40",
+                  "1867/200",
+                  "427/40",
+                  "75/8"
+                ],
+                [
+                  "539/40",
+                  "75/8",
+                  "125/8",
+                  "377/40"
+                ],
+                [
+                  "539/40",
+                  "377/40",
+                  "131/8",
+                  "431/40"
+                ],
+                [
+                  "539/40",
+                  "431/40",
+                  "567/40",
+                  "497/40"
+                ],
+                [
+                  "633/40",
+                  "431/40",
+                  "131/8",
+                  "87/8"
+                ],
+                [
+                  "633/40",
+                  "87/8",
+                  "661/40",
+                  "467/40"
+                ]
+              ],
+              "area_m2": "8089/500",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        },
+        {
+          "unit": "B",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "351/500",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "227/40",
+                  "789/40",
+                  "261/40",
+                  "159/8"
+                ],
+                [
+                  "227/40",
+                  "159/8",
+                  "115/8",
+                  "823/40"
+                ],
+                [
+                  "439/50",
+                  "783/40",
+                  "567/40",
+                  "159/8"
+                ],
+                [
+                  "531/40",
+                  "823/40",
+                  "115/8",
+                  "433/20"
+                ],
+                [
+                  "539/40",
+                  "149/8",
+                  "567/40",
+                  "783/40"
+                ],
+                [
+                  "399/40",
+                  "3881/200",
+                  "427/40",
+                  "783/40"
+                ],
+                [
+                  "397/40",
+                  "3741/200",
+                  "427/40",
+                  "3881/200"
+                ],
+                [
+                  "397/40",
+                  "3733/200",
+                  "85/8",
+                  "3741/200"
+                ],
+                [
+                  "397/40",
+                  "149/8",
+                  "427/40",
+                  "3733/200"
+                ],
+                [
+                  "539/40",
+                  "743/40",
+                  "125/8",
+                  "149/8"
+                ],
+                [
+                  "539/40",
+                  "689/40",
+                  "131/8",
+                  "743/40"
+                ],
+                [
+                  "539/40",
+                  "623/40",
+                  "567/40",
+                  "689/40"
+                ],
+                [
+                  "633/40",
+                  "137/8",
+                  "131/8",
+                  "689/40"
+                ],
+                [
+                  "633/40",
+                  "653/40",
+                  "661/40",
+                  "137/8"
+                ]
+              ],
+              "area_m2": "8089/500",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        }
+      ]
+    },
+    "translated357": {
+      "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+      "rows": [
+        {
+          "unit": "A",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "217/2000",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "193/40",
+                  "7",
+                  "221/40",
+                  "297/40"
+                ],
+                [
+                  "193/40",
+                  "297/40",
+                  "353/40",
+                  "65/8"
+                ],
+                [
+                  "143/20",
+                  "7",
+                  "81/10",
+                  "297/40"
+                ],
+                [
+                  "65/8",
+                  "7",
+                  "353/40",
+                  "297/40"
+                ],
+                [
+                  "201/40",
+                  "65/8",
+                  "229/40",
+                  "331/40"
+                ],
+                [
+                  "63/8",
+                  "65/8",
+                  "353/40",
+                  "341/40"
+                ],
+                [
+                  "63/8",
+                  "341/40",
+                  "553/40",
+                  "1717/200"
+                ],
+                [
+                  "63/8",
+                  "1717/200",
+                  "179/10",
+                  "359/40"
+                ],
+                [
+                  "169/10",
+                  "137/20",
+                  "179/10",
+                  "1717/200"
+                ],
+                [
+                  "323/40",
+                  "359/40",
+                  "179/10",
+                  "369/40"
+                ],
+                [
+                  "73/8",
+                  "369/40",
+                  "79/8",
+                  "1859/200"
+                ],
+                [
+                  "105/8",
+                  "369/40",
+                  "179/10",
+                  "1857/200"
+                ],
+                [
+                  "539/40",
+                  "1857/200",
+                  "567/40",
+                  "2081/200"
+                ],
+                [
+                  "539/40",
+                  "2081/200",
+                  "125/8",
+                  "439/40"
+                ],
+                [
+                  "99/8",
+                  "439/40",
+                  "717/40",
+                  "2221/200"
+                ],
+                [
+                  "293/20",
+                  "411/40",
+                  "125/8",
+                  "2081/200"
+                ],
+                [
+                  "99/8",
+                  "2221/200",
+                  "567/40",
+                  "2331/200"
+                ],
+                [
+                  "293/20",
+                  "2221/200",
+                  "717/40",
+                  "2331/200"
+                ],
+                [
+                  "687/40",
+                  "87/8",
+                  "179/10",
+                  "439/40"
+                ],
+                [
+                  "687/40",
+                  "407/40",
+                  "167/8",
+                  "87/8"
+                ],
+                [
+                  "807/40",
+                  "87/8",
+                  "167/8",
+                  "471/40"
+                ],
+                [
+                  "657/40",
+                  "379/40",
+                  "143/8",
+                  "407/40"
+                ],
+                [
+                  "749/40",
+                  "471/40",
+                  "167/8",
+                  "499/40"
+                ],
+                [
+                  "99/8",
+                  "2331/200",
+                  "717/40",
+                  "467/40"
+                ],
+                [
+                  "105/8",
+                  "467/40",
+                  "307/20",
+                  "2471/200"
+                ],
+                [
+                  "539/40",
+                  "2471/200",
+                  "567/40",
+                  "497/40"
+                ],
+                [
+                  "73/8",
+                  "1859/200",
+                  "393/40",
+                  "75/8"
+                ]
+              ],
+              "area_m2": "21017/800",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        },
+        {
+          "unit": "B",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "217/2000",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "193/40",
+                  "159/8",
+                  "353/40",
+                  "823/40"
+                ],
+                [
+                  "193/40",
+                  "823/40",
+                  "221/40",
+                  "21"
+                ],
+                [
+                  "143/20",
+                  "823/40",
+                  "81/10",
+                  "21"
+                ],
+                [
+                  "65/8",
+                  "823/40",
+                  "353/40",
+                  "21"
+                ],
+                [
+                  "201/40",
+                  "789/40",
+                  "229/40",
+                  "159/8"
+                ],
+                [
+                  "63/8",
+                  "779/40",
+                  "353/40",
+                  "159/8"
+                ],
+                [
+                  "63/8",
+                  "3883/200",
+                  "553/40",
+                  "779/40"
+                ],
+                [
+                  "63/8",
+                  "761/40",
+                  "179/10",
+                  "3883/200"
+                ],
+                [
+                  "169/10",
+                  "3883/200",
+                  "179/10",
+                  "423/20"
+                ],
+                [
+                  "323/40",
+                  "751/40",
+                  "179/10",
+                  "761/40"
+                ],
+                [
+                  "73/8",
+                  "3741/200",
+                  "79/8",
+                  "751/40"
+                ],
+                [
+                  "105/8",
+                  "3743/200",
+                  "179/10",
+                  "751/40"
+                ],
+                [
+                  "539/40",
+                  "3519/200",
+                  "567/40",
+                  "3743/200"
+                ],
+                [
+                  "539/40",
+                  "681/40",
+                  "125/8",
+                  "3519/200"
+                ],
+                [
+                  "99/8",
+                  "3379/200",
+                  "717/40",
+                  "681/40"
+                ],
+                [
+                  "293/20",
+                  "3519/200",
+                  "125/8",
+                  "709/40"
+                ],
+                [
+                  "99/8",
+                  "3269/200",
+                  "567/40",
+                  "3379/200"
+                ],
+                [
+                  "293/20",
+                  "3269/200",
+                  "717/40",
+                  "3379/200"
+                ],
+                [
+                  "687/40",
+                  "681/40",
+                  "179/10",
+                  "137/8"
+                ],
+                [
+                  "687/40",
+                  "137/8",
+                  "167/8",
+                  "713/40"
+                ],
+                [
+                  "807/40",
+                  "649/40",
+                  "167/8",
+                  "137/8"
+                ],
+                [
+                  "657/40",
+                  "713/40",
+                  "143/8",
+                  "741/40"
+                ],
+                [
+                  "749/40",
+                  "621/40",
+                  "167/8",
+                  "649/40"
+                ],
+                [
+                  "99/8",
+                  "653/40",
+                  "717/40",
+                  "3269/200"
+                ],
+                [
+                  "105/8",
+                  "3129/200",
+                  "307/20",
+                  "653/40"
+                ],
+                [
+                  "539/40",
+                  "623/40",
+                  "567/40",
+                  "3129/200"
+                ],
+                [
+                  "73/8",
+                  "149/8",
+                  "393/40",
+                  "3741/200"
+                ]
+              ],
+              "area_m2": "21017/800",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        }
+      ]
+    },
+    "row358": {
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "rows": [
+        {
+          "unit": "A",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "217/2000",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "45/8",
+                  "297/40",
+                  "437/40",
+                  "65/8"
+                ],
+                [
+                  "45/8",
+                  "65/8",
+                  "259/40",
+                  "331/40"
+                ],
+                [
+                  "439/50",
+                  "65/8",
+                  "237/25",
+                  "341/40"
+                ],
+                [
+                  "409/40",
+                  "65/8",
+                  "437/40",
+                  "341/40"
+                ],
+                [
+                  "439/50",
+                  "341/40",
+                  "597/40",
+                  "343/40"
+                ],
+                [
+                  "539/40",
+                  "63/8",
+                  "597/40",
+                  "341/40"
+                ],
+                [
+                  "439/50",
+                  "343/40",
+                  "567/40",
+                  "369/40"
+                ],
+                [
+                  "79/8",
+                  "369/40",
+                  "85/8",
+                  "1859/200"
+                ],
+                [
+                  "523/40",
+                  "369/40",
+                  "567/40",
+                  "75/8"
+                ],
+                [
+                  "523/40",
+                  "75/8",
+                  "599/40",
+                  "81/8"
+                ],
+                [
+                  "539/40",
+                  "81/8",
+                  "597/40",
+                  "431/40"
+                ],
+                [
+                  "539/40",
+                  "431/40",
+                  "567/40",
+                  "463/40"
+                ],
+                [
+                  "539/40",
+                  "463/40",
+                  "751/40",
+                  "467/40"
+                ],
+                [
+                  "599/40",
+                  "439/40",
+                  "751/40",
+                  "463/40"
+                ],
+                [
+                  "539/40",
+                  "467/40",
+                  "631/40",
+                  "477/40"
+                ],
+                [
+                  "723/40",
+                  "467/40",
+                  "751/40",
+                  "471/40"
+                ],
+                [
+                  "723/40",
+                  "471/40",
+                  "809/40",
+                  "499/40"
+                ],
+                [
+                  "539/40",
+                  "477/40",
+                  "627/40",
+                  "2471/200"
+                ],
+                [
+                  "539/40",
+                  "2471/200",
+                  "569/40",
+                  "497/40"
+                ],
+                [
+                  "599/40",
+                  "87/8",
+                  "901/50",
+                  "439/40"
+                ],
+                [
+                  "79/8",
+                  "1859/200",
+                  "423/40",
+                  "75/8"
+                ],
+                [
+                  "539/40",
+                  "61/8",
+                  "567/40",
+                  "63/8"
+                ],
+                [
+                  "531/40",
+                  "127/20",
+                  "115/8",
+                  "61/8"
+                ]
+              ],
+              "area_m2": "40391/2000",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        },
+        {
+          "unit": "B",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_approach_exact_transform": true,
+          "real_opening_source_binding": true,
+          "observed_service_only_area_m2": "217/2000",
+          "unassigned_after_source_clearance_m2": "0",
+          "unassigned_regions": [],
+          "components": [
+            {
+              "regions": [
+                [
+                  "45/8",
+                  "789/40",
+                  "259/40",
+                  "159/8"
+                ],
+                [
+                  "45/8",
+                  "159/8",
+                  "437/40",
+                  "823/40"
+                ],
+                [
+                  "439/50",
+                  "779/40",
+                  "237/25",
+                  "159/8"
+                ],
+                [
+                  "409/40",
+                  "779/40",
+                  "437/40",
+                  "159/8"
+                ],
+                [
+                  "439/50",
+                  "777/40",
+                  "597/40",
+                  "779/40"
+                ],
+                [
+                  "539/40",
+                  "779/40",
+                  "597/40",
+                  "161/8"
+                ],
+                [
+                  "439/50",
+                  "751/40",
+                  "567/40",
+                  "777/40"
+                ],
+                [
+                  "523/40",
+                  "149/8",
+                  "567/40",
+                  "751/40"
+                ],
+                [
+                  "79/8",
+                  "3741/200",
+                  "85/8",
+                  "751/40"
+                ],
+                [
+                  "79/8",
+                  "149/8",
+                  "423/40",
+                  "3741/200"
+                ],
+                [
+                  "523/40",
+                  "143/8",
+                  "599/40",
+                  "149/8"
+                ],
+                [
+                  "539/40",
+                  "689/40",
+                  "597/40",
+                  "143/8"
+                ],
+                [
+                  "539/40",
+                  "657/40",
+                  "567/40",
+                  "689/40"
+                ],
+                [
+                  "539/40",
+                  "653/40",
+                  "751/40",
+                  "657/40"
+                ],
+                [
+                  "539/40",
+                  "643/40",
+                  "631/40",
+                  "653/40"
+                ],
+                [
+                  "723/40",
+                  "649/40",
+                  "751/40",
+                  "653/40"
+                ],
+                [
+                  "599/40",
+                  "657/40",
+                  "751/40",
+                  "681/40"
+                ],
+                [
+                  "599/40",
+                  "681/40",
+                  "901/50",
+                  "137/8"
+                ],
+                [
+                  "723/40",
+                  "621/40",
+                  "809/40",
+                  "649/40"
+                ],
+                [
+                  "539/40",
+                  "3129/200",
+                  "627/40",
+                  "643/40"
+                ],
+                [
+                  "539/40",
+                  "623/40",
+                  "569/40",
+                  "3129/200"
+                ],
+                [
+                  "539/40",
+                  "161/8",
+                  "567/40",
+                  "163/8"
+                ],
+                [
+                  "531/40",
+                  "163/8",
+                  "115/8",
+                  "433/20"
+                ]
+              ],
+              "area_m2": "40391/2000",
+              "served_service_targets": [
+                "WC_front",
+                "WC_use",
+                "basin_front",
+                "shower_use"
+              ],
+              "served_nonservice_targets": [
+                "armchair1_front",
+                "armchair2_front",
+                "armchair3_front",
+                "armchair4_front",
+                "bed1.bed_back",
+                "bed1.bed_front",
+                "bed1.changing",
+                "bed1.closet_front",
+                "bed2.bedA_back",
+                "bed2.bedA_front",
+                "bed2.bedB_back",
+                "bed2.bedB_front",
+                "bed2.changing",
+                "bed2.closet_front",
+                "bed3.bedA_back",
+                "bed3.bedA_front",
+                "bed3.bedB_back",
+                "bed3.bedB_front",
+                "bed3.changing",
+                "bed3.closet_front",
+                "dining_back_left",
+                "dining_back_right",
+                "dining_front_left",
+                "dining_front_right",
+                "dining_left",
+                "dining_right",
+                "kitchen",
+                "kitchen_work",
+                "sofa1_front",
+                "sofa2_front"
+              ],
+              "actual_sharing_witness": true,
+              "classification": "SHARED_ACTUAL_REQUIRED_ROUTE_COMPONENT"
+            }
+          ],
+          "engineering_definition": "Dedicated exclusive service circulation is a connected assigned circulation component serving only source service targets, outside required source bundle use/operation/approach and real threshold footprints. Sharedness requires actual nonservice source-target traversal, not a room label.",
+          "dedicated_component_verdict": "NO_ADDITIONAL_OBSERVED_COMPONENT",
+          "whole_floor_purpose_or_universal_minimum_proven": false
+        }
+      ]
+    }
+  }
+}

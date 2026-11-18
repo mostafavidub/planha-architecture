@@ -1,0 +1,13 @@
+{
+  "status": "PARTIAL_GUARD_DEPENDENCY_IMPORT",
+  "unique_blobs_staged": 1468,
+  "additional_unique_blobs_total": 1687,
+  "historical_guard_bypassed": false,
+  "full_execution_verified": false,
+  "notes": [
+    "Source contents read only; writes via GitHub.",
+    "Known matching engine/frontend blobs reused.",
+    "Required aliases to duplicate content paths pending.",
+    "Credential/email/DB-key scans including ZIP members had no flagged match; not a universal sensitive-data guarantee."
+  ]
+}

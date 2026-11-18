@@ -1,0 +1,420 @@
+{
+  "schema": "planha.quantitative_policy.proposal.v1",
+  "status": "ENGINEERING_CONTRACT_NOT_IMPLEMENTED_NOT_ACCEPTANCE",
+  "created_utc": "2026-11-15",
+  "source_scope": "Read local retrieved PRD/Blueprint snapshot; latest owner instructions override historical exclusions/requirements. No newly verified building-regulation minima.",
+  "source_inventory": [
+    {
+      "path": "planha_rules_audit118/prd_full.txt",
+      "sha256": "2033c77e48724e694183d4c8468da7d651a540396d114e9e0d51b48825874734"
+    },
+    {
+      "path": "planha_rules_audit118/blueprint_full.txt",
+      "sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+    },
+    {
+      "path": "planha_rules_audit118/rules_matrix.json",
+      "sha256": "7ede3708fe2c693cc549d9f07cc7d2098b610c7cda458d7371f36123500401a6"
+    },
+    {
+      "path": "planha_rules_audit118/source_metadata.json",
+      "sha256": "f42a65135134d0617bc746484290b557174f5a286fec4b9f5436172ae96ca741"
+    },
+    {
+      "path": "review156_spatial_gate/actual_mac_results.json",
+      "sha256": "eed9f83d0fa0454b5b736b15508b6d2e1a1b2a98d9766e8aabb82dc7b58a65c7"
+    }
+  ],
+  "scope_excluded": [
+    "daylight_sufficiency",
+    "ventilation_sufficiency",
+    "technical_stair_elevator_approval"
+  ],
+  "authority_types": [
+    "OWNER_EXPLICIT",
+    "OWNER_DERIVED_OPERATIONALIZATION",
+    "SOURCE_PROFILE",
+    "VERIFIED_REGULATION"
+  ],
+  "numeric_policy": {
+    "new_legal_thresholds": [],
+    "uncertain_measurement": "INTERVAL_STRADDLING_DECISION -> UNKNOWN_BLOCKING",
+    "geometry": "exact decimal/rational representation where supported; no solver epsilon legalizes real gap",
+    "ranking": "Pareto same-program protected-function comparisons; no compensatory total score"
+  },
+  "rules": [
+    {
+      "id": "SPACE_ACCOUNTING",
+      "sources": [
+        "H04",
+        "Q11",
+        "PRD:679,694"
+      ],
+      "metrics": [
+        "A_floor_net",
+        "A_wall_union",
+        "A_program_region_union",
+        "A_functionally_unresolved",
+        "A_overlap",
+        "A_unowned"
+      ],
+      "acceptance": [
+        "A_overlap=0 and A_unowned=0 in exact arithmetic",
+        "Every positive-area leftover has independently verified function or declared valid nonhabitable purpose",
+        "A_functionally_unresolved=0; this is semantic region coverage, NOT requiring furniture or movement to cover every floor point",
+        "Label, rectangular ownership, hash and route alone cannot prove purpose"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "GUEST_ROUTE_INDEPENDENCE",
+      "sources": [
+        "PRD:687-691",
+        "Q06"
+      ],
+      "metrics": [
+        "swept_area_intersection_kitchen_active",
+        "swept_area_intersection_private",
+        "minimum_clear_width",
+        "actual_route_length"
+      ],
+      "acceptance": [
+        "Separate actual routes entry->living, entry->dining, entry->WC, living->dining all reach usable destination",
+        "Forbidden swept-area intersections=0 under each applicable activity/door scenario",
+        "Width validated against source-owned actor/activity profile; 1.10m kitchen and 1.20m main route only comparison targets"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "route_sweep",
+        "door_states",
+        "fixture_activity_envelopes",
+        "actual_destinations",
+        "profile_source"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "LIVING_USEFUL_CONTIGUITY",
+      "sources": [
+        "Q01",
+        "Q02",
+        "PRD:694"
+      ],
+      "metrics": [
+        "usable_activity_bundle_count",
+        "connected_components_after_obstacles",
+        "largest_usable_rectangle_area",
+        "minimum_neck_clearance",
+        "living_net_area",
+        "living_activity_area"
+      ],
+      "acceptance": [
+        "At least one complete source-program sitting bundle with usable access/activities in connected public space",
+        "Dining and kitchen are not implicitly counted as sitting area",
+        "Component/neck evidence must prove use; no universal aspect ratio threshold exists in reviewed sources",
+        "Residual strips cannot enlarge claimed usable living without proof"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "CIRCULATION_NECESSITY",
+      "sources": [
+        "Q04",
+        "Q11",
+        "PRD:694",
+        "OWNER:2026-11-15:plan2"
+      ],
+      "metrics": [
+        "A_exclusive_circulation",
+        "A_shared_activity_circulation_union",
+        "route_lengths_by_destination",
+        "turn_count",
+        "bottleneck_count",
+        "dead_end_area",
+        "avoidable_area_against_validated_alternatives"
+      ],
+      "acceptance": [
+        "Zero functionless dead ends and zero proved unnecessary bedroom-wrap corridors",
+        "For suspect long/wrapping corridors compare actual door orientation/layout alternatives under same program and hard constraints",
+        "Reject when validated alternative strictly reduces wasted circulation without degrading protected functional metrics; unresolved necessity blocks",
+        "No claim of global minimum from bounded alternative search"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "ROOM_PROGRAM_CAPACITY",
+      "sources": [
+        "Q01",
+        "Q12",
+        "PRD:647,673"
+      ],
+      "metrics": [
+        "unit_count",
+        "closed_bedroom_count",
+        "occupancy_capacity",
+        "fixture_dimension_deviation",
+        "activity_collision_area",
+        "bedroom_area"
+      ],
+      "acceptance": [
+        "n means independent units, never bedrooms; preserve input n",
+        "Every bedroom fits source-bound bed, closet, activities and access without forbidden shrink",
+        "Program selected by whole-unit capacity; room inflation alone is not proof of useful capacity",
+        "No universal maximum bedroom area invented; disproportion requires same-program useful-public-space comparison"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "BEDROOM_GROUPING",
+      "sources": [
+        "PRD:673",
+        "Q06"
+      ],
+      "metrics": [
+        "bedroom_door_pair_route_distances",
+        "private_access_graph_components",
+        "public_crossings_between_bedrooms"
+      ],
+      "acceptance": [
+        "Use one coherent private access cluster where feasible; count cross-public/kitchen detours explicitly",
+        "Compare candidate with same-program alternatives using pair-distance vector and protected public function",
+        "No arbitrary fixed max distance; unresolved major separation is not passed by a label"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "SERVICE_COMPACTNESS",
+      "sources": [
+        "PRD:703"
+      ],
+      "metrics": [
+        "A_bath_WC_union",
+        "A_exclusive_service_circulation",
+        "R_service_percent",
+        "A_smallest_tested_valid_service_program"
+      ],
+      "acceptance": [
+        "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once",
+        "Baseline is smallest actually validated same-service-program layout, not claimed theoretical minimum",
+        "Excess requires verified functional reason and alternative comparison; missing baseline=unknown",
+        "Do not shrink required activities to meet a percentage"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "COMMON_CORE_COMPACTNESS",
+      "sources": [
+        "PRD:673,679",
+        "Q04",
+        "Q12"
+      ],
+      "metrics": [
+        "A_stair",
+        "A_lift",
+        "A_lobby",
+        "A_common_total",
+        "lobby_body_sweep_union",
+        "elevator_to_each_entry_route",
+        "route_distance_spread"
+      ],
+      "acceptance": [
+        "Prove necessary common access and staging; merely leftover between stair and lift is not justified",
+        "Compare compact actual same-program alternative with preserved operational access",
+        "Balance unit access by comparing distance spread, not arbitrary equality tolerance",
+        "Full technical stair/elevator approval is excluded; geometric ownership and actual access remain in scope"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "PRIVACY_WITHOUT_FAKE_BAFFLE",
+      "sources": [
+        "Q05",
+        "Q11",
+        "PRD:680"
+      ],
+      "metrics": [
+        "visible_sensitive_activity_area",
+        "sight_only_wall_count",
+        "unproven_wall_function_count"
+      ],
+      "acceptance": [
+        "In applicable plausible scenarios inappropriate view of protected bed/changing/WC/shower activity areas=0",
+        "Seeing a bedroom door alone is not failure",
+        "sight_only_wall_count=0 and unproven_wall_function_count=0",
+        "Every added wall has actual useful serviced space and measured remove/relocate comparison"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "OPENINGS_REAL",
+      "sources": [
+        "PRD:695",
+        "OWNER:2026-11-15:plan1"
+      ],
+      "metrics": [
+        "host_wall_membership",
+        "aperture_geometry",
+        "side_adjacencies",
+        "door_swing_collision_area",
+        "window_obstruction_geometry"
+      ],
+      "acceptance": [
+        "Every opening belongs to actual host wall and correct adjacent regions; no orphan or facade-behind fake window",
+        "Door body, swept movement and usable access tested, not just arc symbol",
+        "Do not measure or claim daylight/ventilation sufficiency"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "KITCHEN_PROXIMITY",
+      "sources": [
+        "Q07",
+        "PRD:680,687"
+      ],
+      "metrics": [
+        "actual_service_route_length",
+        "service_route_conflicts",
+        "kitchen_activity_access_count"
+      ],
+      "acceptance": [
+        "Compare cooking->usable_dining route and everyday living connection to valid same-program alternatives",
+        "No invented mandatory work-triangle distance",
+        "Shortening route cannot sacrifice guest independence, bedroom grouping or usable living"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    },
+    {
+      "id": "DISTINCTNESS_AND_FAIRNESS",
+      "sources": [
+        "Q12",
+        "Q14",
+        "PRD:660"
+      ],
+      "metrics": [
+        "pairwise_semantic_topology_difference",
+        "unit_worst_metric",
+        "pair_comparison_count"
+      ],
+      "acceptance": [
+        "Check all k*(k-1)/2 whole-plan pairs; 6 options requires15 comparisons",
+        "Renaming, recoloring, mirror-only and numerical jitter do not count as novelty",
+        "All required checks pass per unit; average score never hides one failing unit",
+        "Up to six, not guaranteed six; fewer/zero honestly reported"
+      ],
+      "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+      "evidence": [
+        "current_geometry",
+        "source_program",
+        "independent_measurement"
+      ],
+      "on_missing": "UNKNOWN_BLOCKING",
+      "implemented": false
+    }
+  ],
+  "receipt_required": [
+    "policy_version",
+    "source_revision",
+    "geometry_hash_recomputed",
+    "program_hash",
+    "profile_ids_and_hashes",
+    "unit_id",
+    "rule_id",
+    "applicability",
+    "metric_value_and_unit",
+    "measurement_geometry",
+    "source_locator",
+    "threshold_authority",
+    "verdict_PASS_FAIL_UNKNOWN",
+    "independent_evaluator_version",
+    "repair_reason"
+  ],
+  "delivery": "all mandatory applicable current-geometry rules PASS AND independent legacy technical gate PASS; UNKNOWN blocks. Reopen/select/export recheck same condition.",
+  "repair_loop": {
+    "steps": [
+      "generate source-bound actual geometry",
+      "evaluate independent mandatory checks",
+      "record exact FAIL/UNKNOWN reasons",
+      "choose bounded structural repair addressing reasons",
+      "invalidate all dependent receipts",
+      "rerun ALL applicable checks on new geometry",
+      "only fully PASS candidates selectable/exportable"
+    ],
+    "stop": [
+      "budget exhaustion",
+      "two successive attempts without measurable verified improvement",
+      "proven incompatible constraints within stated scope"
+    ],
+    "stop_result": "NO_VALIDATED_SOLUTION_FOUND unless actual infeasibility proof; do not release last failed candidate"
+  }
+}

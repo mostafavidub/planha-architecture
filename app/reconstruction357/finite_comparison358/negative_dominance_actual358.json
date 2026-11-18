@@ -1,0 +1,920 @@
+{
+  "schema": "ENGINEERING358_EXACT_NEGATIVE_DOMINANCE_WITNESSES",
+  "canonical_PARETO_CIRC": false,
+  "whole_Q04_acceptance": false,
+  "finite_branch_coverage_proven": false,
+  "component_purpose_proven": false,
+  "pairs": [
+    {
+      "baseline": "baseline351",
+      "alternative": "translated357",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "armchair1_front",
+        "metric": "path_length_m",
+        "baseline_value": "12/5",
+        "alternative_value": "67/10",
+        "increase": "43/10",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "10.425"
+          ],
+          [
+            "14.575",
+            "10.425"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "12.005"
+          ],
+          [
+            "15",
+            "12.005"
+          ],
+          [
+            "15",
+            "11.325"
+          ],
+          [
+            "17.525",
+            "11.325"
+          ],
+          [
+            "17.525",
+            "9.825"
+          ],
+          [
+            "16.775",
+            "9.825"
+          ]
+        ],
+        "baseline_model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+        "alternative_model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+        "baseline_target": [
+          "14.575",
+          "10.425"
+        ],
+        "alternative_target": [
+          "16.775",
+          "9.825"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    },
+    {
+      "baseline": "baseline351",
+      "alternative": "row358",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "WC_use",
+        "metric": "turn_count",
+        "baseline_value": 14,
+        "alternative_value": 16,
+        "increase": "2",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.625"
+          ],
+          [
+            "11.175",
+            "10.625"
+          ],
+          [
+            "11.175",
+            "10.025"
+          ],
+          [
+            "11.325",
+            "10.025"
+          ],
+          [
+            "11.325",
+            "9.875"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "10.075"
+          ],
+          [
+            "10.275",
+            "10.075"
+          ],
+          [
+            "10.275",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.625"
+          ],
+          [
+            "11.125",
+            "10.625"
+          ],
+          [
+            "11.125",
+            "10.025"
+          ],
+          [
+            "11.275",
+            "10.025"
+          ],
+          [
+            "11.275",
+            "9.875"
+          ]
+        ],
+        "baseline_model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+        "alternative_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+        "baseline_target": [
+          "11.325",
+          "9.875"
+        ],
+        "alternative_target": [
+          "11.275",
+          "9.875"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    },
+    {
+      "baseline": "translated357",
+      "alternative": "baseline351",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "WC_front",
+        "metric": "path_length_m",
+        "baseline_value": "209/20",
+        "alternative_value": "45/4",
+        "increase": "4/5",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.525",
+            "10.625"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.625"
+          ],
+          [
+            "11.325",
+            "10.625"
+          ]
+        ],
+        "baseline_model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+        "alternative_model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+        "baseline_target": [
+          "10.525",
+          "10.625"
+        ],
+        "alternative_target": [
+          "11.325",
+          "10.625"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    },
+    {
+      "baseline": "translated357",
+      "alternative": "row358",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "WC_use",
+        "metric": "turn_count",
+        "baseline_value": 14,
+        "alternative_value": 16,
+        "increase": "2",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "9.875"
+          ],
+          [
+            "9.525",
+            "9.875"
+          ],
+          [
+            "9.525",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.525",
+            "10.625"
+          ],
+          [
+            "10.525",
+            "9.875"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "10.075"
+          ],
+          [
+            "10.275",
+            "10.075"
+          ],
+          [
+            "10.275",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.625"
+          ],
+          [
+            "11.125",
+            "10.625"
+          ],
+          [
+            "11.125",
+            "10.025"
+          ],
+          [
+            "11.275",
+            "10.025"
+          ],
+          [
+            "11.275",
+            "9.875"
+          ]
+        ],
+        "baseline_model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+        "alternative_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+        "baseline_target": [
+          "10.525",
+          "9.875"
+        ],
+        "alternative_target": [
+          "11.275",
+          "9.875"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    },
+    {
+      "baseline": "row358",
+      "alternative": "baseline351",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "WC_front",
+        "metric": "path_length_m",
+        "baseline_value": "97/10",
+        "alternative_value": "45/4",
+        "increase": "31/20",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.625"
+          ],
+          [
+            "11.275",
+            "10.625"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.075"
+          ],
+          [
+            "10.325",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.275",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "9.685"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.625"
+          ],
+          [
+            "10.385",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.675"
+          ],
+          [
+            "11.125",
+            "10.625"
+          ],
+          [
+            "11.325",
+            "10.625"
+          ]
+        ],
+        "baseline_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+        "alternative_model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+        "baseline_target": [
+          "11.275",
+          "10.625"
+        ],
+        "alternative_target": [
+          "11.325",
+          "10.625"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    },
+    {
+      "baseline": "row358",
+      "alternative": "translated357",
+      "state": "DOMINANCE_REFUTED_BY_EXACT_OBJECTIVE",
+      "witness": {
+        "unit": "A",
+        "target": "WC_front",
+        "metric": "path_length_m",
+        "baseline_value": "97/10",
+        "alternative_value": "209/20",
+        "increase": "3/4",
+        "baseline_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.935"
+          ],
+          [
+            "13.425",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.875"
+          ],
+          [
+            "10.275",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "8.945"
+          ],
+          [
+            "10.225",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.625"
+          ],
+          [
+            "10.335",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.675"
+          ],
+          [
+            "11.075",
+            "10.625"
+          ],
+          [
+            "11.275",
+            "10.625"
+          ]
+        ],
+        "alternative_path": [
+          [
+            "13.825",
+            "12.075"
+          ],
+          [
+            "13.825",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.935"
+          ],
+          [
+            "13.475",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.875"
+          ],
+          [
+            "9.525",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "8.945"
+          ],
+          [
+            "9.475",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.625"
+          ],
+          [
+            "9.585",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.675"
+          ],
+          [
+            "10.325",
+            "10.625"
+          ],
+          [
+            "10.525",
+            "10.625"
+          ]
+        ],
+        "baseline_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+        "alternative_model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+        "baseline_target": [
+          "11.275",
+          "10.625"
+        ],
+        "alternative_target": [
+          "10.525",
+          "10.625"
+        ],
+        "target_identity_scope": "same source role ID under matched program/profile; geometric locations may differ",
+        "logic": {
+          "dominance": "FALSE",
+          "worsened_objectives": [
+            "witness"
+          ],
+          "worsened_dimensions": [
+            "witness"
+          ],
+          "improved_dimensions": [],
+          "unknown_dimensions": [
+            {
+              "key": "unmeasured_protected_function",
+              "reason": "METRIC_INVENTORY_NOT_EXACT"
+            }
+          ],
+          "rule_acceptance": false,
+          "scope": "PARTIAL_ORDER_LOGIC_ONLY_NOT_COMPONENT_PURPOSE_OR_FINITE_COVERAGE"
+        }
+      }
+    }
+  ],
+  "source_authority": {
+    "section": "Q04",
+    "selector": "details > summary[text=Q04]",
+    "html_character_range": [
+      447999,
+      464629
+    ],
+    "sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+    "derived_metric": "actual entry-to-required-function path length and turns",
+    "engineering_assumption": "componentwise nondeterioration for each same source target/scenario, no averaging; at least one strict objective improvement"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "372_CONTROLLED_CONTINUATION",
+  "test_only": true,
+  "natural_failure": false,
+  "first_review_reused_from_actual369": true,
+  "retry": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "semantic_qualification": "UNKNOWN_NEW_GEOMETRY_NOT_REPROVEN",
+  "status": "CONTROLLED_REPAIR_MECHANICS_VERIFIED",
+  "comparison_summary": {
+    "schema": "372_CONSERVATIVE_REPAIR_COMPARISON",
+    "collision_resolved": true,
+    "remaining_collision_units": [],
+    "no_new_or_changed_error_or_unknown_witness": true,
+    "new_or_changed_witness_digests": {
+      "errors": [],
+      "pending": [],
+      "original_pending": [],
+      "not_evaluated": []
+    },
+    "before_report_digest": "b899fce30c28174b3458d2eb6b8cd0de882a9ee6742eb663a8b3079227bc0d51",
+    "after_report_digest": "d8d896a71691cb29ee0439891f57f7208daa045e34d3fe0d7ad433add378925a",
+    "after_raw_status": "PASS_CONCEPT_SCOPED_REVIEW",
+    "mechanics_success": true,
+    "semantic_qualification": "UNKNOWN_NEW_GEOMETRY_NOT_REPROVEN",
+    "test_only": true,
+    "accepted": false,
+    "delivery_allowed": false
+  },
+  "seconds": 92.04370413400102,
+  "phases": [
+    {
+      "phase": "propose",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 6,
+            "create_time": 1794847104.86
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 0.6399585510007455,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "construct",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 7,
+            "create_time": 1794847105.5
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 26.774150362998625,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "fresh",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 8,
+            "create_time": 1794847132.27
+          },
+          {
+            "pid": 9,
+            "create_time": 1794847133.28
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 63.8737710610003,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "compare",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 26,
+            "create_time": 1794847196.14
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 0.7516022420022637,
+        "delivery_allowed": false
+      }
+    }
+  ]
+}

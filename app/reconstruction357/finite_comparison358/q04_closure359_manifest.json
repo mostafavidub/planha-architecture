@@ -1,0 +1,22 @@
+{
+  "schema": "Q04_SOURCE359_OUTER_INTEGRATION_PIN_HANDOFF",
+  "files": {
+    "finite_comparison358/q04_closure359.py": "9e77f3fbf01b9bc16305e972cb70f2ad9c6a0e1b54a2071789ac23f3aae7f464",
+    "finite_comparison358/build_ledger.py": "90439f4a01a4dff432b3199a9fa01c4bc3f5232b6edbb49b65566ac018df32d6",
+    "finite_comparison358/bound_comparison_actual358.json": "f3be8f9ce1711a57bd7be26265321ddb9bc7451e9c040d19b9015e6a46cd2cde",
+    "finite_comparison358/core_branch_bound358.json": "fbc2505aa3d75cc0ab837c15e9c9459ad1e992d314d2ad4fd807687af07e4450",
+    "semantic_rules357/comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524",
+    "semantic_rules357/eligibility_intrinsic359.py": "2e9db9d48d5744afaf1c15455142d3ddc81e5cdd2562a67a3b463481c27899f2",
+    "semantic_rules357/eligibility_intrinsic359_pins.json": "cb175431bd5021f153fce8981185033b7308c5303cb579ce6de21aea457ca4ba",
+    "semantic_rules357/circulation_role359.py": "2164bb1b4685eb363fe14553e00639c6bf625bc37dd26d57d2e753b7be84089c",
+    "semantic_rules357/corridor_margin359.py": "48376b0eb9716abd6a56329f04c8eb9d55c8181735c54b63018a631c9164adbf",
+    "semantic_rules357/group_readsets359.py": "cdacc2aaf067ebf03825e8a7fb0adfef5070548177ca375827e0f06ae231389c",
+    "semantic_rules357/group_readsets359_pins.json": "a60113141185746353c12bed9f868ffcd18e212230ba243656f96f2c49900620",
+    "semantic_rules357/method_registry_source359.json": "86f6f9428fa55e8839df6bbb08f0c7ae5fab4f66ab3f09354db7c94a857e2200",
+    "semantic_rules357/wall_origin359.py": "e4fea88be36161b404e1ab70edd1ceaef8b0f3fafa78a9db19a2c8e978a3635f",
+    "semantic_rules357/common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "staging358_core_branch/actual_full_band358.json": "eec824c3e006946b58f9a5ee4e94ac4776c0ccecb90a3b840f7e822480afb29d"
+  },
+  "live_authority": false,
+  "requirement": "Outer fixed loader must bind manifest/transitive code and artifact digests; fail UNKNOWN on changed or missing source."
+}

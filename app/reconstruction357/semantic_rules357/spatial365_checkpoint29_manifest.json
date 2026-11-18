@@ -1,0 +1,29 @@
+{
+  "schema": "BALANCED365_SPATIAL_INTERMEDIATE_AND_SEPARATION_PREAUDIT",
+  "tests": "13 role+12 common+5 balance+6 separation",
+  "scope": "Common/balance independently scoped audited; .003 separation reservation awaiting independent audit; no parentacceptance",
+  "files": {
+    "wall_origin365.py": "3015c7bd4d08688cce9e52e0d85fcb8064fc896605a8a777d091b913a4bd173b",
+    "wall_purpose365.py": "021927132c9ffa747d79573b0ae921483691a0052a957e7b73e9c8a5bfaf9c79",
+    "support_review365.py": "9dd9eabde4130f3950484f25455632c27081b0589cf6e1be67f1e7c247134c86",
+    "reassess_spatial365.py": "8decf3e6f91c152987ca5d432ec897ee9b9789cf96f69bf33813cc0287d3ac6f",
+    "circulation_role365.py": "10567cf44841bf448fb3d2c69df0deba5cb28ec8a6727fcb7efe84e241a97455",
+    "common_role_closure365.py": "5ab27fadde9d88f44649f53364b84d6700f931b2def8799d9ea073e23c7c7b28",
+    "common_role_closure_actual365.json": "2485e15038847afb1d5c19b6113e61c012159e811a7b16d810686654bcf4290a",
+    "test_common_role_closure365.py": "071ee45b587214661eacba1063b4c1456a681b4bf40ba7b9f3b9a7338fdf0691",
+    "common_role_closure_tests365.log": "7655bec30c0ac9619ef715567412b4000196da73725e95cddcb78711a6a1e509",
+    "role_registry_model365.py": "98e21b798cce9f2418a0e2bb255ec76fbf24c4ce160ce08ecc696235d02eeacf",
+    "role_registry_on365.json": "2aafe087c399030145d55e75f846293c129789e88af0a48b60d3c306ef1a9097",
+    "test_role_model365.py": "eff9d4d9c7db0281cf7046e38e2943a801f413f8d7e829101271272d8e7e45f2",
+    "role_registry_tests365.log": "0e260a5c59e7820b8f92debc66652de3e7c9bebce13a17f392482465e08b2bd2",
+    "balanced_access365.py": "5a8745c09ca6d3415bd490c8c2766d8eb32c23a30e81c7dd84f3298563216da7",
+    "balanced_access_actual365.json": "d322a2c0ce55717fe39d896382f9b4495ef2578c9a6c744d15bee35fd31ea87d",
+    "test_balanced_access365.py": "4ab0233e345fc5bf706d7fde85f7e77c9e35c1662328bff9776a17272b2dd8da",
+    "balanced_access_tests365.log": "0acc811e6bec30ccd047b687b9bf2f0b561e2646d38dd85b05b832ed783bc7fc",
+    "spatial365_source_freeze.json": "84e3eaaafc553255e53c1d229760d37f3afbbe6b2c316c8d31eea8b0684141b3",
+    "entry_separation365.py": "976e783861c05fd62e724d067fd295ee9e8d48ce2dd09ba3d98d8d3a91d0acb4",
+    "entry_separation_actual365.json": "ce7a6570e89656eaa311b04d8304097de073f423120534c455178db794561c69",
+    "test_entry_separation365.py": "61d07630f9a7fd1dcada8bf11a374efb24e3bbd3d074f905c5960b2bfd898060",
+    "entry_separation_tests365.log": "43c8ef72799731ac22aed2f66bc78aac8b2862fbb48f680a85b2434320c90ab9"
+  }
+}

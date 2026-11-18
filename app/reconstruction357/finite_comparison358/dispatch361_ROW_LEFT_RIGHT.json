@@ -1,0 +1,14 @@
+{
+  "organization": "ROW",
+  "family": "LEFT_RIGHT",
+  "prior_status": "NOT_ATTEMPTED_BUDGET_CHECKPOINT",
+  "source_callable": "coarse_master129.propose",
+  "time_limit": 3,
+  "not_global_infeasibility": true,
+  "proposal": {
+    "status": "UNSUPPORTED_BUNDLE_FIT",
+    "not_global_infeasibility": true
+  },
+  "status": "UNSUPPORTED_BUNDLE_FIT",
+  "solver_seconds": 7.710399950155988e-05
+}

@@ -1,0 +1,584 @@
+{
+  "schema": "SERVICE365_INTRINSIC_ENTRY_ROLE_AND_CURRENT_ROUTE_USE_CLASSES",
+  "verdict": "PASS_SCOPED_INTRINSIC_CURRENT_SOURCE_REQUIRED_ACCESS_ROLE",
+  "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "fresh_result_digest": "378b01dffa39252ec47e6e5e288b28b49ca3c9fc18b6e35dec008917961de391",
+  "source_row_digests": {
+    "body_route_sweeps": "0335e555b982082ef75f3313738d504f6bae0b89dab743b40f46fb3e5f095a70",
+    "serving_route": "8c1e18552d4d1b5d245598414aca433db07bf558483b2e737acdb2821d5e9dff",
+    "fixture_inventory_use": "5c85344fa3d66619e4ddba308e0ddf5072af3c418d2c65d44f2c0cfb7d3251ac",
+    "bath_service_operation": "99b16fae0b25662d50e2aff211c7c9223dab54249311b61ab035cace4470509f",
+    "door_operation": "365fbcbf69d20364c3cad95896022e745ccbee2d858effd65ce3230648154581",
+    "partition_ledger": "38d88d9ef03694ce9d51dd96947d8e81215f010b167277a8477302b48b970795",
+    "circulation_functional_integrity": "e498c8d283a37c8305fe0a993f0b377ef54e8b95bf0ff727adddb59afb00dec3"
+  },
+  "constructor": {
+    "source": "final_public_floor120.py:rebuild",
+    "sha256": "3d81ad3d48a8838b4566dbd1013081270fd85eabdd95fa9267366c995116524b"
+  },
+  "units": [
+    {
+      "whole_entry_area_m2": "190699/4000",
+      "current_source_service_only_route_area_m2": "2079/200",
+      "current_source_nonservice_only_route_area_m2": "141489/4000",
+      "current_source_shared_route_area_m2": "763/400",
+      "service_only_outside_source_approach_m2": "1911/200",
+      "service_only_outside_source_approach_regions": [
+        [
+          "147/8",
+          "31/8",
+          "763/40",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "22",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "763/40",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "22",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "763/40",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "22",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "763/40",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "31/8",
+          "22",
+          "183/40"
+        ],
+        [
+          "147/8",
+          "183/40",
+          "763/40",
+          "143/20"
+        ],
+        [
+          "147/8",
+          "183/40",
+          "763/40",
+          "143/20"
+        ],
+        [
+          "147/8",
+          "183/40",
+          "763/40",
+          "143/20"
+        ],
+        [
+          "147/8",
+          "183/40",
+          "763/40",
+          "143/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "607/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "147/8",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "607/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "147/8",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "607/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "147/8",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "607/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "147/8",
+          "143/20",
+          "763/40",
+          "157/20"
+        ],
+        [
+          "579/40",
+          "157/20",
+          "607/40",
+          "97/10"
+        ],
+        [
+          "579/40",
+          "157/20",
+          "607/40",
+          "97/10"
+        ],
+        [
+          "579/40",
+          "157/20",
+          "607/40",
+          "97/10"
+        ],
+        [
+          "579/40",
+          "157/20",
+          "607/40",
+          "97/10"
+        ],
+        [
+          "567/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "579/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "567/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "579/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "567/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "579/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "567/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ],
+        [
+          "579/40",
+          "97/10",
+          "607/40",
+          "52/5"
+        ]
+      ],
+      "all_cells_required_traversal_bound": true,
+      "classification_scope": "CURRENT_SOURCE_DECLARED_ROUTE_USE_CLASSES_NOT_EXCLUSIVITY_OF_ALL_POSSIBLE_FUNCTIONS",
+      "unit": "A",
+      "service_target_ids": [
+        "WC_front",
+        "WC_use",
+        "basin_front",
+        "shower_use"
+      ],
+      "required_activity_ids": [
+        "WC_front",
+        "WC_use",
+        "armchair1_front",
+        "armchair2_front",
+        "armchair3_front",
+        "armchair4_front",
+        "basin_front",
+        "bed1.bed_back",
+        "bed1.bed_front",
+        "bed1.changing",
+        "bed1.closet_front",
+        "bed2.bedA_back",
+        "bed2.bedA_front",
+        "bed2.bedB_back",
+        "bed2.bedB_front",
+        "bed2.changing",
+        "bed2.closet_front",
+        "bed3.bedA_back",
+        "bed3.bedA_front",
+        "bed3.bedB_back",
+        "bed3.bedB_front",
+        "bed3.changing",
+        "bed3.closet_front",
+        "dining_back_left",
+        "dining_back_right",
+        "dining_front_left",
+        "dining_front_right",
+        "dining_left",
+        "dining_right",
+        "kitchen_work",
+        "shower_use",
+        "sofa1_front",
+        "sofa2_front"
+      ],
+      "required_scenario_ids": [
+        "guest_dining",
+        "guest_living",
+        "kitchen_to_dining_floor"
+      ],
+      "source_route_geometry_hash": "21c465d29ed4be2e590bb3c626aa175bff6275b4eb0f0f8c13d996c7cb2c7cca",
+      "source_module_digest": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "source_whole_entry_domain_digest": "753e017cc6d3b813db35fd18c883ddd07895983ab9e82b97051c64683508355f",
+      "verdict": "PASS_SCOPED_INTRINSIC_CURRENT_SOURCE_REQUIRED_ACCESS_ROLE",
+      "necessity_verdict": "NOT_ASSESSED_REQUIRES_INDEPENDENT_FINITE_COMPARISON"
+    },
+    {
+      "whole_entry_area_m2": "190699/4000",
+      "current_source_service_only_route_area_m2": "2079/200",
+      "current_source_nonservice_only_route_area_m2": "141489/4000",
+      "current_source_shared_route_area_m2": "763/400",
+      "service_only_outside_source_approach_m2": "1911/200",
+      "service_only_outside_source_approach_regions": [
+        [
+          "579/40",
+          "183/10",
+          "607/40",
+          "403/20"
+        ],
+        [
+          "579/40",
+          "183/10",
+          "607/40",
+          "403/20"
+        ],
+        [
+          "579/40",
+          "183/10",
+          "607/40",
+          "403/20"
+        ],
+        [
+          "579/40",
+          "183/10",
+          "607/40",
+          "403/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "607/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "147/8",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "607/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "147/8",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "607/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "147/8",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "607/40",
+          "417/20"
+        ],
+        [
+          "579/40",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "147/8",
+          "403/20",
+          "763/40",
+          "417/20"
+        ],
+        [
+          "147/8",
+          "417/20",
+          "763/40",
+          "937/40"
+        ],
+        [
+          "147/8",
+          "417/20",
+          "763/40",
+          "937/40"
+        ],
+        [
+          "147/8",
+          "417/20",
+          "763/40",
+          "937/40"
+        ],
+        [
+          "147/8",
+          "417/20",
+          "763/40",
+          "937/40"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "763/40",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "22",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "763/40",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "22",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "763/40",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "22",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "763/40",
+          "193/8"
+        ],
+        [
+          "147/8",
+          "937/40",
+          "22",
+          "193/8"
+        ],
+        [
+          "567/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "579/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "567/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "579/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "567/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "579/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "567/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ],
+        [
+          "579/40",
+          "88/5",
+          "607/40",
+          "183/10"
+        ]
+      ],
+      "all_cells_required_traversal_bound": true,
+      "classification_scope": "CURRENT_SOURCE_DECLARED_ROUTE_USE_CLASSES_NOT_EXCLUSIVITY_OF_ALL_POSSIBLE_FUNCTIONS",
+      "unit": "B",
+      "service_target_ids": [
+        "WC_front",
+        "WC_use",
+        "basin_front",
+        "shower_use"
+      ],
+      "required_activity_ids": [
+        "WC_front",
+        "WC_use",
+        "armchair1_front",
+        "armchair2_front",
+        "armchair3_front",
+        "armchair4_front",
+        "basin_front",
+        "bed1.bed_back",
+        "bed1.bed_front",
+        "bed1.changing",
+        "bed1.closet_front",
+        "bed2.bedA_back",
+        "bed2.bedA_front",
+        "bed2.bedB_back",
+        "bed2.bedB_front",
+        "bed2.changing",
+        "bed2.closet_front",
+        "bed3.bedA_back",
+        "bed3.bedA_front",
+        "bed3.bedB_back",
+        "bed3.bedB_front",
+        "bed3.changing",
+        "bed3.closet_front",
+        "dining_back_left",
+        "dining_back_right",
+        "dining_front_left",
+        "dining_front_right",
+        "dining_left",
+        "dining_right",
+        "kitchen_work",
+        "shower_use",
+        "sofa1_front",
+        "sofa2_front"
+      ],
+      "required_scenario_ids": [
+        "guest_dining",
+        "guest_living",
+        "kitchen_to_dining_floor"
+      ],
+      "source_route_geometry_hash": "6f49f5a6b6a4366daadee903461d3ebc9e24a39211d8007754aa0b155e5c4976",
+      "source_module_digest": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "source_whole_entry_domain_digest": "0aae711946914f25f4a08ffca3c79cbf835455e4422d5faa476e5439cdb73357",
+      "verdict": "PASS_SCOPED_INTRINSIC_CURRENT_SOURCE_REQUIRED_ACCESS_ROLE",
+      "necessity_verdict": "NOT_ASSESSED_REQUIRES_INDEPENDENT_FINITE_COMPARISON"
+    }
+  ],
+  "engineering_scope": "The actual source entry domain is exactly its valid required/scenario body-path union outside other functional rooms and walls. This proves current access function, not optimal or necessary path cost, all possible multifunction, or global exclusive use. Source service-only area is a comparison cost input, not a zero-area acceptance condition.",
+  "compactness_verdict": "UNKNOWN_REQUIRES_FINITE_COMPARISON",
+  "admission_allowed": false,
+  "fresh_execution": false
+}

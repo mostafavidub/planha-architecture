@@ -1,0 +1,16 @@
+{
+  "unchanged_producers": {
+    "assemble367.py": true,
+    "private_branch_hall367.py": true,
+    "core_notch367.py": true,
+    "notch_frame367.py": true,
+    "entry367.py": true,
+    "operation_domain367.py": true,
+    "selector367.py": true,
+    "union_domain367.py": true,
+    "supervisor.py": true
+  },
+  "only_joint_change": "v3 imports/inventory to v5",
+  "only_runner_change": "attempt-specific output path",
+  "setup_note": "Launcher-generation helper first missed import re; corrected before launcher existed. No execution started."
+}

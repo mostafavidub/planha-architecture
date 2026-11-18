@@ -1,0 +1,740 @@
+{
+  "schema": "SOURCE_BACKED_FINITE_BRANCH_REGISTRY362_V1",
+  "branches": [
+    {
+      "id": "LAYOUT_ROW358_FIXED_PROPOSAL",
+      "source": {
+        "file": "staging358_comparative/row_adapter358.py",
+        "sha256": "f07912ba8f679eea9d44c40f7223b009ce683d0accba2e0db7e1da7219c4b17a",
+        "callable": "construct",
+        "lines": [
+          34,
+          37
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Actual source-bound 358; same exact brief/profile; negative area objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_SIDECAR357_FIXED_PROPOSAL",
+      "source": {
+        "file": "staging357_comparative/translated_adapter.py",
+        "sha256": "c4352430910d4c491e9c6032f29a8dedc09ec6d9370f0b5c911f59e65f465732",
+        "callable": "construct",
+        "lines": [
+          10,
+          21
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Actual source-bound357; negative source route objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_ROW351_SAVED_PROPOSAL",
+      "source": {
+        "file": "planha_general150_runtime_work/constructor129.py",
+        "sha256": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+        "callable": "build",
+        "lines": [
+          15,
+          40
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Recovered fixed351 candidate, source provenance retained; negative source route objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_HALL_CLAMP359_FIXED_LINEAGE",
+      "source": {
+        "file": "staging359_hall_clamp/adapter359.py",
+        "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+        "callable": "construct",
+        "lines": [
+          25,
+          32
+        ]
+      },
+      "state": "EVALUATED_SELF_TIE",
+      "reason": "Current359, same exact fixed358 proposal, one bounded reconstruction",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "CORE_FULL_BAND114_FIXED_INPUT",
+      "source": {
+        "file": "planha_general150_runtime_work/contract114.py",
+        "sha256": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+        "callable": "core_first",
+        "lines": [
+          57,
+          74
+        ],
+        "available_callables": [
+          "S",
+          "digest",
+          "parse",
+          "full_band_core_first",
+          "program",
+          "core_first"
+        ]
+      },
+      "state": "PROTECTED_DOMAIN_EXCLUDED",
+      "reason": "Source full-band primitive measured independently; exact ownership loss forbids this conservative comparative domain, not intrinsic invalidity",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "branch_id": "CORE_SOUTH_LIFT_NOTCH_FIXED359_LINEAGE",
+      "same_parent_proposal_raw_and_exact_core_variant": true,
+      "core_variant_only_version_tokens_changed": true,
+      "source_variants": [
+        {
+          "file": "staging360_core_notch/core_variant360.py",
+          "sha256": "134a42493ab34b0da72a25efa05ce75c9d717460c13e57089f510460f953c0b6",
+          "callable": "derive",
+          "lines": [
+            8,
+            21
+          ]
+        },
+        {
+          "file": "staging362_core_notch/core_variant362.py",
+          "sha256": "1d7b325ad6d5e5d06f91968ff170ee7bc444066c97d7cc65621c7606e6486bed",
+          "callable": "derive",
+          "lines": [
+            8,
+            21
+          ]
+        }
+      ],
+      "historical_attempt": {
+        "record": {
+          "path": "staging360_core_notch/actual360.json",
+          "sha256": "8053760ce0cff5c7402e4058d8419f04b6d26bd74eff1f0b2513ce5b0ea20db0"
+        },
+        "fresh": {
+          "path": "review360_source_validation/result.json",
+          "sha256": "34de629a630d8d11f02ef4e92b78bc43aadac38d28916eb31fc904c1d87e9ac9"
+        },
+        "model_digest": "b8818f425071ef5096e71198b3564f8c342a04f050b64e6e1d199ad330830451",
+        "raw_status": "NOT_EVALUATED",
+        "pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:partition_ledger"
+        ],
+        "state": "SUPERSEDED_REPRESENTATION_ATTEMPT_NOT_AN_ACCEPTED_ALTERNATIVE",
+        "retained": true
+      },
+      "current_attempt": {
+        "record": {
+          "path": "staging362_core_notch/actual362.json",
+          "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8"
+        },
+        "fresh": {
+          "path": "review362_source_validation/result.json",
+          "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181"
+        },
+        "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+        "raw_status": "PASS_CONCEPT_SCOPED_REVIEW",
+        "errors": [],
+        "pending": [],
+        "state": "FRESH_EVALUATED_INTRINSIC_ELIGIBILITY_PENDING"
+      },
+      "representation_delta": "362 rebuild closes exact exposed boundary junction with notch_frame362.outer_right and source frame validator; original360 representation and its unknowns retained, not silently accepted or globally excluded.",
+      "source_delta": [
+        {
+          "file": "staging362_core_notch/notch_frame362.py",
+          "sha256": "7086c8861c02b4be1a9cb5046154f6d0ae1346e86e84784f9a8d785742c1c2c3",
+          "callable": "outer_right",
+          "lines": [
+            4,
+            9
+          ]
+        }
+      ],
+      "parent_acceptance": false
+    },
+    {
+      "id": "DOOR_RELOCATION_STANDALONE",
+      "source": {
+        "file": "staging359_hall_clamp/adapter359.py",
+        "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+        "callable": "construct",
+        "lines": [
+          25,
+          32
+        ]
+      },
+      "state": "UNSUPPORTED_REGISTERED_PRODUCER",
+      "reason": "Current fixed-lineage adapter takes no door position/host/profile parameters; source module openings regenerated unchanged. General source233 OP_EDIT_OPENING is specification, not an implemented standalone branch",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "BRANCH146__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "BRANCH146",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/0",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "ROOTED_BRANCH149__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROOTED_BRANCH149",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/1",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "SIDECAR_ROOTED139__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_ROOTED139",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/2",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "TURN_T_CONNECTED__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "TURN_T_CONNECTED",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/1",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+      "global_infeasibility": false
+    },
+    {
+      "id": "ACCESS__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ACCESS",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/4",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "L3__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "L3",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "twin",
+          "twin",
+          "double"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/5",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "ROW__FRONT_REAR",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROW",
+        "family": "FRONT_REAR",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/6",
+      "status": "PROPOSAL_ONLY",
+      "reason": null,
+      "solver_status": 1,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "CONSTRUCTED_REQUIRES_BOUND_COMPARISON",
+      "global_infeasibility": false
+    },
+    {
+      "id": "SIDECAR_GROUP138__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_GROUP138",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/2",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "SIDECAR_COMPACT144__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_COMPACT144",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/5",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "SIDECAR_PROTECTED__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_PROTECTED",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/3",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+      "global_infeasibility": false
+    },
+    {
+      "id": "TURN_T__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "TURN_T",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/0",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+      "global_infeasibility": false
+    },
+    {
+      "id": "ROW__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROW",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/4",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+      "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+      "global_infeasibility": false
+    }
+  ],
+  "active_dispatch_count": 12,
+  "active_dispatch_enumeration_complete": true,
+  "unresolved_active_dispatch_ids": [],
+  "notch_lineage": {
+    "branch_id": "CORE_SOUTH_LIFT_NOTCH_FIXED359_LINEAGE",
+    "same_parent_proposal_raw_and_exact_core_variant": true,
+    "core_variant_only_version_tokens_changed": true,
+    "source_variants": [
+      {
+        "file": "staging360_core_notch/core_variant360.py",
+        "sha256": "134a42493ab34b0da72a25efa05ce75c9d717460c13e57089f510460f953c0b6",
+        "callable": "derive",
+        "lines": [
+          8,
+          21
+        ]
+      },
+      {
+        "file": "staging362_core_notch/core_variant362.py",
+        "sha256": "1d7b325ad6d5e5d06f91968ff170ee7bc444066c97d7cc65621c7606e6486bed",
+        "callable": "derive",
+        "lines": [
+          8,
+          21
+        ]
+      }
+    ],
+    "historical_attempt": {
+      "record": {
+        "path": "staging360_core_notch/actual360.json",
+        "sha256": "8053760ce0cff5c7402e4058d8419f04b6d26bd74eff1f0b2513ce5b0ea20db0"
+      },
+      "fresh": {
+        "path": "review360_source_validation/result.json",
+        "sha256": "34de629a630d8d11f02ef4e92b78bc43aadac38d28916eb31fc904c1d87e9ac9"
+      },
+      "model_digest": "b8818f425071ef5096e71198b3564f8c342a04f050b64e6e1d199ad330830451",
+      "raw_status": "NOT_EVALUATED",
+      "pending": [
+        "RULE_NOT_EVALUATED:circulation_functional_integrity",
+        "RULE_NOT_EVALUATED:partition_ledger"
+      ],
+      "state": "SUPERSEDED_REPRESENTATION_ATTEMPT_NOT_AN_ACCEPTED_ALTERNATIVE",
+      "retained": true
+    },
+    "current_attempt": {
+      "record": {
+        "path": "staging362_core_notch/actual362.json",
+        "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8"
+      },
+      "fresh": {
+        "path": "review362_source_validation/result.json",
+        "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181"
+      },
+      "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+      "raw_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "state": "FRESH_EVALUATED_INTRINSIC_ELIGIBILITY_PENDING"
+    },
+    "representation_delta": "362 rebuild closes exact exposed boundary junction with notch_frame362.outer_right and source frame validator; original360 representation and its unknowns retained, not silently accepted or globally excluded.",
+    "source_delta": [
+      {
+        "file": "staging362_core_notch/notch_frame362.py",
+        "sha256": "7086c8861c02b4be1a9cb5046154f6d0ae1346e86e84784f9a8d785742c1c2c3",
+        "callable": "outer_right",
+        "lines": [
+          4,
+          9
+        ]
+      }
+    ],
+    "parent_acceptance": false
+  },
+  "historical_not_active": [
+    "private_mixed_source132 standalone",
+    "private_stagger_source132 standalone",
+    "unlisted constructor family/topology combinations"
+  ],
+  "historical_exclusion_reason": "Not selected by this exact registered source150 runtime tuple; not claimed impossible or unusable globally",
+  "finite_domain_definition": "Exact source150 runtime tuple with original fixed input; registered fixed357/358/359 transformations; one source114 full-band ownership proof; one fixed359 south-lift-notch branch corrected360→362. No arbitrary continuous door/layout edits or historical files asserted exhausted.",
+  "restricted_search_terminal_meaning": "INFEASIBLE proves only the encoded restricted MILP. Unsupported fit proves only this source primitive at fixed frame. Neither establishes global layout impossibility.",
+  "branch_enumeration_closed": true,
+  "q04_comparison_closed": false,
+  "remaining": [
+    "CURRENT362_INTRINSIC_GATE",
+    "CURRENT362_PURPOSE_AND_METRICS",
+    "PAIRWISE_SOURCE_FUNCTIONAL_OBJECTIVE_COMPARISON",
+    "INDEPENDENT_FINITE_DOMAIN_AUDIT"
+  ],
+  "parent_acceptance": false,
+  "global_optimum": false
+}

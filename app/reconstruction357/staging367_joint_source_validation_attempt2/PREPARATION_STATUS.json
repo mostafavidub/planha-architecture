@@ -1,0 +1,8 @@
+{
+  "status": "PREAUDIT_READY_NO_EXECUTION",
+  "execution_allowed": false,
+  "fresh_calls": 0,
+  "replay_calls": 0,
+  "tests_passed": 14,
+  "scope": "New source replay and geometry seam; no waiver of private topology or quality."
+}

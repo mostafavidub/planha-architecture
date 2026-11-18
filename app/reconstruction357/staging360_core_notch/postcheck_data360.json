@@ -1,0 +1,28 @@
+{
+  "scope": "DATA_EXACT_RECT_UNIONS_ONLY_NOT_FUNCTIONAL_OR_FRESH",
+  "rows": [
+    {
+      "unit": "A",
+      "ownership_matches_declared_core": true,
+      "old_ownership_removed_area": "0",
+      "new_ownership_added_area": "627/400",
+      "room_floor_outside_ownership_area": "0",
+      "ownership_overlap_common_lobby_area": "0"
+    },
+    {
+      "unit": "B",
+      "ownership_matches_declared_core": true,
+      "old_ownership_removed_area": "0",
+      "new_ownership_added_area": "0",
+      "room_floor_outside_ownership_area": "0",
+      "ownership_overlap_common_lobby_area": "0"
+    }
+  ],
+  "cross_unit_ownership_overlap_area": "0",
+  "frozen_source_changed": [],
+  "actual_file_sha256": "8053760ce0cff5c7402e4058d8419f04b6d26bd74eff1f0b2513ce5b0ea20db0",
+  "fresh_executed": false,
+  "accepted": false,
+  "host_network_validated": false,
+  "functional_use": "UNKNOWN"
+}

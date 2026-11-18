@@ -1,0 +1,18 @@
+"""Read-only source-property record; no import of project/build/review functions."""
+import json,hashlib
+from pathlib import Path
+from fractions import Fraction as F
+R=Path(__file__).resolve().parents[1]
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+base=R/'staging365_service_grammar/candidate365.json';cur=R/'review367_joint_attempt2/actual367.json'
+a=json.loads(base.read_text());b=json.loads(cur.read_text())
+old=a['candidate']['model']['common_spaces']['lobby'];new=b['candidate']['model']['common_spaces']['lobby']
+def area(rs):
+ qs=[list(map(F,q))for q in rs]
+ assert all(max(x[0],y[0])>=min(x[2],y[2]) or max(x[1],y[1])>=min(x[3],y[3])for i,x in enumerate(qs)for y in qs[i+1:])
+ return sum((q[2]-q[0])*(q[3]-q[1])for q in qs)
+files=['staging366_service_balance_preflight/'+n for n in ['constructor366.py','assemble366.py','entry366.py','actual_selection366.json','adapter366.py']]
+files+=['planha_general150_runtime_work/'+n+'.py'for n in ['contract114','geometry114','nonseating146','nonseating144','approach_contract123','source_rotation133','place_module133','place_module116','place_bathroom117','place_kitchen117','private_branch_hall146','operations115','public_witness144','final_public_floor120','wall_union118','face_threshold118','spatial_roles118']]
+readset={n:sha(R/n)for n in files}
+result={'schema':'CONDITIONAL_SOURCE_COMMON_INVARIANT366_V1','kind':'READ_ONLY_SOURCE_INSPECTION_WITH_EXACT_EXISTING_RECORD_ARITHMETIC','source_readset':readset,'baseline_record_sha256':sha(base),'current_record_sha256':sha(cur),'source_path':'fixed SERVICE record; PARALLEL_TWINS_BRANCH146; module_placements populated; successful return of assemble366','parameter_scope':'Any accepted selection supplied to core_from with fixed parent record, same source/module path; build() itself accepts only pinned actual_selection366. Not a generated cohort.','invariant':{'construction':'core_from deepcopy(base), only entry_centers and service_balanced366 assigned; stair/lift/lobby not mutated','assembly':'assemble366 line25 common_spaces binds those three core values; active module installers do not mutate common_spaces/core lobby references','postprocessors':['public_witness144.install','final_public_floor120.rebuild','wall_union118.bind_physical_wall_union','face_threshold118.attach','spatial_roles118.attach'],'postcondition':'same common_spaces stair/lift/lobby if this fixed source path returns successfully','proof_kind':'Manual source callgraph/write-set inspection, not machine-checked universal execution proof'},'areas':{'baseline_lobby_rects':old,'current367_lobby_rects':new,'baseline_lobby_area_m2':str(area(old)),'current367_lobby_area_m2':str(area(new)),'difference_m2':str(area(old)-area(new)),'metric':'union area of recorded common lobby floor only; not necessity or functional usefulness'},'logical_use':'If minimizing lobby union area is a noncompensatory Pareto coordinate, this conditional constant larger coordinate prevents a successful candidate on this fixed source path from dominating current367. No claim current367 dominates all other coordinates.','draft366_status':'UNASSESSED_NO_BUILD_NO_FRESH','candidate_created':False,'new_solver':False,'new_fresh':False,'global_infeasible':False,'global_optimality':False,'eligibility_established':False,'historical_terminal_states':{'366':'necessary parameter selection only; later notch incompatibility; no build','367_attempt1':'stage1 oracle STOP; no later stage/candidate; read review367_joint_diagnostic','367_attempt2':'same nine producer files; guard v3 to v5 source-derived oracle correction; read review367_joint_attempt2/source_delta.json'}}
+print(json.dumps(result,ensure_ascii=False,indent=2))

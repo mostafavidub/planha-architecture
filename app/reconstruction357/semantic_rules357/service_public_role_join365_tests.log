@@ -1,0 +1,11 @@
+test_actual_not_in_living_role (test_service_public_role_join365.Join.test_actual_not_in_living_role) ... ok
+test_body_connection_not_multifunction (test_service_public_role_join365.Join.test_body_connection_not_multifunction) ... ok
+test_living_label_not_function (test_service_public_role_join365.Join.test_living_label_not_function) ... ok
+test_module_tamper_rejected (test_service_public_role_join365.Join.test_module_tamper_rejected) ... ok
+test_outside_entry_rejected (test_service_public_role_join365.Join.test_outside_entry_rejected) ... ok
+test_stale_review_rejected (test_service_public_role_join365.Join.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 11.004s
+
+OK

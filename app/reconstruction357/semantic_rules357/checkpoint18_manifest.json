@@ -1,0 +1,12 @@
+{
+  "tests": "10 passed in14.110s",
+  "scope": "Same-model359 pinned SERVICE dependency reassessment only; parent admission false; B18 unchanged",
+  "files": {
+    "semantic_rules357/role_registry_model359_v3.py": "f9c55b4b5e2ec3f4482908792cf7ad2144bfa956d97125f9c115113742c22e7f",
+    "semantic_rules357/test_role_model359_v3.py": "d5ccecbc67cd66711a9fbb313cf9b0e51a54b042b724edaa09188d6974132968",
+    "semantic_rules357/role_registry_on359_v3.json": "18d34b75777c91ab6cd6d3f33c92b679abf5035d1c9153f3f234a8ed336932e2",
+    "semantic_rules357/role_registry_tests359_v3.log": "a92252d8485e9f85111cfaf5352c0c2048008b0772b73cf37c192377293469e9",
+    "semantic_rules357/service_runner359_v2.py": "e21c381ce4f3bb96c6d1c5fcc32295fe2c1de1636f2dd8472fae8ccd9e7fd954",
+    "finite_comparison358/service_closure359_manifest_v2.json": "4cb990bc2319c91912107b6c7e05ca6d26fd7c8f1945a1fdb5a72455766a4cec"
+  }
+}

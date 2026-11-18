@@ -1,0 +1,18 @@
+{
+  "verified": true,
+  "checks": {
+    "clean": true,
+    "pins": true,
+    "freeze": true,
+    "current_binding": true,
+    "actual_view_digest": true,
+    "prior_binding": true,
+    "no_errors": true,
+    "parent_dependencies": true,
+    "four_scoped_parents": true,
+    "selection_open": true,
+    "no_overclaim": true
+  },
+  "raw_result_sha256": "7441d7b86a95221dce7c8bdb2a78b4cfdb525bd17423ec4f2c5595d8cb82b733",
+  "scope": "Independent artifact, source, provenance and join dependency verification; no rerun. Selected set remains unproven."
+}

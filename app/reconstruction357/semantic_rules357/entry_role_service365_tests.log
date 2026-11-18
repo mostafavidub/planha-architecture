@@ -1,0 +1,11 @@
+test_actual_nonzero_cost_not_zero_guard (test_entry_role_service365.Entry.test_actual_nonzero_cost_not_zero_guard) ... ok
+test_extra_room_or_route_tamper_rejected (test_entry_role_service365.Entry.test_extra_room_or_route_tamper_rejected) ... ok
+test_gap_cannot_launder (test_entry_role_service365.Entry.test_gap_cannot_launder) ... ok
+test_no_necessity_or_admission (test_entry_role_service365.Entry.test_no_necessity_or_admission) ... ok
+test_shared_route_not_exclusive (test_entry_role_service365.Entry.test_shared_route_not_exclusive) ... ok
+test_stale_review_rejected (test_entry_role_service365.Entry.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.448s
+
+OK

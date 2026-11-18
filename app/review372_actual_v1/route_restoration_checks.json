@@ -1,0 +1,26 @@
+{
+  "route_failures": [],
+  "required_routes_restored": {
+    "A": {
+      "sofa1_front": true,
+      "armchair2_front": true
+    },
+    "B": {
+      "sofa1_front": true,
+      "armchair2_front": true
+    }
+  },
+  "guest_living_restored": {
+    "A": true,
+    "B": true
+  },
+  "not_exact_baseline_restoration": true,
+  "fresh_seconds": 63.37874313199791,
+  "phase_seconds": {
+    "propose": 0.6399585510007455,
+    "construct": 26.774150362998625,
+    "fresh": 63.8737710610003,
+    "compare": 0.7516022420022637,
+    "outer": 92.11792754699854
+  }
+}

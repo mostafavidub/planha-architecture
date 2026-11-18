@@ -1,0 +1,11 @@
+{
+ "schema":"SERVICE_COST_POLICY365_V2",
+ "source":"staging274_evaluator_transport_fix/quality_contract.json:SERVICE_COMPACTNESS/PRD703",
+ "source_requirements":["Measure bath/WC union and exclusive service circulation separately","Report R_service=100*bath_WC_union/unit_net","Use actually validated same-service-program baseline, not theoretical minimum","Excess requires verified functional reason and alternative comparison","Do not shrink required activities to meet percentage"],
+ "explicit_non_requirements":["No source requirement that route-only residual must equal zero","Route-only footprint is not proof of exclusive function","Connected reachable public floor is not proof of nonservice shared function"],
+ "dependency_order":["own source/fresh bindings","intrinsic source room and actor-route validity","independent entry circulation functional role and exclusive/shared classification","finite measured circulation costs and protected comparisons (Q04)","final SERVICE compactness reason and comparison"],
+ "forbidden_dependency":"Intrinsic entry role must not depend on final SERVICE compactness. Q04 must not require final SERVICE compactness as an intrinsic predicate.",
+ "engineering_operationalization":"Retain exact measured route-only atoms as unresolved cost inventory until source-role classification is complete. Known exclusive atoms become A_exclusive_service_circulation, shared atoms remain in entry cost but are not double-counted as exclusive. Do not discard unknown atoms or use zero as their value.",
+ "nonzero_cost_acceptance":"Nonzero exclusive cost alone is neither FAIL nor UNKNOWN. Parent closure depends on complete functional role, bound comparable baseline, and verified reason plus finite protected comparison for excess.",
+ "current_scope":"SOURCE_SERVICE365; V365 post-observation refinement; no global optimum, no new solver or fresh"
+}

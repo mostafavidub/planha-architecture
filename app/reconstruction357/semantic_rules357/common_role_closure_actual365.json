@@ -1,0 +1,699 @@
+{
+  "verdict": "PASS_SCOPED_CONCEPTUAL_COMMON_TRANSFER_JUNCTION_ROLE",
+  "model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+  "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+  "whole_junction_region": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "whole_junction_area_m2": "583/80",
+  "actual_transfer_extent": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "connected_source_domain_witness": {
+    "predicate": "EXACT_SOURCE_SINGLE_RECTANGLE_WITH_NO_POSITIVE_AREA_INTERIOR_BLOCKED_INTERSECTION",
+    "blocked_inventory_digest": "4d4b29d57a2c3186abc61b63445b0a0d698be867fb81f4570f4f3684577e44b8",
+    "blocked_inventory_count": 348,
+    "blocked_inventory_ids": [
+      "wall/left",
+      "wall/right",
+      "wall/front",
+      "wall/back",
+      "wall/A.unit_boundary.solid0",
+      "wall/A.unit_boundary.solid1",
+      "wall/B.unit_boundary.solid0",
+      "wall/B.unit_boundary.solid1",
+      "wall/core.notch362.A_separator",
+      "wall/unit_shared_wing_left",
+      "wall/unit_shared_wing_right",
+      "wall/core.lobby.outer_right",
+      "wall/core.stair.left",
+      "wall/core.stair.right.solid0",
+      "wall/core.stair.right.solid1",
+      "wall/core.stair.bottom",
+      "wall/core.stair.top",
+      "wall/core.lift.left.solid0",
+      "wall/core.lift.left.solid1",
+      "wall/core.lift.right",
+      "wall/core.lift.bottom",
+      "wall/core.lift.top",
+      "wall/A.bed1.left.lower",
+      "wall/A.bed1.left.upper",
+      "wall/A.bed1.right",
+      "wall/A.bed1.front",
+      "wall/A.bed1.back",
+      "wall/A.bed2.left.lower",
+      "wall/A.bed2.left.upper",
+      "wall/A.bed2.right",
+      "wall/A.bed2.front",
+      "wall/A.bed2.back",
+      "wall/A.bed3.left.lower",
+      "wall/A.bed3.left.upper",
+      "wall/A.bed3.right",
+      "wall/A.bed3.front",
+      "wall/A.bed3.back",
+      "wall/A.bath.left",
+      "wall/A.bath.A.bath_bottom",
+      "wall/A.bath.A.bath_right0",
+      "wall/A.bath.A.WC_left",
+      "wall/A.bath.A.shower_left",
+      "wall/A.bath.A.service_back",
+      "wall/A.bath.A.service_right",
+      "wall/A.bath.A.service_left",
+      "wall/A.bath.A.bath_right1.assembly0",
+      "wall/A.bath.A.bath_right1.assembly1",
+      "wall/A.bath.A.bath_right1.assembly3",
+      "wall/A.bath.A.WC_right.assembly0",
+      "wall/A.bath.A.WC_right.assembly1",
+      "wall/A.bath.A.WC_right.assembly2",
+      "wall/A.bath.A.shower_right.assembly0",
+      "wall/A.bath.A.shower_right.assembly1",
+      "wall/A.bath.A.shower_right.assembly2",
+      "wall/A.bath.A.core_left.assembly0",
+      "wall/A.bath.A.core_left.assembly1",
+      "wall/A.bath.A.core_left.assembly2",
+      "wall/A.kitchen.left",
+      "wall/A.kitchen.right",
+      "wall/A.kitchen.back",
+      "wall/A.kitchen.front.left",
+      "wall/A.kitchen.front.right",
+      "wall/A.private_hall.left_return",
+      "wall/A.private_hall.right_return",
+      "wall/A.private_hall.back_left",
+      "wall/A.private_hall.back_right",
+      "wall/B.bed1.left.lower",
+      "wall/B.bed1.left.upper",
+      "wall/B.bed1.right",
+      "wall/B.bed1.front",
+      "wall/B.bed1.back",
+      "wall/B.bed2.left.lower",
+      "wall/B.bed2.left.upper",
+      "wall/B.bed2.right",
+      "wall/B.bed2.front",
+      "wall/B.bed2.back",
+      "wall/B.bed3.left.lower",
+      "wall/B.bed3.left.upper",
+      "wall/B.bed3.right",
+      "wall/B.bed3.front",
+      "wall/B.bed3.back",
+      "wall/B.bath.left",
+      "wall/B.bath.A.bath_bottom",
+      "wall/B.bath.A.bath_right0",
+      "wall/B.bath.A.WC_left",
+      "wall/B.bath.A.shower_left",
+      "wall/B.bath.A.service_back",
+      "wall/B.bath.A.service_right",
+      "wall/B.bath.A.service_left",
+      "wall/B.bath.A.bath_right1.assembly0",
+      "wall/B.bath.A.bath_right1.assembly1",
+      "wall/B.bath.A.bath_right1.assembly3",
+      "wall/B.bath.A.WC_right.assembly0",
+      "wall/B.bath.A.WC_right.assembly1",
+      "wall/B.bath.A.WC_right.assembly2",
+      "wall/B.bath.A.shower_right.assembly0",
+      "wall/B.bath.A.shower_right.assembly1",
+      "wall/B.bath.A.shower_right.assembly2",
+      "wall/B.bath.A.core_left.assembly0",
+      "wall/B.bath.A.core_left.assembly1",
+      "wall/B.bath.A.core_left.assembly2",
+      "wall/B.kitchen.left",
+      "wall/B.kitchen.right",
+      "wall/B.kitchen.back",
+      "wall/B.kitchen.front.left",
+      "wall/B.kitchen.front.right",
+      "wall/B.private_hall.left_return",
+      "wall/B.private_hall.right_return",
+      "wall/B.private_hall.back_left",
+      "wall/B.private_hall.back_right",
+      "fixture/A/bed1.bed",
+      "fixture/A/bed1.closet",
+      "fixture/A/bed2.closet",
+      "fixture/A/bed2.bedA",
+      "fixture/A/bed2.bedB",
+      "fixture/A/bed3.closet",
+      "fixture/A/bed3.bedA",
+      "fixture/A/bed3.bedB",
+      "fixture/A/WC_iranian",
+      "fixture/A/shower_floor",
+      "fixture/A/basin",
+      "fixture/A/cooker",
+      "fixture/A/prep",
+      "fixture/A/sink",
+      "fixture/A/fridge",
+      "fixture/A/dining_table",
+      "fixture/A/dining_chair_front_left",
+      "fixture/A/dining_chair_front_right",
+      "fixture/A/dining_chair_back_left",
+      "fixture/A/dining_chair_back_right",
+      "fixture/A/dining_chair_left",
+      "fixture/A/dining_chair_right",
+      "fixture/A/sofa1",
+      "fixture/A/sofa2",
+      "fixture/A/armchair1",
+      "fixture/A/armchair2",
+      "fixture/A/armchair3",
+      "fixture/A/armchair4",
+      "fixture/B/bed1.bed",
+      "fixture/B/bed1.closet",
+      "fixture/B/bed2.closet",
+      "fixture/B/bed2.bedA",
+      "fixture/B/bed2.bedB",
+      "fixture/B/bed3.closet",
+      "fixture/B/bed3.bedA",
+      "fixture/B/bed3.bedB",
+      "fixture/B/WC_iranian",
+      "fixture/B/shower_floor",
+      "fixture/B/basin",
+      "fixture/B/cooker",
+      "fixture/B/prep",
+      "fixture/B/sink",
+      "fixture/B/fridge",
+      "fixture/B/dining_table",
+      "fixture/B/dining_chair_front_left",
+      "fixture/B/dining_chair_front_right",
+      "fixture/B/dining_chair_back_left",
+      "fixture/B/dining_chair_back_right",
+      "fixture/B/dining_chair_left",
+      "fixture/B/dining_chair_right",
+      "fixture/B/sofa1",
+      "fixture/B/sofa2",
+      "fixture/B/armchair1",
+      "fixture/B/armchair2",
+      "fixture/B/armchair3",
+      "fixture/B/armchair4",
+      "door/A.bed1.entry/closed_panel",
+      "door/A.bed1.entry/open_panel",
+      "door/A.bed1.entry/rail_or_pocket",
+      "door/A.bed1.entry/linear_motion",
+      "door/A.bed2.entry/closed_panel",
+      "door/A.bed2.entry/open_panel",
+      "door/A.bed2.entry/rail_or_pocket",
+      "door/A.bed2.entry/linear_motion",
+      "door/A.bed3.entry/closed_panel",
+      "door/A.bed3.entry/open_panel",
+      "door/A.bed3.entry/rail_or_pocket",
+      "door/A.bed3.entry/linear_motion",
+      "door/A.bath/closed_panel",
+      "door/A.bath/open_panel",
+      "door/A.bath/rail_or_pocket",
+      "door/A.bath/linear_motion",
+      "door/A.WC/closed_panel",
+      "door/A.WC/open_panel",
+      "door/A.WC/rail_or_pocket",
+      "door/A.WC/linear_motion",
+      "door/A.shower/closed_panel",
+      "door/A.shower/open_panel",
+      "door/A.shower/rail_or_pocket",
+      "door/A.shower/linear_motion",
+      "door/B.bed1.entry/closed_panel",
+      "door/B.bed1.entry/open_panel",
+      "door/B.bed1.entry/rail_or_pocket",
+      "door/B.bed1.entry/linear_motion",
+      "door/B.bed2.entry/closed_panel",
+      "door/B.bed2.entry/open_panel",
+      "door/B.bed2.entry/rail_or_pocket",
+      "door/B.bed2.entry/linear_motion",
+      "door/B.bed3.entry/closed_panel",
+      "door/B.bed3.entry/open_panel",
+      "door/B.bed3.entry/rail_or_pocket",
+      "door/B.bed3.entry/linear_motion",
+      "door/B.bath/closed_panel",
+      "door/B.bath/open_panel",
+      "door/B.bath/rail_or_pocket",
+      "door/B.bath/linear_motion",
+      "door/B.WC/closed_panel",
+      "door/B.WC/open_panel",
+      "door/B.WC/rail_or_pocket",
+      "door/B.WC/linear_motion",
+      "door/B.shower/closed_panel",
+      "door/B.shower/open_panel",
+      "door/B.shower/rail_or_pocket",
+      "door/B.shower/linear_motion",
+      "door/A.entry/closed_panel",
+      "door/A.entry/open_panel",
+      "door/A.entry/rail_or_pocket",
+      "door/A.entry/linear_motion",
+      "door/B.entry/closed_panel",
+      "door/B.entry/open_panel",
+      "door/B.entry/rail_or_pocket",
+      "door/B.entry/linear_motion",
+      "closet_shell/0/0",
+      "closet_shell/0/1",
+      "closet_shell/0/2",
+      "closet/0/half1/closed_panel",
+      "closet/0/half1/open_panel",
+      "closet/0/half1/rail_envelope",
+      "closet/0/half1/linear_motion",
+      "closet/0/half2/closed_panel",
+      "closet/0/half2/open_panel",
+      "closet/0/half2/rail_envelope",
+      "closet/0/half2/linear_motion",
+      "closet_shell/1/0",
+      "closet_shell/1/1",
+      "closet_shell/1/2",
+      "closet/1/half1/closed_panel",
+      "closet/1/half1/open_panel",
+      "closet/1/half1/rail_envelope",
+      "closet/1/half1/linear_motion",
+      "closet/1/half2/closed_panel",
+      "closet/1/half2/open_panel",
+      "closet/1/half2/rail_envelope",
+      "closet/1/half2/linear_motion",
+      "closet_shell/2/0",
+      "closet_shell/2/1",
+      "closet_shell/2/2",
+      "closet/2/half1/closed_panel",
+      "closet/2/half1/open_panel",
+      "closet/2/half1/rail_envelope",
+      "closet/2/half1/linear_motion",
+      "closet/2/half2/closed_panel",
+      "closet/2/half2/open_panel",
+      "closet/2/half2/rail_envelope",
+      "closet/2/half2/linear_motion",
+      "closet_shell/3/0",
+      "closet_shell/3/1",
+      "closet_shell/3/2",
+      "closet/3/half1/closed_panel",
+      "closet/3/half1/open_panel",
+      "closet/3/half1/rail_envelope",
+      "closet/3/half1/linear_motion",
+      "closet/3/half2/closed_panel",
+      "closet/3/half2/open_panel",
+      "closet/3/half2/rail_envelope",
+      "closet/3/half2/linear_motion",
+      "closet_shell/4/0",
+      "closet_shell/4/1",
+      "closet_shell/4/2",
+      "closet/4/half1/closed_panel",
+      "closet/4/half1/open_panel",
+      "closet/4/half1/rail_envelope",
+      "closet/4/half1/linear_motion",
+      "closet/4/half2/closed_panel",
+      "closet/4/half2/open_panel",
+      "closet/4/half2/rail_envelope",
+      "closet/4/half2/linear_motion",
+      "closet_shell/5/0",
+      "closet_shell/5/1",
+      "closet_shell/5/2",
+      "closet/5/half1/closed_panel",
+      "closet/5/half1/open_panel",
+      "closet/5/half1/rail_envelope",
+      "closet/5/half1/linear_motion",
+      "closet/5/half2/closed_panel",
+      "closet/5/half2/open_panel",
+      "closet/5/half2/rail_envelope",
+      "closet/5/half2/linear_motion",
+      "kitchen_motion/0/0",
+      "kitchen_motion/0/1",
+      "kitchen_motion/0/2",
+      "kitchen_motion/0/3",
+      "kitchen_motion/0/4",
+      "kitchen_motion/0/5",
+      "kitchen_motion/1/0",
+      "kitchen_motion/1/1",
+      "kitchen_motion/1/2",
+      "kitchen_motion/1/3",
+      "kitchen_motion/1/4",
+      "kitchen_motion/1/5",
+      "chair/0/closed_rect",
+      "chair/0/open_rect",
+      "chair/0/occupied_body",
+      "chair_motion/0",
+      "chair/1/closed_rect",
+      "chair/1/open_rect",
+      "chair/1/occupied_body",
+      "chair_motion/1",
+      "chair/2/closed_rect",
+      "chair/2/open_rect",
+      "chair/2/occupied_body",
+      "chair_motion/2",
+      "chair/3/closed_rect",
+      "chair/3/open_rect",
+      "chair/3/occupied_body",
+      "chair_motion/3",
+      "chair/4/closed_rect",
+      "chair/4/open_rect",
+      "chair/4/occupied_body",
+      "chair_motion/4",
+      "chair/5/closed_rect",
+      "chair/5/open_rect",
+      "chair/5/occupied_body",
+      "chair_motion/5",
+      "chair/6/closed_rect",
+      "chair/6/open_rect",
+      "chair/6/occupied_body",
+      "chair_motion/6",
+      "chair/7/closed_rect",
+      "chair/7/open_rect",
+      "chair/7/occupied_body",
+      "chair_motion/7",
+      "chair/8/closed_rect",
+      "chair/8/open_rect",
+      "chair/8/occupied_body",
+      "chair_motion/8",
+      "chair/9/closed_rect",
+      "chair/9/open_rect",
+      "chair/9/occupied_body",
+      "chair_motion/9",
+      "chair/10/closed_rect",
+      "chair/10/open_rect",
+      "chair/10/occupied_body",
+      "chair_motion/10",
+      "chair/11/closed_rect",
+      "chair/11/open_rect",
+      "chair/11/occupied_body",
+      "chair_motion/11"
+    ],
+    "positive_interior_intersections": [],
+    "source_body_m": ".7",
+    "connectedness_basis": "Single source rectangle minus zero positive-area blocked inventory is a connected convex junction. Actual traversal/operation checks remain separate mandatory prerequisites.",
+    "not_inferred_from_bounding_box_alone": true
+  },
+  "actual_required_transfers": [
+    {
+      "route": "stair_A",
+      "path": [
+        [
+          "12.575",
+          "13.3875"
+        ],
+        [
+          "15.05",
+          "13.3875"
+        ],
+        [
+          "15.05",
+          "12.075"
+        ]
+      ],
+      "source_opening": "stair.entry",
+      "destination_opening": "A.entry",
+      "junction_sweeps": [
+        [
+          "105/8",
+          "1043/80",
+          "77/5",
+          "1099/80"
+        ],
+        [
+          "147/10",
+          "101/8",
+          "77/5",
+          "1099/80"
+        ]
+      ]
+    },
+    {
+      "route": "lift_A",
+      "path": [
+        [
+          "16.325",
+          "14.6125"
+        ],
+        [
+          "15.05",
+          "14.6125"
+        ],
+        [
+          "15.05",
+          "12.075"
+        ]
+      ],
+      "source_opening": "lift.entry",
+      "destination_opening": "A.entry",
+      "junction_sweeps": [
+        [
+          "147/10",
+          "1141/80",
+          "631/40",
+          "1197/80"
+        ],
+        [
+          "147/10",
+          "101/8",
+          "77/5",
+          "1197/80"
+        ]
+      ]
+    },
+    {
+      "route": "stair_B",
+      "path": [
+        [
+          "12.575",
+          "13.3875"
+        ],
+        [
+          "13.825",
+          "13.3875"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_opening": "stair.entry",
+      "destination_opening": "B.entry",
+      "junction_sweeps": [
+        [
+          "105/8",
+          "1043/80",
+          "567/40",
+          "1099/80"
+        ],
+        [
+          "539/40",
+          "1043/80",
+          "567/40",
+          "123/8"
+        ]
+      ]
+    },
+    {
+      "route": "lift_B",
+      "path": [
+        [
+          "16.325",
+          "14.6125"
+        ],
+        [
+          "13.825",
+          "14.6125"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_opening": "lift.entry",
+      "destination_opening": "B.entry",
+      "junction_sweeps": [
+        [
+          "539/40",
+          "1141/80",
+          "631/40",
+          "1197/80"
+        ],
+        [
+          "539/40",
+          "1141/80",
+          "567/40",
+          "123/8"
+        ]
+      ]
+    }
+  ],
+  "actual_entry_operation_use": [
+    {
+      "opening_id": "A.entry",
+      "source_operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+      "poses": [
+        [
+          "301/20",
+          "507/40",
+          "63/4",
+          "107/8"
+        ],
+        [
+          "287/20",
+          "507/40",
+          "301/20",
+          "107/8"
+        ]
+      ],
+      "continuous_actor_sweeps": [
+        [
+          "287/20",
+          "507/40",
+          "63/4",
+          "107/8"
+        ]
+      ]
+    },
+    {
+      "opening_id": "B.entry",
+      "source_operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+      "poses": [
+        [
+          "105/8",
+          "117/8",
+          "553/40",
+          "613/40"
+        ],
+        [
+          "553/40",
+          "117/8",
+          "581/40",
+          "613/40"
+        ]
+      ],
+      "continuous_actor_sweeps": [
+        [
+          "105/8",
+          "117/8",
+          "581/40",
+          "613/40"
+        ]
+      ]
+    }
+  ],
+  "source_row_digests": {
+    "core_concept": "c4ac819acd1966867706f41c619659b4f718d700dcc01388ad3cec9118a360e2",
+    "door_operation": "4c982b54c6b43b17a267d0258bca2db86e1b127cad1973635d187af2c5e190ee",
+    "opening_hosts": "fddd1fd00569d822d3e4e15bc422ad165ba73a588ea9b2b6e49b8fc0b50120b8",
+    "wall_network": "69f5357e4e556a83b25fd558973b997a089d43d516904ffbefcf3cbc011e9326",
+    "partition_ledger": "3c0c2255b8a1907fd7df4753030645dca2337700a894c341a440da07590c6a2b",
+    "unit_independence": "5b652feb98eaebf6403205dfcbc3c38242c943e747724334c18d73987088ec08"
+  },
+  "fixed_portal_family_bound": {
+    "verdict": "PASS_RECTANGULAR_FIXED_PORTAL_BOUND_ONLY",
+    "parent_complete": false,
+    "delivery_allowed": false,
+    "live_authority": false,
+    "missing": [
+      "CURRENT_SOURCE_REQUIRED_ARRIVAL_TRANSFER_ONWARD_USE",
+      "WHOLE_JUNCTION_ROLE_SCOPE_REVIEW",
+      "ELIGIBLE_FINITE_COMPARISON_PROTECTED_VECTOR"
+    ],
+    "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+    "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+    "ports": [
+      {
+        "id": "A.entry",
+        "side": "bottom",
+        "connects": [
+          "lobby",
+          "A.public_access"
+        ],
+        "opening_rect": [
+          "14.4",
+          "12.475",
+          "15.7",
+          "12.625"
+        ],
+        "body_approach": [
+          "147/10",
+          "101/8",
+          "77/5",
+          "533/40"
+        ]
+      },
+      {
+        "id": "B.entry",
+        "side": "top",
+        "connects": [
+          "lobby",
+          "B.public_access"
+        ],
+        "opening_rect": [
+          "13.175",
+          "15.375",
+          "14.475",
+          "15.525"
+        ],
+        "body_approach": [
+          "539/40",
+          "587/40",
+          "567/40",
+          "123/8"
+        ]
+      },
+      {
+        "id": "stair.entry",
+        "side": "left",
+        "connects": [
+          "stair",
+          "lobby"
+        ],
+        "opening_rect": [
+          "12.975",
+          "12.9375",
+          "13.125",
+          "13.8375"
+        ],
+        "body_approach": [
+          "105/8",
+          "1043/80",
+          "553/40",
+          "1099/80"
+        ]
+      },
+      {
+        "id": "lift.entry",
+        "side": "right",
+        "connects": [
+          "lift",
+          "lobby"
+        ],
+        "opening_rect": [
+          "15.775",
+          "14.0625",
+          "15.925",
+          "15.1625"
+        ],
+        "body_approach": [
+          "603/40",
+          "1141/80",
+          "631/40",
+          "1197/80"
+        ]
+      }
+    ],
+    "rectangle": [
+      "105/8",
+      "101/8",
+      "631/40",
+      "123/8"
+    ],
+    "minimum_rectangle": [
+      "105/8",
+      "101/8",
+      "631/40",
+      "123/8"
+    ],
+    "area_m2": "583/80",
+    "engineering_assumption": "Axis-aligned single rectangle with immutable portal faces and centered inboard source-body approach poses. No moved-portal or other-topology claim."
+  },
+  "engineering_assumption": "Whole exact source single rectangular four-face required transfer junction includes legitimate inter-path turning/access margins; no new waiting/staging program, no extension beyond actual required traversal extent, and no need for footprint tiling. Scope is this Concept source profile, not other topology or relocated portals.",
+  "missing": [],
+  "not_claimed": [
+    "Q04_COMPARATIVE_NECESSITY",
+    "GLOBAL_MINIMUM",
+    "TECHNICAL_CORE_CERTIFICATION",
+    "WHOLE_PLAN_ACCEPTANCE"
+  ],
+  "parent_complete": false,
+  "admission_allowed": false,
+  "raw_review_digest": "4db681280c9563b430dbdd417edbe8d1ff0b87a77e445a06191a1117d3e18a71",
+  "new_fresh_execution": false,
+  "live_authority": false,
+  "source_files": {
+    "common_role_closure365.py": "5ab27fadde9d88f44649f53364b84d6700f931b2def8799d9ea073e23c7c7b28",
+    "lobby_junction_bound362.py": "6b24bfd6eaf013837fad6c865dbdf699a006e6113e295242eb414cf5a0ba3798"
+  }
+}

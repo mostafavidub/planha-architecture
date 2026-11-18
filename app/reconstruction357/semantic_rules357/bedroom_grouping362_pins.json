@@ -1,0 +1,28 @@
+{
+  "files": {
+    "staging362_core_notch/actual362.json": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+    "review362_source_validation/result.json": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181",
+    "staging358_comparative/row_candidate358.json": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+    "semantic_rules357/group_readsets362.py": "a3f4a840e82821728d438caaa4e8c123eabc9fe4d3f3af07edc3e7b9558b5d40",
+    "semantic_rules357/group_readsets362_pins.json": "8c25081ccbcb510b6195508c946e5004834fa1b4aa68de41d8fd470fae66bbeb",
+    "semantic_rules357/method_registry_source362.json": "acf0dd7e4719ded87da87bb5ae35e97f533b6900dae32389ed53952ffa56128d",
+    "semantic_rules357/closure_room_program362.py": "362db0149737dfa9a47c798ff53a1456e101bb7ad6c288153457087778ab2de2",
+    "semantic_rules357/bedroom_sections_actual358.json": "f7edf93fd305fb4e9f1d6b79246865c9de4f40cdcc46615b86e9cb0c42a35fd8",
+    "semantic_rules357/bedroom_sections358.py": "61301890eb2edbe28c91568956b131d206ba570de2e91e18cccd4782f5fa281e",
+    "semantic_rules357/bedroom_sections358_pins.json": "aac04c8ec91a6f62bb09c6848c2f1e8437e08b505e2438b15b97ac1a0d27db89",
+    "semantic_rules357/bedroom_route_witness_actual358.json": "aa5b17c721a4af0d756ce36bc8bbe8ce9ac8835c379c11d3e017c8c4e3b983f5",
+    "semantic_rules357/bedroom_route_witness358.py": "1a2f7bf9956491a5392c07b4d190e21eaa2a580e6dff8b20b136c7f50085164f",
+    "semantic_rules357/bedroom_grouping358.py": "d7ae4be6fb99ecfb5741faad6a3c36524dfa17b53396ce92d87956c60a7d9306",
+    "semantic_rules357/modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "semantic_rules357/common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "../recovered233_rendered/sections.json": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+    "staging359_hall_clamp/actual359.json": "13aa33694b45bdc5dc04fe50251b2b867efa521da970fc639690d3975bb04d03",
+    "semantic_rules357/eligibility_intrinsic358.py": "c28ae7a545393c3a40cf58526801e5c4befd3a0b86d7665f799b93efe0c765b7",
+    "semantic_rules357/guest_closure.py": "979074be240994bc5a7604c500b1e007c4e4021b046978c53e05e0e341552415",
+    "semantic_rules357/intrinsic_access362.py": "c06d8f82be9ad1da4c241521899c8bcf8cb23715b5cb1e707be18eddc02a2a46",
+    "semantic_rules357/eligibility_intrinsic357_v2.py": "754211df4dcda2da88e9e54406269c75ffbf3c52f1038f2b5a53382d83ce6da7",
+    "semantic_rules357/primitive_review362.py": "9b926dd4809e923c9fa8b2976756ea64f61f31120a656c7bc14b8722dfb68903",
+    "semantic_rules357/applicability.py": "a5b3568e7fb4943b971ee06f6bcec7213ad19f06b265a7d025958b731b95b7b2",
+    "semantic_rules357/living_closure.py": "4f06f16cf9f89abc8f81c17a6b0492797455fb01dcca4b08fe90b2a4ab8b9053"
+  }
+}

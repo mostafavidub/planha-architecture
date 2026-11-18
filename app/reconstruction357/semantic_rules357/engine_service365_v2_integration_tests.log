@@ -1,0 +1,9 @@
+test_exact_six_limited_parents_six_pending (test_engine_service365_v2.Integrated359.test_exact_six_limited_parents_six_pending) ... ok
+test_no_parent_reentry (test_engine_service365_v2.Integrated359.test_no_parent_reentry) ... ok
+test_raw_only_never_admits (test_engine_service365_v2.Integrated359.test_raw_only_never_admits) ... ok
+test_wrong_actual_result_fails_closed (test_engine_service365_v2.Integrated359.test_wrong_actual_result_fails_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 12.139s
+
+OK

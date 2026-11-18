@@ -1,0 +1,10 @@
+test_cross_section_not_longitudinal (test_branch_margin_service365_v2.BranchMargin.test_cross_section_not_longitudinal) ... ok
+test_no_uselessness_claim (test_branch_margin_service365_v2.BranchMargin.test_no_uselessness_claim) ... ok
+test_no_wide_empty_room_laundering (test_branch_margin_service365_v2.BranchMargin.test_no_wide_empty_room_laundering) ... ok
+test_own_partial_extent (test_branch_margin_service365_v2.BranchMargin.test_own_partial_extent) ... ok
+test_source_pin_rejected (test_branch_margin_service365_v2.BranchMargin.test_source_pin_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 2.115s
+
+OK

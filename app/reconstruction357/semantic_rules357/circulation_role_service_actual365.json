@@ -1,0 +1,3364 @@
+{
+  "schema": "CIRCULATION_ROLE_BALANCED365_INTRINSIC_NOT_NECESSITY",
+  "model_hash": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "review_digest": "378b01dffa39252ec47e6e5e288b28b49ca3c9fc18b6e35dec008917961de391",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "source_row_digests": {
+    "body_route_sweeps": "0335e555b982082ef75f3313738d504f6bae0b89dab743b40f46fb3e5f095a70",
+    "fixture_inventory_use": "5c85344fa3d66619e4ddba308e0ddf5072af3c418d2c65d44f2c0cfb7d3251ac",
+    "door_operation": "365fbcbf69d20364c3cad95896022e745ccbee2d858effd65ce3230648154581",
+    "private_grouping": "ae26cda015a75103767c82592be417a538148893c3cfdfdf8ca83ef06e94afe6",
+    "circulation_functional_integrity": "e498c8d283a37c8305fe0a993f0b377ef54e8b95bf0ff727adddb59afb00dec3",
+    "bath_service_operation": "99b16fae0b25662d50e2aff211c7c9223dab54249311b61ab035cace4470509f",
+    "kitchen_essential_operation": "2ce3bd41fd7453e63ffbff6e886311ac3698d6ade6b2a1bea49c48d15977dc2f",
+    "partition_ledger": "38d88d9ef03694ce9d51dd96947d8e81215f010b167277a8477302b48b970795",
+    "guest_living_route": "05c2da6c4fb1938bc8a8708dd2396495b79a390f8a1c2272b0e18de9569dd971",
+    "guest_dining_route": "15963032efa2406b34b93f0b63e366f703362df970a9ed38a43339f20300809d",
+    "serving_route": "8c1e18552d4d1b5d245598414aca433db07bf558483b2e737acdb2821d5e9dff"
+  },
+  "hall_origin": {
+    "file": "planha_general150_runtime_work/private_branch_hall146.py",
+    "sha256": "69916ef74e925434c8c639cb78e0ee7ce67a719e16428356f4a3287f92fd764a",
+    "selector": "Executed source branch146 install prefix before gross/routing; actual origin/unit transform and source wall formulas",
+    "not_necessity_proof": true
+  },
+  "units": [
+    {
+      "unit": "A",
+      "required_target_inventory": [
+        {
+          "activity_id": "bed1.bed_front",
+          "geometry": [
+            "14.575",
+            "0.5",
+            "15.475",
+            "2.5"
+          ],
+          "target": [
+            "15.025",
+            "1.5"
+          ],
+          "route_digest": "406ce87a54be2c5c07f532a12474b943a661d94e970fe50a4f2003d2244e62c9"
+        },
+        {
+          "activity_id": "bed1.bed_back",
+          "geometry": [
+            "17.075",
+            "0.5",
+            "17.975",
+            "2.5"
+          ],
+          "target": [
+            "17.525",
+            "1.5"
+          ],
+          "route_digest": "d68f33de18025c15a508e6c2fe13b17b2d5eca507f0b50271303f1a4133e82ec"
+        },
+        {
+          "activity_id": "bed1.closet_front",
+          "geometry": [
+            "14.625",
+            "3.25",
+            "16.675",
+            "3.95"
+          ],
+          "target": [
+            "15.65",
+            "3.6"
+          ],
+          "route_digest": "95617dd91525dff669abc345fcc7f4ccee2ec222d5bf579b3c3b80bb168c4f34"
+        },
+        {
+          "activity_id": "bed1.changing",
+          "geometry": [
+            "17.175",
+            "0.5",
+            "17.875",
+            "1.2"
+          ],
+          "target": [
+            "17.525",
+            "0.85"
+          ],
+          "route_digest": "dfebeebfbb6d2b8b1791f03ae76e0bea551d33cfd155b753d80df1acd832c007"
+        },
+        {
+          "activity_id": "bed2.closet_front",
+          "geometry": [
+            "10.575",
+            "0.55",
+            "11.275",
+            "2.6"
+          ],
+          "target": [
+            "10.925",
+            "1.575"
+          ],
+          "route_digest": "1f3b1eb6bb5b6f6ca7bfe0f5bcc2e4501b2773e710988bc40d0ccbb837a929a8"
+        },
+        {
+          "activity_id": "bed2.bedA_front",
+          "geometry": [
+            "7.825",
+            "0.4",
+            "9.725",
+            "1.3"
+          ],
+          "target": [
+            "8.775",
+            "0.85"
+          ],
+          "route_digest": "6f176290c385e1c0e7d831cdfb69c37538f6900fece7e761d2f899757bbe4b1c"
+        },
+        {
+          "activity_id": "bed2.bedA_back",
+          "geometry": [
+            "7.825",
+            "2.2",
+            "9.725",
+            "3.1"
+          ],
+          "target": [
+            "8.775",
+            "2.65"
+          ],
+          "route_digest": "edd91a142432b565937e2e61965ff1e2398581dd087389b94a8b2f55d36343f9"
+        },
+        {
+          "activity_id": "bed2.bedB_front",
+          "geometry": [
+            "7.825",
+            "2.2",
+            "9.725",
+            "3.1"
+          ],
+          "target": [
+            "8.775",
+            "2.65"
+          ],
+          "route_digest": "edd91a142432b565937e2e61965ff1e2398581dd087389b94a8b2f55d36343f9"
+        },
+        {
+          "activity_id": "bed2.bedB_back",
+          "geometry": [
+            "7.825",
+            "4",
+            "9.725",
+            "4.9"
+          ],
+          "target": [
+            "8.775",
+            "4.45"
+          ],
+          "route_digest": "3e458777e1fc914883826ea6a935f10530dbc8ddaa3dac6a36f2de2e958c4c06"
+        },
+        {
+          "activity_id": "bed2.changing",
+          "geometry": [
+            "7.825",
+            "4.1",
+            "8.525",
+            "4.8"
+          ],
+          "target": [
+            "8.175",
+            "4.45"
+          ],
+          "route_digest": "5d6cde8c0e330abdddb0ba24a35eadfe22403ab9ee2cd093dc873a4c1c380f74"
+        },
+        {
+          "activity_id": "bed3.closet_front",
+          "geometry": [
+            "10.575",
+            "5.2",
+            "11.275",
+            "7.25"
+          ],
+          "target": [
+            "10.925",
+            "6.225"
+          ],
+          "route_digest": "dc1d67b25f7bdee4a75bd464692d98a1f6b01e129f74ff4e87dd59e4da74cf7c"
+        },
+        {
+          "activity_id": "bed3.bedA_front",
+          "geometry": [
+            "7.825",
+            "5.05",
+            "9.725",
+            "5.95"
+          ],
+          "target": [
+            "8.775",
+            "5.5"
+          ],
+          "route_digest": "f1c5531c5931e66ca6206df328f7eaf0faab55390c851a7718af063220df23b6"
+        },
+        {
+          "activity_id": "bed3.bedA_back",
+          "geometry": [
+            "7.825",
+            "6.85",
+            "9.725",
+            "7.75"
+          ],
+          "target": [
+            "8.775",
+            "7.3"
+          ],
+          "route_digest": "6fd786003e7d361be36a101894aae19413e740316facc3aae0a596fd470adfed"
+        },
+        {
+          "activity_id": "bed3.bedB_front",
+          "geometry": [
+            "7.825",
+            "6.85",
+            "9.725",
+            "7.75"
+          ],
+          "target": [
+            "8.775",
+            "7.3"
+          ],
+          "route_digest": "6fd786003e7d361be36a101894aae19413e740316facc3aae0a596fd470adfed"
+        },
+        {
+          "activity_id": "bed3.bedB_back",
+          "geometry": [
+            "7.825",
+            "8.65",
+            "9.725",
+            "9.55"
+          ],
+          "target": [
+            "8.775",
+            "9.1"
+          ],
+          "route_digest": "c4d4687f4e23061a1b4cf22a5d0942901252e59aba1714a0d741277797b724c4"
+        },
+        {
+          "activity_id": "bed3.changing",
+          "geometry": [
+            "7.825",
+            "8.75",
+            "8.525",
+            "9.45"
+          ],
+          "target": [
+            "8.175",
+            "9.1"
+          ],
+          "route_digest": "7934a1bbd2c681991d7e698bc917c7055a45be425f890d8789ec4df28f3ed83e"
+        },
+        {
+          "activity_id": "WC_front",
+          "geometry": [
+            "23.6",
+            "5.625",
+            "24.3",
+            "6.325"
+          ],
+          "target": [
+            "23.95",
+            "5.975"
+          ],
+          "route_digest": "972b6996089d1a670e367301f60f11c998cc0ab263b48771c83b19511198fc8f"
+        },
+        {
+          "activity_id": "WC_use",
+          "geometry": [
+            "23.6",
+            "4.875",
+            "24.3",
+            "5.575"
+          ],
+          "target": [
+            "23.95",
+            "5.225"
+          ],
+          "route_digest": "9af68d65317dea07750c64db5283da0c12008702102193aa860d95df6bfd61fb"
+        },
+        {
+          "activity_id": "shower_use",
+          "geometry": [
+            "21.4",
+            "4.825",
+            "22.1",
+            "5.525"
+          ],
+          "target": [
+            "21.75",
+            "5.175"
+          ],
+          "route_digest": "efe1db659e627ce8254fc595e1848949ce7c217139f82256e4635fcf8af43fcc"
+        },
+        {
+          "activity_id": "basin_front",
+          "geometry": [
+            "22.45",
+            "6.675",
+            "23.15",
+            "7.375"
+          ],
+          "target": [
+            "22.8",
+            "7.025"
+          ],
+          "route_digest": "3c2f3859a55282a39f6d177fec69a5f5d1b38677ca102381773ab4f78fb69f48"
+        },
+        {
+          "activity_id": "kitchen_work",
+          "geometry": [
+            "1.15",
+            "3.775",
+            "1.85",
+            "6.675"
+          ],
+          "target": [
+            "1.5",
+            "5.225"
+          ],
+          "route_digest": "922ce13a211b5e4631d83a40d8ff0696ad41db627b8dcbe9f30fd79a5dfca9e7"
+        },
+        {
+          "activity_id": "dining_front_left",
+          "geometry": [
+            "2.225",
+            "8.675",
+            "2.925",
+            "9.375"
+          ],
+          "target": [
+            "2.575",
+            "9.025"
+          ],
+          "route_digest": "b795913b80d49f763aeb245f8ec6b33e1756652ae0afa3caaf2ba68b5997c50c"
+        },
+        {
+          "activity_id": "dining_front_right",
+          "geometry": [
+            "5.025",
+            "8.675",
+            "5.725",
+            "9.375"
+          ],
+          "target": [
+            "5.375",
+            "9.025"
+          ],
+          "route_digest": "42792ebef446e0f62fa1c99cdfe80b1d39fa14b61bace192324971657d19a230"
+        },
+        {
+          "activity_id": "dining_back_left",
+          "geometry": [
+            "2.225",
+            "11.175",
+            "2.925",
+            "11.875"
+          ],
+          "target": [
+            "2.575",
+            "11.525"
+          ],
+          "route_digest": "b0e2a3b4b03955465534070561a01e9a9fdc0591efc2b1ebd449a6f8d553fef3"
+        },
+        {
+          "activity_id": "dining_back_right",
+          "geometry": [
+            "5.025",
+            "11.175",
+            "5.725",
+            "11.875"
+          ],
+          "target": [
+            "5.375",
+            "11.525"
+          ],
+          "route_digest": "9f8241d9d0ad080295ea7e02749bfda5429302b7e34b29c9f9935d40975860d9"
+        },
+        {
+          "activity_id": "dining_left",
+          "geometry": [
+            "1.775",
+            "9.075",
+            "2.475",
+            "9.775"
+          ],
+          "target": [
+            "2.125",
+            "9.425"
+          ],
+          "route_digest": "c979410a0c1d27d7d686458e702e69992acd4faa4918015c4b1b04512e5a2c92"
+        },
+        {
+          "activity_id": "dining_right",
+          "geometry": [
+            "5.475",
+            "10.775",
+            "6.175",
+            "11.475"
+          ],
+          "target": [
+            "5.825",
+            "11.125"
+          ],
+          "route_digest": "70262f3ee1d93016365104c0279ba23d8d4eacdd33f3d888ae98e801ab196c6b"
+        },
+        {
+          "activity_id": "sofa1_front",
+          "geometry": [
+            "19.275",
+            "8.875",
+            "21.475",
+            "9.575"
+          ],
+          "target": [
+            "20.375",
+            "9.225"
+          ],
+          "route_digest": "00ba0cb06abc5fcded2e540101d0e972bcab060c325578e978f2f1038d3bb617"
+        },
+        {
+          "activity_id": "sofa2_front",
+          "geometry": [
+            "21.475",
+            "8.875",
+            "23.675",
+            "9.575"
+          ],
+          "target": [
+            "22.575",
+            "9.225"
+          ],
+          "route_digest": "94b1c31ca8e9af429cbba6df629f05340d831a4dae2ec702779a3f80fea2c2ac"
+        },
+        {
+          "activity_id": "armchair1_front",
+          "geometry": [
+            "19.875",
+            "10.975",
+            "20.675",
+            "11.675"
+          ],
+          "target": [
+            "20.275",
+            "11.325"
+          ],
+          "route_digest": "3bac1850391a95e502b891b66a60e35fa2a681866942068802e8269b35f0f4a1"
+        },
+        {
+          "activity_id": "armchair2_front",
+          "geometry": [
+            "20.675",
+            "10.975",
+            "21.475",
+            "11.675"
+          ],
+          "target": [
+            "21.075",
+            "11.325"
+          ],
+          "route_digest": "3b4e6d54b683bb139dd82b8d977f07cb0b4b52203901f147551945b0783e903b"
+        },
+        {
+          "activity_id": "armchair3_front",
+          "geometry": [
+            "21.475",
+            "10.975",
+            "22.275",
+            "11.675"
+          ],
+          "target": [
+            "21.875",
+            "11.325"
+          ],
+          "route_digest": "e138abf8da451bc11031076fb275ec5a5b8ed35e4967b29643ce8e15850f3258"
+        },
+        {
+          "activity_id": "armchair4_front",
+          "geometry": [
+            "22.275",
+            "10.975",
+            "23.075",
+            "11.675"
+          ],
+          "target": [
+            "22.675",
+            "11.325"
+          ],
+          "route_digest": "1986265c15582c88b3c40f23bb54f04e64ef662374e12a07a8c2c69c6fa24597"
+        },
+        {
+          "scenario_route": "kitchen_to_dining_floor",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "4e285510f65c1d9de6d01cd59c2d6abab8710c5179436faba6f23e08d991c4fe"
+        },
+        {
+          "scenario_route": "guest_living",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "b66f2b32cd1dbfbe5df7d7fc7176297e7099696c99a39e2626fcfca19e4c70fa"
+        },
+        {
+          "scenario_route": "guest_dining",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "c98ddd783c11dcf157508ffe63df833b21b7867c9d2056d09cc56c81cb809a02"
+        }
+      ],
+      "untargeted_terminal_extensions": [],
+      "private_margin_operationalization": {
+        "basis": "SOURCE_TRANSVERSE_CLEAR_DEPTH_CROSS_SECTION_AROUND_REQUIRED_PATH_ONLY",
+        "source_max_clear_width_m": "1",
+        "engineering_assumption": "Transverse floor around a verified traversal within the actual source corridor width is a supporting margin; no unsupported longitudinal tail is granted function.",
+        "regions": [
+          [
+            "533/40",
+            "12/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "31/10"
+          ],
+          [
+            "533/40",
+            "12/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "31/10"
+          ],
+          [
+            "533/40",
+            "11/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "29/10"
+          ],
+          [
+            "533/40",
+            "11/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "29/10"
+          ],
+          [
+            "533/40",
+            "12/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "31/10"
+          ],
+          [
+            "533/40",
+            "12/5",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "9/10",
+            "573/40",
+            "31/10"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "111/20",
+            "573/40",
+            "6"
+          ],
+          [
+            "533/40",
+            "141/20",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "31/4"
+          ],
+          [
+            "533/40",
+            "141/20",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "31/4"
+          ],
+          [
+            "533/40",
+            "141/20",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "31/4"
+          ],
+          [
+            "533/40",
+            "141/20",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "31/4"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          [
+            "109/8",
+            "6",
+            "123/8",
+            "7"
+          ],
+          [
+            "109/8",
+            "6",
+            "123/8",
+            "7"
+          ],
+          [
+            "109/8",
+            "6",
+            "123/8",
+            "7"
+          ],
+          [
+            "109/8",
+            "6",
+            "123/8",
+            "7"
+          ]
+        ]
+      },
+      "private_circulation_components": [
+        {
+          "regions": [
+            [
+              "533/40",
+              "2/5",
+              "573/40",
+              "6"
+            ],
+            [
+              "533/40",
+              "6",
+              "729/40",
+              "7"
+            ],
+            [
+              "533/40",
+              "7",
+              "573/40",
+              "191/20"
+            ]
+          ],
+          "area_m2": "261/20",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing",
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing",
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing"
+          ],
+          "actual_body_route_coverage_m2": "2983/400",
+          "source_use_coverage_m2": "1993/200",
+          "unsupported_margin_area_m2": "1187/400",
+          "unsupported_margin_regions": [
+            [
+              "533/40",
+              "2/5",
+              "107/8",
+              "9/10"
+            ],
+            [
+              "107/8",
+              "2/5",
+              "539/40",
+              "11/20"
+            ],
+            [
+              "567/40",
+              "2/5",
+              "573/40",
+              "9/10"
+            ],
+            [
+              "563/40",
+              "2/5",
+              "567/40",
+              "9/10"
+            ],
+            [
+              "561/40",
+              "2/5",
+              "563/40",
+              "11/20"
+            ],
+            [
+              "539/40",
+              "2/5",
+              "561/40",
+              "11/20"
+            ],
+            [
+              "533/40",
+              "25/4",
+              "107/8",
+              "7"
+            ],
+            [
+              "107/8",
+              "63/10",
+              "539/40",
+              "7"
+            ],
+            [
+              "629/40",
+              "6",
+              "729/40",
+              "7"
+            ],
+            [
+              "123/8",
+              "6",
+              "629/40",
+              "121/20"
+            ],
+            [
+              "123/8",
+              "27/4",
+              "629/40",
+              "7"
+            ]
+          ],
+          "verdict": "UNKNOWN_MARGIN_OR_BLIND_APPENDAGE_REQUIRES_SOURCE_FUNCTION"
+        }
+      ],
+      "entry_circulation_components": [
+        {
+          "regions": [
+            [
+              "13/10",
+              "23/8",
+              "303/40",
+              "143/40"
+            ],
+            [
+              "13/10",
+              "143/40",
+              "2",
+              "149/40"
+            ],
+            [
+              "83/20",
+              "143/40",
+              "97/20",
+              "323/40"
+            ],
+            [
+              "55/8",
+              "143/40",
+              "303/40",
+              "343/40"
+            ],
+            [
+              "267/40",
+              "343/40",
+              "303/40",
+              "191/20"
+            ],
+            [
+              "55/8",
+              "191/20",
+              "303/40",
+              "97/10"
+            ],
+            [
+              "55/8",
+              "97/10",
+              "607/40",
+              "52/5"
+            ],
+            [
+              "579/40",
+              "157/20",
+              "607/40",
+              "97/10"
+            ],
+            [
+              "539/40",
+              "191/20",
+              "567/40",
+              "97/10"
+            ],
+            [
+              "105/8",
+              "52/5",
+              "567/40",
+              "439/40"
+            ],
+            [
+              "105/8",
+              "439/40",
+              "921/40",
+              "2331/200"
+            ],
+            [
+              "801/40",
+              "71/8",
+              "829/40",
+              "439/40"
+            ],
+            [
+              "889/40",
+              "71/8",
+              "917/40",
+              "439/40"
+            ],
+            [
+              "267/40",
+              "2331/200",
+              "921/40",
+              "467/40"
+            ],
+            [
+              "267/40",
+              "467/40",
+              "771/40",
+              "479/40"
+            ],
+            [
+              "267/40",
+              "479/40",
+              "763/40",
+              "2471/200"
+            ],
+            [
+              "267/40",
+              "2471/200",
+              "567/40",
+              "497/40"
+            ],
+            [
+              "579/40",
+              "143/20",
+              "763/40",
+              "157/20"
+            ],
+            [
+              "147/8",
+              "183/40",
+              "763/40",
+              "143/20"
+            ],
+            [
+              "147/8",
+              "31/8",
+              "461/20",
+              "183/40"
+            ],
+            [
+              "447/20",
+              "183/40",
+              "461/20",
+              "189/40"
+            ]
+          ],
+          "area_m2": "189439/4000",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing",
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing",
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing",
+            "WC_front",
+            "WC_use",
+            "shower_use",
+            "basin_front",
+            "kitchen_work",
+            "dining_front_left",
+            "dining_front_right",
+            "dining_back_left",
+            "dining_back_right",
+            "dining_left",
+            "dining_right",
+            "sofa1_front",
+            "sofa2_front",
+            "armchair1_front",
+            "armchair2_front",
+            "armchair3_front",
+            "armchair4_front",
+            "scenario:kitchen_to_dining_floor",
+            "scenario:guest_living",
+            "scenario:guest_dining"
+          ],
+          "actual_body_route_coverage_m2": "189439/4000",
+          "source_use_coverage_m2": "451/100",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "527/40",
+              "9/10",
+              "533/40",
+              "8/5"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "527/40",
+              "111/20",
+              "533/40",
+              "25/4"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "587/40",
+              "117/20",
+              "123/8",
+              "6"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        }
+      ],
+      "service_inventory": [
+        {
+          "room": "bath",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "actual_service_required_targets": [
+            "WC_front",
+            "WC_use",
+            "shower_use",
+            "basin_front"
+          ],
+          "route_sweep_area_inside_service_m2": "4759/1000",
+          "route_only_after_actual_fixture_activity_deduction_m2": "10677/8000",
+          "route_only_regions": [
+            [
+              "447/20",
+              "189/40",
+              "899/40",
+              "45/8"
+            ],
+            [
+              "899/40",
+              "189/40",
+              "461/20",
+              "193/40"
+            ],
+            [
+              "899/40",
+              "221/40",
+              "461/20",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "189/40",
+              "899/40",
+              "45/8"
+            ],
+            [
+              "899/40",
+              "189/40",
+              "461/20",
+              "193/40"
+            ],
+            [
+              "899/40",
+              "221/40",
+              "461/20",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "53/10",
+              "899/40",
+              "45/8"
+            ],
+            [
+              "927/40",
+              "53/10",
+              "233/10",
+              "45/8"
+            ],
+            [
+              "899/40",
+              "221/40",
+              "927/40",
+              "45/8"
+            ],
+            [
+              "927/40",
+              "53/10",
+              "233/10",
+              "45/8"
+            ],
+            [
+              "113/5",
+              "221/40",
+              "927/40",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "189/40",
+              "899/40",
+              "45/8"
+            ],
+            [
+              "899/40",
+              "189/40",
+              "461/20",
+              "193/40"
+            ],
+            [
+              "899/40",
+              "221/40",
+              "461/20",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "189/40",
+              "899/40",
+              "45/8"
+            ],
+            [
+              "899/40",
+              "189/40",
+              "461/20",
+              "193/40"
+            ],
+            [
+              "899/40",
+              "221/40",
+              "461/20",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "261/40",
+              "461/20",
+              "263/40"
+            ],
+            [
+              "447/20",
+              "261/40",
+              "463/20",
+              "263/40"
+            ],
+            [
+              "449/20",
+              "261/40",
+              "463/20",
+              "267/40"
+            ],
+            [
+              "469/20",
+              "503/100",
+              "118/5",
+              "45/8"
+            ],
+            [
+              "118/5",
+              "223/40",
+              "483/20",
+              "45/8"
+            ],
+            [
+              "469/20",
+              "503/100",
+              "118/5",
+              "45/8"
+            ],
+            [
+              "118/5",
+              "223/40",
+              "243/10",
+              "45/8"
+            ],
+            [
+              "118/5",
+              "223/40",
+              "243/10",
+              "45/8"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "253/40"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "461/20",
+              "229/40"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "253/40"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "584/25",
+              "253/40"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "584/25",
+              "51/8"
+            ],
+            [
+              "1133/50",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "227/40",
+              "943/40",
+              "51/8"
+            ],
+            [
+              "943/40",
+              "227/40",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "1133/50",
+              "227/40",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "117/5",
+              "45/8",
+              "943/40",
+              "51/8"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "117/5",
+              "45/8",
+              "943/40",
+              "253/40"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "6"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "461/20",
+              "229/40"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "6"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "233/10",
+              "6"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "233/10",
+              "253/40"
+            ],
+            [
+              "113/5",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "584/25",
+              "253/40"
+            ],
+            [
+              "113/5",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "45/8",
+              "584/25",
+              "51/8"
+            ],
+            [
+              "1133/50",
+              "45/8",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "927/40",
+              "227/40",
+              "943/40",
+              "51/8"
+            ],
+            [
+              "943/40",
+              "227/40",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "1133/50",
+              "227/40",
+              "927/40",
+              "229/40"
+            ],
+            [
+              "117/5",
+              "45/8",
+              "943/40",
+              "51/8"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "117/5",
+              "45/8",
+              "943/40",
+              "253/40"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "469/20",
+              "45/8",
+              "943/40",
+              "253/40"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "469/20",
+              "45/8",
+              "943/40",
+              "573/100"
+            ],
+            [
+              "943/40",
+              "45/8",
+              "118/5",
+              "229/40"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "253/40"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "461/20",
+              "229/40"
+            ],
+            [
+              "2229/100",
+              "45/8",
+              "899/40",
+              "253/40"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "461/20",
+              "229/40"
+            ],
+            [
+              "2229/100",
+              "45/8",
+              "899/40",
+              "51/8"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "2299/100",
+              "229/40"
+            ],
+            [
+              "883/40",
+              "227/40",
+              "899/40",
+              "51/8"
+            ],
+            [
+              "43/2",
+              "227/40",
+              "883/40",
+              "229/40"
+            ],
+            [
+              "899/40",
+              "227/40",
+              "2299/100",
+              "229/40"
+            ],
+            [
+              "883/40",
+              "45/8",
+              "111/5",
+              "51/8"
+            ],
+            [
+              "43/2",
+              "45/8",
+              "883/40",
+              "229/40"
+            ],
+            [
+              "883/40",
+              "45/8",
+              "111/5",
+              "573/100"
+            ],
+            [
+              "107/5",
+              "45/8",
+              "883/40",
+              "229/40"
+            ],
+            [
+              "883/40",
+              "45/8",
+              "221/10",
+              "573/100"
+            ],
+            [
+              "107/5",
+              "45/8",
+              "883/40",
+              "229/40"
+            ],
+            [
+              "447/20",
+              "45/8",
+              "899/40",
+              "261/40"
+            ],
+            [
+              "899/40",
+              "45/8",
+              "461/20",
+              "229/40"
+            ],
+            [
+              "899/40",
+              "257/40",
+              "461/20",
+              "261/40"
+            ],
+            [
+              "447/20",
+              "47/8",
+              "899/40",
+              "261/40"
+            ],
+            [
+              "899/40",
+              "257/40",
+              "463/20",
+              "261/40"
+            ],
+            [
+              "449/20",
+              "47/8",
+              "899/40",
+              "261/40"
+            ],
+            [
+              "899/40",
+              "257/40",
+              "463/20",
+              "261/40"
+            ]
+          ],
+          "other_source_role_inventory": {},
+          "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+          "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+        },
+        {
+          "room": "kitchen",
+          "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+          "actual_service_required_targets": [
+            "kitchen_work"
+          ],
+          "route_sweep_area_inside_service_m2": "7/5",
+          "route_only_after_actual_fixture_activity_deduction_m2": "61/200",
+          "route_only_regions": [
+            [
+              "37/20",
+              "149/40",
+              "2",
+              "223/40"
+            ],
+            [
+              "13/10",
+              "149/40",
+              "37/20",
+              "151/40"
+            ],
+            [
+              "37/20",
+              "39/8",
+              "2",
+              "223/40"
+            ]
+          ],
+          "other_source_role_inventory": {},
+          "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+          "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+        }
+      ],
+      "source_connector_margin_proof": {
+        "status": "UNKNOWN_SOURCE_BRANCH146_WHOLE_COMPONENT_MARGIN_REVIEW",
+        "scope": "No row359 clamp/connector proof reused; actual branch source width1 supports only measured transverse checked-traversal margin at this stage."
+      },
+      "intrinsic_private_role_status": "UNKNOWN_SOURCE_BRANCH_COMPONENT_ROLE"
+    },
+    {
+      "unit": "B",
+      "required_target_inventory": [
+        {
+          "activity_id": "bed1.bed_front",
+          "geometry": [
+            "14.575",
+            "25.5",
+            "15.475",
+            "27.5"
+          ],
+          "target": [
+            "15.025",
+            "26.5"
+          ],
+          "route_digest": "cc6e73a29115fafbdf7d506038283227a9a23cc9df96a4a224d8c329874e1103"
+        },
+        {
+          "activity_id": "bed1.bed_back",
+          "geometry": [
+            "17.075",
+            "25.5",
+            "17.975",
+            "27.5"
+          ],
+          "target": [
+            "17.525",
+            "26.5"
+          ],
+          "route_digest": "591601b824b247e776a82127a2566a5ef67aea675792564e738a7b342cc5ccde"
+        },
+        {
+          "activity_id": "bed1.closet_front",
+          "geometry": [
+            "14.625",
+            "24.05",
+            "16.675",
+            "24.75"
+          ],
+          "target": [
+            "15.65",
+            "24.4"
+          ],
+          "route_digest": "575b1d64d5a7b956dd8d4de98030a42da62f0b2cdf4b8e6504c4d2089bc85353"
+        },
+        {
+          "activity_id": "bed1.changing",
+          "geometry": [
+            "17.175",
+            "26.8",
+            "17.875",
+            "27.5"
+          ],
+          "target": [
+            "17.525",
+            "27.15"
+          ],
+          "route_digest": "31ee1eb90c3ee5fb73550afceadac1284aa04653b59dbe088aa600743823b914"
+        },
+        {
+          "activity_id": "bed2.closet_front",
+          "geometry": [
+            "10.575",
+            "25.4",
+            "11.275",
+            "27.45"
+          ],
+          "target": [
+            "10.925",
+            "26.425"
+          ],
+          "route_digest": "5ddb62da23289418a8e32b936f307b32ec567bff3a223d7d87561f0c507e2482"
+        },
+        {
+          "activity_id": "bed2.bedA_front",
+          "geometry": [
+            "7.825",
+            "26.7",
+            "9.725",
+            "27.6"
+          ],
+          "target": [
+            "8.775",
+            "27.15"
+          ],
+          "route_digest": "f76e13381e8b026b35fb18636d2b422c36fe572a2ee553ecb5512d7a73cad1a9"
+        },
+        {
+          "activity_id": "bed2.bedA_back",
+          "geometry": [
+            "7.825",
+            "24.9",
+            "9.725",
+            "25.8"
+          ],
+          "target": [
+            "8.775",
+            "25.35"
+          ],
+          "route_digest": "da44f8b4dbb453dbc748197aff6d6c19ffe75cef78e8ea5ccf7bc3bb4db634f5"
+        },
+        {
+          "activity_id": "bed2.bedB_front",
+          "geometry": [
+            "7.825",
+            "24.9",
+            "9.725",
+            "25.8"
+          ],
+          "target": [
+            "8.775",
+            "25.35"
+          ],
+          "route_digest": "da44f8b4dbb453dbc748197aff6d6c19ffe75cef78e8ea5ccf7bc3bb4db634f5"
+        },
+        {
+          "activity_id": "bed2.bedB_back",
+          "geometry": [
+            "7.825",
+            "23.1",
+            "9.725",
+            "24"
+          ],
+          "target": [
+            "8.775",
+            "23.55"
+          ],
+          "route_digest": "91a6bff4f7b88fc2ca8c06389254255306f72a0c6095e8211064a4224fe8a499"
+        },
+        {
+          "activity_id": "bed2.changing",
+          "geometry": [
+            "7.825",
+            "23.2",
+            "8.525",
+            "23.9"
+          ],
+          "target": [
+            "8.175",
+            "23.55"
+          ],
+          "route_digest": "d1e77134bc468c46bf0da5379bcf9240f2085c84a90708b0276fbef7bf1d43db"
+        },
+        {
+          "activity_id": "bed3.closet_front",
+          "geometry": [
+            "10.575",
+            "20.75",
+            "11.275",
+            "22.8"
+          ],
+          "target": [
+            "10.925",
+            "21.775"
+          ],
+          "route_digest": "eb22228db4627b0e35b8f0faa38946ba124a3cead6ebb360ad0439ab216a7452"
+        },
+        {
+          "activity_id": "bed3.bedA_front",
+          "geometry": [
+            "7.825",
+            "22.05",
+            "9.725",
+            "22.95"
+          ],
+          "target": [
+            "8.775",
+            "22.5"
+          ],
+          "route_digest": "be73cdbee371a5bbad6a41945a044087130093cef1c015fb502dddcc2555eb37"
+        },
+        {
+          "activity_id": "bed3.bedA_back",
+          "geometry": [
+            "7.825",
+            "20.25",
+            "9.725",
+            "21.15"
+          ],
+          "target": [
+            "8.775",
+            "20.7"
+          ],
+          "route_digest": "5baaa8bbd055fe535e37976264f01f30a0c53c559f49b1b82fd00a2923b250d4"
+        },
+        {
+          "activity_id": "bed3.bedB_front",
+          "geometry": [
+            "7.825",
+            "20.25",
+            "9.725",
+            "21.15"
+          ],
+          "target": [
+            "8.775",
+            "20.7"
+          ],
+          "route_digest": "5baaa8bbd055fe535e37976264f01f30a0c53c559f49b1b82fd00a2923b250d4"
+        },
+        {
+          "activity_id": "bed3.bedB_back",
+          "geometry": [
+            "7.825",
+            "18.45",
+            "9.725",
+            "19.35"
+          ],
+          "target": [
+            "8.775",
+            "18.9"
+          ],
+          "route_digest": "78cf7d1f883c250b2b0e46d6e0f465e450925182c938cc0ba31ed61d24a7a449"
+        },
+        {
+          "activity_id": "bed3.changing",
+          "geometry": [
+            "7.825",
+            "18.55",
+            "8.525",
+            "19.25"
+          ],
+          "target": [
+            "8.175",
+            "18.9"
+          ],
+          "route_digest": "4bbdc5c7a38bbf4d58ff98c00a3a610f5999791361b2da006b41612962c5069f"
+        },
+        {
+          "activity_id": "WC_front",
+          "geometry": [
+            "23.6",
+            "21.675",
+            "24.3",
+            "22.375"
+          ],
+          "target": [
+            "23.95",
+            "22.025"
+          ],
+          "route_digest": "70fd7ae0e03d8551aea5cc63d5d7f0371d77337f5e05183285597f5c9e5050cc"
+        },
+        {
+          "activity_id": "WC_use",
+          "geometry": [
+            "23.6",
+            "22.425",
+            "24.3",
+            "23.125"
+          ],
+          "target": [
+            "23.95",
+            "22.775"
+          ],
+          "route_digest": "3edf8cdd22f2a3769239fcf78e1b9d7eb31145002a89b83428b6f7f9bc55831c"
+        },
+        {
+          "activity_id": "shower_use",
+          "geometry": [
+            "21.4",
+            "22.475",
+            "22.1",
+            "23.175"
+          ],
+          "target": [
+            "21.75",
+            "22.825"
+          ],
+          "route_digest": "ae2655b2d9eaf3487dce0779f8a5ff4223d42f7baca4159f6c3c9582868afe13"
+        },
+        {
+          "activity_id": "basin_front",
+          "geometry": [
+            "22.45",
+            "20.625",
+            "23.15",
+            "21.325"
+          ],
+          "target": [
+            "22.8",
+            "20.975"
+          ],
+          "route_digest": "caf400e5713a5a0c26f8b92f9e918d8b82d9d8fb7454cf387c399295a87ad006"
+        },
+        {
+          "activity_id": "kitchen_work",
+          "geometry": [
+            "1.15",
+            "21.325",
+            "1.85",
+            "24.225"
+          ],
+          "target": [
+            "1.5",
+            "22.775"
+          ],
+          "route_digest": "7f139ac82596d615f5645c2bee477c546bd77db6e6c245193754c0ff813d037b"
+        },
+        {
+          "activity_id": "dining_front_left",
+          "geometry": [
+            "2.225",
+            "18.625",
+            "2.925",
+            "19.325"
+          ],
+          "target": [
+            "2.575",
+            "18.975"
+          ],
+          "route_digest": "a061082c98efd5d67695239534a8d11a5d93cad7e01b172b5839512809fb3d0f"
+        },
+        {
+          "activity_id": "dining_front_right",
+          "geometry": [
+            "5.025",
+            "18.625",
+            "5.725",
+            "19.325"
+          ],
+          "target": [
+            "5.375",
+            "18.975"
+          ],
+          "route_digest": "bada2d4497e0b71ab6768487e7aa36053b34d383d471d77e55ee7f877b7de652"
+        },
+        {
+          "activity_id": "dining_back_left",
+          "geometry": [
+            "2.225",
+            "16.125",
+            "2.925",
+            "16.825"
+          ],
+          "target": [
+            "2.575",
+            "16.475"
+          ],
+          "route_digest": "770eb1b479797b42c0e760027fc4f81f07b7f2c8b1ca3c19f4b9ac6b12a33edb"
+        },
+        {
+          "activity_id": "dining_back_right",
+          "geometry": [
+            "5.025",
+            "16.125",
+            "5.725",
+            "16.825"
+          ],
+          "target": [
+            "5.375",
+            "16.475"
+          ],
+          "route_digest": "9771cb2171bfcf272abf39d13c205d3eb6b206b2a5fb1b63c1a30ac9cfc28709"
+        },
+        {
+          "activity_id": "dining_left",
+          "geometry": [
+            "1.775",
+            "18.225",
+            "2.475",
+            "18.925"
+          ],
+          "target": [
+            "2.125",
+            "18.575"
+          ],
+          "route_digest": "55d689f6a00fce3094e4212bbd89b8434e90ea54e8788e3d1c83130602e17ea6"
+        },
+        {
+          "activity_id": "dining_right",
+          "geometry": [
+            "5.475",
+            "16.525",
+            "6.175",
+            "17.225"
+          ],
+          "target": [
+            "5.825",
+            "16.875"
+          ],
+          "route_digest": "6c2459b669ffa22fc09ae796c54cb5b811ee2c57449692e9ec5e7e841e964e31"
+        },
+        {
+          "activity_id": "sofa1_front",
+          "geometry": [
+            "19.275",
+            "18.425",
+            "21.475",
+            "19.125"
+          ],
+          "target": [
+            "20.375",
+            "18.775"
+          ],
+          "route_digest": "e0969f48612ae9b45dacec6371dd9915c9feb07cd985382984ba3b3e9088c8fb"
+        },
+        {
+          "activity_id": "sofa2_front",
+          "geometry": [
+            "21.475",
+            "18.425",
+            "23.675",
+            "19.125"
+          ],
+          "target": [
+            "22.575",
+            "18.775"
+          ],
+          "route_digest": "089621534bfb0b690b4369a6246122a8b1b22bded1d8c3a41c1478a1cd8c9b6b"
+        },
+        {
+          "activity_id": "armchair1_front",
+          "geometry": [
+            "19.875",
+            "16.325",
+            "20.675",
+            "17.025"
+          ],
+          "target": [
+            "20.275",
+            "16.675"
+          ],
+          "route_digest": "8d5fdc98095a491c4bbcb3703094d0eac7d2c6b73a495fa5ff5754b5d8f6f130"
+        },
+        {
+          "activity_id": "armchair2_front",
+          "geometry": [
+            "20.675",
+            "16.325",
+            "21.475",
+            "17.025"
+          ],
+          "target": [
+            "21.075",
+            "16.675"
+          ],
+          "route_digest": "c81f048bc1cba0b1798999d80676f7b1ef335b2e5e1f7e0114e07ec3ddc1f739"
+        },
+        {
+          "activity_id": "armchair3_front",
+          "geometry": [
+            "21.475",
+            "16.325",
+            "22.275",
+            "17.025"
+          ],
+          "target": [
+            "21.875",
+            "16.675"
+          ],
+          "route_digest": "d127db6b08852f21b3c35c04a2e7027d7a802fef5bc861d39eb02ee4b624a29e"
+        },
+        {
+          "activity_id": "armchair4_front",
+          "geometry": [
+            "22.275",
+            "16.325",
+            "23.075",
+            "17.025"
+          ],
+          "target": [
+            "22.675",
+            "16.675"
+          ],
+          "route_digest": "5a67687f8f47670ff2ff5b8e2321cc15ee860bb8127bc45e0d4a28d76861bae8"
+        },
+        {
+          "scenario_route": "kitchen_to_dining_floor",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "9d14e037250fd5352d74ff4d5026a3a829de058eb2fa9d31cadbcdf37d4676c0"
+        },
+        {
+          "scenario_route": "guest_living",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "a8ce1985f9044f4760bd44523c6953a60b8b6e42fceb8155597a973e8b27a13e"
+        },
+        {
+          "scenario_route": "guest_dining",
+          "source_method": {
+            "name": "named_checks118.public_named_scenarios",
+            "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+          },
+          "route_digest": "8b1f03be0ab30f69d7d90612ef5f782a0222fafc957f9eeee7dee782e3541404"
+        }
+      ],
+      "untargeted_terminal_extensions": [],
+      "private_margin_operationalization": {
+        "basis": "SOURCE_TRANSVERSE_CLEAR_DEPTH_CROSS_SECTION_AROUND_REQUIRED_PATH_ONLY",
+        "source_max_clear_width_m": "1",
+        "engineering_assumption": "Transverse floor around a verified traversal within the actual source corridor width is a supporting margin; no unsupported longitudinal tail is granted function.",
+        "regions": [
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "419/20"
+          ],
+          [
+            "533/40",
+            "81/4",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "419/20"
+          ],
+          [
+            "533/40",
+            "81/4",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "419/20"
+          ],
+          [
+            "533/40",
+            "81/4",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "419/20"
+          ],
+          [
+            "533/40",
+            "81/4",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "128/5"
+          ],
+          [
+            "533/40",
+            "249/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "128/5"
+          ],
+          [
+            "533/40",
+            "249/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "129/5"
+          ],
+          [
+            "533/40",
+            "251/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "129/5"
+          ],
+          [
+            "533/40",
+            "251/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "128/5"
+          ],
+          [
+            "533/40",
+            "249/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "128/5"
+          ],
+          [
+            "533/40",
+            "249/10",
+            "573/40",
+            "271/10"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "533/40",
+            "22",
+            "573/40",
+            "449/20"
+          ],
+          [
+            "109/8",
+            "21",
+            "123/8",
+            "22"
+          ],
+          [
+            "109/8",
+            "21",
+            "123/8",
+            "22"
+          ],
+          [
+            "109/8",
+            "21",
+            "123/8",
+            "22"
+          ],
+          [
+            "109/8",
+            "21",
+            "123/8",
+            "22"
+          ]
+        ]
+      },
+      "private_circulation_components": [
+        {
+          "regions": [
+            [
+              "533/40",
+              "369/20",
+              "573/40",
+              "21"
+            ],
+            [
+              "533/40",
+              "21",
+              "729/40",
+              "22"
+            ],
+            [
+              "533/40",
+              "22",
+              "573/40",
+              "138/5"
+            ]
+          ],
+          "area_m2": "261/20",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing",
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing",
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing"
+          ],
+          "actual_body_route_coverage_m2": "2983/400",
+          "source_use_coverage_m2": "1993/200",
+          "unsupported_margin_area_m2": "1187/400",
+          "unsupported_margin_regions": [
+            [
+              "533/40",
+              "21",
+              "107/8",
+              "87/4"
+            ],
+            [
+              "107/8",
+              "21",
+              "539/40",
+              "217/10"
+            ],
+            [
+              "629/40",
+              "21",
+              "729/40",
+              "22"
+            ],
+            [
+              "123/8",
+              "21",
+              "629/40",
+              "85/4"
+            ],
+            [
+              "123/8",
+              "439/20",
+              "629/40",
+              "22"
+            ],
+            [
+              "533/40",
+              "271/10",
+              "107/8",
+              "138/5"
+            ],
+            [
+              "107/8",
+              "549/20",
+              "539/40",
+              "138/5"
+            ],
+            [
+              "567/40",
+              "271/10",
+              "573/40",
+              "138/5"
+            ],
+            [
+              "563/40",
+              "271/10",
+              "567/40",
+              "138/5"
+            ],
+            [
+              "561/40",
+              "549/20",
+              "563/40",
+              "138/5"
+            ],
+            [
+              "539/40",
+              "549/20",
+              "561/40",
+              "138/5"
+            ]
+          ],
+          "verdict": "UNKNOWN_MARGIN_OR_BLIND_APPENDAGE_REQUIRES_SOURCE_FUNCTION"
+        }
+      ],
+      "entry_circulation_components": [
+        {
+          "regions": [
+            [
+              "13/10",
+              "971/40",
+              "2",
+              "977/40"
+            ],
+            [
+              "13/10",
+              "977/40",
+              "303/40",
+              "201/8"
+            ],
+            [
+              "83/20",
+              "797/40",
+              "97/20",
+              "977/40"
+            ],
+            [
+              "55/8",
+              "777/40",
+              "303/40",
+              "977/40"
+            ],
+            [
+              "267/40",
+              "369/20",
+              "303/40",
+              "777/40"
+            ],
+            [
+              "55/8",
+              "183/10",
+              "303/40",
+              "369/20"
+            ],
+            [
+              "55/8",
+              "88/5",
+              "607/40",
+              "183/10"
+            ],
+            [
+              "579/40",
+              "183/10",
+              "607/40",
+              "403/20"
+            ],
+            [
+              "539/40",
+              "183/10",
+              "567/40",
+              "369/20"
+            ],
+            [
+              "105/8",
+              "681/40",
+              "567/40",
+              "88/5"
+            ],
+            [
+              "105/8",
+              "3269/200",
+              "921/40",
+              "681/40"
+            ],
+            [
+              "267/40",
+              "653/40",
+              "921/40",
+              "3269/200"
+            ],
+            [
+              "801/40",
+              "681/40",
+              "829/40",
+              "153/8"
+            ],
+            [
+              "889/40",
+              "681/40",
+              "917/40",
+              "153/8"
+            ],
+            [
+              "267/40",
+              "641/40",
+              "771/40",
+              "653/40"
+            ],
+            [
+              "267/40",
+              "3129/200",
+              "763/40",
+              "641/40"
+            ],
+            [
+              "267/40",
+              "623/40",
+              "567/40",
+              "3129/200"
+            ],
+            [
+              "579/40",
+              "403/20",
+              "763/40",
+              "417/20"
+            ],
+            [
+              "147/8",
+              "417/20",
+              "763/40",
+              "937/40"
+            ],
+            [
+              "147/8",
+              "937/40",
+              "461/20",
+              "193/8"
+            ],
+            [
+              "447/20",
+              "931/40",
+              "461/20",
+              "937/40"
+            ]
+          ],
+          "area_m2": "189439/4000",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing",
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing",
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing",
+            "WC_front",
+            "WC_use",
+            "shower_use",
+            "basin_front",
+            "kitchen_work",
+            "dining_front_left",
+            "dining_front_right",
+            "dining_back_left",
+            "dining_back_right",
+            "dining_left",
+            "dining_right",
+            "sofa1_front",
+            "sofa2_front",
+            "armchair1_front",
+            "armchair2_front",
+            "armchair3_front",
+            "armchair4_front",
+            "scenario:kitchen_to_dining_floor",
+            "scenario:guest_living",
+            "scenario:guest_dining"
+          ],
+          "actual_body_route_coverage_m2": "189439/4000",
+          "source_use_coverage_m2": "451/100",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "527/40",
+              "87/4",
+              "533/40",
+              "449/20"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed3.closet_front",
+            "bed3.bedA_front",
+            "bed3.bedA_back",
+            "bed3.bedB_front",
+            "bed3.bedB_back",
+            "bed3.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "527/40",
+              "132/5",
+              "533/40",
+              "271/10"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed2.closet_front",
+            "bed2.bedA_front",
+            "bed2.bedA_back",
+            "bed2.bedB_front",
+            "bed2.bedB_back",
+            "bed2.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        },
+        {
+          "regions": [
+            [
+              "587/40",
+              "22",
+              "123/8",
+              "443/20"
+            ]
+          ],
+          "area_m2": "21/200",
+          "required_targets_served": [
+            "bed1.bed_front",
+            "bed1.bed_back",
+            "bed1.closet_front",
+            "bed1.changing"
+          ],
+          "actual_body_route_coverage_m2": "21/200",
+          "source_use_coverage_m2": "0",
+          "unsupported_margin_area_m2": "0",
+          "unsupported_margin_regions": [],
+          "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+        }
+      ],
+      "service_inventory": [
+        {
+          "room": "bath",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "actual_service_required_targets": [
+            "WC_front",
+            "WC_use",
+            "shower_use",
+            "basin_front"
+          ],
+          "route_sweep_area_inside_service_m2": "4759/1000",
+          "route_only_after_actual_fixture_activity_deduction_m2": "10677/8000",
+          "route_only_regions": [
+            [
+              "447/20",
+              "179/8",
+              "899/40",
+              "931/40"
+            ],
+            [
+              "899/40",
+              "179/8",
+              "461/20",
+              "899/40"
+            ],
+            [
+              "899/40",
+              "927/40",
+              "461/20",
+              "931/40"
+            ],
+            [
+              "447/20",
+              "179/8",
+              "899/40",
+              "931/40"
+            ],
+            [
+              "899/40",
+              "179/8",
+              "461/20",
+              "899/40"
+            ],
+            [
+              "899/40",
+              "927/40",
+              "461/20",
+              "931/40"
+            ],
+            [
+              "447/20",
+              "179/8",
+              "899/40",
+              "227/10"
+            ],
+            [
+              "927/40",
+              "179/8",
+              "233/10",
+              "227/10"
+            ],
+            [
+              "899/40",
+              "179/8",
+              "927/40",
+              "899/40"
+            ],
+            [
+              "927/40",
+              "179/8",
+              "233/10",
+              "227/10"
+            ],
+            [
+              "113/5",
+              "179/8",
+              "927/40",
+              "899/40"
+            ],
+            [
+              "447/20",
+              "179/8",
+              "899/40",
+              "931/40"
+            ],
+            [
+              "899/40",
+              "179/8",
+              "461/20",
+              "899/40"
+            ],
+            [
+              "899/40",
+              "927/40",
+              "461/20",
+              "931/40"
+            ],
+            [
+              "447/20",
+              "179/8",
+              "899/40",
+              "931/40"
+            ],
+            [
+              "899/40",
+              "179/8",
+              "461/20",
+              "899/40"
+            ],
+            [
+              "899/40",
+              "927/40",
+              "461/20",
+              "931/40"
+            ],
+            [
+              "447/20",
+              "857/40",
+              "461/20",
+              "859/40"
+            ],
+            [
+              "447/20",
+              "857/40",
+              "463/20",
+              "859/40"
+            ],
+            [
+              "449/20",
+              "853/40",
+              "463/20",
+              "859/40"
+            ],
+            [
+              "469/20",
+              "179/8",
+              "118/5",
+              "2297/100"
+            ],
+            [
+              "118/5",
+              "179/8",
+              "483/20",
+              "897/40"
+            ],
+            [
+              "469/20",
+              "179/8",
+              "118/5",
+              "2297/100"
+            ],
+            [
+              "118/5",
+              "179/8",
+              "243/10",
+              "897/40"
+            ],
+            [
+              "118/5",
+              "179/8",
+              "243/10",
+              "897/40"
+            ],
+            [
+              "447/20",
+              "867/40",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "461/20",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "867/40",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "867/40",
+              "584/25",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "173/8",
+              "584/25",
+              "179/8"
+            ],
+            [
+              "1133/50",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "173/8",
+              "943/40",
+              "893/40"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "893/40"
+            ],
+            [
+              "1133/50",
+              "891/40",
+              "927/40",
+              "893/40"
+            ],
+            [
+              "117/5",
+              "173/8",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "117/5",
+              "867/40",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "22",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "461/20",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "22",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "22",
+              "233/10",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "867/40",
+              "233/10",
+              "179/8"
+            ],
+            [
+              "113/5",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "867/40",
+              "584/25",
+              "179/8"
+            ],
+            [
+              "113/5",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "173/8",
+              "584/25",
+              "179/8"
+            ],
+            [
+              "1133/50",
+              "891/40",
+              "927/40",
+              "179/8"
+            ],
+            [
+              "927/40",
+              "173/8",
+              "943/40",
+              "893/40"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "893/40"
+            ],
+            [
+              "1133/50",
+              "891/40",
+              "927/40",
+              "893/40"
+            ],
+            [
+              "117/5",
+              "173/8",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "117/5",
+              "867/40",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "469/20",
+              "867/40",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "469/20",
+              "2227/100",
+              "943/40",
+              "179/8"
+            ],
+            [
+              "943/40",
+              "891/40",
+              "118/5",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "867/40",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "461/20",
+              "179/8"
+            ],
+            [
+              "2229/100",
+              "867/40",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "461/20",
+              "179/8"
+            ],
+            [
+              "2229/100",
+              "173/8",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "2299/100",
+              "179/8"
+            ],
+            [
+              "883/40",
+              "173/8",
+              "899/40",
+              "893/40"
+            ],
+            [
+              "43/2",
+              "891/40",
+              "883/40",
+              "893/40"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "2299/100",
+              "893/40"
+            ],
+            [
+              "883/40",
+              "173/8",
+              "111/5",
+              "179/8"
+            ],
+            [
+              "43/2",
+              "891/40",
+              "883/40",
+              "179/8"
+            ],
+            [
+              "883/40",
+              "2227/100",
+              "111/5",
+              "179/8"
+            ],
+            [
+              "107/5",
+              "891/40",
+              "883/40",
+              "179/8"
+            ],
+            [
+              "883/40",
+              "2227/100",
+              "221/10",
+              "179/8"
+            ],
+            [
+              "107/5",
+              "891/40",
+              "883/40",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "859/40",
+              "899/40",
+              "179/8"
+            ],
+            [
+              "899/40",
+              "859/40",
+              "461/20",
+              "863/40"
+            ],
+            [
+              "899/40",
+              "891/40",
+              "461/20",
+              "179/8"
+            ],
+            [
+              "447/20",
+              "859/40",
+              "899/40",
+              "177/8"
+            ],
+            [
+              "899/40",
+              "859/40",
+              "463/20",
+              "863/40"
+            ],
+            [
+              "449/20",
+              "859/40",
+              "899/40",
+              "177/8"
+            ],
+            [
+              "899/40",
+              "859/40",
+              "463/20",
+              "863/40"
+            ]
+          ],
+          "other_source_role_inventory": {},
+          "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+          "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+        },
+        {
+          "room": "kitchen",
+          "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+          "actual_service_required_targets": [
+            "kitchen_work"
+          ],
+          "route_sweep_area_inside_service_m2": "7/5",
+          "route_only_after_actual_fixture_activity_deduction_m2": "61/200",
+          "route_only_regions": [
+            [
+              "37/20",
+              "897/40",
+              "2",
+              "971/40"
+            ],
+            [
+              "13/10",
+              "969/40",
+              "37/20",
+              "971/40"
+            ],
+            [
+              "37/20",
+              "897/40",
+              "2",
+              "185/8"
+            ]
+          ],
+          "other_source_role_inventory": {},
+          "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+          "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+        }
+      ],
+      "source_connector_margin_proof": {
+        "status": "UNKNOWN_SOURCE_BRANCH146_WHOLE_COMPONENT_MARGIN_REVIEW",
+        "scope": "No row359 clamp/connector proof reused; actual branch source width1 supports only measured transverse checked-traversal margin at this stage."
+      },
+      "intrinsic_private_role_status": "UNKNOWN_SOURCE_BRANCH_COMPONENT_ROLE"
+    }
+  ],
+  "parent_complete": false,
+  "fresh_execution": false,
+  "admission_allowed": false,
+  "necessity_comparison": "NOT_ASSESSED_HERE_REQUIRES_ELIGIBLE_FINITE_COMPARISON",
+  "status": "MEASURED_INTRINSIC_COMPONENT_PURPOSE_AND_EXPLICIT_GAPS"
+}

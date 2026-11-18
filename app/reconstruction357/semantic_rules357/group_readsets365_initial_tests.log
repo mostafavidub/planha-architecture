@@ -1,0 +1,9 @@
+test_cross_profile_blocked (test_group_readsets365.Group365.test_cross_profile_blocked) ... ok
+test_current_eight_rows_and_explicit_unsupported_old_network (test_group_readsets365.Group365.test_current_eight_rows_and_explicit_unsupported_old_network) ... ok
+test_old_fresh_blocked (test_group_readsets365.Group365.test_old_fresh_blocked) ... ok
+test_tampered_raw_blocked (test_group_readsets365.Group365.test_tampered_raw_blocked) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.787s
+
+OK

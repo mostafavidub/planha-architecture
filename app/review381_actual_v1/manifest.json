@@ -1,0 +1,12 @@
+{
+  "files": {
+    "review381_actual_v1/state.json": "61e235fdbc78e90e50b98a0f27577117973d11e1cb5dd0a5c9fb88020f9204ac",
+    "review381_actual_v1/preregistration.json": "8e09694798f3d25ff6101235b12a70f65894ad9bbf69d66687898857bfb66538",
+    "review381_actual_v1/README.md": "5ada2fd170d3d7fb6f051b0cb29a7ff3dd9b4a624e41e7422fc6a993b3f2bde5",
+    "review381_actual_v1/audited_subset.json": "d11840a5cc5f673b429d60037ea2518e3e6881957583caffd9fdde9cda3a3449",
+    "review381_actual_v1/supervision.json": "b6d4b8c8ee8f6045721bbf779c9e5bce3dadcfab92e6c9fd6a2cd4a2e622b53d",
+    "review381_actual_v1/source_unchanged.json": "f0d28bdf37d0e30d19e2309ed9d80f7afb69265b716e52813ab44a26301c2e17",
+    "review381_actual_v1/result.json": "927cb0a6482899268140fba0d57eda4eabfbc60ddf63879508407356a910332c",
+    "review381_actual_v1/independent_audit.json": "1a687aafdd8f6f8e5f94d406dda63ad52ed822f570640f2a00769184641aa7ef"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "files": {
+    "bedroom_grouping_service365.py": "2bf4dfa7fc39dd8b9af5f4accaadf607179fdc3e61c8eef80edf7a44dc2535f4",
+    "bedroom_grouping_service365_pins.json": "65365e4df43df4fce5f2db10a1ea2e428be9cca03dc790f25a32dc14d13aab35",
+    "bedroom_grouping_service_actual365.json": "f52fd9b767ad6d2f87535eb7f69d7dc6a0223e32a8b894e32ed4304f8bb64cf8",
+    "test_bedroom_grouping_service365.py": "bd239babc49d7eb6ad553fa957174689bc84d30208fe1d26c4ac30ce4f2d51ac"
+  },
+  "tests": 5,
+  "parent_pending_independent_audit": true
+}

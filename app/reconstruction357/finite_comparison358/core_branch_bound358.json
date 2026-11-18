@@ -1,0 +1,33 @@
+{
+  "schema": "FULL_BAND358_BRANCH_PROTECTED_COUNTEREXAMPLE",
+  "artifact_sha256": "eec824c3e006946b58f9a5ee4e94ac4776c0ccecb90a3b840f7e822480afb29d",
+  "artifact": "staging358_core_branch/actual_full_band358.json",
+  "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+  "independently_remeasured": [
+    {
+      "unit": "A",
+      "before_m2": "33501/100",
+      "after_m2": "24939/80",
+      "loss_m2": "9309/400"
+    },
+    {
+      "unit": "B",
+      "before_m2": "33501/100",
+      "after_m2": "24939/80",
+      "loss_m2": "9309/400"
+    }
+  ],
+  "terminal_state": "INELIGIBLE_FOR_DECLARED_NONDECREASING_OWNERSHIP_COMPARISON_DOMAIN",
+  "intrinsically_invalid": false,
+  "global_infeasible": false,
+  "full_plan_constructed": false,
+  "adapter_status": {
+    "full_band_has_core_extent_x": false,
+    "coarse129_requires_core_extent_x": true,
+    "constructor129_FRONT_REAR_uses_compact": true,
+    "full_band_solver_supported_without_new_adapter": false
+  },
+  "policy_authority": "ENGINEERING358_CONSERVATIVE_COMPARATIVE_DOMAIN_NOT_UNIVERSAL_OWNER_MINIMUM",
+  "parent_acceptance": false,
+  "source_binding": "CURRENT_FROZEN_SOURCE114_PRIMITIVE_ARTIFACT_AND_UNCHANGED_SOURCE_HASHES"
+}

@@ -1,0 +1,18 @@
+{
+  "execution_id": "49a84688-aedf-437e-9cd2-38a2d25dc277",
+  "max_seconds": 60,
+  "retry": false,
+  "scope": "CURRENT372_SEMANTIC_PROOF_RECOMPUTATION_ONLY",
+  "binding": {
+    "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+    "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+    "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+    "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+    "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+    "test_only": true
+  },
+  "test_only": true,
+  "no_new_fresh_checker": true,
+  "freeze_sha256": "df1c187835ed74bb9d9f604acdbf3c528e7cf3327bfebac118bb044729099b7e",
+  "input_payload_sha256": "5e2befd8584cc5170915693224aef640c19c1ce693e759f9ee9d3037a8858110"
+}

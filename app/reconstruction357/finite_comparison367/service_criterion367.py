@@ -1,0 +1,21 @@
+"""Final finite SERVICE criterion using independent roles and Q04 necessity.
+Current-source route-only cost is not asserted to be global exclusive-use floor.
+"""
+from cost_runner367 import evaluate as costs
+from q04_runner367_v3 import evaluate as necessity
+from common import digest
+from fractions import Fraction as F
+
+def reduce_bound(record,review,ledger,q04):
+ for x in (ledger,q04):
+  if x['record_digest']!=digest(record)or x['fresh_result_digest']!=digest(review)or x['model_digest']!=digest(record['candidate']['model']):raise ValueError('OWN_CURRENT_BINDING')
+ remaining=[];units=[]
+ for u in ledger['units']:
+  b=u['against359'];entry=u['intrinsic_entry']if 'intrinsic_entry'in u else next(e for e in q04['entry_role']['units']if e['unit']==u['unit'])
+  if not b['same_validated_service_program']:remaining.append(u['unit']+':SAME_PROGRAM_OWNERSHIP_BASELINE')
+  if F(b['current_room_excess_m2'])!=0:remaining.append(u['unit']+':ROOM_EXCESS_FUNCTIONAL_REASON_NOT_IMPLEMENTED')
+  if entry['verdict']!='PASS_SCOPED_INTRINSIC_CURRENT_SOURCE_REQUIRED_ACCESS_ROLE':remaining.append(u['unit']+':SOURCE_ACCESS_FUNCTION')
+  units.append({'unit':u['unit'],'bath_WC_union_m2':u['bath_WC_union_m2'],'R_service_percent':b['R_service_percent'],'A_unit_net_m2':b['A_unit_net_m2'],'smallest_actually_validated_same_source_room_m2':b['tested_cohort_min_room_m2'],'actual_source_service_route_only_m2':u['actual_source_service_route_only_m2'],'global_exclusive_function_m2':None,'functional_reason':'Actual source-required bath activity routes, exact source-derived whole entry access domain, own fresh actor/scenario checks. Not route optimality.','excess_comparison':'Full vector finite Q04: all unit routes/circulation, all common transfers, common area; all registered alternatives have known-worse coordinate under componentwise noncompensation. Not service-area-only global minimization.'})
+ if q04['verdict']!='PASS_SCOPED_FINITE_Q04_SOURCE_JOINT367'or q04['remaining']:remaining.append('FINITE_NECESSITY_NOT_CLOSED')
+ return {'schema':'SOURCE_JOINT367_FINITE_SERVICE_CRITERION','record_digest':digest(record),'fresh_result_digest':digest(review),'model_digest':digest(record['candidate']['model']),'units':units,'verdict':'UNKNOWN'if remaining else'PASS_SCOPED_FINITE_SERVICE_COMPACTNESS','remaining':remaining,'cost_receipt_digest':digest(ledger),'necessity_receipt_digest':digest(q04),'definition':'Nonzero source-route cost retained and justified by independent intrinsic access function plus finite noncompensatory comparison. Global service exclusivity and global minimum not claimed.','accepted':False,'new_fresh_execution':False,'all_parent_acceptance':False}
+def evaluate(record,review):return reduce_bound(record,review,costs(record,review),necessity(record,review))

@@ -1,0 +1,119 @@
+{
+  "schema": "371_CONTROLLED_CONTINUATION",
+  "test_only": true,
+  "natural_failure": false,
+  "first_review_reused_from_actual369": true,
+  "retry": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "semantic_qualification": "UNKNOWN_NEW_GEOMETRY_NOT_REPROVEN",
+  "status": "REPAIR_NOT_VERIFIED",
+  "comparison_summary": {
+    "schema": "371_CONSERVATIVE_REPAIR_COMPARISON",
+    "collision_resolved": true,
+    "remaining_collision_units": [],
+    "no_new_or_changed_error_or_unknown_witness": false,
+    "new_or_changed_witness_digests": {
+      "errors": [
+        "616b7aff199ae557306ef69a2cecb1bfc1612f7250b92bf9669b1ca7dce7da8e",
+        "6c95441227ba0e145dc98693bfca5511fc26193b5d0d74e46a38d88386bf04e7",
+        "20bb5bbc041fb2bf8219b3b2187d336a834d905f23414bf7f37152daaa55caaa",
+        "977ab0c123459791114a29bd0c678676fd2245d778a75831d0b161c26fe3bd4f",
+        "5e03edbf05d822ec158b3b8eabeedafc45c921abf729bb6b39f9c794bb32f838",
+        "c7fa2a920699421f8e1899435bfff042a6e998e242aa4ec56f64f9190330f580",
+        "6176eeebccfb06baa4f95378b478f3c3bbaec3301794572b6e9e2751a3a22305",
+        "301651e0bac666de2519f70c2d6e5cda369e339a4c198af9076a443f0829fa0d"
+      ],
+      "pending": [],
+      "original_pending": [],
+      "not_evaluated": []
+    },
+    "before_report_digest": "b899fce30c28174b3458d2eb6b8cd0de882a9ee6742eb663a8b3079227bc0d51",
+    "after_report_digest": "afc208c1d5ee254cda8d5506db12e5e901fad0b673fd65816ddaa38d5557252f",
+    "after_raw_status": "FAIL",
+    "mechanics_success": false,
+    "semantic_qualification": "UNKNOWN_NEW_GEOMETRY_NOT_REPROVEN",
+    "test_only": true,
+    "accepted": false,
+    "delivery_allowed": false
+  },
+  "seconds": 87.35057457199946,
+  "phases": [
+    {
+      "phase": "propose",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 6,
+            "create_time": 1794846703.18
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 0.6823031630010519,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "construct",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 7,
+            "create_time": 1794846703.86
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 26.325834638999368,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "fresh",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 8,
+            "create_time": 1794846730.19
+          },
+          {
+            "pid": 9,
+            "create_time": 1794846731.21
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 59.778386985002726,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "compare",
+      "supervision": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 26,
+            "create_time": 1794846789.97
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 0.5601746080028533,
+        "delivery_allowed": false
+      }
+    }
+  ]
+}

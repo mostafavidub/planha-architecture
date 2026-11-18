@@ -1,0 +1,20 @@
+{
+  "execution_id": "8d3d54bd-e693-4101-8f5d-5c7e07f3f713",
+  "max_seconds": 60,
+  "retry": false,
+  "binding": {
+    "record_digest": "7fa74ee929e5099488d41a9e9af83229f12e66631e06e78bca0350f2bb317236",
+    "fresh_digest": "83f753b23efdac0159c6ba1b8825b61e7d81668b44443d6087b0363c855d2751",
+    "model_digest": "389e1c34b481d13ab08cf178e58d49fcf2cceffb24bea05c58bf8a19b1f5c0dc",
+    "review_id": "0526d6b7-c438-4ee7-89a0-402eec06e1ec",
+    "candidate_id": "dbcd511bc9a022b11fe8b9312303d30328b93495a34ad9c266488fd5c81a787d",
+    "run_id": "5e2039a5-2f5b-40bf-b0a0-ff038a192309",
+    "current_source_inventory_digest": "9183588bd61faaed43ac5c0cc81f0ec7c548c5a2c7202a769596219b3d9b1121",
+    "test_only": false
+  },
+  "scope": "RANK2_INTRINSIC_Q04_AND_RANK1_BOUND_ROLE_JOIN",
+  "new_fresh": false,
+  "construction": false,
+  "candidate_optimization": false,
+  "freeze_sha256": "e9d347ce680cc2da57bc1f3502534a2a939e7c437592299c89db422b2c1dfffc"
+}

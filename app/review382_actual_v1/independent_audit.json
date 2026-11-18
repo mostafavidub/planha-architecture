@@ -1,0 +1,46 @@
+{
+  "schema": "382_INDEPENDENT_COHORT_POSTRUN_AUDIT",
+  "checks": {
+    "binding": true,
+    "freeze": true,
+    "clean": true,
+    "current_intrinsic": true,
+    "all_eight_unique": true,
+    "historical_eligibility_all": true,
+    "negative_dominance_witnesses": true,
+    "rank2_unassessed": true,
+    "no_full_q04": true,
+    "no_eligibility_rerun_claim": true
+  },
+  "binding": {
+    "record_digest": "f31dad0893192442fc2e44e895e796100d0d215aa0b3fad8298162d19fcfb201",
+    "fresh_digest": "e0adc8ba5792de35afb26db0df438bf59dc1f869b5c2a082971658284ad1e264",
+    "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+    "review_id": "acd414ca-411e-4fe3-906e-f6d4e8d7995d",
+    "candidate_id": "e69bec71a2352923b6db2b3f60629134fe83a3cdece21f811607cb8d6bd4f15e",
+    "run_id": "02dc5f92-93b6-4466-be6c-5114e96bc636",
+    "current_source_inventory_digest": "0e415e15a747b563d94d9e49c2ba052c73b63975e45fba6e665dbd9cc03351ca",
+    "request_envelope_digest": "3746c92104e08e3377fcbe57a2044ddb39a42a35a06e5b01f2987b9a8e21883a",
+    "form_binding_digest": "96afbd73168bd93ef9aaaa8edf09e5256753bfb8334f3eb634540c6e033c6be8",
+    "test_only": false
+  },
+  "raw_result_sha256": "8f09238128c3341aa7541c680f0aa6c393c912162562ffd6f9a42db5dc219956",
+  "seconds": 5.562684354001249,
+  "pair_ids": [
+    "baseline351",
+    "translated357",
+    "row358",
+    "clamped359",
+    "notched362",
+    "service_anchor365",
+    "balanced365",
+    "joint367"
+  ],
+  "meaning": "No listed historical eligible alternative dominates the current model under the bounded unchanged comparison kernel. Not proof that current model dominates them, not full finite-family closure, not global optimum.",
+  "remaining": [
+    "REGISTERED_FINITE378_RANK2_NOT_CONSTRUCTED_OR_REVIEWED"
+  ],
+  "full_q04_closed": false,
+  "accepted": false,
+  "delivery_allowed": false
+}

@@ -1,0 +1,17 @@
+{
+  "execution_id": "555f4ed7-ab2a-4e9f-8b47-60613de75bf2",
+  "overall_seconds": 190,
+  "phase_maxima": {
+    "propose": 3,
+    "construct": 90,
+    "fresh": 90,
+    "compare": 3
+  },
+  "prior_run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21",
+  "prior_review_id": "eaecdc51-eb4c-4ddd-a2c4-8ce5c64c5ad0",
+  "first_review_reused_from_actual369": true,
+  "fresh_after_repair_required": true,
+  "test_only": true,
+  "retry": false,
+  "freeze_sha256": "c33d542aea91650b3137920416f921a70c0352a566bf56da4f5f909fe9802dad"
+}

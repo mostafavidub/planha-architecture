@@ -1,0 +1,219 @@
+[
+  {
+    "source": "reconstruction357/staging387_current_semantics/adapters387.py",
+    "source_sha256": "3ef0154551151849780c0644e5b6fca4fe5be66eda275f663ce03ccea3378503",
+    "target": "reconstruction357/staging390_current_semantics/adapters390.py",
+    "target_sha256": "832b4263096cbef2e21c8ad119cda711a5eabd40aabab7293572b283fd97402d",
+    "version_only_preserving_hex_pins": false
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/balanced_access387.py",
+    "source_sha256": "a32fb69715019918eb750a9a8221cda2320a2df6ee6acb1f82f7175a1102454b",
+    "target": "reconstruction357/staging390_current_semantics/balanced_access390.py",
+    "target_sha256": "cc0464f967be7dbb8acf42d120cbd84d564b324955078e5a2d16122983db6308",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/bedroom387.py",
+    "source_sha256": "101c4e1c64c896c63ea4483f444190bdbc5afa78b624f33ea5457aa040d6df1e",
+    "target": "reconstruction357/staging390_current_semantics/bedroom390.py",
+    "target_sha256": "755cd8512a032dd098988cc03f125cf330e56f21a25ac5a40d21e96f7e221c8f",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/circulation_role387.py",
+    "source_sha256": "ecc9b90e54db6d6d4bfb7fd73304a7d426ea27f7092f46df32886fb21eea2152",
+    "target": "reconstruction357/staging390_current_semantics/circulation_role390.py",
+    "target_sha256": "2debe996186e8ccedee1c2aee270f316725f234619966449da6bc5463a6f7d83",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/cohort387.py",
+    "source_sha256": "5573c6cdb6455acfc9982d4a5d93850f0efd421f472ee1b42c22b3d122de649a",
+    "target": "reconstruction357/staging390_current_semantics/cohort390.py",
+    "target_sha256": "8d5b0c764e914f688020cd44211643462713aa65be151e311d53d70fdc35dbff",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/common_role_closure387.py",
+    "source_sha256": "7e894c9bca552b33a97e4f2a4f37801463161f030414c540d755e789e25224d3",
+    "target": "reconstruction357/staging390_current_semantics/common_role_closure390.py",
+    "target_sha256": "f9acd80531bf7615dfdabe2b5480c1c2f6fbc2b0ff79eab81523995bf40dc421",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/eligibility387.py",
+    "source_sha256": "36a50744fdb861c33a604976648cfafbbc2285f7114f250037581324f420e25b",
+    "target": "reconstruction357/staging390_current_semantics/eligibility390.py",
+    "target_sha256": "2e38f19b294dfdda7517948bf18391787f1fae95e58212834b6a56fb93512a7c",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/entry_separation387.py",
+    "source_sha256": "d788283408112c30ddf18261efe4277d6459c65752d342adf488ac40c4b40244",
+    "target": "reconstruction357/staging390_current_semantics/entry_separation390.py",
+    "target_sha256": "59cbbda007f6df219e8af87b0b811f6bf74e5c2b11dafcef421eb5febe7644e5",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/extended387.py",
+    "source_sha256": "dceee76973616695a4b71731eea8584169d37c987495ac0ca9d9afeef667ccf7",
+    "target": "reconstruction357/staging390_current_semantics/extended390.py",
+    "target_sha256": "e3dbbb74b2219fd7df3f9ffe12dd7db170d02f01d0582bf9e9f754f2bdd6bfee",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/frozen387.py",
+    "source_sha256": "5fdbd368e30af5bc4f152998bd22419fea8a18fb54dd8c16a1e94a74387b5717",
+    "target": "reconstruction357/staging390_current_semantics/frozen390.py",
+    "target_sha256": "5ca4c44a749cbc5d4cedb7be39419b4899bef287cf6291167a6e29d67d03fd90",
+    "version_only_preserving_hex_pins": false
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/gate387.py",
+    "source_sha256": "d01299e83d24c36af423bfb12b65648b04abb7af60116405078abfa24464fc68",
+    "target": "reconstruction357/staging390_current_semantics/gate390.py",
+    "target_sha256": "81556fa2944bd4174b09adaa38ba0ed0c458ffacb380a42e3593ba3cb537a34f",
+    "version_only_preserving_hex_pins": false
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/groups387.py",
+    "source_sha256": "810a6043e60c32bb50a9c862943b86e4451751e25d6ba85d98c6b744b92ffe0c",
+    "target": "reconstruction357/staging390_current_semantics/groups390.py",
+    "target_sha256": "3f6d19e97904cc628bd71ed912085cd64a8cab239f2310da4701b5f69d2870f3",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/guest_closure387.py",
+    "source_sha256": "f0c3c98d8626af62bbb8f002ddfb5323c996b0abf3055c488d022e8368c6a343",
+    "target": "reconstruction357/staging390_current_semantics/guest_closure390.py",
+    "target_sha256": "f6847a078b2dec487c74fc167f825e5ca29a24228ffe97a02d4be9fb8e873a91",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/historical_readset387.py",
+    "source_sha256": "80ff3ea5fdc0fe01d2d9ccd412fa7b499ad3ef9b7d081e7eb31911f9a2102473",
+    "target": "reconstruction357/staging390_current_semantics/historical_readset390.py",
+    "target_sha256": "99936c66f350d6533bef74e8a05300c2e280a92eb3c1aaaa5ac0dec1fb15bfa7",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/integration387.py",
+    "source_sha256": "fcfef675fedd13831fe7a1224933dfa05eb91df18f2468588d5e200e63649b57",
+    "target": "reconstruction357/staging390_current_semantics/integration390.py",
+    "target_sha256": "d03e6d10e8eab722d8cac1b9ea9d8f93a6f2680c6e613ab760ff8a3bb5ebe763",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/kitchen_closure387.py",
+    "source_sha256": "c934f63612bc4bb05841875f3c772e7027e71b3b836365c5e49c14f347d4e607",
+    "target": "reconstruction357/staging390_current_semantics/kitchen_closure390.py",
+    "target_sha256": "564f34c730eed8b1ad4034a401cd115df6b0e95c5796e4429601f1ac8aceab81",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/living_closure387.py",
+    "source_sha256": "8cd8d329dd1612372de80cf863d1cbff46cdeb39585fc99c22e13c5dabb4b8a1",
+    "target": "reconstruction357/staging390_current_semantics/living_closure390.py",
+    "target_sha256": "895b10e156d7ca2f2608f847e64211e863e5dd4bb0623ccb7a17924a4c316569",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/network387.py",
+    "source_sha256": "07f70080ce8d5843c87d79c50867521c3b8e5bde9c4b40fe644bc429aa346ff9",
+    "target": "reconstruction357/staging390_current_semantics/network390.py",
+    "target_sha256": "099337ab1d2946700eac1c0b465bce8150bf6a106eee83275f4f45feae28af69",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/primitive387.py",
+    "source_sha256": "f54750f87627154b9926400cf5819822a1a5d17d76cccb2094c08ddc5e1ea5a4",
+    "target": "reconstruction357/staging390_current_semantics/primitive390.py",
+    "target_sha256": "0e49bceb7c578312de67b80e866f06831c6e4fb05ac94f93f9a7c0ecc7ac07ab",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/qualification387.py",
+    "source_sha256": "db51056e9e7a975246ce0a764dfc927841522e7991b6ac0fab3eed967da8b9db",
+    "target": "reconstruction357/staging390_current_semantics/qualification390.py",
+    "target_sha256": "32042c0346cb9f6cc957f5362fa93fbe115440f9e82837b28d3a3e0f542deca5",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/reassess_spatial387.py",
+    "source_sha256": "68096b69d266314004c8bbdfe650ae32418e0d3d91e74ba37f17b6442e965684",
+    "target": "reconstruction357/staging390_current_semantics/reassess_spatial390.py",
+    "target_sha256": "d070d64e938eeb6bf4532be5299e608bf87da219172c2720928fe200fbbf787a",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/role_registry_model387.py",
+    "source_sha256": "b56fad178fb481824c5ca270ecade4d13aea96896bd755a7671e5c72354a30e3",
+    "target": "reconstruction357/staging390_current_semantics/role_registry_model390.py",
+    "target_sha256": "12680f9a99987b33ff9c25e251fade5b67ea6000d72f5669336c76daa846fb48",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/room387.py",
+    "source_sha256": "3d01cdb1376cc2fb2d8dcb5daf4c0ce629b4a52c070611c4008735f558b3a417",
+    "target": "reconstruction357/staging390_current_semantics/room390.py",
+    "target_sha256": "71b157c6c895708e44f8b4e517c0b18ecc053676c68c765428dd9047841dd35d",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/semantic387.py",
+    "source_sha256": "d86d3ea165dc80b80df42f4959d77855cb2bcaa2e0eb1e89505405de6a26fb09",
+    "target": "reconstruction357/staging390_current_semantics/semantic390.py",
+    "target_sha256": "894613441f91f5c4bcec30e3c8fee8e6097a7ce0be049fc1a30344c5bf2b30da",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/semantic_seal387.py",
+    "source_sha256": "4dd40e7ac3b4b65a893f79208fc4dfb75d0d93c6e8375bb19c42f397a03f6813",
+    "target": "reconstruction357/staging390_current_semantics/semantic_seal390.py",
+    "target_sha256": "889b007a8c51207873e74586f7f6b4825fa4ff702efd5db66d2734d2d9ffb98a",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/service387.py",
+    "source_sha256": "de738bffb88f03aefd403936ebf6ebc6570cb68ca124148af06c5141d462b08f",
+    "target": "reconstruction357/staging390_current_semantics/service390.py",
+    "target_sha256": "45c4f866eb3883e6a5b80654bcc41cd57fe20d704da5a2a71d6387534ecbdc9a",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/support_review387.py",
+    "source_sha256": "0cee8505c72563d881e8081190daf17717b33a9a26a628bd6b74c45a650047c8",
+    "target": "reconstruction357/staging390_current_semantics/support_review390.py",
+    "target_sha256": "1320ffd52811365a3ad0ea13ba58ae808d8be6babc2846a4ae8837ce55080fc5",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/test387.py",
+    "source_sha256": "850960dc759f0e0b48748dc5bdb3505137e1f8a2357e88856dbaa78eab453df6",
+    "target": "reconstruction357/staging390_current_semantics/test390.py",
+    "target_sha256": "e2e53bd57f6a1c0d8d561da9af2cc069ba54e78cd2db575efd4226d2c695e5fd",
+    "version_only_preserving_hex_pins": false
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/wall_origin387.py",
+    "source_sha256": "301ac0cae52c016844b4e59e2d50b44b58aa98807337650c4b03644d8278bd9f",
+    "target": "reconstruction357/staging390_current_semantics/wall_origin390.py",
+    "target_sha256": "64a5f8f00c816b20da2f3f6d8fa8fffe399e7384d669a3f3a59d09786b25715b",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/wall_purpose387.py",
+    "source_sha256": "99ca97ec6667cb4f4a16f9a47bc986657974b13c441f58c7738f80bce9c9f81f",
+    "target": "reconstruction357/staging390_current_semantics/wall_purpose390.py",
+    "target_sha256": "26ab1bda9c348175d1de8e6fa098d581ee83b162ca09ac044c870c821d18149e",
+    "version_only_preserving_hex_pins": true
+  },
+  {
+    "source": "reconstruction357/staging387_current_semantics/worker387.py",
+    "source_sha256": "2bc9282236accc8429c32b14fda7a25c8620f8353624e97bd9b3596e675a3bac",
+    "target": "reconstruction357/staging390_current_semantics/worker390.py",
+    "target_sha256": "24d29104a1ea681e6dd21d93fb634005a60c374b74819ba09e8267f26b272ad5",
+    "version_only_preserving_hex_pins": true
+  }
+]

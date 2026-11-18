@@ -1,0 +1,246 @@
+{
+  "schema": "ENGINEERING359_SERVICE_COMPACTNESS_CLOSURE",
+  "verdict": "PASS_SCOPED_FINITE_SERVICE_COMPACTNESS",
+  "units": [
+    {
+      "unit": "A",
+      "same_validated_service_program": true,
+      "tested_cohort_min_room_m2": "3189/250",
+      "current_room_excess_m2": "0",
+      "R_service_percent": "637800/161627",
+      "A_unit_net_m2": "161627/500",
+      "additional_exclusive_circulation_m2": "0",
+      "verdict": "PASS_SCOPED_FINITE_SERVICE_COMPACTNESS",
+      "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+    },
+    {
+      "unit": "B",
+      "same_validated_service_program": true,
+      "tested_cohort_min_room_m2": "3189/250",
+      "current_room_excess_m2": "0",
+      "R_service_percent": "637800/161627",
+      "A_unit_net_m2": "161627/500",
+      "additional_exclusive_circulation_m2": "0",
+      "verdict": "PASS_SCOPED_FINITE_SERVICE_COMPACTNESS",
+      "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+    }
+  ],
+  "evidence": [
+    {
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "source_row_digests": {
+        "bath_service_operation": "cbf6b612842714084ab414db8b209fc73f10fb6c4663fe2cf009f8b77da03743",
+        "fixture_inventory_use": "0743fff0a53f23e51c7e6af12352e4402f429c1bd3e3a58df6b8c6060025106b",
+        "body_route_sweeps": "d1661e6e718a04df904c6b46e2f974d5daefc8eecd4d61185d5427c030a2c51b",
+        "door_operation": "d69c8170538c7704e97483cb96ed2958d7d185a588d47219b27092ae77d5767d",
+        "serving_route": "ad38ce95a01d174b42333e38368cdab2b255563bc3c52cdb1afb3a72c3d50dc5",
+        "bath_nonprivate_access": "1c51baccac827fe84ff83caf80d376cbbe4e981b991d4803e387ca48d574d593",
+        "partition_ledger": "10ce233dd0e0d2af5deca1a46f788efa3e24cbd717fb126f42677fc0d926f47d"
+      },
+      "group_digest": "b3a6d18c7d07a6162a6d724e7e1b84f99440dbae5cf19199569f335f9ee99051",
+      "units": [
+        {
+          "unit": "A",
+          "bath_union_m2": "3189/250",
+          "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+          "ownership": [
+            [
+              ".25",
+              ".25",
+              "25.75",
+              "12.475"
+            ],
+            [
+              "0.25",
+              "12.475",
+              "8.275",
+              "13.925"
+            ],
+            [
+              "17.725",
+              "12.475",
+              "25.75",
+              "13.925"
+            ]
+          ],
+          "partition": {
+            "entry_domain_area_m2": "41021/2000",
+            "entry_uncovered_area_m2": "0",
+            "entry_uncovered_regions": [],
+            "private_service_intersection_m2": "0",
+            "exclusive_after_source_clearance_m2": "0",
+            "exclusive_regions": [],
+            "complete": true
+          },
+          "outside_entry_service_reconciled": true,
+          "outside_entry_unassigned_m2": "0",
+          "source_approach_and_opening_exact": true
+        },
+        {
+          "unit": "B",
+          "bath_union_m2": "3189/250",
+          "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+          "ownership": [
+            [
+              ".25",
+              "15.525",
+              "25.75",
+              "27.75"
+            ],
+            [
+              "0.25",
+              "14.075",
+              "8.275",
+              "15.525"
+            ],
+            [
+              "17.725",
+              "14.075",
+              "25.75",
+              "15.525"
+            ]
+          ],
+          "partition": {
+            "entry_domain_area_m2": "41021/2000",
+            "entry_uncovered_area_m2": "0",
+            "entry_uncovered_regions": [],
+            "private_service_intersection_m2": "0",
+            "exclusive_after_source_clearance_m2": "0",
+            "exclusive_regions": [],
+            "complete": true
+          },
+          "outside_entry_service_reconciled": true,
+          "outside_entry_unassigned_m2": "0",
+          "source_approach_and_opening_exact": true
+        }
+      ]
+    },
+    {
+      "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+      "source_row_digests": {
+        "bath_service_operation": "ba76dca5ccb2203929bb979ac8b3b43b363895c7d7087fe1e1e9502f1db15333",
+        "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd",
+        "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3",
+        "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+        "serving_route": "adb6e27dc25656510c4e7d03fa8a020bf62b2117628169968e475b0e3d884f98",
+        "bath_nonprivate_access": "935ccd96ea17cb254db8745c723b4dc31da98c1ac295a3ec49269034061afad7",
+        "partition_ledger": "17d4655cb7b1181c8660f98a836303649bf363ad934368f400056854d64bea98"
+      },
+      "group_digest": "08a4b8d64ce0367cb736a703d2507a4cebfe5faad10c29ca62af987279cb8bfb",
+      "units": [
+        {
+          "unit": "A",
+          "bath_union_m2": "3189/250",
+          "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+          "ownership": [
+            [
+              ".25",
+              ".25",
+              "25.75",
+              "12.475"
+            ],
+            [
+              "0.25",
+              "12.475",
+              "8.275",
+              "13.925"
+            ],
+            [
+              "17.725",
+              "12.475",
+              "25.75",
+              "13.925"
+            ]
+          ],
+          "partition": {
+            "entry_domain_area_m2": "41021/2000",
+            "entry_uncovered_area_m2": "0",
+            "entry_uncovered_regions": [],
+            "private_service_intersection_m2": "0",
+            "exclusive_after_source_clearance_m2": "0",
+            "exclusive_regions": [],
+            "complete": true
+          },
+          "outside_entry_service_reconciled": true,
+          "outside_entry_unassigned_m2": "0",
+          "source_approach_and_opening_exact": true
+        },
+        {
+          "unit": "B",
+          "bath_union_m2": "3189/250",
+          "source_service_program_hash": "101f80a1b5fed240751bb2c2072afb4b75818e8d6264c2e6ebba7a9733ce2a41",
+          "ownership": [
+            [
+              ".25",
+              "15.525",
+              "25.75",
+              "27.75"
+            ],
+            [
+              "0.25",
+              "14.075",
+              "8.275",
+              "15.525"
+            ],
+            [
+              "17.725",
+              "14.075",
+              "25.75",
+              "15.525"
+            ]
+          ],
+          "partition": {
+            "entry_domain_area_m2": "41021/2000",
+            "entry_uncovered_area_m2": "0",
+            "entry_uncovered_regions": [],
+            "private_service_intersection_m2": "0",
+            "exclusive_after_source_clearance_m2": "0",
+            "exclusive_regions": [],
+            "complete": true
+          },
+          "outside_entry_service_reconciled": true,
+          "outside_entry_unassigned_m2": "0",
+          "source_approach_and_opening_exact": true
+        }
+      ]
+    }
+  ],
+  "source274_required_subclaims": {
+    "id": "SERVICE_COMPACTNESS",
+    "sources": [
+      "PRD:703"
+    ],
+    "metrics": [
+      "A_bath_WC_union",
+      "A_exclusive_service_circulation",
+      "R_service_percent",
+      "A_smallest_tested_valid_service_program"
+    ],
+    "acceptance": [
+      "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once",
+      "Baseline is smallest actually validated same-service-program layout, not claimed theoretical minimum",
+      "Excess requires verified functional reason and alternative comparison; missing baseline=unknown",
+      "Do not shrink required activities to meet a percentage"
+    ],
+    "threshold_authority": "OWNER_DERIVED_OPERATIONALIZATION",
+    "evidence": [
+      "current_geometry",
+      "source_program",
+      "independent_measurement"
+    ],
+    "on_missing": "UNKNOWN_BLOCKING",
+    "implemented": false
+  },
+  "source_formula": "R_service=100*A_bath_WC_union/A_unit_net; combined room counted once; A_exclusive_service_circulation separately reconciled; finite actually validated baseline not theoretical minimum",
+  "source274_rule_sha256": "57c46d27813d8e80200746923a1b4e3c96045d1111e9cf2698cd64adfa76ecb9",
+  "definition": "Exact cellwise circulation coverage. Shared atoms require actual nonservice traversal. Sole-service atoms must be wholly source-bound service approach/threshold; otherwise explicit additional exclusive area or unknown. Internal source bath bundle counted once.",
+  "engineering_scope_exclusions": [
+    "Private nonservice tail necessity remains Q04",
+    "Unassigned public noncirculation floor purpose remains Q11",
+    "No assertion of global service minimum"
+  ],
+  "live_authority": false,
+  "new_fresh_execution": false,
+  "all_parent_acceptance": false,
+  "audit_status": "PENDING_DEFINITION_AUDIT"
+}

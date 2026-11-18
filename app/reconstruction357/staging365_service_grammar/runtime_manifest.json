@@ -1,0 +1,17 @@
+{
+  "files": {
+    "adapter365.py": "7be2c1c6496f6d31d71c08918b7b56c271f2d347d0be003e60bc5f1d86adcd13",
+    "coarse_branch365.py": "e472e3ecd90fef3ed2999ebdacea6e4a8fed34b9daf71ed4e26e6b75a55ea9da",
+    "containment.py": "512556115becfca59b63322dcb5cc44e585f8d5329110bc16bbd72148aed27d6",
+    "contract.py": "81e40d9f5cc22ad57ee9a30cbc4ae3c6d39c0ae871e0f737e3aef330faf39db8",
+    "run_audited.py": "d8b7de7773ce595cc34ed77f25f775c5aa562aea6fc12b8ee28d7ffa882bd2ae",
+    "runtime_preregistered.json": "5da104f3129f207c47dab970dc890ca2bdfeb4975619ac3063b38eefbb51152d",
+    "service_anchor365.py": "2a5ba2e4a551fb34a6737321ee979fba89b4785ff6e0b0791be479d5bec62ee0",
+    "supervisor.py": "c750bd2aaaacf9d546cbef19d0527dfc6d09bf957a951a14e86daca1ca9178eb",
+    "test_adapter365.py": "09166a825149decc8606d39fa33f2b664ab8af117b912caf66373ce266681c7a",
+    "test_anchor365.py": "cfeb4c75f6f3a9935a129655878c68099060400ef8b509227b8fd9c209f4e461",
+    "worker.py": "234e8d711a0d5a023c60440d84e00f6a9fdc61c655c38b6a7e3d727677f7e4fb"
+  },
+  "containment_byte_identical_to363": true,
+  "execution": false
+}

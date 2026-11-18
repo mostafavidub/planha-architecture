@@ -1,0 +1,12 @@
+{
+  "schema": "FIXED_SERVICE365_NO_PARENT_PRIMITIVES",
+  "files": {
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524",
+    "living_closure_service365.py": "4f06f16cf9f89abc8f81c17a6b0492797455fb01dcca4b08fe90b2a4ab8b9053",
+    "guest_closure_service365.py": "c17faf3f2af6a66a4f5c24b776c084e7f0fbdc8e8f2430b870c6d2bad4453168",
+    "kitchen_closure_service365.py": "b2a53e98a30cbaead217fcdddd31125060338294c742c7cbc6f538e4f878edf8",
+    "method_registry_service365.json": "ceeebd989b5ebcee61c73e522567ef31fb5bd173fdb641d98f25b1adee43b7a3"
+  }
+}

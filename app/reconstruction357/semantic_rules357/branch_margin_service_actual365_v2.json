@@ -1,0 +1,195 @@
+{
+  "schema": "SERVICE365_BRANCH_PORT_MARGIN_V2",
+  "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "fresh_result_digest": "378b01dffa39252ec47e6e5e288b28b49ca3c9fc18b6e35dec008917961de391",
+  "source_inventory_digest": "87b590ce41b7a5d2e147ced5a07e47b1fe7f57e48f59498cde13811dffb856a5",
+  "units": [
+    {
+      "unit": "A",
+      "source_port_margin_joins": [
+        {
+          "opening_id": "A.bed1.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "45cd2d778c5ed4843401fb47a1fb71bb2a3a11674bbb074068e63abf62cfce05",
+          "source_corridor_cell": [
+            "533/40",
+            "6",
+            "729/40",
+            "7"
+          ],
+          "supporting_cross_section": [
+            "579/40",
+            "6",
+            "135/8",
+            "7"
+          ]
+        },
+        {
+          "opening_id": "A.bed2.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "4e21d4850ac5b32ef591896cde959ddc2772c6a931671a844d4a7387207bb4e2",
+          "source_corridor_cell": [
+            "533/40",
+            "2/5",
+            "573/40",
+            "6"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "2/5",
+            "573/40",
+            "14/5"
+          ]
+        },
+        {
+          "opening_id": "A.bed3.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "9b62f1eb1968998cc24408c48c23c791afdd9eec1c33055bdf1e6c177bc9c69d",
+          "source_corridor_cell": [
+            "533/40",
+            "2/5",
+            "573/40",
+            "6"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "101/20",
+            "573/40",
+            "6"
+          ]
+        },
+        {
+          "opening_id": "A.bed3.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "9b62f1eb1968998cc24408c48c23c791afdd9eec1c33055bdf1e6c177bc9c69d",
+          "source_corridor_cell": [
+            "533/40",
+            "7",
+            "573/40",
+            "191/20"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "7",
+            "573/40",
+            "149/20"
+          ]
+        }
+      ],
+      "legitimate_port_cross_section_scope": "Engineering operationalization: actual checked source approach plus full source corridor transverse clearance. No invented longitudinal tail or standing activity.",
+      "remaining_m2": "27/20",
+      "remaining_regions": [
+        [
+          "135/8",
+          "6",
+          "729/40",
+          "7"
+        ]
+      ],
+      "remaining_protected_domain_intersections": [],
+      "whole_role_complete": false,
+      "trim_preconditions": [
+        "Recompute constructor source boundary, floor partition and all module hosting; preserve every source approach and complete operation, not just this diagnostic subset.",
+        "Rebuild/replay and own fresh all applicable functions before any comparative or role acceptance."
+      ],
+      "remaining_status": "UNKNOWN_SOURCE_BRANCH_END_BEYOND_CURRENT_REQUIRED_DOMAINS_NOT_PROVEN_USELESS"
+    },
+    {
+      "unit": "B",
+      "source_port_margin_joins": [
+        {
+          "opening_id": "B.bed1.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "0424d9a9832de60bef79ce0d1b7f8758fa6d809d844466ce79cea253a4027f59",
+          "source_corridor_cell": [
+            "533/40",
+            "21",
+            "729/40",
+            "22"
+          ],
+          "supporting_cross_section": [
+            "579/40",
+            "21",
+            "135/8",
+            "22"
+          ]
+        },
+        {
+          "opening_id": "B.bed2.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "17f39f8e69eba8d4a2fa305d26ea11fe5e9ea27fee1e7354f4ec174c62940cdd",
+          "source_corridor_cell": [
+            "533/40",
+            "22",
+            "573/40",
+            "138/5"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "126/5",
+            "573/40",
+            "138/5"
+          ]
+        },
+        {
+          "opening_id": "B.bed3.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "9b36f98a226b1733ac3d6565b8452fd5a973035285cda70a586a4c4b0c1bb3f3",
+          "source_corridor_cell": [
+            "533/40",
+            "369/20",
+            "573/40",
+            "21"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "411/20",
+            "573/40",
+            "21"
+          ]
+        },
+        {
+          "opening_id": "B.bed3.entry",
+          "source_port_digest": "584a9ae1461c2f4d9b41eae951808c4f303bd8aba95698f0c5c4000e359262d2",
+          "actual_port_digest": "9b36f98a226b1733ac3d6565b8452fd5a973035285cda70a586a4c4b0c1bb3f3",
+          "source_corridor_cell": [
+            "533/40",
+            "22",
+            "573/40",
+            "138/5"
+          ],
+          "supporting_cross_section": [
+            "533/40",
+            "22",
+            "573/40",
+            "459/20"
+          ]
+        }
+      ],
+      "legitimate_port_cross_section_scope": "Engineering operationalization: actual checked source approach plus full source corridor transverse clearance. No invented longitudinal tail or standing activity.",
+      "remaining_m2": "27/20",
+      "remaining_regions": [
+        [
+          "135/8",
+          "21",
+          "729/40",
+          "22"
+        ]
+      ],
+      "remaining_protected_domain_intersections": [],
+      "whole_role_complete": false,
+      "trim_preconditions": [
+        "Recompute constructor source boundary, floor partition and all module hosting; preserve every source approach and complete operation, not just this diagnostic subset.",
+        "Rebuild/replay and own fresh all applicable functions before any comparative or role acceptance."
+      ],
+      "remaining_status": "UNKNOWN_SOURCE_BRANCH_END_BEYOND_CURRENT_REQUIRED_DOMAINS_NOT_PROVEN_USELESS"
+    }
+  ],
+  "source_cause": "private_branch_hall146 uses fixed macro end 10.65 for branch floor and 10.65..10.8 wall, rather than deriving end from last protected portal/domain.",
+  "source_file": "planha_general150_runtime_work/private_branch_hall146.py",
+  "source_sha256": "69916ef74e925434c8c639cb78e0ee7ce67a719e16428356f4a3287f92fd764a",
+  "engineering_assumption": "Source approach corridor transverse margins can support checked passage without footprint tiling; longitudinal excess is not covered by that assumption.",
+  "admission_allowed": false,
+  "fresh_execution": false
+}

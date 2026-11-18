@@ -1,0 +1,25 @@
+{
+  "schema": "373_PINNED_CURRENT372_INPUTS",
+  "inputs": {
+    "record": {
+      "path": "review372_actual_v1/repaired_record.json",
+      "sha256": "03688a98eaedc2d1a2174de3df13138f0e3974cf188565b45ee78e36ec161598"
+    },
+    "fresh": {
+      "path": "review372_actual_v1/fresh.json",
+      "sha256": "901f27942f23c6a0d3bdc4fd9ba27e352d0be67ca2050e76a9dc73dfee1f0f00"
+    },
+    "lineage": {
+      "path": "review372_actual_v1/reviewed_lineage.json",
+      "sha256": "51e70f5b0a39c425a22187caa144d8964cf7eb99fc244377d46d650aeb17e207"
+    },
+    "comparison": {
+      "path": "review372_actual_v1/comparison.json",
+      "sha256": "b96c47ec4dcb12dbc5f49af9c3b4ccd1ac3a34ee0ad9826f5267efd1b54826ed"
+    },
+    "audit": {
+      "path": "review372_actual_v1/independent_audit.json",
+      "sha256": "ecc7929fe597cf66385c3166e1de6605760ee235cf1fb90453a0ad8915d467d0"
+    }
+  }
+}

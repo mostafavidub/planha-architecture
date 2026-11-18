@@ -1,0 +1,430 @@
+{
+  "schema": "SOURCE150_ACTIVE_DISPATCH_REGISTRY361",
+  "actual_active_branch_count": 12,
+  "branches": [
+    {
+      "id": "BRANCH146__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "BRANCH146",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/0",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "ROOTED_BRANCH149__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROOTED_BRANCH149",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/1",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "SIDECAR_ROOTED139__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_ROOTED139",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/2",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "TURN_T_CONNECTED__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "TURN_T_CONNECTED",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/3",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "ACCESS__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ACCESS",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/4",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "L3__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "L3",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "twin",
+          "twin",
+          "double"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/5",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "reason": null,
+      "solver_status": 2,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "ROW__FRONT_REAR",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROW",
+        "family": "FRONT_REAR",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/6",
+      "status": "PROPOSAL_ONLY",
+      "reason": null,
+      "solver_status": 1,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "SIDECAR_GROUP138__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_GROUP138",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/7",
+      "status": "NOT_ATTEMPTED_BUDGET_CHECKPOINT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "SIDECAR_COMPACT144__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_COMPACT144",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/8",
+      "status": "NOT_SCHEDULED_POLICY",
+      "reason": "COMPACT_REQUIRES_BOTH_EXPLICIT_RESTRICTED_MASTER_NO_PROPOSAL",
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "SIDECAR_PROTECTED__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "SIDECAR_PROTECTED",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/9",
+      "status": "NOT_ATTEMPTED_BUDGET_CHECKPOINT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "TURN_T__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "TURN_T",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/10",
+      "status": "NOT_ATTEMPTED_BUDGET_CHECKPOINT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    },
+    {
+      "id": "ROW__LEFT_RIGHT",
+      "source_pointer": {
+        "file": "planha_general150_runtime_work/engine150.py",
+        "lines": [
+          55,
+          98
+        ],
+        "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+      },
+      "selector": {
+        "organization": "ROW",
+        "family": "LEFT_RIGHT",
+        "program": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "profile": "source6person",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "evidence_pointer": "actual_run/actual_response.json#/attempts/11",
+      "status": "NOT_ATTEMPTED_BUDGET_CHECKPOINT",
+      "reason": null,
+      "solver_status": null,
+      "not_global_infeasibility": true,
+      "candidate_model_digest": null,
+      "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS"
+    }
+  ],
+  "source_callgraph": [
+    "staging351_collision_lineage/program_adapter.py → engine150.runtime",
+    "engine150.runtime schedule → per-organization propose → explicit source gates → constructor129.build/context → independent checker"
+  ],
+  "historical_not_active": [
+    "private_mixed_source132 standalone",
+    "private_stagger_source132 standalone",
+    "unlisted constructor family/topology combinations"
+  ],
+  "historical_exclusion_reason": "Not selected by this exact registered source150 runtime tuple; not claimed impossible or unusable globally",
+  "fallback_program_2_or1": "Different required bedroom program; not same-program Q04 comparator, not authorized program reduction as repair",
+  "raw_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+  "baseline_actual_sha256": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+  "completed_actual_sha256": null,
+  "search_status_is_not_eligibility": true,
+  "scope_closed_for_Q04": false
+}

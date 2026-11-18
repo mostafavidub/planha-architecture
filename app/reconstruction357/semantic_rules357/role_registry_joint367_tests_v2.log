@@ -1,0 +1,18 @@
+test_changed_path_rejected (test_balanced_access_joint367.Balance365.test_changed_path_rejected) ... ok
+test_current_binding (test_balanced_access_joint367.Balance365.test_current_binding) ... ok
+test_exact_equality_no_tolerance (test_balanced_access_joint367.Balance365.test_exact_equality_no_tolerance) ... ok
+test_old_review_rejected (test_balanced_access_joint367.Balance365.test_old_review_rejected) ... ok
+test_scope_preserved (test_balanced_access_joint367.Balance365.test_scope_preserved) ... ok
+test_changed_model_rejected (test_role_registry_joint367.Roles.test_changed_model_rejected) ... ok
+test_current_binding (test_role_registry_joint367.Roles.test_current_binding) ... ok
+test_hall_and_necessity_pending (test_role_registry_joint367.Roles.test_hall_and_necessity_pending) ... ok
+test_no_final_service_cycle (test_role_registry_joint367.Roles.test_no_final_service_cycle) ... ok
+test_not_selected_set_qualified (test_role_registry_joint367.Roles.test_not_selected_set_qualified) ... ok
+test_old_review_rejected (test_role_registry_joint367.Roles.test_old_review_rejected) ... ok
+test_private_common_intrinsic (test_role_registry_joint367.Roles.test_private_common_intrinsic) ... ok
+test_public_own_source_no_gap (test_role_registry_joint367.Roles.test_public_own_source_no_gap) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 21.678s
+
+OK

@@ -1,0 +1,1800 @@
+{
+  "schema": "Q04_CURRENT362_MEASURED_NEGATIVE_OBJECTIVES",
+  "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+  "record_digest": "908cd2bc9e944433da3e38bc60f0cc7e57f11a2f3d9f5fa53d06fffb75a6ca28",
+  "objective_source_map": {
+    "per_unit_circulation": "actual unit circulation rectangles, exact union; Q04 circulation necessity cost",
+    "route_length_and_turns": "actual source entry-to-required-target bound paths; engineering componentwise nondeterioration",
+    "common_lobby_floor": "actual common_spaces.lobby exact floor union; source Q04 common circulation/core-cost scope, not a proof of its useful function"
+  },
+  "branches": {
+    "schema": "SOURCE_BACKED_FINITE_BRANCH_REGISTRY362_V1",
+    "branches": [
+      {
+        "id": "LAYOUT_ROW358_FIXED_PROPOSAL",
+        "source": {
+          "file": "staging358_comparative/row_adapter358.py",
+          "sha256": "f07912ba8f679eea9d44c40f7223b009ce683d0accba2e0db7e1da7219c4b17a",
+          "callable": "construct",
+          "lines": [
+            34,
+            37
+          ]
+        },
+        "state": "EVALUATED",
+        "reason": "Actual source-bound 358; same exact brief/profile; negative area objective versus359",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "id": "LAYOUT_SIDECAR357_FIXED_PROPOSAL",
+        "source": {
+          "file": "staging357_comparative/translated_adapter.py",
+          "sha256": "c4352430910d4c491e9c6032f29a8dedc09ec6d9370f0b5c911f59e65f465732",
+          "callable": "construct",
+          "lines": [
+            10,
+            21
+          ]
+        },
+        "state": "EVALUATED",
+        "reason": "Actual source-bound357; negative source route objective versus359",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "id": "LAYOUT_ROW351_SAVED_PROPOSAL",
+        "source": {
+          "file": "planha_general150_runtime_work/constructor129.py",
+          "sha256": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+          "callable": "build",
+          "lines": [
+            15,
+            40
+          ]
+        },
+        "state": "EVALUATED",
+        "reason": "Recovered fixed351 candidate, source provenance retained; negative source route objective versus359",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "id": "LAYOUT_HALL_CLAMP359_FIXED_LINEAGE",
+        "source": {
+          "file": "staging359_hall_clamp/adapter359.py",
+          "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+          "callable": "construct",
+          "lines": [
+            25,
+            32
+          ]
+        },
+        "state": "EVALUATED_SELF_TIE",
+        "reason": "Current359, same exact fixed358 proposal, one bounded reconstruction",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "id": "CORE_FULL_BAND114_FIXED_INPUT",
+        "source": {
+          "file": "planha_general150_runtime_work/contract114.py",
+          "sha256": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+          "callable": "core_first",
+          "lines": [
+            57,
+            74
+          ],
+          "available_callables": [
+            "S",
+            "digest",
+            "parse",
+            "full_band_core_first",
+            "program",
+            "core_first"
+          ]
+        },
+        "state": "PROTECTED_DOMAIN_EXCLUDED",
+        "reason": "Source full-band primitive measured independently; exact ownership loss forbids this conservative comparative domain, not intrinsic invalidity",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "branch_id": "CORE_SOUTH_LIFT_NOTCH_FIXED359_LINEAGE",
+        "same_parent_proposal_raw_and_exact_core_variant": true,
+        "core_variant_only_version_tokens_changed": true,
+        "source_variants": [
+          {
+            "file": "staging360_core_notch/core_variant360.py",
+            "sha256": "134a42493ab34b0da72a25efa05ce75c9d717460c13e57089f510460f953c0b6",
+            "callable": "derive",
+            "lines": [
+              8,
+              21
+            ]
+          },
+          {
+            "file": "staging362_core_notch/core_variant362.py",
+            "sha256": "1d7b325ad6d5e5d06f91968ff170ee7bc444066c97d7cc65621c7606e6486bed",
+            "callable": "derive",
+            "lines": [
+              8,
+              21
+            ]
+          }
+        ],
+        "historical_attempt": {
+          "record": {
+            "path": "staging360_core_notch/actual360.json",
+            "sha256": "8053760ce0cff5c7402e4058d8419f04b6d26bd74eff1f0b2513ce5b0ea20db0"
+          },
+          "fresh": {
+            "path": "review360_source_validation/result.json",
+            "sha256": "34de629a630d8d11f02ef4e92b78bc43aadac38d28916eb31fc904c1d87e9ac9"
+          },
+          "model_digest": "b8818f425071ef5096e71198b3564f8c342a04f050b64e6e1d199ad330830451",
+          "raw_status": "NOT_EVALUATED",
+          "pending": [
+            "RULE_NOT_EVALUATED:circulation_functional_integrity",
+            "RULE_NOT_EVALUATED:partition_ledger"
+          ],
+          "state": "SUPERSEDED_REPRESENTATION_ATTEMPT_NOT_AN_ACCEPTED_ALTERNATIVE",
+          "retained": true
+        },
+        "current_attempt": {
+          "record": {
+            "path": "staging362_core_notch/actual362.json",
+            "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8"
+          },
+          "fresh": {
+            "path": "review362_source_validation/result.json",
+            "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181"
+          },
+          "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+          "raw_status": "PASS_CONCEPT_SCOPED_REVIEW",
+          "errors": [],
+          "pending": [],
+          "state": "FRESH_EVALUATED_INTRINSIC_ELIGIBILITY_PENDING"
+        },
+        "representation_delta": "362 rebuild closes exact exposed boundary junction with notch_frame362.outer_right and source frame validator; original360 representation and its unknowns retained, not silently accepted or globally excluded.",
+        "source_delta": [
+          {
+            "file": "staging362_core_notch/notch_frame362.py",
+            "sha256": "7086c8861c02b4be1a9cb5046154f6d0ae1346e86e84784f9a8d785742c1c2c3",
+            "callable": "outer_right",
+            "lines": [
+              4,
+              9
+            ]
+          }
+        ],
+        "parent_acceptance": false
+      },
+      {
+        "id": "DOOR_RELOCATION_STANDALONE",
+        "source": {
+          "file": "staging359_hall_clamp/adapter359.py",
+          "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+          "callable": "construct",
+          "lines": [
+            25,
+            32
+          ]
+        },
+        "state": "UNSUPPORTED_REGISTERED_PRODUCER",
+        "reason": "Current fixed-lineage adapter takes no door position/host/profile parameters; source module openings regenerated unchanged. General source233 OP_EDIT_OPENING is specification, not an implemented standalone branch",
+        "shared_constraints": {
+          "raw": "exact W26 L28 n2 requested_count2",
+          "frame": "FRONT_REAR only in current fixed lineage",
+          "program": "double/twin/twin three bedrooms per unit",
+          "profile": "source asset/body dimensions unchanged",
+          "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+        },
+        "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+      },
+      {
+        "id": "BRANCH146__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "BRANCH146",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/0",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "ROOTED_BRANCH149__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "ROOTED_BRANCH149",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/1",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "SIDECAR_ROOTED139__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "SIDECAR_ROOTED139",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/2",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "TURN_T_CONNECTED__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "TURN_T_CONNECTED",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/1",
+        "status": "UNSUPPORTED_BUNDLE_FIT",
+        "reason": null,
+        "solver_status": null,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+        "global_infeasibility": false
+      },
+      {
+        "id": "ACCESS__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "ACCESS",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/4",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "L3__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "L3",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "twin",
+            "twin",
+            "double"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/5",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "ROW__FRONT_REAR",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "ROW",
+          "family": "FRONT_REAR",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "actual_run/actual_response.json#/attempts/6",
+        "status": "PROPOSAL_ONLY",
+        "reason": null,
+        "solver_status": 1,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "CONSTRUCTED_REQUIRES_BOUND_COMPARISON",
+        "global_infeasibility": false
+      },
+      {
+        "id": "SIDECAR_GROUP138__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "SIDECAR_GROUP138",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/2",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "SIDECAR_COMPACT144__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "SIDECAR_COMPACT144",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/5",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "SIDECAR_PROTECTED__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "SIDECAR_PROTECTED",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/3",
+        "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+        "reason": null,
+        "solver_status": 2,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "RESTRICTED_MASTER_INFEASIBLE",
+        "global_infeasibility": false
+      },
+      {
+        "id": "TURN_T__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "TURN_T",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/0",
+        "status": "UNSUPPORTED_BUNDLE_FIT",
+        "reason": null,
+        "solver_status": null,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+        "global_infeasibility": false
+      },
+      {
+        "id": "ROW__LEFT_RIGHT",
+        "source_pointer": {
+          "file": "planha_general150_runtime_work/engine150.py",
+          "lines": [
+            55,
+            98
+          ],
+          "sha256": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831"
+        },
+        "selector": {
+          "organization": "ROW",
+          "family": "LEFT_RIGHT",
+          "program": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "profile": "source6person",
+          "raw": {
+            "W": "26",
+            "L": "28",
+            "n": 2,
+            "requested_count": 2
+          }
+        },
+        "evidence_pointer": "finite_comparison358/active_dispatch_actual361.json#/completed_attempts/4",
+        "status": "UNSUPPORTED_BUNDLE_FIT",
+        "reason": null,
+        "solver_status": null,
+        "not_global_infeasibility": true,
+        "candidate_model_digest": null,
+        "eligibility": "NOT_INFERRED_FROM_SEARCH_STATUS",
+        "terminal_search_state": "SOURCE_PRIMITIVE_FIT_UNSUPPORTED",
+        "global_infeasibility": false
+      }
+    ],
+    "active_dispatch_count": 12,
+    "active_dispatch_enumeration_complete": true,
+    "unresolved_active_dispatch_ids": [],
+    "notch_lineage": {
+      "branch_id": "CORE_SOUTH_LIFT_NOTCH_FIXED359_LINEAGE",
+      "same_parent_proposal_raw_and_exact_core_variant": true,
+      "core_variant_only_version_tokens_changed": true,
+      "source_variants": [
+        {
+          "file": "staging360_core_notch/core_variant360.py",
+          "sha256": "134a42493ab34b0da72a25efa05ce75c9d717460c13e57089f510460f953c0b6",
+          "callable": "derive",
+          "lines": [
+            8,
+            21
+          ]
+        },
+        {
+          "file": "staging362_core_notch/core_variant362.py",
+          "sha256": "1d7b325ad6d5e5d06f91968ff170ee7bc444066c97d7cc65621c7606e6486bed",
+          "callable": "derive",
+          "lines": [
+            8,
+            21
+          ]
+        }
+      ],
+      "historical_attempt": {
+        "record": {
+          "path": "staging360_core_notch/actual360.json",
+          "sha256": "8053760ce0cff5c7402e4058d8419f04b6d26bd74eff1f0b2513ce5b0ea20db0"
+        },
+        "fresh": {
+          "path": "review360_source_validation/result.json",
+          "sha256": "34de629a630d8d11f02ef4e92b78bc43aadac38d28916eb31fc904c1d87e9ac9"
+        },
+        "model_digest": "b8818f425071ef5096e71198b3564f8c342a04f050b64e6e1d199ad330830451",
+        "raw_status": "NOT_EVALUATED",
+        "pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:partition_ledger"
+        ],
+        "state": "SUPERSEDED_REPRESENTATION_ATTEMPT_NOT_AN_ACCEPTED_ALTERNATIVE",
+        "retained": true
+      },
+      "current_attempt": {
+        "record": {
+          "path": "staging362_core_notch/actual362.json",
+          "sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8"
+        },
+        "fresh": {
+          "path": "review362_source_validation/result.json",
+          "sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181"
+        },
+        "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+        "raw_status": "PASS_CONCEPT_SCOPED_REVIEW",
+        "errors": [],
+        "pending": [],
+        "state": "FRESH_EVALUATED_INTRINSIC_ELIGIBILITY_PENDING"
+      },
+      "representation_delta": "362 rebuild closes exact exposed boundary junction with notch_frame362.outer_right and source frame validator; original360 representation and its unknowns retained, not silently accepted or globally excluded.",
+      "source_delta": [
+        {
+          "file": "staging362_core_notch/notch_frame362.py",
+          "sha256": "7086c8861c02b4be1a9cb5046154f6d0ae1346e86e84784f9a8d785742c1c2c3",
+          "callable": "outer_right",
+          "lines": [
+            4,
+            9
+          ]
+        }
+      ],
+      "parent_acceptance": false
+    },
+    "historical_not_active": [
+      "private_mixed_source132 standalone",
+      "private_stagger_source132 standalone",
+      "unlisted constructor family/topology combinations"
+    ],
+    "historical_exclusion_reason": "Not selected by this exact registered source150 runtime tuple; not claimed impossible or unusable globally",
+    "finite_domain_definition": "Exact source150 runtime tuple with original fixed input; registered fixed357/358/359 transformations; one source114 full-band ownership proof; one fixed359 south-lift-notch branch corrected360→362. No arbitrary continuous door/layout edits or historical files asserted exhausted.",
+    "restricted_search_terminal_meaning": "INFEASIBLE proves only the encoded restricted MILP. Unsupported fit proves only this source primitive at fixed frame. Neither establishes global layout impossibility.",
+    "branch_enumeration_closed": true,
+    "q04_comparison_closed": false,
+    "remaining": [
+      "CURRENT362_INTRINSIC_GATE",
+      "CURRENT362_PURPOSE_AND_METRICS",
+      "PAIRWISE_SOURCE_FUNCTIONAL_OBJECTIVE_COMPARISON",
+      "INDEPENDENT_FINITE_DOMAIN_AUDIT"
+    ],
+    "parent_acceptance": false,
+    "global_optimum": false
+  },
+  "comparisons": [
+    {
+      "alternative": "baseline351",
+      "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+      "comparison": {
+        "dominance": "FALSE",
+        "negative_witnesses": [
+          {
+            "metric": "A/WC_front/length",
+            "current": "97/10",
+            "alternative": "45/4",
+            "increase": "31/20"
+          },
+          {
+            "metric": "A/WC_use/length",
+            "current": "209/20",
+            "alternative": "12",
+            "increase": "31/20"
+          },
+          {
+            "metric": "A/armchair3_front/length",
+            "current": "12/5",
+            "alternative": "49/10",
+            "increase": "5/2"
+          },
+          {
+            "metric": "A/armchair3_front/turns",
+            "current": "1",
+            "alternative": "2",
+            "increase": "1"
+          },
+          {
+            "metric": "A/armchair4_front/length",
+            "current": "23/5",
+            "alternative": "19/4",
+            "increase": "3/20"
+          },
+          {
+            "metric": "A/basin_front/length",
+            "current": "97/10",
+            "alternative": "45/4",
+            "increase": "31/20"
+          },
+          {
+            "metric": "A/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "48693/1000",
+            "increase": "4007/400"
+          },
+          {
+            "metric": "A/dining_back_left/length",
+            "current": "23/5",
+            "alternative": "6",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/dining_back_right/length",
+            "current": "37/5",
+            "alternative": "44/5",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/dining_front_left/length",
+            "current": "71/10",
+            "alternative": "17/2",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/dining_front_right/length",
+            "current": "101/10",
+            "alternative": "23/2",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/dining_left/length",
+            "current": "25/4",
+            "alternative": "153/20",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/dining_left/turns",
+            "current": "6",
+            "alternative": "8",
+            "increase": "2"
+          },
+          {
+            "metric": "A/dining_right/length",
+            "current": "33/4",
+            "alternative": "193/20",
+            "increase": "7/5"
+          },
+          {
+            "metric": "A/shower_use/length",
+            "current": "53/5",
+            "alternative": "243/20",
+            "increase": "31/20"
+          },
+          {
+            "metric": "A/sofa2_front/length",
+            "current": "5",
+            "alternative": "101/10",
+            "increase": "51/10"
+          },
+          {
+            "metric": "A/sofa2_front/turns",
+            "current": "3",
+            "alternative": "5",
+            "increase": "2"
+          },
+          {
+            "metric": "B/WC_front/length",
+            "current": "97/10",
+            "alternative": "45/4",
+            "increase": "31/20"
+          },
+          {
+            "metric": "B/WC_use/length",
+            "current": "209/20",
+            "alternative": "12",
+            "increase": "31/20"
+          },
+          {
+            "metric": "B/armchair3_front/length",
+            "current": "12/5",
+            "alternative": "49/10",
+            "increase": "5/2"
+          },
+          {
+            "metric": "B/armchair3_front/turns",
+            "current": "1",
+            "alternative": "2",
+            "increase": "1"
+          },
+          {
+            "metric": "B/armchair4_front/length",
+            "current": "23/5",
+            "alternative": "19/4",
+            "increase": "3/20"
+          },
+          {
+            "metric": "B/basin_front/length",
+            "current": "97/10",
+            "alternative": "45/4",
+            "increase": "31/20"
+          },
+          {
+            "metric": "B/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "48693/1000",
+            "increase": "4007/400"
+          },
+          {
+            "metric": "B/dining_back_left/length",
+            "current": "23/5",
+            "alternative": "6",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/dining_back_right/length",
+            "current": "37/5",
+            "alternative": "44/5",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/dining_front_left/length",
+            "current": "71/10",
+            "alternative": "17/2",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/dining_front_right/length",
+            "current": "101/10",
+            "alternative": "23/2",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/dining_left/length",
+            "current": "25/4",
+            "alternative": "153/20",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/dining_left/turns",
+            "current": "6",
+            "alternative": "8",
+            "increase": "2"
+          },
+          {
+            "metric": "B/dining_right/length",
+            "current": "33/4",
+            "alternative": "193/20",
+            "increase": "7/5"
+          },
+          {
+            "metric": "B/shower_use/length",
+            "current": "53/5",
+            "alternative": "243/20",
+            "increase": "31/20"
+          },
+          {
+            "metric": "B/sofa2_front/length",
+            "current": "5",
+            "alternative": "101/10",
+            "increase": "51/10"
+          },
+          {
+            "metric": "B/sofa2_front/turns",
+            "current": "3",
+            "alternative": "5",
+            "increase": "2"
+          },
+          {
+            "metric": "COMMON/lobby_floor_m2",
+            "current": "583/80",
+            "alternative": "3491/400",
+            "increase": "36/25"
+          }
+        ],
+        "same_metric_inventory": true,
+        "missing_dimensions": [],
+        "known_strictly_better_alternative_dimensions": [
+          "A/WC_use/turns",
+          "A/armchair1_front/length",
+          "A/armchair1_front/turns",
+          "A/armchair2_front/length",
+          "A/armchair2_front/turns",
+          "A/basin_front/turns",
+          "A/dining_back_left/turns",
+          "A/dining_back_right/turns",
+          "A/dining_right/turns",
+          "A/kitchen_work/length",
+          "A/kitchen_work/turns",
+          "A/shower_use/turns",
+          "A/sofa1_front/length",
+          "A/sofa1_front/turns",
+          "B/WC_use/turns",
+          "B/armchair1_front/length",
+          "B/armchair1_front/turns",
+          "B/armchair2_front/length",
+          "B/armchair2_front/turns",
+          "B/basin_front/turns",
+          "B/dining_back_left/turns",
+          "B/dining_back_right/turns",
+          "B/dining_right/turns",
+          "B/kitchen_work/length",
+          "B/kitchen_work/turns",
+          "B/shower_use/turns",
+          "B/sofa1_front/length",
+          "B/sofa1_front/turns"
+        ],
+        "unknown_other_metrics_not_passed": true
+      }
+    },
+    {
+      "alternative": "translated357",
+      "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+      "comparison": {
+        "dominance": "FALSE",
+        "negative_witnesses": [
+          {
+            "metric": "A/WC_front/length",
+            "current": "97/10",
+            "alternative": "209/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "A/WC_use/length",
+            "current": "209/20",
+            "alternative": "56/5",
+            "increase": "3/4"
+          },
+          {
+            "metric": "A/armchair1_front/length",
+            "current": "31/10",
+            "alternative": "67/10",
+            "increase": "18/5"
+          },
+          {
+            "metric": "A/armchair1_front/turns",
+            "current": "3",
+            "alternative": "5",
+            "increase": "2"
+          },
+          {
+            "metric": "A/armchair3_front/length",
+            "current": "12/5",
+            "alternative": "31/10",
+            "increase": "7/10"
+          },
+          {
+            "metric": "A/armchair3_front/turns",
+            "current": "1",
+            "alternative": "3",
+            "increase": "2"
+          },
+          {
+            "metric": "A/armchair4_front/turns",
+            "current": "1",
+            "alternative": "3",
+            "increase": "2"
+          },
+          {
+            "metric": "A/basin_front/length",
+            "current": "97/10",
+            "alternative": "209/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "A/bed1.bed_back/turns",
+            "current": "9",
+            "alternative": "12",
+            "increase": "3"
+          },
+          {
+            "metric": "A/bed1.bed_front/turns",
+            "current": "9",
+            "alternative": "10",
+            "increase": "1"
+          },
+          {
+            "metric": "A/bed1.changing/turns",
+            "current": "9",
+            "alternative": "11",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed1.closet_front/turns",
+            "current": "8",
+            "alternative": "9",
+            "increase": "1"
+          },
+          {
+            "metric": "A/bed2.bedA_back/length",
+            "current": "449/20",
+            "alternative": "117/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "A/bed2.bedA_back/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "A/bed2.bedA_front/length",
+            "current": "97/4",
+            "alternative": "126/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "A/bed2.bedA_front/turns",
+            "current": "11",
+            "alternative": "18",
+            "increase": "7"
+          },
+          {
+            "metric": "A/bed2.bedB_back/length",
+            "current": "473/20",
+            "alternative": "123/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "A/bed2.bedB_back/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "A/bed2.bedB_front/length",
+            "current": "449/20",
+            "alternative": "117/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "A/bed2.bedB_front/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "A/bed2.changing/length",
+            "current": "97/4",
+            "alternative": "126/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "A/bed2.changing/turns",
+            "current": "10",
+            "alternative": "15",
+            "increase": "5"
+          },
+          {
+            "metric": "A/bed2.closet_front/length",
+            "current": "841/40",
+            "alternative": "893/40",
+            "increase": "13/10"
+          },
+          {
+            "metric": "A/bed2.closet_front/turns",
+            "current": "8",
+            "alternative": "12",
+            "increase": "4"
+          },
+          {
+            "metric": "A/bed3.bedA_back/length",
+            "current": "211/10",
+            "alternative": "231/10",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed3.bedA_front/length",
+            "current": "229/10",
+            "alternative": "249/10",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed3.bedB_back/length",
+            "current": "223/10",
+            "alternative": "243/10",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed3.bedB_front/length",
+            "current": "211/10",
+            "alternative": "231/10",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed3.changing/length",
+            "current": "229/10",
+            "alternative": "249/10",
+            "increase": "2"
+          },
+          {
+            "metric": "A/bed3.closet_front/length",
+            "current": "787/40",
+            "alternative": "881/40",
+            "increase": "47/20"
+          },
+          {
+            "metric": "A/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "34389/800",
+            "increase": "17243/4000"
+          },
+          {
+            "metric": "A/dining_back_left/length",
+            "current": "23/5",
+            "alternative": "149/10",
+            "increase": "103/10"
+          },
+          {
+            "metric": "A/dining_back_left/turns",
+            "current": "6",
+            "alternative": "11",
+            "increase": "5"
+          },
+          {
+            "metric": "A/dining_back_right/length",
+            "current": "37/5",
+            "alternative": "121/10",
+            "increase": "47/10"
+          },
+          {
+            "metric": "A/dining_front_left/length",
+            "current": "71/10",
+            "alternative": "88/5",
+            "increase": "21/2"
+          },
+          {
+            "metric": "A/dining_front_left/turns",
+            "current": "8",
+            "alternative": "15",
+            "increase": "7"
+          },
+          {
+            "metric": "A/dining_front_right/length",
+            "current": "101/10",
+            "alternative": "73/5",
+            "increase": "9/2"
+          },
+          {
+            "metric": "A/dining_front_right/turns",
+            "current": "11",
+            "alternative": "12",
+            "increase": "1"
+          },
+          {
+            "metric": "A/dining_left/length",
+            "current": "25/4",
+            "alternative": "353/20",
+            "increase": "57/5"
+          },
+          {
+            "metric": "A/dining_left/turns",
+            "current": "6",
+            "alternative": "14",
+            "increase": "8"
+          },
+          {
+            "metric": "A/dining_right/length",
+            "current": "33/4",
+            "alternative": "241/20",
+            "increase": "19/5"
+          },
+          {
+            "metric": "A/kitchen_work/length",
+            "current": "283/20",
+            "alternative": "149/10",
+            "increase": "3/4"
+          },
+          {
+            "metric": "A/kitchen_work/turns",
+            "current": "7",
+            "alternative": "9",
+            "increase": "2"
+          },
+          {
+            "metric": "A/shower_use/length",
+            "current": "53/5",
+            "alternative": "227/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "A/sofa2_front/length",
+            "current": "5",
+            "alternative": "113/10",
+            "increase": "63/10"
+          },
+          {
+            "metric": "A/sofa2_front/turns",
+            "current": "3",
+            "alternative": "7",
+            "increase": "4"
+          },
+          {
+            "metric": "B/WC_front/length",
+            "current": "97/10",
+            "alternative": "209/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "B/WC_use/length",
+            "current": "209/20",
+            "alternative": "56/5",
+            "increase": "3/4"
+          },
+          {
+            "metric": "B/armchair1_front/length",
+            "current": "31/10",
+            "alternative": "67/10",
+            "increase": "18/5"
+          },
+          {
+            "metric": "B/armchair1_front/turns",
+            "current": "3",
+            "alternative": "5",
+            "increase": "2"
+          },
+          {
+            "metric": "B/armchair3_front/length",
+            "current": "12/5",
+            "alternative": "31/10",
+            "increase": "7/10"
+          },
+          {
+            "metric": "B/armchair3_front/turns",
+            "current": "1",
+            "alternative": "3",
+            "increase": "2"
+          },
+          {
+            "metric": "B/armchair4_front/turns",
+            "current": "1",
+            "alternative": "3",
+            "increase": "2"
+          },
+          {
+            "metric": "B/basin_front/length",
+            "current": "97/10",
+            "alternative": "209/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "B/bed1.bed_back/turns",
+            "current": "9",
+            "alternative": "12",
+            "increase": "3"
+          },
+          {
+            "metric": "B/bed1.bed_front/turns",
+            "current": "9",
+            "alternative": "10",
+            "increase": "1"
+          },
+          {
+            "metric": "B/bed1.changing/turns",
+            "current": "9",
+            "alternative": "11",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed1.closet_front/turns",
+            "current": "8",
+            "alternative": "9",
+            "increase": "1"
+          },
+          {
+            "metric": "B/bed2.bedA_back/length",
+            "current": "449/20",
+            "alternative": "117/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "B/bed2.bedA_back/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "B/bed2.bedA_front/length",
+            "current": "97/4",
+            "alternative": "126/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "B/bed2.bedA_front/turns",
+            "current": "11",
+            "alternative": "18",
+            "increase": "7"
+          },
+          {
+            "metric": "B/bed2.bedB_back/length",
+            "current": "473/20",
+            "alternative": "123/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "B/bed2.bedB_back/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "B/bed2.bedB_front/length",
+            "current": "449/20",
+            "alternative": "117/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "B/bed2.bedB_front/turns",
+            "current": "11",
+            "alternative": "14",
+            "increase": "3"
+          },
+          {
+            "metric": "B/bed2.changing/length",
+            "current": "97/4",
+            "alternative": "126/5",
+            "increase": "19/20"
+          },
+          {
+            "metric": "B/bed2.changing/turns",
+            "current": "10",
+            "alternative": "15",
+            "increase": "5"
+          },
+          {
+            "metric": "B/bed2.closet_front/length",
+            "current": "841/40",
+            "alternative": "893/40",
+            "increase": "13/10"
+          },
+          {
+            "metric": "B/bed2.closet_front/turns",
+            "current": "8",
+            "alternative": "12",
+            "increase": "4"
+          },
+          {
+            "metric": "B/bed3.bedA_back/length",
+            "current": "211/10",
+            "alternative": "231/10",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed3.bedA_front/length",
+            "current": "229/10",
+            "alternative": "249/10",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed3.bedB_back/length",
+            "current": "223/10",
+            "alternative": "243/10",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed3.bedB_front/length",
+            "current": "211/10",
+            "alternative": "231/10",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed3.changing/length",
+            "current": "229/10",
+            "alternative": "249/10",
+            "increase": "2"
+          },
+          {
+            "metric": "B/bed3.closet_front/length",
+            "current": "787/40",
+            "alternative": "881/40",
+            "increase": "47/20"
+          },
+          {
+            "metric": "B/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "34389/800",
+            "increase": "17243/4000"
+          },
+          {
+            "metric": "B/dining_back_left/length",
+            "current": "23/5",
+            "alternative": "149/10",
+            "increase": "103/10"
+          },
+          {
+            "metric": "B/dining_back_left/turns",
+            "current": "6",
+            "alternative": "11",
+            "increase": "5"
+          },
+          {
+            "metric": "B/dining_back_right/length",
+            "current": "37/5",
+            "alternative": "121/10",
+            "increase": "47/10"
+          },
+          {
+            "metric": "B/dining_front_left/length",
+            "current": "71/10",
+            "alternative": "88/5",
+            "increase": "21/2"
+          },
+          {
+            "metric": "B/dining_front_left/turns",
+            "current": "8",
+            "alternative": "15",
+            "increase": "7"
+          },
+          {
+            "metric": "B/dining_front_right/length",
+            "current": "101/10",
+            "alternative": "73/5",
+            "increase": "9/2"
+          },
+          {
+            "metric": "B/dining_front_right/turns",
+            "current": "11",
+            "alternative": "12",
+            "increase": "1"
+          },
+          {
+            "metric": "B/dining_left/length",
+            "current": "25/4",
+            "alternative": "353/20",
+            "increase": "57/5"
+          },
+          {
+            "metric": "B/dining_left/turns",
+            "current": "6",
+            "alternative": "14",
+            "increase": "8"
+          },
+          {
+            "metric": "B/dining_right/length",
+            "current": "33/4",
+            "alternative": "241/20",
+            "increase": "19/5"
+          },
+          {
+            "metric": "B/kitchen_work/length",
+            "current": "283/20",
+            "alternative": "149/10",
+            "increase": "3/4"
+          },
+          {
+            "metric": "B/kitchen_work/turns",
+            "current": "7",
+            "alternative": "9",
+            "increase": "2"
+          },
+          {
+            "metric": "B/shower_use/length",
+            "current": "53/5",
+            "alternative": "227/20",
+            "increase": "3/4"
+          },
+          {
+            "metric": "B/sofa2_front/length",
+            "current": "5",
+            "alternative": "113/10",
+            "increase": "63/10"
+          },
+          {
+            "metric": "B/sofa2_front/turns",
+            "current": "3",
+            "alternative": "7",
+            "increase": "4"
+          },
+          {
+            "metric": "COMMON/lobby_floor_m2",
+            "current": "583/80",
+            "alternative": "3491/400",
+            "increase": "36/25"
+          }
+        ],
+        "same_metric_inventory": true,
+        "missing_dimensions": [],
+        "known_strictly_better_alternative_dimensions": [
+          "A/WC_use/turns",
+          "A/armchair2_front/length",
+          "A/armchair4_front/length",
+          "A/bed1.bed_back/length",
+          "A/bed1.bed_front/length",
+          "A/bed1.changing/length",
+          "A/bed1.closet_front/length",
+          "A/bed3.bedA_back/turns",
+          "A/bed3.bedA_front/turns",
+          "A/bed3.bedB_front/turns",
+          "A/bed3.closet_front/turns",
+          "A/dining_back_right/turns",
+          "A/dining_right/turns",
+          "A/sofa1_front/length",
+          "A/sofa1_front/turns",
+          "B/WC_use/turns",
+          "B/armchair2_front/length",
+          "B/armchair4_front/length",
+          "B/bed1.bed_back/length",
+          "B/bed1.bed_front/length",
+          "B/bed1.changing/length",
+          "B/bed1.closet_front/length",
+          "B/bed3.bedA_back/turns",
+          "B/bed3.bedA_front/turns",
+          "B/bed3.bedB_front/turns",
+          "B/bed3.closet_front/turns",
+          "B/dining_back_right/turns",
+          "B/dining_right/turns",
+          "B/sofa1_front/length",
+          "B/sofa1_front/turns"
+        ],
+        "unknown_other_metrics_not_passed": true
+      }
+    },
+    {
+      "alternative": "row358",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "comparison": {
+        "dominance": "FALSE",
+        "negative_witnesses": [
+          {
+            "metric": "A/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "101151/2000",
+            "increase": "119/10"
+          },
+          {
+            "metric": "B/circulation_m2",
+            "current": "77351/2000",
+            "alternative": "101151/2000",
+            "increase": "119/10"
+          },
+          {
+            "metric": "COMMON/lobby_floor_m2",
+            "current": "583/80",
+            "alternative": "3491/400",
+            "increase": "36/25"
+          }
+        ],
+        "same_metric_inventory": true,
+        "missing_dimensions": [],
+        "known_strictly_better_alternative_dimensions": [],
+        "unknown_other_metrics_not_passed": true
+      }
+    },
+    {
+      "alternative": "clamped359",
+      "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+      "comparison": {
+        "dominance": "FALSE",
+        "negative_witnesses": [
+          {
+            "metric": "COMMON/lobby_floor_m2",
+            "current": "583/80",
+            "alternative": "3491/400",
+            "increase": "36/25"
+          }
+        ],
+        "same_metric_inventory": true,
+        "missing_dimensions": [],
+        "known_strictly_better_alternative_dimensions": [],
+        "unknown_other_metrics_not_passed": true
+      }
+    }
+  ],
+  "current_objectives": {
+    "A/circulation_m2": "77351/2000",
+    "A/bed1.bed_front/length": "119/5",
+    "A/bed1.bed_front/turns": "9",
+    "A/bed1.bed_back/length": "47/2",
+    "A/bed1.bed_back/turns": "9",
+    "A/bed1.closet_front/length": "853/40",
+    "A/bed1.closet_front/turns": "8",
+    "A/bed1.changing/length": "483/20",
+    "A/bed1.changing/turns": "9",
+    "A/bed2.closet_front/length": "841/40",
+    "A/bed2.closet_front/turns": "8",
+    "A/bed2.bedA_front/length": "97/4",
+    "A/bed2.bedA_front/turns": "11",
+    "A/bed2.bedA_back/length": "449/20",
+    "A/bed2.bedA_back/turns": "11",
+    "A/bed2.bedB_front/length": "449/20",
+    "A/bed2.bedB_front/turns": "11",
+    "A/bed2.bedB_back/length": "473/20",
+    "A/bed2.bedB_back/turns": "11",
+    "A/bed2.changing/length": "97/4",
+    "A/bed2.changing/turns": "10",
+    "A/bed3.closet_front/length": "787/40",
+    "A/bed3.closet_front/turns": "12",
+    "A/bed3.bedA_front/length": "229/10",
+    "A/bed3.bedA_front/turns": "11",
+    "A/bed3.bedA_back/length": "211/10",
+    "A/bed3.bedA_back/turns": "11",
+    "A/bed3.bedB_front/length": "211/10",
+    "A/bed3.bedB_front/turns": "11",
+    "A/bed3.bedB_back/length": "223/10",
+    "A/bed3.bedB_back/turns": "9",
+    "A/bed3.changing/length": "229/10",
+    "A/bed3.changing/turns": "9",
+    "A/WC_front/length": "97/10",
+    "A/WC_front/turns": "11",
+    "A/WC_use/length": "209/20",
+    "A/WC_use/turns": "16",
+    "A/shower_use/length": "53/5",
+    "A/shower_use/turns": "12",
+    "A/basin_front/length": "97/10",
+    "A/basin_front/turns": "8",
+    "A/kitchen_work/length": "283/20",
+    "A/kitchen_work/turns": "7",
+    "A/dining_front_left/length": "71/10",
+    "A/dining_front_left/turns": "8",
+    "A/dining_front_right/length": "101/10",
+    "A/dining_front_right/turns": "11",
+    "A/dining_back_left/length": "23/5",
+    "A/dining_back_left/turns": "6",
+    "A/dining_back_right/length": "37/5",
+    "A/dining_back_right/turns": "9",
+    "A/dining_left/length": "25/4",
+    "A/dining_left/turns": "6",
+    "A/dining_right/length": "33/4",
+    "A/dining_right/turns": "10",
+    "A/sofa1_front/length": "38/5",
+    "A/sofa1_front/turns": "6",
+    "A/sofa2_front/length": "5",
+    "A/sofa2_front/turns": "3",
+    "A/armchair1_front/length": "31/10",
+    "A/armchair1_front/turns": "3",
+    "A/armchair2_front/length": "23/5",
+    "A/armchair2_front/turns": "3",
+    "A/armchair3_front/length": "12/5",
+    "A/armchair3_front/turns": "1",
+    "A/armchair4_front/length": "23/5",
+    "A/armchair4_front/turns": "1",
+    "B/circulation_m2": "77351/2000",
+    "B/bed1.bed_front/length": "119/5",
+    "B/bed1.bed_front/turns": "9",
+    "B/bed1.bed_back/length": "47/2",
+    "B/bed1.bed_back/turns": "9",
+    "B/bed1.closet_front/length": "853/40",
+    "B/bed1.closet_front/turns": "8",
+    "B/bed1.changing/length": "483/20",
+    "B/bed1.changing/turns": "9",
+    "B/bed2.closet_front/length": "841/40",
+    "B/bed2.closet_front/turns": "8",
+    "B/bed2.bedA_front/length": "97/4",
+    "B/bed2.bedA_front/turns": "11",
+    "B/bed2.bedA_back/length": "449/20",
+    "B/bed2.bedA_back/turns": "11",
+    "B/bed2.bedB_front/length": "449/20",
+    "B/bed2.bedB_front/turns": "11",
+    "B/bed2.bedB_back/length": "473/20",
+    "B/bed2.bedB_back/turns": "11",
+    "B/bed2.changing/length": "97/4",
+    "B/bed2.changing/turns": "10",
+    "B/bed3.closet_front/length": "787/40",
+    "B/bed3.closet_front/turns": "12",
+    "B/bed3.bedA_front/length": "229/10",
+    "B/bed3.bedA_front/turns": "11",
+    "B/bed3.bedA_back/length": "211/10",
+    "B/bed3.bedA_back/turns": "11",
+    "B/bed3.bedB_front/length": "211/10",
+    "B/bed3.bedB_front/turns": "11",
+    "B/bed3.bedB_back/length": "223/10",
+    "B/bed3.bedB_back/turns": "9",
+    "B/bed3.changing/length": "229/10",
+    "B/bed3.changing/turns": "9",
+    "B/WC_front/length": "97/10",
+    "B/WC_front/turns": "11",
+    "B/WC_use/length": "209/20",
+    "B/WC_use/turns": "16",
+    "B/shower_use/length": "53/5",
+    "B/shower_use/turns": "12",
+    "B/basin_front/length": "97/10",
+    "B/basin_front/turns": "8",
+    "B/kitchen_work/length": "283/20",
+    "B/kitchen_work/turns": "7",
+    "B/dining_front_left/length": "71/10",
+    "B/dining_front_left/turns": "8",
+    "B/dining_front_right/length": "101/10",
+    "B/dining_front_right/turns": "11",
+    "B/dining_back_left/length": "23/5",
+    "B/dining_back_left/turns": "6",
+    "B/dining_back_right/length": "37/5",
+    "B/dining_back_right/turns": "9",
+    "B/dining_left/length": "25/4",
+    "B/dining_left/turns": "6",
+    "B/dining_right/length": "33/4",
+    "B/dining_right/turns": "10",
+    "B/sofa1_front/length": "38/5",
+    "B/sofa1_front/turns": "6",
+    "B/sofa2_front/length": "5",
+    "B/sofa2_front/turns": "3",
+    "B/armchair1_front/length": "31/10",
+    "B/armchair1_front/turns": "3",
+    "B/armchair2_front/length": "23/5",
+    "B/armchair2_front/turns": "3",
+    "B/armchair3_front/length": "12/5",
+    "B/armchair3_front/turns": "1",
+    "B/armchair4_front/length": "23/5",
+    "B/armchair4_front/turns": "1",
+    "COMMON/lobby_floor_m2": "583/80"
+  },
+  "accepted": false,
+  "remaining": [
+    "CURRENT362_INTRINSIC_GATE",
+    "CURRENT362_PURPOSE_CLOSURE",
+    "INDEPENDENT_FINITE_DOMAIN_AUDIT"
+  ],
+  "negative_witness_scope": "A known strictly worse contractual cost refutes componentwise dominance; unmeasured metrics stay unknown; no global optimum."
+}

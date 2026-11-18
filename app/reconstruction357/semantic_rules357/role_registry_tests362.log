@@ -1,0 +1,16 @@
+test_all_wall_origins_joined (test_role_model362.Actual359.test_all_wall_origins_joined) ... ok
+test_clamp_tamper_rejected (test_role_model362.Actual359.test_clamp_tamper_rejected) ... ok
+test_common_helper_not_invoked_or_closed (test_role_model362.Actual359.test_common_helper_not_invoked_or_closed) ... ok
+test_exact359 (test_role_model362.Actual359.test_exact359) ... ok
+test_new_source_hall_recomputed (test_role_model362.Actual359.test_new_source_hall_recomputed) ... ok
+test_notch_host_tamper (test_role_model362.Actual359.test_notch_host_tamper) ... ok
+test_notch_source_predicate (test_role_model362.Actual359.test_notch_source_predicate) ... ok
+test_old_review_rejected (test_role_model362.Actual359.test_old_review_rejected) ... ok
+test_release_not_automatic_parentpass (test_role_model362.Actual359.test_release_not_automatic_parentpass) ... ok
+test_service359_not_transferred (test_role_model362.Actual359.test_service359_not_transferred) ... ok
+test_whole_room_roles_zero_public_gap (test_role_model362.Actual359.test_whole_room_roles_zero_public_gap) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 11.150s
+
+OK

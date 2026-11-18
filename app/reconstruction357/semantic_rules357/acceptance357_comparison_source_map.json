@@ -1,0 +1,231 @@
+{
+  "schema": "ACCEPTANCE357_RENDERED233_MAPPING_NOT_RUNTIME_VERDICT",
+  "source_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+  "source_library_id": "libfile_c65f8c0e74ac81918b6a6a09e4d78530",
+  "source_kind": "Rendered author document; original JSON/common_definitions/DAG absent",
+  "rules": {
+    "Q07": {
+      "pointer": {
+        "selector": "details > summary[text=Q07]",
+        "html_character_range": [
+          494247,
+          510295
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/Q07"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "Q07 KITCHEN_DINING — مسیر حمل از پخت به غذا، برخورد با اجاق/دستگاه و استفاده واقعی میز. مثلث کار الگوی پیشنهادی است، نه اجبار عددی ثابت برای همه آشپزخانه‌ها.",
+        "رابطه و الگوریتم دقیق": "1. Bind cooking/work surface source endpoints to usable dining chair/table targets.\n2. Evaluate service paths, drawer/appliance/occupied-chair motion and guest paths separately through H08/H11.\n3. Record per-unit service length/conflicts plus protected public/private metrics.\n4. Compare eligible same-program alternatives by PARETO_SERVICE; do not impose numeric work triangle.",
+        "شرط پذیرش محدود": "essential service/use possible; claimed improvement not worsening protected dimensions",
+        "شرط رد اثبات‌شده": "proved essential service collision/inaccessibility or invalid claimed superiority",
+        "شرط نامعلوم": "missing appliance/occupancy/state/alternative applicability",
+        "شرط خارج از دامنه": "optional proximity ranking without eligible cohort; essential use still mandatory",
+        "الزام، ترجیح و دامنه": "mandatory\nsource-backed required intrinsic/planar functions and applicable owner overlays only\npreference\ndescriptive/aesthetic or optional alternative ranking emits metric vector, not standalone hard failure\nspecific_note\nQ02 ratio/shape without source function contradiction not hardreject; Q13 aesthetic score not invented; Q01 alternate furnishing optional; Q14 conditional selected-set dedup"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Actual cooking/work origin bound to usable dining target",
+          "Service use, appliance/drawer/occupied-chair motion and guest paths separately source-checked",
+          "Per-unit service length/conflicts and protected public/private observations"
+        ],
+        "preference": [
+          "No universal work-triangle number",
+          "Optional proximity ranking can be N_A without eligible cohort; essential use stays mandatory"
+        ],
+        "conditional": [
+          "Claimed improvement requires eligible same-program protected-vector comparison"
+        ],
+        "implementation": "kitchen_closure.py requires bound kitchen_essential_operation/serving_route/body_route_sweeps, guest closure, source workpoint/access, dining-instance destination and independently measured four paths. kitchen_actual357.json concerns recovered72bf baseline ONLY, not new278cd candidate.",
+        "proven_scoped": "Essential Reference113 operation evidence, service target binding, service lengths and protected guest/private route closure on the evaluated baseline.",
+        "remaining": [
+          "Explicit current-scope applicability record distinguishing no superiority claim from requested future option comparison",
+          "Independent audit that source operation/serving inventories close all required current-profile states (do not assume arbitrary simultaneous states)",
+          "PARETO_SERVICE definition absent; only blocks an actual comparative superiority claim, not essential service by itself"
+        ],
+        "parent_recommendation": "Do not keep blanket AUTHOR233 missing; recovered source supports separating essential scoped verdict from unassessed comparative branch. Do not flip frozen runtime before audit/applicability binding."
+      }
+    },
+    "Q03": {
+      "pointer": {
+        "selector": "details > summary[text=Q03]",
+        "html_character_range": [
+          435457,
+          447999
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/Q03"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "Q03 USEFUL_EFFICIENCY — نسبت مفید عملکردی به A_gross و جداگانه به A_enclosed_projection؛ همراه سهم نورگیر،مشاع و دیوار گزارش شود. این معیار اجبار بیشینه‌کردن ساخت نیست.",
+        "رابطه و الگوریتم دقیق": "1. Build Q11 role-function map and H06 union ledger.\n2. Compute A_useful only from regions with completed role predicates; do not substitute all residual.\n3. Report A_useful/A_gross and A_useful/A_enclosed_projection separately with positive explicit denominators and wall/common/open components.\n4. No universal target percentage; scoped R-LIV denominator differs.\nR_LIV scoped overlay applies only on its exact trigger; otherwise do not impose45..55 or infer all-set obligation.",
+        "شرط پذیرش محدود": "reported ratios exactly reflect completed function map and declared basis",
+        "شرط رد اثبات‌شده": "double count, wrong denominator or unsupported useful-area inclusion",
+        "شرط نامعلوم": "unresolved purpose/extent/basis means ratio interval or UNKNOWN, not zero",
+        "شرط خارج از دامنه": "no efficiency report requested; necessary Q11 still applies",
+        "الزام، ترجیح و دامنه": "mandatory\nsource-backed required intrinsic/planar functions and applicable owner overlays only\npreference\ndescriptive/aesthetic or optional alternative ranking emits metric vector, not standalone hard failure\nspecific_note\nQ02 ratio/shape without source function contradiction not hardreject; Q13 aesthetic score not invented; Q01 alternate furnishing optional; Q14 conditional selected-set dedup"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Ratios must derive from completed Q11 role-purpose map and H06 union ledger",
+          "Separate gross and enclosed-projection positive denominators"
+        ],
+        "preference": [
+          "No universal efficiency percentage; R-LIV only exact owner trigger"
+        ],
+        "conditional": [
+          "No efficiency report requested makes Q03 report branch N_A, not Q11"
+        ],
+        "implementation": "comparison_metrics computes actual geometric areas, not A_useful; no useful-ratio acceptance from residual floor.",
+        "remaining": [
+          "Completed functional role extents needed if reporting useful efficiency"
+        ]
+      }
+    },
+    "Q10": {
+      "pointer": {
+        "selector": "details > summary[text=Q10]",
+        "html_character_range": [
+          528096,
+          542926
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/Q10"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "Q10 ENTRY_QUALITY — بازشدن راحت در، فضای مکثِ واقعاً لازم، دید و مسیر روان به عمومی؛ ارزیابی با هندسه و شاهد داخلی فعالیت/جاگیری وسایل، بدون الزام نمایش مبلمان در پلان تحویلی.",
+        "رابطه و الگوریتم دقیق": "1. Select source-required entry arrival/standing/door transfer and public onward-route scenarios.\n2. Compute actual source actor/door continuous swept envelopes and H08 free-space reachability; forbid other-unit/fixture/stair conflicts.\n3. Q10.REGION_PURPOSE_FINAL consumes Q11 final stopping/lobby purpose evidence after comparison; never used for intrinsic eligibility. Q10.ARRIVAL_USE is solely steps1..2 and may be used by ROLE_ORACLE lobby intrinsic use without recursion.\n4. Compare compact eligible alternatives without reducing usable arrival/route function.",
+        "شرط پذیرش محدود": "all source-required planar entry uses and onward access coexist",
+        "شرط رد اثبات‌شده": "proved required arrival/door/access interference or purposeless area",
+        "شرط نامعلوم": "missing required source activity/scenario or stopping-function proof",
+        "شرط خارج از دامنه": "no invented shopping/technical scenario absent source applicability",
+        "الزام، ترجیح و دامنه": "mandatory\nsource-backed required intrinsic/planar functions and applicable owner overlays only\npreference\ndescriptive/aesthetic or optional alternative ranking emits metric vector, not standalone hard failure\nspecific_note\nQ02 ratio/shape without source function contradiction not hardreject; Q13 aesthetic score not invented; Q01 alternate furnishing optional; Q14 conditional selected-set dedup"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Actual source arrival/standing/door transfer and onward route coexist",
+          "Final stopping/lobby purpose after Q11 comparison distinct from intrinsic arrival use"
+        ],
+        "preference": [
+          "No invented shopping/technical scenario"
+        ],
+        "conditional": [
+          "Compact alternative review cannot reduce arrival/route functions"
+        ],
+        "remaining": [
+          "Q10.ARRIVAL_USE intrinsic scoped checker",
+          "Q10.REGION_PURPOSE_FINAL linked to Q11 final purpose",
+          "Eligible compact access comparison when applicable"
+        ]
+      }
+    },
+    "Q12": {
+      "pointer": {
+        "selector": "details > summary[text=Q12]",
+        "html_character_range": [
+          559690,
+          574522
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/Q12"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "Q12 MULTIUNIT_FAIRNESS — بدترین واحد در هر معیار و تفاوت جبهه،کیفیت،مفید و خواب؛ میانگین خوب ضعف یک واحد را پنهان نکند. هم‌مساحتی به معنی هم‌کیفیتی نیست.",
+        "رابطه و الگوریتم دقیق": "1. Evaluate every required criterion per unit independently; keep metric vector and uncertainty per unit.\n2. Report componentwise worst unit and spread; reject compensated average claims.\n3. For alternative ranking require each unit intrinsic hard/use eligible and protected vector nondeteriorating.\n4. Scoped R-LIV counts an option only if both units satisfy raw45..55 and all required conditions; require>=2 distinct options in specified set.\nR_LIV scoped overlay applies only on its exact trigger; otherwise do not impose45..55 or infer all-set obligation.",
+        "شرط پذیرش محدود": "all mandatory per-unit predicates met; comparative claim noncompensatory",
+        "شرط رد اثبات‌شده": "one unit proved mandatory violation hidden by aggregate or scoped ratio/count violation",
+        "شرط نامعلوم": "any applicable unit proof missing or cohort eligibility incomplete",
+        "شرط خارج از دامنه": "n1 has no inter-unit spread comparison, but own minimum functions remain",
+        "الزام، ترجیح و دامنه": "mandatory\nsource-backed required intrinsic/planar functions and applicable owner overlays only\npreference\ndescriptive/aesthetic or optional alternative ranking emits metric vector, not standalone hard failure\nspecific_note\nQ02 ratio/shape without source function contradiction not hardreject; Q13 aesthetic score not invented; Q01 alternate furnishing optional; Q14 conditional selected-set dedup"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Every required criterion independently per unit",
+          "Worst component and spread, no compensating averages"
+        ],
+        "conditional": [
+          "Alternative ranking requires each unit intrinsically eligible and protected vectors nondegrading",
+          "R-LIV exact trigger only; n1 spread N_A but own uses mandatory"
+        ],
+        "remaining": [
+          "All mandatory per-unit evidence, not merely mirrored geometry",
+          "Metric vector completeness/uncertainty",
+          "Cohort eligibility only if ranking claimed"
+        ]
+      }
+    },
+    "Q14": {
+      "pointer": {
+        "selector": "details > summary[text=Q14]",
+        "html_character_range": [
+          589116,
+          605668
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/Q14"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "Q14 DISTINCTNESS — تفاوت واقعی در گراف هسته/تقسیم/روابط، برنامه خواب، V و تخصیص جبهه؛ رنگ،نام،شناسه،seed یا آینه بی‌تفاوت کیفی گزینه تازه نیست.",
+        "رابطه و الگوریتم دقیق": "1. Read DiversitySet and its source-bound shared raw-input/owner constraints. Verify each member own authorized program/profile; evaluate each candidate required intrinsic geometry/use against that program. Any proved member violation remains a member failure; missing authorization/evidence yields UNKNOWN.\n2. Enumerate exactly k*(k-1)/2 unordered whole-plan pairs. Do not discard a pair because authorized bedroom programs differ.\n3. Build role graphs for each member with core/unit partition, actual room/portal/access graph, source-bound bedroom/occupancy program and frontage allocation. Apply TOPOLOGY_CANONICAL D4 and role-preserving ID permutations; programme attributes cannot be erased to manufacture equivalence.\n4. If programs differ under source-authorized bedroom/program relation and both candidates are valid under their own program plus shared constraints, record the exact differing program attributes as a permitted semantic diversity witness. This is a diversity claim only, not superiority or same-program capacity comparison.\n5. For equal programs, or additional organizational differences, compare canonical topology/function schemas; colors/IDs/seed/mirror-only or numerical jitter without changed relations never count. Unsupported cross-program graph/functional relation yields UNKNOWN for that pair, not INVALID_BRIEF/invalid candidate.\n6. Count only options whose applicable member checks and all required distinctness pairs have complete witnesses. Up to six is not a guarantee. Unknown pair coverage cannot be filled with a fake option. No program reduction is authorized as repair merely to obtain difference.",
+        "شرط پذیرش محدود": "Every member meets applicable intrinsic/use requirements under its own authorized program and shared owner/input constraints; all selected pairs have complete genuine program-or-organization diversity witnesses under supported comparison schema.",
+        "شرط رد اثبات‌شده": "Proved unauthorized program/shared-constraint violation, invalid member misrepresented as eligible, or equivalent pair falsely counted distinct. Different authorized programs or unsupported comparison alone are NOT rejection evidence.",
+        "شرط نامعلوم": "Missing per-member program authorization, source/use evidence, pair coverage/canonical schema, or unsupported cross-program comparison; preserve UNKNOWN without classifying geometric invalidity.",
+        "شرط خارج از دامنه": "pair test vacuous for k<2; no six-option guarantee",
+        "الزام، ترجیح و دامنه": "mandatory\nsource-backed required intrinsic/planar functions and applicable owner overlays only\npreference\ndescriptive/aesthetic or optional alternative ranking emits metric vector, not standalone hard failure\nspecific_note\nQ02 ratio/shape without source function contradiction not hardreject; Q13 aesthetic score not invented; Q01 alternate furnishing optional; Q14 conditional selected-set dedup"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Selected DiversitySet member authorization and own-program eligibility",
+          "Exactly k*(k-1)/2 pairs",
+          "Real authorized program or topology/function diversity"
+        ],
+        "preference": [
+          "No six-option guarantee; color/seed/jitter or equivalent mirror not diversity"
+        ],
+        "conditional": [
+          "k<2 pair check vacuous; does not certify requested multi-option task or waive member checks",
+          "Different authorized programs allowed as diversity, not same-program superiority"
+        ],
+        "remaining": [
+          "Source-bound selected set",
+          "TOPOLOGY_CANONICAL definition absent in rendered extract",
+          "Supported pair-by-pair witnesses"
+        ]
+      }
+    },
+    "IR-P13": {
+      "pointer": {
+        "selector": "details > summary[text=IR-P13]",
+        "html_character_range": [
+          793602,
+          809291
+        ],
+        "extracted_section": "recovered233_rendered/sections.json#/sections/IR-P13"
+      },
+      "exact_source_fields": {
+        "متن بند در منبع": "IR-P13 | تناسب و مستطیل قابل استفاده\nدر هر اتاق؛ عرض‌های آزاد، تنگ‌شدگی و مستطیل عملکردی با bundle واقعی کنترل شود؛ نسبت طلایی یا طول‌به‌عرض ثابت الزام نیست. منبع و ردیابی: S04؛ Q01,Q02,H12. مصالحه: شکل منظم در برابر سازگاری سایت. در برنامه چندخوابه، پیش‌فرض این پروژه گروه‌بندی خواب‌ها در حوزه خصوصی فشرده است؛ پراکندگی باید دلیل عملکردی و مقایسه مسیر خواب تا حمام، ورود و عمومی داشته باشد. جای کمد در همه خواب‌ها، عمق/طول مفید و عرض آزاد باقیمانده همراه تخت و بازشوی در بررسی شود؛ کمد فقط نماد یا سطح اسمی نیست. در اتاق کشیده، جانمایی کمد روی دیوار عرضی نخست با حالت طولی مقایسه شود تا عرض مفید حفظ شود؛ این پیش‌فرض پروژه است، نه حکم مطلق. عرض و طول خالص پس از دیوار، بدنه کمد، فضای ایستادن و در/کشوی باز با تخت و پنجره سنجیده شود. اگر حالت طولی بهتر است، شاهد مقایسه و دلیل انتخاب ثبت شود؛ عدد اسمی قبل از کسرها نتیجه خالص نیست.",
+        "رابطه و الگوریتم دقیق": "step\n1\noperation\nSubtract actual wall/cabinet bodies and required open/use footprints from room floor; measure available sections at all geometry breakpoints.\n\nstep\n2\noperation\nCheck fixed-size source bed/closet/activity fit and body access; record bottleneck interval and obstructing IDs.\n\nstep\n3\noperation\nFor multiple bedrooms compare same-program private-group connectivity and bedroom→bath/entry/public lengths; for elongated room compare transverse and longitudinal closet placements without resizing assets.",
+        "شرط پذیرش محدود": "required bundles and closets usable; alternative exceptions carry functional comparative evidence",
+        "شرط رد اثبات‌شده": "condition\nrequired source bundle/closet activity is obstructed or necessary bedroom removed\neffect\nhard rejection of applicable subclaim only",
+        "شرط نامعلوم": "applicability unresolved, missing/null source/profile/scenario/role/geometry/alternative coverage; unproved failed search; unsupported operation dimension; bound/deadline exhausted. Preserve independent proven violations; never turn missing into PASS. هیچ نسبت طلایی/aspectcap/حد عمومی متراژخواب مقررنیست؛ profileاثاث/سناریوی انتخابی لازم.",
+        "شرط خارج از دامنه": "guard proven false; mixed excluded subclauses separately N_A, not the whole active requirement",
+        "الزام، ترجیح و دامنه": "classification\nmixed\noriginal_classification\nmandatory_subcondition_plus_review\ndisposition\nactive\nhard_scope\nonly explicit mandatory subconditions identified in reject_predicate\nreview_outcome\nPREFERENCE_TRADEOFF/BOUNDED_COMPARISON, never hard FAIL from rank alone"
+      },
+      "implementation_assessment": {
+        "mandatory": [
+          "Actual required bed/closet bundles usable after walls and open/use footprints",
+          "Do not remove necessary bedrooms"
+        ],
+        "preference": [
+          "No golden ratio/aspect cap/universal bedroom area",
+          "Rank alone cannot produce hard FAIL"
+        ],
+        "conditional": [
+          "Multiple-bedroom same-program connectivity and bedroom→bath/entry/public path review",
+          "Elongated room transverse-vs-longitudinal closet review with unchanged assets; exceptions need functional evidence"
+        ],
+        "implementation": "comparison_metrics bedroom-source routes are not bedroom→bath paths or alternative placement proof. New translated producer preserves assets but does not establish comparative private-group quality.",
+        "remaining": [
+          "Functional free-section geometry",
+          "Matched bedroom→bath/entry/public metrics and finite eligible alternative review",
+          "Closet-placement applicability, then comparison if triggered"
+        ]
+      }
+    }
+  }
+}

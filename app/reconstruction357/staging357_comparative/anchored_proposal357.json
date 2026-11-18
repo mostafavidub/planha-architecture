@@ -1,0 +1,245 @@
+{
+  "status": "PROPOSAL_ONLY",
+  "solver_status": 1,
+  "solver_message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "variables": 420,
+  "constraints": 505,
+  "seconds": 3.0441321909997896,
+  "not_global_infeasibility": true,
+  "scope": "Restricted coarse bundle master, no full-network or operational acceptance.",
+  "source_approach_reservations": {
+    "bath": {
+      "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "role": "S.public_access",
+      "parts": [
+        [
+          "0.7",
+          "-0.95",
+          "2.3",
+          "-0.15"
+        ],
+        [
+          "1.05",
+          "-0.15",
+          "2",
+          "-0.09"
+        ],
+        [
+          "1.05",
+          "-0.04",
+          "2",
+          "0"
+        ],
+        [
+          "1.05",
+          "-0.09",
+          "2.3",
+          "-0.04"
+        ],
+        [
+          "0.7",
+          "-0.95",
+          "2.3",
+          "-0.15"
+        ],
+        [
+          "1.175",
+          "-0.85",
+          "1.875",
+          "-0.15"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ],
+        [
+          "1.175",
+          "-0.95",
+          "1.875",
+          "-0.25"
+        ]
+      ],
+      "bbox": [
+        "0.7",
+        "-0.95",
+        "2.3",
+        "0"
+      ],
+      "policy": "Reserve source public apron, port body, external door actor sweeps against other room/use envelopes. Shared circulation reservations may overlap; no new simultaneous-use law."
+    },
+    "kitchen": {
+      "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+      "role": "K.public_access",
+      "parts": [
+        [
+          "0.45",
+          "-1",
+          "1.75",
+          "-0.15"
+        ],
+        [
+          "0.6",
+          "-0.15",
+          "1.6",
+          "0"
+        ],
+        [
+          "0.45",
+          "-1",
+          "1.75",
+          "-0.15"
+        ],
+        [
+          "0.75",
+          "-0.9",
+          "1.45",
+          "-0.2"
+        ]
+      ],
+      "bbox": [
+        "0.45",
+        "-1",
+        "1.75",
+        "0"
+      ],
+      "policy": "Reserve source public apron, port body, external door actor sweeps against other room/use envelopes. Shared circulation reservations may overlap; no new simultaneous-use law."
+    }
+  },
+  "rectangles": {
+    "bed1": [
+      "21.85",
+      "0.25",
+      "25.45",
+      "5.7"
+    ],
+    "bed2": [
+      "9.2",
+      "0.25",
+      "14.65",
+      "4.75"
+    ],
+    "bed3": [
+      "15.95",
+      "0.25",
+      "21.4",
+      "4.75"
+    ],
+    "bath": [
+      "0.275",
+      "9.375",
+      "4.575",
+      "12.475"
+    ],
+    "kitchen": [
+      "18.125",
+      "8.275",
+      "21.725",
+      "12.475"
+    ],
+    "dining": [
+      "4.725",
+      "8.075",
+      "10.125",
+      "12.475"
+    ],
+    "sofa1_use": [
+      "10.125",
+      "10.875",
+      "12.325",
+      "12.475"
+    ],
+    "sofa2_use": [
+      "15.775",
+      "9.975",
+      "17.975",
+      "11.575"
+    ],
+    "chair1_use": [
+      "12.325",
+      "10.975",
+      "13.125",
+      "12.475"
+    ],
+    "chair2_use": [
+      "14.975",
+      "10.075",
+      "15.775",
+      "11.575"
+    ],
+    "chair3_use": [
+      "12.675",
+      "9.475",
+      "13.475",
+      "10.975"
+    ],
+    "chair4_use": [
+      "14.175",
+      "10.075",
+      "14.975",
+      "11.575"
+    ]
+  },
+  "bedrooms": 3,
+  "sleep_roles": [
+    "double",
+    "twin",
+    "twin"
+  ],
+  "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+  "variant": 3,
+  "bed_door_sides": {
+    "bed1": "top",
+    "bed2": "right",
+    "bed3": "left"
+  },
+  "ordered_macro": {
+    "kind": "SIDECAR_T136",
+    "origin": [
+      "9.05",
+      "0.1"
+    ],
+    "rectangles": {
+      "bed1": [
+        "21.85",
+        "0.25",
+        "25.45",
+        "5.7"
+      ],
+      "bed2": [
+        "9.2",
+        "0.25",
+        "14.65",
+        "4.75"
+      ],
+      "bed3": [
+        "15.95",
+        "0.25",
+        "21.4",
+        "4.75"
+      ]
+    },
+    "bed_door_sides": {
+      "bed1": "top",
+      "bed2": "right",
+      "bed3": "left"
+    },
+    "private_interface_center_x": "17.4",
+    "scope": "Sidecar private-source primitive; full plan requires independent admission"
+  },
+  "quantization_m": ".001",
+  "generation_method": "ANCHORED_TRANSLATED_PRIVATE357_REQUIRES_REPLAY_AND_FRESH",
+  "source_translation": [
+    "3.575",
+    "-0.15"
+  ],
+  "source_reconstruction": "NEW357_NOT_RECOVERED354",
+  "attachment_hypothesis": "SOURCE_BED_BOTTOM_HOST_TO_ACTUAL_OUTER_WALL_NOT_YET_VERIFIED"
+}

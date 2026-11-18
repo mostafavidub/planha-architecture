@@ -1,0 +1,13 @@
+{
+  "schema": "Q04_SOURCE_BALANCED365_PREAUDIT_FINAL_RUNNER_FREEZE",
+  "files": {
+    "finite_comparison365/q04_closure365_v7.py": "c68b562e3ab14d6014cd711b2b880670a9c62f2fd7021aedee97a87f197ee002",
+    "finite_comparison365/q04_manifest365_v7.json": "0eb1110d9dd9fa599718203904cb84881ad9f026be4209712d46741825b6201c",
+    "finite_comparison365/q04_runner_actual365.json": "1c686bdf30999a88660233b09acf43476b6e91887d4cf707e2e9dfcc0de5fb21",
+    "finite_comparison365/test_q04_runner365.py": "73f534c0c64c403a2606a8b0396afbb795537b2d17d0ebc77cfd12a5723ea234",
+    "finite_comparison365/build_q04_manifest365_v7.py": "c5accf35b37ad2a0e145aa5393fe2df30f4df62cde7899ef0f4de0ddd10a7ed9",
+    "semantic_rules357/q04_runner365.py": "583530a083e4d73dc340600e8af770b7c4c9409ce39eacf3f60a46cf0a49db6e"
+  },
+  "integration_tests_passed": 8,
+  "scope": "Current source365 finite registered comparison with actual all common tasks, source-bound private/entry/common roles and executed intrinsic callbacks; not global optimality or wholeplan admission"
+}

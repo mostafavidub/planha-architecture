@@ -1,0 +1,251 @@
+{
+  "schema": "SERVICE365_COST_LEDGER_V2",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "fresh_result_digest": "378b01dffa39252ec47e6e5e288b28b49ca3c9fc18b6e35dec008917961de391",
+  "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "policy_sha256": "ea092d3f1b97d56be757ef266d6ce3a5fb470d12d7454b28b95a077107f44e9c",
+  "source_contract_sha256": "57c46d27813d8e80200746923a1b4e3c96045d1111e9cf2698cd64adfa76ecb9",
+  "units": [
+    {
+      "unit": "A",
+      "cost_inventory": {
+        "bath_WC_union_m2": "3189/250",
+        "exclusive_service_circulation_m2": null,
+        "unclassified_route_only_m2": "1911/200",
+        "service_room_plus_unclassified_cost_interval_m2": [
+          "3189/250",
+          "22311/1000"
+        ],
+        "role_classification_complete": false,
+        "nonzero_is_not_automatic_failure": true
+      },
+      "role_join": {
+        "route_only_residual_area_m2": "1911/200",
+        "whole_actual_living_region_intersection_m2": "0",
+        "body_connected_support_intersection_m2": "1911/200",
+        "actual_living_fixture_activity_intersection_m2": "0",
+        "actual_linear_operation_portal_intersection_m2": "0",
+        "remaining_without_independent_nonservice_use_m2": "1911/200",
+        "remaining_without_independent_nonservice_use_regions": [
+          [
+            "147/8",
+            "31/8",
+            "22",
+            "183/40"
+          ],
+          [
+            "147/8",
+            "183/40",
+            "763/40",
+            "143/20"
+          ],
+          [
+            "579/40",
+            "143/20",
+            "763/40",
+            "157/20"
+          ],
+          [
+            "579/40",
+            "157/20",
+            "607/40",
+            "97/10"
+          ],
+          [
+            "567/40",
+            "97/10",
+            "607/40",
+            "52/5"
+          ]
+        ],
+        "verdict": "UNKNOWN_NON_SERVICE_FUNCTION_OR_NECESSITY_NOT_ESTABLISHED",
+        "exclusive_function_proven": false,
+        "scope": "Living role-domain membership and verified source functional instances are separate from body reachability. No footprint tiling requirement and no automatic reclassification of empty floor.",
+        "unit": "A",
+        "service_target_ids": [
+          "WC_front",
+          "WC_use",
+          "basin_front",
+          "shower_use"
+        ],
+        "source_module_digest": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+        "support_evidence_digest": "367cfddd530e83ae3001fec52029f045f9722240c327727557ee138ccbdbd341",
+        "actual_living_domain_digest": "de6d97712dd6712a78d1ee0a4c4c61afd4d3b5ece4069815977a8240e72b9b7b",
+        "residual_regions": [
+          [
+            "147/8",
+            "31/8",
+            "22",
+            "183/40"
+          ],
+          [
+            "147/8",
+            "183/40",
+            "763/40",
+            "143/20"
+          ],
+          [
+            "579/40",
+            "143/20",
+            "763/40",
+            "157/20"
+          ],
+          [
+            "579/40",
+            "157/20",
+            "607/40",
+            "97/10"
+          ],
+          [
+            "567/40",
+            "97/10",
+            "607/40",
+            "52/5"
+          ]
+        ]
+      },
+      "baseline359": {
+        "unit": "A",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "0",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "1275600/321079",
+        "A_unit_net_m2": "321079/1000",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      },
+      "remaining": [
+        "INDEPENDENT_WHOLE_ENTRY_ROLE_AND_EXCLUSIVE_SHARED_CLASSIFICATION",
+        "FUNCTIONAL_EXCESS_REASON_AND_PROTECTED_FINITE_COMPARISON"
+      ],
+      "verdict": "UNKNOWN"
+    },
+    {
+      "unit": "B",
+      "cost_inventory": {
+        "bath_WC_union_m2": "3189/250",
+        "exclusive_service_circulation_m2": null,
+        "unclassified_route_only_m2": "1911/200",
+        "service_room_plus_unclassified_cost_interval_m2": [
+          "3189/250",
+          "22311/1000"
+        ],
+        "role_classification_complete": false,
+        "nonzero_is_not_automatic_failure": true
+      },
+      "role_join": {
+        "route_only_residual_area_m2": "1911/200",
+        "whole_actual_living_region_intersection_m2": "0",
+        "body_connected_support_intersection_m2": "1911/200",
+        "actual_living_fixture_activity_intersection_m2": "0",
+        "actual_linear_operation_portal_intersection_m2": "0",
+        "remaining_without_independent_nonservice_use_m2": "1911/200",
+        "remaining_without_independent_nonservice_use_regions": [
+          [
+            "579/40",
+            "183/10",
+            "607/40",
+            "403/20"
+          ],
+          [
+            "579/40",
+            "403/20",
+            "763/40",
+            "417/20"
+          ],
+          [
+            "147/8",
+            "417/20",
+            "763/40",
+            "937/40"
+          ],
+          [
+            "147/8",
+            "937/40",
+            "22",
+            "193/8"
+          ],
+          [
+            "567/40",
+            "88/5",
+            "607/40",
+            "183/10"
+          ]
+        ],
+        "verdict": "UNKNOWN_NON_SERVICE_FUNCTION_OR_NECESSITY_NOT_ESTABLISHED",
+        "exclusive_function_proven": false,
+        "scope": "Living role-domain membership and verified source functional instances are separate from body reachability. No footprint tiling requirement and no automatic reclassification of empty floor.",
+        "unit": "B",
+        "service_target_ids": [
+          "WC_front",
+          "WC_use",
+          "basin_front",
+          "shower_use"
+        ],
+        "source_module_digest": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+        "support_evidence_digest": "0b63a2a3f1e85bb4449708e5b3c8fc2f0c1be9faeba9f7cde693c54db0a8a02a",
+        "actual_living_domain_digest": "e548566c4d287353ed162c4ddb5d1e15374002d5a3e551582ec7d26b7e63db6f",
+        "residual_regions": [
+          [
+            "579/40",
+            "183/10",
+            "607/40",
+            "403/20"
+          ],
+          [
+            "579/40",
+            "403/20",
+            "763/40",
+            "417/20"
+          ],
+          [
+            "147/8",
+            "417/20",
+            "763/40",
+            "937/40"
+          ],
+          [
+            "147/8",
+            "937/40",
+            "22",
+            "193/8"
+          ],
+          [
+            "567/40",
+            "88/5",
+            "607/40",
+            "183/10"
+          ]
+        ]
+      },
+      "baseline359": {
+        "unit": "B",
+        "same_validated_service_program": true,
+        "ownership_protection": "EXACT_SET_NONDECREASE_NOT_IDENTITY",
+        "ownership_added_m2": "0",
+        "tested_cohort_min_room_m2": "3189/250",
+        "current_room_excess_m2": "0",
+        "R_service_percent": "1275600/321079",
+        "A_unit_net_m2": "321079/1000",
+        "additional_exclusive_circulation_m2": null,
+        "verdict": "UNKNOWN",
+        "scope": "BOUND_SOURCE117_SERVICE_PROGRAM; COMPLETE_DECLARED_ENTRY_CIRCULATION_PARTITION; SOURCE_PRIVATE_DOMAIN_HAS_NO_SERVICE_TRAVERSAL; NO_GLOBAL_MINIMUM"
+      },
+      "remaining": [
+        "INDEPENDENT_WHOLE_ENTRY_ROLE_AND_EXCLUSIVE_SHARED_CLASSIFICATION",
+        "FUNCTIONAL_EXCESS_REASON_AND_PROTECTED_FINITE_COMPARISON"
+      ],
+      "verdict": "UNKNOWN"
+    }
+  ],
+  "measurement_digest": "f30301be9b35eecb932d83eba745c98808cfdee8d698cdf3d21e4d6225ee1d92",
+  "role_join_digest": "88d715e68dc47c79761a2cd4976d59d6caa2938c188cd0a8ae93f33bf4ed71d7",
+  "verdict": "UNKNOWN",
+  "accepted": false,
+  "new_fresh_execution": false,
+  "final_service_used_as_intrinsic_gate": false,
+  "note": "Intervals describe unresolved route-only classification, not total unknown architecture or proof of exclusive service function."
+}

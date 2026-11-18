@@ -1,0 +1,21 @@
+{
+  "schema": "SERVICE365_ROOM_ACCESS_FREEZE",
+  "files": {
+    "intrinsic_access_service365.py": "ae92fcce3e48f5a433166aea26d3695fce1176c4ab7cee7690c66b5ea0aac57a",
+    "closure_room_program_service365.py": "a4be22d66a81a5abeddb2d4ea6c06d8fdfb0f91583b490865e38a56a786ebb67",
+    "test_room_access_service365.py": "69ce5563dad4462b94fad4c9f1c0272ee516f9564a5b73b01a9e57f44e089ff9",
+    "room_access_service_actual365.json": "ce4139b83f5afd6eb295110d754254ba5777ae1897c86bbc6ce19381579b6192",
+    "primitive_review_service365.py": "c232642c5fff419b9be86cd83147a6173b18efde250d9aa67ea9ce8c234f6b86",
+    "primitive_review_service365_manifest.json": "f37deded7c4f4230742ae83ae3fd602d85e7eda60d5396fdc6e41b9369eef5f3",
+    "group_readsets_service365.py": "d3091aedbebe9e926ff46b1ad8028a8d1f0d9b3f54de555d743ac9f60cb6431d",
+    "group_readsets_service365_pins.json": "94513acbe1e1201621703c54fecfec06ac03948c9051578323efa077df64aaef",
+    "method_registry_service365.json": "ceeebd989b5ebcee61c73e522567ef31fb5bd173fdb641d98f25b1adee43b7a3",
+    "guest_closure_service365.py": "c17faf3f2af6a66a4f5c24b776c084e7f0fbdc8e8f2430b870c6d2bad4453168",
+    "living_closure_service365.py": "4f06f16cf9f89abc8f81c17a6b0492797455fb01dcca4b08fe90b2a4ab8b9053",
+    "kitchen_closure_service365.py": "b2a53e98a30cbaead217fcdddd31125060338294c742c7cbc6f538e4f878edf8",
+    "applicability.py": "a5b3568e7fb4943b971ee06f6bcec7213ad19f06b265a7d025958b731b95b7b2",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524"
+  }
+}

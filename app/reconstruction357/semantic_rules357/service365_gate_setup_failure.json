@@ -1,0 +1,6 @@
+{
+  "failure": "Registry initial serialization omitted requirement_ids required by common.rows; no geometry/checker ran before failure",
+  "resolution": "Added exact requirement IDs and contract hash from independently audited fresh; methods/source hashes unchanged",
+  "failed_tests": 1,
+  "other_negative_tests_passed": 5
+}

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "intrinsic_access359.py": "912db9feb251278425d0ca5062c667856db721b784b6711892a4da0f6191e47a",
+    "closure_room_program359.py": "6809da4987b9d4ffb63fc01a2b754841323a8b81133a2a042a530afe0ecee5a4",
+    "primitive_review359.py": "78a3c2a20b9d95fef713d1f1cffcabd1039739d9344cbae224dda44a926812ac",
+    "primitive_review359_manifest.json": "6484ecec0fa3a1d73086976efe5e225cabe47f98eb8b3453c398641e1f246194",
+    "test_room_access359.py": "7999cc913e97ece732038ca20ce351ec7dc995549b3f65f9de0ddd20ec9bbda0",
+    "room_access_actual359.json": "3438e31391767471a08b213b422917cc0b1d78359e2bb6ffb3987337f98ca69d"
+  },
+  "tests": 6,
+  "passed": 6,
+  "seconds": 2.504,
+  "fresh": false,
+  "audit": "PENDING",
+  "prior_gate_failure": "Preserved in messages; original model/result unchanged; corrected artifact gate independently audited"
+}

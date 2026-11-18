@@ -1,0 +1,194 @@
+{
+  "rule_id": "LIVING_USEFUL_CONTIGUITY",
+  "verdict": "PASS_SCOPED_INTRINSIC_LIVING",
+  "parent_complete": false,
+  "missing": [
+    "AUTHOR233_PARENT_APPLICABILITY_AND_R_LIV_GATE_PENDING_RECOVERY"
+  ],
+  "evidence": {
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "base_fresh_digest": "741a7467645b89379d24cdcdca26eea246173db47a8ab5c05325b0788ae576fd",
+    "source_bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+    "network": {
+      "requirement_id": "stored_living_network288",
+      "verdict": "SCOPED_PASS",
+      "scope": "GUEST_ROOT_TO_ALL_STORED_LIVING_STANDING_TARGETS_ONLY",
+      "rows": [
+        {
+          "unit": "A",
+          "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+          "targets": {
+            "sofa1": [
+              "611/40",
+              "389/40"
+            ],
+            "sofa2": [
+              "707/40",
+              "97/8"
+            ],
+            "armchair1": [
+              "583/40",
+              "417/40"
+            ],
+            "armchair2": [
+              "123/8",
+              "417/40"
+            ],
+            "armchair3": [
+              "647/40",
+              "453/40"
+            ],
+            "armchair4": [
+              "523/40",
+              "323/40"
+            ]
+          },
+          "source_root": [
+            "553/40",
+            "483/40"
+          ],
+          "unconnected_stored_targets": [],
+          "blocked_stored_segments": [],
+          "blocked_body_poses": [],
+          "scenario": [
+            "STATIC_ACTUAL_SOLIDS",
+            "ALL_LIVING_AND_DINING_OCCUPIED",
+            "DINING_SOURCE_PULL_ENCLOSURES",
+            "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+            "OPEN_DOOR_PANELS",
+            "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+          ],
+          "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+          "body_m": "0.7",
+          "global_path_completeness": false,
+          "new_routes_generated": false,
+          "whole_living_extent_verified": false,
+          "repair_authority": false,
+          "delivery_allowed": false,
+          "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928"
+        },
+        {
+          "unit": "B",
+          "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+          "targets": {
+            "sofa1": [
+              "611/40",
+              "731/40"
+            ],
+            "sofa2": [
+              "707/40",
+              "127/8"
+            ],
+            "armchair1": [
+              "583/40",
+              "703/40"
+            ],
+            "armchair2": [
+              "123/8",
+              "703/40"
+            ],
+            "armchair3": [
+              "647/40",
+              "667/40"
+            ],
+            "armchair4": [
+              "523/40",
+              "797/40"
+            ]
+          },
+          "source_root": [
+            "553/40",
+            "637/40"
+          ],
+          "unconnected_stored_targets": [],
+          "blocked_stored_segments": [],
+          "blocked_body_poses": [],
+          "scenario": [
+            "STATIC_ACTUAL_SOLIDS",
+            "ALL_LIVING_AND_DINING_OCCUPIED",
+            "DINING_SOURCE_PULL_ENCLOSURES",
+            "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+            "OPEN_DOOR_PANELS",
+            "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+          ],
+          "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+          "body_m": "0.7",
+          "global_path_completeness": false,
+          "new_routes_generated": false,
+          "whole_living_extent_verified": false,
+          "repair_authority": false,
+          "delivery_allowed": false,
+          "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928"
+        }
+      ],
+      "repair_authority": false,
+      "whole_living_extent_verified": false,
+      "whole_Q11_IRP12": false,
+      "source_pins_digest": "274bf6469f755757f42c988457ae16e1bdb80f6af6844af035bb4cdcabb7c34b",
+      "reason": null
+    },
+    "capacity": {
+      "errors": [],
+      "pending": [],
+      "evidence": {
+        "status": "PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY",
+        "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+        "units": [
+          {
+            "unit": "A",
+            "residents_study": 6,
+            "actual_places": {
+              "sleeping_places": 6,
+              "dining_seats": 6,
+              "living_seats": 6
+            },
+            "living_occupied_instances": 6,
+            "actual_closet_instances": 3,
+            "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+            "worst_capacity_margin": 0
+          },
+          {
+            "unit": "B",
+            "residents_study": 6,
+            "actual_places": {
+              "sleeping_places": 6,
+              "dining_seats": 6,
+              "living_seats": 6
+            },
+            "living_occupied_instances": 6,
+            "actual_closet_instances": 3,
+            "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+            "worst_capacity_margin": 0
+          }
+        ],
+        "worst_unit_margin": 0,
+        "scope": "Actual double2/single1 sleeping places, one per real dining chair and conservative one .7-body place per real sofa/armchair. Living access and normal seat-transfer tested with other living and dining seats occupied. Own support contact only during seat task, not walking. Height/ergonomics NOT_VERIFIED. Not full fixture operations, kitchen/bath/privacy or whole-plan admission.",
+        "accepted": false
+      }
+    },
+    "units": [
+      {
+        "unit": "A",
+        "required_residents": 6,
+        "actual_sitting_places": 6,
+        "sitting_activity_area_m2": "296/25",
+        "sitting_access_union_area_m2": "381/20",
+        "connected": true,
+        "source_body_m": ".7",
+        "residual_claimed": false
+      },
+      {
+        "unit": "B",
+        "required_residents": 6,
+        "actual_sitting_places": 6,
+        "sitting_activity_area_m2": "296/25",
+        "sitting_access_union_area_m2": "381/20",
+        "connected": true,
+        "source_body_m": ".7",
+        "residual_claimed": false
+      }
+    ]
+  },
+  "scope": "CURRENT_SOURCE_SITTING_PROGRAM_AND_ACCESS_ONLY_NOT_FULL_PARENT",
+  "elapsed_seconds": 0.20065180100027646
+}

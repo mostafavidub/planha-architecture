@@ -1,0 +1,12 @@
+{
+  "files": {
+    "bedroom_grouping358.py": "d7ae4be6fb99ecfb5741faad6a3c36524dfa17b53396ce92d87956c60a7d9306",
+    "bedroom_grouping358_pins.json": "1144efeebae520bd9f992c75ed35543b0a0f1f1bfa031141cb431eedd65f09b6",
+    "test_bedroom_grouping358.py": "edcd2437b21b66d8b92c3f477810210349b767d5652bb59a3666f29771a45cca",
+    "bedroom_grouping_actual358.json": "31a8e90a4cae0de1b98b130a394ad37a07d13c1c90e1771993ef023adbee0820",
+    "bedroom_grouping_actual358_initial.json": "444e2331c6fa3f8a15c57d55f638230b35da77117bf9d702a0a347a0dd46b424",
+    "BEDROOM_GROUPING358_FA.md": "70270fe593d4fb7dc2d009c9a42f1c255b4c7f0e726d7f4fb62f08a3075f8c62"
+  },
+  "audit_pending": true,
+  "parent_complete": false
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "Q04_362_V3_INTEGRATION_PREAUDIT_FREEZE",
+  "files": {
+    "finite_comparison358/q04_closure362_v3.py": "17c1ec2ced3be4a7953bbaaeb88dd399c0c6cb2342300bb04acf33fd1c615145",
+    "finite_comparison358/q04_manifest362_v3.json": "f8a03374791969c3bcbb8d6f353b2de78d9c8de1fe35d696a9c4335982427571",
+    "finite_comparison358/q04_closure_actual362_v3.json": "8e6b167f7dbc6b7b5f3c07853621189610d2e4dd21e6c3259898dac14a679e78",
+    "finite_comparison358/test_q04_runner362_v3.py": "38bef9479d42a61ee32dd3a6f98e52835e5501bb97a28dd752c576f031e77c14",
+    "finite_comparison358/build_manifest362_v3.py": "60f681476add8d6382db40c0b6ae2c187ab3e827116a038ad205e98f5e8cb59a",
+    "finite_comparison358/dynamic_readset362.py": "1a7ce8a2683369b4a142beec8f16558319cf9fb3119b70a98d1f46c9137724d4",
+    "semantic_rules357/q04_runner362_v3.py": "726cb836fa5577f71d82d81200ae87b08adf4fe7315144599c7cf2b34e8dd7cf"
+  },
+  "tests_passed": 6,
+  "scope": "Actual fixed source362 finite conceptual Q04, not global optimality or wholeplan acceptance"
+}

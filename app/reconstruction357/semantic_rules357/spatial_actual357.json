@@ -1,0 +1,555 @@
+{
+  "SPACE_ACCOUNTING": {
+    "verdict": "UNKNOWN",
+    "codes": [
+      "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+    ],
+    "missing": [
+      "ALL_POSITIVE_AREA_FINAL_ROLE_FUNCTION"
+    ],
+    "evidence": [
+      {
+        "requirement": "partition_ledger",
+        "row_digest": "a1bf43bfdeb589edfbff16e57189c628cb3a2d87676a2b81adaad3e817331453",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.partition_ledger",
+          "code_sha256": "9043ed6bd71a2ff3c21a1662f83ec2db5e226ac1eb93050af3512d77716aeb58"
+        }
+      },
+      {
+        "requirement": "unit_independence",
+        "row_digest": "0de2668d57e3ff2fb6eb76916348413f5b796745281d865a9200e9e6278b16f6",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.unit_independence",
+          "code_sha256": "c2337700eb82333b3acfbbac102f0cf4efde464822d0f28b219316137352022b"
+        }
+      }
+    ],
+    "metrics": {
+      "unit_ownership_overlap": [
+        {
+          "units": [
+            "A",
+            "B"
+          ],
+          "intersection_area_m2": "0"
+        }
+      ],
+      "residual_function_extent": [
+        {
+          "unit": "A",
+          "open_public_area_m2": "55051/400",
+          "outside_declared_object_activity_path_area_m2": "5219/40",
+          "unresolved_rectangles": [
+            [
+              "1/4",
+              "1/4",
+              "57/20",
+              "127/20"
+            ],
+            [
+              "463/20",
+              "1/4",
+              "103/4",
+              "127/20"
+            ],
+            [
+              "44/5",
+              "9/20",
+              "179/20",
+              "3/4"
+            ],
+            [
+              "199/20",
+              "9/20",
+              "101/10",
+              "3/4"
+            ],
+            [
+              "341/20",
+              "9/20",
+              "86/5",
+              "3/4"
+            ],
+            [
+              "1/4",
+              "127/20",
+              "531/40",
+              "297/40"
+            ],
+            [
+              "115/8",
+              "127/20",
+              "103/4",
+              "259/40"
+            ],
+            [
+              "115/8",
+              "259/40",
+              "131/8",
+              "65/8"
+            ],
+            [
+              "871/40",
+              "259/40",
+              "103/4",
+              "87/8"
+            ],
+            [
+              "1/4",
+              "297/40",
+              "227/40",
+              "65/8"
+            ],
+            [
+              "1/4",
+              "65/8",
+              "191/40",
+              "101/8"
+            ],
+            [
+              "221/40",
+              "65/8",
+              "227/40",
+              "331/40"
+            ],
+            [
+              "347/40",
+              "65/8",
+              "439/50",
+              "337/40"
+            ],
+            [
+              "567/40",
+              "65/8",
+              "131/8",
+              "339/40"
+            ],
+            [
+              "347/40",
+              "337/40",
+              "399/40",
+              "1719/200"
+            ],
+            [
+              "427/40",
+              "337/40",
+              "507/40",
+              "369/40"
+            ],
+            [
+              "347/40",
+              "1719/200",
+              "397/40",
+              "369/40"
+            ],
+            [
+              "389/40",
+              "369/40",
+              "397/40",
+              "75/8"
+            ],
+            [
+              "105/8",
+              "369/40",
+              "539/40",
+              "497/40"
+            ],
+            [
+              "427/40",
+              "1857/200",
+              "2317/200",
+              "1859/200"
+            ],
+            [
+              "85/8",
+              "1859/200",
+              "2317/200",
+              "1867/200"
+            ],
+            [
+              "631/40",
+              "431/40",
+              "633/40",
+              "439/40"
+            ],
+            [
+              "599/40",
+              "463/40",
+              "631/40",
+              "467/40"
+            ],
+            [
+              "567/40",
+              "463/40",
+              "599/40",
+              "467/40"
+            ],
+            [
+              "661/40",
+              "87/8",
+              "663/40",
+              "439/40"
+            ],
+            [
+              "779/40",
+              "87/8",
+              "103/4",
+              "499/40"
+            ],
+            [
+              "567/40",
+              "467/40",
+              "631/40",
+              "471/40"
+            ],
+            [
+              "567/40",
+              "471/40",
+              "631/40",
+              "497/40"
+            ],
+            [
+              "105/8",
+              "497/40",
+              "631/40",
+              "499/40"
+            ],
+            [
+              "709/40",
+              "499/40",
+              "103/4",
+              "557/40"
+            ],
+            [
+              "1/4",
+              "101/8",
+              "331/40",
+              "557/40"
+            ]
+          ],
+          "status": "UNRESOLVED_NOT_PROVED_FUNCTIONLESS",
+          "missing": [
+            "WHOLE_FUNCTIONAL_REGION_SOURCE_ROLE_AND_INDEPENDENT_USE"
+          ],
+          "contract": "Q11 unknown_predicate: unresolved>0 is not automatically geometric FAIL",
+          "source_extent_digest": "6f8ffaa4b8a1bcdc5fd7849753bfed8af5415967c05f0eb344e542ad41d053dd"
+        },
+        {
+          "unit": "B",
+          "open_public_area_m2": "55051/400",
+          "outside_declared_object_activity_path_area_m2": "5219/40",
+          "unresolved_rectangles": [
+            [
+              "1/4",
+              "563/40",
+              "331/40",
+              "123/8"
+            ],
+            [
+              "709/40",
+              "563/40",
+              "103/4",
+              "621/40"
+            ],
+            [
+              "1/4",
+              "123/8",
+              "191/40",
+              "159/8"
+            ],
+            [
+              "105/8",
+              "621/40",
+              "631/40",
+              "623/40"
+            ],
+            [
+              "779/40",
+              "621/40",
+              "103/4",
+              "137/8"
+            ],
+            [
+              "105/8",
+              "623/40",
+              "539/40",
+              "751/40"
+            ],
+            [
+              "567/40",
+              "623/40",
+              "631/40",
+              "649/40"
+            ],
+            [
+              "567/40",
+              "649/40",
+              "631/40",
+              "653/40"
+            ],
+            [
+              "631/40",
+              "681/40",
+              "633/40",
+              "689/40"
+            ],
+            [
+              "599/40",
+              "653/40",
+              "631/40",
+              "657/40"
+            ],
+            [
+              "567/40",
+              "653/40",
+              "599/40",
+              "657/40"
+            ],
+            [
+              "661/40",
+              "681/40",
+              "663/40",
+              "137/8"
+            ],
+            [
+              "871/40",
+              "137/8",
+              "103/4",
+              "861/40"
+            ],
+            [
+              "389/40",
+              "149/8",
+              "397/40",
+              "751/40"
+            ],
+            [
+              "567/40",
+              "781/40",
+              "131/8",
+              "159/8"
+            ],
+            [
+              "85/8",
+              "3733/200",
+              "2317/200",
+              "3741/200"
+            ],
+            [
+              "427/40",
+              "3741/200",
+              "2317/200",
+              "3743/200"
+            ],
+            [
+              "347/40",
+              "751/40",
+              "397/40",
+              "3881/200"
+            ],
+            [
+              "427/40",
+              "751/40",
+              "507/40",
+              "783/40"
+            ],
+            [
+              "347/40",
+              "3881/200",
+              "399/40",
+              "783/40"
+            ],
+            [
+              "347/40",
+              "783/40",
+              "439/50",
+              "159/8"
+            ],
+            [
+              "221/40",
+              "789/40",
+              "227/40",
+              "159/8"
+            ],
+            [
+              "1/4",
+              "159/8",
+              "227/40",
+              "823/40"
+            ],
+            [
+              "115/8",
+              "159/8",
+              "131/8",
+              "861/40"
+            ],
+            [
+              "1/4",
+              "823/40",
+              "531/40",
+              "433/20"
+            ],
+            [
+              "115/8",
+              "861/40",
+              "103/4",
+              "433/20"
+            ],
+            [
+              "1/4",
+              "433/20",
+              "57/20",
+              "111/4"
+            ],
+            [
+              "463/20",
+              "433/20",
+              "103/4",
+              "111/4"
+            ],
+            [
+              "44/5",
+              "109/4",
+              "179/20",
+              "551/20"
+            ],
+            [
+              "199/20",
+              "109/4",
+              "101/10",
+              "551/20"
+            ],
+            [
+              "341/20",
+              "109/4",
+              "86/5",
+              "551/20"
+            ]
+          ],
+          "status": "UNRESOLVED_NOT_PROVED_FUNCTIONLESS",
+          "missing": [
+            "WHOLE_FUNCTIONAL_REGION_SOURCE_ROLE_AND_INDEPENDENT_USE"
+          ],
+          "contract": "Q11 unknown_predicate: unresolved>0 is not automatically geometric FAIL",
+          "source_extent_digest": "828f1e6a6178b52c97cb49b56d6e53b63dffd5af674f956ff5202b710b42f67a"
+        }
+      ]
+    },
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "parent_complete": false,
+    "reconstruction_version": 357
+  },
+  "LIVING_USEFUL_CONTIGUITY": {
+    "verdict": "UNKNOWN",
+    "codes": [
+      "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+    ],
+    "missing": [
+      "SOURCE_COMPLETE_SITTING_AND_CONNECTED_ACCESS",
+      "R_LIV_APPLICABILITY"
+    ],
+    "evidence": [
+      {
+        "requirement": "fixture_inventory_use",
+        "row_digest": "4d0338d0443cdba0721943a5771d7416296ea6dbc5aa1894c906ec1730f031b1",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.fixture_inventory_use",
+          "code_sha256": "949e8fdd878094c1e0080320404d0756b66ecd69e28e4dd682db9dfcb5df5024"
+        }
+      },
+      {
+        "requirement": "chair_capacity_movement",
+        "row_digest": "35ecc5c7d6daaaeb27f019e56ce32ea7568d0cc9cfc0624a529c54cd6a6bb91b",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.chair_capacity_movement",
+          "code_sha256": "925404f70625fbc208d082605affa5aaa541772a583321a0e9eaf6fe4fcfbd01"
+        }
+      }
+    ],
+    "metrics": {},
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "parent_complete": false,
+    "reconstruction_version": 357
+  },
+  "GUEST_ROUTE_INDEPENDENCE": {
+    "verdict": "UNKNOWN",
+    "codes": [
+      "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+    ],
+    "missing": [
+      "ALL_FOUR_RELATIONS_SOURCE_SCENARIOS"
+    ],
+    "evidence": [
+      {
+        "requirement": "guest_living_route",
+        "row_digest": "df2302e60b8fae554c5a57994675be61ddfa1be178a0d36f0621e47c9091046d",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.public_named_scenarios",
+          "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+        }
+      },
+      {
+        "requirement": "guest_dining_route",
+        "row_digest": "e31a8d92388491d77cda5d1a39f2948f795ae8ad7bc470399453bfceb710e7aa",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.public_named_scenarios",
+          "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+        }
+      },
+      {
+        "requirement": "bath_nonprivate_access",
+        "row_digest": "e4b6b01787dd3793a0974939eb7baefa98f47a6923779dfc1787750b26629d67",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "access_accounting118.bath_nonprivate_access",
+          "code_sha256": "2945028daac1773421bcc43395e8e0664b8c21877db1de5155ba7659985f81fe"
+        }
+      }
+    ],
+    "metrics": {},
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "parent_complete": false,
+    "reconstruction_version": 357
+  },
+  "PRIVACY_WITHOUT_FAKE_BAFFLE": {
+    "verdict": "UNKNOWN",
+    "codes": [
+      "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+    ],
+    "missing": [
+      "ALL_SOURCE_REQUIRED_VISIBILITY",
+      "EVERY_WALL_CONSTRUCTIVE_PURPOSE"
+    ],
+    "evidence": [
+      {
+        "requirement": "privacy_scenarios",
+        "row_digest": "0f58fc627a6e83aad83b4f228c8e536c2983a7b1b7aa73875198314eb5f80fef",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.privacy_scenarios",
+          "code_sha256": "bfcdea8831c9a187fa8a5c381349f16ecd7f2544b8d39434c67b4c7e9a35879a"
+        }
+      },
+      {
+        "requirement": "q11_functional_boundary",
+        "row_digest": "ed5f21ec0852362770dc1a78d1c7ce1bb3d322c53f77c386b7e245d98a7d61e5",
+        "status": "PASS_LIMITED",
+        "source_method": {
+          "name": "named_checks118.adapters_for_workflow.<locals>.q11_for_current_workflow",
+          "code_sha256": "438906ddde9882e7929be66dc5607a944a81ed9741ad8b8dc0eb1d8410dfaf6b"
+        }
+      }
+    ],
+    "metrics": {},
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "parent_complete": false,
+    "reconstruction_version": 357
+  }
+}

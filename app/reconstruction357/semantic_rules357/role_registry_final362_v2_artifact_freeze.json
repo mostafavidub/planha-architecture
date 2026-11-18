@@ -1,0 +1,13 @@
+{
+  "schema": "FINAL_REGISTRY362_V2_ARTIFACT_CHECKPOINT",
+  "tests": "10 passed21.645s",
+  "source_pin_count": 1143,
+  "no_parent_promotion_before_audit": true,
+  "files": {
+    "role_registry_final362_v2.py": "c95e635d096ae3a1c6b9a476ded84e06279c43309a541d5dd0b1e30c019cc3a1",
+    "role_registry_final_actual362_v2.json": "604050b5c0d45465bc76096d981e7e7bf9df7bdd05406ddfa63682122caec228",
+    "test_role_registry_final362_v2.py": "b67bcd424b456903966ecf0d46586377981b0d9ef3699004b1912e203b573215",
+    "role_registry_final_tests362_v2.log": "d9240b3178f9b847d80a698451c3209a10e4aa82c3dfb6239bbb33aa3827a85d",
+    "role_registry_final362_v2_source_freeze.json": "6ea9d305aa66c2b8a2493b377ff44aa4a4eaddecf15723d21dffc9fa78e6f228"
+  }
+}

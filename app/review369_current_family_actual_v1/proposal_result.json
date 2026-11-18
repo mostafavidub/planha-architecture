@@ -1,0 +1,8 @@
+{
+  "status": "STRICT_REJECTION_GATE_BLOCKED",
+  "reason": "ONLY_SAME_PAIR_DIRECT_COLLISIONS_SUPPORTED",
+  "seconds": 0.18060521000006702,
+  "repair_attempted": false,
+  "accepted": false,
+  "delivery_allowed": false
+}

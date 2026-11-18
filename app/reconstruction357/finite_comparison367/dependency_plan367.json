@@ -1,0 +1,30 @@
+{
+  "schema": "367_OWN_SOURCE_CLOSURE_DEPENDENCY_PLAN",
+  "record": "review367_joint_attempt2/actual367.json",
+  "model": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+  "status": "PREFLIGHT_ONLY_NO_FRESH_GATE_REUSED",
+  "api": "evaluate(record, own_review)",
+  "ordered_dependencies": [
+    "Fixed SOURCE367 registered own raw/source/provenance gate",
+    "Intrinsic bath117 and complete source actor/scenario roles",
+    "Independent intrinsic entry role367 and current route-use partition",
+    "Own private/common role367 and 18 intrinsic minima callbacks",
+    "Finite objectives all unit required paths plus circulation and all four common transfer lengths/turns plus common area",
+    "Per-alternative own record/source/eligibility and protected function/ownership vector",
+    "Final Q04 finite necessity and SERVICE excess functional reason/comparison"
+  ],
+  "cost_requirement": "Retain current exact source service-route-only cost. It is neither zero-required nor global exclusive-function proof. Unit A/B differences must not be averaged away.",
+  "domain_requirement": "Retain 364 failed prototype, 365 balanced/service and 367 joint corrected source branches explicitly. Own model367 lineage must establish what prior branch it changes; neither omit other eligible alternatives nor claim continuous parameter exhaustion.",
+  "integrity": "Versioned code/runner; isolated import and complete transitive manifest before integration. Record/review/model triple binding and source pre/post checks. No cached borrowed SOURCE365 authority.",
+  "pending": [
+    "own fresh result and registry",
+    "own entry/private/common role closures",
+    "own 18 minima",
+    "source-backed branch-domain update",
+    "independent audit"
+  ],
+  "profile": "SOURCE_JOINT367",
+  "gate": "group_readsets367.build(record, own_review, source_profile=SOURCE_JOINT367), pending freeze",
+  "fresh_result": "review367_joint_source_validation_attempt2/result.json",
+  "fresh_schema": "JOINT367_SOURCE_VALIDATION"
+}

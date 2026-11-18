@@ -1,0 +1,14 @@
+test_actual_balance_gap_retained (test_role_registry_service365.ServiceRoles365.test_actual_balance_gap_retained) ... ok
+test_all_wall_hosts_joined (test_role_registry_service365.ServiceRoles365.test_all_wall_hosts_joined) ... ok
+test_branch_hall_rebuilt_not_row (test_role_registry_service365.ServiceRoles365.test_branch_hall_rebuilt_not_row) ... ok
+test_changed_branch_origin_rejected (test_role_registry_service365.ServiceRoles365.test_changed_branch_origin_rejected) ... ok
+test_common_tail_not_singleton_pass (test_role_registry_service365.ServiceRoles365.test_common_tail_not_singleton_pass) ... ok
+test_not_second_qualified_option (test_role_registry_service365.ServiceRoles365.test_not_second_qualified_option) ... ok
+test_old_balanced_review_rejected (test_role_registry_service365.ServiceRoles365.test_old_balanced_review_rejected) ... ok
+test_own_model_profile (test_role_registry_service365.ServiceRoles365.test_own_model_profile) ... ok
+test_public_no_borrowed_margin (test_role_registry_service365.ServiceRoles365.test_public_no_borrowed_margin) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 13.871s
+
+OK

@@ -1,0 +1,51 @@
+{
+  "schema": "BALANCED364_DIAGNOSTIC_COMPARISON_NOT_ACCEPTANCE",
+  "model_digest": "46a26dc351b10cf20f799f53c5a098ffab20eabe2e53d114f91e54b7de98e1cf",
+  "actual_diagnostic_sha256": "7f3a64888a38c199b518a4e127ecf8a4b586fc8b018967cb3f80efae3203698e",
+  "known_operation_failure": "A.entry reverse-slide panel intersects A.bath.A.service_right; positive area 0.015m\u00b2 from independent primitive diagnostic",
+  "eligibility": "FAIL_OPERATION_PRIMITIVE_NOT_ACCEPTED",
+  "rows": [
+    {
+      "route_id": "lift_A",
+      "length362": "193/40",
+      "length364": "43/10",
+      "turns362": 1,
+      "turns364": 1,
+      "fixed_square_capacity362": "1",
+      "fixed_square_capacity364": "1",
+      "capacity_is_not_door_operation_acceptance": true
+    },
+    {
+      "route_id": "lift_B",
+      "length362": "161/40",
+      "length364": "43/10",
+      "turns362": 1,
+      "turns364": 1,
+      "fixed_square_capacity362": "1",
+      "fixed_square_capacity364": "1",
+      "capacity_is_not_door_operation_acceptance": true
+    },
+    {
+      "route_id": "stair_A",
+      "length362": "127/40",
+      "length364": "33/10",
+      "turns362": 1,
+      "turns364": 1,
+      "fixed_square_capacity362": "9/10",
+      "fixed_square_capacity364": "9/10",
+      "capacity_is_not_door_operation_acceptance": true
+    },
+    {
+      "route_id": "stair_B",
+      "length362": "127/40",
+      "length364": "33/10",
+      "turns362": 1,
+      "turns364": 1,
+      "fixed_square_capacity362": "9/10",
+      "fixed_square_capacity364": "9/10",
+      "capacity_is_not_door_operation_acceptance": true
+    }
+  ],
+  "fresh_executed": false,
+  "accepted": false
+}

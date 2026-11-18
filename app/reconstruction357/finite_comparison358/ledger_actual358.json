@@ -1,0 +1,1038 @@
+{
+  "schema": "FINITE358_ARTIFACT_LEDGER_PENDING_MINIMA",
+  "rule_acceptance": false,
+  "global_optimum": false,
+  "closed_applicable_comparison": false,
+  "members": [
+    {
+      "id": "baseline351",
+      "artifact": "actual_run/actual_response.json",
+      "artifact_sha256": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+      "candidate_digest": "f37db26c3915f4afa69542355555ec0076db53f01754ba3ecb312e9e75edb3b2",
+      "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "metrics": {
+        "units": {
+          "A": {
+            "unit_net_m2": "642953/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/642953",
+            "declared_circulation_union_m2": "48693/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "45/4",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "12",
+                "direction_changes": 14
+              },
+              "shower_use": {
+                "length": "243/20",
+                "direction_changes": 8
+              },
+              "basin_front": {
+                "length": "45/4",
+                "direction_changes": 6
+              },
+              "kitchen_work": {
+                "length": "141/10",
+                "direction_changes": 5
+              },
+              "dining_front_left": {
+                "length": "17/2",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "23/2",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "6",
+                "direction_changes": 2
+              },
+              "dining_back_right": {
+                "length": "44/5",
+                "direction_changes": 5
+              },
+              "dining_left": {
+                "length": "153/20",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "193/20",
+                "direction_changes": 5
+              },
+              "sofa1_front": {
+                "length": "19/5",
+                "direction_changes": 1
+              },
+              "sofa2_front": {
+                "length": "101/10",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair2_front": {
+                "length": "16/5",
+                "direction_changes": 1
+              },
+              "armchair3_front": {
+                "length": "49/10",
+                "direction_changes": 2
+              },
+              "armchair4_front": {
+                "length": "19/4",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "141/10",
+                "direction_changes": 5
+              }
+            },
+            "geometry_fingerprint": "ae7f54ff3a726ad89fe7b77d4d7704316a6809c1e462b0250a34453b413771b6"
+          },
+          "B": {
+            "unit_net_m2": "642953/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/642953",
+            "declared_circulation_union_m2": "48693/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "45/4",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "12",
+                "direction_changes": 14
+              },
+              "shower_use": {
+                "length": "243/20",
+                "direction_changes": 8
+              },
+              "basin_front": {
+                "length": "45/4",
+                "direction_changes": 6
+              },
+              "kitchen_work": {
+                "length": "141/10",
+                "direction_changes": 5
+              },
+              "dining_front_left": {
+                "length": "17/2",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "23/2",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "6",
+                "direction_changes": 2
+              },
+              "dining_back_right": {
+                "length": "44/5",
+                "direction_changes": 5
+              },
+              "dining_left": {
+                "length": "153/20",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "193/20",
+                "direction_changes": 5
+              },
+              "sofa1_front": {
+                "length": "19/5",
+                "direction_changes": 1
+              },
+              "sofa2_front": {
+                "length": "101/10",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair2_front": {
+                "length": "16/5",
+                "direction_changes": 1
+              },
+              "armchair3_front": {
+                "length": "49/10",
+                "direction_changes": 2
+              },
+              "armchair4_front": {
+                "length": "19/4",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "141/10",
+                "direction_changes": 5
+              }
+            },
+            "geometry_fingerprint": "d41f5b3ea2bbb7cd77a267923272dbf11d6da2d14d61576d122106c6323012e1"
+          }
+        },
+        "common": {
+          "areas_m2": {
+            "stair": "4459/400",
+            "lift": "1089/400",
+            "lobby": "3491/400"
+          },
+          "routes": {
+            "stair_A": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_A": {
+              "length": "193/40",
+              "direction_changes": 1
+            },
+            "stair_B": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_B": {
+              "length": "161/40",
+              "direction_changes": 1
+            }
+          },
+          "stair_route_spread_m": "0",
+          "lift_route_spread_m": "4/5"
+        },
+        "scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "terminal_state": "UNKNOWN_EVIDENCE",
+      "reason": "INTRINSIC_PLANAR_FUNCTIONAL_MINIMA_NOT_YET_BOUND_TO_LEDGER",
+      "not_excluded": true
+    },
+    {
+      "id": "translated357",
+      "artifact": "staging357_comparative/attached_service_final357.json",
+      "artifact_sha256": "834402fd3a2251056509954e25d25dbd4c6f440dcc72b0e9fa3b71187f708cf8",
+      "candidate_digest": "1995c35eb1fbbd8222a1a68da2cd224660e2e07f497b4d0ae287cc072c46f394",
+      "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "metrics": {
+        "units": {
+          "A": {
+            "unit_net_m2": "643943/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/643943",
+            "declared_circulation_union_m2": "34389/800",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "233/10",
+                "direction_changes": 10
+              },
+              "bed1.bed_back": {
+                "length": "109/5",
+                "direction_changes": 12
+              },
+              "bed1.closet_front": {
+                "length": "823/40",
+                "direction_changes": 9
+              },
+              "bed1.changing": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "893/40",
+                "direction_changes": 12
+              },
+              "bed2.bedA_front": {
+                "length": "126/5",
+                "direction_changes": 18
+              },
+              "bed2.bedA_back": {
+                "length": "117/5",
+                "direction_changes": 14
+              },
+              "bed2.bedB_front": {
+                "length": "117/5",
+                "direction_changes": 14
+              },
+              "bed2.bedB_back": {
+                "length": "123/5",
+                "direction_changes": 14
+              },
+              "bed2.changing": {
+                "length": "126/5",
+                "direction_changes": 15
+              },
+              "bed3.closet_front": {
+                "length": "881/40",
+                "direction_changes": 8
+              },
+              "bed3.bedA_front": {
+                "length": "249/10",
+                "direction_changes": 9
+              },
+              "bed3.bedA_back": {
+                "length": "231/10",
+                "direction_changes": 9
+              },
+              "bed3.bedB_front": {
+                "length": "231/10",
+                "direction_changes": 9
+              },
+              "bed3.bedB_back": {
+                "length": "243/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "249/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "209/20",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "56/5",
+                "direction_changes": 14
+              },
+              "shower_use": {
+                "length": "227/20",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "209/20",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "149/10",
+                "direction_changes": 9
+              },
+              "dining_front_left": {
+                "length": "88/5",
+                "direction_changes": 15
+              },
+              "dining_front_right": {
+                "length": "73/5",
+                "direction_changes": 12
+              },
+              "dining_back_left": {
+                "length": "149/10",
+                "direction_changes": 11
+              },
+              "dining_back_right": {
+                "length": "121/10",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "353/20",
+                "direction_changes": 14
+              },
+              "dining_right": {
+                "length": "241/20",
+                "direction_changes": 6
+              },
+              "sofa1_front": {
+                "length": "29/10",
+                "direction_changes": 3
+              },
+              "sofa2_front": {
+                "length": "113/10",
+                "direction_changes": 7
+              },
+              "armchair1_front": {
+                "length": "67/10",
+                "direction_changes": 5
+              },
+              "armchair2_front": {
+                "length": "37/20",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "9/2",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "149/10",
+                "direction_changes": 9
+              }
+            },
+            "geometry_fingerprint": "9d08b460b0d2157bfbdcaeb9524e5e3789c99f3cdc461d09a3a4f4f07c62efde"
+          },
+          "B": {
+            "unit_net_m2": "643943/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/643943",
+            "declared_circulation_union_m2": "34389/800",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "233/10",
+                "direction_changes": 10
+              },
+              "bed1.bed_back": {
+                "length": "109/5",
+                "direction_changes": 12
+              },
+              "bed1.closet_front": {
+                "length": "823/40",
+                "direction_changes": 9
+              },
+              "bed1.changing": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "893/40",
+                "direction_changes": 12
+              },
+              "bed2.bedA_front": {
+                "length": "126/5",
+                "direction_changes": 18
+              },
+              "bed2.bedA_back": {
+                "length": "117/5",
+                "direction_changes": 14
+              },
+              "bed2.bedB_front": {
+                "length": "117/5",
+                "direction_changes": 14
+              },
+              "bed2.bedB_back": {
+                "length": "123/5",
+                "direction_changes": 14
+              },
+              "bed2.changing": {
+                "length": "126/5",
+                "direction_changes": 15
+              },
+              "bed3.closet_front": {
+                "length": "881/40",
+                "direction_changes": 8
+              },
+              "bed3.bedA_front": {
+                "length": "249/10",
+                "direction_changes": 9
+              },
+              "bed3.bedA_back": {
+                "length": "231/10",
+                "direction_changes": 9
+              },
+              "bed3.bedB_front": {
+                "length": "231/10",
+                "direction_changes": 9
+              },
+              "bed3.bedB_back": {
+                "length": "243/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "249/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "209/20",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "56/5",
+                "direction_changes": 14
+              },
+              "shower_use": {
+                "length": "227/20",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "209/20",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "149/10",
+                "direction_changes": 9
+              },
+              "dining_front_left": {
+                "length": "88/5",
+                "direction_changes": 15
+              },
+              "dining_front_right": {
+                "length": "73/5",
+                "direction_changes": 12
+              },
+              "dining_back_left": {
+                "length": "149/10",
+                "direction_changes": 11
+              },
+              "dining_back_right": {
+                "length": "121/10",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "353/20",
+                "direction_changes": 14
+              },
+              "dining_right": {
+                "length": "241/20",
+                "direction_changes": 6
+              },
+              "sofa1_front": {
+                "length": "29/10",
+                "direction_changes": 3
+              },
+              "sofa2_front": {
+                "length": "113/10",
+                "direction_changes": 7
+              },
+              "armchair1_front": {
+                "length": "67/10",
+                "direction_changes": 5
+              },
+              "armchair2_front": {
+                "length": "37/20",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "9/2",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "149/10",
+                "direction_changes": 9
+              }
+            },
+            "geometry_fingerprint": "205b4e70bdfc8a0904e2347090d8029debfd383cfb4c8851bc129fb99feb68ee"
+          }
+        },
+        "common": {
+          "areas_m2": {
+            "stair": "4459/400",
+            "lift": "1089/400",
+            "lobby": "3491/400"
+          },
+          "routes": {
+            "stair_A": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_A": {
+              "length": "193/40",
+              "direction_changes": 1
+            },
+            "stair_B": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_B": {
+              "length": "161/40",
+              "direction_changes": 1
+            }
+          },
+          "stair_route_spread_m": "0",
+          "lift_route_spread_m": "4/5"
+        },
+        "scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "terminal_state": "UNKNOWN_EVIDENCE",
+      "reason": "INTRINSIC_PLANAR_FUNCTIONAL_MINIMA_NOT_YET_BOUND_TO_LEDGER",
+      "not_excluded": true
+    },
+    {
+      "id": "row358",
+      "artifact": "staging358_comparative/row_candidate358.json",
+      "artifact_sha256": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+      "candidate_digest": "41929b00aead3ab50741ef8ae6619bebbb868a9ef510f1efb2af445b2c3e4ff9",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "metrics": {
+        "units": {
+          "A": {
+            "unit_net_m2": "321469/1000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "1275600/321469",
+            "declared_circulation_union_m2": "101151/2000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "9a2af7286d177cdd6657fffa61fe02ddefe243a9d43c65bd6abf738f76e549ec"
+          },
+          "B": {
+            "unit_net_m2": "321469/1000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "1275600/321469",
+            "declared_circulation_union_m2": "101151/2000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "19a3e076a8e7801e6477ffef9e80fce7c38efe58787d68eb39540c4d4b8ffe20"
+          }
+        },
+        "common": {
+          "areas_m2": {
+            "stair": "4459/400",
+            "lift": "1089/400",
+            "lobby": "3491/400"
+          },
+          "routes": {
+            "stair_A": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_A": {
+              "length": "193/40",
+              "direction_changes": 1
+            },
+            "stair_B": {
+              "length": "127/40",
+              "direction_changes": 1
+            },
+            "lift_B": {
+              "length": "161/40",
+              "direction_changes": 1
+            }
+          },
+          "stair_route_spread_m": "0",
+          "lift_route_spread_m": "4/5"
+        },
+        "scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "terminal_state": "UNKNOWN_EVIDENCE",
+      "reason": "INTRINSIC_PLANAR_FUNCTIONAL_MINIMA_NOT_YET_BOUND_TO_LEDGER",
+      "not_excluded": true
+    }
+  ],
+  "unconstructed_branches": [
+    {
+      "id": "source114_full_band_core",
+      "terminal_state": "UNKNOWN_EVIDENCE",
+      "reason": "SOURCE_PRIMITIVE_OWNERSHIP_COUNTEREXAMPLE_NOT_YET_RECOMPUTED",
+      "not_excluded": true
+    }
+  ],
+  "missing": [
+    "FIXED_INTRINSIC_MINIMA_REGISTRY",
+    "PER_UNIT_SCENARIO_PROTECTED_FUNCTIONAL_METRICS",
+    "EXCLUSIVE_CIRCULATION_COMPONENT_DESTINATION_INVENTORY",
+    "PRIVATE_GROUP_TARGET_ROUTE_METRICS",
+    "SERVICE_EXCLUSIVE_CIRCULATION_ROLES",
+    "SOURCE114_FULL_BAND_BRANCH_PROOF"
+  ]
+}

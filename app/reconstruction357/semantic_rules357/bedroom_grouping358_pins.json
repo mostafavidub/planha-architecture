@@ -1,0 +1,35 @@
+{
+  "members": {
+    "baseline351": {
+      "record": "actual_run/actual_response.json",
+      "review": "actual_run/actual_response.json",
+      "eligibility": "semantic_rules357/eligibility_intrinsic_baseline357_v2.json"
+    },
+    "translated357": {
+      "record": "staging357_comparative/attached_service_final357.json",
+      "review": "review357_source_identity/result.json",
+      "eligibility": "semantic_rules357/eligibility_intrinsic_actual357_finalpin.json"
+    },
+    "row358": {
+      "record": "staging358_comparative/row_candidate358.json",
+      "review": "review358_source_validation/result.json",
+      "eligibility": "semantic_rules357/eligibility_intrinsic_actual358.json"
+    }
+  },
+  "files": {
+    "../recovered233_rendered/sections.json": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+    "actual_run/actual_response.json": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+    "review357_source_identity/result.json": "e9a209ea670d380dc5fd74dac8c65169557eb72f20585d80120490050ae39824",
+    "review358_source_validation/result.json": "e3646ca62bc89e6cac932204c1ce6608a1156c4edef19b02972a049e815238c8",
+    "semantic_rules357/eligibility_intrinsic357_v2.py": "754211df4dcda2da88e9e54406269c75ffbf3c52f1038f2b5a53382d83ce6da7",
+    "semantic_rules357/eligibility_intrinsic357_v2_pins.json": "5aca21ce5e6e9f1a89414a65cd5efa5b8bb5a9ea3f4f1ec7e8cf3252bb8214f2",
+    "semantic_rules357/eligibility_intrinsic358.py": "c28ae7a545393c3a40cf58526801e5c4befd3a0b86d7665f799b93efe0c765b7",
+    "semantic_rules357/eligibility_intrinsic358_pins.json": "1850e158c2fd06fbd0da6dc5541a544d395fd21457000955d89c34a135c2e9e8",
+    "semantic_rules357/eligibility_intrinsic_actual357_finalpin.json": "60e3ac107f533824b34c42d26da070e8dd69d02c187e297dc459f08f9d8526bf",
+    "semantic_rules357/eligibility_intrinsic_actual358.json": "744a3a8b0606d99522a95117ca0c81ee9458a634c087e7bd327d878ced71308e",
+    "semantic_rules357/eligibility_intrinsic_baseline357_v2.json": "fc47c4dd2b7be6edff06658c521b0ebb32dfab9cf6af39e8282d5a5bc2f60b47",
+    "semantic_rules357/route_matrix.py": "1e8c9b9c6d3d2470db4ad473ff59651806dd72905ed9ac9835e08c542a64706b",
+    "staging357_comparative/attached_service_final357.json": "834402fd3a2251056509954e25d25dbd4c6f440dcc72b0e9fa3b71187f708cf8",
+    "staging358_comparative/row_candidate358.json": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387"
+  }
+}

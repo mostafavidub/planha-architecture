@@ -1,0 +1,427 @@
+{
+  "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+  "before_model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+  "request_equal": true,
+  "program_equal": true,
+  "profile_equal": true,
+  "core_equal": true,
+  "unit_preservation": [
+    {
+      "unit": "A",
+      "ownership_equal": true,
+      "fixtures_equal": true,
+      "activities_equal": true,
+      "bedroom_rooms_equal": true
+    },
+    {
+      "unit": "B",
+      "ownership_equal": true,
+      "fixtures_equal": true,
+      "activities_equal": true,
+      "bedroom_rooms_equal": true
+    }
+  ],
+  "route_failures": [],
+  "hall_clamps": [
+    {
+      "unit": "A",
+      "source": "private_hall_producer121",
+      "proof": {
+        "hall": [
+          "179/20",
+          "26/5",
+          "341/20",
+          "31/5"
+        ],
+        "before": [
+          "3",
+          "26/5",
+          "23",
+          "31/5"
+        ],
+        "reservations": [
+          {
+            "interval": [
+              "179/20",
+              "199/20"
+            ],
+            "source": "SOURCE_FULL_WIDTH_CONNECTOR:0"
+          },
+          {
+            "interval": [
+              "321/20",
+              "341/20"
+            ],
+            "source": "SOURCE_FULL_WIDTH_CONNECTOR:1"
+          },
+          {
+            "interval": [
+              "531/40",
+              "115/8"
+            ],
+            "source": "SOURCE_PUBLIC_INTERFACE"
+          },
+          {
+            "interval": [
+              "531/40",
+              "567/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed1:0"
+          },
+          {
+            "interval": [
+              "531/40",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed1:1"
+          },
+          {
+            "interval": [
+              "9",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed1:2"
+          },
+          {
+            "interval": [
+              "9",
+              "97/10"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed1:3"
+          },
+          {
+            "interval": [
+              "531/40",
+              "567/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed2:0"
+          },
+          {
+            "interval": [
+              "531/40",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed2:1"
+          },
+          {
+            "interval": [
+              "46/5",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed2:2"
+          },
+          {
+            "interval": [
+              "46/5",
+              "99/10"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed2:3"
+          },
+          {
+            "interval": [
+              "539/40",
+              "115/8"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed3:0"
+          },
+          {
+            "interval": [
+              "547/40",
+              "115/8"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed3:1"
+          },
+          {
+            "interval": [
+              "547/40",
+              "17"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed3:2"
+          },
+          {
+            "interval": [
+              "163/10",
+              "17"
+            ],
+            "source": "SOURCE_BODY_ROUTE:A.bed3:3"
+          }
+        ],
+        "released_area_m2": "119/10",
+        "accepted": false,
+        "released_floor_function": "NOT_ESTABLISHED",
+        "wall_attachment": "REQUIRES_RECONSTRUCTION_AND_INDEPENDENT_CHECK"
+      },
+      "original_required_paths": {
+        "A.bed1": [
+          [
+            "13.825",
+            "6.35"
+          ],
+          [
+            "13.625",
+            "6.35"
+          ],
+          [
+            "13.625",
+            "5.85"
+          ],
+          [
+            "9.35",
+            "5.85"
+          ],
+          [
+            "9.35",
+            "0.95"
+          ]
+        ],
+        "A.bed2": [
+          [
+            "13.825",
+            "6.35"
+          ],
+          [
+            "13.625",
+            "6.35"
+          ],
+          [
+            "13.625",
+            "5.85"
+          ],
+          [
+            "9.55",
+            "5.85"
+          ],
+          [
+            "9.55",
+            "0.95"
+          ]
+        ],
+        "A.bed3": [
+          [
+            "13.825",
+            "6.35"
+          ],
+          [
+            "14.025",
+            "6.35"
+          ],
+          [
+            "14.025",
+            "5.85"
+          ],
+          [
+            "16.65",
+            "5.85"
+          ],
+          [
+            "16.65",
+            "0.95"
+          ]
+        ]
+      },
+      "scope": "COUNTERFACTUAL_NEW_SOURCE_REBUILD_NOT_ACCEPTED"
+    },
+    {
+      "unit": "B",
+      "source": "private_hall_producer121",
+      "proof": {
+        "hall": [
+          "179/20",
+          "26/5",
+          "341/20",
+          "31/5"
+        ],
+        "before": [
+          "3",
+          "26/5",
+          "23",
+          "31/5"
+        ],
+        "reservations": [
+          {
+            "interval": [
+              "179/20",
+              "199/20"
+            ],
+            "source": "SOURCE_FULL_WIDTH_CONNECTOR:0"
+          },
+          {
+            "interval": [
+              "321/20",
+              "341/20"
+            ],
+            "source": "SOURCE_FULL_WIDTH_CONNECTOR:1"
+          },
+          {
+            "interval": [
+              "531/40",
+              "115/8"
+            ],
+            "source": "SOURCE_PUBLIC_INTERFACE"
+          },
+          {
+            "interval": [
+              "531/40",
+              "567/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed1:0"
+          },
+          {
+            "interval": [
+              "531/40",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed1:1"
+          },
+          {
+            "interval": [
+              "9",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed1:2"
+          },
+          {
+            "interval": [
+              "9",
+              "97/10"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed1:3"
+          },
+          {
+            "interval": [
+              "531/40",
+              "567/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed2:0"
+          },
+          {
+            "interval": [
+              "531/40",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed2:1"
+          },
+          {
+            "interval": [
+              "46/5",
+              "559/40"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed2:2"
+          },
+          {
+            "interval": [
+              "46/5",
+              "99/10"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed2:3"
+          },
+          {
+            "interval": [
+              "539/40",
+              "115/8"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed3:0"
+          },
+          {
+            "interval": [
+              "547/40",
+              "115/8"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed3:1"
+          },
+          {
+            "interval": [
+              "547/40",
+              "17"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed3:2"
+          },
+          {
+            "interval": [
+              "163/10",
+              "17"
+            ],
+            "source": "SOURCE_BODY_ROUTE:B.bed3:3"
+          }
+        ],
+        "released_area_m2": "119/10",
+        "accepted": false,
+        "released_floor_function": "NOT_ESTABLISHED",
+        "wall_attachment": "REQUIRES_RECONSTRUCTION_AND_INDEPENDENT_CHECK"
+      },
+      "original_required_paths": {
+        "B.bed1": [
+          [
+            "13.825",
+            "21.65"
+          ],
+          [
+            "13.625",
+            "21.65"
+          ],
+          [
+            "13.625",
+            "22.15"
+          ],
+          [
+            "9.35",
+            "22.15"
+          ],
+          [
+            "9.35",
+            "27.05"
+          ]
+        ],
+        "B.bed2": [
+          [
+            "13.825",
+            "21.65"
+          ],
+          [
+            "13.625",
+            "21.65"
+          ],
+          [
+            "13.625",
+            "22.15"
+          ],
+          [
+            "9.55",
+            "22.15"
+          ],
+          [
+            "9.55",
+            "27.05"
+          ]
+        ],
+        "B.bed3": [
+          [
+            "13.825",
+            "21.65"
+          ],
+          [
+            "14.025",
+            "21.65"
+          ],
+          [
+            "14.025",
+            "22.15"
+          ],
+          [
+            "16.65",
+            "22.15"
+          ],
+          [
+            "16.65",
+            "27.05"
+          ]
+        ]
+      },
+      "scope": "COUNTERFACTUAL_NEW_SOURCE_REBUILD_NOT_ACCEPTED"
+    }
+  ],
+  "elapsed_seconds": 7.765049469000587,
+  "fresh_executed": false,
+  "accepted": false,
+  "released_floor_function": "NOT_ESTABLISHED"
+}

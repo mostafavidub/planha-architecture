@@ -1,0 +1,4 @@
+# Fresh JOINT367 attempt2 preaudit
+فقط کپی مستقل. source attempt2 و actual b125 به full trace replay متصل است؛ مدل ناقص نخست مصرف نمی‌شود. input از candidate.request و parent exact source bind می‌شود. replay کامل در subprocess داخل deadline 90 و ناظر بیرونی 110 انجام خواهد شد؛ هنوز اجرا نشده است.
+هندسه core فقط پس replay زنده، با digest core/local و separator/outer-right/ownership/lobby دقیق مصرف می‌شود. private_binding121 اصلی باقی است: تماس دیوار/دامنه و topology را دوباره می‌سنجد؛ مقدار literal انتهای 146 را فرض نمی‌کند. تمام source pins اصلی محفوظ و تغییر چهار seam با expected transformation ثابت آزموده شد. هیچ UNKNOWN حذف یا PASS عمومی صادر نمی‌شود.
+۱۴ تست سبک پاس؛ هیچ fresh/replay/solver/build اجرا نشده. خطای setup اسکریپت تولید namespace با NameError پیش نوشتن seam متوقف و اصلاح شد، شاهد product محسوب نمی‌شود. producer و draft قبلی دست‌نخورده.

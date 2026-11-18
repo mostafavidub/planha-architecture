@@ -1,0 +1,15 @@
+test_clamp_tamper_rejected (test_role_model359_v3.Actual359.test_clamp_tamper_rejected) ... ok
+test_exact359 (test_role_model359_v3.Actual359.test_exact359) ... ok
+test_new_source_hall_recomputed (test_role_model359_v3.Actual359.test_new_source_hall_recomputed) ... ok
+test_no_q11_parent_promotion (test_role_model359_v3.Actual359.test_no_q11_parent_promotion) ... ok
+test_old_review_rejected (test_role_model359_v3.Actual359.test_old_review_rejected) ... ok
+test_pending_exact_no_service (test_role_model359_v3.Actual359.test_pending_exact_no_service) ... ok
+test_release_not_automatic_parentpass (test_role_model359_v3.Actual359.test_release_not_automatic_parentpass) ... ok
+test_service_source_bound (test_role_model359_v3.Actual359.test_service_source_bound) ... ok
+test_transitive_service_manifest (test_role_model359_v3.Actual359.test_transitive_service_manifest) ... ok
+test_whole_room_roles_zero_public_gap (test_role_model359_v3.Actual359.test_whole_room_roles_zero_public_gap) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 14.110s
+
+OK

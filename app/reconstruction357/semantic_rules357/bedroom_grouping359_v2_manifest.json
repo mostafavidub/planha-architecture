@@ -1,0 +1,15 @@
+{
+  "files": {
+    "bedroom_grouping359_v2.py": "6a605da5caf6e055cd952908e6ee930b4738403c13a21ca6163b493bf560583c",
+    "bedroom_grouping359_v2_pins.json": "8df93eb688c45bceb607304b8f7d4310b9d622856f9291c7ad83204fbcd88a02",
+    "test_bedroom_grouping359_v2.py": "58f84902e1ca7184f31056fdb77de75b19753b521c41b13caed67ddfca6b5acf",
+    "bedroom_grouping_actual359_v2.json": "440e8f89fd56c35098d2b5b8221fa41acd4c752f634c8e32f26f3a5e2f6f251c",
+    "bedroom_grouping359_v2_delta.json": "05bd3218dcb84fe7f720b84ba328a691491f36ae9230f834264a5600ce721e18"
+  },
+  "tests": 5,
+  "tests_passed": 5,
+  "actual_saved_model_seconds": 0.8980378970009042,
+  "fresh_or_solver_runs": 0,
+  "scope": "IR-P13 finite reviewed preference tradeoff only; no live authority or delivery",
+  "independent_audit": "pending"
+}

@@ -1,0 +1,74 @@
+{
+  "rule_id": "KITCHEN_PROXIMITY",
+  "verdict": "PASS_SCOPED_ESSENTIAL_KITCHEN_RELATIONS",
+  "parent_complete": false,
+  "evidence": {
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "fresh_digest": "741a7467645b89379d24cdcdca26eea246173db47a8ab5c05325b0788ae576fd",
+    "source_guest_closure_digest": "deb7918f88a35bb146ac5494d3375b6bf5b9e1f71db84d7b129d52ac90feb33f",
+    "row_hashes": {
+      "kitchen_essential_operation": "8b51a885e46eeb84553d7d65f3de0c3deb587caae70ef3f6c92ee6d49caf7db9",
+      "serving_route": "e8e2b18b6e948520dbba0a1e366da0c9bae0b41a45aec30ac1fa0d51e6119f44",
+      "body_route_sweeps": "dbebf6d3416684e134f5aa045467742a09df8892e314b110e5660b4edc3c30af"
+    },
+    "relations": [
+      {
+        "unit": "A",
+        "relation": "kitchen_to_dining",
+        "metrics": {
+          "length": "409/20",
+          "direction_changes": 13
+        },
+        "verdict": "PASS_SCOPED_PATH",
+        "collisions": [],
+        "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+        "body_m": "7/10"
+      },
+      {
+        "unit": "A",
+        "relation": "kitchen_to_living_via_entry",
+        "metrics": {
+          "length": "179/10",
+          "direction_changes": 7
+        },
+        "verdict": "PASS_SCOPED_PATH",
+        "collisions": [],
+        "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+        "body_m": "7/10"
+      },
+      {
+        "unit": "B",
+        "relation": "kitchen_to_dining",
+        "metrics": {
+          "length": "409/20",
+          "direction_changes": 13
+        },
+        "verdict": "PASS_SCOPED_PATH",
+        "collisions": [],
+        "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+        "body_m": "7/10"
+      },
+      {
+        "unit": "B",
+        "relation": "kitchen_to_living_via_entry",
+        "metrics": {
+          "length": "179/10",
+          "direction_changes": 7
+        },
+        "verdict": "PASS_SCOPED_PATH",
+        "collisions": [],
+        "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+        "body_m": "7/10"
+      }
+    ]
+  },
+  "missing": [
+    "AUTHOR233_PARENT_APPLICABILITY_AND_COMPARATIVE_REQUIREMENTS_PENDING_RECOVERY"
+  ],
+  "scope": "REFERENCE113_ESSENTIAL_OPERATION_AND_SOURCE_ENDPOINT_RELATIONS_ONLY",
+  "optional_ranking": {
+    "disposition": "UNASSESSED_AUTHOR233_PENDING",
+    "not_claimed": "NO_GLOBAL_PROXIMITY_OPTIMUM_OR_WAIVER"
+  },
+  "elapsed_seconds": 0.4054464749997351
+}

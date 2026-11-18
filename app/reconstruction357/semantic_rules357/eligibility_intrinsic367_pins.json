@@ -1,0 +1,21 @@
+{
+  "schema": "JOINT367_18_MINIMA_PINNED_ARTIFACT",
+  "files": {
+    "applicability.py": "a5b3568e7fb4943b971ee06f6bcec7213ad19f06b265a7d025958b731b95b7b2",
+    "closure_openings.py": "d30e2191a10d96deda50e301066bb615ac7638c97883299c47ce9911af05de5b",
+    "closure_room_program367.py": "4675d7f2c36bd79861d63ddb1ff8b72ec59cd9494b941253ed7990e144d12a7c",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524",
+    "group_readsets367.py": "94165acf702d22011e59ce1e826ee32bc76c83fc1008ae58bc2d1eea28783638",
+    "guest_closure367.py": "4928e35eece1c76b8a934b85215d0514cd8fdcbee4a10b6d6b17d799dedb6799",
+    "intrinsic_access367.py": "99a5e9a1a1a79c1fa16cca4d21636245149d8b0d2b209665cc9d37aa4700c13f",
+    "kitchen_closure367.py": "3f73f5e99a8699eccbfa89ec11620f43e392422865e82e6d82fe60e1e6d09c00",
+    "living_closure367.py": "013c44d44fb26d4fcb0c4a6fd5d95a03f273a19dc44602598abf39ed5c2bb23f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "primitive_review367.py": "69eddcffd130d40c94b16786b2abd0af49f50e5e7a306b1fd056026c9ab99649",
+    "method_registry_source367.json": "1291a217e8f56e8bfff89b8bda2f9cfe661eeac3aa41be00c15c7a8f1072665c",
+    "group_readsets367_pins.json": "c4cd9ccd108185cd328106e16b02ccfb5d15fe12c480881cba514faa081e13f8",
+    "network367.py": "6de42f7eee2e8481ba9b130f37097fdb280a1beb172e19cbf16f3ce3799678ba",
+    "network367_manifest.json": "60d316ccb86467520a387de92707e4eaccb8d2fa9491d564b72d2ac86e82f2a5"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "files": {
+    "eligibility_intrinsic367.py": "fd67a0d728b7ec1f5a5901b2ee27dbdebc47b366085cd1ae690a9c8b6af53340",
+    "eligibility_intrinsic367_pins.json": "4fb2c9c38520c1eb9285c6762f918bcd5a789784d5797c256eee0a0091968ecb",
+    "eligibility_intrinsic_actual367.json": "81bb5fa60dc85ee6828cf97a85a3d1ba66a3a13386d5f612bf97511f3933d75b",
+    "test_eligibility367.py": "90d25db966c0be37a192600a74f0e6a384f2967a43f4c5b22e6681de7cf92a24",
+    "joint367_private_evidence.py": "a86ae8d56288da6ec69ae509a2ff3efcce0b0f4864b43b1173eb1530bd0159f0",
+    "joint367_private_evidence_pins.json": "810d75247dc709d79bc78b03bb02af9858e55ccd044804c22ac1b7c119c0a178",
+    "joint367_private_actual.json": "cdd06387b5872bc758df333bf3c62c391030c8396f8e23c55079119901a73d26",
+    "bedroom_grouping367.py": "7323ddea5a43a17f174e57aa5ae7ceac53820c9836a71931b023adee17e1300c",
+    "bedroom_grouping367_pins.json": "1212c7ebf16bd5c5c0d36411574a16b37d991bcc87609e976acb4b8b12d2ab5c",
+    "bedroom_grouping_actual367.json": "975780a516b6e8388ebca35dd0f3da9dfd4030db5e37aceb680b0eb7d9b4cf01",
+    "test_bedroom_grouping367.py": "5e71d77d4abd531e8af41d8eee7346770be185d8348f28d95521961c50f46da4",
+    "intrinsic_private367_REPORT_FA.md": "7a3c227facd70e189d67fac81bdd0ab856b67588a40aad36d96b5f7ad4735ec2"
+  },
+  "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+  "actual_fresh_new": false,
+  "parent_promotion": false
+}

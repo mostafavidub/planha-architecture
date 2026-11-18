@@ -1,0 +1,280 @@
+{
+  "scope": "INDEPENDENT_PRIMITIVE_GEOMETRY_ONLY_NOT_FULL_FRESH",
+  "core": {
+    "status": "PASS_LIMITED",
+    "witness": {
+      "rule": "H15",
+      "source": {
+        "source_line": 579,
+        "source_text": "H15 CORE_2D — در MVP فقط جانمایی مفهومی یک هسته پله مشترک، آسانسور، لابی مستقل بیرون محفظه پله و دسترسی مستقل و پیوسته هر واحد در قاب طراحی کنترل می‌شود. حذف اجزای الزامی، تداخل قطعی یا عبور اجباری از محفظه پله ایراد مفهومی است. ظرفیت و مدل اجرایی، مقطع و سرگیر پله، نصب آسانسور، چاهک و بالاسری و تأیید ابعاد اجرایی POST_MVP / NOT_EVALUATED هستند و فقدان آنها به‌تنهایی گام دوم MVP را متوقف نمی‌کند. حضور شماتیک هیچ تأیید قانونی یا اجرایی ایجاد نمی‌کند.",
+        "source_modified": "2026-11-12T19:13:23.746Z"
+      },
+      "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+      "errors": [],
+      "pending": [],
+      "routes": [
+        {
+          "route": "stair_A",
+          "segments": 2,
+          "source": "stair",
+          "destination": "A"
+        },
+        {
+          "route": "lift_A",
+          "segments": 2,
+          "source": "lift",
+          "destination": "A"
+        },
+        {
+          "route": "stair_B",
+          "segments": 2,
+          "source": "stair",
+          "destination": "B"
+        },
+        {
+          "route": "lift_B",
+          "segments": 2,
+          "source": "lift",
+          "destination": "B"
+        }
+      ],
+      "body_m": "7/10",
+      "hardware_and_external_entry": "NOT_EVALUATED_OUTSIDE_CONCEPT"
+    },
+    "scope": "Actual same-model exact 2D geometry for H15; no hardware, legal, daylight or architectural-quality approval."
+  },
+  "opening_hosts": {
+    "status": "PASS_LIMITED",
+    "witness": {
+      "rule": "H10",
+      "source": {
+        "source_line": 573,
+        "source_text": "H10 OPENING_HOST — میزبان، بازه روی دیوار، عرض و دو فضای مرتبط هر بازشو معلوم باشند. QA: در روی مرز صحیح مثبت؛ در در فضای خالی یا پنجره بی‌میزبان منفی. میزبان نامعلوم → INDETERMINATE با علت MISSING_EVIDENCE؛ بی‌میزبان‌بودنِ اثبات‌شده با میزبانِ هنوز ثبت‌نشده فرق دارد. مرجع:B2؛ ترمیم مستلزم کنترل دوباره روابط است.",
+        "source_modified": "2026-11-12T19:13:23.746Z"
+      },
+      "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+      "errors": [],
+      "pending": [],
+      "openings": [
+        {
+          "opening": "A.entry",
+          "host": "A.unit_boundary",
+          "regions": [
+            "lobby",
+            "A.public_access"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.entry",
+          "host": "B.unit_boundary",
+          "regions": [
+            "lobby",
+            "B.public_access"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "stair.entry",
+          "host": "core.stair.right",
+          "regions": [
+            "stair",
+            "lobby"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "lift.entry",
+          "host": "core.lift.left",
+          "regions": [
+            "lift",
+            "lobby"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.bed1.entry",
+          "host": "A.bed1.left",
+          "regions": [
+            "A.private_access",
+            "A.bed1"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.bed2.entry",
+          "host": "A.bed2.left",
+          "regions": [
+            "A.private_access",
+            "A.bed2"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.bed3.entry",
+          "host": "A.bed3.left",
+          "regions": [
+            "A.private_access",
+            "A.bed3"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.bath",
+          "host": "A.bath.A.bath_right1",
+          "regions": [
+            "A.public_access",
+            "A.bath"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.WC",
+          "host": "A.bath.A.WC_right",
+          "regions": [
+            "A.vanity",
+            "A.WC"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.shower",
+          "host": "A.bath.A.shower_right",
+          "regions": [
+            "A.vanity",
+            "A.shower"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "A.kitchen.entry",
+          "host": "A.kitchen.front",
+          "regions": [
+            "A.kitchen_public_access",
+            "A.kitchen"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.bed1.entry",
+          "host": "B.bed1.left",
+          "regions": [
+            "B.private_access",
+            "B.bed1"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.bed2.entry",
+          "host": "B.bed2.left",
+          "regions": [
+            "B.private_access",
+            "B.bed2"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.bed3.entry",
+          "host": "B.bed3.left",
+          "regions": [
+            "B.private_access",
+            "B.bed3"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.bath",
+          "host": "B.bath.A.bath_right1",
+          "regions": [
+            "B.public_access",
+            "B.bath"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.WC",
+          "host": "B.bath.A.WC_right",
+          "regions": [
+            "B.vanity",
+            "B.WC"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.shower",
+          "host": "B.bath.A.shower_right",
+          "regions": [
+            "B.vanity",
+            "B.shower"
+          ],
+          "crossing_found": true
+        },
+        {
+          "opening": "B.kitchen.entry",
+          "host": "B.kitchen.front",
+          "regions": [
+            "B.kitchen_public_access",
+            "B.kitchen"
+          ],
+          "crossing_found": true
+        },
+        {
+          "window": "A.bed1.window",
+          "host": "front",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "A.bed2.window",
+          "host": "front",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "A.bed3.window",
+          "host": "front",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "B.bed1.window",
+          "host": "back",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "B.bed2.window",
+          "host": "back",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "B.bed3.window",
+          "host": "back",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "A.living.window",
+          "host": "front",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        },
+        {
+          "window": "B.living.window",
+          "host": "back",
+          "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+        }
+      ],
+      "body_m": "7/10",
+      "logical_bath_regions_scope": "Actual explicit partition regions must also have source-placement binding in separate mandatory gate."
+    },
+    "scope": "Actual same-model exact 2D geometry for H10; no hardware, legal, daylight or architectural-quality approval."
+  },
+  "door_operations": {
+    "errors": [
+      {
+        "code": "PANEL_CONTINUOUS_WALL_COLLISION",
+        "opening": "A.entry",
+        "wall": "A.bath.A.service_right"
+      }
+    ],
+    "pending": []
+  },
+  "seconds": 1.2221422300008271,
+  "fresh_executed": false,
+  "accepted": false
+}

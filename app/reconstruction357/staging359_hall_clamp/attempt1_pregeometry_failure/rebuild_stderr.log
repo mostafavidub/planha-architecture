@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/staging359_hall_clamp/run_once359.py", line 9, in <module>
+    t=time.monotonic();old=lineage();x=construct();target.write_text(json.dumps(x,ensure_ascii=False,indent=2))
+                                       ^^^^^^^^^^^
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/staging359_hall_clamp/adapter359.py", line 27, in construct
+    packet=build(raw,'FRONT_REAR',proposal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/staging359_hall_clamp/constructor359.py", line 39, in build
+    local=assembly(w,l,core,proposal);world=to_world(local,core)if family=='LEFT_RIGHT'else local
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/staging359_hall_clamp/assemble359.py", line 23, in assemble
+    'fixture_catalog_hash':digest(json.loads(Path(__file__).with_name('fixture_catalog114.json').read_text())),'fixture_catalog':CATALOG,'fixture_catalog_digest':digest(CATALOG),'openedge_assumptions':{'open_edges':['y=0','y=L'],'closed_edges':['x=0','x=W'],'rights':'UNVERIFIED'},'route_failures':[],
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/scratch/933b2e3e0efd/reconstruction357/staging359_hall_clamp/fixture_catalog114.json'

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "eligibility_intrinsic_service365.py": "6e497ca81bdace2d48ec783ed9d9fa3cb1ec3db72d04316ed6e93be45980a030",
+    "eligibility_intrinsic_service365_pins.json": "0438d203d944c7548a0bfd11a8f339c7d63b74840f888ed3cbe1a3290c08cec4",
+    "eligibility_intrinsic_service_actual365.json": "7bb938684f3d784c257f5e9db4877b56f71a5ddc687f0dfd8d10f198b8a23f8d",
+    "test_eligibility_service365.py": "724e53c26535d5524a26b34d9b6307f5c1cf5fa6c2a66c73ae6a58ad8aaa887d",
+    "service365_private_evidence.py": "04080761d8369df0e0d8056c87defca779b83fc7da1d80b7cdbac7504390ae78",
+    "service365_private_evidence_pins.json": "9f99423ce194bebdc4667e31ca9df0dc8c53133830aeed8695a2e94a3a6378b6",
+    "service365_private_actual.json": "91b77464a252eb85d13da8d040692a1061de7bbcacece5fda975256ac7329d1a",
+    "SERVICE365_INTRINSIC_PRIVATE_FA.md": "fb08b945106f76d2fd4a4117ba1c4f43180a9801026baad67357af18eb15ced3"
+  },
+  "scope": "SERVICE365_18_INTRINSIC_AND_OWN_PRIVATE_SUBEVIDENCE_NOT_PARENT"
+}

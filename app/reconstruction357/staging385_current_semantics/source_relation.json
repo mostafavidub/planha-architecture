@@ -1,0 +1,182 @@
+[
+  {
+    "file": "adapters385.py",
+    "base381": "adapters381.py",
+    "version_only": true,
+    "sha256": "752ad72918fcd23a995cb3c0c148dec44e97465eaf16a0a295c5b8414a7422c4"
+  },
+  {
+    "file": "balanced_access385.py",
+    "base381": "balanced_access381.py",
+    "version_only": true,
+    "sha256": "3da7104e68cbc7848d77f95ebc79bc9ec7353eb8162e62ca32a05dd3f382bdd7"
+  },
+  {
+    "file": "bedroom385.py",
+    "base381": "bedroom381.py",
+    "version_only": true,
+    "sha256": "9421684efb66128dfbbe982c398f5212f09e1c83ec1e18d16d69da2fe0912b54"
+  },
+  {
+    "file": "circulation_role385.py",
+    "base381": "circulation_role381.py",
+    "version_only": true,
+    "sha256": "2dffc375a8aa2e1a2235864f8022236ba6ab9241ebb28fa8b33c888a7af02821"
+  },
+  {
+    "file": "cohort385.py",
+    "base381": "cohort381.py",
+    "version_only": false,
+    "sha256": "1f0d603a3474a21c9b514e9542be85d28e331fa6d9efc1710d55ae25374724d8"
+  },
+  {
+    "file": "common_role_closure385.py",
+    "base381": "common_role_closure381.py",
+    "version_only": true,
+    "sha256": "2d5a9d9b91cfbfb06274326a41b09ff9bf1d64e056b1a17f08247b952d1a3eda"
+  },
+  {
+    "file": "eligibility385.py",
+    "base381": "eligibility381.py",
+    "version_only": true,
+    "sha256": "2ae74dc9247adffc102fef17f52b50629fdcb1d6d7277f1cc9f7e48707bfc842"
+  },
+  {
+    "file": "entry_separation385.py",
+    "base381": "entry_separation381.py",
+    "version_only": true,
+    "sha256": "6bb6464e96103f74b0b88365fa85da4bfdf58ec5b3276532339de002fcc9ff5d"
+  },
+  {
+    "file": "extended385.py",
+    "base381": "extended381.py",
+    "version_only": false,
+    "sha256": "51cf380fd13e4c7034092a9c3dd7c3a446373c7db6a5242b48de603b8a37a591"
+  },
+  {
+    "file": "frozen385.py",
+    "base381": null,
+    "new_explicit_adapter": true,
+    "sha256": "66f20a3611e48c7d51acf10531639d75ad92d685e8b967c4909b90e510984674"
+  },
+  {
+    "file": "gate385.py",
+    "base381": "gate381.py",
+    "version_only": false,
+    "sha256": "50acb96e0e169bbea983b8b161d0558c1fecb90b54b081f3fc22678e50cbf9eb"
+  },
+  {
+    "file": "groups385.py",
+    "base381": "groups381.py",
+    "version_only": true,
+    "sha256": "1f1851f1b333c04b8eed54a3be321e431701a2c043a596d60f01604823407426"
+  },
+  {
+    "file": "guest_closure385.py",
+    "base381": "guest_closure381.py",
+    "version_only": true,
+    "sha256": "024bb950b487edd22219fb2e642ce3a1158ef690569346bc0e3b9f1690b9f758"
+  },
+  {
+    "file": "integration385.py",
+    "base381": null,
+    "new_explicit_adapter": true,
+    "sha256": "517ac35f03fccccca7c642a5d01c46d09bc764a9e47c9b1930f28e3f4b148077"
+  },
+  {
+    "file": "kitchen_closure385.py",
+    "base381": "kitchen_closure381.py",
+    "version_only": true,
+    "sha256": "53779a7e2e52402816fa539a048c4dd7baedff9807175d5787fc8747d71c0253"
+  },
+  {
+    "file": "living_closure385.py",
+    "base381": "living_closure381.py",
+    "version_only": true,
+    "sha256": "11681c332c225bae3c07f34dc501aac24f059bfd4dbef5bcf82a98783e363427"
+  },
+  {
+    "file": "network385.py",
+    "base381": "network381.py",
+    "version_only": true,
+    "sha256": "1f20d0fee852efe28a4c55febafb3f713ddb9bba15d0a98d3b2fb305b5f6158c"
+  },
+  {
+    "file": "primitive385.py",
+    "base381": "primitive381.py",
+    "version_only": true,
+    "sha256": "051bc426c5da48b68121baf2054e773375a34c88bc8051b65f1763dcb5406ba4"
+  },
+  {
+    "file": "qualification385.py",
+    "base381": null,
+    "new_explicit_adapter": true,
+    "sha256": "f01ef8eaa942542c8fbeb3b4e56b70dddcb212f771d9797e67cdec945f0df792"
+  },
+  {
+    "file": "reassess_spatial385.py",
+    "base381": "reassess_spatial381.py",
+    "version_only": true,
+    "sha256": "d0775128061b8237bf944913990dca8c03258a3c4aaaf1b847da9c9c3fc7d1ac"
+  },
+  {
+    "file": "role_registry_model385.py",
+    "base381": "role_registry_model381.py",
+    "version_only": true,
+    "sha256": "2fa64a76d66ed5b4a58e712f7ac96719f03a0e2967ce63be67b521767e2bb5af"
+  },
+  {
+    "file": "room385.py",
+    "base381": "room381.py",
+    "version_only": true,
+    "sha256": "cff1d63decf2f956dec5bc3b5c2189ec375a992a9b31f30324ada4b4829d33f8"
+  },
+  {
+    "file": "semantic385.py",
+    "base381": "semantic381.py",
+    "version_only": false,
+    "sha256": "5a994feb57e7ed6c51a8d32e4e0e6d7f18dee201098ca475843f12103fe5068d"
+  },
+  {
+    "file": "semantic_seal385.py",
+    "base381": null,
+    "new_explicit_adapter": true,
+    "sha256": "ea5863efc5d05490cfd6115aa0b7cd9f852ee7b89f4b01a1298a424e028cc651"
+  },
+  {
+    "file": "service385.py",
+    "base381": "service381.py",
+    "version_only": true,
+    "sha256": "c28f3154dabaace7e1f7e4b3dc709d700452f3b69061e0a2387053ee7cdf865f"
+  },
+  {
+    "file": "support_review385.py",
+    "base381": "support_review381.py",
+    "version_only": true,
+    "sha256": "875dafe53bf28ac8b6ff04b3f9d856cb2b5501c4ef04572e550796ab4449bc58"
+  },
+  {
+    "file": "test385.py",
+    "base381": "test381.py",
+    "version_only": false,
+    "sha256": "6fd8215be1a6a22932e86d408254a338efd9c5b7a65917cfd99bafcefc2f0110"
+  },
+  {
+    "file": "wall_origin385.py",
+    "base381": "wall_origin381.py",
+    "version_only": true,
+    "sha256": "eeb8e044f7943751b93eba4f9d862646c0ba8e28342a6dbdbffbe02bc0837585"
+  },
+  {
+    "file": "wall_purpose385.py",
+    "base381": "wall_purpose381.py",
+    "version_only": true,
+    "sha256": "6f095b0e3200c12af7753fba7badfeabacc579aae69978fafbc86ce265573bb2"
+  },
+  {
+    "file": "worker385.py",
+    "base381": "worker381.py",
+    "version_only": false,
+    "sha256": "8f147e831aeddbf5fde84450646e51abf19a95d0e405006d617cfb156d4342ad"
+  }
+]

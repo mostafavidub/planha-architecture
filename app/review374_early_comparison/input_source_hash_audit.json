@@ -1,0 +1,20 @@
+{
+  "all_match_373_freeze": true,
+  "files": {
+    "review372_actual_v1/repaired_record.json": "03688a98eaedc2d1a2174de3df13138f0e3974cf188565b45ee78e36ec161598",
+    "review372_actual_v1/fresh.json": "901f27942f23c6a0d3bdc4fd9ba27e352d0be67ca2050e76a9dc73dfee1f0f00",
+    "review372_actual_v1/reviewed_lineage.json": "51e70f5b0a39c425a22187caa144d8964cf7eb99fc244377d46d650aeb17e207",
+    "review369_current_family_actual_v1/fixture_record.json": "be6f9a79d45851193a13e010e5d2384603f7b313d4c70a566a2cfc45d23df4b8",
+    "review369_current_family_actual_v1/fresh_first.json": "e2e3353357994044bc287e1a3a3929b2a9067ff8a90e3533818cdebe1988b0f9",
+    "review371_actual_v1/repaired_record.json": "50f23d666062936269301433ae6f1569a4770dd6a8f3dcc2fdb516e1f72d7153",
+    "review371_actual_v1/fresh.json": "9f20809a7c0eeb559e58cb8c4afce1a29c5480606b7d6f0224d4939de6f127dd",
+    "reconstruction357/staging365_balanced_portals/actual365.json": "2e1c567ab8b6771d6b4f3f907ba464eb48fa49b1a0f3ccd31537a41b9cc1b108",
+    "reconstruction357/review365_balanced_source_validation/result.json": "48b212c9ae234bbb8eb54be8ca5f8697f86cea0eba1276c8afb011472752e690",
+    "reconstruction357/semantic_rules357/eligibility_intrinsic_actual365.json": "a5d7172247b9cff6f54e87c5add211e54966d05aee083a45d39a429f4bebf464",
+    "reconstruction357/finite_comparison358/q04_closure359.py": "d8acbe42d3bfa2367be88296e6732a6f77ccee74d3ba7f0da33b0ebee08a15c0",
+    "reconstruction357/finite_comparison365/q04_closure365_v7.py": "c68b562e3ab14d6014cd711b2b880670a9c62f2fd7021aedee97a87f197ee002",
+    "reconstruction357/semantic_rules357/comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524"
+  },
+  "comparison_function_unchanged_ast_extraction": true,
+  "additional_intrinsic_or_full_dag_executed": false
+}

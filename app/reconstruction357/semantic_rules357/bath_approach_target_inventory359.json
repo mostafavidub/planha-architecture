@@ -1,0 +1,97 @@
+{
+  "model_hash": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+  "view_digest": "0b6e992fa908dbdde796b0e7d9177e556e2009309ad08aabfe4a14519615c5d9",
+  "rows": [
+    {
+      "unit": "A",
+      "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "source_transformed_public_access_component": [
+        [
+          "373/40",
+          "337/40",
+          "437/40",
+          "369/40"
+        ],
+        [
+          "387/40",
+          "369/40",
+          "85/8",
+          "1857/200"
+        ],
+        [
+          "387/40",
+          "1857/200",
+          "437/40",
+          "1867/200"
+        ],
+        [
+          "387/40",
+          "1867/200",
+          "85/8",
+          "75/8"
+        ]
+      ],
+      "area_m2": "23/16",
+      "source_service_targets": [
+        "WC_front",
+        "WC_use",
+        "basin_front",
+        "shower_use"
+      ],
+      "other_actual_traversal_targets": [
+        "kitchen",
+        "kitchen_to_dining_floor",
+        "kitchen_work"
+      ],
+      "component_scope": "Only exact source module approach connected component; no inference from its public_access label",
+      "role_status": "BATH_PLUS_KITCHEN_AND_SERVING_TRAVERSAL_NOT_EXCLUSIVITY_PROOF",
+      "important_scope": "Kitchen-to-dining serving route links service and dining; classify by actual functional endpoints, not route prefix. No bedroom or living access path intersects this exact apron. Apron is not maximal architectural circulation component."
+    },
+    {
+      "unit": "B",
+      "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+      "source_transformed_public_access_component": [
+        [
+          "373/40",
+          "751/40",
+          "437/40",
+          "783/40"
+        ],
+        [
+          "387/40",
+          "3743/200",
+          "85/8",
+          "751/40"
+        ],
+        [
+          "387/40",
+          "3733/200",
+          "437/40",
+          "3743/200"
+        ],
+        [
+          "387/40",
+          "149/8",
+          "85/8",
+          "3733/200"
+        ]
+      ],
+      "area_m2": "23/16",
+      "source_service_targets": [
+        "WC_front",
+        "WC_use",
+        "basin_front",
+        "shower_use"
+      ],
+      "other_actual_traversal_targets": [
+        "kitchen",
+        "kitchen_to_dining_floor",
+        "kitchen_work"
+      ],
+      "component_scope": "Only exact source module approach connected component; no inference from its public_access label",
+      "role_status": "BATH_PLUS_KITCHEN_AND_SERVING_TRAVERSAL_NOT_EXCLUSIVITY_PROOF",
+      "important_scope": "Kitchen-to-dining serving route links service and dining; classify by actual functional endpoints, not route prefix. No bedroom or living access path intersects this exact apron. Apron is not maximal architectural circulation component."
+    }
+  ],
+  "parent_complete": false
+}

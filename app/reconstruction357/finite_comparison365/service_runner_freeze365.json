@@ -1,0 +1,14 @@
+{
+  "schema": "SERVICE365_RUNNER_PREAUDIT_FREEZE",
+  "files": {
+    "finite_comparison365/service_closure365.py": "7a46b9b4b1bfd695482856ac9fc7c1dfec942132554142ddc285a03f6a1e0b1b",
+    "finite_comparison365/service_manifest365.json": "d8aae2829a056eb55166ee660ec58b6be1ab4522d13841f15c0b8f7186520d40",
+    "finite_comparison365/service_runner_actual365.json": "b8ed5b4c488edec07b83406e0ef4a098e65f4b3d4815b1e2723147dba5464e66",
+    "finite_comparison365/test_service_runner365.py": "b55c3d787dc829b11ca9780951fa424754e8c64092a827ee822925abf460a995",
+    "finite_comparison365/test_closures365.py": "ccf47c5b7ea9ae3c424b9fa46bf868cec3440cecbc3dffa0fafd6534e4b446ac",
+    "finite_comparison365/build_service_manifest365.py": "32d47f181a6a4a56cd2e299eb73366cc7005b4c1c328e2532668c182f02c4d52",
+    "semantic_rules357/service_runner365.py": "5bedd36276ae8b58951fb634291efd5f22941c677266d76d1b5eebf756fa5f32"
+  },
+  "tests": 5,
+  "scope": "Source117 bathWC finite actualbaseline359/362 ownfresh365"
+}

@@ -1,0 +1,11 @@
+{
+  "repair_attempted": false,
+  "reason": "NO_CURRENT_REJECTION_SCOPED_PHYSICAL_ONLY",
+  "errors": [],
+  "pending": [],
+  "original_pending": [
+    "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+  ],
+  "semantic_qualification": "UNKNOWN_NOT_EXECUTED",
+  "accepted": false
+}

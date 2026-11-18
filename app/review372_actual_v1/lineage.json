@@ -1,0 +1,19 @@
+{
+  "schema": "REPAIR_LINEAGE369",
+  "run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21",
+  "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+  "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+  "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+  "parent_candidate_id": "203224fd23b0ddbcbb35de00f9bad2eeca347d019363842b8d70c0d8fc6999d4",
+  "parent_review_id": "eaecdc51-eb4c-4ddd-a2c4-8ce5c64c5ad0",
+  "parent_fresh_digest": "e61c23eaad3221a380b635c8967ae500b0b1335e3a07fadd2665ba112056e533",
+  "input_record_digest": "f95821e7ac9428c8ba3d18532e1160b175ab4647554196ae51121acc0749ea97",
+  "operator_digest": "7f85568807e3730affca95009fe98f6f2aed2c6fd3c7de285f56df985906f02a",
+  "request_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+  "review_id": null,
+  "fresh_review_required": true,
+  "source_replay_required": true,
+  "accepted": false,
+  "delivery_allowed": false,
+  "live_authority": false
+}

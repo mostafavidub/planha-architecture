@@ -1,0 +1,11 @@
+{
+  "files": {
+    "closure_room_program.py": "58b4d93183f0a5e6a5eaf9b400f692306bab95412328fee0c700634725c59062",
+    "test_room_program.py": "df29bbb3586f68ad20e10d666f491d57aa86252f8dafcb1c20b7e0d42de8deac",
+    "room_program_actual357.json": "51d2b3a866b264b327f9477bbd1fb5ddaf433b0ba363486fadb4166635ea16ab"
+  },
+  "tests": 7,
+  "passed": 7,
+  "fresh": false,
+  "audit": "PENDING"
+}

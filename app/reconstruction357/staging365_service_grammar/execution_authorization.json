@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-16T12:14:54.117585+00:00",
+  "authorization_context": "Root approved one bounded service run after balanced fresh; semantic explicitly released slot following cleanup; independent preaudit passed. Historical prereg unchanged.",
+  "launcher_sha256": "d8b7de7773ce595cc34ed77f25f775c5aa562aea6fc12b8ee28d7ffa882bd2ae",
+  "max_propose": 1,
+  "solver_seconds": 3,
+  "outer_seconds": 60,
+  "retry": 0,
+  "fresh": 0,
+  "selection": false
+}

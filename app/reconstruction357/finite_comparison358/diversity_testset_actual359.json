@@ -1,0 +1,588 @@
+{
+  "schema": "TEST_ONLY_DIVERSITY_SET359",
+  "requested_count": 2,
+  "k": 2,
+  "required_unordered_pairs": 1,
+  "members": [
+    {
+      "id": "row358",
+      "path": "staging358_comparative/row_candidate358.json",
+      "artifact_sha256": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "record_digest": "b58ac4754dbaf14f2b8380e2d9029cd8f064fc93bacc438b1186dc1722bbb86b",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "role_graph_projection": {
+        "program": {
+          "bedrooms_per_unit": 3,
+          "sleep_roles": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+          "design_occupants_per_unit": 6,
+          "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+          "units": 2,
+          "provisional": true
+        },
+        "core_presence": [
+          "lift",
+          "lobby",
+          "stair"
+        ],
+        "unit_role_inventory": {
+          "A": [
+            "bath",
+            "bed1",
+            "bed2",
+            "bed3",
+            "dining",
+            "entry_circulation",
+            "kitchen",
+            "living",
+            "private_circulation"
+          ],
+          "B": [
+            "bath",
+            "bed1",
+            "bed2",
+            "bed3",
+            "dining",
+            "entry_circulation",
+            "kitchen",
+            "living",
+            "private_circulation"
+          ]
+        },
+        "portal_edges": [
+          [
+            "A.WC",
+            "A.vanity"
+          ],
+          [
+            "A.bath",
+            "A.public_access"
+          ],
+          [
+            "A.bed1",
+            "A.private_access"
+          ],
+          [
+            "A.bed2",
+            "A.private_access"
+          ],
+          [
+            "A.bed3",
+            "A.private_access"
+          ],
+          [
+            "A.kitchen",
+            "A.kitchen_public_access"
+          ],
+          [
+            "A.public_access",
+            "lobby"
+          ],
+          [
+            "A.shower",
+            "A.vanity"
+          ],
+          [
+            "B.WC",
+            "B.vanity"
+          ],
+          [
+            "B.bath",
+            "B.public_access"
+          ],
+          [
+            "B.bed1",
+            "B.private_access"
+          ],
+          [
+            "B.bed2",
+            "B.private_access"
+          ],
+          [
+            "B.bed3",
+            "B.private_access"
+          ],
+          [
+            "B.kitchen",
+            "B.kitchen_public_access"
+          ],
+          [
+            "B.public_access",
+            "lobby"
+          ],
+          [
+            "B.shower",
+            "B.vanity"
+          ],
+          [
+            "lift",
+            "lobby"
+          ],
+          [
+            "lobby",
+            "stair"
+          ]
+        ],
+        "private_group_membership": [
+          [
+            "A.bed1",
+            "A.bed2",
+            "A.bed3"
+          ],
+          [
+            "B.bed1",
+            "B.bed2",
+            "B.bed3"
+          ]
+        ],
+        "opening_role_types": [
+          [
+            [
+              "A.WC",
+              "A.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "A.bath",
+              "A.public_access"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "A.bed1",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.bed2",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.bed3",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.kitchen",
+              "A.kitchen_public_access"
+            ],
+            "permanent_open_arch"
+          ],
+          [
+            [
+              "A.public_access",
+              "lobby"
+            ],
+            "operable_sliding_study"
+          ],
+          [
+            [
+              "A.shower",
+              "A.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.WC",
+              "B.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.bath",
+              "B.public_access"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.bed1",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.bed2",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.bed3",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.kitchen",
+              "B.kitchen_public_access"
+            ],
+            "permanent_open_arch"
+          ],
+          [
+            [
+              "B.public_access",
+              "lobby"
+            ],
+            "operable_sliding_study"
+          ],
+          [
+            [
+              "B.shower",
+              "B.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "lift",
+              "lobby"
+            ],
+            "core_access_interface"
+          ],
+          [
+            [
+              "lobby",
+              "stair"
+            ],
+            "core_access_interface"
+          ]
+        ]
+      },
+      "intrinsic_state": "REQUIRES_CURRENT_MODEL_GATE_BOUND_HERE_NOT_INFERRED_FROM_SOURCE_REPLAY"
+    },
+    {
+      "id": "clamped359",
+      "path": "staging359_hall_clamp/actual359.json",
+      "artifact_sha256": "13aa33694b45bdc5dc04fe50251b2b867efa521da970fc639690d3975bb04d03",
+      "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+      "record_digest": "51b5e525e102f3dc8694ea6e94cac168b6f399f62423c66c2b441f9d8c80981b",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "role_graph_projection": {
+        "program": {
+          "bedrooms_per_unit": 3,
+          "sleep_roles": [
+            "double",
+            "twin",
+            "twin"
+          ],
+          "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+          "design_occupants_per_unit": 6,
+          "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+          "units": 2,
+          "provisional": true
+        },
+        "core_presence": [
+          "lift",
+          "lobby",
+          "stair"
+        ],
+        "unit_role_inventory": {
+          "A": [
+            "bath",
+            "bed1",
+            "bed2",
+            "bed3",
+            "dining",
+            "entry_circulation",
+            "kitchen",
+            "living",
+            "private_circulation"
+          ],
+          "B": [
+            "bath",
+            "bed1",
+            "bed2",
+            "bed3",
+            "dining",
+            "entry_circulation",
+            "kitchen",
+            "living",
+            "private_circulation"
+          ]
+        },
+        "portal_edges": [
+          [
+            "A.WC",
+            "A.vanity"
+          ],
+          [
+            "A.bath",
+            "A.public_access"
+          ],
+          [
+            "A.bed1",
+            "A.private_access"
+          ],
+          [
+            "A.bed2",
+            "A.private_access"
+          ],
+          [
+            "A.bed3",
+            "A.private_access"
+          ],
+          [
+            "A.kitchen",
+            "A.kitchen_public_access"
+          ],
+          [
+            "A.public_access",
+            "lobby"
+          ],
+          [
+            "A.shower",
+            "A.vanity"
+          ],
+          [
+            "B.WC",
+            "B.vanity"
+          ],
+          [
+            "B.bath",
+            "B.public_access"
+          ],
+          [
+            "B.bed1",
+            "B.private_access"
+          ],
+          [
+            "B.bed2",
+            "B.private_access"
+          ],
+          [
+            "B.bed3",
+            "B.private_access"
+          ],
+          [
+            "B.kitchen",
+            "B.kitchen_public_access"
+          ],
+          [
+            "B.public_access",
+            "lobby"
+          ],
+          [
+            "B.shower",
+            "B.vanity"
+          ],
+          [
+            "lift",
+            "lobby"
+          ],
+          [
+            "lobby",
+            "stair"
+          ]
+        ],
+        "private_group_membership": [
+          [
+            "A.bed1",
+            "A.bed2",
+            "A.bed3"
+          ],
+          [
+            "B.bed1",
+            "B.bed2",
+            "B.bed3"
+          ]
+        ],
+        "opening_role_types": [
+          [
+            [
+              "A.WC",
+              "A.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "A.bath",
+              "A.public_access"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "A.bed1",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.bed2",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.bed3",
+              "A.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "A.kitchen",
+              "A.kitchen_public_access"
+            ],
+            "permanent_open_arch"
+          ],
+          [
+            [
+              "A.public_access",
+              "lobby"
+            ],
+            "operable_sliding_study"
+          ],
+          [
+            [
+              "A.shower",
+              "A.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.WC",
+              "B.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.bath",
+              "B.public_access"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "B.bed1",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.bed2",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.bed3",
+              "B.private_access"
+            ],
+            null
+          ],
+          [
+            [
+              "B.kitchen",
+              "B.kitchen_public_access"
+            ],
+            "permanent_open_arch"
+          ],
+          [
+            [
+              "B.public_access",
+              "lobby"
+            ],
+            "operable_sliding_study"
+          ],
+          [
+            [
+              "B.shower",
+              "B.vanity"
+            ],
+            "pocket_source113"
+          ],
+          [
+            [
+              "lift",
+              "lobby"
+            ],
+            "core_access_interface"
+          ],
+          [
+            [
+              "lobby",
+              "stair"
+            ],
+            "core_access_interface"
+          ]
+        ]
+      },
+      "intrinsic_state": "REQUIRES_CURRENT_MODEL_GATE_BOUND_HERE_NOT_INFERRED_FROM_SOURCE_REPLAY"
+    }
+  ],
+  "pairs": [
+    {
+      "ids": [
+        "row358",
+        "clamped359"
+      ],
+      "same_exact_role_graph_projection": true,
+      "D4_enumeration_needed_to_prove_projection_equal": false,
+      "verdict": "UNKNOWN_FULL_CANONICAL_SCHEMA_AND_MEMBER_GATE",
+      "distinctness_witness_present_in_projection": false,
+      "numeric_geometry_delta_not_counted_as_diversity": true
+    }
+  ],
+  "selected_for_delivery": false,
+  "counted_distinct_deliverable_options": 0,
+  "request_fulfilled": false,
+  "source": {
+    "sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+    "selector": "details > summary[text=Q14]",
+    "range": [
+      589116,
+      605668
+    ],
+    "algorithm": "1. Read DiversitySet and its source-bound shared raw-input/owner constraints. Verify each member own authorized program/profile; evaluate each candidate required intrinsic geometry/use against that program. Any proved member violation remains a member failure; missing authorization/evidence yields UNKNOWN.\n2. Enumerate exactly k*(k-1)/2 unordered whole-plan pairs. Do not discard a pair because authorized bedroom programs differ.\n3. Build role graphs for each member with core/unit partition, actual room/portal/access graph, source-bound bedroom/occupancy program and frontage allocation. Apply TOPOLOGY_CANONICAL D4 and role-preserving ID permutations; programme attributes cannot be erased to manufacture equivalence.\n4. If programs differ under source-authorized bedroom/program relation and both candidates are valid under their own program plus shared constraints, record the exact differing program attributes as a permitted semantic diversity witness. This is a diversity claim only, not superiority or same-program capacity comparison.\n5. For equal programs, or additional organizational differences, compare canonical topology/function schemas; colors/IDs/seed/mirror-only or numerical jitter without changed relations never count. Unsupported cross-program graph/functional relation yields UNKNOWN for that pair, not INVALID_BRIEF/invalid candidate.\n6. Count only options whose applicable member checks and all required distinctness pairs have complete witnesses. Up to six is not a guarantee. Unknown pair coverage cannot be filled with a fake option. No program reduction is authorized as repair merely to obtain difference."
+  },
+  "limitations": [
+    "Projection equality is exact, not whole canonical equivalence proof",
+    "Whole Q14 requires all applicable own-program intrinsic gates and genuine program-or-organization witness",
+    "No false rejection from unsupported canonicalization; no fake second option from hall-length change"
+  ]
+}

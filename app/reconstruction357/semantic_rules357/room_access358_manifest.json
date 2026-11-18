@@ -1,0 +1,14 @@
+{
+  "files": {
+    "intrinsic_access358.py": "c5d87ff97289893f8113479f57ca5a6790570b3ca8e36c0bd0c506623ec85669",
+    "closure_room_program358.py": "a5ae6b1be6e825cc04ccffb71d29156245f8a27b90a98ec3b43e5c33c145ea1a",
+    "primitive_review358.py": "9cb9a11a6bf2395f0a56eae34e49c4484937ffbbfe3884fe6ca513c39c3b6ddd",
+    "primitive_review358_manifest.json": "02b909541a82cfbc31d430ed9f7479f7467a675cc80d1e7bfa35afca3b8c92ff",
+    "test_room_access358.py": "8db64104baf3d60c05a08ff09b5859e9e667f0d6cc18211c907abe21b2e9a5f6",
+    "room_access_actual358.json": "ffd57770dbe0a9ece00fc5a223e81f3caaf9535b3e5abf7495f266c62a35ec18"
+  },
+  "tests": 6,
+  "passed": 6,
+  "fresh": false,
+  "audit": "PENDING"
+}

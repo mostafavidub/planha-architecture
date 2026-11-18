@@ -1,0 +1,31 @@
+{
+  "all_checks_passed": true,
+  "checks": {
+    "full_frozen_sources_and_evidence_unchanged": true,
+    "result_current_binding": true,
+    "payload_exact_current_inputs": true,
+    "payload_bytes_unchanged": true,
+    "supervision_clean": true,
+    "tracked_worker_gone": true,
+    "no_kernel_exceptions": true,
+    "eleven_unique_parents": true,
+    "original_parent_unknown_preserved": true,
+    "no_old_proof_attestation": true,
+    "no_new_fresh": true,
+    "all_evidence_outer_binding": true,
+    "nine_prerequisites_recomputed_pass": true,
+    "author_contract_unchanged": true,
+    "four_bound_proofs_computed": true,
+    "original_result_still_immutable": true
+  },
+  "frozen_file_count": 10326,
+  "changed": [],
+  "tracked_alive": [],
+  "seconds": 12.231027069999982,
+  "subset_predicates": {
+    "OPENINGS_REAL": true,
+    "LIVING_USEFUL_CONTIGUITY": true,
+    "GUEST_ROUTE_INDEPENDENCE": true,
+    "KITCHEN_PROXIMITY": true
+  }
+}

@@ -1,0 +1,6 @@
+{"phase": "construct", "status": "STARTED", "budget": 45}
+{"phase": "construct", "status": "COMPLETED"}
+{"phase": "fresh", "status": "STARTED", "budget": 90}
+{"phase": "fresh", "status": "COMPLETED"}
+{"phase": "audit", "status": "STARTED", "budget": 5}
+{"phase": "audit", "status": "COMPLETED"}

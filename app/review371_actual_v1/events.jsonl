@@ -1,0 +1,4 @@
+{"phase": "propose", "budget": 3, "status": "STARTED"}
+{"phase": "construct", "budget": 90, "status": "STARTED"}
+{"phase": "fresh", "budget": 90, "status": "STARTED"}
+{"phase": "compare", "budget": 3, "status": "STARTED"}

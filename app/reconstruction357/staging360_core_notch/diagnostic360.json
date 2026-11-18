@@ -1,0 +1,168 @@
+{
+  "model_digest": "b8818f425071ef5096e71198b3564f8c342a04f050b64e6e1d199ad330830451",
+  "parent_model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+  "net_floor": [
+    {
+      "unit": "A",
+      "before_net_room_union_m2": "161627/500",
+      "after_net_room_union_m2": "649643/2000",
+      "net_geometric_floor_nondeterioration": true,
+      "functional_use_nondeterioration": "NOT_ESTABLISHED"
+    },
+    {
+      "unit": "B",
+      "before_net_room_union_m2": "161627/500",
+      "after_net_room_union_m2": "161627/500",
+      "net_geometric_floor_nondeterioration": true,
+      "functional_use_nondeterioration": "NOT_ESTABLISHED"
+    }
+  ],
+  "route_failures": [],
+  "new_core": {
+    "kind": "COMPACT_CORE_SOUTH_LIFT_NOTCH360",
+    "band": [
+      ".25",
+      "12.625",
+      "25.75",
+      "15.375"
+    ],
+    "stair": [
+      "8.425",
+      "12.775",
+      "12.975",
+      "15.225"
+    ],
+    "lift": [
+      "15.925",
+      "13.575",
+      "17.575",
+      "15.225"
+    ],
+    "lobby": [
+      [
+        "13.125",
+        "12.625",
+        "15.775",
+        "15.375"
+      ]
+    ],
+    "entry_centers": {
+      "A": [
+        "13.825",
+        "12.55"
+      ],
+      "B": [
+        "13.825",
+        "15.45"
+      ]
+    },
+    "units": {
+      "A": [
+        ".25",
+        ".25",
+        "25.75",
+        "12.475"
+      ],
+      "B": [
+        ".25",
+        "15.525",
+        "25.75",
+        "27.75"
+      ]
+    },
+    "assumptions": [
+      "Stair/lift clear rectangles preserve source dimensions; structural/vertical circulation certification is not established.",
+      "Only one central-band topology is currently implemented. Failure is not global infeasibility.",
+      "Common graph begins at modeled stair/lift doors on this storey, not a proven street entrance.",
+      "Compact 9.45m central core alternative preserves clear stair4.55x2.45 and lift1.65x1.65; outside-band wings are exact unit-owned floor, not promised useful rooms.",
+      "Old full-band topology preserved for comparison; centered entry shift can require different functional placement."
+    ],
+    "unit_ownership": {
+      "A": [
+        [
+          ".25",
+          ".25",
+          "25.75",
+          "12.475"
+        ],
+        [
+          "0.25",
+          "12.475",
+          "8.275",
+          "13.925"
+        ],
+        [
+          "17.725",
+          "12.475",
+          "25.75",
+          "13.925"
+        ],
+        [
+          "15.925",
+          "12.475",
+          "17.575",
+          "13.425"
+        ]
+      ],
+      "B": [
+        [
+          ".25",
+          "15.525",
+          "25.75",
+          "27.75"
+        ],
+        [
+          "0.25",
+          "14.075",
+          "8.275",
+          "15.525"
+        ],
+        [
+          "17.725",
+          "14.075",
+          "25.75",
+          "15.525"
+        ]
+      ]
+    },
+    "core_extent_x": [
+      "8.275",
+      "17.725"
+    ],
+    "outside_band_unit_separator_y": [
+      "13.925",
+      "14.075"
+    ],
+    "notch360": {
+      "branch": "FIXED_LITERAL_SOUTH_LIFT_TAIL",
+      "removed_lobby_tail": [
+        "15.775",
+        "12.625",
+        "17.575",
+        "13.425"
+      ],
+      "new_A_floor_ownership": [
+        "15.925",
+        "12.475",
+        "17.575",
+        "13.425"
+      ],
+      "new_separator": [
+        "15.775",
+        "12.475",
+        "15.925",
+        "13.425"
+      ],
+      "A_horizontal_boundary_end": "15.775",
+      "source_compact_digest": "2391c6cd08acbd32ad0226d7f0e99a651771640deb0245d924fdf1c1c277f268",
+      "function_of_transferred_floor": "UNKNOWN_PENDING_INDEPENDENT_USE_PROOF",
+      "absence_of_required_maneuver": "NOT_PROVEN_BY_CURRENT_PATH_FOOTPRINT"
+    }
+  },
+  "seconds": 7.945366538999224,
+  "fresh_executed": false,
+  "solver_executed": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "transferred_floor_function": "UNKNOWN"
+}

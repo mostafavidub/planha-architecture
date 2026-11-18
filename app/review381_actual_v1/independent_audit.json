@@ -1,0 +1,61 @@
+{
+  "schema": "381_INDEPENDENT_POSTRUN_SCOPED_AUDIT",
+  "binding": {
+    "record_digest": "f31dad0893192442fc2e44e895e796100d0d215aa0b3fad8298162d19fcfb201",
+    "fresh_digest": "e0adc8ba5792de35afb26db0df438bf59dc1f869b5c2a082971658284ad1e264",
+    "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+    "review_id": "acd414ca-411e-4fe3-906e-f6d4e8d7995d",
+    "candidate_id": "e69bec71a2352923b6db2b3f60629134fe83a3cdece21f811607cb8d6bd4f15e",
+    "run_id": "02dc5f92-93b6-4466-be6c-5114e96bc636",
+    "current_source_inventory_digest": "0e415e15a747b563d94d9e49c2ba052c73b63975e45fba6e665dbd9cc03351ca",
+    "request_envelope_digest": "3746c92104e08e3377fcbe57a2044ddb39a42a35a06e5b01f2987b9a8e21883a",
+    "form_binding_digest": "96afbd73168bd93ef9aaaa8edf09e5256753bfb8334f3eb634540c6e033c6be8",
+    "test_only": false
+  },
+  "raw_result_sha256": "927cb0a6482899268140fba0d57eda4eabfbc60ddf63879508407356a910332c",
+  "raw_result_digest": "732195d2ac20b8b8e254b01dd04e5f780646b0bc6efde01eb9f25514850227a1",
+  "checks": {
+    "current_binding": true,
+    "all_source_pins": true,
+    "clean": true,
+    "no_capture_errors": true,
+    "evidence_bindings": true,
+    "nine_prereqs": true,
+    "intrinsic18": true,
+    "no_admission": true,
+    "not_newfresh": true,
+    "raw_parents_unknown": true,
+    "author_sources": true,
+    "q04_tradeoff": true,
+    "outer_evidence_bindings": true,
+    "only_cohort_integration_error": true
+  },
+  "seven_scoped_predicates": {
+    "OPENINGS_REAL": true,
+    "LIVING_USEFUL_CONTIGUITY": true,
+    "GUEST_ROUTE_INDEPENDENCE": true,
+    "KITCHEN_PROXIMITY": true,
+    "ROOM_PROGRAM_CAPACITY": true,
+    "BEDROOM_GROUPING": true,
+    "SERVICE_COMPACTNESS": true
+  },
+  "q04_counts": {
+    "current_better": 28,
+    "baseline_better": 16,
+    "equal": 99,
+    "total": 143
+  },
+  "kernel_predicate_source": "semantic_rules357/engine365_v3.py lines61-89 applied to recomputed current379 evidence, not oldPASS",
+  "kernel_sha256": "3aba5bc316d4e053ac711f8bc8a7ec8fbee17a218da0bd6877b7319a015da90d",
+  "parent_verdict_scope": "stored current379 source profile only; not full semantic approval or delivery",
+  "semantic_qualification": "UNKNOWN_FIVE_REMAINING_GATES",
+  "accepted": false,
+  "delivery_allowed": false,
+  "explicit_unresolved": [
+    "HISTORICAL_COHORT_TRANSLATED357_PROOF_BINDING_FAILED",
+    "FINITE_RANK2_UNASSESSED",
+    "Q04_DEPENDENT_WALL_PURPOSE",
+    "WHOLE_ROLE_JOIN_UNCLOSED",
+    "ONE_BRANCH_NOT_TWO_SELECTED_OPTIONS"
+  ]
+}

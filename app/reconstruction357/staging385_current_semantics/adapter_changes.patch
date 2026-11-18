@@ -1,0 +1,480 @@
+--- reconstruction357/staging381_role_semantics/cohort381.py
++++ reconstruction357/staging385_current_semantics/cohort385.py
+@@ -1,46 +1,40 @@
+-"""All named historical alternatives retained; new finite rank2 stays unassessed."""
+-import ast,json,hashlib,sys
+-from fractions import Fraction as F
+-from pathlib import Path
+-from gate381 import ROOT,D,validate
+-SEM=ROOT/'semantic_rules357'
+-def read(path):return json.loads((ROOT/path).read_text())
+-def kernels():
+- import comparison_metrics as metrics
+- ns={'F':F,**{k:getattr(metrics,k)for k in('measure_model','route_metrics','rectangle_union_area')}}
+- for path,names in [('finite_comparison358/q04_closure359.py',{'dimensions'}),('finite_comparison365/q04_closure365_v7.py',{'objective','compare'})]:
+-  code=(ROOT/path).read_text();nodes=[n for n in ast.parse(code).body if isinstance(n,ast.FunctionDef)and n.name in names]
+-  if {n.name for n in nodes}!=names:raise ValueError('UNCHANGED_COMPARISON_FUNCTIONS')
+-  exec(compile(ast.Module(body=nodes,type_ignores=[]),'<UNCHANGED_Q04>','exec'),ns)
+- return ns
++"""Current finite cohort; current rank2 comparison plus exact-readset history.
++Rank2 intrinsic384 is an explicitly stored proof for immutable actual383, not
++new385 semantic execution of rank2. Current rank1 intrinsic is freshly computed.
++"""
++import copy,sys
++from gate385 import validate,D,ROOT,W
++from frozen385 import read,module
+ 
+-def evaluate(record,fresh):
+- binding=validate(record,fresh);m=record['candidate']['model'];ns=kernels();pairs=[];ledger=read('finite_comparison358/bound_comparison_actual358.json')
+- first={x['id']:x for x in ledger['members']}
+- definitions=[('baseline351','actual_run/actual_response.json',None,None),('translated357','staging357_comparative/attached_service_final357.json','review357_source_validation/result.json','eligibility_intrinsic_actual357_finalpin.json'),('row358','staging358_comparative/row_candidate358.json','review358_source_validation/result.json','eligibility_intrinsic_actual358.json'),('clamped359','staging359_hall_clamp/actual359.json','review359_source_validation/result.json','eligibility_intrinsic_actual359.json'),('notched362','staging362_core_notch/actual362.json','review362_source_validation/result.json','eligibility_intrinsic_actual362.json'),('service_anchor365','staging365_service_grammar/candidate365.json','review365_service_source_validation/result.json','eligibility_intrinsic_service_actual365.json'),('balanced365','staging365_balanced_portals/actual365.json','review365_balanced_source_validation/result.json','eligibility_intrinsic_actual365.json'),('joint367','review367_joint_attempt2/actual367.json','review367_joint_source_validation_attempt2/result.json','eligibility_intrinsic_actual367.json')]
+- for name,path,fp,ep in definitions:
+-  r=read(path);c=r['selected'][0]if name=='baseline351'else r['candidate'];bm=c['model'];eligible=False;why=[]
+-  if c['request']!=record['candidate']['request']or any(bm[k]!=m[k]for k in('program','profile','inputs')):raise ValueError('SAME_BRIEF_PROGRAM_PROFILE:'+name)
+-  if name=='baseline351':
+-   row=first[name];e=row['eligibility'];proof=e['result']
+-   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=row['artifact_sha256']or D(bm)!=row['model_digest']or D(proof)!=e['result_digest']:raise ValueError('BASE351_LEDGER_BINDING')
+-   eligible=proof['verdict']=='PASS'and proof['eligible']and proof['evidence']['model_digest']==D(bm)
+-   history={'type':'PINNED_OLD_LEDGER_INTRINSIC_PROOF','proof':proof,'ledger_digest':D(ledger),'recomputed':False}
+-  else:
+-   bf=read(fp);proof=read('semantic_rules357/'+ep)
+-   if bf['input_record_digest']!=D(r)or bf['model_digest']!=D(bm)or proof['evidence']['record_digest']!=D(r)or proof['evidence']['new_result_digest']!=D(bf)or proof['evidence']['model_digest']!=D(bm):raise ValueError('BASELINE_OWN_FRESH_ELIGIBILITY:'+name)
+-   eligible=proof['verdict']=='PASS'and proof['eligible'];history={'type':'PINNED_OWN_FRESH_AND_INTRINSIC_PROOF','fresh_digest':D(bf),'proof':proof,'recomputed':False}
+-  comparison=ns['compare'](m,bm)
+-  pairs.append({'id':name,'artifact':path,'artifact_sha256':hashlib.sha256((ROOT/path).read_bytes()).hexdigest(),'model_digest':D(bm),'eligible':eligible,'historical_eligibility':history,'comparison':comparison,'retained':True})
+- sys.path.insert(0,str(ROOT/'finite_comparison358'));from q04_closure362_v2 import full_band_current
+- fullband=full_band_current(record)
+- sys.path.insert(0,str(ROOT/'finite_comparison367'));from source_property366 import evaluate as draft366
+- joint=read('review367_joint_attempt2/actual367.json');draft=draft366(joint)
+- from comparison_metrics import rectangle_union_area
+- area=rectangle_union_area(m['common_spaces']['lobby'])
+- if area!=rectangle_union_area(joint['candidate']['model']['common_spaces']['lobby']):raise ValueError('DRAFT366_CURRENT_AREA_REBIND')
+- draft.update(current_model_digest=D(m),current=str(area),binding_note='Exact measured common area equals bound367 value; source property only, no366 construction or eligibility claim.')
+- failed=read('staging364_balanced_portals/actual364.json');diag=read('review364_diagnostic/geometry_operations.json')
+- from family378 import enumerate_family,load_parent
+- choices=enumerate_family(load_parent())
+- return {'schema':'CURRENT378_NAMED_HISTORICAL_COHORT381','binding':binding,'pairs':pairs,'all_named_historical_pairs_recomputed':len(pairs)==8,'all_named_historical_dominance_refuted':all(x['comparison']['dominance']=='FALSE'for x in pairs),'all_historical_eligibility_bound':all(x['eligible']for x in pairs),'historical_eligibility_recomputed':False,'current_intrinsic_source':'RECOMPUTED_ESSENTIAL381_CURRENT379_IN_SAME_SEMANTIC_RUN','full_band_current':fullband,'draft366_conditional_property':draft,'failed364_retained':{'record_digest':D(failed),'diagnostic_digest':D(diag),'operation_result':diag['door_operations'],'eligible':False,'global_infeasibility_claimed':False},'new_finite_family':{'choices':choices,'rank0':'ORIGINAL_MIDPOINT365_COMPARISON_RETAINED','rank1':'CURRENT378_ACTUAL_SCOPED_PASS','rank2':'UNASSESSED_NO_MODEL_NO_FRESH_NO_DOMINANCE_PROOF'},'remaining':['REGISTERED_FINITE378_RANK2_NOT_CONSTRUCTED_OR_REVIEWED'],'scope_exclusions':['CONTINUOUS_DOMAIN_AND_GLOBAL_OPTIMALITY_NOT_CLAIMED'],'full_q04_closed':False,'verdict':'UNKNOWN_NEW_FINITE_MEMBER_UNASSESSED','global_optimum':False,'accepted':False}
++def evaluate(record,fresh,intrinsic):
++ binding=validate(record,fresh)
++ path=ROOT/'staging384_rank2_semantics';spec=read(path/'inputs.json')
++ alternative={k:read(W/spec[k]['path'])for k in('record','fresh')}
++ proof=read(W/'review384_actual_v1/result.json')
++ ar,af=alternative['record'],alternative['fresh']
++ rank2_gate=module(path/'gate384.py','_current385_rank2_gate384');rank2_binding=rank2_gate.validate(ar,af)
++ if proof['binding']!=rank2_binding:raise ValueError('AUTHENTIC_RANK2_SOURCE_GATE')
++ supervision=read(W/'review384_actual_v1/supervision.json');pre=read(W/'review384_actual_v1/preregistration.json');unchanged=read(W/'review384_actual_v1/source_unchanged.json');state=read(W/'review384_actual_v1/state.json')
++ if not(supervision.get('reason')=='COMPLETED'and supervision.get('worker_returncode')==0 and supervision.get('worker_reaped')is True and supervision.get('cleanup_verified')is True and supervision.get('unresolved')==[] and unchanged.get('verified')is True and state.get('state')=='COMPLETED'):raise ValueError('RANK2_INTRINSIC_EXECUTION_NOT_VERIFIED')
++ if pre['binding']!=rank2_binding:raise ValueError('RANK2_INTRINSIC_PREREGISTRATION_BINDING')
++ from frozen385 import bytes_for
++ import hashlib
++ if hashlib.sha256(bytes_for(W/'review384_preaudit/source_freeze.json')).hexdigest()!=pre['freeze_sha256']:raise ValueError('RANK2_INTRINSIC_SOURCE_FREEZE')
++ if proof.get('schema')!='ACTUAL383_RANK2_INTRINSIC_AND_CURRENT379_FINITE_JOIN384'or proof.get('rank2_intrinsic_recomputed')is not True:raise ValueError('AUTHENTIC_RANK2_INTRINSIC_REQUIRED')
++ if any(proof['binding'].get(k)!=v for k,v in {'record_digest':D(ar),'fresh_digest':D(af),'model_digest':D(ar['candidate']['model'])}.items()):raise ValueError('RANK2_PROOF_BINDING')
++ if ar['trace']['schema']!='FINITE_PORTALS383_SOURCE_TRACE_V1'or ar['trace']['selection_rank']!=2:raise ValueError('ACTUAL_RANK2_SOURCE_REQUIRED')
++ ai=proof['evidence']['rank2_intrinsic']
++ compare=module(path/'cohort384.py','_current385_cohort384')
++ # This call verifies the actual383 own record/fresh/intrinsic correspondence.
++ compare.bind_intrinsic(ar,af,ai)
++ historical=read(W/'review382_actual_v1/result.json');old_digest=D(historical)
++ if historical['binding']['model_digest']!=D(record['candidate']['model']):raise ValueError('HISTORICAL_TEMPLATE_MODEL_NOT_CURRENT')
++ # Recheck original history against the same full model before updating any
++ # current envelope. Old run identity never serves as current execution proof.
++ compare.verify_historical(historical,record)
++ out=compare.compare_registered(record,fresh,intrinsic,ar,af,ai,historical)
++ out.update(historical_comparisons_recomputed=False,historical_template_digest=old_digest,historical_comparison_reuse_scope='EXACT_PINNED382_OBJECT_IDENTICAL_FULL_CURRENT_MODEL_AND_BRIEF_WITH_EIGHT_OWN_RECEIPTS_RECHECKED',
++            rank2_intrinsic_proof_digest=D(proof),rank2_intrinsic_recomputed_in385=False,rank2_proof_reuse_scope='IMMUTABLE_ACTUAL383_OWN_RECORD_FRESH_INTRINSIC_ONLY',
++            current_intrinsic_recomputed_in385=True,old_rank1_parent_pass_reused=False)
++ validate(record,fresh)
++ return out
+--- reconstruction357/staging381_role_semantics/extended381.py
++++ reconstruction357/staging385_current_semantics/extended385.py
+@@ -1,28 +1,28 @@
+-"""Post-form379 reassessment; current primitives measured, no forced parent join."""
++"""Same-run385 balanced role computation; no automatic parent admission."""
+ import json,sys,time,copy
+ from pathlib import Path
+-from gate381 import ROOT,HERE,D,validate
++from gate385 import ROOT,HERE,D,validate
+ SEM=ROOT/'semantic_rules357'
+ sys.path[:0]=[str(HERE),str(SEM),str(ROOT/'staging378_finite_portals'),str(ROOT/'finite_comparison358')]
+ def run(record,fresh):
+  start=time.monotonic();before=D([record,fresh]);binding=validate(record,fresh)
+- from semantic381 import run as essential
++ from semantic385 import run as essential
+  e={'essential':essential(record,fresh)};errors={}
+  import common
+  common.REGISTRY_NAME='method_registry_source365.json'
+- from adapters381 import audit_loaded
++ from adapters385 import audit_loaded
+  audit_loaded()
+  def capture(key,fn):
+   try:e[key]=fn()
+   except Exception as error:errors[key]=type(error).__name__+':'+str(error)
+- from reassess_spatial381 import evaluate as spatial
+- from circulation_role381 import evaluate as circulation
+- from common_role_closure381 import evaluate as common_role
+- from entry_separation381 import evaluate as reservation
+- from balanced_access381 import evaluate as balance
+- from service381 import evaluate as service
+- from cohort381 import evaluate as cohort
+- from role_registry_model381 import room_inventory,DAG,ordered_dag
++ from reassess_spatial385 import evaluate as spatial
++ from circulation_role385 import evaluate as circulation
++ from common_role_closure385 import evaluate as common_role
++ from entry_separation385 import evaluate as reservation
++ from balanced_access385 import evaluate as balance
++ from service385 import evaluate as service
++ from cohort385 import evaluate as cohort
++ from role_registry_model385 import room_inventory,DAG,ordered_dag
+  from support_reservation365 import reconcile
+  capture('source_room_roles',lambda:room_inventory(record['candidate']['model'],common.rows(record['candidate']['model'],fresh['raw_report'])))
+  capture('spatial',lambda:spatial(record,fresh))
+@@ -32,9 +32,9 @@
+  capture('exact_balance',lambda:balance(record,fresh))
+  capture('service',lambda:service(record,fresh))
+  capture('public_reconciliation',lambda:reconcile(e['spatial']['support'],e['operational_reservation']))
+- capture('cohort',lambda:cohort(record,fresh))
++ capture('cohort',lambda:cohort(record,fresh,e['essential']['evidence']['intrinsic_eligibility']))
+  n={k:{'status':'UNKNOWN','missing':['REQUIRED_CURRENT_EVIDENCE_NOT_COMPLETE']}for k in DAG}
+- n['SOURCE_GATE']={'status':'PASS_REGISTERED_CURRENT379_ARTIFACT','binding':binding}
++ n['SOURCE_GATE']={'status':'PASS_REGISTERED_CURRENT385_SUPERVISED_MEMBER','binding':binding}
+  if 'source_room_roles'in e:n['SOURCE_ROOM_USE']={'status':'PASS_SCOPED_WHOLE_SOURCE_ROOM_ROLES','evidence':e['source_room_roles']};n['PARTITION']={'status':'PASS_EXACT_GEOMETRIC_PARTITION_NOT_ROLE_ACCEPTANCE','scope':'room_inventory requires exact named-floor inventory and same current partition row'}
+  rec=e.get('public_reconciliation',{})
+  if rec:n['PUBLIC_SUPPORT']={'status':'UNKNOWN_UNRESOLVED_FUNCTIONAL_EXTENT'if rec['unresolved_positive_extent']else'PASS_SCOPED_FUNCTIONAL_EXTENT_WITH_SEPARATE_NONUSABLE_OPERATIONAL_RESERVATION','evidence':rec}
+@@ -48,7 +48,7 @@
+  if core:n['COMMON_ROLE']={'status':core['verdict'],'evidence':core}
+  walls=e.get('spatial',{}).get('wall_purpose',{})
+  n['WALL_PURPOSE']={'status':'UNKNOWN_Q04_DEPENDENT_WALL_NECESSITY','evidence':walls,'actual_pending_wall_ids':[x['wall_id']for x in walls.get('rows',[])if not x['verdict'].startswith('PASS_')],'no_hardcoded_wall_count':True}
+- n['Q04_COMPARISON']={'status':'UNKNOWN_NEW_FINITE_RANK2_UNASSESSED','evidence':e.get('cohort'),'missing':['REGISTERED_FINITE378_RANK2_HAS_NO_MODEL_REVIEW_OR_DOMINANCE_COUNTERPROOF']}
++ n['Q04_COMPARISON']={'status':'UNKNOWN_FINITE_COHORT_JOIN_PENDING','evidence':e.get('cohort'),'missing':['CURRENT_FULL_COHORT_AND_BOUND_RANK2_INTRINSIC_PROOF_REQUIRED']}
+  n['Q12_PER_UNIT']={'status':'UNKNOWN_REQUIRED_ROLE_DEPENDENCIES','current_exact_balance':e.get('exact_balance'),'reservation_reconciled':rec,'scope':'No equality or dependency predicate waived; current exact metric mismatches remain UNKNOWN.'}
+  n['Q14_SELECTION_SET']={'status':'UNKNOWN_SELECTION_SET_NOT_SUPPLIED','requested_count':2,'actual_branch_count':1}
+  for k in ordered_dag():n[k]['depends_on']=DAG[k];n[k]['blocking_dependencies']=[x for x in DAG[k]if not n[x]['status'].startswith('PASS_')]
+@@ -56,4 +56,4 @@
+  parents['SERVICE_COMPACTNESS']={'verdict':'UNKNOWN_PENDING_INDEPENDENT_AUDIT'if svc.get('verdict')=='PASS_SCOPED_FINITE_SERVICE_COMPACTNESS'else'UNKNOWN_CURRENT_SERVICE_PROOF_INCOMPLETE','evidence_digest':D(svc),'model_digest':binding['model_digest']}
+  origins=audit_loaded();validate(record,fresh)
+  if before!=D([record,fresh]):raise ValueError('INPUT_MUTATION')
+- return {'schema':'POST_FORM379_ESSENTIAL_AND_ROLE_REASSESSMENT381','binding':binding,'evidence':e,'errors':errors,'nodes':n,'parent_candidates':parents,'source_module_origins':origins,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in e.items()},'new_fresh_checker_executed':False,'full_candidate_constructed':False,'source_prefix_geometry_reexecuted':True,'post_form_stored_artifact_reassessment':True,'same_browser_run_semantic_execution':False,'full_q04_closed':False,'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
++ return {'schema':'SAME_RUN385_ESSENTIAL_AND_ROLE_COMPUTATION','binding':binding,'evidence':e,'errors':errors,'nodes':n,'parent_candidates':parents,'source_module_origins':origins,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in e.items()},'new_fresh_checker_executed':False,'full_candidate_constructed':False,'source_prefix_geometry_reexecuted':True,'post_form_stored_artifact_reassessment':False,'same_browser_run_semantic_execution':True,'full_q04_closed':False,'accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
+--- reconstruction357/staging381_role_semantics/gate381.py
++++ reconstruction357/staging385_current_semantics/gate385.py
+@@ -1,47 +1,70 @@
+-"""Pinned actual379 form artifact authority; no new fresh execution or borrowed PASS."""
+-import copy,hashlib,json
++"""Same-run internal semantic authority, never a client-supplied proof gate.
++Configure once from a supervised balanced member folder; immutable snapshot plus
++own current request/record/fresh/binding file hashes replace historical pins.
++"""
++import copy,hashlib,json,sys
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent;ROOT=HERE.parent;W=ROOT.parent
+ D=lambda v:hashlib.sha256(json.dumps(v,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()).hexdigest()
++_STATE=None
++
++def _contract():
++ sys.path.insert(0,str(ROOT/'staging385_form'))
++ import contract385
++ if Path(contract385.__file__).resolve()!=ROOT/'staging385_form/contract385.py':raise ValueError('CURRENT_CONTRACT_ORIGIN')
++ return contract385
++
++def configure(folder,expected_freeze):
++ global _STATE
++ if _STATE is not None:raise ValueError('SEMANTIC_CONTEXT_ALREADY_CONFIGURED')
++ folder=Path(folder).resolve()
++ if not folder.is_relative_to(W)or folder.name!='balanced':raise ValueError('INTERNAL_BALANCED_FOLDER_REQUIRED')
++ # Includes whole source freeze, exact current source/member identity, and clean
++ # construction/fresh/bind subprocess receipts. No caller artifact flags suffice.
++ loaded=_contract().validate_member_folder(folder,expected_freeze,require_physical_pass=True)
++ paths={'record':folder/'record.json','fresh':folder/'fresh.json','binding':folder/'binding.json','request':folder.parent/'request.json'}
++ for k,p in paths.items():
++  if D(json.loads(p.read_text()))!=D(loaded[k]):raise ValueError('TRANSPORT_FILE_SNAPSHOT:'+k)
++ _STATE={'folder':folder,'expected_freeze':expected_freeze,'snapshot':copy.deepcopy(loaded),'paths':paths,'hashes':{k:hashlib.sha256(p.read_bytes()).hexdigest()for k,p in paths.items()}}
++ return validate(loaded['record'],loaded['fresh'])
++
+ def _load_all():
+- out={}
+- for k,s in json.loads((HERE/'inputs.json').read_text()).items():
+-  b=(W/s['path']).read_bytes()
+-  if hashlib.sha256(b).hexdigest()!=s['sha256']:raise ValueError('ACTUAL379_PIN:'+k)
+-  out[k]=json.loads(b)
+- return out
++ if _STATE is None:raise ValueError('INTERNAL_SAME_RUN_CONTEXT_REQUIRED')
++ for k,p in _STATE['paths'].items():
++  if hashlib.sha256(p.read_bytes()).hexdigest()!=_STATE['hashes'][k]:raise ValueError('CURRENT_MEMBER_FILE_CHANGED:'+k)
++ return copy.deepcopy(_STATE['snapshot'])
+ 
+ def load_inputs():
+- all=_load_all();return {k:all[k]for k in('record','fresh')}
++ all=_load_all();return {k:all[k]for k in ('record','fresh')}
+ 
+ def validate(record,fresh):
+  pinned=_load_all()
+- if D(record)!=D(pinned['record'])or D(fresh)!=D(pinned['fresh']):raise ValueError('UNREGISTERED_CURRENT_ARTIFACT')
++ if D(record)!=D(pinned['record'])or D(fresh)!=D(pinned['fresh']):raise ValueError('NOT_CURRENT_SUPERVISED_MEMBER')
+  c=record['candidate'];t=record['trace'];p=fresh['provenance'];m=c['model'];mh=D(m);raw=fresh['raw_report'];reg=fresh['expected_method_registry']
+- fields={'input_record_digest':D(record),'outer_trace_digest':D(t),'candidate_digest':D(c),'packet_digest':D(c['packet']),'model_hash':mh,'candidate_id':record['candidate_id'],'run_id':t['run_id'],'raw':c['request']}
+- if p.get('verified')is not True or any(p.get(k)!=v for k,v in fields.items()):raise ValueError('PROVENANCE_BINDING')
+- if fresh['input_record_digest']!=D(record)or fresh['outer_trace_digest']!=D(t)or fresh['model_digest']!=mh or c['model_digest']!=mh or D(c['packet']['world_model'])!=mh:raise ValueError('CURRENT_MODEL_BINDING')
+- if not fresh['fresh_checker_executed']or not fresh['source_unchanged']or not reg['built_before_evaluate']:raise ValueError('FRESH_NOT_EXECUTED')
++ b=pinned['binding'];request=pinned['request']
++ checked=_contract().validate_member(request,record,fresh,b,b['run_id'],kind='balanced')
++ if checked!=b:raise ValueError('LIVE_MEMBER_BINDING_CHANGED')
+  if raw['errors']or raw['pending']or raw['status']!='PASS_CONCEPT_SCOPED_REVIEW'or raw['model_hash']!=mh:raise ValueError('CURRENT_PHYSICAL_NOT_PASS')
+- if record['test_only']is not False or fresh['test_only']is not False or t['schema']!='FINITE_PORTALS378_SOURCE_TRACE_V1':raise ValueError('SOURCE_FAMILY')
+- request=pinned['request'];form=pinned['binding']
+- import types
+- path=ROOT/'staging368_final_pipeline/request_contract368.py';module=types.ModuleType('_pinned_request368');module.__file__=str(path);exec(compile(path.read_bytes(),str(path),'exec'),module.__dict__);module.verify(request)
+- if request['normalized_raw']!=c['request']:raise ValueError('FORM_NORMALIZED_REQUEST_BINDING')
+- form_expected={'run_id':t['run_id'],'candidate_id':record['candidate_id'],'review_id':fresh['review_id'],'record_digest':D(record),'fresh_digest':D(fresh),'model_digest':mh,**{k:request[k]for k in('raw_digest','canonical_request_digest','received_digest','transport_body_sha256')}}
+- if any(form.get(k)!=v for k,v in form_expected.items()):raise ValueError('FORM_RUN_RECORD_REVIEW_BINDING')
++ if record['test_only']is not False or fresh['test_only']is not False or t['schema']!='FINITE_PORTALS378_SOURCE_TRACE_V1':raise ValueError('BALANCED_SOURCE_FAMILY')
+  old=json.loads((ROOT/'semantic_rules357/method_registry_source365.json').read_text())
+  if reg['methods']!=old['methods']or reg['applicability']!=old['applicability']:raise ValueError('UNCHANGED_METHOD_KERNEL_REQUIRED')
+  for n,h in reg['sources'].items():
+   if hashlib.sha256((ROOT/n).read_bytes()).hexdigest()!=h:raise ValueError('CURRENT_SOURCE_CHANGED:'+n)
+- return {'record_digest':D(record),'fresh_digest':D(fresh),'model_digest':mh,'review_id':fresh['review_id'],'candidate_id':record['candidate_id'],'run_id':t['run_id'],'current_source_inventory_digest':D(reg['sources']),'request_envelope_digest':D(request),'form_binding_digest':D(form),'test_only':False}
++ return {'record_digest':D(record),'fresh_digest':D(fresh),'model_digest':mh,'review_id':fresh['review_id'],'candidate_id':record['candidate_id'],'run_id':t['run_id'],
++         'current_source_inventory_digest':D(reg['sources']),'request_envelope_digest':D(request),'form_binding_digest':D(b),'test_only':False,'authority':'SAME_RUN_SUPERVISED385_MEMBER'}
+ 
+ def views(record,fresh):
+  b=validate(record,fresh);c=record['candidate'];t=record['trace']
+- env={'schema':'CURRENT379_SEMANTIC381_VIEW','candidate_id':D(c),'raw':copy.deepcopy(c['request']),'packet':copy.deepcopy(c['packet']),'input_record_digest':D(record),'outer_trace_digest':D(t),'original_result_digest':D(fresh),'artifact_reassessment_only':True,'new_fresh_execution':False}
+- res={'schema':'CURRENT379_SEMANTIC381_RESULT','candidate_digest':D(env),'raw_fresh_report':copy.deepcopy(fresh['raw_report']),'original_result_digest':D(fresh),'input_record_digest':D(record),'outer_trace_digest':D(t),'artifact_reassessment_only':True,'new_fresh_execution':False}
++ env={'schema':'CURRENT385_SEMANTIC_VIEW','candidate_id':D(c),'raw':copy.deepcopy(c['request']),'packet':copy.deepcopy(c['packet']),'input_record_digest':D(record),'outer_trace_digest':D(t),'original_result_digest':D(fresh),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
++ res={'schema':'CURRENT385_SEMANTIC_RESULT','candidate_digest':D(env),'raw_fresh_report':copy.deepcopy(fresh['raw_report']),'original_result_digest':D(fresh),'input_record_digest':D(record),'outer_trace_digest':D(t),'artifact_reassessment_only':False,'new_fresh_execution':False,'same_pipeline_run':True}
+  return env,res,b
+ 
+ def validate_views(env,res):
+  i=load_inputs();a,b,_=views(i['record'],i['fresh'])
+  if D(env)!=D(a)or D(res)!=D(b):raise ValueError('CURRENT_VIEW_CHANGED')
++
++def verify_end():
++ i=_load_all()
++ loaded=_contract().validate_member_folder(_STATE['folder'],_STATE['expected_freeze'],require_physical_pass=True)
++ if any(D(loaded[k])!=D(i[k])for k in('record','fresh','binding','request')):raise ValueError('POST_SEMANTIC_AUTHORITY_CHANGED')
++ return validate(i['record'],i['fresh'])
+--- reconstruction357/staging381_role_semantics/semantic381.py
++++ reconstruction357/staging385_current_semantics/semantic385.py
+@@ -1,7 +1,7 @@
+-"""Current379 essential semantic reassessment; unresolved role DAG stays UNKNOWN."""
++"""Current385 essential semantic computation; unresolved role DAG stays UNKNOWN."""
+ import ast,json,sys,time,copy
+ from fractions import Fraction as F
+-from gate381 import HERE,ROOT,D,validate
++from gate385 import HERE,ROOT,D,validate
+ SEM=ROOT/'semantic_rules357'
+ sys.path.insert(0,str(SEM));sys.path.insert(0,str(HERE))
+ RULES=('SPACE_ACCOUNTING','GUEST_ROUTE_INDEPENDENCE','LIVING_USEFUL_CONTIGUITY','CIRCULATION_NECESSITY','ROOM_PROGRAM_CAPACITY','BEDROOM_GROUPING','SERVICE_COMPACTNESS','COMMON_CORE_COMPACTNESS','PRIVACY_WITHOUT_FAKE_BAFFLE','OPENINGS_REAL','KITCHEN_PROXIMITY','DISTINCTNESS_AND_FAIRNESS')
+@@ -22,22 +22,22 @@
+ def run(record,fresh):
+  start=time.monotonic();binding=validate(record,fresh);before=D([record,fresh]);m=record['candidate']['model'];raw=fresh['raw_report'];evidence={};errors={}
+  import common
+- from adapters381 import audit_loaded
++ from adapters385 import audit_loaded
+  origins_before=audit_loaded()
+  common.REGISTRY_NAME='method_registry_source365.json'
+- from groups381 import build
++ from groups385 import build
+  view=build(record,fresh);evidence['nine_prerequisites']=view['groups']
+  def capture(key,fn):
+   try:evidence[key]=fn()
+   except Exception as error:errors[key]=type(error).__name__+':'+str(error)
+- from primitive381 import evaluate as primitive
++ from primitive385 import evaluate as primitive
+  capture('primitive',lambda:primitive(m,raw,source_profile='SOURCE_BALANCED365',post_fresh={**view,'seconds':10}))
+- import closure_openings,intrinsic_access365,room381,eligibility381,bedroom381,author233_spatial_mapping
++ import closure_openings,intrinsic_access365,room385,eligibility385,bedroom385,author233_spatial_mapping
+  capture('openings',lambda:closure_openings.evaluate(m,raw))
+  capture('intrinsic_access',lambda:intrinsic_access365.evaluate(m,raw,profile='SOURCE_BALANCED365'))
+- capture('intrinsic_eligibility',lambda:eligibility381.evaluate(record,fresh,seconds=30))
+- capture('room_program',lambda:room381.evaluate(record,fresh))
+- capture('bedroom_grouping',lambda:bedroom381.evaluate(record,fresh,seconds=15))
++ capture('intrinsic_eligibility',lambda:eligibility385.evaluate(record,fresh,seconds=30))
++ capture('room_program',lambda:room385.evaluate(record,fresh))
++ capture('bedroom_grouping',lambda:bedroom385.evaluate(record,fresh,seconds=15))
+  capture('q04_baseline365',lambda:q04(m))
+  closures=evidence.get('primitive',{}).get('source_closures',{})
+  capture('author_mapping',lambda:author233_spatial_mapping.evaluate(view['envelope'],closures.get('living_closure',{}),closures.get('guest_closure',{})))
+@@ -54,7 +54,7 @@
+  'DISTINCTNESS_AND_FAIRNESS':['ONLY_ONE_BRANCH_OF_TWO_REQUESTED','NO_QUALIFIED_OPTION_SET']}
+  quality=[]
+  for rid in RULES:
+-  entry={'rule_id':rid,'verdict':'UNKNOWN','model_digest':binding['model_digest'],'scope':'CURRENT379_STORED_ARTIFACT_ONLY','missing':missing.get(rid,['INDEPENDENT_AUDIT_OF_CURRENT_EVIDENCE_REQUIRED']),'base_result':base.get(rid),'old_parent_pass_reused':False}
++  entry={'rule_id':rid,'verdict':'UNKNOWN','model_digest':binding['model_digest'],'scope':'CURRENT385_PRIMITIVES_BEFORE_FINAL_JOIN','missing':missing.get(rid,['INDEPENDENT_AUDIT_OF_CURRENT_EVIDENCE_REQUIRED']),'base_result':base.get(rid),'old_parent_pass_reused':False}
+   if rid in missing:entry['blocker_kind']='TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION'
+   keys={'OPENINGS_REAL':'openings','LIVING_USEFUL_CONTIGUITY':'primitive','GUEST_ROUTE_INDEPENDENCE':'primitive','KITCHEN_PROXIMITY':'primitive','ROOM_PROGRAM_CAPACITY':'room_program','BEDROOM_GROUPING':'bedroom_grouping'}
+   key=keys.get(rid)
+@@ -63,4 +63,4 @@
+  origins_after=audit_loaded()
+  validate(record,fresh)
+  if D([record,fresh])!=before:raise ValueError('INPUT_MUTATION')
+- return {'schema':'CURRENT379_ESSENTIAL_SEMANTICS381','binding':binding,'module_origins':{'before':origins_before,'after':origins_after},'quality':quality,'evidence':evidence,'errors':errors,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in evidence.items()},'fresh_checker_executed':False,'construction_executed':False,'semantic_reassessment_executed':True,'semantic_qualification':'UNKNOWN_PENDING_FULL_ROLE_AND_COMPARISON_CLOSURE','accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
++ return {'schema':'CURRENT385_ESSENTIAL_SEMANTICS','binding':binding,'module_origins':{'before':origins_before,'after':origins_after},'quality':quality,'evidence':evidence,'errors':errors,'evidence_bindings':{k:{**binding,'evidence_digest':D(v)}for k,v in evidence.items()},'fresh_checker_executed':False,'construction_executed':False,'semantic_reassessment_executed':True,'same_pipeline_run_semantic_execution':True,'semantic_qualification':'UNKNOWN_PENDING_FULL_ROLE_AND_COMPARISON_CLOSURE','accepted':False,'delivery_allowed':False,'request_fulfilled':False,'seconds':time.monotonic()-start}
+--- reconstruction357/staging381_role_semantics/test381.py
++++ reconstruction357/staging385_current_semantics/test385.py
+@@ -1,43 +1,106 @@
+-import unittest,sys,copy,ast,types
++"""Pure mocked-authority gate tests, not same-run semantic execution evidence."""
++import unittest,json,copy,sys,tempfile,types,hashlib,ast
++from pathlib import Path
+ from unittest.mock import patch
+-from pathlib import Path
+-H=Path(__file__).resolve().parent;R=H.parent;sys.path[:0]=[str(H),str(R/'semantic_rules357'),str(R/'staging378_finite_portals')]
+-import gate381 as g
+-class Tests(unittest.TestCase):
+- def setUp(self):self.i=g.load_inputs()
+- def test_current379_binding(self):self.assertEqual(g.validate(**self.i)['run_id'],'02dc5f92-93b6-4466-be6c-5114e96bc636')
+- def test_prior378_rejected(self):
+-  import json
+-  old=Path('independent378actual/evidence/review378_actual_v1')
+-  with self.assertRaises(ValueError):g.validate(json.loads((old/'record.json').read_text()),json.loads((old/'fresh.json').read_text()))
+- def test_model_tamper(self):
+-  self.i['record']['candidate']['model']['inputs'][0]='27'
+-  with self.assertRaises(ValueError):g.validate(**self.i)
+- def test_exact_rank1_selection(self):
+-  from entry_separation381 import require_registered_selection
+-  p=self.i['record']['candidate']['packet']['core']['balanced_portals365'];lo,hi,x=require_registered_selection(p);self.assertTrue(lo<x<hi);self.assertNotEqual(x,(lo+hi)/2)
+-  for field,value in [('finite_rank378',0),('entry_x',{'A':'15.05','B':'13.825'}),('slide_direction',{'A':1,'B':1})]:
+-   q=copy.deepcopy(p);q[field]=value
+-   with self.assertRaises(ValueError):require_registered_selection(q)
+- def test_midpoint_policy_rejected(self):
+-  from entry_separation381 import require_registered_selection
+-  p=copy.deepcopy(self.i['record']['candidate']['packet']['core']['balanced_portals365']);p['selection']='MIDPOINT_MAXIMIZES_MIN_COORDINATE_SLACK_WITHIN_WIDEST_FEASIBLE_COMPONENT'
+-  with self.assertRaises(ValueError):require_registered_selection(p)
+- def test_unequal_balance_not_pass(self):
+-  import balanced_access381 as b
+-  sys.path.insert(0,str(R/'balance363'));import assessor
+-  def mockroute(m,k):return {'route_id':k,'length_m':'1'if k.endswith('_A')else'2','turns':1,'fully_open_entry_passage_square_capacity':{'max_axis_aligned_square_width_m':'.7'},'unassessed':[]}
+-  required={k:{'status':'PASS_LIMITED'}for k in('core_concept','door_operation','opening_hosts','wall_network','partition_ledger')}
+-  with patch.object(b,'build',return_value={}),patch.object(b,'rows',return_value=required),patch.object(assessor,'model_route',side_effect=mockroute):
+-   out=b.evaluate(self.i['record'],self.i['fresh']);self.assertEqual(out['verdict'],'UNKNOWN_BALANCE_NOT_ESTABLISHED');self.assertFalse(any(x['equal_fixed_source_metrics']for x in out['comparisons']))
+- def test_no_candidate_optimization(self):
++H=Path(__file__).resolve().parent;W=H.parents[1];sys.path.insert(0,str(H))
++import gate385 as g
++class GateTests(unittest.TestCase):
++ def setUp(self):
++  old=W/'independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636'
++  self.data={k:json.loads((old/(k+'.json')).read_text())for k in('record','fresh','binding','request')}
++  self.tmp=tempfile.TemporaryDirectory(dir=W);self.folder=Path(self.tmp.name)/'balanced';self.folder.mkdir()
++  for k,v in self.data.items():
++   p=self.folder.parent/'request.json'if k=='request'else self.folder/(k+'.json');p.write_text(json.dumps(v))
++  g._STATE=None
++  self.contract=types.SimpleNamespace(validate_member_folder=lambda *a,**k:copy.deepcopy(self.data),validate_member=lambda env,r,f,b,rid,kind:copy.deepcopy(b))
++  self.p=patch.object(g,'_contract',return_value=self.contract);self.p.start()
++ def tearDown(self):self.p.stop();g._STATE=None;self.tmp.cleanup()
++ def test_no_unconfigured_authority(self):
++  with self.assertRaises(ValueError):g.load_inputs()
++ def test_mock_current_gate_binding(self):
++  b=g.configure(self.folder,'MOCK_FREEZE');self.assertEqual(b['model_digest'],self.data['fresh']['model_digest']);self.assertEqual(b['authority'],'SAME_RUN_SUPERVISED385_MEMBER')
++ def test_configure_once(self):
++  g.configure(self.folder,'MOCK_FREEZE')
++  with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
++ def test_input_tamper(self):
++  g.configure(self.folder,'MOCK_FREEZE');r=copy.deepcopy(self.data['record']);r['candidate']['model']['inputs'][0]='27'
++  with self.assertRaises(ValueError):g.validate(r,self.data['fresh'])
++ def test_file_tamper_after_configuration(self):
++  g.configure(self.folder,'MOCK_FREEZE');(self.folder/'fresh.json').write_text('{}')
++  with self.assertRaises(ValueError):g.load_inputs()
++ def test_physical_pending_rejected(self):
++  self.data['fresh']['raw_report']['pending']=['UNKNOWN'];(self.folder/'fresh.json').write_text(json.dumps(self.data['fresh']))
++  with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
++ def test_parent_authority_failure_rejected(self):
++  self.contract.validate_member_folder=lambda *a,**k:(_ for _ in()).throw(ValueError('RECEIPT_NOT_CLEAN'))
++  with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
++ def test_transported_snapshot_diff_rejected(self):
++  (self.folder/'binding.json').write_text('{}')
++  with self.assertRaises(ValueError):g.configure(self.folder,'MOCK_FREEZE')
++ def test_views_bound_to_current_inputs(self):
++  g.configure(self.folder,'MOCK_FREEZE');env,res,b=g.views(self.data['record'],self.data['fresh']);g.validate_views(env,res);env['packet']['world_model']['inputs'][0]='27'
++  with self.assertRaises(ValueError):g.validate_views(env,res)
++ def test_wrong_member_kind_folder(self):
++  with self.assertRaises(ValueError):g.configure(self.folder.parent,'MOCK_FREEZE')
++class SourceTests(unittest.TestCase):
++ def test_no_constructor_or_checker_execution_imports(self):
+   for p in H.glob('*.py'):
+    if p.name.startswith('test'):continue
+-   for node in ast.walk(ast.parse(p.read_text())):
+-    if isinstance(node,ast.ImportFrom):self.assertNotIn(node.module,('source378','evaluate378','checker114','constructor378'))
+- def test_rank2_not_silently_excluded(self):self.assertIn('UNASSESSED_NO_MODEL_NO_FRESH_NO_DOMINANCE_PROOF',(H/'cohort381.py').read_text())
+- def test_origin_reject(self):
+-  from adapters381 import load
+-  with patch.dict(sys.modules,{'groups381':types.SimpleNamespace(__file__='/tmp/forged.py')}):
+-   with self.assertRaisesRegex(ValueError,'SEMANTIC_MODULE_ORIGIN'):load('group_readsets365_v2')
++   for n in ast.walk(ast.parse(p.read_text())):
++    if isinstance(n,ast.ImportFrom):self.assertNotIn(n.module,('source378','evaluate378','checker114','constructor378','source383','evaluate383'))
++ def test_no_pinned_prior_input_loader(self):
++  s=(H/'gate385.py').read_text();self.assertNotIn('inputs.json',s);self.assertIn('validate_member_folder',s)
++class QualificationTests(unittest.TestCase):
++ def setUp(self):
++  p=W/'independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636';self.r=json.loads((p/'record.json').read_text());self.f=json.loads((p/'fresh.json').read_text());self.roles=json.loads((W/'review381_actual_v1/result.json').read_text())
++ def test_stored_primitives_not_member_admission(self):
++  from qualification385 import qualify
++  q=qualify(self.r,self.f,self.roles,None)
++  self.assertFalse(q['qualified']);self.assertEqual(q['q12_verdict'],'UNKNOWN');self.assertFalse(q['cohort_closed'])
++  for k in('OPENINGS_REAL','LIVING_USEFUL_CONTIGUITY','GUEST_ROUTE_INDEPENDENCE','KITCHEN_PROXIMITY','ROOM_PROGRAM_CAPACITY','BEDROOM_GROUPING','SERVICE_COMPACTNESS'):self.assertEqual(q['parent_verdicts'][k],'PASS')
++ def test_evidence_digest_tamper_rejected(self):
++  from qualification385 import qualify
++  self.roles['evidence']['exact_balance']['verdict']='PASS_FAKE'
++  with self.assertRaises(ValueError):qualify(self.r,self.f,self.roles,None)
++ def test_join_wrong_identity_rejected(self):
++  from qualification385 import qualify
++  with self.assertRaises(ValueError):qualify(self.r,self.f,self.roles,{'binding':{'record_digest':'wrong'}})
++class CanonicalSealTests(unittest.TestCase):
++ @classmethod
++ def setUpClass(cls):
++  # Pure composition of immutable historical evidence. No current-run claim,
++  # constructor, reviewer, intrinsic engine or geometric-role rerun occurs.
++  import importlib.util
++  R=H.parent;sys.path[:0]=[str(R/'semantic_rules357'),str(R/'staging381_role_semantics')]
++  import common;common.REGISTRY_NAME='method_registry_source365.json'
++  from gate381 import load_inputs,views
++  i=load_inputs();cls.r=i['record'];cls.f=i['fresh'];cls.roles=json.loads((W/'review381_actual_v1/result.json').read_text());cls.cohort=json.loads((W/'review384_actual_v1/result.json').read_text())['evidence']['cohort']
++  cls.roles=copy.deepcopy(cls.roles);cls.roles['evidence']['cohort']=cls.cohort;cls.roles['evidence_bindings']['cohort']={**cls.roles['binding'],'evidence_digest':g.D(cls.cohort)}
++  def direct(path,name):
++   spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
++  cls.direct=staticmethod(direct)
++  join=direct(R/'staging386_view_binding/final_join386.py','_pure_test_join386')
++  cls.raw=join.join(cls.r,cls.f,cls.roles,cls.cohort,views(cls.r,cls.f))
++ def contexts(self):
++  import semantic_seal385 as sealing
++  return sealing,patch.object(sealing,'bytes_for',side_effect=lambda p:Path(p).read_bytes()),patch.object(sealing,'module',side_effect=self.direct)
++ def test_canonical_seal_and_all_unit_sources(self):
++  sealing,a,b=self.contexts()
++  with a,b:
++   out=sealing.seal_current(self.r,self.f,self.roles,self.raw);sealing.dependency_tools().verify(out['nodes'],sealing.expected_dag())
++   node=out['nodes']['Q12_PER_UNIT'];self.assertIn('Q04_COMPARISON',node['sealed_dependency_digests'])
++   for u in node['evidence']:self.assertTrue(u['source_room_roles']);self.assertEqual(set(u['capacity_use_access_source_rows']),set(sealing.CAPACITY))
++ def test_complete_qualified_only_with_exact_sealed_provenance(self):
++  import frozen385
++  from qualification385 import qualify
++  sealing,a,b=self.contexts()
++  with a,b,patch.object(frozen385,'module',return_value=sealing):
++   out=sealing.seal_current(self.r,self.f,self.roles,self.raw)
++   q=qualify(self.r,self.f,self.roles,out);self.assertTrue(q['qualified']);self.assertEqual(set(q['parent_verdicts'].values()),{'PASS'})
++   for alteration in ('dependency','unit_source','balance'):
++    bad=copy.deepcopy(out)
++    if alteration=='dependency':bad['nodes']['Q12_PER_UNIT']['sealed_dependency_digests'].pop('Q04_COMPARISON')
++    elif alteration=='unit_source':bad['nodes']['Q12_PER_UNIT']['evidence'][0]['capacity_use_access_source_rows']={}
++    else:bad['nodes']['Q12_PER_UNIT']['evidence'][0]['balanced_access_digest']='forged'
++    with self.assertRaises(ValueError):qualify(self.r,self.f,self.roles,bad)
+ if __name__=='__main__':unittest.main()
+--- reconstruction357/staging381_role_semantics/worker381.py
++++ reconstruction357/staging385_current_semantics/worker385.py
+@@ -1,9 +1,11 @@
+-import json,sys,time
++"""Optional isolated entrypoint; orchestrator may call run_member directly."""
++import json,sys,time,traceback
+ from pathlib import Path
+-from gate381 import load_inputs
+ P=Path(sys.argv[1]);start=time.monotonic()
+ try:
+- from extended381 import run
+- i=load_inputs();result=run(i['record'],i['fresh']);(P/'result.json').write_text(json.dumps(result,indent=2))
+-except Exception as e:
+- (P/'error.json').write_text(json.dumps({'error':type(e).__name__+':'+str(e),'seconds':time.monotonic()-start}));raise
++ from integration385 import run_member
++ result=run_member(P,sys.argv[2])
++ with(P/'semantic.json').open('x')as f:json.dump(result,f,indent=2)
++except Exception as error:
++ with(P/'semantic_error.json').open('x')as f:json.dump({'error':type(error).__name__+':'+str(error),'traceback':traceback.format_exc(),'seconds':time.monotonic()-start},f,indent=2)
++ raise

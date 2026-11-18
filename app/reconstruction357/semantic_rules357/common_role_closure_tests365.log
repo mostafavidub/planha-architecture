@@ -1,0 +1,17 @@
+test_actual_clear_interior_witness (test_common_role_closure365.CommonRole362.test_actual_clear_interior_witness) ... ok
+test_actual_use_not_minrect_only (test_common_role_closure365.CommonRole362.test_actual_use_not_minrect_only) ... ok
+test_bound_alone_no_wholeclaim (test_common_role_closure365.CommonRole362.test_bound_alone_no_wholeclaim) ... ok
+test_closet_endpoints_outside_middle_crosses (test_common_role_closure365.CommonRole362.test_closet_endpoints_outside_middle_crosses) ... ok
+test_extra_lobby_extent_unsupported (test_common_role_closure365.CommonRole362.test_extra_lobby_extent_unsupported) ... ok
+test_missing_actual_continuous_actor (test_common_role_closure365.CommonRole362.test_missing_actual_continuous_actor) ... ok
+test_missing_actual_required_route (test_common_role_closure365.CommonRole362.test_missing_actual_required_route) ... ok
+test_missing_fresh_operation (test_common_role_closure365.CommonRole362.test_missing_fresh_operation) ... ok
+test_obstacle_island_rejected (test_common_role_closure365.CommonRole362.test_obstacle_island_rejected) ... ok
+test_open_panel_intrusion_rejected (test_common_role_closure365.CommonRole362.test_open_panel_intrusion_rejected) ... ok
+test_stale_review (test_common_role_closure365.CommonRole362.test_stale_review) ... ok
+test_unknown_blocked_inventory_rejected (test_common_role_closure365.CommonRole362.test_unknown_blocked_inventory_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.943s
+
+OK

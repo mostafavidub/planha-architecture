@@ -1,0 +1,11 @@
+{
+  "files": {
+    "service365_private_evidence_v2.py": "90f6d34e084bfd90b955a63db92c072d78817b198b6e619bf904c19e8cc0e492",
+    "service365_private_evidence_v2_pins.json": "5c2f34c8c25cb5e8ecac790a94e37e7cd8a302ec43d6b3dc0c58df8f8a721b01",
+    "service365_private_actual_v2.json": "dae360f684cb6555eb2b9f4021ceb7e38b17c91990f0fb4ff05e51e7bf55cc7a",
+    "test_service_private_v2.py": "018a5611eb83782b4f00541ad85f9a21a8bed4d2a92060627c7db2f4c087304d"
+  },
+  "tests": 4,
+  "actual_same_sections_and_routes": true,
+  "no_parent_promotion": true
+}

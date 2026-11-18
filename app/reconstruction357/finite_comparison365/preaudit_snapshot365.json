@@ -1,0 +1,13 @@
+{
+  "schema": "Q04_SERVICE365_INITIAL_PREAUDIT_SNAPSHOT",
+  "files": {
+    "finite_comparison365/service_closure_actual365_vs362.json": "bb960d65c1241cc3aaceaf201a141bfdb6a5048ca9d482cd10790c3c61889927",
+    "finite_comparison365/service_closure_actual365.json": "2be42c4bebc2c591a7e9865c1438ffdd876e28b6a76cc6fa50817342d471729b",
+    "finite_comparison365/q04_current365_pending_v2.json": "e3820e414701cf343687c96fcf5e16e33782d15dfdcae322b2075558e18afed1",
+    "finite_comparison365/test_closures365.py": "ccf47c5b7ea9ae3c424b9fa46bf868cec3440cecbc3dffa0fafd6534e4b446ac",
+    "finite_comparison365/q04_closure365.py": "670f5313c75aa37858bfada337252014f9e26cc5e157fa339417f5ef4d54761b",
+    "finite_comparison365/q04_current365_pending.json": "f914b94b7b1587ea87bef5e7b9ddf77e5e9b89af5d8a8fc6dc64b27830871d8b",
+    "finite_comparison365/service_closure365.py": "7a46b9b4b1bfd695482856ac9fc7c1dfec942132554142ddc285a03f6a1e0b1b"
+  },
+  "scope": "Q04 pending true current gate; SERVICE own fresh finite baseline362and359 computed; no integrated acceptance"
+}

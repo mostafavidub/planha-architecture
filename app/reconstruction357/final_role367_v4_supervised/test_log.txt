@@ -1,0 +1,24 @@
+test_balance_exact_metrics_not_threshold (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_balance_exact_metrics_not_threshold) ... ok
+test_changed_model_rejected (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_changed_model_rejected) ... ok
+test_current_binding (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_current_binding) ... ok
+test_current_wall_inventory (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_current_wall_inventory) ... ok
+test_dependency_seals_current (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_dependency_seals_current) ... ok
+test_derived_metadata_not_aliased (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_derived_metadata_not_aliased) ... ok
+test_explicit_fairness_missing_in_parent (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_explicit_fairness_missing_in_parent) ... ok
+test_explicit_parent_bindings (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_explicit_parent_bindings) ... ok
+test_hall_exact_eight_closed (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_hall_exact_eight_closed) ... ok
+test_mutated_dependency_rejected (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_mutated_dependency_rejected) ... ok
+test_no_foreign_reservation_transferred (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_no_foreign_reservation_transferred) ... ok
+test_no_pending_role_parents (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_no_pending_role_parents) ... ok
+test_outputset_not_waived (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_outputset_not_waived) ... ok
+test_q10_current_evidence_closed (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_q10_current_evidence_closed) ... ok
+test_q12_independent_binding_and_predicate (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_q12_independent_binding_and_predicate) ... ok
+test_q12_internal_only (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_q12_internal_only) ... ok
+test_same_invocation_receipts_unchanged_after_seal (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_same_invocation_receipts_unchanged_after_seal) ... ok
+test_service_intrinsic_not_final_cycle (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_service_intrinsic_not_final_cycle) ... ok
+test_stale_review_rejected (test_role_registry_final_joint367_v4.FinalRoleJoint367.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 72.045s
+
+OK

@@ -1,0 +1,11 @@
+{
+  "files": {
+    "eligibility_intrinsic357_v2.py": "754211df4dcda2da88e9e54406269c75ffbf3c52f1038f2b5a53382d83ce6da7",
+    "eligibility_intrinsic357_v2_pins.json": "5aca21ce5e6e9f1a89414a65cd5efa5b8bb5a9ea3f4f1ec7e8cf3252bb8214f2",
+    "test_eligibility_intrinsic357_v2.py": "f6aa27778f76f6964fa941edfc9e793b3c1566e25a6f8cd95ae1fc0a4a30e97d",
+    "eligibility_intrinsic_baseline357_v2.json": "fc47c4dd2b7be6edff06658c521b0ebb32dfab9cf6af39e8282d5a5bc2f60b47",
+    "ELIGIBILITY_V2_FA.md": "c77e0bc98d93e80ee64c12281b538e047c2baa3b031c38fcaabfe318602b8b78"
+  },
+  "audit_pending": true,
+  "live_authority": false
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "JOINT367_OWN_CONSTRUCTOR_ORIGIN_ONLY",
+  "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+  "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+  "functional_role_proven": false,
+  "fresh_execution": false,
+  "base": {
+    "source": {
+      "file": "staging367_service_joint_attempt2/assemble367.py",
+      "sha256": "77cfe839c9d36878277f70c436d628ff435cdf0df9a2ffc3d8bc4bf919555ab0",
+      "selector": "Executed source367 constructor prefix with current joint core and pinned original source proposal; no fresh or functional role inference"
+    },
+    "wall_count": 22,
+    "mismatches": [],
+    "wall_digest": "345084dd726e2fd3da094ac4d12ab9b7a91220bb4ed33b144033bacbd6092e92"
+  },
+  "hall": {
+    "source": {
+      "file": "staging367_service_joint_attempt2/private_branch_hall367.py",
+      "sha256": "712f00a055ceb9ee82d09ad79b17c48b603ba9cca142ddacea868ad73490cda3",
+      "selector": "Executed source367 branch install prefix with current core.branch_end367 and original program transform",
+      "not_necessity_proof": true
+    },
+    "wall_count": 8,
+    "mismatches": [],
+    "wall_digest": "66a4a01a96e20bdfa773d1a0979a8dbfc9cf4cf353e2d52cb21914f0345498b1"
+  }
+}

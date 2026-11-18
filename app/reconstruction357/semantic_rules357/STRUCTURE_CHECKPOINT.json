@@ -1,0 +1,16 @@
+{
+  "scope": "RECONSTRUCTION357_NOT_HISTORICAL353",
+  "tests": {
+    "methods": 10,
+    "passed": 10,
+    "seconds": 0.353,
+    "scope": "pure and saved351 inventory; one mocked binding seam"
+  },
+  "fresh_or_solver": false,
+  "semantic_acceptance": "UNKNOWN_PENDING_RECOVERED_CONTRACT_AND_SOURCE_OBLIGATIONS",
+  "files": {
+    "applicability.py": "a5b3568e7fb4943b971ee06f6bcec7213ad19f06b265a7d025958b731b95b7b2",
+    "modules_structure.py": "483226e5a8b34597d02ad643b4a2f1af3b4aa2030d04ef6b961a079f4383eaba",
+    "test_structure.py": "7ef6d6fa93581a6845a3d4f5aa2ea3da059b350c4e8dbdfefc7336ef75b37797"
+  }
+}

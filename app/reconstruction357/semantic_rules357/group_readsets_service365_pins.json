@@ -1,0 +1,9 @@
+{
+  "schema": "SERVICE365_STORED_ARTIFACT_REASSESSMENT_ONLY",
+  "record_digest": "32686861e2c1e35196848798d43db889868f4c075c38e3933e5700564a78b3d4",
+  "result_digest": "378b01dffa39252ec47e6e5e288b28b49ca3c9fc18b6e35dec008917961de391",
+  "registry_sha256": "ceeebd989b5ebcee61c73e522567ef31fb5bd173fdb641d98f25b1adee43b7a3",
+  "bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+  "common_sha256": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+  "expected_schema": "SERVICE365_SOURCE_VALIDATION"
+}

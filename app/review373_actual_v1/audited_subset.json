@@ -1,0 +1,252 @@
+{
+  "schema": "373_POSTRUN_AUDITED_SUBSET",
+  "original373_result_sha256": "173656d593416108bf26ddac6775f25c0619ef78104dcb399ce34aec1108b8d8",
+  "original373_result_digest": "39d4058ab27fbcd965234c17021c32b92c71134f6565b3bb39685d53d21ac94c",
+  "binding": {
+    "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+    "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+    "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+    "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+    "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+    "test_only": true
+  },
+  "quality": [
+    {
+      "rule_id": "SPACE_ACCOUNTING",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_ROLE_DAG_WHOLE_Q11_NOT_RECOMPUTED",
+        "CURRENT_EXPANDED_Q04_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "GUEST_ROUTE_INDEPENDENCE",
+      "verdict": "PASS",
+      "missing": [],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "guest",
+      "evidence_digest": "77e85c7a19c4db3208f04b0ec2e9157f08729514da1170fbcb15b811237c16e2",
+      "no_old_parent_pass_reused": true,
+      "scope": "All four required source guest relations per unit, complete source private exclusion and conservative source kitchen operations; source open-transit profile only; H07 separate",
+      "source_closure_digest": "77e85c7a19c4db3208f04b0ec2e9157f08729514da1170fbcb15b811237c16e2",
+      "contract_source_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+      "basis": "NEW373_RECOMPUTATION_PLUS_UNCHANGED_AUDITED_SCOPED_PARENT_PREDICATE"
+    },
+    {
+      "rule_id": "LIVING_USEFUL_CONTIGUITY",
+      "verdict": "PASS",
+      "missing": [],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "living",
+      "evidence_digest": "20099cbab9004a6851dd547e28e0af1b22a84ea6ec2d80650814e138e93498bc",
+      "no_old_parent_pass_reused": true,
+      "scope": "Required source seating/use/access connected by verified source body sweeps; no whole residual-use or aesthetic optimum claim; R-LIV exact trigger N_A",
+      "source_closure_digest": "20099cbab9004a6851dd547e28e0af1b22a84ea6ec2d80650814e138e93498bc",
+      "contract_source_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+      "basis": "NEW373_RECOMPUTATION_PLUS_UNCHANGED_AUDITED_SCOPED_PARENT_PREDICATE"
+    },
+    {
+      "rule_id": "CIRCULATION_NECESSITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "q04_runner365.py_HARDCODES_OLD_INPUT",
+        "balanced365_extended_runner.py_HARDCODES_OLD_INPUT"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "ROOM_PROGRAM_CAPACITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "BUNDLE_INVENTORY_ONLY;FULL_ROOM_ACCESS_APPLICABILITY_CLOSURE_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "BEDROOM_GROUPING",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "bedroom_grouping365.py_FIXED_VIEW_GATE;CURRENT_TASK_ROUTE_FINITE_COMPARISON_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "SERVICE_COMPACTNESS",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "service_runner365.py_HARDCODES_OLD_INPUT;CURRENT_SERVICE_PARTITION_COMPARISON_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "COMMON_CORE_COMPACTNESS",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_ROLE_DAG_COMMON_Q04_Q12_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "PRIVACY_WITHOUT_FAKE_BAFFLE",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_WALL_PURPOSE_Q04_WHOLE_ROLE_DEPENDENCIES_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "OPENINGS_REAL",
+      "verdict": "PASS",
+      "missing": [],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "openings",
+      "evidence_digest": "f35dd5698331f303d68f2aaf5a567fa13492f539cf1053ad69fe81b006078f3d",
+      "no_old_parent_pass_reused": true,
+      "scope": "Source233 H08/H10/H11 opening-host, aperture, window geometry and required source operation profile only; no technical core or light/ventilation approval",
+      "source_closure_digest": "f35dd5698331f303d68f2aaf5a567fa13492f539cf1053ad69fe81b006078f3d",
+      "contract_source_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+      "basis": "NEW373_RECOMPUTATION_PLUS_UNCHANGED_AUDITED_SCOPED_PARENT_PREDICATE"
+    },
+    {
+      "rule_id": "KITCHEN_PROXIMITY",
+      "verdict": "PASS",
+      "missing": [],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "kitchen",
+      "evidence_digest": "de8ba9cbf691f0de2cb2b2e17bc955b47220d44dce1aaa320b6b55e22d7d0d9d",
+      "no_old_parent_pass_reused": true,
+      "scope": "Q07 required source cooking-to-dining and living essential-use relations with protected guest/private access; sequential source operation profile; optional proximity ranking not claimed",
+      "source_closure_digest": "de8ba9cbf691f0de2cb2b2e17bc955b47220d44dce1aaa320b6b55e22d7d0d9d",
+      "contract_source_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+      "basis": "NEW373_RECOMPUTATION_PLUS_UNCHANGED_AUDITED_SCOPED_PARENT_PREDICATE"
+    }
+  ],
+  "exact_predicates": {
+    "OPENINGS_REAL": true,
+    "LIVING_USEFUL_CONTIGUITY": true,
+    "GUEST_ROUTE_INDEPENDENCE": true,
+    "KITCHEN_PROXIMITY": true
+  },
+  "predicate_source": "reconstruction357/semantic_rules357/engine365_v3.py",
+  "predicate_source_sha256": "3aba5bc316d4e053ac711f8bc8a7ec8fbee17a218da0bd6877b7319a015da90d",
+  "scope": "SCOPED_CURRENT372_ARTIFACT_ONLY; NOT_COMPLETE_QUALIFICATION",
+  "remaining_parent_rules": [
+    "SPACE_ACCOUNTING",
+    "CIRCULATION_NECESSITY",
+    "ROOM_PROGRAM_CAPACITY",
+    "BEDROOM_GROUPING",
+    "SERVICE_COMPACTNESS",
+    "COMMON_CORE_COMPACTNESS",
+    "PRIVACY_WITHOUT_FAKE_BAFFLE"
+  ],
+  "selected_set_rule": {
+    "rule_id": "DISTINCTNESS_AND_FAIRNESS",
+    "verdict": "UNKNOWN",
+    "missing": [
+      "ACTUAL_NEW_MEMBER_SELECTION_PAIR_AND_Q12_NOT_ESTABLISHED"
+    ]
+  },
+  "old_proof_pass_reused": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "test_only": true
+}

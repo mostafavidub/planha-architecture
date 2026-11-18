@@ -1,0 +1,95 @@
+[
+  {
+    "requirement_id": "body_route_sweeps",
+    "changed_leaf_count": 5,
+    "first20_changed_paths": [
+      "/witness/routes/23/points",
+      "/witness/routes/24/points",
+      "/witness/routes/26/points",
+      "/witness/routes/56/points",
+      "/witness/routes/58/points"
+    ]
+  },
+  {
+    "requirement_id": "fixture_inventory_use",
+    "changed_leaf_count": 5,
+    "first20_changed_paths": [
+      "/witness/capacity/evidence/model_hash",
+      "/witness/fresh_functional_components/0/witness/model_hash",
+      "/witness/fresh_functional_components/1/witness/model_hash",
+      "/witness/fresh_functional_components/2/witness/model_hash",
+      "/witness/fresh_functional_components/4/witness/model_hash"
+    ]
+  },
+  {
+    "requirement_id": "program_functional_roles",
+    "changed_leaf_count": 3,
+    "first20_changed_paths": [
+      "/witness/actual_capacity/evidence/model_hash",
+      "/witness/nonprivate_wet_access/witness/model_hash",
+      "/witness/public_scenarios/evidence/model_hash"
+    ]
+  },
+  {
+    "requirement_id": "guest_living_route",
+    "changed_leaf_count": 1,
+    "first20_changed_paths": [
+      "/witness/model_hash"
+    ]
+  },
+  {
+    "requirement_id": "guest_dining_route",
+    "changed_leaf_count": 1,
+    "first20_changed_paths": [
+      "/witness/model_hash"
+    ]
+  },
+  {
+    "requirement_id": "serving_route",
+    "changed_leaf_count": 1,
+    "first20_changed_paths": [
+      "/witness/model_hash"
+    ]
+  },
+  {
+    "requirement_id": "worst_unit_function",
+    "changed_leaf_count": 9,
+    "first20_changed_paths": [
+      "/witness/model_hash",
+      "/witness/units/0/measured_floor_areas_m2/declared_route",
+      "/witness/units/0/measured_floor_areas_m2/fixture_footprints",
+      "/witness/units/0/measured_floor_areas_m2/unaccounted_declared_floor",
+      "/witness/units/1/measured_floor_areas_m2/declared_route",
+      "/witness/units/1/measured_floor_areas_m2/fixture_footprints",
+      "/witness/units/1/measured_floor_areas_m2/unaccounted_declared_floor",
+      "/witness/worst_measured_vectors/unaccounted_declared_floor_m2/spread",
+      "/witness/worst_measured_vectors/unaccounted_declared_floor_m2/worst_observed_value"
+    ]
+  },
+  {
+    "requirement_id": "circulation_functional_integrity",
+    "changed_leaf_count": 26,
+    "first20_changed_paths": [
+      "/witness/actual_functional_integrity/witness/checks/bath_nonprivate/witness/model_hash",
+      "/witness/actual_functional_integrity/witness/checks/body/witness/routes/23/points",
+      "/witness/actual_functional_integrity/witness/checks/body/witness/routes/24/points",
+      "/witness/actual_functional_integrity/witness/checks/body/witness/routes/26/points",
+      "/witness/actual_functional_integrity/witness/checks/body/witness/routes/56/points",
+      "/witness/actual_functional_integrity/witness/checks/body/witness/routes/58/points",
+      "/witness/actual_functional_integrity/witness/checks/public_scenarios/witness/model_hash",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/all_route_body_union_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/route_inside_designated_circulation_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/route_inside_living_or_dining_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/routes/dining_back_left/direction_changes",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/routes/dining_back_right/direction_changes",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/0/routes/dining_right/direction_changes",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/1/all_route_body_union_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/1/route_inside_designated_circulation_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/1/route_inside_living_or_dining_m2",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/1/routes/dining_back_right/direction_changes",
+      "/witness/actual_functional_integrity/witness/route_cost_facts/units/1/routes/dining_right/direction_changes",
+      "/witness/actual_functional_integrity/witness/units/0/declared_entry_union_m2",
+      "/witness/actual_functional_integrity/witness/units/0/route_body_union_m2"
+    ]
+  }
+]

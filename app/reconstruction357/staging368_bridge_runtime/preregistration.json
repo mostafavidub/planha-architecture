@@ -1,0 +1,17 @@
+{
+  "schema": "ISOLATED_SEMANTIC_BRIDGE368_PREREG",
+  "semantic_closure_sha256": "706ff3ff11b78ac8bb5cc339542fcca13215b336b5078fab29df757ee6923a3c",
+  "command": "python -B staging368_bridge_runtime/launch_bridge.py CANONICAL_RUN_UUID",
+  "supervisor_seconds": 60,
+  "overall_ui_owner_seconds": 510,
+  "raw_pipeline_max_seconds": 440,
+  "retry": false,
+  "fresh": false,
+  "solver": false,
+  "output": "review368_runs/UUID/final_result.json",
+  "immutable_inputs": [
+    "request.json",
+    "result.json"
+  ],
+  "scope": "Fixed same-run semantic qualification only; no caller proof or browser path. UI must independently pin launcher plus full runtime freeze before any project import."
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "CONDITIONAL_SOURCE_COMMON_INVARIANT366_V1",
+  "kind": "READ_ONLY_SOURCE_INSPECTION_WITH_EXACT_EXISTING_RECORD_ARITHMETIC",
+  "source_readset": {
+    "staging366_service_balance_preflight/constructor366.py": "83a6aa9320f9187c5eef6087b681d56d67c5e40a76cfb9885b3c72c74e7f5ba7",
+    "staging366_service_balance_preflight/assemble366.py": "c6b1de06daf8d832b55d22f0da45e27da28716001a5c1e7ca1783d71935d9852",
+    "staging366_service_balance_preflight/entry366.py": "f85b91ee919d8346ed394a3894fdb17eadecc3062f7954f837b38d18e5c35e9e",
+    "staging366_service_balance_preflight/actual_selection366.json": "37f3f3709776dfcae52087c4eeec67d509ca59a1fb97b1b6e0beafa39129168c",
+    "staging366_service_balance_preflight/adapter366.py": "4ff50ef272df4caec2cc2c09269b23e6d2de823318ca3e1b0d4ebf1340827628",
+    "planha_general150_runtime_work/contract114.py": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+    "planha_general150_runtime_work/geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+    "planha_general150_runtime_work/nonseating146.py": "aa1583cf99d429ced4169deab1bac50b88a1b9e181e6914fc1a9dd3f59a84337",
+    "planha_general150_runtime_work/nonseating144.py": "579eeca44e00b29f55c3ba0968870f08b71e742d4f919bfe48d06ad13dfe64e0",
+    "planha_general150_runtime_work/approach_contract123.py": "091fae45b5500cce65559941e6330cae33301724c443974f9a252cd1d70ffb68",
+    "planha_general150_runtime_work/source_rotation133.py": "32f28ab42359bac6fdc806cfeaff021e1fb90bad4f89cac5e14c97c4f32a4032",
+    "planha_general150_runtime_work/place_module133.py": "a945f87b0ef909b166d35da2862251fe3063325c450990c4bde9ce24a38bc007",
+    "planha_general150_runtime_work/place_module116.py": "128e1545104de9dd3ae3c347c08e2d3f857bd0968dce4ea972a5157f43bfce6a",
+    "planha_general150_runtime_work/place_bathroom117.py": "60e2ac45337fc9d4e77c972d8ae3ea660aee4d1ccf941b9fabe04b5c63d16d6b",
+    "planha_general150_runtime_work/place_kitchen117.py": "e3b8d024c50f6026dd143b8f39eb64035e2a756c68f6c8dd1e9900e207f9f0dc",
+    "planha_general150_runtime_work/private_branch_hall146.py": "69916ef74e925434c8c639cb78e0ee7ce67a719e16428356f4a3287f92fd764a",
+    "planha_general150_runtime_work/operations115.py": "bd890d2e8c1034085982ecccb15b5e741bf21b77787e2e26815401e96b8ad6ba",
+    "planha_general150_runtime_work/public_witness144.py": "4920286ac4eee3fa5aa4e13971c9d28cd873af75e763939a8ae0b469390de828",
+    "planha_general150_runtime_work/final_public_floor120.py": "3d81ad3d48a8838b4566dbd1013081270fd85eabdd95fa9267366c995116524b",
+    "planha_general150_runtime_work/wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+    "planha_general150_runtime_work/face_threshold118.py": "af70ba3e88e1d40f9a5ebd2e2e20cd33d26f80e16f94fe8e18ca92877a782247",
+    "planha_general150_runtime_work/spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958"
+  },
+  "baseline_record_sha256": "8807b7f2e8ba841d8e1a38ba6787f72161c9d04f64d69e71112859be92976ad9",
+  "current_record_sha256": "a1cd7a8399d224d447d6c7fab939f1afe977e96c9205d6d048673b3fd069242e",
+  "source_path": "fixed SERVICE record; PARALLEL_TWINS_BRANCH146; module_placements populated; successful return of assemble366",
+  "parameter_scope": "Any accepted selection supplied to core_from with fixed parent record, same source/module path; build() itself accepts only pinned actual_selection366. Not a generated cohort.",
+  "invariant": {
+    "construction": "core_from deepcopy(base), only entry_centers and service_balanced366 assigned; stair/lift/lobby not mutated",
+    "assembly": "assemble366 line25 common_spaces binds those three core values; active module installers do not mutate common_spaces/core lobby references",
+    "postprocessors": [
+      "public_witness144.install",
+      "final_public_floor120.rebuild",
+      "wall_union118.bind_physical_wall_union",
+      "face_threshold118.attach",
+      "spatial_roles118.attach"
+    ],
+    "postcondition": "same common_spaces stair/lift/lobby if this fixed source path returns successfully",
+    "proof_kind": "Manual source callgraph/write-set inspection, not machine-checked universal execution proof"
+  },
+  "areas": {
+    "baseline_lobby_rects": [
+      [
+        "13.125",
+        "12.625",
+        "15.775",
+        "15.375"
+      ],
+      [
+        "15.775",
+        "12.625",
+        "17.575",
+        "13.425"
+      ]
+    ],
+    "current367_lobby_rects": [
+      [
+        "13.125",
+        "12.625",
+        "15.775",
+        "15.375"
+      ]
+    ],
+    "baseline_lobby_area_m2": "3491/400",
+    "current367_lobby_area_m2": "583/80",
+    "difference_m2": "36/25",
+    "metric": "union area of recorded common lobby floor only; not necessity or functional usefulness"
+  },
+  "logical_use": "If minimizing lobby union area is a noncompensatory Pareto coordinate, this conditional constant larger coordinate prevents a successful candidate on this fixed source path from dominating current367. No claim current367 dominates all other coordinates.",
+  "draft366_status": "UNASSESSED_NO_BUILD_NO_FRESH",
+  "candidate_created": false,
+  "new_solver": false,
+  "new_fresh": false,
+  "global_infeasible": false,
+  "global_optimality": false,
+  "eligibility_established": false,
+  "historical_terminal_states": {
+    "366": "necessary parameter selection only; later notch incompatibility; no build",
+    "367_attempt1": "stage1 oracle STOP; no later stage/candidate; read review367_joint_diagnostic",
+    "367_attempt2": "same nine producer files; guard v3 to v5 source-derived oracle correction; read review367_joint_attempt2/source_delta.json"
+  }
+}

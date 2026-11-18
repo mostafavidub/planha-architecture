@@ -1,0 +1,28 @@
+{
+  "reason": "COMPLETED",
+  "worker_reaped": true,
+  "tracked_processes": [
+    {
+      "pid": 6,
+      "create_time": 1794838312.98
+    },
+    {
+      "pid": 23,
+      "create_time": 1794838334.1
+    },
+    {
+      "pid": 24,
+      "create_time": 1794838334.76
+    },
+    {
+      "pid": 25,
+      "create_time": 1794838345.33
+    }
+  ],
+  "unresolved": [],
+  "cleanup_verified": true,
+  "elapsed_seconds": 72.81401185499999,
+  "delivery_allowed": false,
+  "source_unchanged": true,
+  "actual_exists": true
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "CONNECTED_SERVICE_COST365_V3_SNAPSHOT_NOT_RUNTIME_AUTHORITY",
+  "files": {
+    "finite_comparison365/service_cost_policy365_v2.json": "ea092d3f1b97d56be757ef266d6ce3a5fb470d12d7454b28b95a077107f44e9c",
+    "finite_comparison365/service_cost_ledger365_v2.py": "2ac6ff0ebe136ee3e3a9fbb0c935f2af6b2669188f290432c67eb266ec2a7479",
+    "finite_comparison365/service_cost_ledger_actual365_v2.json": "2371cf096d11cb37555190fd14a9fb307e394b274d68862e57782b099c46fdfe",
+    "finite_comparison365/service_cost_ledger365_v3.py": "574562cf83b934f04e1a70e87399419eabf21d4e36942cd02a0123d0036142e8",
+    "finite_comparison365/service_cost_ledger_actual365_v3.json": "fc43b7532987332c617fff94c21ed4e7d1acca706dc9db047f3ab2ce5e08bc03",
+    "finite_comparison365/test_service_cost_ledger365_v3.py": "1a824e55c110fb1b997faa03644dea3de191e7f2ddea08d00aaa55579eed97f7",
+    "finite_comparison365/test_service_cost_policy365_v2.py": "7bd6660d136e9c6eee70e437a6bae91276a78868b8a94bb511fbb5e62dee629b",
+    "finite_comparison365/service_candidate_criterion365.py": "fe6a9436d8213cb89b20391b585769764611800cb57f3302b2a366066030259c",
+    "finite_comparison365/service_candidate_criterion_actual365.json": "c2502f1a52bbfa56a0a7d5dcc4d45094297cbb29a9311fd45b5253bbf7beedd8",
+    "finite_comparison365/service_candidate_objectives365.py": "4df35615427e9c74ef725f3af93b6f4e5505aaa6977c2ba682345209809541a3",
+    "finite_comparison365/service_candidate_objectives_actual365.json": "8790b3906611f2af3997d5415722b56340ed31f0857f38511f8f27374cb2f7d2",
+    "finite_comparison365/test_service_candidate365.py": "41d5d02c5612911dea12bd3a53d12314bd3b63c3d6353e8f1eb26fb33b424038"
+  }
+}

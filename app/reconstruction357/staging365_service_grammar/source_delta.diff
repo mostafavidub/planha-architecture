@@ -1,0 +1,44 @@
+--- frozen146
++++ experimental365
+@@ -143,8 +143,10 @@
+   l,b,r,t=map(F,witness['bbox']);specs.append((owner+'_approach',r-l,t-b))
+  invalid=[name for name,w,h in specs if w<=0 or h<=0 or w>x1-x0 or h>y1-y0]
+  if invalid:return {'status':'UNSUPPORTED_MASTER_RESERVATION_FIT','fit_errors':[n+':INVALID_VARIABLE_DIMENSION'for n in invalid],'not_global_infeasibility':True}
+- bath_lo=max(x0,C);bath_hi=min(x1-F('4.3'),R-F('4.3'))
+- if bath_lo>bath_hi:return {'status':'UNSUPPORTED_MASTER_RESERVATION_FIT','fit_errors':['bath:EMPTY_CORE_BOUND_INTERVAL'],'not_global_infeasibility':True}
++ from service_anchor365 import choose,validate_rectangles
++ try:service_contract=choose(bath_source('4.3','3.1'),kitchen_source('3.6','4.2'),approaches,(x0,y0,x1,y1),'BATH_RIGHT_KITCHEN_LEFT')
++ except ValueError as exc:return {'status':'UNSUPPORTED_SOURCE_SERVICE_ANCHORS','reason':str(exc),'not_global_infeasibility':True}
++ bath_lo=bath_hi=F(service_contract['bath']['x'])
+  index={}
+  for name,w,h in specs:index[name]=(var(x0,x1-w),var(y0,y1-h),w,h)
+  def fixed(name,x,y):
+@@ -157,7 +159,8 @@
+   if index[name][2:]!=(w,h):raise ValueError('FIXED_RESERVATION_DIMENSION_MISMATCH:'+name)
+   fixed(name,x,y)
+  bx,by,bw,bh=index['bath'];lower[bx]=float(bath_lo);upper[bx]=float(bath_hi)
+- kx,ky,kw,kh=index['kitchen'];row({kx:1,bx:-1},-kw-F('.15'),-kw-F('.15'));row({ky:1,by:-1},bh-kh,bh-kh)
++ lower[by]=float(F(service_contract['bath']['y_min']));upper[by]=float(F(service_contract['bath']['y_max']))
++ kx,ky,kw,kh=index['kitchen'];lower[kx]=upper[kx]=float(F(service_contract['kitchen']['x']));lower[ky]=float(F(service_contract['kitchen']['y_min']));upper[ky]=float(F(service_contract['kitchen']['y_max']))
+  # Fixed source-size, disjoint use envelopes. The trunk is a reserved actual
+  # body corridor connecting the source private interface to entry, not a wall.
+  M=float(max(x1-x0,y1-y0)*2)
+@@ -166,7 +169,7 @@
+    if all(n.startswith('public_')or n in('entry_apron','private_trunk')for n in(name,other)):continue
+    if any(n.endswith('_approach')and o.startswith('public_')for n,o in((name,other),(other,name))):continue
+    if any(n.endswith('_approach')and o in(n.removesuffix('_approach'),'entry_apron','private_trunk')for n,o in((name,other),(other,name))):continue
+-   if {name,other}in ({'entry_apron','private_trunk'},{'bath','kitchen'}):continue
++   if {name,other}=={'entry_apron','private_trunk'}:continue # service adjacency no longer assumed; enforce bath/kitchen separation
+    ax,ay,aw,ah=index[name];bx,by,bw,bh=index[other];ma=F('.15')if name in('bath','kitchen')else F(0);mb=F('.15')if other in('bath','kitchen')else F(0);clearance=ma+mb;z=[var(0,1,integer=1)for _ in range(4)];row({j:1 for j in z},a=1)
+    for d,b,j in [({ax:1,bx:-1},-aw-clearance,z[0]),({bx:1,ax:-1},-bw-clearance,z[1]),({ay:1,by:-1},-ah-clearance,z[2]),({by:1,ay:-1},-bh-clearance,z[3])]:row(d|{j:M},b=float(b)+M)
+  envelope_vars,envelope_separation=add_seating_envelope(index,(x0,y0,x1,y1),var,row,M)
+@@ -195,6 +198,9 @@
+  seating=check_seating_geometry(rects,protected,(x0,y0,x1,y1))
+  if seating['errors']:
+   out.update(status='QUANTIZED_SEATING_RESERVATION_REJECTED',seating_reservation=seating);return out
++ try:validate_rectangles(rects,service_contract)
++ except ValueError as exc:return dict(out,status='QUANTIZED_SERVICE_ANCHOR_REJECTED',service_error=str(exc))
++ out['service_anchor365']=service_contract
+  out['seating_reservation']=seating
+  out['opposing_group_study']=group_contract
+  from shared_geometry137 import overlaps,rect

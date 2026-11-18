@@ -1,0 +1,13 @@
+{
+  "schema": "FINAL_REGISTRY362_V3_REPORT_DELTA_CHECKPOINT",
+  "tests": "11 passed20.931s",
+  "source_pin_count": 1143,
+  "delta": "Explicit IR-P07 balanced access gap in DISTINCTNESS missing; schema/output names versioned; acceptance logic unchanged; v2 preserved",
+  "files": {
+    "role_registry_final362_v3.py": "3ec815ad00a5dfa12a9855bc5509de43e3ea8834902138c545e1ae80059eaf33",
+    "role_registry_final_actual362_v3.json": "34f5b018814ab144d9126dc29662de89b09d1ea249c6f1c3d5f214506c647c8f",
+    "test_role_registry_final362_v3.py": "9e3dabfe76051ddd61c53372367539f4ad8ef0ef11e0dae4487774a950f58778",
+    "role_registry_final_tests362_v3.log": "8d9a0f9f42b97ffdb263532228df09e5f3de313ddb7b56c196759d04a9524870",
+    "role_registry_final362_v3_source_freeze.json": "440817f044fe62bc0fa987ebb09d9c83655a8e653f1391915e2a187361131a7b"
+  }
+}

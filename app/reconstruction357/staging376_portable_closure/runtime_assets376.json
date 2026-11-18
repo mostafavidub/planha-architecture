@@ -1,0 +1,219 @@
+{
+  "schema": "376_SUFFIX_INDEPENDENT_RUNTIME_ASSET_COMPLETION",
+  "old375_freeze_sha256": "6b6d420415aacbe81bd6d2c630ddc81f6543efc879cf6556a13477e95705bf0e",
+  "root_cause": "369inventory included only .py/.json; native full clone retained other assets, portable freeze did not",
+  "new_assets": {
+    "reconstruction357/staging369_current_source_validation/runtime/reference114/index.html": "9bfbab6ee63edbe0d6b8f98c5063bd7b4b634dbf5b7324f1d7121026bf5437f4",
+    "reconstruction357/staging369_current_source_validation/runtime/reference115/index.html": "4cb39813021e4bb5da111d2ab553f457b0f3c054cb1b65f9401c858076e7c63e",
+    "reconstruction357/staging369_current_source_validation/runtime/reference116/index.html": "4805ed6818d6714f22460e2203df4ba8f1985d2408aef9c532995ab1904828e2",
+    "reconstruction357/staging369_current_source_validation/runtime/reference117/index.html": "edd8177c0d477fc61d71ec48ef867cf52fe4b74cf0cb8e87a4accef863ee06cb",
+    "reconstruction357/staging369_current_source_validation/runtime/reference118/index.html": "9c8f49574b4d877739152e934fa57d074abe20b240354b51088d6bfedf6b28e6",
+    "reconstruction357/staging369_current_source_validation/runtime/reference124/index.html": "d81aba2511fbf70be604f20d0962c4fdcd9f2398e75eacea0c70ed70a52e9062",
+    "reconstruction357/staging369_current_source_validation/runtime/reference125/index.html": "a5d1f4df1ad5e7a9f8e12a5b8126c32eba9a3f74253d46192fae7540906a2c2d",
+    "reconstruction357/staging369_current_source_validation/runtime/reference126/index.html": "b71b4c6073e2b0d77740f7b21315ce4f9d5d38bd6dc8cbc38b2107c42fe5e0de",
+    "reconstruction357/staging369_current_source_validation/runtime/reference127/index.html": "526de086aed708cf97491e277be508327faa4d70327ea9796d9f490404db981f",
+    "reconstruction357/staging369_current_source_validation/runtime/reference128/index.html": "f7fdf64993cab8f274c1f8330aa42c1c2645ced6a37a5b95018c12195c343fd8",
+    "reconstruction357/staging369_current_source_validation/runtime/reference129/index.html": "c6ca04f85f0aadd66e33e36cc4e72f850cb19d3a24d8cad50ee9238b751a3037",
+    "reconstruction357/staging369_current_source_validation/runtime/reference130/index.html": "9f8ec0188c4ab58707d1dd6a27df8bf86cc7fb27b1fbc4af7d32365d55c586f6",
+    "reconstruction357/staging369_current_source_validation/runtime/reference131/index.html": "e90e8f952a2a087bcadaf1b1ac0b027b0af921fb24eabec62ea0639717336f08",
+    "reconstruction357/staging369_current_source_validation/runtime/reference132/index.html": "5b5cf23da1bae9983d92e94f85f971a237d24b5c00b0bf837363e6595bc2584a",
+    "reconstruction357/staging369_current_source_validation/runtime/reference133/index.html": "d97f5f56b5aed724ef5142512e1f04676fc53e702ede3733d3d8bbb92bd33c4f",
+    "reconstruction357/staging369_current_source_validation/runtime/reference134/index.html": "d420012cef6d4fd9ea4621f4cce9095285a405581bd777d7c0d9433748ed4fc4",
+    "reconstruction357/staging369_current_source_validation/runtime/reference135/index.html": "c37277e3e0c1e4aec031278786c2afce1bd3e72193af03282b180692782f3edc",
+    "reconstruction357/staging369_current_source_validation/runtime/reference136/index.html": "04dabbe1612cb79dc8e8cc89022794a8c3d7a2d21c8b886dea4fd8b45ee18da6",
+    "reconstruction357/staging369_current_source_validation/runtime/reference140/index.html": "04cbeca3a64da4666c225c0d696c275611a8f730763fed7a21491d6e5e95677c",
+    "reconstruction357/staging369_current_source_validation/runtime/reference141/index.html": "fe5111a794493e098708841a2a3a24c025960774f516866a7586ac663161bdda",
+    "reconstruction357/staging369_current_source_validation/runtime/reference145/index.html": "d2975bc71c2177f41e016af34d8d422931c6a1cf58397676370559e81ccb9bdf",
+    "reconstruction357/staging369_current_source_validation/runtime/reference150/index.html": "4c758a59fbe13aa942900bdfdc2359e458fa6448d7768b737fd012ee45377745",
+    "reconstruction357/staging369_current_source_validation/runtime/references/CONCEPT_GATE_FA.md": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+    "reconstruction357/staging369_current_source_validation/runtime/references/geometry_reference119.py.txt": "291ce3d51b0e77c163e33c80a0d1cb88729872fd25b8305ae9a388ca97c77270",
+    "reconstruction357/staging369_current_source_validation/runtime/references/program6/assembly_AA-1924803-2.pdf": "24ad6e419508b4f8cb87d7f270e84df5deb5523f60e02098fab39759f8cb7d71"
+  },
+  "legitimate_original_byte_provenance": [
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference114/index.html",
+      "sha256": "9bfbab6ee63edbe0d6b8f98c5063bd7b4b634dbf5b7324f1d7121026bf5437f4",
+      "bytes": 5262,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference114/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference115/index.html",
+      "sha256": "4cb39813021e4bb5da111d2ab553f457b0f3c054cb1b65f9401c858076e7c63e",
+      "bytes": 5262,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference115/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference116/index.html",
+      "sha256": "4805ed6818d6714f22460e2203df4ba8f1985d2408aef9c532995ab1904828e2",
+      "bytes": 5262,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference116/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference117/index.html",
+      "sha256": "edd8177c0d477fc61d71ec48ef867cf52fe4b74cf0cb8e87a4accef863ee06cb",
+      "bytes": 5738,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference117/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference118/index.html",
+      "sha256": "9c8f49574b4d877739152e934fa57d074abe20b240354b51088d6bfedf6b28e6",
+      "bytes": 6212,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference118/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference124/index.html",
+      "sha256": "d81aba2511fbf70be604f20d0962c4fdcd9f2398e75eacea0c70ed70a52e9062",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference124/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference125/index.html",
+      "sha256": "a5d1f4df1ad5e7a9f8e12a5b8126c32eba9a3f74253d46192fae7540906a2c2d",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference125/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference126/index.html",
+      "sha256": "b71b4c6073e2b0d77740f7b21315ce4f9d5d38bd6dc8cbc38b2107c42fe5e0de",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference126/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference127/index.html",
+      "sha256": "526de086aed708cf97491e277be508327faa4d70327ea9796d9f490404db981f",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference127/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference128/index.html",
+      "sha256": "f7fdf64993cab8f274c1f8330aa42c1c2645ced6a37a5b95018c12195c343fd8",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference128/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference129/index.html",
+      "sha256": "c6ca04f85f0aadd66e33e36cc4e72f850cb19d3a24d8cad50ee9238b751a3037",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference129/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference130/index.html",
+      "sha256": "9f8ec0188c4ab58707d1dd6a27df8bf86cc7fb27b1fbc4af7d32365d55c586f6",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference130/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference131/index.html",
+      "sha256": "e90e8f952a2a087bcadaf1b1ac0b027b0af921fb24eabec62ea0639717336f08",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference131/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference132/index.html",
+      "sha256": "5b5cf23da1bae9983d92e94f85f971a237d24b5c00b0bf837363e6595bc2584a",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference132/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference133/index.html",
+      "sha256": "d97f5f56b5aed724ef5142512e1f04676fc53e702ede3733d3d8bbb92bd33c4f",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference133/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference134/index.html",
+      "sha256": "d420012cef6d4fd9ea4621f4cce9095285a405581bd777d7c0d9433748ed4fc4",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference134/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference135/index.html",
+      "sha256": "c37277e3e0c1e4aec031278786c2afce1bd3e72193af03282b180692782f3edc",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference135/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference136/index.html",
+      "sha256": "04dabbe1612cb79dc8e8cc89022794a8c3d7a2d21c8b886dea4fd8b45ee18da6",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference136/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference140/index.html",
+      "sha256": "04cbeca3a64da4666c225c0d696c275611a8f730763fed7a21491d6e5e95677c",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference140/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference141/index.html",
+      "sha256": "fe5111a794493e098708841a2a3a24c025960774f516866a7586ac663161bdda",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference141/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference145/index.html",
+      "sha256": "d2975bc71c2177f41e016af34d8d422931c6a1cf58397676370559e81ccb9bdf",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference145/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/reference150/index.html",
+      "sha256": "4c758a59fbe13aa942900bdfdc2359e458fa6448d7768b737fd012ee45377745",
+      "bytes": 6407,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/reference150/index.html",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/references/CONCEPT_GATE_FA.md",
+      "sha256": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+      "bytes": 6345,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/references/CONCEPT_GATE_FA.md",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/references/geometry_reference119.py.txt",
+      "sha256": "291ce3d51b0e77c163e33c80a0d1cb88729872fd25b8305ae9a388ca97c77270",
+      "bytes": 3703,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/references/geometry_reference119.py.txt",
+      "original375_freeze_canonical_hash_match": true
+    },
+    {
+      "newly_pinned_runtime_path": "reconstruction357/staging369_current_source_validation/runtime/references/program6/assembly_AA-1924803-2.pdf",
+      "sha256": "24ad6e419508b4f8cb87d7f270e84df5deb5523f60e02098fab39759f8cb7d71",
+      "bytes": 1385967,
+      "original_frozen_source": "reconstruction357/staging365_balanced_source_validation/runtime/references/program6/assembly_AA-1924803-2.pdf",
+      "original375_freeze_canonical_hash_match": true
+    }
+  ],
+  "required_pdf_sha256": "24ad6e419508b4f8cb87d7f270e84df5deb5523f60e02098fab39759f8cb7d71",
+  "metadata_assembly_hash_matches": true,
+  "read_chain": [
+    "checker114.evaluate",
+    "public_program_audit118._dining6 imports dining6_audit121.examine",
+    "dining6_audit121.py reads metadata/PDF/chair source and compares source hashes",
+    "dining_module121.build reads proposal_metadata.json and assembly reference tree"
+  ],
+  "source_algorithms_modified": false,
+  "rerun_executed": false
+}

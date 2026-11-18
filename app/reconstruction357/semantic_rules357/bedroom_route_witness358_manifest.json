@@ -1,0 +1,12 @@
+{
+  "files": {
+    "bedroom_route_witness358.py": "1a2f7bf9956491a5392c07b4d190e21eaa2a580e6dff8b20b136c7f50085164f",
+    "bedroom_route_witness358_pins.json": "dcdeb8564f564f84da2d4b0b3cb7dce3e535ae508778d46c227d2dc488ec59aa",
+    "test_bedroom_route_witness358.py": "245f58abf9230359f80d62866176bc62f357228f728600f0f38c8d53448791b7",
+    "bedroom_route_witness_actual358.json": "aa5b17c721a4af0d756ce36bc8bbe8ce9ac8835c379c11d3e017c8c4e3b983f5",
+    "BEDROOM_ROUTE_WITNESS358_FA.md": "e697fcd4422291fffa5053796136afd6c8aabc2811b04eccb5fdbad13c912c02"
+  },
+  "audit_pending": true,
+  "fresh_or_solver": false,
+  "parent_initial": false
+}

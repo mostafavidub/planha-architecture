@@ -1,0 +1,44 @@
+{
+  "status": "SOURCE_CANDIDATE_BUILT_AND_FULL_TRACE_REPLAYED_NOT_ADMITTED",
+  "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+  "trace_schema": "SOURCE_SERVICE_ANCHOR365_TRACE_V1",
+  "solver_calls": 1,
+  "solver_seconds": 0.15455613199992513,
+  "source_builds": 2,
+  "source_builds_explanation": "one original plus one independent reconstruction from trace; no second solver",
+  "fresh_calls": 0,
+  "retry": 0,
+  "source_drift": [],
+  "supervision": {
+    "reason": "COMPLETED",
+    "worker_reaped": true,
+    "tracked_processes": [
+      {
+        "pid": 6,
+        "create_time": 1794831294.19
+      }
+    ],
+    "unresolved": [],
+    "cleanup_verified": true,
+    "elapsed_seconds": 13.996962635999807,
+    "delivery_allowed": false,
+    "retry": 0,
+    "accepted": false
+  },
+  "replay": {
+    "status": "EXACT_FULL_TRACE_REBUILT",
+    "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3",
+    "fresh": false,
+    "live_authority": false
+  },
+  "eligibility": false,
+  "selected_set": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "pending": [
+    "INDEPENDENT_REPLAY",
+    "FRESH365_REGISTRY_AND_ALL_USE",
+    "ACTUAL_Q14_PAIR",
+    "SOURCE_SELECTED_SET"
+  ]
+}

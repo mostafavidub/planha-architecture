@@ -1,0 +1,5 @@
+{"phase": "solver_begin", "solver_calls": 1, "solver_limit_seconds": 3}
+{"phase": "solver_end", "seconds": 0.15455613199992513, "status": "PROPOSAL_ONLY"}
+{"phase": "source_build_begin"}
+{"phase": "independent_reconstruction_begin"}
+{"phase": "BUILD_AND_REPLAY_COMPLETE_NOT_ADMITTED", "model_digest": "12faad1c68a05ad17805251e90aa3e91d74ba4c845458bb197a055a9057f2ec3", "fresh_calls": 0, "retry": 0}

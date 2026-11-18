@@ -1,0 +1,147 @@
+{
+  "schema": "365_EXACT_GEOMETRIC_PROTECTED_COMPARISON",
+  "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+  "rows": [
+    {
+      "versus": 362,
+      "route_id": "lift_A",
+      "length_before": "193/40",
+      "length365": "61/16",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "1",
+      "square_capacity365": "1"
+    },
+    {
+      "versus": 362,
+      "route_id": "lift_B",
+      "length_before": "161/40",
+      "length365": "61/16",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "1",
+      "square_capacity365": "1"
+    },
+    {
+      "versus": 362,
+      "route_id": "stair_A",
+      "length_before": "127/40",
+      "length365": "303/80",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "9/10",
+      "square_capacity365": "9/10"
+    },
+    {
+      "versus": 362,
+      "route_id": "stair_B",
+      "length_before": "127/40",
+      "length365": "303/80",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "9/10",
+      "square_capacity365": "9/10"
+    },
+    {
+      "versus": 364,
+      "route_id": "lift_A",
+      "length_before": "43/10",
+      "length365": "61/16",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "1",
+      "square_capacity365": "1"
+    },
+    {
+      "versus": 364,
+      "route_id": "lift_B",
+      "length_before": "43/10",
+      "length365": "61/16",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "1",
+      "square_capacity365": "1"
+    },
+    {
+      "versus": 364,
+      "route_id": "stair_A",
+      "length_before": "33/10",
+      "length365": "303/80",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "9/10",
+      "square_capacity365": "9/10"
+    },
+    {
+      "versus": 364,
+      "route_id": "stair_B",
+      "length_before": "33/10",
+      "length365": "303/80",
+      "turns_before": 1,
+      "turns365": 1,
+      "square_capacity_before": "9/10",
+      "square_capacity365": "9/10"
+    }
+  ],
+  "protected_comparisons": [
+    {
+      "versus": 362,
+      "request_exact": true,
+      "program_exact": true,
+      "profile_exact": true,
+      "stair_shape_exact": true,
+      "lift_shape_exact": true,
+      "unit_rows": [
+        {
+          "unit": "A",
+          "ownership_exact": true,
+          "fixtures_exact": true,
+          "activities_exact": true,
+          "bedroom_regions_exact": true,
+          "net_room_union_before": "649643/2000",
+          "net_room_union_after": "649643/2000"
+        },
+        {
+          "unit": "B",
+          "ownership_exact": true,
+          "fixtures_exact": true,
+          "activities_exact": true,
+          "bedroom_regions_exact": true,
+          "net_room_union_before": "161627/500",
+          "net_room_union_after": "161627/500"
+        }
+      ]
+    },
+    {
+      "versus": 364,
+      "request_exact": true,
+      "program_exact": true,
+      "profile_exact": true,
+      "stair_shape_exact": true,
+      "lift_shape_exact": true,
+      "unit_rows": [
+        {
+          "unit": "A",
+          "ownership_exact": true,
+          "fixtures_exact": true,
+          "activities_exact": true,
+          "bedroom_regions_exact": true,
+          "net_room_union_before": "649643/2000",
+          "net_room_union_after": "649643/2000"
+        },
+        {
+          "unit": "B",
+          "ownership_exact": true,
+          "fixtures_exact": true,
+          "activities_exact": true,
+          "bedroom_regions_exact": true,
+          "net_room_union_before": "161627/500",
+          "net_room_union_after": "161627/500"
+        }
+      ]
+    }
+  ],
+  "scope": "Geometry/data equality only; operations/privacy primitive evidence separate, no fresh or functional eligibility inherited",
+  "accepted": false,
+  "fresh_executed": false
+}

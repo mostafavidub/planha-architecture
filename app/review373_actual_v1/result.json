@@ -1,0 +1,1298 @@
+{
+  "schema": "CURRENT373_SEMANTIC_PROOF_CANDIDATES",
+  "binding": {
+    "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+    "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+    "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+    "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+    "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+    "test_only": true
+  },
+  "quality": [
+    {
+      "rule_id": "SPACE_ACCOUNTING",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_ROLE_DAG_WHOLE_Q11_NOT_RECOMPUTED",
+        "CURRENT_EXPANDED_Q04_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "GUEST_ROUTE_INDEPENDENCE",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_FOUR_RELATION_AND_AUTHOR_APPLICABILITY_PROOF_INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "guest",
+      "evidence_digest": "77e85c7a19c4db3208f04b0ec2e9157f08729514da1170fbcb15b811237c16e2",
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "LIVING_USEFUL_CONTIGUITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_INTRINSIC_AND_AUTHOR_APPLICABILITY_PROOF_INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "living",
+      "evidence_digest": "20099cbab9004a6851dd547e28e0af1b22a84ea6ec2d80650814e138e93498bc",
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "CIRCULATION_NECESSITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "q04_runner365.py_HARDCODES_OLD_INPUT",
+        "balanced365_extended_runner.py_HARDCODES_OLD_INPUT"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "ROOM_PROGRAM_CAPACITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "BUNDLE_INVENTORY_ONLY;FULL_ROOM_ACCESS_APPLICABILITY_CLOSURE_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "BEDROOM_GROUPING",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "bedroom_grouping365.py_FIXED_VIEW_GATE;CURRENT_TASK_ROUTE_FINITE_COMPARISON_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "SERVICE_COMPACTNESS",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "service_runner365.py_HARDCODES_OLD_INPUT;CURRENT_SERVICE_PARTITION_COMPARISON_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "COMMON_CORE_COMPACTNESS",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_ROLE_DAG_COMMON_Q04_Q12_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "PRIVACY_WITHOUT_FAKE_BAFFLE",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_WALL_PURPOSE_Q04_WHOLE_ROLE_DEPENDENCIES_NOT_RECOMPUTED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": false,
+      "compute_status": "NOT_IMPLEMENTED_CURRENT_INPUT",
+      "evidence_key": null,
+      "evidence_digest": null,
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "OPENINGS_REAL",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_SCOPED_OPENINGS_PROOF_INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "openings",
+      "evidence_digest": "f35dd5698331f303d68f2aaf5a567fa13492f539cf1053ad69fe81b006078f3d",
+      "no_old_parent_pass_reused": true
+    },
+    {
+      "rule_id": "KITCHEN_PROXIMITY",
+      "verdict": "UNKNOWN",
+      "missing": [
+        "CURRENT_ESSENTIAL_RELATIONS_PROOF_INDEPENDENT_REVIEW_REQUIRED"
+      ],
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "proof_recomputed": true,
+      "compute_status": "BOUND_SCOPED_EVIDENCE_RETURNED",
+      "evidence_key": "kitchen",
+      "evidence_digest": "de8ba9cbf691f0de2cb2b2e17bc955b47220d44dce1aaa320b6b55e22d7d0d9d",
+      "no_old_parent_pass_reused": true
+    }
+  ],
+  "evidence": {
+    "nine_prerequisites": {
+      "schema": "CURRENT373_RECOMPUTED_GROUPS",
+      "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "fresh_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "original_result_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "rows": [
+        {
+          "requirement_id": "partition_ledger",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Exact disjoint plot ledger additionally bound to every actual wall/unit/common cell with source precedence; residual useful capacity is not inferred",
+          "row_index": 4,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/4",
+          "row_hash": "a56c62da8e5e3b2907754287dafc9583bc70a61b6fdcad8aa0f7bbc5c5a10330",
+          "witness_hash": "9881b0ff83868029f035ab839e5b4381a539b119c6f6a416f614b22d0206947b"
+        },
+        {
+          "requirement_id": "door_operation",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval",
+          "row_index": 10,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/10",
+          "row_hash": "863d93142b0e14d6d897bdc37fe576edbb78b823550749c5f3cca05ecb89e8e6",
+          "witness_hash": "fc6a884d1b3657c6c29233a6156f1bd64ecfb4d184f3556bc0eaa7df43f709fd"
+        },
+        {
+          "requirement_id": "fixture_inventory_use",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Actual source-sized sleeping/living/dining instances and required module/source operational use; no inferred population from area or sofa length, no external/vertical installation approval",
+          "row_index": 11,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/11",
+          "row_hash": "1047973e3ed9c53a45d841ca4842cdee8d9bf965230b842b707ad139685816f3",
+          "witness_hash": "e16d6dea1198c1b2ad00e522b983878f44efc7335814d01c1483eb8f294e3535"
+        },
+        {
+          "requirement_id": "closet_operation",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval",
+          "row_index": 12,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/12",
+          "row_hash": "60338da9c5567f6b543eaee50f6e8ffc24fb1266e6fd369b35212057797b27f8",
+          "witness_hash": "1d7c854009d0da5df794d282739935562986bf48d64d7524dbaa2b2d83562a4f"
+        },
+        {
+          "requirement_id": "kitchen_essential_operation",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval",
+          "row_index": 17,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/17",
+          "row_hash": "a7c8f0248d215b409e852dd6a41add1d916d63c8b41821ed5a2bf66f731d6170",
+          "witness_hash": "c4be481da8fdf8ce3629145912c6bd250f53490e8e204336203790b5ffbc7af2"
+        },
+        {
+          "requirement_id": "bath_service_operation",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Source-backed wet equipment/operations and exact placed-neighbor binding, not complete H07 private-node deletion test",
+          "row_index": 18,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/18",
+          "row_hash": "ef81ebe1da96536753b5c5459787439e2b64deb1fe7a5898eb1155fbd4c2b8e0",
+          "witness_hash": "07e96bf13aa1015089be7d3ef24cf74dbd14c17857d124c36945bb37d509ce4f"
+        },
+        {
+          "requirement_id": "program_functional_roles",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "Named program roles from real bed/seat instances, occupied planar use, independent guest/service paths and actual nonprivate wet function; global spatial quality and residual usefulness separate",
+          "row_index": 13,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/13",
+          "row_hash": "0cad6f091ed97522833d2ba51334f3e5aafb603602c55ad4bd57e812408be046",
+          "witness_hash": "7ec1706dabb3989e07699191ed90849e2049f30af7cf22afc6324bea28391fab"
+        },
+        {
+          "requirement_id": "privacy_scenarios",
+          "verdict": "SCOPED_PASS",
+          "source_status": "PASS_LIMITED",
+          "scope": "All actual closed bedroom boundaries with every bed instance and changing target, and source-required wet targets; public/threshold/guest aperture visibility under stated opacity and boundary assumptions",
+          "row_index": 19,
+          "row_path": "/raw_fresh_report/rule_contract_evidence/requirements/19",
+          "row_hash": "6d0728d375662a51f428b29dd4e54f3f3eb0f69dda231f3ff8c6b60c7abd3aef",
+          "witness_hash": "dcb6637736014567c8ce3aa4ae27d9a2863dd9591cc2a480bc0ed021fb1ab309"
+        },
+        {
+          "requirement_id": "stored_living_network288",
+          "verdict": "SCOPED_PASS",
+          "scope": "GUEST_ROOT_TO_ALL_STORED_LIVING_STANDING_TARGETS_ONLY",
+          "rows": [
+            {
+              "unit": "A",
+              "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+              "targets": {
+                "sofa1": [
+                  "767/40",
+                  "97/8"
+                ],
+                "sofa2": [
+                  "481/40",
+                  "71/8"
+                ],
+                "armchair1": [
+                  "647/40",
+                  "453/40"
+                ],
+                "armchair2": [
+                  "707/40",
+                  "453/40"
+                ],
+                "armchair3": [
+                  "583/40",
+                  "417/40"
+                ],
+                "armchair4": [
+                  "583/40",
+                  "329/40"
+                ]
+              },
+              "source_root": [
+                "301/20",
+                "483/40"
+              ],
+              "unconnected_stored_targets": [],
+              "blocked_stored_segments": [],
+              "blocked_body_poses": [],
+              "scenario": [
+                "STATIC_ACTUAL_SOLIDS",
+                "ALL_LIVING_AND_DINING_OCCUPIED",
+                "DINING_SOURCE_PULL_ENCLOSURES",
+                "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+                "OPEN_DOOR_PANELS",
+                "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+              ],
+              "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+              "body_m": "0.7",
+              "global_path_completeness": false,
+              "new_routes_generated": false,
+              "whole_living_extent_verified": false,
+              "repair_authority": false,
+              "delivery_allowed": false,
+              "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303"
+            },
+            {
+              "unit": "B",
+              "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+              "targets": {
+                "sofa1": [
+                  "767/40",
+                  "127/8"
+                ],
+                "sofa2": [
+                  "481/40",
+                  "153/8"
+                ],
+                "armchair1": [
+                  "647/40",
+                  "667/40"
+                ],
+                "armchair2": [
+                  "707/40",
+                  "667/40"
+                ],
+                "armchair3": [
+                  "583/40",
+                  "703/40"
+                ],
+                "armchair4": [
+                  "583/40",
+                  "791/40"
+                ]
+              },
+              "source_root": [
+                "553/40",
+                "637/40"
+              ],
+              "unconnected_stored_targets": [],
+              "blocked_stored_segments": [],
+              "blocked_body_poses": [],
+              "scenario": [
+                "STATIC_ACTUAL_SOLIDS",
+                "ALL_LIVING_AND_DINING_OCCUPIED",
+                "DINING_SOURCE_PULL_ENCLOSURES",
+                "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+                "OPEN_DOOR_PANELS",
+                "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+              ],
+              "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+              "body_m": "0.7",
+              "global_path_completeness": false,
+              "new_routes_generated": false,
+              "whole_living_extent_verified": false,
+              "repair_authority": false,
+              "delivery_allowed": false,
+              "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303"
+            }
+          ],
+          "repair_authority": false,
+          "whole_living_extent_verified": false,
+          "whole_Q11_IRP12": false,
+          "source_pins_digest": "d81de046f2a40886be054fa3a8931755c966edb31bfa5cc3f435a1a4341267d1",
+          "reason": null
+        }
+      ],
+      "review_verdict": "SCOPED_PASS"
+    },
+    "living": {
+      "rule_id": "LIVING_USEFUL_CONTIGUITY",
+      "verdict": "PASS_SCOPED_INTRINSIC_LIVING",
+      "parent_complete": false,
+      "missing": [
+        "AUTHOR233_PARENT_SCOPE_AND_R_LIV_PROOF_PENDING_REVIEW"
+      ],
+      "evidence": {
+        "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+        "base_fresh_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+        "source_bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+        "network": {
+          "requirement_id": "stored_living_network288",
+          "verdict": "SCOPED_PASS",
+          "scope": "GUEST_ROOT_TO_ALL_STORED_LIVING_STANDING_TARGETS_ONLY",
+          "rows": [
+            {
+              "unit": "A",
+              "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+              "targets": {
+                "sofa1": [
+                  "767/40",
+                  "97/8"
+                ],
+                "sofa2": [
+                  "481/40",
+                  "71/8"
+                ],
+                "armchair1": [
+                  "647/40",
+                  "453/40"
+                ],
+                "armchair2": [
+                  "707/40",
+                  "453/40"
+                ],
+                "armchair3": [
+                  "583/40",
+                  "417/40"
+                ],
+                "armchair4": [
+                  "583/40",
+                  "329/40"
+                ]
+              },
+              "source_root": [
+                "301/20",
+                "483/40"
+              ],
+              "unconnected_stored_targets": [],
+              "blocked_stored_segments": [],
+              "blocked_body_poses": [],
+              "scenario": [
+                "STATIC_ACTUAL_SOLIDS",
+                "ALL_LIVING_AND_DINING_OCCUPIED",
+                "DINING_SOURCE_PULL_ENCLOSURES",
+                "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+                "OPEN_DOOR_PANELS",
+                "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+              ],
+              "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+              "body_m": "0.7",
+              "global_path_completeness": false,
+              "new_routes_generated": false,
+              "whole_living_extent_verified": false,
+              "repair_authority": false,
+              "delivery_allowed": false,
+              "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303"
+            },
+            {
+              "unit": "B",
+              "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+              "targets": {
+                "sofa1": [
+                  "767/40",
+                  "127/8"
+                ],
+                "sofa2": [
+                  "481/40",
+                  "153/8"
+                ],
+                "armchair1": [
+                  "647/40",
+                  "667/40"
+                ],
+                "armchair2": [
+                  "707/40",
+                  "667/40"
+                ],
+                "armchair3": [
+                  "583/40",
+                  "703/40"
+                ],
+                "armchair4": [
+                  "583/40",
+                  "791/40"
+                ]
+              },
+              "source_root": [
+                "553/40",
+                "637/40"
+              ],
+              "unconnected_stored_targets": [],
+              "blocked_stored_segments": [],
+              "blocked_body_poses": [],
+              "scenario": [
+                "STATIC_ACTUAL_SOLIDS",
+                "ALL_LIVING_AND_DINING_OCCUPIED",
+                "DINING_SOURCE_PULL_ENCLOSURES",
+                "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+                "OPEN_DOOR_PANELS",
+                "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+              ],
+              "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+              "body_m": "0.7",
+              "global_path_completeness": false,
+              "new_routes_generated": false,
+              "whole_living_extent_verified": false,
+              "repair_authority": false,
+              "delivery_allowed": false,
+              "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303"
+            }
+          ],
+          "repair_authority": false,
+          "whole_living_extent_verified": false,
+          "whole_Q11_IRP12": false,
+          "source_pins_digest": "d81de046f2a40886be054fa3a8931755c966edb31bfa5cc3f435a1a4341267d1",
+          "reason": null
+        },
+        "capacity": {
+          "errors": [],
+          "pending": [],
+          "evidence": {
+            "status": "PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY",
+            "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+            "units": [
+              {
+                "unit": "A",
+                "residents_study": 6,
+                "actual_places": {
+                  "sleeping_places": 6,
+                  "dining_seats": 6,
+                  "living_seats": 6
+                },
+                "living_occupied_instances": 6,
+                "actual_closet_instances": 3,
+                "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+                "worst_capacity_margin": 0
+              },
+              {
+                "unit": "B",
+                "residents_study": 6,
+                "actual_places": {
+                  "sleeping_places": 6,
+                  "dining_seats": 6,
+                  "living_seats": 6
+                },
+                "living_occupied_instances": 6,
+                "actual_closet_instances": 3,
+                "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+                "worst_capacity_margin": 0
+              }
+            ],
+            "worst_unit_margin": 0,
+            "scope": "Actual double2/single1 sleeping places, one per real dining chair and conservative one .7-body place per real sofa/armchair. Living access and normal seat-transfer tested with other living and dining seats occupied. Own support contact only during seat task, not walking. Height/ergonomics NOT_VERIFIED. Not full fixture operations, kitchen/bath/privacy or whole-plan admission.",
+            "accepted": false
+          }
+        },
+        "units": [
+          {
+            "unit": "A",
+            "required_residents": 6,
+            "actual_sitting_places": 6,
+            "sitting_activity_area_m2": "296/25",
+            "sitting_access_union_area_m2": "9143/400",
+            "connected": true,
+            "source_body_m": ".7",
+            "residual_claimed": false
+          },
+          {
+            "unit": "B",
+            "required_residents": 6,
+            "actual_sitting_places": 6,
+            "sitting_activity_area_m2": "296/25",
+            "sitting_access_union_area_m2": "5283/250",
+            "connected": true,
+            "source_body_m": ".7",
+            "residual_claimed": false
+          }
+        ]
+      },
+      "scope": "CURRENT_SOURCE_SITTING_PROGRAM_AND_ACCESS_ONLY_NOT_FULL_PARENT",
+      "elapsed_seconds": 2.0083229709998704
+    },
+    "guest": {
+      "rule_id": "GUEST_ROUTE_INDEPENDENCE",
+      "verdict": "PASS_SCOPED_FOUR_SOURCE_GUEST_RELATIONS",
+      "parent_complete": false,
+      "evidence": {
+        "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+        "base_fresh_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+        "relations": [
+          {
+            "unit": "A",
+            "relation": "entry_living",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "A",
+            "relation": "entry_dining",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "A",
+            "relation": "entry_WC",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "A",
+            "relation": "living_dining",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "B",
+            "relation": "entry_living",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "B",
+            "relation": "entry_dining",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "B",
+            "relation": "entry_WC",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          },
+          {
+            "unit": "B",
+            "relation": "living_dining",
+            "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+            "collisions": [],
+            "body_m": "7/10",
+            "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+          }
+        ],
+        "intrinsic_closure_digest": "6bb6d4cb9848f7bf17bc8c9aa6095d9bb432fbce54964ef5d58b95c414806770"
+      },
+      "missing": [
+        "AUTHOR233_APPLICABILITY_AND_SCOPE_AUDIT_PENDING"
+      ],
+      "scope": "CURRENT_RECOVERED_SOURCE_PROFILE_FOUR_RELATIONS_NOT_PARENT_Q06_ADMISSION",
+      "elapsed_seconds": 2.0298695689998567
+    },
+    "kitchen": {
+      "rule_id": "KITCHEN_PROXIMITY",
+      "verdict": "PASS_SCOPED_ESSENTIAL_KITCHEN_RELATIONS",
+      "parent_complete": false,
+      "evidence": {
+        "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+        "fresh_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+        "source_guest_closure_digest": "9dab401a6c8c21cbf0a2e85906b3fdbb7a7ab9bf9ad8440e390990097603a3c2",
+        "row_hashes": {
+          "kitchen_essential_operation": "a7c8f0248d215b409e852dd6a41add1d916d63c8b41821ed5a2bf66f731d6170",
+          "serving_route": "6cb8fd0c37b8c4e4a93a58ed3326283970f489bf7d97f9ae4c15a8a1b3c19eb5",
+          "body_route_sweeps": "fe98a26e75812f592954b0906c9497b095572697aa6504d171038264ca8e0dff"
+        },
+        "relations": [
+          {
+            "unit": "A",
+            "relation": "kitchen_to_dining",
+            "metrics": {
+              "length": "191/10",
+              "direction_changes": 12
+            },
+            "verdict": "PASS_SCOPED_PATH",
+            "collisions": [],
+            "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+            "body_m": "7/10"
+          },
+          {
+            "unit": "A",
+            "relation": "kitchen_to_living_via_entry",
+            "metrics": {
+              "length": "511/20",
+              "direction_changes": 19
+            },
+            "verdict": "PASS_SCOPED_PATH",
+            "collisions": [],
+            "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+            "body_m": "7/10"
+          },
+          {
+            "unit": "B",
+            "relation": "kitchen_to_dining",
+            "metrics": {
+              "length": "191/10",
+              "direction_changes": 12
+            },
+            "verdict": "PASS_SCOPED_PATH",
+            "collisions": [],
+            "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+            "body_m": "7/10"
+          },
+          {
+            "unit": "B",
+            "relation": "kitchen_to_living_via_entry",
+            "metrics": {
+              "length": "511/20",
+              "direction_changes": 17
+            },
+            "verdict": "PASS_SCOPED_PATH",
+            "collisions": [],
+            "scenario": "SOURCE_ESSENTIAL_SEQUENTIAL_USE; OPEN_TRANSIT_DOORS; SOURCE_SERVING_CHAIRS_CHECK_SEPARATE",
+            "body_m": "7/10"
+          }
+        ]
+      },
+      "missing": [
+        "AUTHOR233_ESSENTIAL_SCOPE_AND_COMPARATIVE_APPLICABILITY_AUDIT_PENDING"
+      ],
+      "scope": "REFERENCE113_ESSENTIAL_OPERATION_AND_SOURCE_ENDPOINT_RELATIONS_ONLY",
+      "optional_ranking": {
+        "disposition": "UNASSESSED_AUTHOR233_PENDING",
+        "not_claimed": "NO_GLOBAL_PROXIMITY_OPTIMUM_OR_WAIVER"
+      },
+      "elapsed_seconds": 2.258508797000104
+    },
+    "openings": {
+      "verdict": "UNKNOWN",
+      "codes": [],
+      "evidence": {
+        "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+        "raw_digest": "d8d896a71691cb29ee0439891f57f7208daa045e34d3fe0d7ad433add378925a",
+        "sections": {
+          "H08": [
+            211087,
+            226320
+          ],
+          "H10": [
+            238554,
+            252437
+          ],
+          "H11": [
+            252437,
+            267506
+          ]
+        },
+        "source_rows": {
+          "opening_hosts": {
+            "status": "PASS_LIMITED",
+            "errors": [],
+            "pending": []
+          },
+          "actual_opening_geometry": {
+            "status": "PASS_LIMITED",
+            "errors": [],
+            "pending": []
+          },
+          "door_operation": {
+            "status": "PASS_LIMITED",
+            "errors": [],
+            "pending": []
+          },
+          "closet_operation": {
+            "status": "PASS_LIMITED",
+            "errors": [],
+            "pending": []
+          }
+        },
+        "scenario_join": {
+          "inventory": [
+            {
+              "opening": "A.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "A.public_access",
+                "lobby"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "B.public_access",
+                "lobby"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "stair.entry",
+              "type": "source_nonleaf117",
+              "executed_evidence_implication": true
+            },
+            {
+              "opening": "lift.entry",
+              "type": "source_nonleaf117",
+              "executed_evidence_implication": true
+            },
+            {
+              "opening": "A.bed1.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "A.bed1",
+                "A.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.bed2.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "A.bed2",
+                "A.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.bed3.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "A.bed3",
+                "A.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.bath",
+              "type": "pocket_source113",
+              "roles": [
+                "A.bath",
+                "A.public_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.WC",
+              "type": "pocket_source113",
+              "roles": [
+                "A.WC",
+                "A.vanity"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.shower",
+              "type": "pocket_source113",
+              "roles": [
+                "A.shower",
+                "A.vanity"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "A.kitchen.entry",
+              "type": "source_nonleaf117",
+              "executed_evidence_implication": true
+            },
+            {
+              "opening": "B.bed1.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "B.bed1",
+                "B.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.bed2.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "B.bed2",
+                "B.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.bed3.entry",
+              "type": "sliding_linear",
+              "roles": [
+                "B.bed3",
+                "B.private_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.bath",
+              "type": "pocket_source113",
+              "roles": [
+                "B.bath",
+                "B.public_access"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.WC",
+              "type": "pocket_source113",
+              "roles": [
+                "B.WC",
+                "B.vanity"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.shower",
+              "type": "pocket_source113",
+              "roles": [
+                "B.shower",
+                "B.vanity"
+              ],
+              "continuous_segments": 2,
+              "source_profile_scope": "declared source operation, both sides, continuous actor and panel; not all imaginable joint states"
+            },
+            {
+              "opening": "B.kitchen.entry",
+              "type": "source_nonleaf117",
+              "executed_evidence_implication": true
+            }
+          ],
+          "source_sha256": "ac73b6a13c73f60c513de19c5faa60fb6a9f445e4ad4b2f836fd945df006ce6b",
+          "method": {
+            "name": "named_checks118.door_operation",
+            "code_sha256": "906fcf87a5e52e19fdc6bbbbb1791ebc7f0e2786831bba3096e883e85bc3f3b4"
+          },
+          "readset_digest": "f67e5ee0ec29e60c422415b6fb84d8e29fe71939958a7c66b7dedf5d1261fa85",
+          "source_pass_implication": true,
+          "missing": []
+        },
+        "opening_ids": [
+          "A.WC",
+          "A.bath",
+          "A.bed1.entry",
+          "A.bed2.entry",
+          "A.bed3.entry",
+          "A.entry",
+          "A.kitchen.entry",
+          "A.shower",
+          "B.WC",
+          "B.bath",
+          "B.bed1.entry",
+          "B.bed2.entry",
+          "B.bed3.entry",
+          "B.entry",
+          "B.kitchen.entry",
+          "B.shower",
+          "lift.entry",
+          "stair.entry"
+        ],
+        "window_ids": [
+          "A.bed1.window",
+          "A.bed2.window",
+          "A.bed3.window",
+          "A.living.window",
+          "B.bed1.window",
+          "B.bed2.window",
+          "B.bed3.window",
+          "B.living.window"
+        ],
+        "operated_opening_ids": [
+          "A.WC",
+          "A.bath",
+          "A.bed1.entry",
+          "A.bed2.entry",
+          "A.bed3.entry",
+          "A.entry",
+          "A.shower",
+          "B.WC",
+          "B.bath",
+          "B.bed1.entry",
+          "B.bed2.entry",
+          "B.bed3.entry",
+          "B.entry",
+          "B.shower"
+        ],
+        "source_nonleaf_candidates_not_new_proofs": [
+          "A.kitchen.entry",
+          "B.kitchen.entry",
+          "lift.entry",
+          "stair.entry"
+        ],
+        "lighting_ventilation": "EXCLUDED",
+        "inventory_join": "BOUND_SCOPED"
+      },
+      "missing": [
+        "INDEPENDENT_AUDIT_BEFORE_PARENT_ENABLE"
+      ],
+      "parent_initial": false,
+      "accepted": false,
+      "delivery_allowed": false,
+      "fresh_execution_attested": false,
+      "scope_complete": true
+    },
+    "room_bundle_inventory": [
+      {
+        "unit": "A",
+        "bedrooms": [
+          {
+            "room": "bed1",
+            "role": "double",
+            "source_module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+            "fixture_ids": [
+              "bed1.bed",
+              "bed1.closet"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          },
+          {
+            "room": "bed2",
+            "role": "twin",
+            "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+            "fixture_ids": [
+              "bed2.closet",
+              "bed2.bedA",
+              "bed2.bedB"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          },
+          {
+            "room": "bed3",
+            "role": "twin",
+            "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+            "fixture_ids": [
+              "bed3.closet",
+              "bed3.bedA",
+              "bed3.bedB"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          }
+        ],
+        "capacity": {
+          "unit": "A",
+          "residents_study": 6,
+          "actual_places": {
+            "sleeping_places": 6,
+            "dining_seats": 6,
+            "living_seats": 6
+          },
+          "living_occupied_instances": 6,
+          "actual_closet_instances": 3,
+          "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+          "worst_capacity_margin": 0
+        }
+      },
+      {
+        "unit": "B",
+        "bedrooms": [
+          {
+            "room": "bed1",
+            "role": "double",
+            "source_module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+            "fixture_ids": [
+              "bed1.bed",
+              "bed1.closet"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          },
+          {
+            "room": "bed2",
+            "role": "twin",
+            "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+            "fixture_ids": [
+              "bed2.closet",
+              "bed2.bedA",
+              "bed2.bedB"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          },
+          {
+            "room": "bed3",
+            "role": "twin",
+            "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+            "fixture_ids": [
+              "bed3.closet",
+              "bed3.bedA",
+              "bed3.bedB"
+            ],
+            "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+          }
+        ],
+        "capacity": {
+          "unit": "B",
+          "residents_study": 6,
+          "actual_places": {
+            "sleeping_places": 6,
+            "dining_seats": 6,
+            "living_seats": 6
+          },
+          "living_occupied_instances": 6,
+          "actual_closet_instances": 3,
+          "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+          "worst_capacity_margin": 0
+        }
+      }
+    ],
+    "author_spatial_mapping": {
+      "schema": "RECONSTRUCTED357_AUTHOR233_SPATIAL_MAPPING",
+      "source_html_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+      "extracted_sections_sha256": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+      "model_hash": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "parent_promotion_performed": false,
+      "rules": {
+        "Q02": {
+          "source_selector": "details > summary[text=Q02]",
+          "html_character_range": [
+            419405,
+            435457
+          ],
+          "algorithm": "1. Derive free usable living/reception polygon after actual obstacles and source-role exclusions, preserving holes.\n2. Compute connected components and profile-clear passage between required seating/use/access zones via H08; measure useful widths/neck clearances and maximum axis-aligned inscribed rectangle in declared frame as descriptive metrics.\n3. Verify complete sitting bundle in connected useful space; do not infer use from bbox or aspect ratio.\n4. Compare protected metrics only among eligible same-program alternatives; apply scoped R-LIV separately.\nR_LIV scoped overlay applies only on its exact trigger; otherwise do not impose45..55 or infer all-set obligation.\nMaximum axis-aligned inscribed rectangle is computed ONLY by common_definitions.MAX_RECT in its supported fixed-frame rect-union domain; unsupported polygon yields descriptive UNKNOWN, never a mandatory geometric failure.",
+          "acceptance": "required usable sitting/access connected; any comparative claim meets finite noncompensatory test",
+          "r_liv": {
+            "status": "N_A",
+            "reason": "BOUND_RAW_DIMENSIONS_OUTSIDE_EXACT_12_5x20_TRIGGER",
+            "raw": {
+              "W": "26",
+              "L": "28",
+              "n": 2,
+              "requested_count": 2
+            }
+          },
+          "comparative_scope": "NO_COMPARATIVE_OR_AESTHETIC_CLAIM",
+          "descriptive_max_rect": "NOT_COMPUTED_NOT_HARD_ACCEPTANCE",
+          "proof_conditions": [
+            "same-fresh source bundle inventory and capacity, all seating transfer operations verified",
+            "source288 full-body swept edges inside actual ownership and outside fixed conservative source scenario obstacles",
+            "all required standing targets connected to verified source entry root; no invented graph connectors",
+            "actual role excludes kitchen/dining; no entire residual declared useful"
+          ],
+          "whole_residual_claimed": false,
+          "audit_recommendation": "ELIGIBLE_CURRENT_PROFILE_PARENT_CLOSURE_PENDING_INDEPENDENT_AUDIT"
+        },
+        "Q06": {
+          "source_selector": "details > summary[text=Q06]",
+          "html_character_range": [
+            480171,
+            494247
+          ],
+          "algorithm": "1. Per unit identify actual usable entry/living/dining/WC/bath/private destinations.\n2. Test entry->living, entry->dining, entry->WC and living<->dining independently using H08; no borrowed living endpoint for dining.\n3. Forbidden sweep sets include private bedrooms/vestibules and active kitchen body/door/drawer/use envelopes for each source-required concurrent scenario.\n4. H07 bath-private-deletion condition remains separate.",
+          "acceptance": "all named guest routes complete without forbidden crossings",
+          "proof_conditions": [
+            "same fresh source door/bath/kitchen/fixture/role prerequisite checks",
+            "independent actual source living, dining standing-body and WC targets",
+            "all four source-body swept relations per unit inside ownership",
+            "full bedroom/private vestibule union excluded",
+            "current source kitchen full leaf/actor/hand/object and drawer envelopes conservatively excluded",
+            "open-transit door state supported by separate same-fresh operation proof; no unsupported all-door simultaneous closure requirement"
+          ],
+          "separate_rule_not_claimed": "H07_BATH_PRIVATE_DELETION",
+          "scenario_scope": "CURRENT_REFERENCE113_SOURCE_PROFILE_NOT_ALL_POSSIBLE_PROFILES",
+          "audit_recommendation": "ELIGIBLE_CURRENT_PROFILE_PARENT_CLOSURE_PENDING_INDEPENDENT_AUDIT"
+        }
+      }
+    }
+  },
+  "evidence_bindings": {
+    "nine_prerequisites": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "c38e5af5f6a85fb9387353e6b57c8cd25222b1f5cd5635a6812762ce5d85298f",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "living": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "20099cbab9004a6851dd547e28e0af1b22a84ea6ec2d80650814e138e93498bc",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "guest": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "77e85c7a19c4db3208f04b0ec2e9157f08729514da1170fbcb15b811237c16e2",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "kitchen": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "de8ba9cbf691f0de2cb2b2e17bc955b47220d44dce1aaa320b6b55e22d7d0d9d",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "openings": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "f35dd5698331f303d68f2aaf5a567fa13492f539cf1053ad69fe81b006078f3d",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "room_bundle_inventory": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "ced23d8372f668dfa927a8f0ab021d47b8314e11cc3fe4921b53206386fcad11",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    },
+    "author_spatial_mapping": {
+      "record_digest": "931315ee1a698ce9ca717ccb8387c04a95c1174b300d033d932db7712d9f5eac",
+      "fresh_digest": "337e58d6c4ae3f7737e26803e48d3d992d2d31f0551f0ffc51f2fd62670e93ca",
+      "model_digest": "112b59ada7b71023a043bf50d748e47bf9884a23badbccd86aeffbc864630303",
+      "review_id": "d6248b66-dad9-4080-a8a5-e5dce505c16d",
+      "candidate_id": "5f181cadf3a449da6ea08707ccc438c7fd239cee5d000914d30a1e52fd790127",
+      "test_only": true,
+      "evidence_digest": "f8bc8565edeb2fba4f0a9e72e234503b2fbb6b037a36a939f06bb2adee3261e5",
+      "view_result_digest": "83888845621532e7f2834a84b8826e3015397f4ee01d71fcdff49f49c1414e4d",
+      "recomputation_attempted": true
+    }
+  },
+  "errors": {},
+  "whole_parent_qualification": false,
+  "semantic_prerequisites_recomputed": true,
+  "fresh_review_reused_from372": true,
+  "new_fresh_checker_executed": false,
+  "old_fixed_artifact_issuers_called": false,
+  "equivalence_attestation_used": false,
+  "test_only": true,
+  "accepted": false,
+  "delivery_allowed": false
+}

@@ -1,0 +1,18 @@
+{
+  "cohort": {
+    "path": "review382_actual_v1/result.json",
+    "sha256": "8f09238128c3341aa7541c680f0aa6c393c912162562ffd6f9a42db5dc219956"
+  },
+  "roles": {
+    "path": "review381_actual_v1/result.json",
+    "sha256": "927cb0a6482899268140fba0d57eda4eabfbc60ddf63879508407356a910332c"
+  },
+  "record": {
+    "path": "independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636/record.json",
+    "sha256": "4ae13e185196e13111dc0f3a642d36f601015679ee724c8517f8b743f8805c05"
+  },
+  "fresh": {
+    "path": "independent379actual/evidence/review379_actual_v1/runs/02dc5f92-93b6-4466-be6c-5114e96bc636/fresh.json",
+    "sha256": "d654f55177653ffcc58924caecdad5c1e5fc7bbaf6f7fe412cb11480a42765ee"
+  }
+}

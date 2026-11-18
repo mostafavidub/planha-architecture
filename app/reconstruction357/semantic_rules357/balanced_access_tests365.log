@@ -1,0 +1,10 @@
+test_changed_path_rejected (test_balanced_access365.Balance365.test_changed_path_rejected) ... ok
+test_current_binding (test_balanced_access365.Balance365.test_current_binding) ... ok
+test_exact_equality_no_tolerance (test_balanced_access365.Balance365.test_exact_equality_no_tolerance) ... ok
+test_old_review_rejected (test_balanced_access365.Balance365.test_old_review_rejected) ... ok
+test_scope_preserved (test_balanced_access365.Balance365.test_scope_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.460s
+
+OK

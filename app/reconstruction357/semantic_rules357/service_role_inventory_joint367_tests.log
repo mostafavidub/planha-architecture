@@ -1,0 +1,32 @@
+test_actual_bound (test_service_role_inventory_joint367.ServiceInventory.test_actual_bound) ... ok
+test_continuous_middle_crossing (test_service_role_inventory_joint367.ServiceInventory.test_continuous_middle_crossing) ... ERROR
+test_current_not_global (test_service_role_inventory_joint367.ServiceInventory.test_current_not_global) ... ok
+test_includes_source_approach_not_old_outside_cost (test_service_role_inventory_joint367.ServiceInventory.test_includes_source_approach_not_old_outside_cost) ... ok
+test_missing_current_operations_unknown (test_service_role_inventory_joint367.ServiceInventory.test_missing_current_operations_unknown) ... ok
+test_stale_review_unknown (test_service_role_inventory_joint367.ServiceInventory.test_stale_review_unknown) ... ok
+test_unclassified_cells_remain (test_service_role_inventory_joint367.ServiceInventory.test_unclassified_cells_remain) ... ok
+test_unknown_inventory_stops (test_service_role_inventory_joint367.ServiceInventory.test_unknown_inventory_stops) ... ok
+test_unknown_operation_stops (test_service_role_inventory_joint367.ServiceInventory.test_unknown_operation_stops) ... ok
+test_unsupported_motion_stops (test_service_role_inventory_joint367.ServiceInventory.test_unsupported_motion_stops) ... ok
+test_whole_roles_and_continuous_inventory_present (test_service_role_inventory_joint367.ServiceInventory.test_whole_roles_and_continuous_inventory_present) ... ok
+test_whole_room_role_makes_shared_without_footprint (test_service_role_inventory_joint367.ServiceInventory.test_whole_room_role_makes_shared_without_footprint) ... ok
+
+======================================================================
+ERROR: test_continuous_middle_crossing (test_service_role_inventory_joint367.ServiceInventory.test_continuous_middle_crossing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/semantic_rules357/test_service_role_inventory_joint367.py", line 23, in test_continuous_middle_crossing
+    q=linear((-2,0,-1,1),(2,0,3,1));o=partition([(0,0,1,1)],[(0,0,1,1)],[q],True);self.assertEqual(o['exclusive_current_profile_m2'],'0')
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/semantic_rules357/service_role_inventory_joint367.py", line 13, in linear
+    a,b=rect(a),rect(b)
+        ^^^^^^^
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/semantic_rules357/modules_spatial.py", line 7, in rect
+    if type(v)is not list or len(v)!=4 or any(type(x)not in(str,int)for x in v):raise ValueError('EXACT_RECT_REQUIRED')
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: EXACT_RECT_REQUIRED
+
+----------------------------------------------------------------------
+Ran 12 tests in 23.339s
+
+FAILED (errors=1)

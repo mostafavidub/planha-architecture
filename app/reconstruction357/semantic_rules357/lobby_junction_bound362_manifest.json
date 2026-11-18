@@ -1,0 +1,17 @@
+{
+  "files": {
+    "lobby_junction_bound362.py": "6b24bfd6eaf013837fad6c865dbdf699a006e6113e295242eb414cf5a0ba3798",
+    "test_lobby_junction_bound362.py": "be646fa53678337b0bfa01ec9ec0957ab0f5b0a3a8f121f171c55fd443dabf3c",
+    "lobby_junction_bound_actual362.json": "4e4c708db6ab024bf71f13f63b70032a23bf31bf725cd08c5db684dddb028d0c",
+    "LOBBY_JUNCTION_BOUND362_FA.md": "0315e0bebc357d61fe28897099b56135871723f8fea2501edaef0da9eb897845",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "../staging362_core_notch/actual362.json": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+    "../../recovered233_rendered/sections.json": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3"
+  },
+  "tests_passed": 5,
+  "scope": "RECTANGULAR_FIXED_PORTAL_BOUND_ONLY",
+  "new_fresh_runs": 0,
+  "parent_promotion": false,
+  "independent_audit": "pending"
+}

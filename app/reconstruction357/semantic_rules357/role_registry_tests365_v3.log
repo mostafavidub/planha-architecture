@@ -1,0 +1,14 @@
+test_balance_current_not_old_gap (test_role_model365_v3.Role365V2.test_balance_current_not_old_gap) ... ok
+test_changed_reserved_slack_rejected (test_role_model365_v3.Role365V2.test_changed_reserved_slack_rejected) ... ok
+test_current_model_binding (test_role_model365_v3.Role365V2.test_current_model_binding) ... ok
+test_current_service_not_other_candidate (test_role_model365_v3.Role365V2.test_current_service_not_other_candidate) ... ok
+test_dependencies_remain (test_role_model365_v3.Role365V2.test_dependencies_remain) ... ok
+test_no_delivery (test_role_model365_v3.Role365V2.test_no_delivery) ... ok
+test_nonusable_margin_not_capacity (test_role_model365_v3.Role365V2.test_nonusable_margin_not_capacity) ... ok
+test_selected_set_not_singleton (test_role_model365_v3.Role365V2.test_selected_set_not_singleton) ... ok
+test_stale_review_rejected (test_role_model365_v3.Role365V2.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 20.741s
+
+OK

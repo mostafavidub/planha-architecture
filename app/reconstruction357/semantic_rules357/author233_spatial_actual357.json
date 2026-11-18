@@ -1,0 +1,58 @@
+{
+  "schema": "RECONSTRUCTED357_AUTHOR233_SPATIAL_MAPPING",
+  "source_html_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+  "extracted_sections_sha256": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+  "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+  "parent_promotion_performed": false,
+  "rules": {
+    "Q02": {
+      "source_selector": "details > summary[text=Q02]",
+      "html_character_range": [
+        419405,
+        435457
+      ],
+      "algorithm": "1. Derive free usable living/reception polygon after actual obstacles and source-role exclusions, preserving holes.\n2. Compute connected components and profile-clear passage between required seating/use/access zones via H08; measure useful widths/neck clearances and maximum axis-aligned inscribed rectangle in declared frame as descriptive metrics.\n3. Verify complete sitting bundle in connected useful space; do not infer use from bbox or aspect ratio.\n4. Compare protected metrics only among eligible same-program alternatives; apply scoped R-LIV separately.\nR_LIV scoped overlay applies only on its exact trigger; otherwise do not impose45..55 or infer all-set obligation.\nMaximum axis-aligned inscribed rectangle is computed ONLY by common_definitions.MAX_RECT in its supported fixed-frame rect-union domain; unsupported polygon yields descriptive UNKNOWN, never a mandatory geometric failure.",
+      "acceptance": "required usable sitting/access connected; any comparative claim meets finite noncompensatory test",
+      "r_liv": {
+        "status": "N_A",
+        "reason": "BOUND_RAW_DIMENSIONS_OUTSIDE_EXACT_12_5x20_TRIGGER",
+        "raw": {
+          "W": "26",
+          "L": "28",
+          "n": 2,
+          "requested_count": 2
+        }
+      },
+      "comparative_scope": "NO_COMPARATIVE_OR_AESTHETIC_CLAIM",
+      "descriptive_max_rect": "NOT_COMPUTED_NOT_HARD_ACCEPTANCE",
+      "proof_conditions": [
+        "same-fresh source bundle inventory and capacity, all seating transfer operations verified",
+        "source288 full-body swept edges inside actual ownership and outside fixed conservative source scenario obstacles",
+        "all required standing targets connected to verified source entry root; no invented graph connectors",
+        "actual role excludes kitchen/dining; no entire residual declared useful"
+      ],
+      "whole_residual_claimed": false,
+      "audit_recommendation": "ELIGIBLE_CURRENT_PROFILE_PARENT_CLOSURE_PENDING_INDEPENDENT_AUDIT"
+    },
+    "Q06": {
+      "source_selector": "details > summary[text=Q06]",
+      "html_character_range": [
+        480171,
+        494247
+      ],
+      "algorithm": "1. Per unit identify actual usable entry/living/dining/WC/bath/private destinations.\n2. Test entry->living, entry->dining, entry->WC and living<->dining independently using H08; no borrowed living endpoint for dining.\n3. Forbidden sweep sets include private bedrooms/vestibules and active kitchen body/door/drawer/use envelopes for each source-required concurrent scenario.\n4. H07 bath-private-deletion condition remains separate.",
+      "acceptance": "all named guest routes complete without forbidden crossings",
+      "proof_conditions": [
+        "same fresh source door/bath/kitchen/fixture/role prerequisite checks",
+        "independent actual source living, dining standing-body and WC targets",
+        "all four source-body swept relations per unit inside ownership",
+        "full bedroom/private vestibule union excluded",
+        "current source kitchen full leaf/actor/hand/object and drawer envelopes conservatively excluded",
+        "open-transit door state supported by separate same-fresh operation proof; no unsupported all-door simultaneous closure requirement"
+      ],
+      "separate_rule_not_claimed": "H07_BATH_PRIVATE_DELETION",
+      "scenario_scope": "CURRENT_REFERENCE113_SOURCE_PROFILE_NOT_ALL_POSSIBLE_PROFILES",
+      "audit_recommendation": "ELIGIBLE_CURRENT_PROFILE_PARENT_CLOSURE_PENDING_INDEPENDENT_AUDIT"
+    }
+  }
+}

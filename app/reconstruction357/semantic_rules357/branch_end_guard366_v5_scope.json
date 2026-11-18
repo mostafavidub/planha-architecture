@@ -1,0 +1,29 @@
+{
+  "scope": "BRANCH_ONLY_SAVED_MODEL_REASSESSMENT_NOT_NEW_BUILD_OR_FRESH",
+  "allowed_changes": [
+    "Source-canonical four branch wall rectangles",
+    "Source-derived private floor/domain parts",
+    "Required task/scenario path geometry only if reproduced exactly by pinned assemble146 route phase and public_witness144",
+    "Derived final public floor/window/physical wall network/threshold/role accounting"
+  ],
+  "invariants": [
+    "All model keys and units",
+    "inputs/program/profile/common/ownership/assets/module placements/openings/operations",
+    "All required activity and scenario keys; task starts/targets",
+    "Every remaining unlisted field"
+  ],
+  "additional_checks": [
+    "Actual body owner/wall/open panel/fixture sweeps",
+    "Source public required scenarios",
+    "Nonprivate tasks outside private floor",
+    "All six source-private port path body clearances"
+  ],
+  "source_first_attach_note": "ledger hashes pre-attach model; old spatial bindings/accounting removed and original source quality_unverified assignment restored before source attach, rather than copying current actual ledger digest.",
+  "wrapper_required": "Fixed parent record SHA plus all transitive sources pinned before import in a fresh process; stage must precede any core/entry modifications.",
+  "not_claimed": [
+    "All-rule fresh",
+    "Needlessness of removed floor",
+    "Global optimality",
+    "Acceptance or release"
+  ]
+}

@@ -1,0 +1,6 @@
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "construct", "status": "STARTED", "budget_seconds": 45}
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "construct", "status": "COMPLETED"}
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "fresh_first", "status": "STARTED", "budget_seconds": 90}
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "fresh_first", "status": "COMPLETED"}
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "propose", "status": "STARTED", "budget_seconds": 3}
+{"run_id": "5caf57c9-82d9-4aa6-87f0-1c0362abaf21", "phase": "propose", "status": "COMPLETED"}

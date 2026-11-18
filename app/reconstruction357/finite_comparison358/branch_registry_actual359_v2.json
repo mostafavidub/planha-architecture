@@ -1,0 +1,204 @@
+{
+  "schema": "SOURCE_BACKED_FINITE_BRANCH_REGISTRY359_V2",
+  "version": 2,
+  "branches": [
+    {
+      "id": "LAYOUT_ROW358_FIXED_PROPOSAL",
+      "source": {
+        "file": "staging358_comparative/row_adapter358.py",
+        "sha256": "f07912ba8f679eea9d44c40f7223b009ce683d0accba2e0db7e1da7219c4b17a",
+        "callable": "construct",
+        "lines": [
+          34,
+          37
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Actual source-bound 358; same exact brief/profile; negative area objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_SIDECAR357_FIXED_PROPOSAL",
+      "source": {
+        "file": "staging357_comparative/translated_adapter.py",
+        "sha256": "c4352430910d4c491e9c6032f29a8dedc09ec6d9370f0b5c911f59e65f465732",
+        "callable": "construct",
+        "lines": [
+          10,
+          21
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Actual source-bound357; negative source route objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_ROW351_SAVED_PROPOSAL",
+      "source": {
+        "file": "planha_general150_runtime_work/constructor129.py",
+        "sha256": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+        "callable": "build",
+        "lines": [
+          15,
+          40
+        ]
+      },
+      "state": "EVALUATED",
+      "reason": "Recovered fixed351 candidate, source provenance retained; negative source route objective versus359",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_HALL_CLAMP359_FIXED_LINEAGE",
+      "source": {
+        "file": "staging359_hall_clamp/adapter359.py",
+        "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+        "callable": "construct",
+        "lines": [
+          25,
+          32
+        ]
+      },
+      "state": "EVALUATED_SELF_TIE",
+      "reason": "Current359, same exact fixed358 proposal, one bounded reconstruction",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "CORE_FULL_BAND114_FIXED_INPUT",
+      "source": {
+        "file": "planha_general150_runtime_work/contract114.py",
+        "sha256": "8fa52a9d992cd078e7dd3356bab61de7b9687d60a4ae52fc403a3e0b2203dbcf",
+        "callable": "core_first",
+        "lines": [
+          57,
+          74
+        ],
+        "available_callables": [
+          "S",
+          "digest",
+          "parse",
+          "full_band_core_first",
+          "program",
+          "core_first"
+        ]
+      },
+      "state": "PROTECTED_DOMAIN_EXCLUDED",
+      "reason": "Source full-band primitive measured independently; exact ownership loss forbids this conservative comparative domain, not intrinsic invalidity",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "CORE_NOTCH360_FIXED_LINEAGE",
+      "source": {
+        "file": "staging360_core_notch/adapter360.py",
+        "sha256": "a8e40f3c73afcd97c550b554d59fc7eeafed599a92d74c7c7237a4aae7eb6184",
+        "callable": "construct",
+        "lines": [
+          24,
+          40
+        ]
+      },
+      "state": "UNKNOWN_ELIGIBILITY",
+      "reason": "Actual360 exists; source/fresh/intrinsic and objective review pending. Must not erase from current finite work domain",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "DOOR_RELOCATION_STANDALONE",
+      "source": {
+        "file": "staging359_hall_clamp/adapter359.py",
+        "sha256": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+        "callable": "construct",
+        "lines": [
+          25,
+          32
+        ]
+      },
+      "state": "UNSUPPORTED_REGISTERED_PRODUCER",
+      "reason": "Current fixed-lineage adapter takes no door position/host/profile parameters; source module openings regenerated unchanged. General source233 OP_EDIT_OPENING is specification, not an implemented standalone branch",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    },
+    {
+      "id": "LAYOUT_OTHER_SOURCE_TOPOLOGIES",
+      "source": {
+        "file": "planha_general150_runtime_work/constructor129.py",
+        "sha256": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+        "callable": "build",
+        "lines": [
+          15,
+          40
+        ]
+      },
+      "state": "STOPPED_UNASSESSED_SOURCE_DOMAIN",
+      "reason": "Source constructor has additional topology/family dispatches; this finite current-candidate cohort is not their exhaustion proof. No silent claim all source variants were attempted",
+      "shared_constraints": {
+        "raw": "exact W26 L28 n2 requested_count2",
+        "frame": "FRONT_REAR only in current fixed lineage",
+        "program": "double/twin/twin three bedrooms per unit",
+        "profile": "source asset/body dimensions unchanged",
+        "owner_exclusions": "lighting/ventilation and technical core approval excluded"
+      },
+      "applicability": "CURRENT_SOURCE_SUPPORTED_WORK_INVENTORY_NOT_GLOBAL_DISPATCH_EXHAUSTION"
+    }
+  ],
+  "scope_closed": false,
+  "unknown_or_stopped_branch_ids": [
+    "CORE_NOTCH360_FIXED_LINEAGE",
+    "LAYOUT_OTHER_SOURCE_TOPOLOGIES"
+  ],
+  "counted_evaluated_candidate_ids": [
+    "baseline351",
+    "translated357",
+    "row358",
+    "clamped359"
+  ],
+  "current_model": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+  "policy": "No branch omitted because unsupported/unknown; exact finite source operator bounds must be independently registered before a finite completeness claim. No infinite parameter search or global optimum assertion.",
+  "parent_acceptance": false
+}

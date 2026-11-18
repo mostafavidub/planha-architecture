@@ -1,0 +1,43 @@
+{
+  "schema": "DISPATCH361_EXECUTION_SUMMARY",
+  "prereg_sha256": "275a4c9332e7e8e6448608052b8e102c6444d116d195354854da02bf2969d613",
+  "actual_sha256": "cf52dca7b2bbcd16ca3869dd0d84010128b0169e95563ca3d74e37c331bfad42",
+  "proposer_invocations": 4,
+  "actual_solver_status_bearing_attempts": 3,
+  "source_unchanged": true,
+  "cleanup_verified": true,
+  "new_candidate_count": 0,
+  "statuses": [
+    {
+      "id": "TURN_T",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "solver_status": null
+    },
+    {
+      "id": "TURN_T_CONNECTED",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "solver_status": null
+    },
+    {
+      "id": "SIDECAR_GROUP138",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "solver_status": 2
+    },
+    {
+      "id": "SIDECAR_PROTECTED",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "solver_status": 2
+    },
+    {
+      "id": "ROW",
+      "status": "UNSUPPORTED_BUNDLE_FIT",
+      "solver_status": null
+    },
+    {
+      "id": "SIDECAR_COMPACT144",
+      "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+      "solver_status": 2
+    }
+  ],
+  "scope": "Restricted masters only; actual solver infeasibility is not global infeasibility or complete Q04 acceptance. ROW fit failed before solver. No timeout, no fresh, no retry."
+}

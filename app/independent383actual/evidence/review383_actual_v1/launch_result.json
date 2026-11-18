@@ -1,0 +1,13 @@
+{
+  "run_id": "5e2039a5-2f5b-40bf-b0a0-ff038a192309",
+  "outer_clean_success": true,
+  "source_unchanged": true,
+  "cycle_result_present": true,
+  "cycle_completed": true,
+  "execution_completed": true,
+  "accepted": false,
+  "delivery_allowed": false,
+  "request_fulfilled": false,
+  "browser_executed": false,
+  "emergency_containment_or_failure": false
+}

@@ -1,0 +1,14 @@
+{
+  "reason": "COMPLETED",
+  "worker_reaped": true,
+  "tracked_processes": [
+    {
+      "pid": 5,
+      "create_time": 1794825819.19
+    }
+  ],
+  "unresolved": [],
+  "cleanup_verified": true,
+  "elapsed_seconds": 8.044042228000762,
+  "delivery_allowed": false
+}

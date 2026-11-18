@@ -1,0 +1,4 @@
+{
+  "failure": "First outer manifest assembly used ROOT-relative resolution for eligibility pins, which are HERE-relative. Missing applicability.py prevented manifest creation before evaluation.",
+  "effects": "Prepared code/test existed; no model evaluation or source change; corrected per-manifest declared roots."
+}

@@ -1,0 +1,14 @@
+{
+  "record": {
+    "path": "independent383actual/evidence/review383_actual_v1/record.json",
+    "sha256": "fb00efbd1bcc901af69632d0db8670f579ee63a1fa5079d569072af0f50d9d5c"
+  },
+  "fresh": {
+    "path": "independent383actual/evidence/review383_actual_v1/fresh.json",
+    "sha256": "dd8ba8cc42282370362d8b493c720e16d6c11c54473c0c74f59ee7a970066de6"
+  },
+  "preregistration": {
+    "path": "independent383actual/evidence/review383_actual_v1/preregistration.json",
+    "sha256": "950a13992c081c88557168c2a8da66e3ac84892c149484fabc0ad116dbe64354"
+  }
+}

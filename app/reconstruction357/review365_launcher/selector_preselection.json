@@ -1,0 +1,91 @@
+{
+  "seconds": 0.19335552000120515,
+  "selection": {
+    "entry_x": {
+      "A": "301/20",
+      "B": "553/40"
+    },
+    "portal_y": {
+      "stair": "1071/80",
+      "lift": "1169/80"
+    },
+    "slide_direction": {
+      "A": -1,
+      "B": 1
+    },
+    "selected_interval": [
+      "601/40",
+      "603/40"
+    ],
+    "selection": "MIDPOINT_MAXIMIZES_MIN_COORDINATE_SLACK_WITHIN_WIDEST_FEASIBLE_COMPONENT",
+    "engineering_assumption": "Coordinate slack is a deterministic search choice, not a construction tolerance or clearance standard. Exact physical reviews remain required.",
+    "operation_domains": {
+      "A:-1": {
+        "feasible_points": [
+          "601/40",
+          "603/40"
+        ],
+        "feasible_open_cells": [
+          [
+            "601/40",
+            "603/40"
+          ]
+        ],
+        "critical_points": 14,
+        "checks": "continuous panel rail and rectangular actor swept envelope vs all walls/fixtures/other closed panels; exact public-floor coverage",
+        "baseline_errors": [
+          "PANEL:A.bath.A.service_right"
+        ]
+      },
+      "A:1": {
+        "feasible_points": [
+          "553/40"
+        ],
+        "feasible_open_cells": [],
+        "critical_points": 20,
+        "checks": "continuous panel rail and rectangular actor swept envelope vs all walls/fixtures/other closed panels; exact public-floor coverage",
+        "baseline_errors": []
+      },
+      "B:-1": {
+        "feasible_points": [
+          "601/40",
+          "603/40"
+        ],
+        "feasible_open_cells": [
+          [
+            "601/40",
+            "603/40"
+          ]
+        ],
+        "critical_points": 14,
+        "checks": "continuous panel rail and rectangular actor swept envelope vs all walls/fixtures/other closed panels; exact public-floor coverage",
+        "baseline_errors": [
+          "PANEL:B.bath.A.service_right"
+        ]
+      },
+      "B:1": {
+        "feasible_points": [
+          "553/40"
+        ],
+        "feasible_open_cells": [],
+        "critical_points": 20,
+        "checks": "continuous panel rail and rectangular actor swept envelope vs all walls/fixtures/other closed panels; exact public-floor coverage",
+        "baseline_errors": []
+      }
+    },
+    "portal_intervals": {
+      "stair": [
+        "529/40",
+        "591/40"
+      ],
+      "lift": [
+        "113/8",
+        "587/40"
+      ]
+    },
+    "candidate_policy": "INDEPENDENT_BALANCED_TRADEOFF_NOT_PARETO_REPAIR",
+    "accepted": false
+  },
+  "full_candidate_built": false,
+  "accepted": false
+}

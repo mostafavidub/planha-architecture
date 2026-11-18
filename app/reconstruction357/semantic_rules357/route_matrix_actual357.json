@@ -1,0 +1,532 @@
+{
+  "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+  "raw_hash": "33733152235fe261d5db651f6f72b027513265b88d1498a9f377e7e60519588c",
+  "units": [
+    {
+      "unit": "A",
+      "pairs": [
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "entry",
+          "stored_network_length_m": "119/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "559/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "153/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "237/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "127/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "411/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "entry",
+          "stored_network_length_m": "97/4"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "55/2"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "142/5"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "55/2"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "467/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "621/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "467/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "483/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "517/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "21"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "entry",
+          "stored_network_length_m": "449/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "257/10"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "133/5"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "257/10"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "431/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "117/4"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "431/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "447/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "481/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "96/5"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "entry",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "523/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "523/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "22"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "297/10"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "22"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "114/5"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "49/2"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "393/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "entry",
+          "stored_network_length_m": "211/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "487/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "101/4"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "487/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "101/5"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "279/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "101/5"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "21"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "227/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "357/20"
+        }
+      ],
+      "bed_targets": [
+        "bed1.bed_front",
+        "bed2.bedA_front",
+        "bed2.bedB_front",
+        "bed3.bedA_front",
+        "bed3.bedB_front"
+      ]
+    },
+    {
+      "unit": "B",
+      "pairs": [
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "entry",
+          "stored_network_length_m": "119/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "559/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "153/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "237/10"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "127/5"
+        },
+        {
+          "bed_target": "bed1.bed_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "411/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "entry",
+          "stored_network_length_m": "97/4"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "55/2"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "142/5"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "55/2"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "467/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "621/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "467/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "483/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "517/20"
+        },
+        {
+          "bed_target": "bed2.bedA_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "21"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "entry",
+          "stored_network_length_m": "449/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "257/10"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "133/5"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "257/10"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "431/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "117/4"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "431/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "447/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "481/20"
+        },
+        {
+          "bed_target": "bed2.bedB_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "96/5"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "entry",
+          "stored_network_length_m": "229/10"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "523/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "541/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "523/20"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "22"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "297/10"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "22"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "114/5"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "49/2"
+        },
+        {
+          "bed_target": "bed3.bedA_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "393/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "entry",
+          "stored_network_length_m": "211/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "WC_front",
+          "stored_network_length_m": "487/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "shower_use",
+          "stored_network_length_m": "101/4"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "basin_front",
+          "stored_network_length_m": "487/20"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "sofa1_front",
+          "stored_network_length_m": "101/5"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "sofa2_front",
+          "stored_network_length_m": "279/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair1_front",
+          "stored_network_length_m": "101/5"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair2_front",
+          "stored_network_length_m": "21"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair3_front",
+          "stored_network_length_m": "227/10"
+        },
+        {
+          "bed_target": "bed3.bedB_front",
+          "destination": "armchair4_front",
+          "stored_network_length_m": "357/20"
+        }
+      ],
+      "bed_targets": [
+        "bed1.bed_front",
+        "bed2.bedA_front",
+        "bed2.bedB_front",
+        "bed3.bedA_front",
+        "bed3.bedB_front"
+      ]
+    }
+  ],
+  "scope": "DESCRIPTIVE_STORED_ROUTE_UNION_ONLY; no new path feasibility, no private-crossing admission, no comparison eligibility",
+  "parent_complete": false
+}

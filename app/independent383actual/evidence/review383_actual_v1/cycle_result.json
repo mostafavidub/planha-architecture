@@ -1,0 +1,85 @@
+{
+  "schema": "FINITE383_SINGLE_SOURCE_CANDIDATE_RUN",
+  "accepted": false,
+  "delivery_allowed": false,
+  "request_fulfilled": false,
+  "branch_count": 1,
+  "requested_count": 2,
+  "semantic_qualification": "UNKNOWN_NOT_EXECUTED",
+  "browser_executed": false,
+  "repair_attempted": false,
+  "retry": false,
+  "status": "NO_CURRENT_REJECTION_SCOPED_PHYSICAL_ONLY",
+  "dispatch": {
+    "repair_attempted": false,
+    "reason": "NO_CURRENT_REJECTION_SCOPED_PHYSICAL_ONLY",
+    "errors": [],
+    "pending": [],
+    "original_pending": [
+      "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+    ],
+    "semantic_qualification": "UNKNOWN_NOT_EXECUTED",
+    "accepted": false
+  },
+  "seconds": 69.20121123699937,
+  "phases": [
+    {
+      "phase": "construct",
+      "receipt": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 12068,
+            "create_time": 1794854384.04
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 13.947343701001955,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "fresh",
+      "receipt": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 12069,
+            "create_time": 1794854400.57
+          },
+          {
+            "pid": 12070,
+            "create_time": 1794854402.29
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 44.62748701200326,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "phase": "audit",
+      "receipt": {
+        "worker_returncode": 0,
+        "reason": "COMPLETED",
+        "worker_reaped": true,
+        "tracked_processes": [
+          {
+            "pid": 12079,
+            "create_time": 1794854447.85
+          }
+        ],
+        "unresolved": [],
+        "cleanup_verified": true,
+        "elapsed_seconds": 3.0511640140030067,
+        "delivery_allowed": false
+      }
+    }
+  ]
+}

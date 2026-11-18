@@ -1,0 +1,14 @@
+{
+  "schema": "FIXED_PRIMITIVE_NO_PARENT_DAG_BALANCED365",
+  "files": {
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "comparison_metrics.py": "952dbed32324f2d48d1428293bf68c438156801c70b9008168dea041f7365524",
+    "network365.py": "878ce12725cf172d3e3a67a0232d526646be93269a865a4ee044e5106c9dd437",
+    "network365_manifest.json": "1e59a7e49c28a6fa133c4b8b35a7a47c9863b329419130bf9e859e707d306cdd",
+    "living_closure365.py": "fbc12fd4fbdf9bebf4e178b70b30211fcb7a48e064b5f6de27f8cc290fbcf4a5",
+    "guest_closure365.py": "1b8e09e279fb95785bdbaf18099ee93c656d0a5c3584a56b41abb11d61fcb4e9",
+    "kitchen_closure365.py": "22af867a9c5dec2a8ae12944359473fbd09c5fcc7965293f6fc925ef73c5c048",
+    "method_registry_source365.json": "48bb66d005f664aaf7f9fa02dd0930ba76ab94fa4e216da25ba6e8a7aabcda37"
+  }
+}

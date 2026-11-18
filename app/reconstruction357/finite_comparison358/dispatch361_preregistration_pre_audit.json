@@ -1,0 +1,50 @@
+{
+  "schema": "PREREGISTERED_ACTIVE_DISPATCH361_BOUNDED_WORK",
+  "created_utc": "2026-11-16T10:55:16.311526+00:00",
+  "code_pins": {
+    "finite_comparison358/complete_active_dispatch361.py": "bb7136158d8734047f6597cb805453652008325b4a2816e494a45966a5aca9f7",
+    "finite_comparison358/ACTIVE_BRANCH_PLAN361.md": "b7f7110ce5a7a4e8914432d72cb200b2887127539f0522d912f98827e28e1a56",
+    "planha_general150_runtime_work/engine150.py": "7a16876deddfe328c64fc589066758fbbaca6463d7ede1ecb7c7a852965a7831",
+    "planha_general150_runtime_work/constructor129.py": "cf94fe85957cb20e8d1ff6c5837f18a4d2e8e4ad442db42b67d91b3c7766f286",
+    "planha_general150_runtime_work/coarse_sidecar_group138.py": "160282ba40c134e1c47fd3b7e1d345352c113a0ac9f28bd74d7dee488e9a0149",
+    "planha_general150_runtime_work/coarse_sidecar_seating136.py": "ca1558d6da837f33c42fabb32e4b6927bf6c98210e23db2b4f97cc2da0a2702f",
+    "planha_general150_runtime_work/coarse_master129.py": "a9e59d7cc0fd95ddff0f0abe6ca66d9babcfbfccebc73d2961a6f283e380f164",
+    "planha_general150_runtime_work/coarse_sidecar_circulation144.py": "e660deceec626af910114d87ffaa8be76626b949d61f34f3040b76ba67d4d0e5",
+    "planha_general150_runtime_work/private_t_source133.py": "5e79b45908aa1d49d8cd066c7b871602f140ce27330308829c455d1e0911a722",
+    "actual_run/actual_response.json": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797"
+  },
+  "required_calls": [
+    {
+      "organization": "SIDECAR_GROUP138",
+      "family": "LEFT_RIGHT",
+      "time_limit_seconds": 3,
+      "max_calls": 1
+    },
+    {
+      "organization": "SIDECAR_PROTECTED",
+      "family": "LEFT_RIGHT",
+      "time_limit_seconds": 3,
+      "max_calls": 1
+    },
+    {
+      "organization": "ROW",
+      "family": "LEFT_RIGHT",
+      "time_limit_seconds": 3,
+      "max_calls": 1
+    }
+  ],
+  "conditional_call": {
+    "organization": "SIDECAR_COMPACT144",
+    "guard": "engine150.compact_policy(original attempts updated with current group result)",
+    "time_limit_seconds": 3,
+    "max_calls": 1
+  },
+  "outer_process_timeout_seconds": 90,
+  "termination": "TERM at90s, KILL at95s; unified process reaped and exit status saved",
+  "no_solver_retry": true,
+  "no_fresh": true,
+  "outputs_write_once": true,
+  "other_heavy_work": "fresh360 finished per parent; no other solver active",
+  "preaudit_approval": "PENDING",
+  "actual_executed": false
+}

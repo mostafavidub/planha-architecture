@@ -1,0 +1,500 @@
+{
+  "schema": "OWN_MODEL_BALANCED365_ROOM_ACCESS_REASSESSMENT",
+  "access": {
+    "schema": "INTRINSIC_ACCESS359",
+    "verdict": "PASS_SCOPED_INTRINSIC_ACCESS",
+    "minima": {
+      "A": {
+        "H07": {
+          "verdict": "PASS_SCOPED_INTRINSIC",
+          "routes": [
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "A",
+              "target": "WC_front",
+              "private_union_area": "20337/200"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "A",
+              "target": "shower_use",
+              "private_union_area": "20337/200"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "A",
+              "target": "basin_front",
+              "private_union_area": "20337/200"
+            }
+          ]
+        },
+        "H05_H15_Q10_ARRIVAL": {
+          "verdict": "PASS_SCOPED_INTRINSIC",
+          "routes": [
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "A",
+              "source": "stair",
+              "entry_opening": "A.entry",
+              "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+              "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "A",
+              "source": "lift",
+              "entry_opening": "A.entry",
+              "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+              "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+            }
+          ]
+        }
+      },
+      "B": {
+        "H07": {
+          "verdict": "PASS_SCOPED_INTRINSIC",
+          "routes": [
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "B",
+              "target": "WC_front",
+              "private_union_area": "20337/200"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "B",
+              "target": "shower_use",
+              "private_union_area": "20337/200"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "B",
+              "target": "basin_front",
+              "private_union_area": "20337/200"
+            }
+          ]
+        },
+        "H05_H15_Q10_ARRIVAL": {
+          "verdict": "PASS_SCOPED_INTRINSIC",
+          "routes": [
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "B",
+              "source": "stair",
+              "entry_opening": "B.entry",
+              "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+              "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+            },
+            {
+              "verdict": "PASS_SCOPED_PATH",
+              "collisions": [],
+              "uncovered_segments": [],
+              "sweep_profile_m": "7/10",
+              "unit": "B",
+              "source": "lift",
+              "entry_opening": "B.entry",
+              "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+              "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+            }
+          ]
+        }
+      }
+    },
+    "parent_complete": false,
+    "fresh_executed": false,
+    "missing": [],
+    "evidence": {
+      "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+      "raw_digest": "524e1ea806b8511dc2b5cd4f17d3b64f405fa20fca764a2e971ccb10bd458355",
+      "profile": "SOURCE_BALANCED365",
+      "bound_requirement_ids": [
+        "actual_opening_geometry",
+        "bath_nonprivate_access",
+        "bath_service_operation",
+        "body_route_sweeps",
+        "chair_capacity_movement",
+        "circulation_functional_integrity",
+        "claim_boundary",
+        "claim_boundary_display",
+        "closet_operation",
+        "containment_all_entities",
+        "core_concept",
+        "door_operation",
+        "export_parity",
+        "fixture_inventory_use",
+        "geometric_diversity",
+        "guest_dining_route",
+        "guest_living_route",
+        "immutable_history",
+        "input_exact_domain",
+        "kitchen_essential_operation",
+        "llm_budget",
+        "long_corridor_necessity",
+        "no_hidden_project_inputs",
+        "opening_hosts",
+        "owner_access",
+        "partition_ledger",
+        "per_option_rule_report",
+        "privacy_scenarios",
+        "private_grouping",
+        "program_functional_roles",
+        "q11_functional_boundary",
+        "serving_route",
+        "unit_independence",
+        "valid_exact_regions",
+        "wall_network",
+        "window_opportunities",
+        "worst_unit_function",
+        "zero_laundry"
+      ]
+    },
+    "scope": "SOURCE_0.7M_OPEN_TRANSIT_STORED_PATHS; NO_TECHNICAL_CORE_CERTIFICATION_OR_FULL_12_RULE_PASS",
+    "seconds": 0.1619171459988138
+  },
+  "room": {
+    "rule_id": "ROOM_PROGRAM_CAPACITY",
+    "verdict": "PASS_SCOPED_ROOM_PROGRAM_PROOF_PENDING_AUDIT",
+    "parent_complete": false,
+    "proofscopecomplete": true,
+    "missing": [],
+    "fresh_executed": false,
+    "evidence": {
+      "model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+      "raw_hash": "524e1ea806b8511dc2b5cd4f17d3b64f405fa20fca764a2e971ccb10bd458355",
+      "source233_sha256": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+      "sections": [
+        "H12",
+        "H13",
+        "Q01"
+      ],
+      "units": [
+        {
+          "unit": "A",
+          "bedrooms": [
+            {
+              "room": "bed1",
+              "role": "double",
+              "source_module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+              "fixture_ids": [
+                "bed1.bed",
+                "bed1.closet"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            },
+            {
+              "room": "bed2",
+              "role": "twin",
+              "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "fixture_ids": [
+                "bed2.closet",
+                "bed2.bedA",
+                "bed2.bedB"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            },
+            {
+              "room": "bed3",
+              "role": "twin",
+              "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "fixture_ids": [
+                "bed3.closet",
+                "bed3.bedA",
+                "bed3.bedB"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            }
+          ],
+          "capacity": {
+            "unit": "A",
+            "residents_study": 6,
+            "actual_places": {
+              "sleeping_places": 6,
+              "dining_seats": 6,
+              "living_seats": 6
+            },
+            "living_occupied_instances": 6,
+            "actual_closet_instances": 3,
+            "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+            "worst_capacity_margin": 0
+          }
+        },
+        {
+          "unit": "B",
+          "bedrooms": [
+            {
+              "room": "bed1",
+              "role": "double",
+              "source_module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+              "fixture_ids": [
+                "bed1.bed",
+                "bed1.closet"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            },
+            {
+              "room": "bed2",
+              "role": "twin",
+              "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "fixture_ids": [
+                "bed2.closet",
+                "bed2.bedA",
+                "bed2.bedB"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            },
+            {
+              "room": "bed3",
+              "role": "twin",
+              "source_module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "fixture_ids": [
+                "bed3.closet",
+                "bed3.bedA",
+                "bed3.bedB"
+              ],
+              "closed_region_source": "SOURCE_PRIVATE_ROOM_PLUS_FRESH_PLACEMENT_DOOR_OPERATION"
+            }
+          ],
+          "capacity": {
+            "unit": "B",
+            "residents_study": 6,
+            "actual_places": {
+              "sleeping_places": 6,
+              "dining_seats": 6,
+              "living_seats": 6
+            },
+            "living_occupied_instances": 6,
+            "actual_closet_instances": 3,
+            "clothing_storage_volume_sufficiency": "NOT_VERIFIED; source closet operation and access are separate mandatory gates, no per-person volume standard inferred",
+            "worst_capacity_margin": 0
+          }
+        }
+      ],
+      "intrinsic_access": {
+        "schema": "INTRINSIC_ACCESS359",
+        "verdict": "PASS_SCOPED_INTRINSIC_ACCESS",
+        "minima": {
+          "A": {
+            "H07": {
+              "verdict": "PASS_SCOPED_INTRINSIC",
+              "routes": [
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "A",
+                  "target": "WC_front",
+                  "private_union_area": "20337/200"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "A",
+                  "target": "shower_use",
+                  "private_union_area": "20337/200"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "A",
+                  "target": "basin_front",
+                  "private_union_area": "20337/200"
+                }
+              ]
+            },
+            "H05_H15_Q10_ARRIVAL": {
+              "verdict": "PASS_SCOPED_INTRINSIC",
+              "routes": [
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "A",
+                  "source": "stair",
+                  "entry_opening": "A.entry",
+                  "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+                  "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "A",
+                  "source": "lift",
+                  "entry_opening": "A.entry",
+                  "operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+                  "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+                }
+              ]
+            }
+          },
+          "B": {
+            "H07": {
+              "verdict": "PASS_SCOPED_INTRINSIC",
+              "routes": [
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "B",
+                  "target": "WC_front",
+                  "private_union_area": "20337/200"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "B",
+                  "target": "shower_use",
+                  "private_union_area": "20337/200"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "B",
+                  "target": "basin_front",
+                  "private_union_area": "20337/200"
+                }
+              ]
+            },
+            "H05_H15_Q10_ARRIVAL": {
+              "verdict": "PASS_SCOPED_INTRINSIC",
+              "routes": [
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "B",
+                  "source": "stair",
+                  "entry_opening": "B.entry",
+                  "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+                  "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+                },
+                {
+                  "verdict": "PASS_SCOPED_PATH",
+                  "collisions": [],
+                  "uncovered_segments": [],
+                  "sweep_profile_m": "7/10",
+                  "unit": "B",
+                  "source": "lift",
+                  "entry_opening": "B.entry",
+                  "operation_digest": "e00905988c7fd65b60cb7a62c4fb668f7d72638df94cf5d6d8c70126eb29c970",
+                  "scenario": "SOURCE_NONLEAF_CORE_INTERFACE_PLUS_ALL_MODELED_DOORS_OPEN_TRANSIT"
+                }
+              ]
+            }
+          }
+        },
+        "parent_complete": false,
+        "fresh_executed": false,
+        "missing": [],
+        "evidence": {
+          "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+          "raw_digest": "524e1ea806b8511dc2b5cd4f17d3b64f405fa20fca764a2e971ccb10bd458355",
+          "profile": "SOURCE_BALANCED365",
+          "bound_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ]
+        },
+        "scope": "SOURCE_0.7M_OPEN_TRANSIT_STORED_PATHS; NO_TECHNICAL_CORE_CERTIFICATION_OR_FULL_12_RULE_PASS",
+        "seconds": 0.1455795929996384
+      },
+      "recomputed_closure_digests": {
+        "living_closure": "7fd1602a489a6ba25904a71d19158e98a5e8a1bccf36d1a3d7661571510e8b20",
+        "guest_closure": "dbf4642c8557466f485d121624f4692a49091fbbf62c75acf4392f0fde7947f8",
+        "kitchen_closure": "bb9fe62c1c7ca44b743c8c3518b441e749dfd3c3566aedf2bed3083c0166d7cc"
+      },
+      "r_liv": {
+        "state": "NOT_APPLICABLE",
+        "reconstruction": 357,
+        "evidence": {
+          "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+          "dimensions": [
+            "26",
+            "28"
+          ],
+          "basis": "DIMENSION_SCOPE_ONLY_NOT_CONTRACT_ACCEPTANCE"
+        },
+        "missing": []
+      }
+    },
+    "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROGRAM_ONLY; OPTIONAL_FURNISHING_RANKING_UNASSESSED; NO_FULL_12_RULE_OR_DELIVERY_APPROVAL"
+  },
+  "fresh_executed": false,
+  "parent_complete": false
+}

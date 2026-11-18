@@ -1,0 +1,340 @@
+{
+  "verdict": "PASS_SCOPED_CONCEPTUAL_COMMON_TRANSFER_JUNCTION_ROLE",
+  "model_hash": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+  "record_digest": "908cd2bc9e944433da3e38bc60f0cc7e57f11a2f3d9f5fa53d06fffb75a6ca28",
+  "whole_junction_region": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "whole_junction_area_m2": "583/80",
+  "actual_transfer_extent": [
+    "105/8",
+    "101/8",
+    "631/40",
+    "123/8"
+  ],
+  "actual_required_transfers": [
+    {
+      "route": "stair_A",
+      "path": [
+        [
+          "12.575",
+          "14"
+        ],
+        [
+          "13.825",
+          "14"
+        ],
+        [
+          "13.825",
+          "12.075"
+        ]
+      ],
+      "source_opening": "stair.entry",
+      "destination_opening": "A.entry",
+      "junction_sweeps": [
+        [
+          "105/8",
+          "273/20",
+          "567/40",
+          "287/20"
+        ],
+        [
+          "539/40",
+          "101/8",
+          "567/40",
+          "287/20"
+        ]
+      ]
+    },
+    {
+      "route": "lift_A",
+      "path": [
+        [
+          "16.325",
+          "14.4"
+        ],
+        [
+          "13.825",
+          "14.4"
+        ],
+        [
+          "13.825",
+          "12.075"
+        ]
+      ],
+      "source_opening": "lift.entry",
+      "destination_opening": "A.entry",
+      "junction_sweeps": [
+        [
+          "539/40",
+          "281/20",
+          "631/40",
+          "59/4"
+        ],
+        [
+          "539/40",
+          "101/8",
+          "567/40",
+          "59/4"
+        ]
+      ]
+    },
+    {
+      "route": "stair_B",
+      "path": [
+        [
+          "12.575",
+          "14"
+        ],
+        [
+          "13.825",
+          "14"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_opening": "stair.entry",
+      "destination_opening": "B.entry",
+      "junction_sweeps": [
+        [
+          "105/8",
+          "273/20",
+          "567/40",
+          "287/20"
+        ],
+        [
+          "539/40",
+          "273/20",
+          "567/40",
+          "123/8"
+        ]
+      ]
+    },
+    {
+      "route": "lift_B",
+      "path": [
+        [
+          "16.325",
+          "14.4"
+        ],
+        [
+          "13.825",
+          "14.4"
+        ],
+        [
+          "13.825",
+          "15.925"
+        ]
+      ],
+      "source_opening": "lift.entry",
+      "destination_opening": "B.entry",
+      "junction_sweeps": [
+        [
+          "539/40",
+          "281/20",
+          "631/40",
+          "59/4"
+        ],
+        [
+          "539/40",
+          "281/20",
+          "567/40",
+          "123/8"
+        ]
+      ]
+    }
+  ],
+  "actual_entry_operation_use": [
+    {
+      "opening_id": "A.entry",
+      "source_operation_digest": "a015db9dbce55e06a5c008d66ef8a5b9edd44138c23c8e9ceaca5230a85319a6",
+      "poses": [
+        [
+          "105/8",
+          "507/40",
+          "553/40",
+          "107/8"
+        ],
+        [
+          "553/40",
+          "507/40",
+          "581/40",
+          "107/8"
+        ]
+      ],
+      "continuous_actor_sweeps": [
+        [
+          "105/8",
+          "507/40",
+          "581/40",
+          "107/8"
+        ]
+      ]
+    },
+    {
+      "opening_id": "B.entry",
+      "source_operation_digest": "7dc3aa71f16ffd5cefc95dff66d3d44e83012a98d5e5cca474514af0b8a33ce4",
+      "poses": [
+        [
+          "105/8",
+          "117/8",
+          "553/40",
+          "613/40"
+        ],
+        [
+          "553/40",
+          "117/8",
+          "581/40",
+          "613/40"
+        ]
+      ],
+      "continuous_actor_sweeps": [
+        [
+          "105/8",
+          "117/8",
+          "581/40",
+          "613/40"
+        ]
+      ]
+    }
+  ],
+  "source_row_digests": {
+    "core_concept": "75cf6151b6a2bfaa85b3b8a4760354276e88c4e5d83fbce5b52c4644e8289ad8",
+    "door_operation": "cb20694df16975b1fda676039da3ba24ff64f06b5bf722ab53ade272dc1f0391",
+    "opening_hosts": "02dc31616dbc5ab65fa0c8fc9695a9d0a2e8e5b735a83cd78cb43511302feefe",
+    "wall_network": "5397acb4599442f663432d20fce2093ce6a55dedd9978f4fac9df39c444a205a",
+    "partition_ledger": "ecefa4f4d166ce0c6b4319c80253cc056d60bba71d1a0ad4a86f8dd6c564697f",
+    "unit_independence": "6e63bd7a0adb77832b556999877f5aa0f057ed6470d2a344d0d6f1e1c2590b9d"
+  },
+  "fixed_portal_family_bound": {
+    "verdict": "PASS_RECTANGULAR_FIXED_PORTAL_BOUND_ONLY",
+    "parent_complete": false,
+    "delivery_allowed": false,
+    "live_authority": false,
+    "missing": [
+      "CURRENT_SOURCE_REQUIRED_ARRIVAL_TRANSFER_ONWARD_USE",
+      "WHOLE_JUNCTION_ROLE_SCOPE_REVIEW",
+      "ELIGIBLE_FINITE_COMPARISON_PROTECTED_VECTOR"
+    ],
+    "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+    "record_digest": "908cd2bc9e944433da3e38bc60f0cc7e57f11a2f3d9f5fa53d06fffb75a6ca28",
+    "ports": [
+      {
+        "id": "A.entry",
+        "side": "bottom",
+        "connects": [
+          "lobby",
+          "A.public_access"
+        ],
+        "opening_rect": [
+          "13.175",
+          "12.475",
+          "14.475",
+          "12.625"
+        ],
+        "body_approach": [
+          "539/40",
+          "101/8",
+          "567/40",
+          "533/40"
+        ]
+      },
+      {
+        "id": "B.entry",
+        "side": "top",
+        "connects": [
+          "lobby",
+          "B.public_access"
+        ],
+        "opening_rect": [
+          "13.175",
+          "15.375",
+          "14.475",
+          "15.525"
+        ],
+        "body_approach": [
+          "539/40",
+          "587/40",
+          "567/40",
+          "123/8"
+        ]
+      },
+      {
+        "id": "stair.entry",
+        "side": "left",
+        "connects": [
+          "stair",
+          "lobby"
+        ],
+        "opening_rect": [
+          "12.975",
+          "13.55",
+          "13.125",
+          "14.45"
+        ],
+        "body_approach": [
+          "105/8",
+          "273/20",
+          "553/40",
+          "287/20"
+        ]
+      },
+      {
+        "id": "lift.entry",
+        "side": "right",
+        "connects": [
+          "lift",
+          "lobby"
+        ],
+        "opening_rect": [
+          "15.775",
+          "13.85",
+          "15.925",
+          "14.95"
+        ],
+        "body_approach": [
+          "603/40",
+          "281/20",
+          "631/40",
+          "59/4"
+        ]
+      }
+    ],
+    "rectangle": [
+      "105/8",
+      "101/8",
+      "631/40",
+      "123/8"
+    ],
+    "minimum_rectangle": [
+      "105/8",
+      "101/8",
+      "631/40",
+      "123/8"
+    ],
+    "area_m2": "583/80",
+    "engineering_assumption": "Axis-aligned single rectangle with immutable portal faces and centered inboard source-body approach poses. No moved-portal or other-topology claim."
+  },
+  "engineering_assumption": "Whole exact source single rectangular four-face required transfer junction includes legitimate inter-path turning/access margins; no new waiting/staging program, no extension beyond actual required traversal extent, and no need for footprint tiling. Scope is this Concept source profile, not other topology or relocated portals.",
+  "missing": [],
+  "not_claimed": [
+    "Q04_COMPARATIVE_NECESSITY",
+    "GLOBAL_MINIMUM",
+    "TECHNICAL_CORE_CERTIFICATION",
+    "WHOLE_PLAN_ACCEPTANCE"
+  ],
+  "parent_complete": false,
+  "admission_allowed": false,
+  "raw_review_digest": "90ec5adf03e3e4b8ebe5e7ce905538878b7fa2607f6212f4bc9f8738d6f3a515",
+  "new_fresh_execution": false,
+  "live_authority": false,
+  "source_files": {
+    "common_role_closure362.py": "e1da5eb95cde36c3c2dc3853f948170897f5c120df2c8a8bc501156c5b9c1b02",
+    "lobby_junction_bound362.py": "6b24bfd6eaf013837fad6c865dbdf699a006e6113e295242eb414cf5a0ba3798"
+  }
+}

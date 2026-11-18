@@ -1,0 +1,8 @@
+{
+  "schema": "SOURCE362_STORED_ARTIFACT_REASSESSMENT_ONLY",
+  "result_digest": "90ec5adf03e3e4b8ebe5e7ce905538878b7fa2607f6212f4bc9f8738d6f3a515",
+  "record_digest": "908cd2bc9e944433da3e38bc60f0cc7e57f11a2f3d9f5fa53d06fffb75a6ca28",
+  "registry_sha256": "acf0dd7e4719ded87da87bb5ae35e97f533b6900dae32389ed53952ffa56128d",
+  "bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+  "expected_schema": "RECONSTRUCTED362_CORE_NOTCH_SOURCE_VALIDATION"
+}

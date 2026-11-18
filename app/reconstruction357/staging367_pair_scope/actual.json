@@ -1,0 +1,379 @@
+{
+  "schema": "FIXED_JOINT367_BALANCED365_ORGANIZATION_PAIR_ONLY",
+  "status": "PAIR_DISTINCT_SOURCE_SCOPE_BUT_MEMBERS_NOT_YET_QUALIFIED",
+  "members": [
+    {
+      "member": "balanced",
+      "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+      "fresh_result_digest": "4db681280c9563b430dbdd417edbe8d1ff0b87a77e445a06191a1117d3e18a71",
+      "model_digest": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+      "trace_schema": "ROW_BALANCED_PORTALS365_SOURCE_TRACE_V1",
+      "prechecker_registry_digest": "6c299ff0fed13ba1f4175496eb2794c239fd45d23892af8e777c71055a88c651",
+      "source_signature": [
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ]
+      ],
+      "source_direction_witness": [
+        {
+          "role": "double",
+          "unit": "A",
+          "room": "bed1",
+          "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+          "room_rect": [
+            "3",
+            "0.25",
+            "8.8",
+            "5.05"
+          ],
+          "opening": [
+            "8.8",
+            "0.45",
+            "8.95",
+            "1.45"
+          ],
+          "port": [
+            "9.35",
+            "0.95"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "A",
+          "room": "bed2",
+          "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+          "room_rect": [
+            "10.1",
+            "0.25",
+            "15.9",
+            "5.05"
+          ],
+          "opening": [
+            "9.95",
+            "0.45",
+            "10.1",
+            "1.45"
+          ],
+          "port": [
+            "9.55",
+            "0.95"
+          ],
+          "normal": [
+            -1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "A",
+          "room": "bed3",
+          "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+          "room_rect": [
+            "17.2",
+            "0.25",
+            "23",
+            "5.05"
+          ],
+          "opening": [
+            "17.05",
+            "0.45",
+            "17.2",
+            "1.45"
+          ],
+          "port": [
+            "16.65",
+            "0.95"
+          ],
+          "normal": [
+            -1,
+            0
+          ]
+        },
+        {
+          "role": "double",
+          "unit": "B",
+          "room": "bed1",
+          "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+          "room_rect": [
+            "3",
+            "22.95",
+            "8.8",
+            "27.75"
+          ],
+          "opening": [
+            "8.8",
+            "26.55",
+            "8.95",
+            "27.55"
+          ],
+          "port": [
+            "9.35",
+            "27.05"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "B",
+          "room": "bed2",
+          "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+          "room_rect": [
+            "10.1",
+            "22.95",
+            "15.9",
+            "27.75"
+          ],
+          "opening": [
+            "9.95",
+            "26.55",
+            "10.1",
+            "27.55"
+          ],
+          "port": [
+            "9.55",
+            "27.05"
+          ],
+          "normal": [
+            -1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "B",
+          "room": "bed3",
+          "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+          "room_rect": [
+            "17.2",
+            "22.95",
+            "23",
+            "27.75"
+          ],
+          "opening": [
+            "17.05",
+            "26.55",
+            "17.2",
+            "27.55"
+          ],
+          "port": [
+            "16.65",
+            "27.05"
+          ],
+          "normal": [
+            -1,
+            0
+          ]
+        }
+      ],
+      "member_quality_qualified": false
+    },
+    {
+      "member": "joint367",
+      "record_digest": "b08c38854e21b6225e2c8fe47eebb0759ecd6f01c414ab533a1f7b02219791df",
+      "fresh_result_digest": "e3214547e6eaf74f28463011be8c1108b0338d421161dc17fe358acb777a68ab",
+      "model_digest": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759",
+      "trace_schema": "SOURCE_SERVICE_JOINT367_TRACE_V1",
+      "prechecker_registry_digest": "61871702ff959e98c3fd7ecb440ccc14ceb4bfc62e2611256702969ff222ea41",
+      "source_signature": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "source_direction_witness": [
+        {
+          "role": "double",
+          "unit": "A",
+          "room": "bed1",
+          "module_hash": "c876cb026c2f227a10ed6a36ba6e49f0dc9c92fcf2c7ab300d42236ed2bf3fc1",
+          "room_rect": [
+            "14.475",
+            "0.4",
+            "18.075",
+            "5.85"
+          ],
+          "opening": [
+            "14.675",
+            "5.85",
+            "15.675",
+            "6"
+          ],
+          "port": [
+            "15.175",
+            "6.4"
+          ],
+          "normal": [
+            0,
+            1
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "A",
+          "room": "bed2",
+          "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+          "room_rect": [
+            "7.725",
+            "0.4",
+            "13.175",
+            "4.9"
+          ],
+          "opening": [
+            "13.175",
+            "0.6",
+            "13.325",
+            "1.6"
+          ],
+          "port": [
+            "13.725",
+            "1.1"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "A",
+          "room": "bed3",
+          "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+          "room_rect": [
+            "7.725",
+            "5.05",
+            "13.175",
+            "9.55"
+          ],
+          "opening": [
+            "13.175",
+            "5.25",
+            "13.325",
+            "6.25"
+          ],
+          "port": [
+            "13.725",
+            "5.75"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        },
+        {
+          "role": "double",
+          "unit": "B",
+          "room": "bed1",
+          "module_hash": "c876cb026c2f227a10ed6a36ba6e49f0dc9c92fcf2c7ab300d42236ed2bf3fc1",
+          "room_rect": [
+            "14.475",
+            "22.15",
+            "18.075",
+            "27.6"
+          ],
+          "opening": [
+            "14.675",
+            "22",
+            "15.675",
+            "22.15"
+          ],
+          "port": [
+            "15.175",
+            "21.6"
+          ],
+          "normal": [
+            0,
+            -1
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "B",
+          "room": "bed2",
+          "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+          "room_rect": [
+            "7.725",
+            "23.1",
+            "13.175",
+            "27.6"
+          ],
+          "opening": [
+            "13.175",
+            "26.4",
+            "13.325",
+            "27.4"
+          ],
+          "port": [
+            "13.725",
+            "26.9"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        },
+        {
+          "role": "twin",
+          "unit": "B",
+          "room": "bed3",
+          "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+          "room_rect": [
+            "7.725",
+            "18.45",
+            "13.175",
+            "22.95"
+          ],
+          "opening": [
+            "13.175",
+            "21.75",
+            "13.325",
+            "22.75"
+          ],
+          "port": [
+            "13.725",
+            "22.25"
+          ],
+          "normal": [
+            1,
+            0
+          ]
+        }
+      ],
+      "member_quality_qualified": false
+    }
+  ],
+  "pair_count": 1,
+  "source_organization_distinct": true,
+  "pair_identity": "515130049b1f0d3ba9be5b374a394a9d1ca0f1b267baa7cbcf36530af506cf1f",
+  "requested_count": 2,
+  "qualified_selected_count": 0,
+  "request_fulfilled": false,
+  "selected_set_membership_authority": false,
+  "live_authority": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "missing": [
+    "OWN_11_PARENT_AND_PER_UNIT_Q12_QUALIFICATION_FOR_EACH_MEMBER",
+    "FINAL_IMMUTABLE_QUALIFIED_SELECTED_SET"
+  ],
+  "scope": "SOURCE133 ACTUAL BEDROOM PORT NORMAL DOT RELATIONS; D4_AND_TWIN_SWAP_INVARIANT; NOT_ALL_ARCHITECTURE_OR_MEMBER_QUALITY; NO_LEGACY_GATE_FLAGS_SYNTHESIZED"
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "SOURCE_DISPATCH_READONLY_INVENTORY",
+  "families": [
+    "FRONT_REAR",
+    "LEFT_RIGHT"
+  ],
+  "private_topologies": [
+    {
+      "source": "private_bundle129.py",
+      "sha256": "27c233877e92843066666b6af9c100ae693d4102c9f996c6cc0de339565e543e",
+      "callable": "build",
+      "lines": [
+        7,
+        16
+      ],
+      "signature": "core, variant=2",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "width < F('5.45') or depth < F('4.5')",
+        "y1 - y0 < depth + F('1.3') + F('.7') + F('4.2')",
+        "not start + F('.55') <= ex <= start + span - F('.55')"
+      ]
+    },
+    {
+      "source": "private_l3_source131.py",
+      "sha256": "de29c524fd901c0b05b5d28f6618072f7aeeb193535292abb5e8681268659673",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=2",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('12.5') > x1 or y1 - y0 < F('10.15')"
+      ]
+    },
+    {
+      "source": "private_mixed_source132.py",
+      "sha256": "657cbb1859190ddd8c9058e5440550efd0d8dd39b075826d550d4fdefc3c6c12",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=2",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('12.5') > x1 or y1 - y0 < F('9.25')"
+      ]
+    },
+    {
+      "source": "private_stagger_source132.py",
+      "sha256": "db2e7c3b5504fb6f13b800d350076634a0e4330c0ab885f4618d4d4958a757aa",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=2",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('12.5') > x1 or y1 - y0 < F('10.15')"
+      ]
+    },
+    {
+      "source": "private_access_source132.py",
+      "sha256": "187f1879e0e9ce0e2591f906faacc926060e3796d5923e1735c631fa4a82b34b",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=2",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('12.5') > x1 or y1 - y0 < F('10.15')"
+      ]
+    },
+    {
+      "source": "private_t_source133.py",
+      "sha256": "5e79b45908aa1d49d8cd066c7b871602f140ce27330308829c455d1e0911a722",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=3",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('12.5') > x1 or y1 - y0 < F('12.45')"
+      ]
+    },
+    {
+      "source": "private_sidecar_source136.py",
+      "sha256": "b5dd5fbddec0dc6b17b93538288e40e8c1a4f55222b8680e6f64fc38151b0cc0",
+      "callable": "build",
+      "lines": [
+        5,
+        10
+      ],
+      "signature": "core, variant=3",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('16.7') > x1 or y1 - y0 < F('7.1')"
+      ]
+    },
+    {
+      "source": "private_branch_source146.py",
+      "sha256": "d783d5b3ed996afd39d517e29a5ed358239cc9d8c045caafea915c4f3a1052d0",
+      "callable": "build",
+      "lines": [
+        4,
+        9
+      ],
+      "signature": "core, variant=1",
+      "variant_argument_read": 0,
+      "fit_guards": [
+        "ox < x0 or ox + F('10.8') > x1 or y1 - y0 < F('9.65')"
+      ]
+    }
+  ],
+  "pure_fit_plan": "Evaluate each source build for two core frames, no solver; false fit is primitive-inapplicability only. Unused variant args create no extra effective branches.",
+  "next_plan": "Only after preaudit: at most one matching fixed-source propose per applicable topology/frame, time_limit<=3s. Build any produced proposal once; record unknown/budget stops, not infeasibility. No optimization loop; no arbitrary parameter enumeration.",
+  "executed": false
+}

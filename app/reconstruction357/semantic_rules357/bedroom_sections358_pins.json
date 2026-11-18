@@ -1,0 +1,14 @@
+{
+  "files": {
+    "staging358_comparative/row_candidate358.json": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+    "local_closet_counterfactual358/result.json": "d2b97dfd5c004ef4ab2561e5a1c0dd28d06eab4ed8e68872998ad870d6e6bccf",
+    "local_closet_counterfactual358/classified_result.json": "7f2b9634c55becd5e560ac41be0b9b9c14a9fc3cc894d731227252f4c9b35e93",
+    "semantic_rules357/modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6",
+    "semantic_rules357/common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "semantic_rules357/bedroom_route_witness_actual358.json": "aa5b17c721a4af0d756ce36bc8bbe8ce9ac8835c379c11d3e017c8c4e3b983f5",
+    "../recovered233_rendered/sections.json": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+    "review358_source_validation/result.json": "e3646ca62bc89e6cac932204c1ce6608a1156c4edef19b02972a049e815238c8",
+    "semantic_rules357/method_registry_source358.json": "f47ab1a49439b01d079df3341ba8eb1c73083c30aacac4a2823767deb02cd224",
+    "semantic_rules357/group_readsets358_pins.json": "58f46cce11dd150e851470c79d52702bb679ada0e9a0dc61f79e02085768dbe7"
+  }
+}

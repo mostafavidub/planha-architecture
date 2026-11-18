@@ -1,0 +1,81 @@
+{
+  "rule_id": "GUEST_ROUTE_INDEPENDENCE",
+  "verdict": "PASS_SCOPED_FOUR_SOURCE_GUEST_RELATIONS",
+  "parent_complete": false,
+  "evidence": {
+    "model_hash": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+    "base_fresh_digest": "741a7467645b89379d24cdcdca26eea246173db47a8ab5c05325b0788ae576fd",
+    "relations": [
+      {
+        "unit": "A",
+        "relation": "entry_living",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "A",
+        "relation": "entry_dining",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "A",
+        "relation": "entry_WC",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "A",
+        "relation": "living_dining",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "B",
+        "relation": "entry_living",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "B",
+        "relation": "entry_dining",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "B",
+        "relation": "entry_WC",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      },
+      {
+        "unit": "B",
+        "relation": "living_dining",
+        "verdict": "PASS_SOURCE_CONSERVATIVE_PATH",
+        "collisions": [],
+        "body_m": "7/10",
+        "scenario": "OPEN_TRANSIT_DOORS; ALL_DECLARED_OCCUPIED_CHAIRS; CONSERVATIVE_COMPLETE_SOURCE_KITCHEN_ENCLOSURES; PRIVATE_EXCLUSION"
+      }
+    ],
+    "intrinsic_closure_digest": "af67842944279c935f712df9f1d5bc9d2cf36918903590477ef253a3dc6fc1b7"
+  },
+  "missing": [
+    "AUTHOR233_PARENT_APPLICABILITY_PENDING_RECOVERY"
+  ],
+  "scope": "CURRENT_RECOVERED_SOURCE_PROFILE_FOUR_RELATIONS_NOT_PARENT_Q06_ADMISSION",
+  "elapsed_seconds": 0.2774854529998265
+}

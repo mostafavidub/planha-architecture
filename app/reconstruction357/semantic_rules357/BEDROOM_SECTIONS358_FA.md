@@ -1,0 +1,10 @@
+# تکمیل مقاطع و شاهد محدود IR-P13
+نسخهقبلی محفوظ؛ source-required door actorهایی که درمقاطعقبلی جاافتاده بودند اکنون اضافه شدند. برایهرماژولdouble/twin،۲۶رکورد یکتایshell/panelendpoint/actorendpoint/continuouspanel/continuousactor شناسایی شد؛۳عملیات:یکدر ودوpanelکمد. همهrectها/translation/range/endpointstate وinventory کنترل می‌شوند؛ handpoint منبع positiveareaدلخواه نمی‌گیرد وreach معتبر منبع جداست.
+
+با exactunion/difference مقاطع درهمهbreakpointهای edge برایکفپسwalls+fixtures و نیزunionتمامreservationهای منبع محاسبه شد. unionتمامحالت‌ها یکenvelopeمحافظه‌کار برایmeasureاست،نه الزام استفادههمزمان ازتمامحالت‌ها؛ concurrentسناریوی ابداعی اضافه نشد. ناحیه باقیمانده پستمامرزروهاdouble۱۷٫۴۰۵ وtwin۱۵٫۶۵۵،قبلوبعدکمدبرابر؛قبلاًactorدرها جاافتاده بود و عدد۱۸٫۱۷۵/۱۶٫۴۲۵scopeناقص‌تری داشت. این عدد مساحت مفید کل یا عرض مسیرقابل‌قبول نیست.
+
+هر۶اتاقcurrent358 باexactmodulehash به همان۲نوع متصل شدند،نه با نام یاابعادتقریبی. samefresh raw358،sourcebundle/privacy/privategrouping وroutewitnessmodeldigest بههمبسته شدند. برایهرواحد،مسیرهای وظیفه‌ای معتبر،افزایش/کاهشrouteها وnetroomareaهراتاق جداگانه درrationale ثبت شد. دوبدیل طولی آزموده‌شده privacycounterexample مستقل دارند؛این دلیل منبعی برای حفظ آرایش فعلی درهمینfinitecomparison است،نهاثباتناممکن‌بودنتمامlongitudinalها.
+
+درمحدودهصریحIR-P13 رویسهعضوپلان ثبت‌شده ودوcounterfactualکمد،اجزای شاهد تعریف‌شده آمادهauditاند:مقاطعactualsourceinventory،bundle/use/access/privateconnectivity،مقایسهtaskrouteها وroomareaمحافظت‌شده وfunctionalreason. finite_scope_evidence_ready_for_audit=true،اماparentinitialfalse/verdictUNKNOWNتأییدنشده را حفظ می‌کند. اگر ممیز finitepolicy راکافی بداند،کمبود helperیاunknownساختگی نباید باقی بماند. معیار جهانی یااثبات همهچیدمان‌ها لازم/ادعاشده نیست؛ سناریویactivekitchen/occupiedseat برایاینresidentpathایجاد نشده وscopeopen-transitصریحاست.
+
+۵تستpure پاس:inventory واقعی،actorغایب،panelتکراری،motionنامعتبر وholeexact. محاسبهgeometrystored اولیه۰٫۰۱۹ثانیه؛پس افزودنjoinrationale هماننسخه۰٫۰۴۱ثانیه. هیچchecker/fresh/solver جدید اجرا نشد. رویمدل359 هیچانتقال/قبولی صورت نگرفت؛ برایhall-onlyهم بایدequivalence واقعی جدا باشد. audit مستقل وmanifest/checkpoint آماده‌اند.

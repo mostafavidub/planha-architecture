@@ -1,0 +1,121 @@
+{
+  "requirement_id": "stored_living_network288",
+  "verdict": "SCOPED_PASS",
+  "scope": "GUEST_ROOT_TO_ALL_STORED_LIVING_STANDING_TARGETS_ONLY",
+  "rows": [
+    {
+      "unit": "A",
+      "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+      "targets": {
+        "sofa1": [
+          "159/8",
+          "97/8"
+        ],
+        "sofa2": [
+          "481/40",
+          "71/8"
+        ],
+        "armchair1": [
+          "647/40",
+          "453/40"
+        ],
+        "armchair2": [
+          "707/40",
+          "453/40"
+        ],
+        "armchair3": [
+          "583/40",
+          "417/40"
+        ],
+        "armchair4": [
+          "583/40",
+          "329/40"
+        ]
+      },
+      "source_root": [
+        "301/20",
+        "483/40"
+      ],
+      "unconnected_stored_targets": [],
+      "blocked_stored_segments": [],
+      "blocked_body_poses": [],
+      "scenario": [
+        "STATIC_ACTUAL_SOLIDS",
+        "ALL_LIVING_AND_DINING_OCCUPIED",
+        "DINING_SOURCE_PULL_ENCLOSURES",
+        "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+        "OPEN_DOOR_PANELS",
+        "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+      ],
+      "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+      "body_m": "0.7",
+      "global_path_completeness": false,
+      "new_routes_generated": false,
+      "whole_living_extent_verified": false,
+      "repair_authority": false,
+      "delivery_allowed": false,
+      "model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783"
+    },
+    {
+      "unit": "B",
+      "verdict": "PASS_STORED_SOURCE_ROUTE_NETWORK_SCOPED",
+      "targets": {
+        "sofa1": [
+          "159/8",
+          "127/8"
+        ],
+        "sofa2": [
+          "481/40",
+          "153/8"
+        ],
+        "armchair1": [
+          "647/40",
+          "667/40"
+        ],
+        "armchair2": [
+          "707/40",
+          "667/40"
+        ],
+        "armchair3": [
+          "583/40",
+          "703/40"
+        ],
+        "armchair4": [
+          "583/40",
+          "791/40"
+        ]
+      },
+      "source_root": [
+        "553/40",
+        "637/40"
+      ],
+      "unconnected_stored_targets": [],
+      "blocked_stored_segments": [],
+      "blocked_body_poses": [],
+      "scenario": [
+        "STATIC_ACTUAL_SOLIDS",
+        "ALL_LIVING_AND_DINING_OCCUPIED",
+        "DINING_SOURCE_PULL_ENCLOSURES",
+        "SOURCE_KITCHEN_MOTION_ENCLOSURES",
+        "OPEN_DOOR_PANELS",
+        "EXPLICIT_PRIVATE_KITCHEN_EXCLUSION"
+      ],
+      "scenario_scope": "SUFFICIENT_COMMON_ENCLOSURE_PROFILE_NOT_NEW_SIMULTANEITY_REQUIREMENT",
+      "body_m": "0.7",
+      "global_path_completeness": false,
+      "new_routes_generated": false,
+      "whole_living_extent_verified": false,
+      "repair_authority": false,
+      "delivery_allowed": false,
+      "model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783"
+    }
+  ],
+  "repair_authority": false,
+  "whole_living_extent_verified": false,
+  "whole_Q11_IRP12": false,
+  "source_pins_digest": "d81de046f2a40886be054fa3a8931755c966edb31bfa5cc3f435a1a4341267d1",
+  "reason": null,
+  "source_profile": "SOURCE_BALANCED365",
+  "artifact_reassessment_only": true,
+  "new_fresh_execution": false
+}

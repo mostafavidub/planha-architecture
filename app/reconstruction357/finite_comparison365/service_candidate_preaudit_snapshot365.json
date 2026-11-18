@@ -1,0 +1,15 @@
+{
+  "schema": "SERVICE_CANDIDATE365_PREAUDIT_SNAPSHOT",
+  "files": {
+    "service_candidate_criterion365.py": "fe6a9436d8213cb89b20391b585769764611800cb57f3302b2a366066030259c",
+    "service_candidate_criterion_actual365.json": "c2502f1a52bbfa56a0a7d5dcc4d45094297cbb29a9311fd45b5253bbf7beedd8",
+    "service_candidate_objectives365.py": "4df35615427e9c74ef725f3af93b6f4e5505aaa6977c2ba682345209809541a3",
+    "service_candidate_objectives_actual365.json": "8790b3906611f2af3997d5415722b56340ed31f0857f38511f8f27374cb2f7d2",
+    "test_service_candidate365.py": "41d5d02c5612911dea12bd3a53d12314bd3b63c3d6353e8f1eb26fb33b424038"
+  },
+  "tests": "6 PASS; 10.269s",
+  "scope": "Artifact reassessment, own SOURCE_SERVICE365; no live authority; no fresh; old balanced source immutable",
+  "measured_gap": "1911/200 m2 per unit is route-only residual outside bath source approach/threshold. Neither exclusive-function proof nor qualitative failure. Exact functional-role join remains required.",
+  "criterion": "UNKNOWN",
+  "q04": "UNKNOWN own private/common purpose and finite protected closure; six pairs each have known-worse alternative dimensions, not all-quality eligibility."
+}

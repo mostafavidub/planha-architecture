@@ -1,0 +1,13 @@
+{
+  "schema": "BALANCE363_FIXED_PATH_CAPACITY_CURRENT362_FREEZE",
+  "files": {
+    "balance363/test_scenario.py": "856e0fe893198ede9a197f0e40f6408b55d0fc798cd4c32380a8dc6cabaddbdc",
+    "balance363/clearance_kernel.py": "8f71fdb97812226fe8c7da769097163de22794bfbfdf533fdaf3fe6761baba8c",
+    "balance363/assessor.py": "7049854a37e0d60126744704f08079582a4eb8ff15280f3f888c4808b1265372",
+    "balance363/fixed_path_square_capacity_actual362.json": "0e892a56092394be6bee83a27400638f6cff2504722aee5c22a5b36d270a5ab7",
+    "balance363/test_clearance_kernel.py": "cf6ca2f790e8f826bc9aa64992e29b5c81f2ca3457d7075ff13cc1e3a7d63e1b"
+  },
+  "actual_record_sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+  "actual_review_sha256": "51c297b050d81a79303ff4690f6519932c71411b24b7309fe66e94efb439a181",
+  "scope": "Only fixed-centerline square body static+fully-open-entry capacity; not all states, generic clear width or IR-P07 closure"
+}

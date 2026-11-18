@@ -1,0 +1,248 @@
+{
+  "schema": "Q04_DEAD_END_CANDIDATE358_PENDING_AUDIT",
+  "model_hash": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+  "record_digest": "b58ac4754dbaf14f2b8380e2d9029cd8f064fc93bacc438b1186dc1722bbb86b",
+  "review_digest": "102832ed687c81c66690181cf531d4d823a79c6c66f3704d9f12bce6017e3f9d",
+  "circulation_digest": "ef7478cab54b0e1005a78b9d42ae56b0446583dc77f1e35d8fdc9d42aac1804f",
+  "rows": [
+    {
+      "unit": "A",
+      "branch": {
+        "geometry": [
+          "3",
+          "26/5",
+          "179/20",
+          "31/5"
+        ],
+        "area_m2": "119/20",
+        "source_private_rect": [
+          "3",
+          "26/5",
+          "23",
+          "31/5"
+        ],
+        "only_floor_connection": [
+          {
+            "axis": 0,
+            "coordinate": "179/20",
+            "span": [
+              "26/5",
+              "31/5"
+            ],
+            "width_m": "1"
+          }
+        ],
+        "actual_portals": [],
+        "actual_use_intersections": 0,
+        "actual_required_path_intersections": 0,
+        "classification": "UNTARGETED_TERMINAL_PRIVATE_EXTENSION_NECESSITY_OR_STAGING_ROLE_UNPROVEN",
+        "verdict": "UNKNOWN_NOT_PROVEN_USELESS",
+        "scope": "Exact three-sided solid boundary and one floor connection; no current source target/portal/activity/path witness. Generic maneuver/staging is not disproved; compare valid shortening alternative before hard rejection."
+      },
+      "conservative_turning_reserve": [
+        "33/4",
+        "26/5",
+        "179/20",
+        "31/5"
+      ],
+      "turning_depth_source_body_m": "7/10",
+      "operation_envelopes_excluded": [],
+      "distal_no_current_witness_regions": [
+        [
+          "3",
+          "26/5",
+          "33/4",
+          "31/5"
+        ]
+      ],
+      "distal_no_current_witness_area_m2": "21/4",
+      "predicate_status": "CANDIDATE_NO_PURPOSE_AFTER_CONSERVATIVE_RESERVE_PENDING_AUDIT",
+      "source_profile_closed_inventory": "Same fresh actual required activities, targets, all portals, checked body/scenario routes and fixed operation inventory; hypothetical standing is not a required destination.",
+      "assumption": "One full source-body depth at branch mouth is retained conservatively for planar maneuver, plus every conservative operation envelope. Must be audited against Q04 source before FAIL authority."
+    },
+    {
+      "unit": "A",
+      "branch": {
+        "geometry": [
+          "341/20",
+          "26/5",
+          "23",
+          "31/5"
+        ],
+        "area_m2": "119/20",
+        "source_private_rect": [
+          "3",
+          "26/5",
+          "23",
+          "31/5"
+        ],
+        "only_floor_connection": [
+          {
+            "axis": 0,
+            "coordinate": "341/20",
+            "span": [
+              "26/5",
+              "31/5"
+            ],
+            "width_m": "1"
+          }
+        ],
+        "actual_portals": [],
+        "actual_use_intersections": 0,
+        "actual_required_path_intersections": 0,
+        "classification": "UNTARGETED_TERMINAL_PRIVATE_EXTENSION_NECESSITY_OR_STAGING_ROLE_UNPROVEN",
+        "verdict": "UNKNOWN_NOT_PROVEN_USELESS",
+        "scope": "Exact three-sided solid boundary and one floor connection; no current source target/portal/activity/path witness. Generic maneuver/staging is not disproved; compare valid shortening alternative before hard rejection."
+      },
+      "conservative_turning_reserve": [
+        "341/20",
+        "26/5",
+        "71/4",
+        "31/5"
+      ],
+      "turning_depth_source_body_m": "7/10",
+      "operation_envelopes_excluded": [],
+      "distal_no_current_witness_regions": [
+        [
+          "71/4",
+          "26/5",
+          "23",
+          "31/5"
+        ]
+      ],
+      "distal_no_current_witness_area_m2": "21/4",
+      "predicate_status": "CANDIDATE_NO_PURPOSE_AFTER_CONSERVATIVE_RESERVE_PENDING_AUDIT",
+      "source_profile_closed_inventory": "Same fresh actual required activities, targets, all portals, checked body/scenario routes and fixed operation inventory; hypothetical standing is not a required destination.",
+      "assumption": "One full source-body depth at branch mouth is retained conservatively for planar maneuver, plus every conservative operation envelope. Must be audited against Q04 source before FAIL authority."
+    },
+    {
+      "unit": "B",
+      "branch": {
+        "geometry": [
+          "3",
+          "109/5",
+          "179/20",
+          "114/5"
+        ],
+        "area_m2": "119/20",
+        "source_private_rect": [
+          "3",
+          "109/5",
+          "23",
+          "114/5"
+        ],
+        "only_floor_connection": [
+          {
+            "axis": 0,
+            "coordinate": "179/20",
+            "span": [
+              "109/5",
+              "114/5"
+            ],
+            "width_m": "1"
+          }
+        ],
+        "actual_portals": [],
+        "actual_use_intersections": 0,
+        "actual_required_path_intersections": 0,
+        "classification": "UNTARGETED_TERMINAL_PRIVATE_EXTENSION_NECESSITY_OR_STAGING_ROLE_UNPROVEN",
+        "verdict": "UNKNOWN_NOT_PROVEN_USELESS",
+        "scope": "Exact three-sided solid boundary and one floor connection; no current source target/portal/activity/path witness. Generic maneuver/staging is not disproved; compare valid shortening alternative before hard rejection."
+      },
+      "conservative_turning_reserve": [
+        "33/4",
+        "109/5",
+        "179/20",
+        "114/5"
+      ],
+      "turning_depth_source_body_m": "7/10",
+      "operation_envelopes_excluded": [],
+      "distal_no_current_witness_regions": [
+        [
+          "3",
+          "109/5",
+          "33/4",
+          "114/5"
+        ]
+      ],
+      "distal_no_current_witness_area_m2": "21/4",
+      "predicate_status": "CANDIDATE_NO_PURPOSE_AFTER_CONSERVATIVE_RESERVE_PENDING_AUDIT",
+      "source_profile_closed_inventory": "Same fresh actual required activities, targets, all portals, checked body/scenario routes and fixed operation inventory; hypothetical standing is not a required destination.",
+      "assumption": "One full source-body depth at branch mouth is retained conservatively for planar maneuver, plus every conservative operation envelope. Must be audited against Q04 source before FAIL authority."
+    },
+    {
+      "unit": "B",
+      "branch": {
+        "geometry": [
+          "341/20",
+          "109/5",
+          "23",
+          "114/5"
+        ],
+        "area_m2": "119/20",
+        "source_private_rect": [
+          "3",
+          "109/5",
+          "23",
+          "114/5"
+        ],
+        "only_floor_connection": [
+          {
+            "axis": 0,
+            "coordinate": "341/20",
+            "span": [
+              "109/5",
+              "114/5"
+            ],
+            "width_m": "1"
+          }
+        ],
+        "actual_portals": [],
+        "actual_use_intersections": 0,
+        "actual_required_path_intersections": 0,
+        "classification": "UNTARGETED_TERMINAL_PRIVATE_EXTENSION_NECESSITY_OR_STAGING_ROLE_UNPROVEN",
+        "verdict": "UNKNOWN_NOT_PROVEN_USELESS",
+        "scope": "Exact three-sided solid boundary and one floor connection; no current source target/portal/activity/path witness. Generic maneuver/staging is not disproved; compare valid shortening alternative before hard rejection."
+      },
+      "conservative_turning_reserve": [
+        "341/20",
+        "109/5",
+        "71/4",
+        "114/5"
+      ],
+      "turning_depth_source_body_m": "7/10",
+      "operation_envelopes_excluded": [],
+      "distal_no_current_witness_regions": [
+        [
+          "71/4",
+          "109/5",
+          "23",
+          "114/5"
+        ]
+      ],
+      "distal_no_current_witness_area_m2": "21/4",
+      "predicate_status": "CANDIDATE_NO_PURPOSE_AFTER_CONSERVATIVE_RESERVE_PENDING_AUDIT",
+      "source_profile_closed_inventory": "Same fresh actual required activities, targets, all portals, checked body/scenario routes and fixed operation inventory; hypothetical standing is not a required destination.",
+      "assumption": "One full source-body depth at branch mouth is retained conservatively for planar maneuver, plus every conservative operation envelope. Must be audited against Q04 source before FAIL authority."
+    }
+  ],
+  "verdict": "UNKNOWN_NO_CURRENT_SOURCE_PURPOSE_WITNESS",
+  "admission_allowed": false,
+  "geometry_mutated": false,
+  "independent_audit_limit": "Source body size is not an authoritative maximum maneuver/staging depth. Positive distal witness is absence of current required-path/activity evidence, not universal uselessness. A source-supported shortened alternative must preserve all applicable function before necessity rejection; no FAIL authority granted.",
+  "operator_plan": {
+    "operator": "CLAMP_SOURCE_HALL_TERMINAL_EXTENTS_TO_REQUIRED_PORTAL_OPERATION_ENVELOPE",
+    "parameters": "Derive interval from full actual source portal/body/operation inventory and conservative turning reserve; no coordinate tuning or fixture shrinking.",
+    "preserved": [
+      "raw dimensions and occupants",
+      "all private room modules and source fixtures",
+      "all required ports and operational envelopes",
+      "connected source-body circulation",
+      "source wall profile and source opening operation",
+      "previous candidate and proof history"
+    ],
+    "rebuild": "Regenerate hallway solids/domains/private paths, then rebuild all dependent model roles and provenance through a new producer version. Never relabel old tail useful or patch accepted model.",
+    "mandatory_rechecks": "Actual source replay, H08 all targets, source door/closet operations, partition/wall continuity, privacy, whole role extent, all parent rules with new hashes.",
+    "execution_state": "PLAN_ONLY_NO_OPERATOR_EXECUTED_NO_NEW_FRESH"
+  }
+}

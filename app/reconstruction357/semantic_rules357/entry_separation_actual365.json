@@ -1,0 +1,58 @@
+{
+  "schema": "BALANCED365_EXACT_ENTRY_SEPARATION_RESERVATION",
+  "model_hash": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+  "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+  "fresh_result_digest": "4db681280c9563b430dbdd417edbe8d1ff0b87a77e445a06191a1117d3e18a71",
+  "reservations": [
+    {
+      "unit": "A",
+      "region": [
+        "523/40",
+        "2471/200",
+        "131/10",
+        "499/40"
+      ],
+      "area_m2": "3/1000",
+      "classification": "ENGINEERING_OPERATIONAL_SEPARATION_RESERVATION_NOT_USABLE_LIVING",
+      "source_wall_binding": [
+        {
+          "wall_id": "A.bath.A.service_right",
+          "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+          "source_id": "A.service_right",
+          "world_geometry": [
+            "517/40",
+            "369/40",
+            "523/40",
+            "101/8"
+          ]
+        }
+      ],
+      "source_host_id": "A.unit_boundary",
+      "source_host_origin": {
+        "file": "staging365_balanced_portals/assemble365.py",
+        "sha256": "d41b888207753a0661bbf753f1e2437ae520069622e03f56d45beadaa2cf51bb",
+        "selector": "Executed source362 prefix before unit module installs; exact notch_frame362.outer_right source predicate with same-model core",
+        "notch_frame_source_sha256": "7086c8861c02b4be1a9cb5046154f6d0ae1346e86e84784f9a8d785742c1c2c3",
+        "notch_frame_expected": [
+          "703/40",
+          "499/40",
+          "709/40",
+          "123/8"
+        ]
+      },
+      "source_operation_digest": "fe63a9fbc97c73c86d793a27c94369cdd7c36135d866ce4c312946e0d4e1cf08",
+      "source_selector_interval": [
+        "601/40",
+        "603/40"
+      ],
+      "coordinate_slack_m": "1/40",
+      "source_panel_thickness_m": "1/10",
+      "source_mount_offset_m": "1/50",
+      "usable_floor_capacity_increment": 0,
+      "engineering_assumption": "Actual positive source-selected separation between rigid moving entry assembly and verified functional wall is an operational clearance reservation, including the source mount-offset depth; not a construction tolerance, furniture area, or added capacity. No arbitrary small-area cutoff."
+    }
+  ],
+  "parent_complete": false,
+  "admission_allowed": false,
+  "fresh_executed": false
+}

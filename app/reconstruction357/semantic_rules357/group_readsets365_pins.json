@@ -1,0 +1,8 @@
+{
+  "schema": "BALANCED365_STORED_ARTIFACT_REASSESSMENT_ONLY",
+  "result_digest": "4db681280c9563b430dbdd417edbe8d1ff0b87a77e445a06191a1117d3e18a71",
+  "record_digest": "29b49ae44c1e481b01acc52dafa49f04fa2beb1f29d4a5fb4b8b406727b58ae8",
+  "registry_sha256": "48bb66d005f664aaf7f9fa02dd0930ba76ab94fa4e216da25ba6e8a7aabcda37",
+  "bridge_sha256": "2775bf8998e6c2a4294c290e9a85073f5facb4ae24201674f559a09519ad6209",
+  "expected_schema": "BALANCED365_SOURCE_VALIDATION"
+}

@@ -1,0 +1,1544 @@
+{
+  "schema": "IR_P07_READONLY_FIVE_EXISTING_CANDIDATES362",
+  "source_contract": {
+    "file": "/workspace/scratch/933b2e3e0efd/recovered233_rendered/sections.json",
+    "file_sha256": "98e39063ee7ba733335c450c7fb661b9939762873f19c788d1b0764cb2daf0e3",
+    "author_rendered_sha256": "046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+    "selector": "details > summary[text=IR-P07]",
+    "character_range": [
+      697733,
+      716443
+    ],
+    "algorithm": "step\n1\noperation\nCount distinct shared stair cores and lift reservations; for n=2 require one shared stair and lobby outside stair enclosure with independent unit entries.\n\nstep\n2\noperation\nVerify source-sized body routes lift→each entry and entry→shared stair with lift unavailable; forbid traversal through other unit, lift car as bridge or stair enclosure on unit-entry route.\n\nstep\n3\noperation\nMeasure per-unit lengths/turns/bottleneck clearances and common circulation union area for each evaluated core placement; compare same program, no invented significance tolerance.\n\nstep\n4\noperation\nTechnical pit/headroom/equipment installation and light allocation adequacy are NOT_APPLICABLE to current gate; retain conceptual reservations and display source assumptions.",
+    "no_invented_significance_tolerance": true
+  },
+  "readset_manifest_sha256": "f8a03374791969c3bcbb8d6f353b2de78d9c8de1fe35d696a9c4335982427571",
+  "members": [
+    {
+      "id": "baseline351",
+      "artifact": "actual_run/actual_response.json",
+      "artifact_sha256": "548680e1a796eb6d9114f504b3d0303dd6c319285701b4217a385751b34df797",
+      "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "program": {
+        "bedrooms_per_unit": 3,
+        "sleep_roles": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+        "design_occupants_per_unit": 6,
+        "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+        "units": 2,
+        "provisional": true
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "measured": {
+        "routes": {
+          "stair_A": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_A": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "193/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "31/8",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "stair_B": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_B": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "161/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "123/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          }
+        },
+        "lift_length_A_minus_B_m": "4/5",
+        "lift_turn_A_minus_B": 0,
+        "common_lobby_area_m2": "3491/400",
+        "core_geometry": {
+          "stair": [
+            "8.425",
+            "12.775",
+            "12.975",
+            "15.225"
+          ],
+          "lift": [
+            "15.925",
+            "13.575",
+            "17.575",
+            "15.225"
+          ],
+          "lobby": [
+            [
+              "13.125",
+              "12.625",
+              "15.775",
+              "15.375"
+            ],
+            [
+              "15.775",
+              "12.625",
+              "17.575",
+              "13.425"
+            ]
+          ]
+        },
+        "portals": {
+          "lift.entry": {
+            "id": "lift.entry",
+            "rect": [
+              "15.775",
+              "13.85",
+              "15.925",
+              "14.95"
+            ],
+            "connects": [
+              "lift",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.lift.left"
+          },
+          "stair.entry": {
+            "id": "stair.entry",
+            "rect": [
+              "12.975",
+              "13.55",
+              "13.125",
+              "14.45"
+            ],
+            "connects": [
+              "stair",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.stair.right"
+          },
+          "A.entry": {
+            "id": "A.entry",
+            "rect": [
+              "13.175",
+              "12.475",
+              "14.475",
+              "12.625"
+            ],
+            "connects": [
+              "lobby",
+              "A.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "A.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          },
+          "B.entry": {
+            "id": "B.entry",
+            "rect": [
+              "13.175",
+              "15.375",
+              "14.475",
+              "15.525"
+            ],
+            "connects": [
+              "lobby",
+              "B.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "B.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          }
+        }
+      }
+    },
+    {
+      "id": "translated357",
+      "artifact": "staging357_comparative/attached_service_final357.json",
+      "artifact_sha256": "834402fd3a2251056509954e25d25dbd4c6f440dcc72b0e9fa3b71187f708cf8",
+      "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "program": {
+        "bedrooms_per_unit": 3,
+        "sleep_roles": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+        "design_occupants_per_unit": 6,
+        "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+        "units": 2,
+        "provisional": true
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "measured": {
+        "routes": {
+          "stair_A": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_A": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "193/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "31/8",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "stair_B": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_B": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "161/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "123/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          }
+        },
+        "lift_length_A_minus_B_m": "4/5",
+        "lift_turn_A_minus_B": 0,
+        "common_lobby_area_m2": "3491/400",
+        "core_geometry": {
+          "stair": [
+            "8.425",
+            "12.775",
+            "12.975",
+            "15.225"
+          ],
+          "lift": [
+            "15.925",
+            "13.575",
+            "17.575",
+            "15.225"
+          ],
+          "lobby": [
+            [
+              "13.125",
+              "12.625",
+              "15.775",
+              "15.375"
+            ],
+            [
+              "15.775",
+              "12.625",
+              "17.575",
+              "13.425"
+            ]
+          ]
+        },
+        "portals": {
+          "lift.entry": {
+            "id": "lift.entry",
+            "rect": [
+              "15.775",
+              "13.85",
+              "15.925",
+              "14.95"
+            ],
+            "connects": [
+              "lift",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.lift.left"
+          },
+          "stair.entry": {
+            "id": "stair.entry",
+            "rect": [
+              "12.975",
+              "13.55",
+              "13.125",
+              "14.45"
+            ],
+            "connects": [
+              "stair",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.stair.right"
+          },
+          "A.entry": {
+            "id": "A.entry",
+            "rect": [
+              "13.175",
+              "12.475",
+              "14.475",
+              "12.625"
+            ],
+            "connects": [
+              "lobby",
+              "A.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "A.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          },
+          "B.entry": {
+            "id": "B.entry",
+            "rect": [
+              "13.175",
+              "15.375",
+              "14.475",
+              "15.525"
+            ],
+            "connects": [
+              "lobby",
+              "B.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "B.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          }
+        }
+      }
+    },
+    {
+      "id": "row358",
+      "artifact": "staging358_comparative/row_candidate358.json",
+      "artifact_sha256": "5780193d5256cece965966222a1d9654748aa5d5b1543bce0b80c6b9fcb11387",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "program": {
+        "bedrooms_per_unit": 3,
+        "sleep_roles": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+        "design_occupants_per_unit": 6,
+        "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+        "units": 2,
+        "provisional": true
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "measured": {
+        "routes": {
+          "stair_A": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_A": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "193/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "31/8",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "stair_B": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_B": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "161/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "123/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          }
+        },
+        "lift_length_A_minus_B_m": "4/5",
+        "lift_turn_A_minus_B": 0,
+        "common_lobby_area_m2": "3491/400",
+        "core_geometry": {
+          "stair": [
+            "8.425",
+            "12.775",
+            "12.975",
+            "15.225"
+          ],
+          "lift": [
+            "15.925",
+            "13.575",
+            "17.575",
+            "15.225"
+          ],
+          "lobby": [
+            [
+              "13.125",
+              "12.625",
+              "15.775",
+              "15.375"
+            ],
+            [
+              "15.775",
+              "12.625",
+              "17.575",
+              "13.425"
+            ]
+          ]
+        },
+        "portals": {
+          "lift.entry": {
+            "id": "lift.entry",
+            "rect": [
+              "15.775",
+              "13.85",
+              "15.925",
+              "14.95"
+            ],
+            "connects": [
+              "lift",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.lift.left"
+          },
+          "stair.entry": {
+            "id": "stair.entry",
+            "rect": [
+              "12.975",
+              "13.55",
+              "13.125",
+              "14.45"
+            ],
+            "connects": [
+              "stair",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.stair.right"
+          },
+          "A.entry": {
+            "id": "A.entry",
+            "rect": [
+              "13.175",
+              "12.475",
+              "14.475",
+              "12.625"
+            ],
+            "connects": [
+              "lobby",
+              "A.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "A.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          },
+          "B.entry": {
+            "id": "B.entry",
+            "rect": [
+              "13.175",
+              "15.375",
+              "14.475",
+              "15.525"
+            ],
+            "connects": [
+              "lobby",
+              "B.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "B.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          }
+        }
+      }
+    },
+    {
+      "id": "clamped359",
+      "artifact": "staging359_hall_clamp/actual359.json",
+      "artifact_sha256": "13aa33694b45bdc5dc04fe50251b2b867efa521da970fc639690d3975bb04d03",
+      "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "program": {
+        "bedrooms_per_unit": 3,
+        "sleep_roles": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+        "design_occupants_per_unit": 6,
+        "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+        "units": 2,
+        "provisional": true
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "measured": {
+        "routes": {
+          "stair_A": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_A": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "193/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "31/8",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "stair_B": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_B": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "161/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "123/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          }
+        },
+        "lift_length_A_minus_B_m": "4/5",
+        "lift_turn_A_minus_B": 0,
+        "common_lobby_area_m2": "3491/400",
+        "core_geometry": {
+          "stair": [
+            "8.425",
+            "12.775",
+            "12.975",
+            "15.225"
+          ],
+          "lift": [
+            "15.925",
+            "13.575",
+            "17.575",
+            "15.225"
+          ],
+          "lobby": [
+            [
+              "13.125",
+              "12.625",
+              "15.775",
+              "15.375"
+            ],
+            [
+              "15.775",
+              "12.625",
+              "17.575",
+              "13.425"
+            ]
+          ]
+        },
+        "portals": {
+          "lift.entry": {
+            "id": "lift.entry",
+            "rect": [
+              "15.775",
+              "13.85",
+              "15.925",
+              "14.95"
+            ],
+            "connects": [
+              "lift",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.lift.left"
+          },
+          "stair.entry": {
+            "id": "stair.entry",
+            "rect": [
+              "12.975",
+              "13.55",
+              "13.125",
+              "14.45"
+            ],
+            "connects": [
+              "stair",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.stair.right"
+          },
+          "A.entry": {
+            "id": "A.entry",
+            "rect": [
+              "13.175",
+              "12.475",
+              "14.475",
+              "12.625"
+            ],
+            "connects": [
+              "lobby",
+              "A.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "A.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          },
+          "B.entry": {
+            "id": "B.entry",
+            "rect": [
+              "13.175",
+              "15.375",
+              "14.475",
+              "15.525"
+            ],
+            "connects": [
+              "lobby",
+              "B.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "B.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          }
+        }
+      }
+    },
+    {
+      "id": "notched362",
+      "artifact": "staging362_core_notch/actual362.json",
+      "artifact_sha256": "d448292d87b2fbd351f150bbfba3c7b6bf8acb4c074d31d4192f6ccc64f229d8",
+      "model_digest": "bc4a6dd222c09d33802b251fc547baa0365e2c59ffa89119ace3304b56fa8e8a",
+      "request": {
+        "W": "26",
+        "L": "28",
+        "n": 2,
+        "requested_count": 2
+      },
+      "program": {
+        "bedrooms_per_unit": 3,
+        "sleep_roles": [
+          "double",
+          "twin",
+          "twin"
+        ],
+        "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+        "design_occupants_per_unit": 6,
+        "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+        "units": 2,
+        "provisional": true
+      },
+      "profile": {
+        "body_m": ".7"
+      },
+      "measured": {
+        "routes": {
+          "stair_A": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_A": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "12.075"
+              ]
+            ],
+            "length_m": "193/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "251/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "31/8",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "stair_B": {
+            "actual_source_path": [
+              [
+                "12.575",
+                "14"
+              ],
+              [
+                "13.825",
+                "14"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "127/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "261/20",
+                "14"
+              ],
+              [
+                "553/40",
+                "14"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "89/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "9/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          },
+          "lift_B": {
+            "actual_source_path": [
+              [
+                "16.325",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "14.4"
+              ],
+              [
+                "13.825",
+                "15.925"
+              ]
+            ],
+            "length_m": "161/40",
+            "turns": 1,
+            "portal_midplane_path": [
+              [
+                "317/20",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "72/5"
+              ],
+              [
+                "553/40",
+                "309/20"
+              ]
+            ],
+            "portal_to_portal_length_m": "123/40",
+            "portal_to_portal_turns": 1,
+            "portal_aperture_widths_m": {
+              "source": "11/10",
+              "destination": "13/10"
+            },
+            "exact_route_bottleneck_clearance_m": null,
+            "bottleneck_status": "UNKNOWN_NOT_MEASURED_BY_STORED_CORE_ROUTE_WITNESS",
+            "selected_body_profile_m": "7/10"
+          }
+        },
+        "lift_length_A_minus_B_m": "4/5",
+        "lift_turn_A_minus_B": 0,
+        "common_lobby_area_m2": "583/80",
+        "core_geometry": {
+          "stair": [
+            "8.425",
+            "12.775",
+            "12.975",
+            "15.225"
+          ],
+          "lift": [
+            "15.925",
+            "13.575",
+            "17.575",
+            "15.225"
+          ],
+          "lobby": [
+            [
+              "13.125",
+              "12.625",
+              "15.775",
+              "15.375"
+            ]
+          ]
+        },
+        "portals": {
+          "lift.entry": {
+            "id": "lift.entry",
+            "rect": [
+              "15.775",
+              "13.85",
+              "15.925",
+              "14.95"
+            ],
+            "connects": [
+              "lift",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.lift.left"
+          },
+          "stair.entry": {
+            "id": "stair.entry",
+            "rect": [
+              "12.975",
+              "13.55",
+              "13.125",
+              "14.45"
+            ],
+            "connects": [
+              "stair",
+              "lobby"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_MODELED_HARDWARE_OUTSIDE_CONCEPT_INTERFACE",
+            "kind": "core_access_interface",
+            "leaf_modeled": false,
+            "source_scope_reference": "doors102.py: explicit stair/lift operations unmodeled; Concept core-route interface only",
+            "host_wall_id": "core.stair.right"
+          },
+          "A.entry": {
+            "id": "A.entry",
+            "rect": [
+              "13.175",
+              "12.475",
+              "14.475",
+              "12.625"
+            ],
+            "connects": [
+              "lobby",
+              "A.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "A.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          },
+          "B.entry": {
+            "id": "B.entry",
+            "rect": [
+              "13.175",
+              "15.375",
+              "14.475",
+              "15.525"
+            ],
+            "connects": [
+              "lobby",
+              "B.public_access"
+            ],
+            "operation_kind": "sliding_study",
+            "operation_witness_status": "NOT_EVALUATED",
+            "host_wall_id": "B.unit_boundary",
+            "kind": "operable_sliding_study",
+            "leaf_modeled": true
+          }
+        }
+      }
+    }
+  ],
+  "exact_existing_routes_and_portals_metrics_invariant": true,
+  "better_balance_alternative_in_this_cohort": false,
+  "balance_resolved": false,
+  "missing": [
+    "Exact free bottleneck width along required actual paths (not portal aperture or selected body size)",
+    "Supported balance resolution or explicit owner decision; no numeric negligible tolerance invented",
+    "Actual alternative core/entry placement improving balance while preserving required functional use if redesign is pursued"
+  ],
+  "engineering_framework": {
+    "comparison": "Keep per-unit vector (actual length, turns, measured bottleneck, door conflicts, source waiting/arrival use) separate; require protected use and componentwise non-deterioration for an improving alternative, no averaging across units",
+    "balance": "Record signed and absolute A/B differences, not a PASS threshold. Zero observed difference is descriptive, not proof all access conditions satisfied. Nonzero unresolved difference remains explicit.",
+    "invariance_scope": "Only these five fixed candidates. Same portal/core source positions explain common route invariance; no claim no better placement exists."
+  },
+  "no_generation": true,
+  "no_solver": true,
+  "no_new_fresh": true,
+  "accepted": false
+}

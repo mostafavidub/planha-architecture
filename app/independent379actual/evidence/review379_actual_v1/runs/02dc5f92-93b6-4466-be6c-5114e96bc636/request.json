@@ -1,0 +1,44 @@
+{
+  "schema": "REQUEST_ENVELOPE368",
+  "received_input": {
+    "W": "۲۶",
+    "L": "۲۸",
+    "n": "۲",
+    "requested_count": "۲"
+  },
+  "received_types": {
+    "W": "str",
+    "L": "str",
+    "n": "str",
+    "requested_count": "str"
+  },
+  "received_digest": "e3dd21100347e245623587ba611dae5d281db57f4c5c3826a1a5e597f6ca25be",
+  "normalized_raw": {
+    "W": "26",
+    "L": "28",
+    "n": 2,
+    "requested_count": 2
+  },
+  "raw_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+  "canonical_request": {
+    "schema": "PLANHA_FIXED_REQUEST368",
+    "dimensions_m": {
+      "W": {
+        "numerator": 26,
+        "denominator": 1
+      },
+      "L": {
+        "numerator": 28,
+        "denominator": 1
+      }
+    },
+    "unit_count": 2,
+    "requested_count": 2,
+    "program_policy": "FIXED_SOURCE_THREE_BEDROOM_DOUBLE_TWIN_TWIN_NOT_OWNER_CUSTOM_PROGRAM"
+  },
+  "canonical_request_digest": "39c330601115dda038a75466ed57f2594bacda70b716c3fbb50193aa7a697989",
+  "scope": "FIXED_REQUEST_ONLY_NOT_5_TO_45_COVERAGE",
+  "accepted": false,
+  "delivery_allowed": false,
+  "transport_body_sha256": "125590de4f94a952925977834d653ce489a613786070da9b748fe7a9bd7a22c3"
+}

@@ -1,0 +1,9 @@
+test_own_geometry_not_role (test_spatial_preflight367.Preflight.test_own_geometry_not_role) ... ok
+test_protected_assets (test_spatial_preflight367.Preflight.test_protected_assets) ... ok
+test_stale_model_rejected (test_spatial_preflight367.Preflight.test_stale_model_rejected) ... ok
+test_wrong_source_schema (test_spatial_preflight367.Preflight.test_wrong_source_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 9.159s
+
+OK

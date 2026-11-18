@@ -1,0 +1,20 @@
+{
+  "organization": "SIDECAR_COMPACT144",
+  "family": "LEFT_RIGHT",
+  "prior_status": "NOT_SCHEDULED_POLICY",
+  "source_callable": "coarse_sidecar_circulation144.propose",
+  "time_limit": 3,
+  "not_global_infeasibility": true,
+  "proposal": {
+    "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+    "solver_status": 2,
+    "solver_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+    "variables": 602,
+    "constraints": 786,
+    "seconds": 0.025177237001116737,
+    "not_global_infeasibility": true,
+    "scope": "Restricted coarse bundle master, no full-network or operational acceptance."
+  },
+  "status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+  "solver_seconds": 0.025423611999940476
+}

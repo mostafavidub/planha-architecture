@@ -1,0 +1,34 @@
+test_changed_path_rejected (test_balanced_access_joint367.Balance365.test_changed_path_rejected) ... ok
+test_current_binding (test_balanced_access_joint367.Balance365.test_current_binding) ... ok
+test_exact_equality_no_tolerance (test_balanced_access_joint367.Balance365.test_exact_equality_no_tolerance) ... ok
+test_old_review_rejected (test_balanced_access_joint367.Balance365.test_old_review_rejected) ... ok
+test_scope_preserved (test_balanced_access_joint367.Balance365.test_scope_preserved) ... ok
+test_changed_model_rejected (test_role_registry_joint367.Roles.test_changed_model_rejected) ... ok
+test_current_binding (test_role_registry_joint367.Roles.test_current_binding) ... ok
+test_hall_and_necessity_pending (test_role_registry_joint367.Roles.test_hall_and_necessity_pending) ... ok
+test_no_final_service_cycle (test_role_registry_joint367.Roles.test_no_final_service_cycle) ... FAIL
+test_not_selected_set_qualified (test_role_registry_joint367.Roles.test_not_selected_set_qualified) ... ok
+test_old_review_rejected (test_role_registry_joint367.Roles.test_old_review_rejected) ... ok
+test_private_common_intrinsic (test_role_registry_joint367.Roles.test_private_common_intrinsic) ... ok
+test_public_own_source_no_gap (test_role_registry_joint367.Roles.test_public_own_source_no_gap) ... ok
+
+======================================================================
+FAIL: test_no_final_service_cycle (test_role_registry_joint367.Roles.test_no_final_service_cycle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/933b2e3e0efd/reconstruction357/semantic_rules357/test_role_registry_joint367.py", line 12, in test_no_final_service_cycle
+    self.assertEqual(DAG['SERVICE_CIRCULATION'],['SOURCE_ROOM_USE','SOURCE_GATE']);self.assertIn('SERVICE_CIRCULATION',DAG['Q04_COMPARISON']);self.assertEqual(len(ordered_dag()),len(DAG));self.assertIn('No global exclusive-function or compactness',self.o['nodes']['SERVICE_CIRCULATION']['scope'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['SOURCE_ROOM_USE'] != ['SOURCE_ROOM_USE', 'SOURCE_GATE']
+
+Second list contains 1 additional elements.
+First extra element 1:
+'SOURCE_GATE'
+
+- ['SOURCE_ROOM_USE']
++ ['SOURCE_ROOM_USE', 'SOURCE_GATE']
+
+----------------------------------------------------------------------
+Ran 13 tests in 21.922s
+
+FAILED (failures=1)

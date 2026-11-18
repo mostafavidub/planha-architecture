@@ -1,0 +1,12 @@
+{
+  "rule_id": "BEDROOM_GROUPING",
+  "verdict": "UNKNOWN",
+  "parent_initial": false,
+  "proofscopecomplete": false,
+  "live_authority": false,
+  "delivery_allowed": false,
+  "new_fresh_execution": false,
+  "missing": [
+    "[Errno 2] No such file or directory: '/workspace/scratch/933b2e3e0efd/reconstruction357/semantic_rules357/bedroom_grouping362_v2_pins.json'"
+  ]
+}

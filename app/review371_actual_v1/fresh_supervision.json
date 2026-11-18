@@ -1,0 +1,19 @@
+{
+  "worker_returncode": 0,
+  "reason": "COMPLETED",
+  "worker_reaped": true,
+  "tracked_processes": [
+    {
+      "pid": 8,
+      "create_time": 1794846730.19
+    },
+    {
+      "pid": 9,
+      "create_time": 1794846731.21
+    }
+  ],
+  "unresolved": [],
+  "cleanup_verified": true,
+  "elapsed_seconds": 59.778386985002726,
+  "delivery_allowed": false
+}

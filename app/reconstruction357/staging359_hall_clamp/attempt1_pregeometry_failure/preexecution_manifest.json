@@ -1,0 +1,15 @@
+{
+  "schema": "PREEXECUTION359_CODE_SNAPSHOT",
+  "actual_rebuild_executed": false,
+  "files": {
+    "test_clamp_geometry359.py": "71798927370f72f2ef824b7009a277583f9258a4c15d9675a98b9cf5cff0d7db",
+    "clamp_geometry359.py": "94fc8c03d9d7fbdee7d3abf672317f91bae5febebb76d0d541f92c18a1b86e53",
+    "operation_reservations359.py": "82b2af44b526302ee448e608f41cb28e5b24a8b18552e3078aa19b8b4e7c4356",
+    "adapter359.py": "c1bdf603e3dbd3e954c01a1d710c85bd18b59798e97df05f143cd64c50d42331",
+    "private_hall_producer359.py": "c73e96f5c56fc4118a3f7953b75ca653ec3b0dfca1a86a02651996b95f3feacb",
+    "test_operations359.py": "3e35cf3adabe8ace8d05c277273d8f995de03a6bfb7019d3648cb7c28127634c",
+    "run_once359.py": "7f1ec9c3cee934154840c0862a7b7cb9facfa68090d2a454405021b9a4398ee6",
+    "assemble359.py": "fd2121907723d7274b90d507477c59596ae4bd2734915b711b5968694d3ab07b",
+    "constructor359.py": "9285cbbdb50858317d449f51b1709957afa40c13886835de492ba5ef1a8ddca4"
+  }
+}

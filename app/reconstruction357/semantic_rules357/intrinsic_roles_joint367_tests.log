@@ -1,0 +1,29 @@
+test_actual_clear_interior_witness (test_common_role_joint367.CommonRole362.test_actual_clear_interior_witness) ... ok
+test_actual_use_not_minrect_only (test_common_role_joint367.CommonRole362.test_actual_use_not_minrect_only) ... ok
+test_bound_alone_no_wholeclaim (test_common_role_joint367.CommonRole362.test_bound_alone_no_wholeclaim) ... ok
+test_closet_endpoints_outside_middle_crosses (test_common_role_joint367.CommonRole362.test_closet_endpoints_outside_middle_crosses) ... ok
+test_extra_lobby_extent_unsupported (test_common_role_joint367.CommonRole362.test_extra_lobby_extent_unsupported) ... ok
+test_missing_actual_continuous_actor (test_common_role_joint367.CommonRole362.test_missing_actual_continuous_actor) ... ok
+test_missing_actual_required_route (test_common_role_joint367.CommonRole362.test_missing_actual_required_route) ... ok
+test_missing_fresh_operation (test_common_role_joint367.CommonRole362.test_missing_fresh_operation) ... ok
+test_obstacle_island_rejected (test_common_role_joint367.CommonRole362.test_obstacle_island_rejected) ... ok
+test_open_panel_intrusion_rejected (test_common_role_joint367.CommonRole362.test_open_panel_intrusion_rejected) ... ok
+test_stale_review (test_common_role_joint367.CommonRole362.test_stale_review) ... ok
+test_unknown_blocked_inventory_rejected (test_common_role_joint367.CommonRole362.test_unknown_blocked_inventory_rejected) ... ok
+test_actual_nonzero_cost_not_zero_guard (test_entry_role_joint367.Entry.test_actual_nonzero_cost_not_zero_guard) ... ok
+test_extra_room_or_route_tamper_rejected (test_entry_role_joint367.Entry.test_extra_room_or_route_tamper_rejected) ... ok
+test_gap_cannot_launder (test_entry_role_joint367.Entry.test_gap_cannot_launder) ... ok
+test_no_necessity_or_admission (test_entry_role_joint367.Entry.test_no_necessity_or_admission) ... ok
+test_shared_route_not_exclusive (test_entry_role_joint367.Entry.test_shared_route_not_exclusive) ... ok
+test_stale_review_rejected (test_entry_role_joint367.Entry.test_stale_review_rejected) ... ok
+test_actual_source_origin (test_private_role_joint367.Private.test_actual_source_origin) ... ok
+test_ambiguous_source_axis_stops (test_private_role_joint367.Private.test_ambiguous_source_axis_stops) ... ok
+test_changed_wall_rejected (test_private_role_joint367.Private.test_changed_wall_rejected) ... ok
+test_current_intrinsic_closed_not_necessity (test_private_role_joint367.Private.test_current_intrinsic_closed_not_necessity) ... ok
+test_no_longitudinal_laundering (test_private_role_joint367.Private.test_no_longitudinal_laundering) ... ok
+test_stale_review_rejected (test_private_role_joint367.Private.test_stale_review_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 7.013s
+
+OK

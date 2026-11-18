@@ -1,0 +1,17 @@
+{
+  "reconstruction357/staging373_current_semantics/living_closure373.py": {
+    "original": "reconstruction357/semantic_rules357/living_closure365.py",
+    "original_sha256": "fbc12fd4fbdf9bebf4e178b70b30211fcb7a48e064b5f6de27f8cc290fbcf4a5",
+    "changes": "imports only: explicit current373 network gate and cloned dependent closures; predicate bodies unchanged"
+  },
+  "reconstruction357/staging373_current_semantics/guest_closure373.py": {
+    "original": "reconstruction357/semantic_rules357/guest_closure365.py",
+    "original_sha256": "1b8e09e279fb95785bdbaf18099ee93c656d0a5c3584a56b41abb11d61fcb4e9",
+    "changes": "imports only: explicit current373 network gate and cloned dependent closures; predicate bodies unchanged"
+  },
+  "reconstruction357/staging373_current_semantics/kitchen_closure373.py": {
+    "original": "reconstruction357/semantic_rules357/kitchen_closure365.py",
+    "original_sha256": "22af867a9c5dec2a8ae12944359473fbd09c5fcc7965293f6fc925ef73c5c048",
+    "changes": "imports only: explicit current373 network gate and cloned dependent closures; predicate bodies unchanged"
+  }
+}

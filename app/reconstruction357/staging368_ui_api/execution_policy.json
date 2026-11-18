@@ -1,0 +1,15 @@
+{
+  "schema": "UI368_ONE_SHOT_MANAGED_EXECUTION_POLICY",
+  "state": "PREACTUAL_REQUIRES_COMBINED_INDEPENDENT_AUDIT_AND_COORDINATOR_SLOT",
+  "listen": "127.0.0.1:8368",
+  "actual_submit_limit": 1,
+  "actual_payload": {"W": "۲۶", "L": "۲۸", "n": "۲", "requested_count": "۲"},
+  "field_transport_types": "four JSON strings from actual HTML form fields",
+  "bounds_seconds": {"raw_pipeline": 440, "semantic_worker": 60, "overall_owner_supervisor": 510},
+  "budget_rationale": "Four raw phases retain their registered 440 total. Semantic work gets a separate maximum 60 seconds. Overall owner bounds both and cleanup with a predeclared 10-second margin. No extension or retry is authorized by this record.",
+  "managed_lifecycle": "API waits for owner launcher without an upstream kill timeout. No cancellation endpoint. Keep server and owner launcher alive until result and descendant-cleanup receipt. Shutdown, crash, SIGKILL or externally terminated owner are not covered by this managed-completion guarantee.",
+  "prohibited_during_run": ["server shutdown", "upstream timeout killing owner", "parallel heavy execution", "duplicate form POST", "CLI actual before browser actual", "budget extension", "automatic retry"],
+  "pre_submit": "Source-verified server startup followed only by health/check-only. Browser submission occurs only after explicit coordinator slot and combined preaudit.",
+  "redesign": "No operator is registered. Bound actual FAIL is retained as REJECTED_UNSUPPORTED_REDESIGN with full reasons. UNKNOWN, technical STOP and timeout do not authorize redesign. A successful happy path is not evidence of executing reject-redesign-review.",
+  "scope": "Fixed26x28, two units, two conceptual source plans. Not the continuous5-to45metre domain. Never technical building approval or delivery authority. Equivalent-source proof reuse is explicit; raw construction/replay/checker are new current-run phases."
+}

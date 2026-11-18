@@ -1,0 +1,8 @@
+{
+  "removed_only": "wall_purpose.py",
+  "all_remaining_entries_identical": true,
+  "old_list_sha256": "0ec098390c240a684a6c554eb63eb47112bc0c241bd616a62a77bfc06685ac38",
+  "new_list_sha256": "cb175431bd5021f153fce8981185033b7308c5303cb579ce6de21aea457ca4ba",
+  "old_artifacts_preserved": true,
+  "algorithm_change": false
+}

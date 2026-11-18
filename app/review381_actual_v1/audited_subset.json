@@ -1,0 +1,2721 @@
+{
+  "schema": "381_AUDITED_SUBSET",
+  "binding": {
+    "record_digest": "f31dad0893192442fc2e44e895e796100d0d215aa0b3fad8298162d19fcfb201",
+    "fresh_digest": "e0adc8ba5792de35afb26db0df438bf59dc1f869b5c2a082971658284ad1e264",
+    "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+    "review_id": "acd414ca-411e-4fe3-906e-f6d4e8d7995d",
+    "candidate_id": "e69bec71a2352923b6db2b3f60629134fe83a3cdece21f811607cb8d6bd4f15e",
+    "run_id": "02dc5f92-93b6-4466-be6c-5114e96bc636",
+    "current_source_inventory_digest": "0e415e15a747b563d94d9e49c2ba052c73b63975e45fba6e665dbd9cc03351ca",
+    "request_envelope_digest": "3746c92104e08e3377fcbe57a2044ddb39a42a35a06e5b01f2987b9a8e21883a",
+    "form_binding_digest": "96afbd73168bd93ef9aaaa8edf09e5256753bfb8334f3eb634540c6e033c6be8",
+    "test_only": false
+  },
+  "original_result_sha256": "927cb0a6482899268140fba0d57eda4eabfbc60ddf63879508407356a910332c",
+  "quality": [
+    {
+      "rule_id": "SPACE_ACCOUNTING",
+      "verdict": "UNKNOWN",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_ARTIFACT_ONLY",
+      "missing": [
+        "CURRENT_FINAL_ROLE_DAG_NOT_PORTED",
+        "FULL_Q04_COHORT_NOT_EXECUTED"
+      ],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+        ],
+        "missing": [
+          "ALL_POSITIVE_AREA_FINAL_ROLE_FUNCTION"
+        ],
+        "evidence": [
+          {
+            "requirement": "partition_ledger",
+            "row_digest": "ecf32a2003ecdaeaa21c38e8fd22682f7f5c5789b2238b8e8d203c1e98f15a2f",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.partition_ledger",
+              "code_sha256": "9043ed6bd71a2ff3c21a1662f83ec2db5e226ac1eb93050af3512d77716aeb58"
+            }
+          },
+          {
+            "requirement": "unit_independence",
+            "row_digest": "31303562cf8cd842f6be21360ebc9cd30114fa8be51b46c66e770a69048fb80e",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.unit_independence",
+              "code_sha256": "c2337700eb82333b3acfbbac102f0cf4efde464822d0f28b219316137352022b"
+            }
+          }
+        ],
+        "metrics": {
+          "unit_ownership_overlap": [
+            {
+              "units": [
+                "A",
+                "B"
+              ],
+              "intersection_area_m2": "0"
+            }
+          ],
+          "residual_function_extent": [
+            {
+              "unit": "A",
+              "open_public_area_m2": "301953/2000",
+              "outside_declared_object_activity_path_area_m2": "17983/125",
+              "unresolved_rectangles": [
+                [
+                  "1/4",
+                  "1/4",
+                  "57/20",
+                  "26/5"
+                ],
+                [
+                  "463/20",
+                  "1/4",
+                  "103/4",
+                  "26/5"
+                ],
+                [
+                  "44/5",
+                  "9/20",
+                  "179/20",
+                  "3/4"
+                ],
+                [
+                  "199/20",
+                  "9/20",
+                  "101/10",
+                  "3/4"
+                ],
+                [
+                  "341/20",
+                  "9/20",
+                  "86/5",
+                  "3/4"
+                ],
+                [
+                  "1/4",
+                  "26/5",
+                  "44/5",
+                  "127/20"
+                ],
+                [
+                  "86/5",
+                  "26/5",
+                  "103/4",
+                  "127/20"
+                ],
+                [
+                  "1/4",
+                  "127/20",
+                  "531/40",
+                  "297/40"
+                ],
+                [
+                  "115/8",
+                  "127/20",
+                  "103/4",
+                  "259/40"
+                ],
+                [
+                  "115/8",
+                  "259/40",
+                  "599/40",
+                  "61/8"
+                ],
+                [
+                  "163/8",
+                  "259/40",
+                  "103/4",
+                  "87/8"
+                ],
+                [
+                  "1/4",
+                  "297/40",
+                  "45/8",
+                  "65/8"
+                ],
+                [
+                  "437/40",
+                  "297/40",
+                  "531/40",
+                  "61/8"
+                ],
+                [
+                  "105/8",
+                  "61/8",
+                  "539/40",
+                  "341/40"
+                ],
+                [
+                  "567/40",
+                  "61/8",
+                  "599/40",
+                  "63/8"
+                ],
+                [
+                  "567/40",
+                  "75/8",
+                  "599/40",
+                  "377/40"
+                ],
+                [
+                  "1/4",
+                  "65/8",
+                  "189/40",
+                  "101/8"
+                ],
+                [
+                  "219/40",
+                  "65/8",
+                  "45/8",
+                  "331/40"
+                ],
+                [
+                  "69/8",
+                  "65/8",
+                  "439/50",
+                  "369/40"
+                ],
+                [
+                  "237/25",
+                  "65/8",
+                  "409/40",
+                  "341/40"
+                ],
+                [
+                  "387/40",
+                  "369/40",
+                  "79/8",
+                  "75/8"
+                ],
+                [
+                  "85/8",
+                  "1857/200",
+                  "2307/200",
+                  "1859/200"
+                ],
+                [
+                  "423/40",
+                  "1859/200",
+                  "2307/200",
+                  "1867/200"
+                ],
+                [
+                  "423/40",
+                  "1867/200",
+                  "85/8",
+                  "75/8"
+                ],
+                [
+                  "523/40",
+                  "81/8",
+                  "539/40",
+                  "2471/200"
+                ],
+                [
+                  "901/50",
+                  "87/8",
+                  "751/40",
+                  "439/40"
+                ],
+                [
+                  "839/40",
+                  "87/8",
+                  "103/4",
+                  "439/40"
+                ],
+                [
+                  "839/40",
+                  "439/40",
+                  "103/4",
+                  "471/40"
+                ],
+                [
+                  "663/40",
+                  "467/40",
+                  "691/40",
+                  "491/40"
+                ],
+                [
+                  "839/40",
+                  "471/40",
+                  "103/4",
+                  "499/40"
+                ],
+                [
+                  "251/16",
+                  "491/40",
+                  "631/40",
+                  "497/40"
+                ],
+                [
+                  "663/40",
+                  "491/40",
+                  "691/40",
+                  "497/40"
+                ],
+                [
+                  "523/40",
+                  "2471/200",
+                  "235/16",
+                  "497/40"
+                ],
+                [
+                  "523/40",
+                  "497/40",
+                  "631/40",
+                  "499/40"
+                ],
+                [
+                  "663/40",
+                  "497/40",
+                  "691/40",
+                  "499/40"
+                ],
+                [
+                  "637/40",
+                  "499/40",
+                  "703/40",
+                  "537/40"
+                ],
+                [
+                  "709/40",
+                  "499/40",
+                  "103/4",
+                  "557/40"
+                ],
+                [
+                  "1/4",
+                  "101/8",
+                  "331/40",
+                  "557/40"
+                ]
+              ],
+              "status": "UNRESOLVED_NOT_PROVED_FUNCTIONLESS",
+              "missing": [
+                "WHOLE_FUNCTIONAL_REGION_SOURCE_ROLE_AND_INDEPENDENT_USE"
+              ],
+              "contract": "Q11 unknown_predicate: unresolved>0 is not automatically geometric FAIL",
+              "source_extent_digest": "cbcc31506f26ea357f7df58a0c81012ec44c087a69f3286217d5853820bb10b5"
+            },
+            {
+              "unit": "B",
+              "open_public_area_m2": "1195507/8000",
+              "outside_declared_object_activity_path_area_m2": "1138867/8000",
+              "unresolved_rectangles": [
+                [
+                  "1/4",
+                  "563/40",
+                  "331/40",
+                  "123/8"
+                ],
+                [
+                  "709/40",
+                  "563/40",
+                  "103/4",
+                  "621/40"
+                ],
+                [
+                  "1/4",
+                  "123/8",
+                  "189/40",
+                  "159/8"
+                ],
+                [
+                  "523/40",
+                  "621/40",
+                  "631/40",
+                  "623/40"
+                ],
+                [
+                  "663/40",
+                  "621/40",
+                  "691/40",
+                  "623/40"
+                ],
+                [
+                  "839/40",
+                  "621/40",
+                  "103/4",
+                  "649/40"
+                ],
+                [
+                  "523/40",
+                  "623/40",
+                  "539/40",
+                  "143/8"
+                ],
+                [
+                  "569/40",
+                  "623/40",
+                  "631/40",
+                  "3129/200"
+                ],
+                [
+                  "663/40",
+                  "623/40",
+                  "691/40",
+                  "3129/200"
+                ],
+                [
+                  "251/16",
+                  "3129/200",
+                  "631/40",
+                  "629/40"
+                ],
+                [
+                  "663/40",
+                  "3129/200",
+                  "691/40",
+                  "629/40"
+                ],
+                [
+                  "663/40",
+                  "629/40",
+                  "691/40",
+                  "653/40"
+                ],
+                [
+                  "839/40",
+                  "649/40",
+                  "103/4",
+                  "681/40"
+                ],
+                [
+                  "599/40",
+                  "3269/200",
+                  "1199/80",
+                  "137/8"
+                ],
+                [
+                  "567/40",
+                  "3269/200",
+                  "599/40",
+                  "657/40"
+                ],
+                [
+                  "901/50",
+                  "681/40",
+                  "751/40",
+                  "137/8"
+                ],
+                [
+                  "839/40",
+                  "681/40",
+                  "103/4",
+                  "137/8"
+                ],
+                [
+                  "567/40",
+                  "161/8",
+                  "599/40",
+                  "163/8"
+                ],
+                [
+                  "163/8",
+                  "137/8",
+                  "103/4",
+                  "861/40"
+                ],
+                [
+                  "567/40",
+                  "743/40",
+                  "1151/80",
+                  "149/8"
+                ],
+                [
+                  "387/40",
+                  "149/8",
+                  "79/8",
+                  "751/40"
+                ],
+                [
+                  "423/40",
+                  "149/8",
+                  "85/8",
+                  "3733/200"
+                ],
+                [
+                  "423/40",
+                  "3733/200",
+                  "2307/200",
+                  "3741/200"
+                ],
+                [
+                  "85/8",
+                  "3741/200",
+                  "2307/200",
+                  "3743/200"
+                ],
+                [
+                  "69/8",
+                  "751/40",
+                  "439/50",
+                  "159/8"
+                ],
+                [
+                  "237/25",
+                  "779/40",
+                  "409/40",
+                  "159/8"
+                ],
+                [
+                  "105/8",
+                  "779/40",
+                  "539/40",
+                  "163/8"
+                ],
+                [
+                  "219/40",
+                  "789/40",
+                  "45/8",
+                  "159/8"
+                ],
+                [
+                  "1/4",
+                  "159/8",
+                  "45/8",
+                  "823/40"
+                ],
+                [
+                  "437/40",
+                  "163/8",
+                  "531/40",
+                  "823/40"
+                ],
+                [
+                  "115/8",
+                  "163/8",
+                  "599/40",
+                  "861/40"
+                ],
+                [
+                  "1/4",
+                  "823/40",
+                  "531/40",
+                  "433/20"
+                ],
+                [
+                  "115/8",
+                  "861/40",
+                  "103/4",
+                  "433/20"
+                ],
+                [
+                  "1/4",
+                  "433/20",
+                  "44/5",
+                  "114/5"
+                ],
+                [
+                  "86/5",
+                  "433/20",
+                  "103/4",
+                  "114/5"
+                ],
+                [
+                  "1/4",
+                  "114/5",
+                  "57/20",
+                  "111/4"
+                ],
+                [
+                  "463/20",
+                  "114/5",
+                  "103/4",
+                  "111/4"
+                ],
+                [
+                  "44/5",
+                  "109/4",
+                  "179/20",
+                  "551/20"
+                ],
+                [
+                  "199/20",
+                  "109/4",
+                  "101/10",
+                  "551/20"
+                ],
+                [
+                  "341/20",
+                  "109/4",
+                  "86/5",
+                  "551/20"
+                ]
+              ],
+              "status": "UNRESOLVED_NOT_PROVED_FUNCTIONLESS",
+              "missing": [
+                "WHOLE_FUNCTIONAL_REGION_SOURCE_ROLE_AND_INDEPENDENT_USE"
+              ],
+              "contract": "Q11 unknown_predicate: unresolved>0 is not automatically geometric FAIL",
+              "source_extent_digest": "4bfdc8b0d7d35414590b4debcd4fd2e6fc827e401468f632708f6cfaca42dc10"
+            }
+          ]
+        },
+        "model_hash": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "parent_complete": false,
+        "reconstruction_version": 357
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION"
+    },
+    {
+      "rule_id": "GUEST_ROUTE_INDEPENDENCE",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+        ],
+        "missing": [
+          "ALL_FOUR_RELATIONS_SOURCE_SCENARIOS"
+        ],
+        "evidence": [
+          {
+            "requirement": "guest_living_route",
+            "row_digest": "8008984fe24b236f06872c59f7c5af5ccb5498a4f245978239b90b63b64d6609",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            }
+          },
+          {
+            "requirement": "guest_dining_route",
+            "row_digest": "f9a725da198ffc9fa08435461c4ec643f56c368c8c2371ba5d4c903db41fbc15",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            }
+          },
+          {
+            "requirement": "bath_nonprivate_access",
+            "row_digest": "77ed6daccd1e333d8e5a9743ac13224a2a1487de1813907784d1dce2f45efe74",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "access_accounting118.bath_nonprivate_access",
+              "code_sha256": "2945028daac1773421bcc43395e8e0664b8c21877db1de5155ba7659985f81fe"
+            }
+          }
+        ],
+        "metrics": {},
+        "model_hash": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "parent_complete": false,
+        "reconstruction_version": 357
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "primitive",
+      "evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.primitive",
+      "current_evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2"
+    },
+    {
+      "rule_id": "LIVING_USEFUL_CONTIGUITY",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+        ],
+        "missing": [
+          "SOURCE_COMPLETE_SITTING_AND_CONNECTED_ACCESS",
+          "R_LIV_APPLICABILITY"
+        ],
+        "evidence": [
+          {
+            "requirement": "fixture_inventory_use",
+            "row_digest": "c1ed65c485683d2081b898100a339c402a1762a8020381380bc2a391d76fbc3b",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.fixture_inventory_use",
+              "code_sha256": "949e8fdd878094c1e0080320404d0756b66ecd69e28e4dd682db9dfcb5df5024"
+            }
+          },
+          {
+            "requirement": "chair_capacity_movement",
+            "row_digest": "3fcfe443ac0de36efb3d8c54cef005c938b9ab9c5158155f3e03b5bb7a5a1d4a",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.chair_capacity_movement",
+              "code_sha256": "925404f70625fbc208d082605affa5aaa541772a583321a0e9eaf6fe4fcfbd01"
+            }
+          }
+        ],
+        "metrics": {},
+        "model_hash": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "parent_complete": false,
+        "reconstruction_version": 357
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "primitive",
+      "evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.primitive",
+      "current_evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2"
+    },
+    {
+      "rule_id": "CIRCULATION_NECESSITY",
+      "verdict": "UNKNOWN",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_ARTIFACT_ONLY",
+      "missing": [
+        "CURRENT_FINAL_ROLE_DAG_NOT_PORTED",
+        "FULL_Q04_COHORT_NOT_EXECUTED"
+      ],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_COMPARATIVE_OBLIGATIONS_UNPROVEN"
+        ],
+        "missing": [
+          "VALIDATED_FINITE_ALTERNATIVES",
+          "CIRCULATION_COMPONENT_PURPOSES",
+          "MATCHED_FUNCTIONAL_SCENARIOS"
+        ],
+        "evidence": {
+          "bound_source_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829"
+        },
+        "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "measured": {
+          "A": {
+            "unit_net_m2": "649643/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/649643",
+            "declared_circulation_union_m2": "38689/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "2001/80",
+                "direction_changes": 11
+              },
+              "bed1.bed_back": {
+                "length": "1977/80",
+                "direction_changes": 11
+              },
+              "bed1.closet_front": {
+                "length": "1803/80",
+                "direction_changes": 10
+              },
+              "bed1.changing": {
+                "length": "2029/80",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "1779/80",
+                "direction_changes": 10
+              },
+              "bed2.bedA_front": {
+                "length": "2037/80",
+                "direction_changes": 13
+              },
+              "bed2.bedA_back": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_front": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_back": {
+                "length": "1989/80",
+                "direction_changes": 13
+              },
+              "bed2.changing": {
+                "length": "2037/80",
+                "direction_changes": 12
+              },
+              "bed3.closet_front": {
+                "length": "1671/80",
+                "direction_changes": 14
+              },
+              "bed3.bedA_front": {
+                "length": "1929/80",
+                "direction_changes": 13
+              },
+              "bed3.bedA_back": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_front": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_back": {
+                "length": "1881/80",
+                "direction_changes": 11
+              },
+              "bed3.changing": {
+                "length": "1929/80",
+                "direction_changes": 11
+              },
+              "WC_front": {
+                "length": "873/80",
+                "direction_changes": 15
+              },
+              "WC_use": {
+                "length": "933/80",
+                "direction_changes": 20
+              },
+              "shower_use": {
+                "length": "189/16",
+                "direction_changes": 16
+              },
+              "basin_front": {
+                "length": "873/80",
+                "direction_changes": 12
+              },
+              "kitchen_work": {
+                "length": "1229/80",
+                "direction_changes": 11
+              },
+              "dining_front_left": {
+                "length": "471/80",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "711/80",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "271/80",
+                "direction_changes": 5
+              },
+              "dining_back_right": {
+                "length": "99/16",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "403/80",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "563/80",
+                "direction_changes": 9
+              },
+              "sofa1_front": {
+                "length": "511/80",
+                "direction_changes": 4
+              },
+              "sofa2_front": {
+                "length": "497/80",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "151/80",
+                "direction_changes": 2
+              },
+              "armchair2_front": {
+                "length": "271/80",
+                "direction_changes": 2
+              },
+              "armchair3_front": {
+                "length": "43/16",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "391/80",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "1229/80",
+                "direction_changes": 11
+              }
+            },
+            "geometry_fingerprint": "059f87ee47fee26977394cf3e68316b41c5095d10085ae23b1fcb0f9d0998143"
+          },
+          "B": {
+            "unit_net_m2": "161627/500",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "637800/161627",
+            "declared_circulation_union_m2": "309277/8000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 10
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 13
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "e96170060998860290b1e465fff4ef8afb2df53f2049edf13b7edca7cb890f88"
+          }
+        },
+        "measurement_scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION"
+    },
+    {
+      "rule_id": "ROOM_PROGRAM_CAPACITY",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "RECONSTRUCTED_CONTRACT_CLOSURE_UNPROVEN"
+        ],
+        "evidence": {
+          "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829",
+          "bound_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "measurement": {
+            "units": {
+              "A": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "5131/250",
+                  "living": "301953/2000"
+                }
+              },
+              "B": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "163957/8000",
+                  "living": "1195507/8000"
+                }
+              }
+            },
+            "opening_ids": [
+              "A.entry",
+              "B.entry",
+              "stair.entry",
+              "lift.entry",
+              "A.bed1.entry",
+              "A.bed2.entry",
+              "A.bed3.entry",
+              "A.bath",
+              "A.WC",
+              "A.shower",
+              "A.kitchen.entry",
+              "B.bed1.entry",
+              "B.bed2.entry",
+              "B.bed3.entry",
+              "B.bath",
+              "B.WC",
+              "B.shower",
+              "B.kitchen.entry"
+            ],
+            "program": {
+              "bedrooms_per_unit": 3,
+              "sleep_roles": [
+                "double",
+                "twin",
+                "twin"
+              ],
+              "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+              "design_occupants_per_unit": 6,
+              "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+              "units": 2,
+              "provisional": true
+            },
+            "rliv": {
+              "state": "NOT_APPLICABLE",
+              "reconstruction": 357,
+              "evidence": {
+                "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+                "dimensions": [
+                  "26",
+                  "28"
+                ],
+                "basis": "DIMENSION_SCOPE_ONLY_NOT_CONTRACT_ACCEPTANCE"
+              },
+              "missing": []
+            }
+          }
+        },
+        "missing": [
+          "COMPLETE_EXECUTED_RENDERED233_SOURCE_OBLIGATIONS",
+          "BOUND_ACTUAL_INSTANCE_CAPACITY_AND_USABILITY",
+          "R_LIV_APPLICABILITY_AND_SCOPED_PROOF"
+        ],
+        "reconstruction": 357
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "room_program",
+      "evidence_digest": "46f0db0ff095c687b554a180a7c4c8caed72792dd680eda3a81f2288150ef365",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.room_program",
+      "current_evidence_digest": "46f0db0ff095c687b554a180a7c4c8caed72792dd680eda3a81f2288150ef365"
+    },
+    {
+      "rule_id": "BEDROOM_GROUPING",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "RECONSTRUCTED_CONTRACT_CLOSURE_UNPROVEN"
+        ],
+        "evidence": {
+          "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829",
+          "bound_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "measurement": {
+            "units": {
+              "A": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "5131/250",
+                  "living": "301953/2000"
+                }
+              },
+              "B": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "163957/8000",
+                  "living": "1195507/8000"
+                }
+              }
+            },
+            "opening_ids": [
+              "A.entry",
+              "B.entry",
+              "stair.entry",
+              "lift.entry",
+              "A.bed1.entry",
+              "A.bed2.entry",
+              "A.bed3.entry",
+              "A.bath",
+              "A.WC",
+              "A.shower",
+              "A.kitchen.entry",
+              "B.bed1.entry",
+              "B.bed2.entry",
+              "B.bed3.entry",
+              "B.bath",
+              "B.WC",
+              "B.shower",
+              "B.kitchen.entry"
+            ],
+            "program": {
+              "bedrooms_per_unit": 3,
+              "sleep_roles": [
+                "double",
+                "twin",
+                "twin"
+              ],
+              "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+              "design_occupants_per_unit": 6,
+              "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+              "units": 2,
+              "provisional": true
+            },
+            "rliv": {
+              "state": "NOT_APPLICABLE",
+              "reconstruction": 357,
+              "evidence": {
+                "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+                "dimensions": [
+                  "26",
+                  "28"
+                ],
+                "basis": "DIMENSION_SCOPE_ONLY_NOT_CONTRACT_ACCEPTANCE"
+              },
+              "missing": []
+            }
+          }
+        },
+        "missing": [
+          "COMPLETE_EXECUTED_RENDERED233_SOURCE_OBLIGATIONS",
+          "IR_P13_BATH_ENTRY_PUBLIC_ROUTE_LENGTHS_AND_APPLICABLE_ALTERNATIVE_COMPARISON_UNVERIFIED"
+        ],
+        "reconstruction": 357
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "bedroom_grouping",
+      "evidence_digest": "3f846fa97646994ad70fdd5d195268e6b8c4985fbf0da98491993150d020c31f",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.bedroom_grouping",
+      "current_evidence_digest": "3f846fa97646994ad70fdd5d195268e6b8c4985fbf0da98491993150d020c31f"
+    },
+    {
+      "rule_id": "SERVICE_COMPACTNESS",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_COMPARATIVE_OBLIGATIONS_UNPROVEN"
+        ],
+        "missing": [
+          "EXCLUSIVE_SERVICE_CIRCULATION_ROLE",
+          "VALIDATED_SAME_PROGRAM_FUNCTIONAL_BASELINE"
+        ],
+        "evidence": {
+          "bound_source_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829"
+        },
+        "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "measured": {
+          "A": {
+            "unit_net_m2": "649643/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/649643",
+            "declared_circulation_union_m2": "38689/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "2001/80",
+                "direction_changes": 11
+              },
+              "bed1.bed_back": {
+                "length": "1977/80",
+                "direction_changes": 11
+              },
+              "bed1.closet_front": {
+                "length": "1803/80",
+                "direction_changes": 10
+              },
+              "bed1.changing": {
+                "length": "2029/80",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "1779/80",
+                "direction_changes": 10
+              },
+              "bed2.bedA_front": {
+                "length": "2037/80",
+                "direction_changes": 13
+              },
+              "bed2.bedA_back": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_front": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_back": {
+                "length": "1989/80",
+                "direction_changes": 13
+              },
+              "bed2.changing": {
+                "length": "2037/80",
+                "direction_changes": 12
+              },
+              "bed3.closet_front": {
+                "length": "1671/80",
+                "direction_changes": 14
+              },
+              "bed3.bedA_front": {
+                "length": "1929/80",
+                "direction_changes": 13
+              },
+              "bed3.bedA_back": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_front": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_back": {
+                "length": "1881/80",
+                "direction_changes": 11
+              },
+              "bed3.changing": {
+                "length": "1929/80",
+                "direction_changes": 11
+              },
+              "WC_front": {
+                "length": "873/80",
+                "direction_changes": 15
+              },
+              "WC_use": {
+                "length": "933/80",
+                "direction_changes": 20
+              },
+              "shower_use": {
+                "length": "189/16",
+                "direction_changes": 16
+              },
+              "basin_front": {
+                "length": "873/80",
+                "direction_changes": 12
+              },
+              "kitchen_work": {
+                "length": "1229/80",
+                "direction_changes": 11
+              },
+              "dining_front_left": {
+                "length": "471/80",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "711/80",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "271/80",
+                "direction_changes": 5
+              },
+              "dining_back_right": {
+                "length": "99/16",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "403/80",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "563/80",
+                "direction_changes": 9
+              },
+              "sofa1_front": {
+                "length": "511/80",
+                "direction_changes": 4
+              },
+              "sofa2_front": {
+                "length": "497/80",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "151/80",
+                "direction_changes": 2
+              },
+              "armchair2_front": {
+                "length": "271/80",
+                "direction_changes": 2
+              },
+              "armchair3_front": {
+                "length": "43/16",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "391/80",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "1229/80",
+                "direction_changes": 11
+              }
+            },
+            "geometry_fingerprint": "059f87ee47fee26977394cf3e68316b41c5095d10085ae23b1fcb0f9d0998143"
+          },
+          "B": {
+            "unit_net_m2": "161627/500",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "637800/161627",
+            "declared_circulation_union_m2": "309277/8000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 10
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 13
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "e96170060998860290b1e465fff4ef8afb2df53f2049edf13b7edca7cb890f88"
+          }
+        },
+        "measurement_scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.service",
+      "current_evidence_digest": "164443a36c1f4733d2f43a7b4ada7e4967f161900b2840d4dcaff27b52d2d50b"
+    },
+    {
+      "rule_id": "COMMON_CORE_COMPACTNESS",
+      "verdict": "UNKNOWN",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_ARTIFACT_ONLY",
+      "missing": [
+        "CURRENT_FINAL_ROLE_DAG_COMMON_Q04_Q12_NOT_PORTED"
+      ],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_COMPARATIVE_OBLIGATIONS_UNPROVEN"
+        ],
+        "missing": [
+          "CORE_STAGING_FUNCTION",
+          "VALIDATED_COMPACT_CORE_ALTERNATIVE"
+        ],
+        "evidence": {
+          "bound_source_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829"
+        },
+        "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "measured": {
+          "areas_m2": {
+            "stair": "4459/400",
+            "lift": "1089/400",
+            "lobby": "583/80"
+          },
+          "routes": {
+            "stair_A": {
+              "length": "121/32",
+              "direction_changes": 1
+            },
+            "lift_A": {
+              "length": "611/160",
+              "direction_changes": 1
+            },
+            "stair_B": {
+              "length": "121/32",
+              "direction_changes": 1
+            },
+            "lift_B": {
+              "length": "611/160",
+              "direction_changes": 1
+            }
+          },
+          "stair_route_spread_m": "0",
+          "lift_route_spread_m": "0"
+        },
+        "measurement_scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION"
+    },
+    {
+      "rule_id": "PRIVACY_WITHOUT_FAKE_BAFFLE",
+      "verdict": "UNKNOWN",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_ARTIFACT_ONLY",
+      "missing": [
+        "CURRENT_WALL_PURPOSE_AND_WHOLE_ROLE_DAG_NOT_PORTED"
+      ],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_OBLIGATIONS_NOT_COMPLETE"
+        ],
+        "missing": [
+          "ALL_SOURCE_REQUIRED_VISIBILITY",
+          "EVERY_WALL_CONSTRUCTIVE_PURPOSE"
+        ],
+        "evidence": [
+          {
+            "requirement": "privacy_scenarios",
+            "row_digest": "0d53d8568afc1dd8d30e6b7c78e377fcfc1817fc9d21e7989fabd5f6f73626f3",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.privacy_scenarios",
+              "code_sha256": "bfcdea8831c9a187fa8a5c381349f16ecd7f2544b8d39434c67b4c7e9a35879a"
+            }
+          },
+          {
+            "requirement": "q11_functional_boundary",
+            "row_digest": "7d908bea92759b486da73e62128e7c80da7cc78e87971ef51755f53278e05e4e",
+            "status": "PASS_LIMITED",
+            "source_method": {
+              "name": "named_checks118.adapters_for_workflow.<locals>.q11_for_current_workflow",
+              "code_sha256": "438906ddde9882e7929be66dc5607a944a81ed9741ad8b8dc0eb1d8410dfaf6b"
+            }
+          }
+        ],
+        "metrics": {},
+        "model_hash": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "parent_complete": false,
+        "reconstruction_version": 357
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION"
+    },
+    {
+      "rule_id": "OPENINGS_REAL",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "RECONSTRUCTED_CONTRACT_CLOSURE_UNPROVEN"
+        ],
+        "evidence": {
+          "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829",
+          "bound_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "measurement": {
+            "units": {
+              "A": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "5131/250",
+                  "living": "301953/2000"
+                }
+              },
+              "B": {
+                "bedroom_ids": [
+                  "bed1",
+                  "bed2",
+                  "bed3"
+                ],
+                "rectangle_area_sum_not_union": {
+                  "bed1": "696/25",
+                  "bed2": "696/25",
+                  "bed3": "696/25",
+                  "bath": "3189/250",
+                  "kitchen": "378/25",
+                  "dining": "594/25",
+                  "private_circulation": "3633/200",
+                  "entry_circulation": "163957/8000",
+                  "living": "1195507/8000"
+                }
+              }
+            },
+            "opening_ids": [
+              "A.entry",
+              "B.entry",
+              "stair.entry",
+              "lift.entry",
+              "A.bed1.entry",
+              "A.bed2.entry",
+              "A.bed3.entry",
+              "A.bath",
+              "A.WC",
+              "A.shower",
+              "A.kitchen.entry",
+              "B.bed1.entry",
+              "B.bed2.entry",
+              "B.bed3.entry",
+              "B.bath",
+              "B.WC",
+              "B.shower",
+              "B.kitchen.entry"
+            ],
+            "program": {
+              "bedrooms_per_unit": 3,
+              "sleep_roles": [
+                "double",
+                "twin",
+                "twin"
+              ],
+              "capacity_profile": "SIX_PERSON_INTERNAL_PROGRAM121",
+              "design_occupants_per_unit": 6,
+              "capacity_basis": "Sum actual double(2) or twin(two single instances of1) study program; not inference from room area or names",
+              "units": 2,
+              "provisional": true
+            },
+            "rliv": {
+              "state": "NOT_APPLICABLE",
+              "reconstruction": 357,
+              "evidence": {
+                "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+                "dimensions": [
+                  "26",
+                  "28"
+                ],
+                "basis": "DIMENSION_SCOPE_ONLY_NOT_CONTRACT_ACCEPTANCE"
+              },
+              "missing": []
+            }
+          }
+        },
+        "missing": [
+          "COMPLETE_EXECUTED_RENDERED233_SOURCE_OBLIGATIONS",
+          "BOUND_HOST_ADJACENCY_OPERATION_WINDOW_COVERAGE"
+        ],
+        "reconstruction": 357
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "openings",
+      "evidence_digest": "f60f8c1724f07ac06f49e8903497cc79ee5c394acb38c50405f9ae81185012ae",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.openings",
+      "current_evidence_digest": "f60f8c1724f07ac06f49e8903497cc79ee5c394acb38c50405f9ae81185012ae"
+    },
+    {
+      "rule_id": "KITCHEN_PROXIMITY",
+      "verdict": "PASS_SCOPED_INDEPENDENTLY_AUDITED",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_SOURCE_PROFILE_ONLY_NOT_GLOBAL_OR_TECHNICAL_APPROVAL",
+      "missing": [],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_COMPARATIVE_OBLIGATIONS_UNPROVEN"
+        ],
+        "missing": [
+          "SOURCE_OPERATION_AND_GUEST_PRIVATE_RELATION_CLOSURE"
+        ],
+        "evidence": {
+          "bound_source_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829"
+        },
+        "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "measured": {
+          "A": {
+            "unit_net_m2": "649643/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/649643",
+            "declared_circulation_union_m2": "38689/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "2001/80",
+                "direction_changes": 11
+              },
+              "bed1.bed_back": {
+                "length": "1977/80",
+                "direction_changes": 11
+              },
+              "bed1.closet_front": {
+                "length": "1803/80",
+                "direction_changes": 10
+              },
+              "bed1.changing": {
+                "length": "2029/80",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "1779/80",
+                "direction_changes": 10
+              },
+              "bed2.bedA_front": {
+                "length": "2037/80",
+                "direction_changes": 13
+              },
+              "bed2.bedA_back": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_front": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_back": {
+                "length": "1989/80",
+                "direction_changes": 13
+              },
+              "bed2.changing": {
+                "length": "2037/80",
+                "direction_changes": 12
+              },
+              "bed3.closet_front": {
+                "length": "1671/80",
+                "direction_changes": 14
+              },
+              "bed3.bedA_front": {
+                "length": "1929/80",
+                "direction_changes": 13
+              },
+              "bed3.bedA_back": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_front": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_back": {
+                "length": "1881/80",
+                "direction_changes": 11
+              },
+              "bed3.changing": {
+                "length": "1929/80",
+                "direction_changes": 11
+              },
+              "WC_front": {
+                "length": "873/80",
+                "direction_changes": 15
+              },
+              "WC_use": {
+                "length": "933/80",
+                "direction_changes": 20
+              },
+              "shower_use": {
+                "length": "189/16",
+                "direction_changes": 16
+              },
+              "basin_front": {
+                "length": "873/80",
+                "direction_changes": 12
+              },
+              "kitchen_work": {
+                "length": "1229/80",
+                "direction_changes": 11
+              },
+              "dining_front_left": {
+                "length": "471/80",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "711/80",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "271/80",
+                "direction_changes": 5
+              },
+              "dining_back_right": {
+                "length": "99/16",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "403/80",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "563/80",
+                "direction_changes": 9
+              },
+              "sofa1_front": {
+                "length": "511/80",
+                "direction_changes": 4
+              },
+              "sofa2_front": {
+                "length": "497/80",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "151/80",
+                "direction_changes": 2
+              },
+              "armchair2_front": {
+                "length": "271/80",
+                "direction_changes": 2
+              },
+              "armchair3_front": {
+                "length": "43/16",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "391/80",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "1229/80",
+                "direction_changes": 11
+              }
+            },
+            "geometry_fingerprint": "059f87ee47fee26977394cf3e68316b41c5095d10085ae23b1fcb0f9d0998143"
+          },
+          "B": {
+            "unit_net_m2": "161627/500",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "637800/161627",
+            "declared_circulation_union_m2": "309277/8000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 10
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 13
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "e96170060998860290b1e465fff4ef8afb2df53f2049edf13b7edca7cb890f88"
+          }
+        },
+        "measurement_scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY"
+      },
+      "old_parent_pass_reused": false,
+      "evidence_key": "primitive",
+      "evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2",
+      "predicate_source": "engine365_v3.py scoped predicates checked against current381 evidence",
+      "current_evidence_path": "evidence.essential.evidence.primitive",
+      "current_evidence_digest": "29edcb9b8c80d027e6fd3a2a960e38adb8ac38496a9ac6a918317eec524039d2"
+    },
+    {
+      "rule_id": "DISTINCTNESS_AND_FAIRNESS",
+      "verdict": "UNKNOWN",
+      "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+      "scope": "CURRENT379_STORED_ARTIFACT_ONLY",
+      "missing": [
+        "ONLY_ONE_BRANCH_OF_TWO_REQUESTED",
+        "NO_QUALIFIED_OPTION_SET"
+      ],
+      "base_result": {
+        "verdict": "UNKNOWN",
+        "codes": [
+          "SEMANTIC_COMPARATIVE_OBLIGATIONS_UNPROVEN"
+        ],
+        "missing": [
+          "PER_UNIT_FUNCTIONAL_FAIRNESS",
+          "SOURCE_SELECTION_SET_APPLICABILITY"
+        ],
+        "evidence": {
+          "bound_source_requirement_ids": [
+            "actual_opening_geometry",
+            "bath_nonprivate_access",
+            "bath_service_operation",
+            "body_route_sweeps",
+            "chair_capacity_movement",
+            "circulation_functional_integrity",
+            "claim_boundary",
+            "claim_boundary_display",
+            "closet_operation",
+            "containment_all_entities",
+            "core_concept",
+            "door_operation",
+            "export_parity",
+            "fixture_inventory_use",
+            "geometric_diversity",
+            "guest_dining_route",
+            "guest_living_route",
+            "immutable_history",
+            "input_exact_domain",
+            "kitchen_essential_operation",
+            "llm_budget",
+            "long_corridor_necessity",
+            "no_hidden_project_inputs",
+            "opening_hosts",
+            "owner_access",
+            "partition_ledger",
+            "per_option_rule_report",
+            "privacy_scenarios",
+            "private_grouping",
+            "program_functional_roles",
+            "q11_functional_boundary",
+            "serving_route",
+            "unit_independence",
+            "valid_exact_regions",
+            "wall_network",
+            "window_opportunities",
+            "worst_unit_function",
+            "zero_laundry"
+          ],
+          "raw_digest": "670311fe3e86112fe9dd80e84bc4dd97480697cf373fb89f99a2def661855829"
+        },
+        "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+        "measured": {
+          "A": {
+            "unit_net_m2": "649643/2000",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "2551200/649643",
+            "declared_circulation_union_m2": "38689/1000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "2001/80",
+                "direction_changes": 11
+              },
+              "bed1.bed_back": {
+                "length": "1977/80",
+                "direction_changes": 11
+              },
+              "bed1.closet_front": {
+                "length": "1803/80",
+                "direction_changes": 10
+              },
+              "bed1.changing": {
+                "length": "2029/80",
+                "direction_changes": 11
+              },
+              "bed2.closet_front": {
+                "length": "1779/80",
+                "direction_changes": 10
+              },
+              "bed2.bedA_front": {
+                "length": "2037/80",
+                "direction_changes": 13
+              },
+              "bed2.bedA_back": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_front": {
+                "length": "1893/80",
+                "direction_changes": 13
+              },
+              "bed2.bedB_back": {
+                "length": "1989/80",
+                "direction_changes": 13
+              },
+              "bed2.changing": {
+                "length": "2037/80",
+                "direction_changes": 12
+              },
+              "bed3.closet_front": {
+                "length": "1671/80",
+                "direction_changes": 14
+              },
+              "bed3.bedA_front": {
+                "length": "1929/80",
+                "direction_changes": 13
+              },
+              "bed3.bedA_back": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_front": {
+                "length": "357/16",
+                "direction_changes": 13
+              },
+              "bed3.bedB_back": {
+                "length": "1881/80",
+                "direction_changes": 11
+              },
+              "bed3.changing": {
+                "length": "1929/80",
+                "direction_changes": 11
+              },
+              "WC_front": {
+                "length": "873/80",
+                "direction_changes": 15
+              },
+              "WC_use": {
+                "length": "933/80",
+                "direction_changes": 20
+              },
+              "shower_use": {
+                "length": "189/16",
+                "direction_changes": 16
+              },
+              "basin_front": {
+                "length": "873/80",
+                "direction_changes": 12
+              },
+              "kitchen_work": {
+                "length": "1229/80",
+                "direction_changes": 11
+              },
+              "dining_front_left": {
+                "length": "471/80",
+                "direction_changes": 8
+              },
+              "dining_front_right": {
+                "length": "711/80",
+                "direction_changes": 11
+              },
+              "dining_back_left": {
+                "length": "271/80",
+                "direction_changes": 5
+              },
+              "dining_back_right": {
+                "length": "99/16",
+                "direction_changes": 8
+              },
+              "dining_left": {
+                "length": "403/80",
+                "direction_changes": 6
+              },
+              "dining_right": {
+                "length": "563/80",
+                "direction_changes": 9
+              },
+              "sofa1_front": {
+                "length": "511/80",
+                "direction_changes": 4
+              },
+              "sofa2_front": {
+                "length": "497/80",
+                "direction_changes": 5
+              },
+              "armchair1_front": {
+                "length": "151/80",
+                "direction_changes": 2
+              },
+              "armchair2_front": {
+                "length": "271/80",
+                "direction_changes": 2
+              },
+              "armchair3_front": {
+                "length": "43/16",
+                "direction_changes": 3
+              },
+              "armchair4_front": {
+                "length": "391/80",
+                "direction_changes": 3
+              },
+              "kitchen": {
+                "length": "1229/80",
+                "direction_changes": 11
+              }
+            },
+            "geometry_fingerprint": "059f87ee47fee26977394cf3e68316b41c5095d10085ae23b1fcb0f9d0998143"
+          },
+          "B": {
+            "unit_net_m2": "161627/500",
+            "bath_wc_union_m2": "3189/250",
+            "service_ratio_percent": "637800/161627",
+            "declared_circulation_union_m2": "309277/8000",
+            "routes": {
+              "bed1.bed_front": {
+                "length": "119/5",
+                "direction_changes": 9
+              },
+              "bed1.bed_back": {
+                "length": "47/2",
+                "direction_changes": 9
+              },
+              "bed1.closet_front": {
+                "length": "853/40",
+                "direction_changes": 8
+              },
+              "bed1.changing": {
+                "length": "483/20",
+                "direction_changes": 9
+              },
+              "bed2.closet_front": {
+                "length": "841/40",
+                "direction_changes": 8
+              },
+              "bed2.bedA_front": {
+                "length": "97/4",
+                "direction_changes": 11
+              },
+              "bed2.bedA_back": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_front": {
+                "length": "449/20",
+                "direction_changes": 11
+              },
+              "bed2.bedB_back": {
+                "length": "473/20",
+                "direction_changes": 11
+              },
+              "bed2.changing": {
+                "length": "97/4",
+                "direction_changes": 10
+              },
+              "bed3.closet_front": {
+                "length": "787/40",
+                "direction_changes": 12
+              },
+              "bed3.bedA_front": {
+                "length": "229/10",
+                "direction_changes": 11
+              },
+              "bed3.bedA_back": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_front": {
+                "length": "211/10",
+                "direction_changes": 11
+              },
+              "bed3.bedB_back": {
+                "length": "223/10",
+                "direction_changes": 9
+              },
+              "bed3.changing": {
+                "length": "229/10",
+                "direction_changes": 9
+              },
+              "WC_front": {
+                "length": "97/10",
+                "direction_changes": 11
+              },
+              "WC_use": {
+                "length": "209/20",
+                "direction_changes": 16
+              },
+              "shower_use": {
+                "length": "53/5",
+                "direction_changes": 12
+              },
+              "basin_front": {
+                "length": "97/10",
+                "direction_changes": 8
+              },
+              "kitchen_work": {
+                "length": "283/20",
+                "direction_changes": 7
+              },
+              "dining_front_left": {
+                "length": "71/10",
+                "direction_changes": 10
+              },
+              "dining_front_right": {
+                "length": "101/10",
+                "direction_changes": 13
+              },
+              "dining_back_left": {
+                "length": "23/5",
+                "direction_changes": 6
+              },
+              "dining_back_right": {
+                "length": "37/5",
+                "direction_changes": 9
+              },
+              "dining_left": {
+                "length": "25/4",
+                "direction_changes": 8
+              },
+              "dining_right": {
+                "length": "33/4",
+                "direction_changes": 10
+              },
+              "sofa1_front": {
+                "length": "38/5",
+                "direction_changes": 6
+              },
+              "sofa2_front": {
+                "length": "5",
+                "direction_changes": 3
+              },
+              "armchair1_front": {
+                "length": "31/10",
+                "direction_changes": 3
+              },
+              "armchair2_front": {
+                "length": "23/5",
+                "direction_changes": 3
+              },
+              "armchair3_front": {
+                "length": "12/5",
+                "direction_changes": 1
+              },
+              "armchair4_front": {
+                "length": "23/5",
+                "direction_changes": 1
+              },
+              "kitchen": {
+                "length": "283/20",
+                "direction_changes": 7
+              }
+            },
+            "geometry_fingerprint": "e96170060998860290b1e465fff4ef8afb2df53f2049edf13b7edca7cb890f88"
+          }
+        },
+        "measurement_scope": "EXACT_DECLARED_GEOMETRY_NOT_FUNCTIONAL_NECESSITY",
+        "scope": "SINGLE_CANDIDATE_NOT_SELECTION_SET_PROOF"
+      },
+      "old_parent_pass_reused": false,
+      "blocker_kind": "TECHNICAL_INTEGRATION_OR_UNEXECUTED_COMPARISON_NOT_MODEL_VIOLATION"
+    }
+  ],
+  "semantic_qualification": "UNKNOWN_FIVE_REMAINING_GATES",
+  "accepted": false,
+  "delivery_allowed": false,
+  "request_fulfilled": false,
+  "unresolved": [
+    "HISTORICAL_COHORT_TRANSLATED357_PROOF_BINDING_FAILED",
+    "FINITE_RANK2_UNASSESSED",
+    "Q04_DEPENDENT_WALL_PURPOSE",
+    "WHOLE_ROLE_JOIN_UNCLOSED",
+    "ONE_BRANCH_NOT_TWO_SELECTED_OPTIONS"
+  ]
+}

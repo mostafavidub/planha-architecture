@@ -1,0 +1,27 @@
+{
+  "schema": "PIPELINE368_PREREG_V2_EXACT_DECIMAL_FIX",
+  "freeze_sha256": "0698f0958a23e2e882c60ff06e58490db01ed5fcaee084eb1d64318ff51046fa",
+  "pipeline_sha256": "084cbc912d68435de7614097001bf251fa3d6a123e5597d48932bfe60d9dc0c7",
+  "worker_sha256": "21154e7037ccd648868d5a0a3367987c0e74a805179fd4abe1a6e83ebc9451de",
+  "scope": "exact canonical W26 L28 n2 count2; preserve original typed request; real producer calls/replay/current checker",
+  "stage_order": [
+    "balanced.construct_replay",
+    "balanced.own_checker",
+    "joint.construct_replay",
+    "joint.own_checker"
+  ],
+  "stage_outer_seconds": 110,
+  "checker_inner_seconds": 90,
+  "pipeline_total_seconds": 440,
+  "external_api_outer_seconds": 460,
+  "no_retry": true,
+  "no_cached_model_substitution": true,
+  "repair_supported_reasons": [],
+  "semantic_equivalence_bridge": "PENDING_SEPARATE_AUDIT",
+  "expected_models": {
+    "balanced": "8013a1328a6104be58d9de22834dce16b1754277f450fa0ba8475253c26fc783",
+    "joint": "b1256726013116ef5f1cbcd784380a80861fa485c372909d52bf8bce0d398759"
+  },
+  "tests": "10 tests PASS .409s; includes exact precision,64charboundary,exponentreject,leadingzero/space dimensionpolicy",
+  "source_count": 2098
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "COMMON362_INTRINSIC_PREAUDIT_FREEZE",
+  "status": "PENDING_INDEPENDENT_SCOPE_AUDIT_NOT_PARENT_PROMOTION",
+  "tests": 7,
+  "files": {
+    "common_role_closure362.py": "e1da5eb95cde36c3c2dc3853f948170897f5c120df2c8a8bc501156c5b9c1b02",
+    "common_role_closure_actual362.json": "85f56e42fb138417b199226c3f3e8f4d6fda9845b9827473708f3161b0a63f87",
+    "test_common_role_closure362.py": "785ce37f5cb3744f1914f026a58f1c2b89b1dada0a1aa3047e3ead0a9036686e",
+    "common_role_closure_tests362.log": "d3de0fccf7fd75c557517cc976f835f6923c0d56c04d205b4b6be1aef67644be",
+    "lobby_junction_bound362.py": "6b24bfd6eaf013837fad6c865dbdf699a006e6113e295242eb414cf5a0ba3798",
+    "group_readsets362.py": "a3f4a840e82821728d438caaa4e8c123eabc9fe4d3f3af07edc3e7b9558b5d40",
+    "group_readsets362_pins.json": "8c25081ccbcb510b6195508c946e5004834fa1b4aa68de41d8fd470fae66bbeb",
+    "method_registry_source362.json": "acf0dd7e4719ded87da87bb5ae35e97f533b6900dae32389ed53952ffa56128d",
+    "common.py": "7ec436d5b6a07d5a38d0c3da89137669f70aec2d56904cd6a4519a4cb207c86f",
+    "modules_spatial.py": "6a015a21364dbd26b9ae84c380a7724f8be33e0e9dd40b74fa08a9b8246445a6"
+  }
+}

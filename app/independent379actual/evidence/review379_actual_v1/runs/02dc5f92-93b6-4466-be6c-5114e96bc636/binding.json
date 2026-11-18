@@ -1,0 +1,23 @@
+{
+  "run_id": "02dc5f92-93b6-4466-be6c-5114e96bc636",
+  "candidate_id": "e69bec71a2352923b6db2b3f60629134fe83a3cdece21f811607cb8d6bd4f15e",
+  "raw_digest": "c0521e4e16e83d66d4c26efe0662b0dd937e92b4cdcd739592f5af43fdf3e240",
+  "canonical_request_digest": "39c330601115dda038a75466ed57f2594bacda70b716c3fbb50193aa7a697989",
+  "received_digest": "e3dd21100347e245623587ba611dae5d281db57f4c5c3826a1a5e597f6ca25be",
+  "transport_body_sha256": "125590de4f94a952925977834d653ce489a613786070da9b748fe7a9bd7a22c3",
+  "review_id": "acd414ca-411e-4fe3-906e-f6d4e8d7995d",
+  "record_digest": "f31dad0893192442fc2e44e895e796100d0d215aa0b3fad8298162d19fcfb201",
+  "model_digest": "e7fe5a247adda70eb9fd400e3118f20c0c0a13d03df2d98c64b846555f031055",
+  "fresh_digest": "e0adc8ba5792de35afb26db0df438bf59dc1f869b5c2a082971658284ad1e264",
+  "dispatch": {
+    "repair_attempted": false,
+    "reason": "NO_CURRENT_REJECTION_SCOPED_PHYSICAL_ONLY",
+    "errors": [],
+    "pending": [],
+    "original_pending": [
+      "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+    ],
+    "semantic_qualification": "UNKNOWN_NOT_EXECUTED",
+    "accepted": false
+  }
+}

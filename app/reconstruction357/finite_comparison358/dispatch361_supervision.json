@@ -1,0 +1,19 @@
+{
+  "reason": "COMPLETED",
+  "worker_reaped": true,
+  "tracked_processes": [
+    {
+      "pid": 5,
+      "create_time": 1794827054.1
+    }
+  ],
+  "unresolved": [],
+  "cleanup_verified": true,
+  "elapsed_seconds": 1.0344817460008926,
+  "delivery_allowed": false,
+  "schema": "DISPATCH361_SUPERVISION",
+  "prereg_sha256": "275a4c9332e7e8e6448608052b8e102c6444d116d195354854da02bf2969d613",
+  "fresh_executed": false,
+  "accepted": false,
+  "source_changed": []
+}
