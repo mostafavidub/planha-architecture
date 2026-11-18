@@ -1,0 +1,404 @@
+{
+  "run": 44418924830,
+  "commit": "4e9a00375f74b24f426bbe59b57e7a8ef4b9aa00",
+  "completed_utc": "2026-11-18T23:14:58Z",
+  "operation_start": "2026-11-18T22:07:31Z",
+  "operation_deadline": "2026-11-19T01:07:31Z",
+  "scope": "Existential ordered guest source-profile routes; not natural principal organization or architectural qualification",
+  "fresh_physical_same_model_precondition": true,
+  "source_destination_binding": true,
+  "rational_contact_tests": true,
+  "rows": [
+    {
+      "model": "a083d513dee841210430b9e28489aa983790c01f8b084fad9f5c6d769ee1e044",
+      "missing": null,
+      "units": [
+        {
+          "unit": "A",
+          "state": "EXISTS_ORDERED_GUEST_ROUTE_ONLY",
+          "direct_comparison": {
+            "path": [
+              [
+                "8.325",
+                "10.575"
+              ],
+              [
+                "8.325",
+                "10.02"
+              ],
+              [
+                "9.775",
+                "10.02"
+              ],
+              [
+                "9.775",
+                "9.82"
+              ],
+              [
+                "9.875",
+                "9.82"
+              ],
+              [
+                "9.875",
+                "9.58"
+              ],
+              [
+                "9.925",
+                "9.58"
+              ],
+              [
+                "9.925",
+                "8.87"
+              ],
+              [
+                "10.625",
+                "8.87"
+              ],
+              [
+                "10.625",
+                "8.86"
+              ],
+              [
+                "10.825",
+                "8.86"
+              ],
+              [
+                "10.825",
+                "7.45"
+              ],
+              [
+                "10.325",
+                "7.45"
+              ],
+              [
+                "10.325",
+                "7.32"
+              ]
+            ],
+            "reason": null,
+            "scope": "Same-obstacle route proposal, not certified principal route or globally shortest",
+            "length_m": "1251/200",
+            "turns": 12,
+            "first_living_access_activity_contact_m": null,
+            "first_declared_dining_floor_contact_m": "61/200",
+            "dining_occupied_material_contact_m": null
+          },
+          "legs": [
+            {
+              "id": "entry_to_actual_living",
+              "path_found": true,
+              "reason": null,
+              "length_m": "67/10",
+              "turns": 13
+            },
+            {
+              "id": "living_to_shared_group",
+              "path_found": true,
+              "reason": null,
+              "length_m": "7/10",
+              "turns": 0
+            },
+            {
+              "id": "shared_group_to_actual_dining",
+              "path_found": true,
+              "reason": null,
+              "length_m": "791/200",
+              "turns": 4
+            }
+          ]
+        },
+        {
+          "unit": "B",
+          "state": "EXISTS_ORDERED_GUEST_ROUTE_ONLY",
+          "direct_comparison": {
+            "path": [
+              [
+                "8.325",
+                "14.425"
+              ],
+              [
+                "8.325",
+                "14.98"
+              ],
+              [
+                "9.775",
+                "14.98"
+              ],
+              [
+                "9.775",
+                "15.18"
+              ],
+              [
+                "9.875",
+                "15.18"
+              ],
+              [
+                "9.875",
+                "15.42"
+              ],
+              [
+                "9.925",
+                "15.42"
+              ],
+              [
+                "9.925",
+                "16.13"
+              ],
+              [
+                "10.625",
+                "16.13"
+              ],
+              [
+                "10.625",
+                "16.14"
+              ],
+              [
+                "10.825",
+                "16.14"
+              ],
+              [
+                "10.825",
+                "17.55"
+              ],
+              [
+                "10.325",
+                "17.55"
+              ],
+              [
+                "10.325",
+                "17.68"
+              ]
+            ],
+            "reason": null,
+            "scope": "Same-obstacle route proposal, not certified principal route or globally shortest",
+            "length_m": "1251/200",
+            "turns": 12,
+            "first_living_access_activity_contact_m": null,
+            "first_declared_dining_floor_contact_m": "61/200",
+            "dining_occupied_material_contact_m": null
+          },
+          "legs": [
+            {
+              "id": "entry_to_actual_living",
+              "path_found": true,
+              "reason": null,
+              "length_m": "67/10",
+              "turns": 13
+            },
+            {
+              "id": "living_to_shared_group",
+              "path_found": true,
+              "reason": null,
+              "length_m": "7/10",
+              "turns": 0
+            },
+            {
+              "id": "shared_group_to_actual_dining",
+              "path_found": true,
+              "reason": null,
+              "length_m": "791/200",
+              "turns": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+      "missing": null,
+      "units": [
+        {
+          "unit": "A",
+          "state": "EXISTS_ORDERED_GUEST_ROUTE_ONLY",
+          "direct_comparison": {
+            "path": [
+              [
+                "9.825",
+                "8.075"
+              ],
+              [
+                "9.825",
+                "7.29"
+              ],
+              [
+                "10.975",
+                "7.29"
+              ],
+              [
+                "10.975",
+                "7.22"
+              ],
+              [
+                "13.125",
+                "7.22"
+              ],
+              [
+                "13.125",
+                "2.4"
+              ],
+              [
+                "14.075",
+                "2.4"
+              ],
+              [
+                "14.075",
+                "1.72"
+              ],
+              [
+                "14.175",
+                "1.72"
+              ],
+              [
+                "14.175",
+                "1.52"
+              ],
+              [
+                "15.475",
+                "1.52"
+              ],
+              [
+                "15.475",
+                "2.42"
+              ],
+              [
+                "15.925",
+                "2.42"
+              ],
+              [
+                "15.925",
+                "2.52"
+              ]
+            ],
+            "reason": null,
+            "scope": "Same-obstacle route proposal, not certified principal route or globally shortest",
+            "length_m": "2731/200",
+            "turns": 12,
+            "first_living_access_activity_contact_m": "31/200",
+            "first_declared_dining_floor_contact_m": "1181/200",
+            "dining_occupied_material_contact_m": null
+          },
+          "legs": [
+            {
+              "id": "entry_to_actual_living",
+              "path_found": true,
+              "reason": null,
+              "length_m": "241/200",
+              "turns": 2
+            },
+            {
+              "id": "living_to_shared_group",
+              "path_found": true,
+              "reason": null,
+              "length_m": "149/20",
+              "turns": 2
+            },
+            {
+              "id": "shared_group_to_actual_dining",
+              "path_found": true,
+              "reason": null,
+              "length_m": "101/10",
+              "turns": 9
+            }
+          ]
+        },
+        {
+          "unit": "B",
+          "state": "EXISTS_ORDERED_GUEST_ROUTE_ONLY",
+          "direct_comparison": {
+            "path": [
+              [
+                "9.825",
+                "11.925"
+              ],
+              [
+                "9.825",
+                "12.71"
+              ],
+              [
+                "10.975",
+                "12.71"
+              ],
+              [
+                "10.975",
+                "12.78"
+              ],
+              [
+                "13.125",
+                "12.78"
+              ],
+              [
+                "13.125",
+                "17.6"
+              ],
+              [
+                "14.075",
+                "17.6"
+              ],
+              [
+                "14.075",
+                "18.28"
+              ],
+              [
+                "14.175",
+                "18.28"
+              ],
+              [
+                "14.175",
+                "18.48"
+              ],
+              [
+                "15.475",
+                "18.48"
+              ],
+              [
+                "15.475",
+                "17.58"
+              ],
+              [
+                "15.925",
+                "17.58"
+              ],
+              [
+                "15.925",
+                "17.48"
+              ]
+            ],
+            "reason": null,
+            "scope": "Same-obstacle route proposal, not certified principal route or globally shortest",
+            "length_m": "2731/200",
+            "turns": 12,
+            "first_living_access_activity_contact_m": "31/200",
+            "first_declared_dining_floor_contact_m": "1181/200",
+            "dining_occupied_material_contact_m": null
+          },
+          "legs": [
+            {
+              "id": "entry_to_actual_living",
+              "path_found": true,
+              "reason": null,
+              "length_m": "241/200",
+              "turns": 2
+            },
+            {
+              "id": "living_to_shared_group",
+              "path_found": true,
+              "reason": null,
+              "length_m": "149/20",
+              "turns": 2
+            },
+            {
+              "id": "shared_group_to_actual_dining",
+              "path_found": true,
+              "reason": null,
+              "length_m": "101/10",
+              "turns": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
