@@ -33,7 +33,10 @@ jobs:
           from constructor127 import build,context
           from evaluate_pair127 import evaluate
           from review_cycle import digest
-          from source_wall_counterfactual import assess,bound_source
+          from source_wall_counterfactual import assess,bound_source,interval_difference
+          assert interval_difference([(F(0),F(10))],[(F(2),F(5)),(F(4),F(8))])==[(F(0),F(2)),(F(8),F(10))]
+          assert interval_difference([(F(0),F(5))],[(F(0),F(2))])==[(F(2),F(5))]
+          assert interval_difference([(F(0),F(5))],[(F(-1),F(7))])==[]
           from guest_four_route_diagnostic import assess as guest_routes
           from checker114 import check_whole_privacy117
           from privacy115 import closure_gaps
@@ -60,6 +63,7 @@ jobs:
               if sid=='A.bed1.back':
                   assert F(result['free_geometric_gain_m2'])==F('327/400')
                   room=next(x for x in result['closure'] if x['room']=='A.bed1');assert room['before_gaps']==[] and room['after_gaps']
+                  assert sum(F(x['newly_uncovered_length_m']) for x in room['exact_intervals'])==F('109/20')
               if sid=='A.bed1.front':
                   assert F(result['free_geometric_gain_m2'])==0
                   assert all(x['before_gaps']==x['after_gaps'] for x in result['closure'])
