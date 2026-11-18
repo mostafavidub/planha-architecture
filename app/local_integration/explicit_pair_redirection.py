@@ -20,7 +20,18 @@ def require_rejection(review):
         raise ValueError('REJECTION_OUTSIDE_EXPLORATORY_SCOPE')
 def inventory(model):
     # Protect exact fixture IDs as well as types and source sizes, not only counts.
-    return {u['id']:{k:{f:v.get(f) for f in ('kind','source_size_m')} for k,v in u['fixture_metadata'].items()} for u in model['units']}
+    from fractions import Fraction as F
+    inventory={}
+    for u in model['units']:
+        records={}
+        if set(u['fixtures'])!=set(u['fixture_metadata']):raise ValueError('FIXTURE_METADATA_INVENTORY')
+        for k,v in u['fixture_metadata'].items():
+            q=list(map(lambda x:F(str(x)),u['fixtures'][k]))
+            dims=sorted((q[2]-q[0],q[3]-q[1]))
+            if dims[0]<=0:raise ValueError('FIXTURE_GEOMETRY')
+            records[k]={'kind':v.get('kind'),'source_size_m':v.get('source_size_m'),'actual_dimensions_m':list(map(str,dims))}
+        inventory[u['id']]=records
+    return inventory
 def redirect(body,parent_model,parent_context):
     from parametric_worker import ROOT,ENGINE,prepare
     envelope,raw=prepare(body)
