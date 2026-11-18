@@ -3,6 +3,10 @@ on:
   push:
     paths:
       - '.github/workflows/v25-explicit-ui.yml'
+      - 'app/local_integration/ui.js'
+      - 'app/local_integration/generation_ui.js'
+      - 'app/local_integration/history_ui.js'
+      - 'app/local_integration/index.html'
   workflow_dispatch:
 permissions:
   contents: read
