@@ -1,0 +1,44 @@
+{
+  "schema": "V25_INDEPENDENT_UI_AND_BLOCKERS_V1",
+  "start_utc": "2026-11-18T19:53:00Z",
+  "deadline_utc": "2026-11-18T22:53:00Z",
+  "completed_at_utc": "2026-11-18T19:55:20.507Z",
+  "tested_commit": "a94fdc55fee1fe7db2c5aa29520e6efe3a1152d5",
+  "run": 44385298647,
+  "job": 135088078337,
+  "result": "PASS_SCOPED",
+  "python_methods": 64,
+  "javascript_synthetic_cases": 8,
+  "live_browser": false,
+  "geometry_generated": false,
+  "closure_unblocked": false,
+  "blockers": [
+    {
+      "id": "CLOSURE",
+      "evidence": "8178 paths:1988 exact,6190 missing,0 mismatched; guard failure",
+      "required_action": "Explicitly reconcile 3-hour stop policy with resuming restoration of the previously stopped closure. Reuse original matching Git blobs and verify every required path; do not bypass guard."
+    },
+    {
+      "id": "GENERATION",
+      "evidence": "No current-range fresh model on complete GitHub runtime",
+      "required_action": "After closure, install declared dependencies in GitHub runner and execute pre-registered matrix, preserving no-proposal/unsupported distinctions."
+    },
+    {
+      "id": "FUNCTIONAL",
+      "evidence": "CURRENT_PROGRAM_SUITABILITY, KITCHEN_GUEST_PATH_SEPARATION, CONTINUOUS_USEFUL_LIVING, NONFUNCTIONAL_WALL_EXCLUSION remain UNKNOWN",
+      "required_action": "Implement and independently check source-bound functional evidence, not acceptance flags."
+    },
+    {
+      "id": "NATURAL_REPAIR",
+      "evidence": "No verified current-range natural rejection/child cycle",
+      "required_action": "Valid parent/model/proposal/review and compatible operator; rebuild child and freshly evaluate all rules."
+    },
+    {
+      "id": "UI_REPLAY_FIXTURES",
+      "evidence": "Repository evidence folder exposes requests only; default generation/review and controlled-repair fixtures absent",
+      "required_action": "Restore only necessary authorized exact test inputs or use a new genuine current-range run; never invent a passing fixture."
+    }
+  ],
+  "stage303_started": false,
+  "full_completion": false
+}
