@@ -1,0 +1,74 @@
+name: V25 named rule trace audit
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-rule-trace.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  trace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Trace all frozen named rule rows to freshly computed limited witnesses
+        run: |
+          timeout 500s python -B - <<'PY'
+          import sys,json,tarfile,hashlib,collections,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from constructor127 import build,context
+          from evaluate_pair127 import evaluate
+          from engine114 import revision
+          from rule_contract118 import load_contract,CONTRACT_SHA256
+          from functional_review import assess
+          from parametric_worker import prepare
+          from review_cycle import digest
+          from producer_provenance import snapshot,require_unchanged
+          sources=snapshot(root,['app/local_integration/functional_review.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py','.github/workflows/v25-rule-trace.yml']);source=revision();assert guard(FREEZE)==12991
+          for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py'),(load_contract,'rule_contract118.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44417514104)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz') as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];t=saved['generation_context']['construction_trace'];ps=t['proposals'];packet=build(t['raw'],'FRONT_REAR',ps['A'],ps['B']);ctx=context(t['raw'],packet,ps);m=packet['world_model'];review=evaluate(packet,ctx);mh=digest(m)
+          assert mh==saved['model_digest'] and digest(ctx)==digest(saved['generation_context'])
+          audit=review['rule_contract_evidence'];contract=load_contract()
+          assert audit['model_hash']==mh and audit['contract_hash']==CONTRACT_SHA256 and len(audit['rows'])==89
+          lookup={r['requirement_id']:r for r in audit['requirements']}
+          assert len(lookup)==38 and set(lookup)=={x['id'] for x in contract['requirements']}
+          for req in lookup.values():
+              if req['status']=='PASS_LIMITED':
+                  assert req['model_hash']==mh and req['evidence']['witness'] and req['method']['code_sha256'] and req['evidence']['scope']
+          rows=[]
+          originals={r['id']:r for r in contract['registry']}
+          for row in audit['rows']:
+              assert row['full_rule_approved'] is False and all(k in lookup for k in row['requirement_ids'])
+              rows.append({'rule_id':row['rule_id'],'status':row['status'],'source':row['source'],'classification':row['classification'],'full_rule_approved':False,'remaining_gap':row.get('remaining_review'),'source_mapping':originals[row['rule_id']]['implemented_evidence_mapping'],'requirements':[{'id':rid,'status':lookup[rid]['status'],'mandatory':lookup[rid]['mandatory'],'method':lookup[rid].get('method'),'evidence_digest':digest(lookup[rid].get('evidence')),'scope':lookup[rid].get('evidence',{}).get('scope'),'applicability':lookup[rid].get('applicability')} for rid in row['requirement_ids']]})
+          blocked_domain=[]
+          for W,L in [('26','20'),('20','26')]:
+              try:prepare(json.dumps({'W':W,'L':L,'n':2,'requested_count':1}).encode())
+              except ValueError as e:blocked_domain.append({'input':[W,L],'rejected':True,'reason':str(e)})
+              else:raise AssertionError('ACTIVE_25_DOMAIN_BYPASS')
+          functional=assess(m,review,source)
+          out={'scope':'Fresh trace of frozen89 registry/38 named conditions, not complete current live PRD mapping or rule approval','operation_start':'2026-11-18T23:32:31Z','operation_deadline':'2026-11-19T02:32:31Z','model_digest':mh,'source_revision':source,'local_sources':sources,'registry_rows':rows,'named_requirements':audit['requirements'],'functional_overlay':functional['requirements'],'historical_source_versions':contract['sources'],'historical_conflicts':['Frozen contract/input builtin retains5..45; active entrypoints enforce5..25','Frozen source snapshots date Nov12/13, not all later live document amendments','Concept-stage applicability is not product-stage completion'],'active_domain_negative_tests':blocked_domain,'counts':{'registry':len(rows),'requirements':len(lookup),'registry_status':dict(collections.Counter(r['status'] for r in rows)),'requirement_status':dict(collections.Counter(r['status'] for r in lookup.values()))},'accepted':False,'qualified':False,'delivery_allowed':False,'all_current_rules_mapped':False}
+          require_unchanged(root,sources);assert revision()==source and digest(m)==mh and guard(FREEZE)==12991
+          Path('rule-trace.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('RULE_TRACE '+json.dumps({'counts':out['counts'],'product_stage_unexecuted':[r['requirement_id'] for r in lookup.values() if r.get('applicability',{}).get('condition')=='product_stage'],'functional_overlay':functional['requirements'],'all_current_rules_mapped':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-rule-trace
+          path: rule-trace.json
+          retention-days: 30
