@@ -3,7 +3,7 @@ import json,sys,re,uuid
 from pathlib import Path
 from run_history import summary,BASE
 from dimension_contract import verify
-from parametric_worker import ROOT,ENGINE,SCHEMA
+from parametric_worker import ROOT,ENGINE,SCHEMA,prepare
 from review_cycle import digest,decide
 
 def load_source(run_id,candidate_id):
@@ -17,9 +17,17 @@ def load_source(run_id,candidate_id):
     if c.get('repair_receipt',{}).get('test_only'):raise ValueError('CONTROLLED_RECORD_NOT_NATURAL')
     return body,r,c
 
+def validated_source_raw(body,candidate):
+    # Revalidate before importing or invoking any historical construction entrypoint.
+    _,raw=prepare(body)
+    trace=candidate['generation_context']['construction_trace']
+    if trace['raw']!=raw:raise ValueError('SAVED_TRACE_REQUEST_BINDING_MISMATCH')
+    return raw
+
 def run(source_run,candidate_id,output_id):
     if str(uuid.UUID(output_id))!=output_id:raise ValueError('OUTPUT_ID')
     body,old,c=load_source(source_run,candidate_id)
+    raw=validated_source_raw(body,c)
     sys.path.insert(0,str(ROOT/'frontend'));from guard400 import guard
     freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0';pins=guard(freeze)
     sys.path.insert(0,str(ENGINE))
@@ -29,7 +37,7 @@ def run(source_run,candidate_id,output_id):
     from parametric_repair_flow import attempt
     trace=c['generation_context']['construction_trace'];source=revision()
     if source!=old['engine_source_revision']or source!=trace['source_revision']:raise ValueError('SAVED_SOURCE_REVISION_CHANGED')
-    raw=trace['raw'];family=trace['family'];proposal=trace['proposal'];parent=build(raw,family,proposal)
+    family=trace['family'];proposal=trace['proposal'];parent=build(raw,family,proposal)
     if digest(parent['world_model'])!=c['model_digest']:raise ValueError('SAVED_PARENT_EXACT_REPLAY_FAILED')
     ctx=context(raw,proposal,parent);before=evaluate(parent,ctx)
     if before['status']!='FAIL' or not before['errors'] or before['pending']:raise ValueError('NO_CURRENT_UNAMBIGUOUS_REJECTION')
