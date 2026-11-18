@@ -1,0 +1,1721 @@
+{
+  "run": 44421091175,
+  "commit": "bc9b9617a6a5784db774f77c70c64dbd3f0edaae",
+  "scope": "Exact geometric capacity of fixed axis-aligned square-body polyline in supplied route domain box only; not corridor/door width or best rerouted clearance",
+  "operation_start": "2026-11-18T22:07:31Z",
+  "operation_deadline": "2026-11-19T01:07:31Z",
+  "result": {
+    "model": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "rows": [
+      {
+        "unit": "A",
+        "route": "entry_living",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      },
+      {
+        "unit": "A",
+        "route": "entry_dining",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 28,
+            "rect": [
+              "101/8",
+              "1/10",
+              "511/40",
+              "49/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 124,
+            "rect": [
+              "539/40",
+              "78/25",
+              "115/8",
+              "181/50"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 28,
+            "rect": [
+              "101/8",
+              "1/10",
+              "511/40",
+              "49/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 9,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "277/100",
+              "607/40",
+              "397/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "277/100",
+              "607/40",
+              "397/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      },
+      {
+        "unit": "A",
+        "route": "entry_WC",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 122,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 122,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "303/40",
+              "597/100",
+              "67/8",
+              "677/100"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 39,
+            "rect": [
+              "251/40",
+              "243/40",
+              "297/40",
+              "1227/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 93,
+            "rect": [
+              "249/40",
+              "1229/200",
+              "1433/200",
+              "247/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 39,
+            "rect": [
+              "251/40",
+              "243/40",
+              "297/40",
+              "1227/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 93,
+            "rect": [
+              "249/40",
+              "1229/200",
+              "1433/200",
+              "247/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 93,
+            "rect": [
+              "249/40",
+              "1229/200",
+              "1433/200",
+              "247/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 9,
+            "kind": "obstacle",
+            "obstacle_index": 42,
+            "rect": [
+              "251/40",
+              "249/40",
+              "253/40",
+              "57/8"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 42,
+            "rect": [
+              "251/40",
+              "249/40",
+              "253/40",
+              "57/8"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 42,
+            "rect": [
+              "251/40",
+              "249/40",
+              "253/40",
+              "57/8"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 94,
+            "rect": [
+              "1267/200",
+              "1257/200",
+              "1273/200",
+              "287/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 12,
+            "kind": "obstacle",
+            "obstacle_index": 42,
+            "rect": [
+              "251/40",
+              "249/40",
+              "253/40",
+              "57/8"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 12,
+            "kind": "obstacle",
+            "obstacle_index": 94,
+            "rect": [
+              "1267/200",
+              "1257/200",
+              "1273/200",
+              "287/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 13,
+            "kind": "obstacle",
+            "obstacle_index": 94,
+            "rect": [
+              "1267/200",
+              "1257/200",
+              "1273/200",
+              "287/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          }
+        ]
+      },
+      {
+        "unit": "A",
+        "route": "living_dining",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "597/100",
+              "423/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 28,
+            "rect": [
+              "101/8",
+              "1/10",
+              "511/40",
+              "49/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "597/100",
+              "511/40",
+              "687/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "677/100",
+              "571/40",
+              "757/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 124,
+            "rect": [
+              "539/40",
+              "78/25",
+              "115/8",
+              "181/50"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 28,
+            "rect": [
+              "101/8",
+              "1/10",
+              "511/40",
+              "49/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "187/100",
+              "601/40",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "277/100",
+              "607/40",
+              "397/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "277/100",
+              "607/40",
+              "397/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "207/100",
+              "121/8",
+              "277/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "route": "entry_living",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "route": "entry_dining",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 63,
+            "rect": [
+              "101/8",
+              "151/10",
+              "511/40",
+              "199/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 124,
+            "rect": [
+              "539/40",
+              "819/50",
+              "115/8",
+              "422/25"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 63,
+            "rect": [
+              "101/8",
+              "151/10",
+              "511/40",
+              "199/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 9,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "1603/100",
+              "607/40",
+              "1723/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "1603/100",
+              "607/40",
+              "1723/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "route": "entry_WC",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 122,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 122,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 119,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "303/40",
+              "1323/100",
+              "67/8",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 74,
+            "rect": [
+              "251/40",
+              "2773/200",
+              "297/40",
+              "557/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 98,
+            "rect": [
+              "249/40",
+              "553/40",
+              "1433/200",
+              "2771/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 74,
+            "rect": [
+              "251/40",
+              "2773/200",
+              "297/40",
+              "557/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 98,
+            "rect": [
+              "249/40",
+              "553/40",
+              "1433/200",
+              "2771/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 98,
+            "rect": [
+              "249/40",
+              "553/40",
+              "1433/200",
+              "2771/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 9,
+            "kind": "obstacle",
+            "obstacle_index": 77,
+            "rect": [
+              "251/40",
+              "103/8",
+              "253/40",
+              "551/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 10,
+            "kind": "obstacle",
+            "obstacle_index": 77,
+            "rect": [
+              "251/40",
+              "103/8",
+              "253/40",
+              "551/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 77,
+            "rect": [
+              "251/40",
+              "103/8",
+              "253/40",
+              "551/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 11,
+            "kind": "obstacle",
+            "obstacle_index": 99,
+            "rect": [
+              "1267/200",
+              "513/40",
+              "1273/200",
+              "2743/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 12,
+            "kind": "obstacle",
+            "obstacle_index": 77,
+            "rect": [
+              "251/40",
+              "103/8",
+              "253/40",
+              "551/40"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 12,
+            "kind": "obstacle",
+            "obstacle_index": 99,
+            "rect": [
+              "1267/200",
+              "513/40",
+              "1273/200",
+              "2743/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 13,
+            "kind": "obstacle",
+            "obstacle_index": 99,
+            "rect": [
+              "1267/200",
+              "513/40",
+              "1273/200",
+              "2743/200"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "route": "living_dining",
+        "source_body": "7/10",
+        "fixed_path_capacity": "7/10",
+        "limits": [
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 120,
+            "rect": [
+              "67/8",
+              "1313/100",
+              "423/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 0,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 63,
+            "rect": [
+              "101/8",
+              "151/10",
+              "511/40",
+              "199/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 121,
+            "rect": [
+              "423/40",
+              "1313/100",
+              "511/40",
+              "1403/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 123,
+            "rect": [
+              "539/40",
+              "1243/100",
+              "571/40",
+              "1323/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 1,
+            "kind": "obstacle",
+            "obstacle_index": 124,
+            "rect": [
+              "539/40",
+              "819/50",
+              "115/8",
+              "422/25"
+            ],
+            "endpoint_attains_limit": false,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 63,
+            "rect": [
+              "101/8",
+              "151/10",
+              "511/40",
+              "199/10"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 2,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 3,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 4,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 5,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 6,
+            "kind": "obstacle",
+            "obstacle_index": 128,
+            "rect": [
+              "581/40",
+              "1723/100",
+              "601/40",
+              "1813/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "1603/100",
+              "607/40",
+              "1723/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          },
+          {
+            "segment": 7,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 115,
+            "rect": [
+              "115/8",
+              "1603/100",
+              "607/40",
+              "1723/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": true
+          },
+          {
+            "segment": 8,
+            "kind": "obstacle",
+            "obstacle_index": 129,
+            "rect": [
+              "577/40",
+              "1723/100",
+              "121/8",
+              "1793/100"
+            ],
+            "endpoint_attains_limit": true,
+            "segment_interior_attains_limit": false
+          }
+        ]
+      }
+    ],
+    "accepted": false
+  },
+  "independent_sweep_at_capacity_pass": true,
+  "capacity_plus_rational_epsilon_rejected": true,
+  "epsilon_not_design_threshold": true,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
