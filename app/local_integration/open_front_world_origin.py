@@ -41,8 +41,8 @@ def verify(packet,trace):
     if trace.get('sources')!=sources or trace.get('frozen_revision')!=revision():raise ValueError('NEW_ORIGIN_SOURCES')
     if trace.get('qualified')is not False or trace.get('delivery_allowed')is not False:raise ValueError('NO_STUDY_ADMISSION')
     rebuilt=construct(trace['raw'],deepcopy(trace['proposals']))
-    if packet!=rebuilt:raise ValueError('NEW_ORIGIN_REPLAY_MISMATCH')
-    if trace['model_digest']!=digest(rebuilt['world_model']) or trace['core_digest']!=digest(rebuilt['core']) or trace['proposal_hashes']!={u:digest(p)for u,p in trace['proposals'].items()}:raise ValueError('NEW_ORIGIN_DIGEST')
+    if digest(packet)!=digest(rebuilt):raise ValueError('NEW_ORIGIN_REPLAY_MISMATCH')
+    if trace['model_digest']!=digest(packet['world_model']) or trace['model_digest']!=digest(rebuilt['world_model']) or trace['core_digest']!=digest(packet['core']) or trace['core_digest']!=digest(rebuilt['core']) or trace['proposal_hashes']!={u:digest(p)for u,p in trace['proposals'].items()}:raise ValueError('NEW_ORIGIN_DIGEST')
     require_unchanged(ROOT,sources)
     if trace['frozen_revision']!=revision():raise ValueError('FROZEN_SOURCE_CHANGED')
     return {'origin_verified':True,'scope':'Deterministic new study source replay only, not physical/function acceptance','whole_model_pass':False,'accepted':False,'delivery_allowed':False}
