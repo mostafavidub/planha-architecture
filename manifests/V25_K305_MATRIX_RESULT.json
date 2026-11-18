@@ -1,0 +1,342 @@
+{
+  "commit": "c4970beb2feac691999282345ba11e002836c1b5",
+  "run": 44396060039,
+  "job": 135126117882,
+  "status": "ISOLATED_EXPERIMENT_NOT_PRODUCT_COMPLETION",
+  "started": "2026-11-18T20:55:19Z",
+  "finished": "2026-11-18T20:58:40Z",
+  "deadline": "2026-11-18T23:55:19Z",
+  "physical_pass": 4,
+  "unsupported_bundle": 12,
+  "core_errors": 2,
+  "qualified": 0,
+  "natural_failure_repair_observed": false,
+  "artifact_id": 14470481364,
+  "artifact_sha256": "7753b679c311a6f09f95346ba002d8d34d33cb90dce52989f0bedf3e510188b0",
+  "rows": [
+    {
+      "W": "25",
+      "L": "25",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 42.826258651,
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "functional": {
+        "state": "UNKNOWN_REQUIRED_FUNCTIONAL_PROOF",
+        "model_digest": "d71204b74f8a0283012a97c05fb9f0cfa2f71a1f77b4e448634cd6af721c6759",
+        "requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "source three-bedroom/six-person profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "no bound full current-PRD closure in this adapter"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat capacity alone does not establish continuous useful living or lack of waste"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "display_allowed": false
+      }
+    },
+    {
+      "W": "25",
+      "L": "25",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.002080586000005269,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "24.5",
+      "L": "25",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 42.626050936,
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "functional": {
+        "state": "UNKNOWN_REQUIRED_FUNCTIONAL_PROOF",
+        "model_digest": "4ac4de1c4c0d8ca4bc7d8aecbd5b42248b7bcbdcc5370f531b8fa9730f975000",
+        "requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "source three-bedroom/six-person profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "no bound full current-PRD closure in this adapter"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat capacity alone does not establish continuous useful living or lack of waste"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "display_allowed": false
+      }
+    },
+    {
+      "W": "24.5",
+      "L": "25",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.002044071000000258,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "24.5",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 0.0007389619999855768,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "24.5",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.0018852759999958835,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "24",
+      "L": "24",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 0.0006075269999996635,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "24",
+      "L": "24",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.0015258249999874351,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "23",
+      "L": "25",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 42.460303417999995,
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "functional": {
+        "state": "UNKNOWN_REQUIRED_FUNCTIONAL_PROOF",
+        "model_digest": "88889e88ac849a17caedbcf821d6197cbc046f480f66ca3308308ffccdd1c828",
+        "requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "source three-bedroom/six-person profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "no bound full current-PRD closure in this adapter"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat capacity alone does not establish continuous useful living or lack of waste"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "display_allowed": false
+      }
+    },
+    {
+      "W": "23",
+      "L": "25",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.001997161000019787,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "23",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 0.0007146590000104425,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "23",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.0017673809999791956,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "20",
+      "L": "25",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 41.237595984999984,
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "functional": {
+        "state": "UNKNOWN_REQUIRED_FUNCTIONAL_PROOF",
+        "model_digest": "2b1d3fbda8591cd1ad091fbc5430674076c6c486555ceb985c3ad95459959650",
+        "requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "source three-bedroom/six-person profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "no bound full current-PRD closure in this adapter"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat capacity alone does not establish continuous useful living or lack of waste"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "display_allowed": false
+      }
+    },
+    {
+      "W": "20",
+      "L": "25",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.002008568999997351,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "20",
+      "family": "FRONT_REAR",
+      "elapsed_seconds": 0.00071494700000585,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "25",
+      "L": "20",
+      "family": "LEFT_RIGHT",
+      "elapsed_seconds": 0.0015977019999979802,
+      "proposal_status": "UNSUPPORTED_BUNDLE_FIT",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "5",
+      "L": "5",
+      "family": "FRONT_REAR",
+      "error": "TypeError:'NoneType' object is not subscriptable",
+      "elapsed_seconds": 0.00019621999999230866,
+      "proposal_status": null,
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    },
+    {
+      "W": "5",
+      "L": "5",
+      "family": "LEFT_RIGHT",
+      "error": "ValueError:OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY",
+      "elapsed_seconds": 0.00015546000000199456,
+      "proposal_status": null,
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "functional": null
+    }
+  ]
+}
