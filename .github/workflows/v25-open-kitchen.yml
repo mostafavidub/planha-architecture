@@ -86,6 +86,11 @@ jobs:
                   eq(act['translation'],[F(src['translation'][0]),sy*F(src['translation'][1])])
               for act,src in zip(actual['workstations'],source['workstations']):eq(act['actor_rect'],rr(src['actor_rect']));eq(act['hand_point'],pt(src['hand_point']))
               assert placement['module_hash']==digest(original) and placement['module']==original
+              before_duplicate=digest([m,u])
+              try:install(original,m,u,uid,['2','3','5.6','6.05'],'20')
+              except ValueError:pass
+              else:raise AssertionError('DUPLICATE_INSTALL_ACCEPTED')
+              assert digest([m,u])==before_duplicate
               placements.append({'unit':uid,'placed_fragment':m,'unit_data':u,'state':'EXACT_RIGID_PLACEMENT_ONLY','whole_neighbor_validation':False})
           for uid,rect in [('C',['2','3','5.6','6.05']),('A',['2','3','5.7','6.05'])]:
               try:install(original,{}, {},uid,rect,'20')
@@ -94,7 +99,7 @@ jobs:
           require_unchanged(root,sources);assert guard(FREEZE)==12991
           out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','source_snapshot':sources,'rows':rows,'negative_tests':negative,'placement_studies':placements,'scope':'Standalone module only, no whole-plan integration, no new127 provenance, no functional qualification. Added threshold floor is not a full-width body approach. Preserved old route is valid, not optimized. Reference113 hypothetical operation profile.','whole_model_pass':False,'accepted':False,'delivery_allowed':False}
           Path('open-kitchen.json').write_text(json.dumps(out,ensure_ascii=False))
-          print('OPEN_KITCHEN '+json.dumps({'positive':len(rows),'negative':len(negative),'placement_units':len(placements),'placement_negative':2,'digests':[digest(r['model'])for r in rows],'whole_model_pass':False}),flush=True)
+          print('OPEN_KITCHEN '+json.dumps({'positive':len(rows),'negative':len(negative),'placement_units':len(placements),'placement_negative':4,'digests':[digest(r['model'])for r in rows],'whole_model_pass':False}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
