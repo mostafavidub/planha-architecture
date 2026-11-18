@@ -38,6 +38,10 @@ jobs:
           assert fixed_polyline_capacity(p,box,[['4','5.2','5','6']])['maximum_uniform_axis_aligned_square_width_m']=='2/5'
           assert fixed_polyline_capacity(list(reversed(p)),box,[['4','5.2','5','6']])['maximum_uniform_axis_aligned_square_width_m']=='2/5'
           assert fixed_polyline_capacity([['1','5'],['4','5'],['4','8']],box,[['5','6','6','7']])['maximum_uniform_axis_aligned_square_width_m']=='2'
+          interior=fixed_polyline_capacity(p,box,[['4','5.2','5','6']])['limiting_constraints']
+          assert len(interior)==1 and interior[0]['endpoint_attains_limit'] is False and interior[0]['segment_interior_attains_limit'] is True
+          endpoint=fixed_polyline_capacity([['1','5'],['4','5']],box,[['4.2','4','5','6']])['limiting_constraints']
+          assert len(endpoint)==1 and endpoint[0]['endpoint_attains_limit'] is True and endpoint[0]['segment_interior_attains_limit'] is False
           for bad in [[['1','1']],[['1','1'],['1','1']],[['1','1'],['2','2']]]:
               try:fixed_polyline_capacity(bad,box,[])
               except ValueError:pass
