@@ -23,6 +23,7 @@ jobs:
         run: |
           timeout 900s python -B - <<'PY'
           import sys,json,tarfile,hashlib,inspect
+          from fractions import Fraction as F
           from pathlib import Path
           root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
           from guard400 import guard
@@ -66,6 +67,13 @@ jobs:
               row={'variant':variant,'proposal':p}
               if p.get('status')=='PROPOSAL_ONLY':
                   packet=build(raw,'FRONT_REAR',p,p);context1=context(raw,packet,{'A':p,'B':p});m=packet['world_model'];r=evaluate(packet,context1)
+                  # Independent actual-world translation/reflection of every source motion bound.
+                  local=p['independent_kitchen_motion_reservation']['translated_bounds']
+                  expectedA=[list(map(F,q)) for q in local];length=F(raw['L'])
+                  expectedB=[[q[0],length-q[3],q[2],length-q[1]] for q in expectedA]
+                  for uid,expected in [('A',expectedA),('B',expectedB)]:
+                      op=next(o for o in m['operations']['kitchen'] if o['unit']==uid)
+                      assert [list(map(F,q)) for q in op['motion_envelopes']]==expected,'ACTUAL_KITCHEN_MOTION_PLACEMENT_MISMATCH'
                   assert inventory(m)==protected and m['profile']==parent['model']['profile'] and m['program']==parent['model']['program'] and m['inputs']==parent['model']['inputs'] and digest(packet['core'])==digest(packet0['core'])
                   origin=r['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['model_hash']==digest(m) and origin['source_revision']==source
                   row.update(packet=packet,context=context1,review=r,model_digest=digest(m),functional_review=assess(m,r,source),guest_routes=guest_routes(m),local_group=local_group(m),local_group_seated=local_group(m,actor_scenario='OTHER_SEATS_OCCUPIED'))
