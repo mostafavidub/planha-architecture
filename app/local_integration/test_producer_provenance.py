@@ -1,6 +1,7 @@
 import tempfile,unittest
 from pathlib import Path
-from producer_provenance import snapshot,require_unchanged,receipt
+from producer_provenance import snapshot,require_unchanged,receipt,require_imported
+from types import SimpleNamespace
 from review_cycle import digest
 class ProducerTests(unittest.TestCase):
  def test_changed_sources_fail_closed(self):
@@ -16,6 +17,12 @@ class ProducerTests(unittest.TestCase):
   r=receipt(sources={'p.py':'a'*64},request_digest='request',raw={},proposal={},packet={'world_model':model},context={'construction_trace':{'raw':{},'proposal':{},'model_hash':h}},review={'model_hash':h},engine_revision='e')
   self.assertFalse(r['accepted']);self.assertFalse(r['delivery_allowed']);self.assertFalse(r['qualified'])
   claimed=r.pop('receipt_digest');self.assertEqual(claimed,digest(r))
+ def test_import_shadowing_rejected(self):
+  with self.assertRaisesRegex(ValueError,'PRODUCER_IMPORT_PATH_MISMATCH'):
+   require_imported(SimpleNamespace(__file__='wrong.py'),'expected.py','private.py')
+ def test_foreign_trace_rejected(self):
+  with self.assertRaisesRegex(ValueError,'PRODUCER_TRACE_BINDING'):
+   receipt(sources={'p.py':'a'*64},request_digest='r',raw={'W':'25'},proposal={},packet={'world_model':{}},context={'construction_trace':{'raw':{'W':'28'},'proposal':{},'model_hash':digest({})}},review={'model_hash':digest({})},engine_revision='e')
  def test_foreign_review_rejected(self):
   with self.assertRaisesRegex(ValueError,'MODEL_BINDING'):
    receipt(sources={'p.py':'a'*64},request_digest='r',raw={},proposal={},packet={'world_model':{}},context={'construction_trace':{'raw':{},'proposal':{},'model_hash':digest({})}},review={'model_hash':'wrong'},engine_revision='e')
