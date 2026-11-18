@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "counts": {
+    "source_geometry_items": 192,
+    "motion_values": 150,
+    "swept_segments": 7
+  },
+  "scope": "Independent exact source-transform, physical-solid union, corridor/body and boundary subset only. No whole model privacy/placement/quality or concurrent user acceptance."
+}
