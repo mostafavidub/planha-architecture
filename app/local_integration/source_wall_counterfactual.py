@@ -8,6 +8,8 @@ def bound_source(model,source_id):
     matches=[]
     for placement in model['module_placements']:
         module=placement['module']
+        ids=[placement['id_map'][k] for k in module['walls']]
+        if len(set(ids))!=len(ids):raise ValueError('SOURCE_WALL_MAP_NOT_INJECTIVE')
         if digest(module)!=placement['module_hash']:raise ValueError('SOURCE_MODULE_DIGEST')
         for local_id,q in module['walls'].items():
             if placement['id_map'][local_id]!=source_id:continue
@@ -35,16 +37,17 @@ def assess(model,physical_review,source_id,expected_model_digest):
     before=list(model['walls'].values());after=[q for k,q in model['walls'].items() if k!=source_id]
     removed=cells(before,after);released=sum((area(Q(q)) for q in removed),F(0))
     probe=copy.deepcopy(model);del probe['walls'][source_id]
-    openings=[Q(o['rect']) for o in model['openings']]
     oldunion=list(map(Q,cells(before,[])));newunion=list(map(Q,cells(after,[])))
     closure=[]
     for u in model['units']:
         for name,regions in u['rooms'].items():
             if not name.startswith('bed'):continue
+            role=u['id']+'.'+name
+            openings=[Q(o['rect']) for o in model['openings'] if role in o.get('connects',[])]
             b=closure_gaps(list(map(Q,regions)),oldunion,openings);a=closure_gaps(list(map(Q,regions)),newunion,openings)
             closure.append({'room':u['id']+'.'+name,'before_gaps':b,'after_gaps':a})
     base_routes=guest_routes(model);probe_routes=guest_routes(probe)
     privacy_before=check_whole_privacy117(model);privacy_after=check_whole_privacy117(probe)
     assert digest(model)==mh
     assert digest(probe['units'])==digest(model['units']) and digest(probe['operations'])==digest(model['operations'])
-    return {'schema':'V25_SOURCE_WALL_PROBE_V1','scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY_NOT_CONSTRUCTED_MODEL','base_model_digest':mh,'fresh_physical_review_digest':digest(physical_review),'source_id':source_id,'source_rect':model['walls'][source_id],'source_binding':binding,'physical_aliases':model['physical_wall_network']['source_aliases'][source_id],'removed_material_cells':removed,'free_geometric_gain_m2':str(released),'useful_area_gain':'NOT_PROVEN','closure':closure,'baseline_routes':base_routes,'probe_routes':probe_routes,'privacy_before':privacy_before,'privacy_after':privacy_after,'state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'remaining':['A source role and removal consequence do not prove optimal placement or absence of an alternative','Room/operation inventories fixed; no layout benefit or useful area assumed','Probe never fed into full historical provenance checker or returned as a constructed model']}
+    return {'schema':'V25_SOURCE_WALL_PROBE_V1','scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY_NOT_CONSTRUCTED_MODEL','base_model_digest':mh,'fresh_physical_review_digest':digest(physical_review),'source_id':source_id,'source_rect':model['walls'][source_id],'source_binding':binding,'physical_aliases':model['physical_wall_network']['source_aliases'][source_id],'removed_material_cells':removed,'free_geometric_gain_m2':str(released),'material_union_unchanged':digest(cells(before,[]))==digest(cells(after,[])),'useful_area_gain':'NOT_PROVEN','closure_metric':'Coarse boundary edge coverage only; unchanged edge list does not prove unchanged missing interval or all function','closure':closure,'baseline_routes':base_routes,'probe_routes':probe_routes,'privacy_before':privacy_before,'privacy_after':privacy_after,'state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'remaining':['A source role and removal consequence do not prove optimal placement or absence of an alternative','Room/operation inventories fixed; no layout benefit or useful area assumed','Probe never fed into full historical provenance checker or returned as a constructed model']}
