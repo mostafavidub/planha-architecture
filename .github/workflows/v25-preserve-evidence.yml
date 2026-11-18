@@ -165,6 +165,12 @@ jobs:
           run-id: 44415606870
           name: v25-grouped-rejection
           path: _artifact_input/44415606870
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44415900223
+          name: v25-four-seat-master
+          path: _artifact_input/44415900223
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
