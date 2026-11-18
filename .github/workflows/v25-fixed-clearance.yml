@@ -46,6 +46,12 @@ jobs:
               try:fixed_polyline_capacity(bad,box,[])
               except ValueError:pass
               else:raise AssertionError('BAD_PATH_ACCEPTED')
+          assert fixed_polyline_capacity([['2','2'],['4','2']],box,[['5','3','6','4']])['maximum_uniform_axis_aligned_square_width_m']=='2'
+          assert fixed_polyline_capacity(p,box,[['4','4','5','6']])['maximum_uniform_axis_aligned_square_width_m']=='0'
+          for badbox,badpath in [(['0','0','0','10'],p),(box,[['1','2','3'],['2','3']])]:
+              try:fixed_polyline_capacity(badpath,badbox,[])
+              except ValueError:pass
+              else:raise AssertionError('INVALID_GEOMETRY_ACCEPTED')
           paths=['app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-fixed-clearance.yml']
           sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
           for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
