@@ -1,0 +1,31 @@
+{
+  "status": "TEST_ONLY_SCOPED_PHYSICAL_PASS_NOT_PRODUCT_ACCEPTANCE",
+  "commit": "92636e9e7d02942a25ecdc625ebbdf57166c1910",
+  "run": 44395167906,
+  "job": 135123020952,
+  "started_utc": "2026-11-18T20:50:39Z",
+  "finished_utc": "2026-11-18T20:51:13Z",
+  "deadline_utc": "2026-11-18T23:50:39Z",
+  "input": {
+    "W": 25,
+    "L": 25,
+    "n": 2
+  },
+  "proposal_status": "PROPOSAL_ONLY",
+  "solver_status": 1,
+  "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+  "errors": [],
+  "pending": [],
+  "historical_guard_before_after": 12991,
+  "fixtures_operations_approach_unchanged": true,
+  "artifact_id": 14468949745,
+  "artifact_sha256": "3014f3c4689ca21b2a688f8c8694624f868c1d9105023b7a4220960345cfb2c8",
+  "accepted": false,
+  "delivery_allowed": false,
+  "limitations": [
+    "Experimental producer provenance not yet integrated into active adapter",
+    "Four functional UNKNOWNs remain",
+    "Not natural rejection/redesign proof",
+    "Legacy frozen contract114 accepts 5..45; active adapter validates 5..25; all-entrypoint compliance not established"
+  ]
+}
