@@ -78,7 +78,7 @@ class Handler(BaseHTTPRequestHandler):
         except OSError:return True
 
     def do_POST(self):
-        if self.path not in ('/validate','/generate','/repair'):
+        if self.path not in ('/validate','/generate','/repair','/redesign-explicit-two'):
             self.respond(404, {'code':'NOT_FOUND'})
             return
         lengths = self.headers.get_all('Content-Length', [])
@@ -101,7 +101,10 @@ class Handler(BaseHTTPRequestHandler):
             self.respond(422, {'code':'BODY_LENGTH_MISMATCH'})
             return
         try:
-            if self.path == '/repair':
+            if self.path == '/redesign-explicit-two':
+                from explicit_pair_saved_run import redirect_saved
+                status, response = redirect_saved(body,cancelled=self.request_disconnected)
+            elif self.path == '/repair':
                 from repair_saved_run import repair
                 status, response = repair(body,cancelled=self.request_disconnected)
             elif self.path == '/generate':
