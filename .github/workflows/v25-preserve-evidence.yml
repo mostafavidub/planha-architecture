@@ -81,6 +81,18 @@ jobs:
           run-id: 44407576996
           name: v25-pair-http
           path: _artifact_input/44407576996
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44409434536
+          name: v25-living-connectivity
+          path: _artifact_input/44409434536
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44409413108
+          name: v25-living-connectivity
+          path: _artifact_input/44409413108
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
