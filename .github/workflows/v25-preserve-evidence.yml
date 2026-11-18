@@ -195,6 +195,18 @@ jobs:
           run-id: 44416886004
           name: v25-four-seat-master
           path: _artifact_input/44416886004
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44418924830
+          name: v25-ordered-guest-group
+          path: _artifact_input/44418924830
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44418627439
+          name: v25-live-cycle-audit
+          path: _artifact_input/44418627439
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
