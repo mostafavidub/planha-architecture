@@ -20,6 +20,23 @@ def bath_apron_dining_separated(rectangles):
  q=list(map(F,gross[0]));a=[q[0]+bath[0],q[1]+bath[1],q[2]+bath[0],q[3]+bath[1]]
  return a[2]<=dining[0] or dining[2]<=a[0] or a[3]<=dining[1] or dining[3]<=a[1]
 
+def source_kitchen_motion(width='2.35',depth='3.05'):
+ from fractions import Fraction as F
+ from kitchen_module117 import build
+ m=build(width,depth);op=m['operations']['kitchen'][0];out=[]
+ half=F(op['assumptions']['body_m'])/2
+ if half!=BODY/2 or half!=F('.35'):raise ValueError('PUBLIC_SOURCE_BODY_PROFILE_CHANGED')
+ for d in op['drawers'].values():
+  a,b=list(map(F,d['closed_tray'])),list(map(F,d['open_tray']))
+  out.append([min(a[0],b[0]),min(a[1],b[1]),max(a[2],b[2]),max(a[3],b[3])])
+  a,b=list(map(F,d['closed_actor'])),list(map(F,d['open_actor']))
+  out.append([min(a[0],b[0])-half,min(a[1],b[1])-half,max(a[0],b[0])+half,max(a[1],b[1])+half])
+ fr=op['fridge'];x,y=map(F,fr['hinge']);radius=F(fr['leaf_radius_m'])+F(fr['leaf_half_thickness_m'])
+ out.append([x-radius,y-radius,x+radius,y+radius])
+ a,b=list(map(F,fr['closed_actor'])),list(map(F,fr['open_actor']))
+ out.append([min(a[0],b[0])-half,min(a[1],b[1])-half,max(a[0],b[0])+half,max(a[1],b[1])+half])
+ return out,m['source_binding']
+
 def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED"):
  box=list(map(lambda x:float(__import__('fractions').Fraction(str(x))),core['units']['A']));x0,y0,x1,y1=box;ar=(x1-x0)*(y1-y0);scale=float(GRID)
  # No exterior-facade or daylight condition constrains bedroom placement.
@@ -366,6 +383,24 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
     zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
     for expr,z in zip([plus(seg[2],neg(ob[0])),plus(ob[2],neg(seg[0])),plus(seg[3],neg(ob[1])),plus(ob[3],neg(seg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
   network.append((name,px,py,bend,side))
+ group="independent_source_kitchen_motion_guest_network"
+ kitchen_motion,kitchen_motion_binding=source_kitchen_motion()
+ kk=4*next(i for i,z in enumerate(specs) if z[0]=='kitchen')
+ guest_motion=[[plus(aff(kk+(axis%2)),const(float(v))) for axis,v in enumerate(q)] for q in kitchen_motion]
+ # Restrict guest terminals only, not the source kitchen task/own operation.
+ for name,px,py,bend,side in network:
+  if not name.startswith(('sofa','chair','dining_')):continue
+  ylo,yhi=group_span(({},rooty),aff(bend),y0/scale,y1/scale)
+  xlo,xhi=group_span(aff(junction),aff(px),x0/scale,x1/scale)
+  plo,phi=group_span(aff(py),aff(bend),y0/scale,y1/scale)
+  guest_segments=[sharedseg,
+   [plus(aff(junction),({},-half)),plus(ylo,({},-half)),plus(aff(junction),({},half)),plus(yhi,({},half))],
+   [plus(xlo,({},-half)),plus(aff(bend),({},-half)),plus(xhi,({},half)),plus(aff(bend),({},half))],
+   [plus(aff(px),({},-half)),plus(plo,({},-half)),plus(aff(px),({},half)),plus(phi,({},half))]]
+  for seg in guest_segments:
+   for ob in guest_motion:
+    zz=[var(0,1) for _ in range(4)];row({z:1 for z in zz},hi=3)
+    for expr,z in zip([plus(seg[2],neg(ob[0])),plus(ob[2],neg(seg[0])),plus(seg[3],neg(ob[1])),plus(ob[3],neg(seg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
  group="bedroom_actual_approach"
  # Module exterior apron is real reserved floor, not a discarded bbox.
  for name,px,py,side in terminaldefs:
@@ -472,6 +507,19 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   out['independent_shared_group_study']['network_paths']={name:[[round((vals[wx]+bs/2)*scale,6),round((vals[wy]+bs/2)*scale,6)],[round(vals[jx]*scale,6),round((vals[wy]+bs/2)*scale,6)],[round(vals[jx]*scale,6),round(vals[py]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]] for name,px,py,jx in group_routes}
   out['roles']={s[0]:s[7]for s in specs}
   out['network_paths']={name:[[round(rootx*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]]for name,px,py,bend,side in network}
+  kq=list(map(lambda v:F(str(v)),out['rectangles']['kitchen']))
+  actual_motion,actual_binding=source_kitchen_motion(str(kq[2]-kq[0]),str(kq[3]-kq[1]))
+  if actual_motion!=kitchen_motion or actual_binding!=kitchen_motion_binding:raise ValueError('SOURCE_KITCHEN_MOTION_CHANGED')
+  translated=[[v+kq[i%2] for i,v in enumerate(q)] for q in actual_motion]
+  for name,path in out['network_paths'].items():
+   if not name.startswith(('sofa','chair','dining_')):continue
+   for a,b in zip(path,path[1:]):
+    a,b=list(map(lambda v:F(str(v)),a)),list(map(lambda v:F(str(v)),b))
+    if a[0]!=b[0] and a[1]!=b[1]:raise ValueError('NON_ORTHOGONAL_GUEST_NETWORK')
+    band=[min(a[0],b[0])-BODY/2,min(a[1],b[1])-BODY/2,max(a[0],b[0])+BODY/2,max(a[1],b[1])+BODY/2]
+    if any(intersects(band,q) for q in translated):
+     out['status']='EXACT_GUEST_KITCHEN_MOTION_REJECTED';return out
+  out['independent_kitchen_motion_reservation']={'source_binding':actual_binding,'local_bounds':[list(map(str,q)) for q in actual_motion],'translated_bounds':[list(map(str,q)) for q in translated],'scope':'Proposal guest network reservation only; fresh world route and all operations mandatory','accepted':False}
   out['bed_door_sides']={name:('right'if vals[side]>.5 else'left')for name,px,py,bend,side in network if side is not None}
   out['private_module_contract']='PRIVATE_ROOM_GEOMETRY_OPERATIONS_V1; variable W>=5.45 H>=3.6; full module independently checked before and after placement'
   out['network_scope']='shared variable junction with actual root connector and 3-segment junction-to-terminal paths; limited topology, not complete router' 
