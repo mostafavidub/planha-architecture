@@ -1,0 +1,77 @@
+name: V25 explicit two-bedroom exploratory redesign
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-two-bedroom-redesign.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exploratory-redesign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Preserve rejected parent and compare reconstructed same-program alternatives
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 900s python -B - <<'PY'
+          import sys,json,copy,time
+          from pathlib import Path
+          from collections import Counter
+          root=Path.cwd();sys.path[:0]=[str(root/'engine'),str(root/'frontend'),str(root/'app/local_integration')]
+          from guard400 import guard
+          freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0';assert guard(freeze)==12991
+          from dimension_contract import parse
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from search114 import propose
+          from contract114 import digest
+          raw={'W':'20','L':'20','n':2,'requested_count':1};parse(json.dumps(raw).encode());family='FRONT_REAR';core,_=frame(raw,family)
+          def construct(variant):
+              p=propose(core,2,time_limit=3,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+              row={'variant':variant,'proposal':p}
+              if p.get('status')=='PROPOSAL_ONLY':
+                  packet=build(raw,family,p,p);ctx=context(raw,packet,{'A':p,'B':p});review=evaluate(packet,ctx)
+                  row.update(packet=packet,context=ctx,review=review,model_digest=digest(packet['world_model']))
+              return row
+          def inventory(model):
+              return {u['id']:dict(Counter((m['kind'],json.dumps(m.get('source_size_m'),sort_keys=True)) for m in u['fixture_metadata'].values())) for u in model['units']}
+          parent=construct(0);evidence={'scope':'EXPLORATORY_REDIRECTION_NOT_REGISTERED_PRODUCTION_REPAIR','raw':raw,'explicit_program':{'bedrooms':2,'sleep_roles':['double','twin']},'parent':parent,'children':[],'accepted':False,'delivery_allowed':False}
+          parent_review=parent.get('review',{})
+          eligible_observation=parent_review.get('status')=='FAIL' and bool(parent_review.get('errors'))
+          evidence['fresh_parent_rejection_observed']=eligible_observation
+          evidence['parent_pending_preserved']=parent_review.get('pending')
+          if eligible_observation:
+              protected=inventory(parent['packet']['world_model'])
+              for variant in [1,2,3]:
+                  child=construct(variant)
+                  if 'packet' in child:
+                      assert inventory(child['packet']['world_model'])==protected
+                      assert child['proposal']['bedrooms']==2 and child['proposal']['sleep_roles']==['double','twin']
+                      assert digest(child['packet']['core'])==digest(parent['packet']['core'])
+                      assert child['packet']['world_model']['inputs']==parent['packet']['world_model']['inputs']
+                      child['changed_model']=child['model_digest']!=parent['model_digest']
+                      child['protected_inventory_and_core_unchanged']=True
+                  child['parent_model_digest']=parent.get('model_digest');evidence['children'].append(child)
+          else:evidence['blocked']='FRESH_REJECTED_PARENT_NOT_OBSERVED; prior-run failure is not substituted'
+          assert guard(freeze)==12991
+          # Tuple inventory keys are used only for equality; not serialized as JSON evidence.
+          Path('two-bedroom-redesign.json').write_text(json.dumps(evidence,ensure_ascii=False))
+          def brief(row):
+              return {'variant':row['variant'],'proposal_status':row['proposal'].get('status'),'model_digest':row.get('model_digest'),'changed_model':row.get('changed_model'),'physical_status':row.get('review',{}).get('status'),'errors':row.get('review',{}).get('errors'),'pending':row.get('review',{}).get('pending'),'protected_inventory_and_core_unchanged':row.get('protected_inventory_and_core_unchanged')}
+          print('EXPLORATORY_REDESIGN '+json.dumps({'scope':evidence['scope'],'parent':brief(parent),'children':[brief(c) for c in evidence['children']],'blocked':evidence.get('blocked'),'accepted':False,'delivery_allowed':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-explicit-two-bedroom-redesign
+          path: two-bedroom-redesign.json
+          retention-days: 30
