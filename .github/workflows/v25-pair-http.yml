@@ -34,11 +34,11 @@ jobs:
               try:
                   with urllib.request.urlopen(req,timeout=170) as r:return r.status,json.load(r)
               except urllib.error.HTTPError as e:return e.code,json.load(e)
-          report={'scope':'LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY','sample':'REMAINING_SECOND_SET_CONTINUE_AFTER_NO_CHILD','operation_deadline_utc':'2026-11-19T00:27:35Z','attempts':[],'continuations':[],'accepted':False,'delivery_allowed':False}
+          report={'scope':'LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY','sample':'SOURCE_MOTION_CORRECTED_OPERATOR_FRESH_PARENT_SAMPLE','operation_deadline_utc':'2026-11-19T00:27:35Z','attempts':[],'continuations':[],'accepted':False,'delivery_allowed':False}
           try:
               s,r=call('/redesign-explicit-two',{'run_id':'../bad','candidate_id':'0'*64});assert s==422
               parent=None
-              for W,L in [('18','22'),('18','24'),('20','18'),('20','22'),('22','18'),('22','20'),('24','18'),('25','20'),('25','22')]:
+              for W,L in [('18','20'),('18','20'),('18','20'),('20','20'),('20','20')]:
                   s,r=call('/generate',{'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}})
                   if s!=200:
                       report['attempts'].append({'input':[W,L],'http_status':s,'outcome':r.get('outcome'),'code':r.get('code')})
