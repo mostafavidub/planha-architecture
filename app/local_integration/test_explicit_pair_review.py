@@ -39,5 +39,6 @@ class PairReviewTests(unittest.TestCase):
    c=self.receipt_candidate();r=c['exploratory_redirection_receipt'];r.pop('receipt_digest');r[flag]=True;r['receipt_digest']=digest(r)
    with self.assertRaisesRegex(ValueError,'EXPLORATORY_AUTHORITY'):decide(c,'r','s')
  def test_mixed_receipts_rejected(self):
-  with self.assertRaisesRegex(ValueError,'EXPLORATORY_RECEIPT_CONSTRUCTOR'):decide(self.receipt_candidate(),'r','s',{})
+  c=self.receipt_candidate();legacy={'schema':'MAC_PARAMETRIC_REPAIR_RECEIPT_V1','source_revision':'s','accepted':False,'delivery_allowed':False,'mechanics_success':False,'parent_model_digest':c['model_digest'],'repair_attempted':False,'operator_invoked':False}
+  with self.assertRaisesRegex(ValueError,'EXPLORATORY_RECEIPT_CONSTRUCTOR'):decide(c,'r','s',legacy)
 if __name__=='__main__':unittest.main()
