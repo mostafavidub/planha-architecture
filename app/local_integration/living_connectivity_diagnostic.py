@@ -45,11 +45,16 @@ def assess(model):
             if not kitchen or not dining:raise ValueError('SIMULTANEOUS_OPERATION_EVIDENCE_MISSING')
             private=sum([rs for k,rs in u['rooms'].items() if k.startswith('bed') or k in ('bath','private_circulation')],[])
             base_obstacles=walls+fixtures+occupied+dining+kitchen+private
-            owner=u['ownership'];box=owner[0]
-            if len(owner)!=1:raise ValueError('UNSUPPORTED_MULTI_OWNER_BOX')
+            owner=u['ownership']
+            if not owner:raise ValueError('OWNERSHIP_REQUIRED')
+            oq=list(map(rect,owner));box=[str(min(q[0] for q in oq)),str(min(q[1] for q in oq)),str(max(q[2] for q in oq)),str(max(q[3] for q in oq))]
+            # Bounding box is only a route search domain. Its entire non-floor
+            # complement is forbidden; every resulting sweep is independently covered.
             studies=[]
             for label,floor in [('DECLARED_RESIDUAL_LIVING',u['rooms']['living']),('CONCEPTUAL_PUBLIC_UNION_PROBE',u['rooms']['living']+u['rooms']['entry_circulation'])]:
-                floor=cells(floor,walls);outside=cells(owner,floor);obstacles=base_obstacles+outside
+                floor=cells(floor,walls)
+                if any(not covered(rect(q),list(map(rect,owner))) for q in floor):raise ValueError('LIVING_FLOOR_OUTSIDE_OWNERSHIP')
+                outside=cells([box],floor);obstacles=base_obstacles+outside
                 paths=[];all_bands=[]
                 anchor=endpoints[0]
                 for target in endpoints[1:]:
