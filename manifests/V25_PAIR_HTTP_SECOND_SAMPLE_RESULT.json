@@ -1,0 +1,61 @@
+{
+  "task": "V25-16/17-B",
+  "commit": "afda05a778b5c333dc8159f1fb0a38b6b17250a4",
+  "run": 44412011025,
+  "job": 135182370054,
+  "completed_utc": "2026-11-18T22:32:12Z",
+  "deadline_utc": "2026-11-19T00:27:35Z",
+  "summary": {
+    "scope": "LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY",
+    "sample": "SECOND_DISTINCT_PREREGISTERED_DIMENSION_SET",
+    "operation_deadline_utc": "2026-11-19T00:27:35Z",
+    "attempts": [
+      {
+        "run_id": "a72f77a6-5759-4e62-940b-8789dd4c7b72",
+        "input": [
+          "15",
+          "20"
+        ],
+        "generated": 0,
+        "states": []
+      },
+      {
+        "run_id": "02cbc2d3-cf9a-44d4-8f96-66370aec52e2",
+        "input": [
+          "16",
+          "20"
+        ],
+        "generated": 0,
+        "states": []
+      },
+      {
+        "run_id": "69ab1f69-ee92-4f7d-bbbf-f8ee48c7d095",
+        "input": [
+          "18",
+          "20"
+        ],
+        "generated": 1,
+        "states": [
+          "REJECTED_PHYSICAL"
+        ]
+      }
+    ],
+    "accepted": false,
+    "delivery_allowed": false,
+    "continuation_http_status": 200,
+    "state": "BOUNDED_SEARCH_NO_FRESH_PASS",
+    "checks": [
+      "real_http_parent_created_not_archived_import",
+      "legacy_repair_refuses_pair",
+      "same_request_parent_and_pending_bound",
+      "fresh_child_decision_bound",
+      "history_only",
+      "export_and_download_403",
+      "no_production_repair_authority"
+    ]
+  },
+  "clarification": "Log label fresh_child_decision_bound means fresh final reviewed candidate in this no-child case; parent was retained, generated_count0. No successful live child claimed.",
+  "successful_live_child": false,
+  "accepted": false,
+  "delivery_allowed": false
+}
