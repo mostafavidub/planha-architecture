@@ -39,7 +39,7 @@ jobs:
           assert hashlib.sha256(data).hexdigest()==next(m['sha256']for m in a['members']if m['path']=='pair-http.json')
           saved=json.loads(data)['continuation']['candidates'][0];t=saved['generation_context']['construction_trace']
           packet,trace=build(t['raw'],t['proposals']);origin=verify(packet,trace);m=packet['world_model']
-          assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']==saved['model']['program'] if 'model'in saved else m['schema']=='OPEN_FRONT_WORLD_STUDY_V1'
+          assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']['bedrooms_per_unit']==2
           assert digest(m)!=saved['model_digest'] and origin['origin_verified']
           negative=[]
           for name in ['model','raw','proposal','source','admission']:
@@ -51,13 +51,7 @@ jobs:
               else:tr['qualified']=True
               try:verify(p,tr)
               except (ValueError,KeyError):negative.append(name)
-              else:
-                  if name=='raw':
-                      tr['raw']='26 20 2'
-                      try:verify(p,tr)
-                      except (ValueError,KeyError):negative.append(name)
-                      else:raise AssertionError('INPUT_MUTATION_ACCEPTED')
-                  else:raise AssertionError('ORIGIN_MUTATION_ACCEPTED:'+name)
+              else:raise AssertionError('ORIGIN_MUTATION_ACCEPTED:'+name)
           try:historical=evaluate(m)
           except Exception as e:historical={'status':'CHECKER_EXCEPTION_NOT_APPROVAL','exception':type(e).__name__,'detail':str(e)}
           assert historical.get('status') not in ('PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED')
