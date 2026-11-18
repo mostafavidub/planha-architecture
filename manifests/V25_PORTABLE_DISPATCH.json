@@ -1,0 +1,19 @@
+{
+  "schema": "V25_PORTABLE_DISPATCH_V1",
+  "start_utc": "2026-11-18T19:41:00Z",
+  "deadline_utc": "2026-11-18T22:41:00Z",
+  "end_utc": "2026-11-18T19:42:49.241Z",
+  "tested_commit": "2b801560ce9a861802595aec6c6383721f43a5e6",
+  "run": 44383000389,
+  "job": 135080000834,
+  "test_methods": 53,
+  "log_verified": true,
+  "result": "PASS_SCOPED",
+  "change": "generation_gateway uses sys.executable, matching the active environment rather than hard-coded project .venv",
+  "negative_test": "Real absent executable explicitly injected in a temporary directory; 503 preserved.",
+  "controlled_dispatch_test": "Actual Python process runs print('{}'); launch uses active interpreter and response is correctly rejected with 500 WORKER_RESPONSE_CONTRACT. Not real parametric worker or geometry.",
+  "remaining_blocker": "Historical guard400 dependency closure incomplete; full generator execution and natural repair remain unverified.",
+  "historical_guard_changed": false,
+  "migration_restarted": false,
+  "mac_or_cloud_project_files_written": false
+}
