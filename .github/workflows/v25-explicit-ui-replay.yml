@@ -4,6 +4,8 @@ on:
     paths:
       - '.github/workflows/v25-explicit-ui-replay.yml'
       - 'app/local_integration/test_explicit_program_ui.cjs'
+      - 'app/local_integration/generation_ui.js'
+      - 'app/local_integration/ui.js'
   workflow_dispatch:
 permissions:
   contents: read
