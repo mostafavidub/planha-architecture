@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/v25-grouped-rejection.yml'
+      - 'app/local_integration/candidate/four_seat_group_candidate.py'
   workflow_dispatch:
 permissions:
   contents: read
