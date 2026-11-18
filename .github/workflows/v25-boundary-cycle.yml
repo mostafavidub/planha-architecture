@@ -1,0 +1,60 @@
+name: V25 real boundary rejection and repair observation
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-boundary-cycle.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install versions read from original execution environment
+        run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Actual bounded generation, not architectural acceptance
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B - <<'PY'
+          import json, time, hashlib
+          from pathlib import Path
+          from generation_gateway import generate
+          pairs=[(w,l) for w in ('19.75','22','25') for l in ('23.25','23.5','23.75')]
+          started=time.time(); summaries=[]
+          for w,l in pairs:
+              body=json.dumps({'W':w,'L':l,'n':2,'requested_count':1},separators=(',',':')).encode()
+              status,result=generate(body)
+              assert result.get('accepted') is False and result.get('delivery_allowed') is False
+              for candidate in result.get('candidates',[]):
+                  receipt=candidate['initial_producer_receipt'];lineage=candidate['producer_lineage']
+                  assert receipt['request_digest']==result['envelope']['canonical_request_digest']
+                  assert lineage['initial_model_digest']==receipt['initial_model_digest']
+                  assert lineage['final_model_digest']==candidate['model_digest']
+                  assert candidate['functional_review']['display_allowed'] is False
+                  assert candidate['accepted'] is False and candidate['qualified'] is False
+              row={'W':w,'L':l,'http_status':status,'outcome':result.get('outcome'),'code':result.get('code'),'run_id':result.get('run_id'),'generated_count':result.get('generated_count',0),'qualified_count':result.get('qualified_count',0),'attempts':[{'family':a.get('family'),'state':a.get('state'),'reason':a.get('reason'),'proposal_status':a.get('proposal',{}).get('status')} for a in result.get('attempts',[])],'reviews':[{'state':c['review_decision']['state'],'physical_status':c['physical_review']['status'],'errors':c['physical_review']['errors'],'pending':c['physical_review']['pending'],'repair':c.get('repair_receipt'),'model_digest':c['model_digest']} for c in result.get('candidates',[])],'body_sha256':hashlib.sha256(body).hexdigest()}
+              summaries.append(row)
+              print('MATRIX_ROW '+json.dumps(row,ensure_ascii=False),flush=True)
+          report={'scope':'Actual generator dispatch and source guard; no architectural acceptance','pairs':summaries,'elapsed_seconds':time.time()-started,'generated_total':sum(x['generated_count'] for x in summaries),'qualified_total':sum(x['qualified_count'] for x in summaries)}
+          Path('v25-boundary-summary.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print('MATRIX_TOTAL '+json.dumps({'generated':report['generated_total'],'qualified':report['qualified_total'],'elapsed':report['elapsed_seconds']}),flush=True)
+          if any(x['http_status']>=500 for x in summaries): raise SystemExit(1)
+          PY
+      - name: Preserve actual request, lifecycle and result evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v25-natural-boundary-cycle-evidence
+          path: |
+            app/local_integration/v25-boundary-summary.json
+            app/local_integration/evidence/requests
+          retention-days: 30
