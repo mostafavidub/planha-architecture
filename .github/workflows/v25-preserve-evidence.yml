@@ -117,6 +117,24 @@ jobs:
           run-id: 44410953889
           name: v25-circulation-comparison
           path: _artifact_input/44410953889
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44411831819
+          name: v25-local-seating-study
+          path: _artifact_input/44411831819
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44412011025
+          name: v25-pair-http
+          path: _artifact_input/44412011025
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44411988933
+          name: v25-explicit-program-api
+          path: _artifact_input/44411988933
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
