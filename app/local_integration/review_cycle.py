@@ -47,6 +47,16 @@ def decide(candidate, request_digest, source_revision, repair_receipt=None):
         if expected!=model_hash or type(repair_receipt.get('repair_attempted'))is not bool or repair_receipt.get('operator_invoked')is not repair_receipt['repair_attempted']:raise ValueError('REPAIR_RECEIPT_BINDING')
         result.update(repair_attempted=repair_receipt['repair_attempted'],operator_invoked=repair_receipt['operator_invoked'],repair_receipt_digest=digest(repair_receipt))
         if repair_receipt['repair_attempted']:result['reason']=repair_receipt['state']
+    exploratory=candidate.get('exploratory_redirection_receipt')
+    if exploratory is not None:
+        if repair_receipt is not None or 'multiproposal_provenance127' not in review:raise ValueError('EXPLORATORY_RECEIPT_CONSTRUCTOR')
+        payload={k:v for k,v in exploratory.items() if k!='receipt_digest'}
+        if exploratory.get('schema')!='V25_SAVED_PAIR_REDIRECTION_RECEIPT_V1' or digest(payload)!=exploratory.get('receipt_digest') or exploratory.get('source_revision')!=source_revision or exploratory.get('request_digest')!=request_digest or exploratory.get('final_model_digest')!=model_hash or exploratory.get('fresh_final_review_digest')!=digest(review):
+            raise ValueError('EXPLORATORY_RECEIPT_BINDING')
+        if any(exploratory.get(k)is not False for k in ('accepted','display_allowed','delivery_allowed','qualified','production_repair_registered')):raise ValueError('EXPLORATORY_AUTHORITY')
+        result['exploratory_redirection_receipt_digest']=digest(exploratory)
+        result['exploratory_operator_invoked']=True
+        result['scope']='explicit two-bedroom exploratory continuation only; not production repair or acceptance'
     functional=candidate.get('functional_review')
     if functional is not None:
         if functional.get('schema')!='MAC_FUNCTIONAL_REVIEW_V1' or functional.get('model_digest')!=model_hash or functional.get('physical_review_digest')!=digest(review) or functional.get('source_revision')!=source_revision or any(functional.get(k)is not False for k in ('display_allowed','accepted','delivery_allowed','qualified')):
