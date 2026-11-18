@@ -1,4 +1,4 @@
-name: V25 explicit programme actual Chromium
+name: V25 explicit programme actual Chromium exact wire
 on:
   push:
     paths:
