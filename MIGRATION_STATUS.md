@@ -25,3 +25,7 @@ Strong credential markers and local /Users/ paths were checked for the selected 
 - No deployment, service restart or DB change was performed.
 - GitHub Actions workflow added for four scoped standard-library contract suites only. No result is claimed until its run is inspected; it does not run production generation or grant architectural acceptance.
 - generation_gateway still expects a local .venv interpreter. Portable runtime setup, binary reference assets and historic freeze closure remain open.
+
+## Backend and fixture follow-up
+13 staging390_form source files and backend/current/latest aliases added. One original 45x45 history fixture (request/result/lifecycle) restored because test_range25 reads it; it is historical-only, not evidence for current 5..25 generation. Result blob SHA1 0c79add3fc0530f238aaa049b92e3d83b0a22e13 matched the local raw bytes exactly. Total now 577 file/symlink entries before adding FOLDER_MAP_FA.md.
+GitHub run https://github.com/mostafavidub/planha-architecture/actions/runs/44341407869 at code commit dd877b160d86be9a985e520f4444d303cc379e06 passed all 35 scoped contract tests. Prior run had 34 pass and one missing fixture error; the actual fixture was restored, no assertion was removed. Full engine generation and full historical guard closure are still NOT verified.
