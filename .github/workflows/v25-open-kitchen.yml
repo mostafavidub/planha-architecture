@@ -18,13 +18,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
       - name: Check permitted source delta and adversarial variants
         run: |
           timeout 450s python -B - <<'PY'
           import sys,json,hashlib,inspect
           from pathlib import Path
           from copy import deepcopy
-          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine')]
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
           from guard400 import guard
           from explicit_pair_redirection import FREEZE
           from open_front_kitchen_study import build
