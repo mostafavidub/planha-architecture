@@ -35,9 +35,16 @@
     "reason": "guard400 frontend import path absent; corrected without guard change"
   },
   "remaining": [
-    "Independent installer with rigid geometry and module-source binding",
     "Independent assembler/constructor/replay trace",
     "Independent whole-checker and named adapters without filtering historical source errors",
     "Whole-plan privacy/public routing and functional alternatives"
-  ]
+  ],
+  "placement": {
+    "run": 44423597513,
+    "commit": "9a5844c494612523def33b8791486f7b8d9563eb",
+    "completed_utc": "2026-11-18T23:47:04Z",
+    "units": 2,
+    "negative_cases": 2,
+    "scope": "Exact source rigid A/B coordinate mapping, not neighbor or whole-plan validation"
+  }
 }
