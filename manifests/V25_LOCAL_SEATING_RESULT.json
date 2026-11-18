@@ -1,0 +1,179 @@
+{
+  "task": "V25-22-LOCAL-GROUP",
+  "commit": "55dd0c946e2ddf175b39b03fbc4fd112846c7828",
+  "run": 44411831819,
+  "job": 135181716751,
+  "completed_utc": "2026-11-18T22:30:35Z",
+  "deadline_utc": "2026-11-19T01:07:31Z",
+  "state": "NO_FULL_LOCAL_SHARED_ACCESS_WITNESS_IN_BOUNDED_SAMPLE",
+  "summary": [
+    {
+      "variant": "ARCHIVED_BASELINE_FRESH_REPLAY",
+      "model": "3eef47c867a767b64e1298ddb101a9de1ce0f6469c423dae5b204b33a841c098",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "units": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 768,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 1,
+          "seat_count": 4
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 768,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 1,
+          "seat_count": 4
+        }
+      ]
+    },
+    {
+      "variant": 1,
+      "model": "2cdbdb9e63de775d1865d9b4dd7dbc1f9822a53b21cea541d961247d248bbc7a",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "units": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 420,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "cooker",
+            "prep",
+            "sink",
+            "fridge",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 1,
+          "seat_count": 4
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 420,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "cooker",
+            "prep",
+            "sink",
+            "fridge",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 1,
+          "seat_count": 4
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "model": "4c892c1cfa05fe5d8b31523d8f614196bb2d000780787db1566cee3474b4541a",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "units": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 576,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "basin",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 2,
+          "seat_count": 4
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 576,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "WC_iranian",
+            "basin",
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 2,
+          "seat_count": 4
+        }
+      ]
+    },
+    {
+      "variant": 3,
+      "model": "1a5e233c793050eb55316e84d080dd674a8056ce19043aec4f65c27853a68df6",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "units": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 318,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 2,
+          "seat_count": 4
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "candidate_count": 318,
+          "attempted": 3,
+          "nonseating_crossings": [
+            "dining_table",
+            "dining_chair_west",
+            "dining_chair_east",
+            "dining_chair_front",
+            "dining_chair_back"
+          ],
+          "successful_routes": 2,
+          "seat_count": 4
+        }
+      ]
+    }
+  ],
+  "global_infeasibility_claim": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "next": "Independent additive group-envelope producer experiment; retain all original constraints and source furniture programme."
+}
