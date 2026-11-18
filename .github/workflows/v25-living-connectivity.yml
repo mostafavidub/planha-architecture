@@ -1,0 +1,65 @@
+name: V25 living seat connectivity diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-living-connectivity.yml'
+      - 'app/local_integration/living_connectivity_diagnostic.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  living:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Fresh programme-specific models and independent living diagnostics
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 700s python -B - <<'PY'
+          import sys,json,copy,hashlib
+          from pathlib import Path
+          from fractions import Fraction as F
+          from parametric_worker import ROOT,ENGINE
+          sys.path[:0]=[str(ENGINE),str(ROOT/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from living_connectivity_diagnostic import assess,area_union
+          from review_cycle import digest
+          from generation_gateway import generate
+          assert guard(FREEZE)==12991
+          assert area_union([['0','0','2','2'],['1','0','3','2']])==F(6)
+          source=hashlib.sha256(Path('living_connectivity_diagnostic.py').read_bytes()).hexdigest()
+          evidence={'scope':'DIAGNOSTIC_ONLY_NOT_CONTINUOUS_USEFUL_LIVING_PASS','rows':[],'accepted':False,'delivery_allowed':False,'source_sha256':source}
+          for request in [{'W':'25','L':'25','n':2,'requested_count':1},{'W':'15','L':'25','n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}}]:
+              status,result=generate(json.dumps(request).encode());assert status==200,(status,result)
+              row={'request':request,'run_id':result['run_id'],'generated_count':result['generated_count'],'studies':[]}
+              for c in result['candidates']:
+                  m=c['model'];before=digest(m);study=assess(m);assert digest(m)==before
+                  assert all(study[k]is False for k in ['accepted','display_allowed','delivery_allowed','qualified'])
+                  assert study['state']=='UNKNOWN_CONTINUOUS_USEFUL_LIVING'
+                  assert 'missing' not in study,study.get('missing')
+                  bad=copy.deepcopy(m);bad['units'][0]['public_program']['capacity']['living_seats']=[]
+                  negative=assess(bad);assert 'missing' in negative and negative['state']=='UNKNOWN_CONTINUOUS_USEFUL_LIVING'
+                  row['studies'].append({'model_digest':before,'physical_review':c['physical_review'],'study':study,'empty_seat_inventory_rejected':True})
+              evidence['rows'].append(row);Path('living-connectivity.json').write_text(json.dumps(evidence,ensure_ascii=False))
+          assert guard(FREEZE)==12991
+          assert hashlib.sha256(Path('living_connectivity_diagnostic.py').read_bytes()).hexdigest()==source
+          print('LIVING_DIAGNOSTIC '+json.dumps([{'request':r['request'],'generated':r['generated_count'],'models':[{'model':m['model_digest'],'units':[{'unit':u['unit'],'studies':[{'label':s['label'],'state':s['state'],'floor_area_m2':s['floor_area_m2'],'paths':[{'state':p['state'],'reason':p['reason'],'length':p.get('length_m'),'turns':p.get('turns')} for p in s['paths']]} for s in u['studies']]} for u in m['study']['units']]} for m in r['studies']]} for r in evidence['rows']]),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-living-connectivity
+          path: |
+            app/local_integration/living-connectivity.json
+            app/local_integration/evidence/requests
+          retention-days: 30
