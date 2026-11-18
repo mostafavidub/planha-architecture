@@ -10,6 +10,16 @@ from scipy.optimize import milp,Bounds,LinearConstraint
 from scipy.sparse import lil_matrix
 from contract114 import GRID,BODY
 
+def bath_apron_dining_separated(rectangles):
+ from fractions import Fraction as F
+ from bathroom_module117 import build
+ bath=list(map(lambda v:F(str(v)),rectangles['bath']));dining=list(map(lambda v:F(str(v)),rectangles['dining']))
+ module=build(str(bath[2]-bath[0]),str(bath[3]-bath[1]))
+ gross=module['reserved_approach_gross']
+ if gross!=[['7/10','-19/20','23/10','0']]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
+ q=list(map(F,gross[0]));a=[q[0]+bath[0],q[1]+bath[1],q[2]+bath[0],q[3]+bath[1]]
+ return a[2]<=dining[0] or dining[2]<=a[0] or a[3]<=dining[1] or dining[3]<=a[1]
+
 def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED"):
  box=list(map(lambda x:float(__import__('fractions').Fraction(str(x))),core['units']['A']));x0,y0,x1,y1=box;ar=(x1-x0)*(y1-y0);scale=float(GRID)
  # No exterior-facade or daylight condition constrains bedroom placement.
@@ -386,6 +396,15 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   if oname=='bath':continue
   zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
   for expr,z in zip([plus(apron[2],neg(ob[0])),plus(ob[2],neg(apron[0])),plus(apron[3],neg(ob[1])),plus(ob[3],neg(apron[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
+ group="independent_bath_apron_typed_public_floor"
+ # Full source approach must not enter dining, a different typed floor role.
+ # Preserve every previous obstacle constraint; zero extra architectural margin.
+ from bathroom_module117 import build as source_bath
+ if source_bath()['reserved_approach_gross']!=[['7/10','-19/20','23/10','0']]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
+ dk=4*next(i for i,z in enumerate(specs) if z[0]=='dining')
+ dining_floor=[aff(dk),aff(dk+1),plus(aff(dk),aff(dk+2)),plus(aff(dk+1),aff(dk+3))]
+ zz=[var(0,1) for _ in range(4)];row({z:1 for z in zz},hi=3)
+ for expr,z in zip([plus(apron[2],neg(dining_floor[0])),plus(dining_floor[2],neg(apron[0])),plus(apron[3],neg(dining_floor[1])),plus(dining_floor[3],neg(apron[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
  if any(a>b for a,b in zip(lower,upper)):return {'status':'NO_PROPOSAL_IN_THIS_PROGRAM','reason':'ROOM_OR_CORE_BOUND_CONFLICT','bedrooms':bedrooms,'variant':variant}
  diagnostic=None
  if fixed_witness is not None:
@@ -435,6 +454,8 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   residual=A@vals
   if np.any(residual<np.array(lbs)-1e-7)or np.any(residual>np.array(ubs)+1e-7):out['status']='ROUNDED_PROPOSAL_REJECTED';return out
   out['rectangles']={s[0]:[round(vals[4*i]*scale,6),round(vals[4*i+1]*scale,6),round((vals[4*i]+vals[4*i+2])*scale,6),round((vals[4*i+1]+vals[4*i+3])*scale,6)]for i,s in enumerate(specs)}
+  if not bath_apron_dining_separated(out['rectangles']):
+   out['status']='EXACT_BATH_APRON_TYPED_FLOOR_REJECTED';return out
   out['independent_shared_group_study']={'schema':'V25_FOUR_SEAT_ENVELOPE_PROPOSAL_ONLY','envelope':[round(vals[j]*scale,6) for j in (gl,gb,gr,gt)],'body_witness':[round(vals[wx]*scale,6),round(vals[wy]*scale,6),round(vals[wx]*scale+float(BODY),6),round(vals[wy]*scale+float(BODY),6)],'seat_uses':[specs[i][0] for i in seat_indices],'source_body_m':str(BODY),'historical_shared_gate_marker':False,'accepted':False}
   from fractions import Fraction as F
   group_box=list(map(lambda v:F(str(v)),out['independent_shared_group_study']['envelope']))
