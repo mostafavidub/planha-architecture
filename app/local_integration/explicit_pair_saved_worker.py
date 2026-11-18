@@ -26,7 +26,7 @@ def load_source(run_id,candidate_id):
 def run(source_run,candidate_id,output_id):
     if str(uuid.UUID(output_id))!=output_id:raise ValueError('OUTPUT_ID')
     body,old,parent=load_source(source_run,candidate_id)
-    sources=snapshot(ROOT,['app/local_integration/explicit_pair_saved_worker.py','app/local_integration/functional_review.py','app/local_integration/guest_four_route_diagnostic.py'])
+    sources=snapshot(ROOT,['app/local_integration/explicit_pair_saved_worker.py','app/local_integration/functional_review.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py'])
     from explicit_pair_redirection import redirect
     result=redirect(body,parent['model'],parent['generation_context'])
     (BASE/output_id/'exploratory_evidence.json').write_text(json.dumps(result,ensure_ascii=False))
