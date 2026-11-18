@@ -1,0 +1,62 @@
+{
+  "run": 44417514104,
+  "commit": "7dd0036a25ba2e95dbeb3b2d65d817c5fde12047",
+  "completed_utc": "2026-11-18T23:06:25Z",
+  "operation_start": "2026-11-18T21:27:35Z",
+  "operation_deadline": "2026-11-19T00:27:35Z",
+  "result": {
+    "scope": "LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY",
+    "sample": "SOURCE_MOTION_CORRECTED_OPERATOR_FRESH_PARENT_SAMPLE",
+    "operation_deadline_utc": "2026-11-19T00:27:35Z",
+    "attempts": [
+      {
+        "run_id": "3ae91ee0-edc0-4077-a81c-b85c2f4d842a",
+        "input": [
+          "18",
+          "20"
+        ],
+        "generated": 1,
+        "states": [
+          "REJECTED_PHYSICAL"
+        ]
+      }
+    ],
+    "continuations": [
+      {
+        "parent_run": "3ae91ee0-edc0-4077-a81c-b85c2f4d842a",
+        "input": [
+          "18",
+          "20"
+        ],
+        "http_status": 200,
+        "state": "FRESH_PHYSICAL_PASS_FUNCTIONAL_UNKNOWN",
+        "generated_count": 1,
+        "reused_parent": false
+      }
+    ],
+    "accepted": false,
+    "delivery_allowed": false,
+    "continuation_http_status": 200,
+    "state": "FRESH_PHYSICAL_PASS_FUNCTIONAL_UNKNOWN",
+    "checks": [
+      "real_http_parent_created_not_archived_import",
+      "legacy_repair_refuses_pair",
+      "same_request_parent_and_pending_bound",
+      "fresh_final_decision_bound",
+      "history_only",
+      "export_and_download_403",
+      "no_production_repair_authority"
+    ]
+  },
+  "cycle_verified": "LIVE_EXPLICIT_TWO_BEDROOM_EXPLORATORY_ONLY",
+  "whole_product_cycle_verified": false,
+  "production_repair129_changed": false,
+  "qualified": 0,
+  "stage303_started": false,
+  "remaining": [
+    "Four mandatory functional UNKNOWN",
+    "Full-domain production coverage",
+    "Ordinary product UI programme/repair integration",
+    "Architectural acceptance and diversity"
+  ]
+}
