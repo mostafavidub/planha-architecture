@@ -24,7 +24,7 @@ def prepare(body):
         raise InputError('UNSUPPORTED_UNIT_COUNT_CURRENT_PARAMETRIC_FAMILY', 'n',409)
     if not 1<=request['requested_count']<=12:
         raise InputError('UNSUPPORTED_OPTION_COUNT_CURRENT_ENGINE','requested_count',409)
-    if request.get('program_present') and request.get('program')!={'bedrooms_per_unit':3}:
+    if request.get('program_present') and request.get('program') not in ({'bedrooms_per_unit':3},{'bedrooms_per_unit':2}):
         raise InputError('UNSUPPORTED_CUSTOM_PROGRAM_NO_SILENT_FALLBACK','program',409)
     def decimal(axis):
         v=request['dimensions_m'][axis]
@@ -39,6 +39,9 @@ def prepare(body):
 
 def run(body):
     envelope,raw=prepare(body)
+    if envelope['canonical_request'].get('program')=={'bedrooms_per_unit':2}:
+        from explicit_two_bedroom_worker import run as run_explicit_two
+        return run_explicit_two(body)
     sys.path.insert(0,str(ROOT/'frontend'))
     from guard400 import guard
     freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
