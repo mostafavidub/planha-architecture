@@ -1,0 +1,61 @@
+{
+  "schema": "V25_RULE_TRACE_RESULT_V1",
+  "start_utc": "2026-11-18T23:32:31Z",
+  "deadline_utc": "2026-11-19T02:32:31Z",
+  "completed_utc": "2026-11-18T23:34:11Z",
+  "run": 44421757612,
+  "commit": "e3218f429fca24133569303418fa4a9345c00b77",
+  "counts": {
+    "registry": 89,
+    "requirements": 38,
+    "registry_status": {
+      "REQUIRED_SUBCONDITIONS_ONLY_CHECKED": 48,
+      "REVIEW_OR_OUTSIDE_SCOPE_NOT_APPROVED": 31,
+      "EXCLUDED_BY_OWNER_SCOPE": 10
+    },
+    "requirement_status": {
+      "PASS_LIMITED": 29,
+      "EXCLUDED_BY_OWNER_SCOPE": 1,
+      "NOT_EVALUATED": 1,
+      "NOT_APPLICABLE_TO_STAGE_OR_MODEL": 7
+    }
+  },
+  "product_stage_unexecuted": [
+    "export_parity",
+    "immutable_history",
+    "owner_access",
+    "llm_budget",
+    "per_option_rule_report",
+    "claim_boundary_display"
+  ],
+  "functional_overlay": [
+    {
+      "id": "INTERNAL_INSTANCE_CAPACITY",
+      "state": "PASS_SCOPED",
+      "basis": "actual source-profile instances and limited planar access, not area or room labels"
+    },
+    {
+      "id": "CURRENT_PROGRAM_SUITABILITY",
+      "state": "UNKNOWN",
+      "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+    },
+    {
+      "id": "KITCHEN_GUEST_PATH_SEPARATION",
+      "state": "UNKNOWN",
+      "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+    },
+    {
+      "id": "CONTINUOUS_USEFUL_LIVING",
+      "state": "UNKNOWN",
+      "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+    },
+    {
+      "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+      "state": "UNKNOWN",
+      "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+    }
+  ],
+  "all_current_rules_mapped": false,
+  "scope": "Frozen registry tracing only, not current PRD closure",
+  "durability": "Actions artifact v25-rule-trace expires after 30 days; repository archive addition awaiting explicit permission"
+}
