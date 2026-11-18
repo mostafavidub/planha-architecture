@@ -41,4 +41,20 @@ class PairReviewTests(unittest.TestCase):
  def test_mixed_receipts_rejected(self):
   c=self.receipt_candidate();legacy={'schema':'MAC_PARAMETRIC_REPAIR_RECEIPT_V1','source_revision':'s','accepted':False,'delivery_allowed':False,'mechanics_success':False,'parent_model_digest':c['model_digest'],'repair_attempted':False,'operator_invoked':False}
   with self.assertRaisesRegex(ValueError,'EXPLORATORY_RECEIPT_CONSTRUCTOR'):decide(c,'r','s',legacy)
+ def test_history_counts_new_child_not_retained_parent(self):
+  import tempfile,json,uuid
+  from pathlib import Path
+  from dimension_contract import parse
+  from run_history import summary
+  body=json.dumps({'W':'15','L':'25','n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}}).encode();env=parse(body)
+  for created in (False,True):
+   with tempfile.TemporaryDirectory() as td:
+    run=str(uuid.uuid4());folder=Path(td)/run;folder.mkdir();c=self.receipt_candidate();r=c['exploratory_redirection_receipt'];r.pop('receipt_digest')
+    r.update(request_digest=env['canonical_request_digest'],child_created=created,parent_model_digest='0'*64 if created else c['model_digest'])
+    r['receipt_digest']=digest(r);c['review_decision']=decide(c,env['canonical_request_digest'],'s')
+    result={'scope':'EXPLORATORY_ONLY_NOT_PRODUCTION_REPAIR','outcome':'EXPERIMENT_COMPLETED','run_id':run,'accepted':False,'delivery_allowed':False,'envelope':env,'engine_source_revision':'s','candidates':[c],'generated_count':int(created),'reviewed_candidate_count':1,'reused_parent':not created,'qualified_count':0}
+    (folder/'request.json').write_bytes(body);(folder/'result.json').write_text(json.dumps(result));(folder/'lifecycle.json').write_text(json.dumps({'wait_completed':True}))
+    row=summary(run,Path(td));self.assertEqual(row['generated_count'],int(created));self.assertEqual(row['reviewed_candidate_count'],1)
+    result['generated_count']=int(not created);(folder/'result.json').write_text(json.dumps(result))
+    with self.assertRaisesRegex(ValueError,'COUNT_MISMATCH'):summary(run,Path(td))
 if __name__=='__main__':unittest.main()
