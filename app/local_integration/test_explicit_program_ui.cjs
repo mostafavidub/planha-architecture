@@ -1,17 +1,18 @@
 // Synthetic replay checks using real HTTP evidence; not new geometry or live browser.
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
 const {webcrypto,createHash}=require('node:crypto');
-const parent=JSON.parse(fs.readFileSync(process.argv[2])),child=JSON.parse(fs.readFileSync(process.argv[3]));
+const parentText=fs.readFileSync(process.argv[2],'utf8'),childText=fs.readFileSync(process.argv[3],'utf8');
+const parent=JSON.parse(parentText),child=JSON.parse(childText);
 const hash=x=>createHash('sha256').update(x).digest('hex');
 function setup(){
  const events={},windowEvents={};
- const raw=parent.envelope.received_input,fields={W:String(raw.W),L:String(raw.L),n:String(raw.n),requested_count:String(raw.requested_count),bedrooms_per_unit:'2'};
+ const raw=parent.envelope.received_input,fields={W:raw.W,L:raw.L,n:raw.n,requested_count:raw.requested_count,bedrooms_per_unit:'2'};
  function el(){return {disabled:false,hidden:true,textContent:'',children:[],addEventListener(n,f){(events[n]??=[]).push(f)},replaceChildren(...v){this.children=v},append(...v){this.children.push(...v)}}}
  const els=Object.fromEntries(['form','submit','status','result','generate','plans'].map(k=>['#'+k,el()]));
  els['#form'].elements={namedItem:k=>({get value(){return fields[k]},set value(v){fields[k]=v}})};
  const pending=[],ctx={document:{querySelector:k=>els[k]},window:{addEventListener(n,f){(windowEvents[n]??=[]).push(f)},dispatchEvent(){}},CustomEvent:function(n,d){this.type=n;this.detail=d.detail},FormData:function(){return Object.entries(fields)},AbortController,TextEncoder,crypto:webcrypto,fetch:(url,opts)=>new Promise(resolve=>pending.push({url,opts,resolve}))};
  vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'ui.js'),'utf8'),ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'generation_ui.js'),'utf8'),ctx);
- return {els,fields,pending,click:()=>events.click[0](),input:()=>events.input.forEach(f=>f()),repair(mode='explicit-pair'){const source={run_id:parent.run_id,candidate_id:parent.candidates[0].candidate_id,model_digest:parent.candidates[0].model_digest,pending:parent.candidates[0].physical_review.pending,request:raw,mode};for(const f of windowEvents['planha-repair-request'])f({detail:source})},respond(kind,mutate=x=>x){const r=JSON.parse(JSON.stringify(kind==='parent'?parent:child));if(kind==='parent'){r.envelope.received_input=JSON.parse(pending[0].opts.body);r.envelope.transport_body_sha256=hash(pending[0].opts.body);}pending[0].resolve({status:200,json:async()=>mutate(r)});}};
+ return {els,fields,pending,click:()=>events.click[0](),input:()=>events.input.forEach(f=>f()),repair(mode='explicit-pair'){const source={run_id:parent.run_id,candidate_id:parent.candidates[0].candidate_id,model_digest:parent.candidates[0].model_digest,pending:parent.candidates[0].physical_review.pending,request:raw,mode};for(const f of windowEvents['planha-repair-request'])f({detail:source})},respond(kind,mutate=x=>x){const r=JSON.parse(JSON.stringify(kind==='parent'?parent:child));if(kind==='parent'){r.envelope.received_input=JSON.parse(pending[0].opts.body);r.envelope.transport_body_sha256=hash(pending[0].opts.body);}const changed=mutate(r),wire=ctx.readExactWire(kind==='parent'?parentText:childText);pending[0].resolve({status:200,text:async()=>ctx.exactWireCanonical(changed,wire.numbers),json:async()=>changed});}};
 }
 const settle=()=>new Promise(r=>setTimeout(r,200));
 (async()=>{
