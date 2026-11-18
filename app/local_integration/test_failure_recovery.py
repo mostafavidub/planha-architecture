@@ -7,7 +7,7 @@ import repair_saved_run as repair
 BODY=b'{"W":"25","L":"25","n":2,"requested_count":1}'
 class FailureRecovery(unittest.TestCase):
  def test_real_missing_generation_executable(self):
-  with tempfile.TemporaryDirectory()as t,patch.object(generation,'ROOT',Path(t)):
+  with tempfile.TemporaryDirectory()as t,patch.object(generation,'ROOT',Path(t)),patch.object(generation.sys,'executable',str(Path(t)/'nonexistent-python')):
    status,r=generation.generate(BODY);self.assertEqual(status,503);p=Path(t)/'app/local_integration/evidence/requests'/r['run_id'];life=json.loads((p/'lifecycle.json').read_text());self.assertFalse(life['worker_started']);self.assertIsNone(life['pid']);self.assertTrue(life['wait_completed']);self.assertFalse(r['delivery_allowed'])
  def test_real_missing_repair_executable(self):
   with tempfile.TemporaryDirectory()as t,patch.object(repair,'BASE',Path(t)),patch.object(repair.sys,'executable',str(Path(t)/'nonexistent-python')):
