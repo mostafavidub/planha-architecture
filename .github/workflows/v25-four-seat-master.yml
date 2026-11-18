@@ -1,0 +1,68 @@
+name: V25 independent four-seat group master
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-four-seat-master.yml'
+      - 'app/local_integration/candidate/four_seat_group_candidate.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  grouped-master:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Independent producer plus unchanged reconstruction and physical checks
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1300s python -B - <<'PY'
+          import sys,json,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE,inventory
+          from producer_provenance import snapshot,require_unchanged
+          from engine114 import revision
+          from review_cycle import digest
+          from parametric_worker import prepare
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from four_seat_group_candidate import propose
+          from functional_review import assess
+          from local_seating_group_diagnostic import assess as local_group
+          paths=['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py']
+          sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
+          assert Path(inspect.getsourcefile(propose)).resolve()==(root/paths[0]).resolve()
+          cases=[('15','25',0),('15','25',1),('15','25',2),('15','25',3),('20','20',0),('25','25',0)]
+          evidence={'scope':'INDEPENDENT_GROUP_MASTER_EXPERIMENT_NOT_ACTIVE_PRODUCER','source_files':sources,'historical_source_revision':source,'preregistered_cases':cases,'rows':[],'accepted':False,'delivery_allowed':False}
+          protected=None
+          for W,L,variant in cases:
+              body=json.dumps({'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}}).encode();env,raw=prepare(body);core,_=frame(raw,'FRONT_REAR')
+              proposal=propose(core,2,time_limit=12,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+              row={'raw':raw,'variant':variant,'proposal':proposal,'not_global_infeasibility':True}
+              if proposal.get('status')=='PROPOSAL_ONLY':
+                  packet=build(raw,'FRONT_REAR',proposal,proposal);ctx=context(raw,packet,{'A':proposal,'B':proposal});review=evaluate(packet,ctx);model=packet['world_model'];mh=digest(model)
+                  assert model['inputs']==[W,L,2]
+                  if protected is None:protected=inventory(model)
+                  else:assert inventory(model)==protected
+                  assert all(p['bedrooms']==2 and p['sleep_roles']==['double','twin'] for p in ctx['construction_trace']['proposals'].values())
+                  functional=assess(model,review,source);group=local_group(model);assert digest(model)==mh
+                  row.update(packet=packet,context=ctx,review=review,functional_review=functional,local_group_study=group,model_digest=mh,local_producer_receipt={'source_files':sources,'request_digest':env['canonical_request_digest'],'proposal_digest':digest({'A':proposal,'B':proposal}),'model_digest':mh,'context_digest':digest(ctx),'fresh_review_digest':digest(review),'historical_shared_marker_claimed':False})
+              evidence['rows'].append(row);Path('four-seat-master.json').write_text(json.dumps(evidence,ensure_ascii=False))
+          require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
+          print('FOUR_SEAT_MASTER '+json.dumps([{'raw':r['raw'],'variant':r['variant'],'proposal_status':r['proposal']['status'],'physical_status':r.get('review',{}).get('status'),'errors':r.get('review',{}).get('errors'),'pending':r.get('review',{}).get('pending'),'model':r.get('model_digest'),'local_group':[{'unit':u['unit'],'state':u['state'],'nonseating_crossings':u['nonseating_fixture_crossings']} for u in r.get('local_group_study',{}).get('units',[])]} for r in evidence['rows']]),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-four-seat-master
+          path: four-seat-master.json
+          retention-days: 30
