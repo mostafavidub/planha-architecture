@@ -1,0 +1,26 @@
+{
+  "commit": "c68cb65201c4fff25fd946696ae40256f8aa21b0",
+  "run": 44400938194,
+  "job": 135143438538,
+  "started_utc": "2026-11-18T21:22:00Z",
+  "finished_utc": "2026-11-18T21:24:55Z",
+  "deadline_utc": "2026-11-19T00:22:00Z",
+  "artifact_id": 14474020084,
+  "artifact_sha256": "16bd4c24dcbab79ad66f7b9e8266992dee569ecfba0930c36ce85c6837c97a51",
+  "tool_reference": "https://playwright.dev/python/docs/intro",
+  "report": {
+    "scope": "Actual Chromium UI + real loopback server/worker; not architectural qualification",
+    "checks": [
+      "out_of_range_rejected_in_real_UI",
+      "actual_generated_model_identity_verified_by_browser_and_preview_blocked",
+      "history_does_not_restore_live_model_and_export_denied",
+      "input_change_invalidates_current_result"
+    ],
+    "run_id": "be08af9b-dccb-405e-bf06-c938f900bed3",
+    "model_digest": "d71204b74f8a0283012a97c05fb9f0cfa2f71a1f77b4e448634cd6af721c6759",
+    "browser_version": "141.0.7390.37",
+    "passed": true,
+    "browser_errors": [],
+    "final_status_text": "ورودی تغییر کرد؛ نتیجه قبلی کنار گذاشته شد."
+  }
+}
