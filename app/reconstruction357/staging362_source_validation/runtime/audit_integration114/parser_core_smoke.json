@@ -1,0 +1,57 @@
+{
+  "scope": "Parser and core proposal constructor only; no full model or independent gate, no five preregistered cases executed",
+  "cases": [
+    {
+      "raw": {
+        "W": "۱۰",
+        "L": "۱۸",
+        "n": "۲",
+        "requested_count": 6
+      },
+      "width_exact": "10",
+      "length_exact": "18",
+      "core_proposal_exists": true,
+      "full_plan_or_gate_test": false
+    },
+    {
+      "raw": {
+        "W": "18",
+        "L": "24",
+        "n": "2",
+        "requested_count": 6
+      },
+      "width_exact": "18",
+      "length_exact": "24",
+      "core_proposal_exists": true,
+      "full_plan_or_gate_test": false
+    },
+    {
+      "raw": {
+        "W": "15.123456",
+        "L": "20.10001",
+        "n": "2",
+        "requested_count": 6
+      },
+      "width_exact": "236304/15625",
+      "length_exact": "2010001/100000",
+      "core_proposal_exists": true,
+      "full_plan_or_gate_test": false
+    },
+    {
+      "raw": {
+        "W": "4.99",
+        "L": "18",
+        "n": "2"
+      },
+      "rejected": "OUTSIDE_REQUESTED_INPUT_DOMAIN"
+    },
+    {
+      "raw": {
+        "W": "45.01",
+        "L": "18",
+        "n": "2"
+      },
+      "rejected": "OUTSIDE_REQUESTED_INPUT_DOMAIN"
+    }
+  ]
+}

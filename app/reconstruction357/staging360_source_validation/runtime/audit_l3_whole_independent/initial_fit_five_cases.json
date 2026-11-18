@@ -1,0 +1,224 @@
+{
+  "scope": "Only constructor.frame + private_l3_source131.build, no solver, assembler, renderer or gate. Fits means fixed L3 template initial envelope only; public service fit, operations, privacy, whole admissibility and diversity NOT TESTED.",
+  "rows": [
+    {
+      "case": 1,
+      "W": "39",
+      "L": "7.07",
+      "n": 2,
+      "requested_count": 6,
+      "family": "LEFT_RIGHT",
+      "fits": false,
+      "unit_A": [
+        "0.25",
+        "0.25",
+        "6.82",
+        "17.075"
+      ],
+      "clear_width": "657/100",
+      "clear_depth": "673/40",
+      "template_margin_left": "-513/200",
+      "template_margin_right": "-673/200",
+      "depth_margin_over_10_15": "267/40",
+      "failed_conditions": [
+        "left-bound",
+        "right-bound"
+      ]
+    },
+    {
+      "case": 1,
+      "W": "39",
+      "L": "7.07",
+      "n": 2,
+      "requested_count": 6,
+      "family": "FRONT_REAR",
+      "fits": false,
+      "unit_A": [
+        ".25",
+        ".25",
+        "38.75",
+        "2.01"
+      ],
+      "clear_width": "77/2",
+      "clear_depth": "44/25",
+      "template_margin_left": "553/40",
+      "template_margin_right": "487/40",
+      "depth_margin_over_10_15": "-839/100",
+      "failed_conditions": [
+        "depth"
+      ]
+    },
+    {
+      "case": 2,
+      "W": "35",
+      "L": "30.72",
+      "n": 2,
+      "requested_count": 6,
+      "family": "LEFT_RIGHT",
+      "fits": true,
+      "unit_A": [
+        "0.25",
+        "0.25",
+        "30.47",
+        "15.075"
+      ],
+      "clear_width": "1511/50",
+      "clear_depth": "593/40",
+      "template_margin_left": "463/50",
+      "template_margin_right": "423/50",
+      "depth_margin_over_10_15": "187/40",
+      "failed_conditions": []
+    },
+    {
+      "case": 2,
+      "W": "35",
+      "L": "30.72",
+      "n": 2,
+      "requested_count": 6,
+      "family": "FRONT_REAR",
+      "fits": true,
+      "unit_A": [
+        ".25",
+        ".25",
+        "34.75",
+        "13.835"
+      ],
+      "clear_width": "69/2",
+      "clear_depth": "2717/200",
+      "template_margin_left": "473/40",
+      "template_margin_right": "407/40",
+      "depth_margin_over_10_15": "687/200",
+      "failed_conditions": []
+    },
+    {
+      "case": 3,
+      "W": "44",
+      "L": "32.20",
+      "n": 2,
+      "requested_count": 6,
+      "family": "LEFT_RIGHT",
+      "fits": true,
+      "unit_A": [
+        "0.25",
+        "0.25",
+        "31.95",
+        "19.575"
+      ],
+      "clear_width": "317/10",
+      "clear_depth": "773/40",
+      "template_margin_left": "10",
+      "template_margin_right": "46/5",
+      "depth_margin_over_10_15": "367/40",
+      "failed_conditions": []
+    },
+    {
+      "case": 3,
+      "W": "44",
+      "L": "32.20",
+      "n": 2,
+      "requested_count": 6,
+      "family": "FRONT_REAR",
+      "fits": true,
+      "unit_A": [
+        ".25",
+        ".25",
+        "43.75",
+        "14.575"
+      ],
+      "clear_width": "87/2",
+      "clear_depth": "573/40",
+      "template_margin_left": "653/40",
+      "template_margin_right": "587/40",
+      "depth_margin_over_10_15": "167/40",
+      "failed_conditions": []
+    },
+    {
+      "case": 4,
+      "W": "30.95",
+      "L": "21.37",
+      "n": 2,
+      "requested_count": 6,
+      "family": "LEFT_RIGHT",
+      "fits": true,
+      "unit_A": [
+        "0.25",
+        "0.25",
+        "21.12",
+        "13.05"
+      ],
+      "clear_width": "2087/100",
+      "clear_depth": "64/5",
+      "template_margin_left": "917/200",
+      "template_margin_right": "757/200",
+      "depth_margin_over_10_15": "53/20",
+      "failed_conditions": []
+    },
+    {
+      "case": 4,
+      "W": "30.95",
+      "L": "21.37",
+      "n": 2,
+      "requested_count": 6,
+      "family": "FRONT_REAR",
+      "fits": false,
+      "unit_A": [
+        ".25",
+        ".25",
+        "30.7",
+        "9.16"
+      ],
+      "clear_width": "609/20",
+      "clear_depth": "891/100",
+      "template_margin_left": "49/5",
+      "template_margin_right": "163/20",
+      "depth_margin_over_10_15": "-31/25",
+      "failed_conditions": [
+        "depth"
+      ]
+    },
+    {
+      "case": 5,
+      "W": "37.45",
+      "L": "19.97",
+      "n": 2,
+      "requested_count": 6,
+      "family": "LEFT_RIGHT",
+      "fits": true,
+      "unit_A": [
+        "0.25",
+        "0.25",
+        "19.72",
+        "16.3"
+      ],
+      "clear_width": "1947/100",
+      "clear_depth": "321/20",
+      "template_margin_left": "777/200",
+      "template_margin_right": "617/200",
+      "depth_margin_over_10_15": "59/10",
+      "failed_conditions": []
+    },
+    {
+      "case": 5,
+      "W": "37.45",
+      "L": "19.97",
+      "n": 2,
+      "requested_count": 6,
+      "family": "FRONT_REAR",
+      "fits": false,
+      "unit_A": [
+        ".25",
+        ".25",
+        "37.2",
+        "8.46"
+      ],
+      "clear_width": "739/20",
+      "clear_depth": "821/100",
+      "template_margin_left": "261/20",
+      "template_margin_right": "57/5",
+      "depth_margin_over_10_15": "-97/50",
+      "failed_conditions": [
+        "depth"
+      ]
+    }
+  ]
+}

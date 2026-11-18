@@ -1,0 +1,333 @@
+{
+  "source": "evidence/network115_18x24_motion_collision.json",
+  "baseline_only": true,
+  "result": {
+    "errors": [
+      {
+        "code": "PRIVATE_TARGET_VISIBLE_FROM_OPEN_APERTURE",
+        "room": "A.bed2",
+        "target": "bed",
+        "opening": "A.bed2.right",
+        "witness": {
+          "source": [
+            "5053/400",
+            "1/2"
+          ],
+          "target": [
+            "2199/200",
+            "31/20"
+          ],
+          "state": "fully_open",
+          "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+        }
+      },
+      {
+        "code": "PRIVATE_TARGET_VISIBLE_FROM_OPEN_APERTURE",
+        "room": "A.bed3",
+        "target": "bed",
+        "opening": "A.bed3.right",
+        "witness": {
+          "source": [
+            "2091/400",
+            "1/2"
+          ],
+          "target": [
+            "359/100",
+            "31/20"
+          ],
+          "state": "fully_open",
+          "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+        }
+      },
+      {
+        "code": "PRIVATE_TARGET_VISIBLE_FROM_OPEN_APERTURE",
+        "room": "B.bed2",
+        "target": "bed",
+        "opening": "B.bed2.right",
+        "witness": {
+          "source": [
+            "5053/400",
+            "23"
+          ],
+          "target": [
+            "2199/200",
+            "433/20"
+          ],
+          "state": "fully_open",
+          "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+        }
+      },
+      {
+        "code": "PRIVATE_TARGET_VISIBLE_FROM_OPEN_APERTURE",
+        "room": "B.bed3",
+        "target": "bed",
+        "opening": "B.bed3.right",
+        "witness": {
+          "source": [
+            "2091/400",
+            "23"
+          ],
+          "target": [
+            "359/100",
+            "433/20"
+          ],
+          "state": "fully_open",
+          "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+        }
+      }
+    ],
+    "pending": [
+      "PRIVACY_ACTUAL_OPEN_DOOR_STATE_MISSING:{\"opening\": \"A.bath.front\"}",
+      "PRIVACY_ACTUAL_OPEN_DOOR_STATE_MISSING:{\"opening\": \"B.bath.front\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bath.front\", \"room\": \"A.bath\", \"target\": \"WC_use\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bath.front\", \"room\": \"A.bath\", \"target\": \"shower_floor\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bath.front\", \"room\": \"A.bath\", \"target\": \"shower_use\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bed1.left\", \"room\": \"A.bed1\", \"target\": \"bed\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bed1.left\", \"room\": \"A.bed1\", \"target\": \"changing\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bed2.right\", \"room\": \"A.bed2\", \"target\": \"changing\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"A.bed3.right\", \"room\": \"A.bed3\", \"target\": \"changing\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bath.front\", \"room\": \"B.bath\", \"target\": \"WC_use\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bath.front\", \"room\": \"B.bath\", \"target\": \"shower_floor\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bath.front\", \"room\": \"B.bath\", \"target\": \"shower_use\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bed1.left\", \"room\": \"B.bed1\", \"target\": \"bed\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bed1.left\", \"room\": \"B.bed1\", \"target\": \"changing\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bed2.right\", \"room\": \"B.bed2\", \"target\": \"changing\"}",
+      "PRIVACY_ALL_RAYS_NOT_PROVEN:{\"opening\": \"B.bed3.right\", \"room\": \"B.bed3\", \"target\": \"changing\"}"
+    ],
+    "evidence": {
+      "model_hash": "68dd34cb2740ff14c829fedb521f585922e1b6e72d4fb0eabd23ceb77a8cc084",
+      "rule_sources": {
+        "reference_versions": [
+          103,
+          109,
+          113
+        ],
+        "privacy102_sha256": "9b5011652f9109458b70fb7cd6d0cacdb0295a3d1095c5126357c9444bb82bfc",
+        "concept_scope_sha256": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+        "transfer": "Target inventory, actual solid closure, open-aperture all-ray certificate, conditional closed-boundary labeling; no receipt transferred."
+      },
+      "checker_sha256": "5526b1d9c4339f6ca79272645364299b101e7de1d7cea3ba4ac94498e740bf6e",
+      "targets": [
+        {
+          "room": "A.bed1",
+          "target": "bed",
+          "opening": "A.bed1.left",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bed1",
+          "target": "changing",
+          "opening": "A.bed1.left",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bed2",
+          "target": "bed",
+          "opening": "A.bed2.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": {
+            "source": [
+              "5053/400",
+              "1/2"
+            ],
+            "target": [
+              "2199/200",
+              "31/20"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        },
+        {
+          "room": "A.bed2",
+          "target": "changing",
+          "opening": "A.bed2.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bed3",
+          "target": "bed",
+          "opening": "A.bed3.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": {
+            "source": [
+              "2091/400",
+              "1/2"
+            ],
+            "target": [
+              "359/100",
+              "31/20"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        },
+        {
+          "room": "A.bed3",
+          "target": "changing",
+          "opening": "A.bed3.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bath",
+          "target": "WC_use",
+          "opening": "A.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bath",
+          "target": "shower_use",
+          "opening": "A.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "A.bath",
+          "target": "shower_floor",
+          "opening": "A.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bed1",
+          "target": "bed",
+          "opening": "B.bed1.left",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bed1",
+          "target": "changing",
+          "opening": "B.bed1.left",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bed2",
+          "target": "bed",
+          "opening": "B.bed2.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": {
+            "source": [
+              "5053/400",
+              "23"
+            ],
+            "target": [
+              "2199/200",
+              "433/20"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        },
+        {
+          "room": "B.bed2",
+          "target": "changing",
+          "opening": "B.bed2.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bed3",
+          "target": "bed",
+          "opening": "B.bed3.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": {
+            "source": [
+              "2091/400",
+              "23"
+            ],
+            "target": [
+              "359/100",
+              "433/20"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        },
+        {
+          "room": "B.bed3",
+          "target": "changing",
+          "opening": "B.bed3.right",
+          "open_state_bound": true,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bath",
+          "target": "WC_use",
+          "opening": "B.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bath",
+          "target": "shower_use",
+          "opening": "B.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        },
+        {
+          "room": "B.bath",
+          "target": "shower_floor",
+          "opening": "B.bath.front",
+          "open_state_bound": false,
+          "strict_certificate": null,
+          "conditional_closed_boundary_certificate": null,
+          "clear_visibility_counterexample": null
+        }
+      ],
+      "strict_count": 0,
+      "conditional_count": 0,
+      "status": "FAIL_SCOPED",
+      "accepted": false,
+      "release_allowed": false,
+      "assumptions": [
+        "Opaque actual model wall solids in plan, same hypothetical opacity scope as reference privacy102.",
+        "Every open aperture point considered; closed panels are never used to hide a target.",
+        "Closet fixture envelopes and pre-cut wall_hosts are never opaque barriers.",
+        "Sufficient single-wall interval proof; missing multi-wall/U-shell certificate remains pending, not impossible.",
+        "No real sight heights/material transparency/legal compliance claim."
+      ]
+    }
+  },
+  "no_generation": true
+}

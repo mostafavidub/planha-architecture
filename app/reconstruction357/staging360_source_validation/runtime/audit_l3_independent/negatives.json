@@ -1,0 +1,115 @@
+{
+  "count": 12,
+  "all_rejected": true,
+  "cases": [
+    {
+      "name": "scaled_fixture",
+      "rejected": true,
+      "errors": [
+        "FIXTURE:bed1bed1.bedA"
+      ]
+    },
+    {
+      "name": "stale_actor",
+      "rejected": true,
+      "errors": [
+        "DOOR:bed1actor_rect"
+      ]
+    },
+    {
+      "name": "stale_hand",
+      "rejected": true,
+      "errors": [
+        "CLOSET:bed1hand_end"
+      ]
+    },
+    {
+      "name": "source_hash_changed",
+      "rejected": true,
+      "errors": [
+        "SOURCE_HASH:bed1"
+      ]
+    },
+    {
+      "name": "wall_duplicate",
+      "rejected": true,
+      "errors": [
+        "DUPLICATE_SOLID:physical_wall_0:duplicate",
+        "PHYSICAL_ALIAS:A.bed1.front",
+        "PHYSICAL_ALIAS:A.bed1.left.lower",
+        "PHYSICAL_ALIAS:A.bed1.right"
+      ]
+    },
+    {
+      "name": "alias_omitted",
+      "rejected": true,
+      "errors": [
+        "PHYSICAL_ALIAS:A.bed1.front",
+        "PHYSICAL_ALIAS_INVENTORY"
+      ]
+    },
+    {
+      "name": "actual_corridor_obstacle",
+      "rejected": true,
+      "errors": [
+        "PATH_OBSTACLE:A.bed2",
+        "PHYSICAL_ALIAS_INVENTORY",
+        "PHYSICAL_SOURCE_HASH",
+        "PHYSICAL_UNION",
+        "SOURCE_WALL_UNION"
+      ]
+    },
+    {
+      "name": "boundary_removed",
+      "rejected": true,
+      "errors": [
+        "BOUNDARY_GAP:(Fraction(27, 4), Fraction(11, 2))",
+        "BOUNDARY_GAP:(Fraction(27, 4), Fraction(153, 20))",
+        "BOUNDARY_GAP:(Fraction(27, 4), Fraction(171, 40))",
+        "BOUNDARY_GAP:(Fraction(27, 4), Fraction(189, 40))",
+        "BOUNDARY_GAP:(Fraction(27, 4), Fraction(49, 10))",
+        "PHYSICAL_ALIAS_INVENTORY",
+        "PHYSICAL_SOURCE_HASH",
+        "PHYSICAL_UNION",
+        "SOURCE_WALL_UNION"
+      ]
+    },
+    {
+      "name": "route_shortcut",
+      "rejected": true,
+      "errors": [
+        "PATH_DIAGONAL",
+        "PATH_FLOOR:A.bed2",
+        "PATH_OBSTACLE:A.bed2"
+      ]
+    },
+    {
+      "name": "room_double_count",
+      "rejected": true,
+      "errors": [
+        "ROOM_AREA_OVERLAP:private_circulation:public_interface"
+      ]
+    },
+    {
+      "name": "absent_quadrant_relabel",
+      "rejected": true,
+      "errors": [
+        "ABSENT_QUADRANT_CONSUMED",
+        "BOUNDARY_GAP:(Fraction(247, 20), Fraction(11, 2))",
+        "BOUNDARY_GAP:(Fraction(247, 20), Fraction(153, 20))",
+        "BOUNDARY_GAP:(Fraction(247, 20), Fraction(171, 40))",
+        "BOUNDARY_GAP:(Fraction(247, 20), Fraction(189, 40))",
+        "BOUNDARY_GAP:(Fraction(247, 20), Fraction(49, 10))",
+        "BOUNDARY_GAP:(Fraction(77, 8), Fraction(93, 10))"
+      ]
+    },
+    {
+      "name": "port_fabricated",
+      "rejected": true,
+      "errors": [
+        "PATH_END:A.bed1",
+        "PORT_POINT:bed1"
+      ]
+    }
+  ]
+}
