@@ -33,7 +33,7 @@ jobs:
           from guest_four_route_diagnostic import assess
           sys.path.insert(0,str(ENGINE))
           from geometry114 import cells,Q,area
-          from privacy115 import closure_gaps
+          from privacy115 import closure_gaps,examine as privacy_only
           status,result=generate(json.dumps({'W':'25','L':'25','n':2,'requested_count':1}).encode())
           assert status==200 and result['generated_count']==1
           candidate=result['candidates'][0];base=candidate['model'];basehash=digest(base)
@@ -54,14 +54,15 @@ jobs:
                   b=closure_gaps(list(map(Q,regions)),list(map(Q,cells(before,[]))),openings)
                   a=closure_gaps(list(map(Q,regions)),list(map(Q,cells(after,[]))),openings)
                   closure.append({'room':u['id']+'.'+name,'before_gaps':b,'after_gaps':a})
+          privacy_before=privacy_only(base);privacy_after=privacy_only(probe)
           assert digest(base)==basehash
           sys.path.insert(0,str(ROOT/'frontend'));from guard400 import guard
           assert guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0')==12991
           def summary(study):
               return {'missing':study.get('missing'),'routes':[{'unit':u['unit'],'route':r['id'],'state':r['state'],'length_m':r.get('length_m'),'segments':r.get('segments')} for u in study['units'] for r in u['routes']]}
-          evidence={'scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY','state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'delivery_allowed':False,'base_model_digest':basehash,'removed_source_id':key,'source_rect':base['walls'][key],'source_aliases':base['physical_wall_network']['source_aliases'][key],'removed_material_cells':removed_material,'free_geometric_gain_m2':str(sum(area(Q(r)) for r in removed_material)),'useful_area_gain':'NOT_PROVEN','baseline_routes':baseline_routes,'probe_routes':probe_routes,'closure':closure,'producer_sha256':hashlib.sha256((ENGINE/'private_hall_producer121.py').read_bytes()).hexdigest(),'remaining':['No full private-domain/visibility comparison yet','No alternative wall placement or shorter organization tested','No architectural acceptance inferred from source replay mismatch or area gain']}
+          evidence={'scope':'COUNTERFACTUAL_DIAGNOSTIC_ONLY','state':'UNKNOWN_NONFUNCTIONAL_WALL_EXCLUSION','accepted':False,'delivery_allowed':False,'base_model_digest':basehash,'removed_source_id':key,'source_rect':base['walls'][key],'source_aliases':base['physical_wall_network']['source_aliases'][key],'removed_material_cells':removed_material,'free_geometric_gain_m2':str(sum(area(Q(r)) for r in removed_material)),'useful_area_gain':'NOT_PROVEN','baseline_routes':baseline_routes,'probe_routes':probe_routes,'closure':closure,'privacy_before':privacy_before,'privacy_after':privacy_after,'producer_sha256':hashlib.sha256((ENGINE/'private_hall_producer121.py').read_bytes()).hexdigest(),'remaining':['Scoped privacy115 comparison only; not full private-domain functional purpose','No alternative wall placement or shorter organization tested','No architectural acceptance inferred from source replay mismatch or area gain']}
           Path('wall-counterfactual.json').write_text(json.dumps({'evidence':evidence,'baseline_result':result},ensure_ascii=False))
-          print('WALL_COUNTERFACTUAL '+json.dumps({k:v for k,v in evidence.items() if k not in ['baseline_routes','probe_routes']}|{'baseline_routes':summary(baseline_routes),'probe_routes':summary(probe_routes)},ensure_ascii=False),flush=True)
+          print('WALL_COUNTERFACTUAL '+json.dumps({k:v for k,v in evidence.items() if k not in ['baseline_routes','probe_routes','privacy_before','privacy_after']}|{'baseline_routes':summary(baseline_routes),'probe_routes':summary(probe_routes),'privacy_before':{k:privacy_before.get(k) for k in ['status','errors','pending']},'privacy_after':{k:privacy_after.get(k) for k in ['status','errors','pending']}},ensure_ascii=False),flush=True)
           if baseline_routes.get('missing') or probe_routes.get('missing'):raise SystemExit(1)
           PY
       - uses: actions/upload-artifact@v4
