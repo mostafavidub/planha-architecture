@@ -1,0 +1,8 @@
+{
+  "schema": "PLANHA_GITHUB_MIGRATION_V1",
+  "active_root": "app",
+  "status": "PARTIAL_DEPENDENCY_MIGRATION",
+  "historical_snapshot_verified": false,
+  "source": "selected read-only imports; no original 588 package",
+  "code_changes_location": "GitHub only"
+}
