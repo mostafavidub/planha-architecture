@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   exploratory-redesign:
     runs-on: ubuntu-latest
@@ -18,6 +19,12 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44401790896
+          name: v25-explicit-two-bedroom-study
+          path: _rejected_source
       - name: Preserve rejected parent and compare reconstructed same-program alternatives
         env:
           PYTHONDONTWRITEBYTECODE: '1'
@@ -44,7 +51,15 @@ jobs:
               return row
           def inventory(model):
               return {u['id']:dict(Counter((m['kind'],json.dumps(m.get('source_size_m'),sort_keys=True)) for m in u['fixture_metadata'].values())) for u in model['units']}
-          parent=construct(0);evidence={'scope':'EXPLORATORY_REDIRECTION_NOT_REGISTERED_PRODUCTION_REPAIR','raw':raw,'explicit_program':{'bedrooms':2,'sleep_roles':['double','twin']},'parent':parent,'children':[],'accepted':False,'delivery_allowed':False}
+          stored=json.loads(Path('_rejected_source/explicit-two-bedroom-study.json').read_text())
+          matches=[r for r in stored['rows'] if r['raw']==raw and r['family']==family]
+          assert len(matches)==1
+          prior=matches[0];assert prior['review']['status']=='FAIL' and prior['review']['errors']
+          p=copy.deepcopy(prior['proposal']);packet=build(raw,family,p,p);ctx=context(raw,packet,{'A':p,'B':p});fresh=evaluate(packet,ctx)
+          assert digest(packet['world_model'])==digest(prior['packet']['world_model'])
+          parent={'variant':0,'proposal':p,'packet':packet,'context':ctx,'review':fresh,'model_digest':digest(packet['world_model']),'source_run':44401790896,'prior_review_digest':digest(prior['review']),'fresh_review_digest':digest(fresh)}
+          evidence={'scope':'EXPLORATORY_REDIRECTION_NOT_REGISTERED_PRODUCTION_REPAIR','raw':raw,'explicit_program':{'bedrooms':2,'sleep_roles':['double','twin']},'parent':parent,'children':[],'accepted':False,'delivery_allowed':False}
+          Path('two-bedroom-redesign.json').write_text(json.dumps(evidence,ensure_ascii=False))
           parent_review=parent.get('review',{})
           eligible_observation=parent_review.get('status')=='FAIL' and bool(parent_review.get('errors'))
           evidence['fresh_parent_rejection_observed']=eligible_observation
@@ -53,6 +68,8 @@ jobs:
               protected=inventory(parent['packet']['world_model'])
               for variant in [1,2,3]:
                   child=construct(variant)
+                  evidence['children'].append(child)
+                  Path('two-bedroom-redesign.json').write_text(json.dumps(evidence,ensure_ascii=False))
                   if 'packet' in child:
                       assert inventory(child['packet']['world_model'])==protected
                       assert child['proposal']['bedrooms']==2 and child['proposal']['sleep_roles']==['double','twin']
@@ -60,7 +77,7 @@ jobs:
                       assert child['packet']['world_model']['inputs']==parent['packet']['world_model']['inputs']
                       child['changed_model']=child['model_digest']!=parent['model_digest']
                       child['protected_inventory_and_core_unchanged']=True
-                  child['parent_model_digest']=parent.get('model_digest');evidence['children'].append(child)
+                  child['parent_model_digest']=parent.get('model_digest')
           else:evidence['blocked']='FRESH_REJECTED_PARENT_NOT_OBSERVED; prior-run failure is not substituted'
           assert guard(freeze)==12991
           # Tuple inventory keys are used only for equality; not serialized as JSON evidence.
