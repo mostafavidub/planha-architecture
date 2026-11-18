@@ -1,0 +1,59 @@
+name: V25 kitchen source-parameter experiment
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-kitchen305-experiment.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate-test-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Preserve source fixtures, rebuild and evaluate actual candidate
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 180s python -B - <<'PY'
+          import sys,json,hashlib,time
+          from pathlib import Path
+          root=Path.cwd()
+          sys.path[:0]=[str(root/'frontend'),str(root/'engine'),str(root/'app/local_integration/candidate/bundle25')]
+          from guard400 import guard
+          freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
+          assert guard(freeze)==12991
+          from kitchen_module117 import build as kitchen
+          old,new=kitchen('3.6','4.2'),kitchen('3.6','3.05')
+          for key in ['fixtures','fixture_metadata','activities']:
+              assert old['unit'][key]==new['unit'][key],key
+          assert old['operations']==new['operations']
+          assert old['reserved_approach_gross']==new['reserved_approach_gross']
+          from constructor129 import frame,build,context
+          from evaluate_hierarchical129 import evaluate
+          from coarse_kitchen305_candidate import propose
+          raw={'W':'25','L':'25','n':2,'requested_count':1};family='FRONT_REAR'
+          core,_=frame(raw,family);p=propose(core,time_limit=3)
+          out={'test_only':True,'accepted':False,'delivery_allowed':False,'raw':raw,'family':family,'proposal':p,'immutable_kitchen_fixtures_operations_and_approach_equal':True}
+          if p.get('status')=='PROPOSAL_ONLY':
+              packet=build(raw,family,p);ctx=context(raw,p,packet);review=evaluate(packet,ctx)
+              out.update(packet=packet,context=ctx,review=review)
+          out['candidate_sha256']=hashlib.sha256((root/'app/local_integration/candidate/bundle25/coarse_kitchen305_candidate.py').read_bytes()).hexdigest()
+          Path('kitchen305-experiment.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('KITCHEN305 '+json.dumps({'proposal_status':p.get('status'),'solver_status':p.get('solver_status'),'review_status':out.get('review',{}).get('status'),'errors':out.get('review',{}).get('errors'),'pending':out.get('review',{}).get('pending'),'test_only':True,'accepted':False}),flush=True)
+          assert guard(freeze)==12991
+          PY
+      - name: Preserve test-only source-bound evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v25-kitchen305-test-only
+          path: kitchen305-experiment.json
+          retention-days: 30
