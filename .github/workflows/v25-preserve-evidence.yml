@@ -207,6 +207,12 @@ jobs:
           run-id: 44418627439
           name: v25-live-cycle-audit
           path: _artifact_input/44418627439
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44420044477
+          name: v25-source-wall-probes
+          path: _artifact_input/44420044477
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
