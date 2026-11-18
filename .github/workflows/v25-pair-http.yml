@@ -1,0 +1,88 @@
+name: V25 real HTTP explicit pair continuation
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-pair-http.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  http:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Real HTTP fresh generation rejection continuation and gates
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1000s python -B - <<'PY'
+          import sys,json,subprocess,urllib.request,urllib.error
+          from pathlib import Path
+          from review_cycle import digest,decide
+          server=subprocess.Popen([sys.executable,'-B','validation_server.py','--port','0'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+          address=json.loads(server.stdout.readline());base='http://127.0.0.1:'+str(address['port'])
+          def call(path,body=None):
+              req=urllib.request.Request(base+path,data=None if body is None else json.dumps(body).encode(),headers={'Content-Type':'application/json'})
+              try:
+                  with urllib.request.urlopen(req,timeout=170) as r:return r.status,json.load(r)
+              except urllib.error.HTTPError as e:return e.code,json.load(e)
+          report={'scope':'LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY','attempts':[],'accepted':False,'delivery_allowed':False}
+          try:
+              s,r=call('/redesign-explicit-two',{'run_id':'../bad','candidate_id':'0'*64});assert s==422
+              parent=None
+              for W,L in [('20','20'),('20','20'),('20','20'),('19.5','20'),('20','19.5'),('21','20')]:
+                  s,r=call('/generate',{'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}})
+                  assert s==200,(s,r)
+                  report['attempts'].append({'run_id':r['run_id'],'input':[W,L],'generated':r['generated_count'],'states':[c['review_decision']['state'] for c in r['candidates']]})
+                  Path('pair-http.json').write_text(json.dumps(report))
+                  for c in r['candidates']:
+                      if c['review_decision']['state']=='REJECTED_PHYSICAL':
+                          from explicit_pair_redirection import require_rejection
+                          try:require_rejection(c['physical_review'])
+                          except ValueError:continue
+                          parent=(r,c);break
+                  if parent:break
+              if parent is None:
+                  report['state']='BLOCKED_NO_FRESH_NATURAL_PARENT_IN_BOUNDED_SAMPLE'
+              else:
+                  r,c=parent;args={'run_id':r['run_id'],'candidate_id':c['candidate_id']}
+                  s,legacy=call('/repair',args);assert s==422
+                  s,child=call('/redesign-explicit-two',args)
+                  report['continuation_http_status']=s;report['continuation']=child
+                  Path('pair-http.json').write_text(json.dumps(report))
+                  assert s==200,(s,child)
+                  d=child['candidates'][0];receipt=d['exploratory_redirection_receipt']
+                  assert receipt['parent_run_id']==r['run_id'] and receipt['parent_model_digest']==c['model_digest']
+                  assert receipt['parent_pending_preserved']==c['physical_review']['pending']
+                  assert child['envelope']==r['envelope'] and child['qualified_count']==0
+                  assert d['functional_review']['display_allowed'] is False and d['review_decision']['operator_invoked'] is False
+                  assert d['review_decision']['exploratory_operator_invoked'] is True
+                  assert decide(d,child['envelope']['canonical_request_digest'],child['engine_source_revision'])==d['review_decision']
+                  for path in ['/export/','/download/']:
+                      s,g=call(path+child['run_id']);assert s==403 and g['artifact_bytes_sent']==0
+                  s,h=call('/history/'+child['run_id']);assert s==200 and h['live_model_restored'] is False
+                  report['state']=receipt['state']
+                  report['checks']=['real_http_parent_created_not_archived_import','legacy_repair_refuses_pair','same_request_parent_and_pending_bound','fresh_child_decision_bound','history_only','export_and_download_403','no_production_repair_authority']
+              Path('pair-http.json').write_text(json.dumps(report,ensure_ascii=False))
+              print('PAIR_HTTP '+json.dumps({k:v for k,v in report.items() if k!='continuation'}),flush=True)
+          finally:
+              server.terminate()
+              try:server.communicate(timeout=5)
+              except subprocess.TimeoutExpired:server.kill();server.communicate()
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-pair-http
+          path: |
+            app/local_integration/pair-http.json
+            app/local_integration/evidence/requests
+          retention-days: 30
