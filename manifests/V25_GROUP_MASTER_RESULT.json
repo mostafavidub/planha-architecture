@@ -1,0 +1,241 @@
+{
+  "scope": "INDEPENDENT_EXPERIMENT_NOT_ACTIVE_PRODUCER",
+  "run": 44413801814,
+  "commit": "ae061a9e5b870ee22538dde105a46818c3293c4b",
+  "operation_started": "2026-11-18T22:07:31Z",
+  "operation_deadline": "2026-11-19T01:07:31Z",
+  "completed": "2026-11-18T22:45:01Z",
+  "frozen_baseline_invariants": true,
+  "import_paths_verified": true,
+  "guard_pins": 12991,
+  "ast_retention": "Syntax additive only; not semantic proof",
+  "rows": [
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "4410d430dd84440c07a20a5cc4b4babe3b2654b5bc6dfc93cda032f80a4af651",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 1,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "3ef7b0ff95cb2117e7c1d2f19fc53076963c3cd24530d27b15f9063f30430bd5",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 2,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "742cd41af78a3aae128066023e5d0a49861d56f598960285788dd9bc61c13de2",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 3,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "4dfb8bbe94e4fc2cce9c554d8db7798e847905163ec3d681f938aec1d076eae5",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "20",
+        "L": "20",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "0deb2b467c1b864c8dceee3945dd6dd3fea7feaa602a8d7b125ea406f4c7c138",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "25",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "335dbd628a7fc1c90c5b65e34656ac63f83ff021127b8da174307a9658cd8963",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "whole_cycle_verified": false,
+  "remaining": [
+    "Programme suitability",
+    "Full kitchen guest scenario closure",
+    "Cohesive useful living beyond local source-profile access",
+    "Nonfunctional wall exclusion",
+    "Active producer integration not done"
+  ]
+}
