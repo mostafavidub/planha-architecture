@@ -1,0 +1,250 @@
+{
+  "commit": "cab41efe5e71bd732e7341762f1b3e75d4132652",
+  "run": 44398915318,
+  "job": 135136262412,
+  "started_utc": "2026-11-18T21:12:20Z",
+  "finished_utc": "2026-11-18T21:12:44Z",
+  "deadline_utc": "2026-11-19T00:10:00Z",
+  "generated": 0,
+  "natural_rejected_models": 0,
+  "repair_attempts": 0,
+  "scope": "Restricted master produced no witness for these nine boundary inputs; not global infeasibility and not proof of completed natural rejection/repair cycle",
+  "artifact_id": 14471448017,
+  "artifact_sha256": "629b7e51695293edb4ad360dda30125d1a6484d0f8cb740b32e4ff65dc903239",
+  "rows": [
+    {
+      "W": "19.75",
+      "L": "23.25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "0d9b9ea8-e4fb-44ed-a3cc-7e204eb76cfd",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "5d30639a3a17b2059096846e83b243ba914579b348a7470cf7192b8f26a5738b"
+    },
+    {
+      "W": "19.75",
+      "L": "23.5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "c0860c91-0c8a-44ef-b787-7830fc1b4ea3",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "4fca320dd9721054e7fc0e45357f3d138e88b9c5a3d2031a1a61407f1a6b78a9"
+    },
+    {
+      "W": "19.75",
+      "L": "23.75",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "b0d014b6-1d96-4bac-a117-36f5d4cee4cb",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "dc0eb0ddd11b8dcb3074dd05d184e06da64e01f26f7661bb10d54ae6971360d6"
+    },
+    {
+      "W": "22",
+      "L": "23.25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "ef427468-4d38-4954-8d61-b0bf5a3de382",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "759c2e475e650882962f5553cbf6b8faae668bda25801ba16b54662cf491cb27"
+    },
+    {
+      "W": "22",
+      "L": "23.5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "49eabce3-e5de-4aee-8186-e54042709c06",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "e6d8d787c62484d53f4b056654a840d827008463ddcd49d79b89251cf2c0d80a"
+    },
+    {
+      "W": "22",
+      "L": "23.75",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "147163b9-809b-455c-bd31-cadf6a87f002",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "e460785c528864d87eac6f3f54eb1cec1379ca1c9b65a8f3efd65096933ae0d1"
+    },
+    {
+      "W": "25",
+      "L": "23.25",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "efbec38c-7e73-418b-b1d2-473d910137e7",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "79c170366765b9bca938022c8a31830a336de07ff338042a47053db1d5887f71"
+    },
+    {
+      "W": "25",
+      "L": "23.5",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "b19ff8cf-7994-4246-8935-cb0dae186c2c",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "fedfc61efda7105bfe85a32e26320fd38dbf44a0fae168423e3c042593a45533"
+    },
+    {
+      "W": "25",
+      "L": "23.75",
+      "http_status": 200,
+      "outcome": "EXPERIMENT_COMPLETED",
+      "code": null,
+      "run_id": "c89dc125-f190-41fe-b5e7-94315923b1bc",
+      "generated_count": 0,
+      "qualified_count": 0,
+      "attempts": [
+        {
+          "family": "FRONT_REAR",
+          "state": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER",
+          "reason": null,
+          "proposal_status": "NO_PROPOSAL_IN_THIS_RESTRICTED_MASTER"
+        },
+        {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_BUNDLE_FIT",
+          "reason": null,
+          "proposal_status": "UNSUPPORTED_BUNDLE_FIT"
+        }
+      ],
+      "reviews": [],
+      "body_sha256": "58bfca0b0c0af811fd06ecff6b9f900906d3bb36315af98dc4bea515950a4aa8"
+    }
+  ]
+}
