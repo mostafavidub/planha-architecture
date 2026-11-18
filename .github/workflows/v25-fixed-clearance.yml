@@ -1,0 +1,67 @@
+name: V25 fixed guest route clearance
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-fixed-clearance.yml'
+      - 'app/local_integration/fixed_route_clearance_diagnostic.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  clearance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Independently verify fixed route capacity under the exact source scenario
+        run: |
+          timeout 500s python -B - <<'PY'
+          import sys,json,hashlib,tarfile,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from constructor127 import build,context
+          from evaluate_pair127 import evaluate
+          from engine114 import revision
+          from review_cycle import digest
+          from fixed_route_clearance_diagnostic import fixed_polyline_capacity,assess
+          p=[['1','5'],['9','5']];box=['0','0','10','10']
+          assert fixed_polyline_capacity(p,box,[])['maximum_uniform_axis_aligned_square_width_m']=='2'
+          assert fixed_polyline_capacity(p,box,[['4','5.2','5','6']])['maximum_uniform_axis_aligned_square_width_m']=='2/5'
+          assert fixed_polyline_capacity(list(reversed(p)),box,[['4','5.2','5','6']])['maximum_uniform_axis_aligned_square_width_m']=='2/5'
+          assert fixed_polyline_capacity([['1','5'],['4','5'],['4','8']],box,[['5','6','6','7']])['maximum_uniform_axis_aligned_square_width_m']=='2'
+          for bad in [[['1','1']],[['1','1'],['1','1']],[['1','1'],['2','2']]]:
+              try:fixed_polyline_capacity(bad,box,[])
+              except ValueError:pass
+              else:raise AssertionError('BAD_PATH_ACCEPTED')
+          paths=['app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-fixed-clearance.yml']
+          sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
+          for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44417514104)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz') as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];t=saved['generation_context']['construction_trace'];ps=t['proposals'];packet=build(t['raw'],'FRONT_REAR',ps['A'],ps['B']);ctx=context(t['raw'],packet,ps);model=packet['world_model'];review=evaluate(packet,ctx)
+          assert digest(model)==saved['model_digest'] and digest(ctx)==digest(saved['generation_context'])
+          origin=review['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['source_revision']==source and origin['model_hash']==digest(model)
+          study=assess(model,review);assert not study.get('missing')
+          require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
+          out={'study':study,'source_files':sources,'source_revision':source,'scope':'Fixed axis-aligned square-body path capacity; not global or ergonomic bottleneck certification','accepted':False,'delivery_allowed':False}
+          Path('fixed-route-clearance.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('FIXED_CLEARANCE '+json.dumps({'model':digest(model),'rows':[{'unit':u['unit'],'route':r['id'],'source_body':r['source_body_m'],'fixed_path_capacity':r.get('capacity',{}).get('maximum_uniform_axis_aligned_square_width_m'),'limits':r.get('capacity',{}).get('limiting_constraints')} for u in study['units'] for r in u['routes']],'accepted':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-fixed-route-clearance
+          path: fixed-route-clearance.json
+          retention-days: 30
