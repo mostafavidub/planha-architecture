@@ -8,6 +8,7 @@ from local_seating_group_diagnostic import assess as group_assess,bounds
 
 def first_positive_body_contact(path,width,regions):
     """Exact infimum distance of positive body/rectangle overlap; tangency excluded."""
+    if F(width)<=0 or len(path)<2 or not any(list(map(F,a))!=list(map(F,b)) for a,b in zip(path,path[1:])):raise ValueError('NONZERO_ROUTE_AND_POSITIVE_BODY_REQUIRED')
     half=F(width)/2;travelled=F(0);best=None
     for pa,pb in zip(path,path[1:]):
         a,b=list(map(F,pa)),list(map(F,pb));delta=[b[i]-a[i] for i in range(2)]
@@ -29,12 +30,16 @@ def first_positive_body_contact(path,width,regions):
         travelled+=length
     return None if best is None else str(best)
 
-def assess(model):
+def assess(model,physical_review):
     from geometry114 import cells,route
     from checker114 import covered
     from shared_geometry137 import local_polyline_clear
-    mh=digest(model);group=group_assess(model,actor_scenario='OTHER_SEATS_OCCUPIED')
-    result={'schema':'V25_ORDERED_GUEST_GROUP_STUDY_V1','model_digest':mh,'group_study':group,'units':[],'state':'UNKNOWN_NATURAL_GUEST_ORGANIZATION','accepted':False,'display_allowed':False,'delivery_allowed':False,'qualified':False,'scope':'Existence of an explicitly routed living-group visit before dining. A deliberate detour is not proof of natural first-living organization, axis quality, ergonomics or whole PRD.'}
+    mh=digest(model)
+    if not isinstance(physical_review,dict) or physical_review.get('model_hash')!=mh or physical_review.get('status')!='PASS_CONCEPT_SCOPED_REVIEW' or physical_review.get('errors')!=[] or physical_review.get('pending')!=[]:raise ValueError('FRESH_PHYSICAL_PASS_SAME_MODEL_REQUIRED')
+    origin=physical_review.get('multiproposal_provenance127',{})
+    if origin.get('verified')is not True or origin.get('model_hash')!=mh or origin.get('errors')!=[] or origin.get('pending')!=[]:raise ValueError('SOURCE_VERIFIED_MODEL_REQUIRED')
+    group=group_assess(model,actor_scenario='OTHER_SEATS_OCCUPIED')
+    result={'schema':'V25_ORDERED_GUEST_GROUP_STUDY_V1','model_digest':mh,'fresh_physical_review_digest':digest(physical_review),'precondition':'Caller supplied fresh source-verified physical PASS for identical model; workflow independently reconstructs/evaluates','kitchen_scenario':'Actual work activity + workstation actors + six conservative source motions; not whole kitchen-floor exclusion, not replacement for frozen guest gate','group_study':group,'units':[],'state':'UNKNOWN_NATURAL_GUEST_ORGANIZATION','accepted':False,'display_allowed':False,'delivery_allowed':False,'qualified':False,'scope':'Existence of an explicitly routed living-group visit before dining. A deliberate detour is not proof of natural first-living organization, axis quality, ergonomics or whole PRD.'}
     try:
         body=F(model['profile']['body_m'])
         if body<=0:raise ValueError('SOURCE_PROFILE_REQUIRED')
@@ -48,6 +53,14 @@ def assess(model):
             shared=center(witness['body_rect']);dest=u['public_program']['destinations']
             living=center(u['activities'][dest['guest_living']['activity_id']]);dining=center(u['activities'][dest['guest_dining']['activity_id']])
             if dest['guest_living']['fixture_id'] not in g['actual_seat_ids']:raise ValueError('LIVING_DESTINATION_OUTSIDE_ACTUAL_GROUP')
+            selected=next(z for z in u['public_program']['capacity']['living_seats'] if z['fixture_id']==dest['guest_living']['fixture_id'])
+            if selected['access_activity_id']!=dest['guest_living']['activity_id']:raise ValueError('LIVING_ACTIVITY_SOURCE_BINDING')
+            from public_program_audit118 import bind_operation_destination
+            import inspect
+            from pathlib import Path
+            from parametric_worker import ENGINE
+            if Path(inspect.getsourcefile(bind_operation_destination)).resolve()!=(ENGINE/'public_program_audit118.py').resolve():raise ValueError('DINING_BINDING_IMPORT')
+            row['dining_source_binding']=bind_operation_destination(u,dest['guest_dining'],tuple(map(F,dining)))
             if not same_point(u['scenario_routes']['guest_living'][-1],living) or not same_point(u['scenario_routes']['guest_dining'][-1],dining):raise ValueError('SOURCE_DESTINATION_BINDING')
             walls=list(model['walls'].values())+[o['open_panel'] for o in model['operations']['doors']]
             private=sum([qs for name,qs in u['rooms'].items() if name.startswith('bed') or name in ('private_circulation','bath')],[])
