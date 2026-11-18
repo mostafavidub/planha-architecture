@@ -5,7 +5,7 @@ const status = document.querySelector('#status');
 const result = document.querySelector('#result');
 let revision = 0;
 let controller = null;
-function snapshot() { return Object.fromEntries(new FormData(form)); }
+function snapshot() { const raw=Object.fromEntries(new FormData(form)); if(Object.hasOwn(raw,'bedrooms_per_unit')) { raw.program={bedrooms_per_unit:Number(raw.bedrooms_per_unit)}; delete raw.bedrooms_per_unit; } return raw; }
 function clear() { result.textContent = ''; result.hidden = true; }
 function invalidate() {
   revision += 1;
@@ -37,10 +37,16 @@ function stable(value) {
   return JSON.stringify(value);
 }
 function canonical(raw) {
-  return {dimensions_m:{W:exact(raw.W),L:exact(raw.L)},unit_count:Number(latin(raw.n)),requested_count:Number(latin(raw.requested_count)),program_present:false};
+  const value={dimensions_m:{W:exact(String(raw.W)),L:exact(String(raw.L))},unit_count:Number(latin(String(raw.n))),requested_count:Number(latin(String(raw.requested_count))),program_present:Object.hasOwn(raw,'program')};
+  if(value.program_present)value.program=raw.program;
+  return value;
+}
+function validUiRequest(raw) {
+  if(!raw||!['L,W,n,requested_count','L,W,n,program,requested_count'].includes(Object.keys(raw).sort().join(',')))return false;
+  return !Object.hasOwn(raw,'program') || (raw.program && Object.keys(raw.program).join(',')==='bedrooms_per_unit' && [2,3].includes(raw.program.bedrooms_per_unit));
 }
 function sameRaw(a,b) {
-  return a && Object.keys(a).length===4 && ['W','L','n','requested_count'].every(k=>a[k]===b[k]);
+  return validUiRequest(a) && stable(a)===stable(b);
 }
 form.addEventListener('submit', async event => {
   event.preventDefault();
