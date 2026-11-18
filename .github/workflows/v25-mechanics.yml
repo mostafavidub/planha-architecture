@@ -1,0 +1,29 @@
+name: V25 bounded independent mechanics
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-mechanics.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  independent-mechanics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V25-16 synthetic receipt binding only
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest -v test_repair_receipt
+      - name: V25-21 controlled failures and owned-worker cancellation
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest -v test_failure_recovery test_cancellation
