@@ -1,0 +1,65 @@
+name: V25 isolated open-front kitchen module
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-open-kitchen.yml'
+      - 'app/local_integration/open_front_kitchen*.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  module-study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check permitted source delta and adversarial variants
+        run: |
+          timeout 450s python -B - <<'PY'
+          import sys,json,hashlib,inspect
+          from pathlib import Path
+          from copy import deepcopy
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from open_front_kitchen_study import build
+          from open_front_kitchen_check import assess
+          from kitchen_module117 import build as base_build
+          from contract114 import digest
+          from producer_provenance import snapshot,require_unchanged
+          paths=['app/local_integration/open_front_kitchen_study.py','app/local_integration/open_front_kitchen_check.py','.github/workflows/v25-open-kitchen.yml']
+          sources=snapshot(root,paths);assert guard(FREEZE)==12991
+          rows=[];negative=[]
+          for W,H in [('2.35','3.05'),('3.6','3.05'),('3.6','4.2')]:
+              m=build(W,H);r=assess(m)
+              assert r['status']=='PASS_MODULE_STUDY_ONLY',r
+              assert not r['whole_model_pass'] and not r['accepted'] and not r['delivery_allowed']
+              rows.append({'dimensions':[W,H],'model':m,'review':r})
+          original=rows[1]['model'];base=base_build('3.6','3.05')
+          mutations=[
+            ('old_opening',lambda m:m['openings'][0].update(rect=deepcopy(base['openings'][0]['rect']))),
+            ('old_floor',lambda m:m.update(unit=deepcopy(base['unit']))),
+            ('fixture_size',lambda m:m['unit']['fixtures']['fridge'].__setitem__(2,'0.8')),
+            ('operation',lambda m:m['operations']['kitchen'][0]['fridge'].update(leaf_radius_m='0.8')),
+            ('producer_hash',lambda m:m['source_binding'].update(producer_sha256='0'*64)),
+            ('fake_historical_schema',lambda m:m.update(schema='KITCHEN_MODULE117')),
+            ('unlisted_value',lambda m:m.update(accepted=True))]
+          for name,change in mutations:
+              m=deepcopy(original);change(m);r=assess(m);assert r['status']=='FAIL_STUDY',(name,r)
+              negative.append({'case':name,'errors':r['errors']})
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','source_snapshot':sources,'rows':rows,'negative_tests':negative,'scope':'Standalone module only, no whole-plan integration, no new127 provenance, no functional qualification. Added threshold floor is not a full-width body approach. Preserved old route is valid, not optimized. Reference113 hypothetical operation profile.','whole_model_pass':False,'accepted':False,'delivery_allowed':False}
+          Path('open-kitchen.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('OPEN_KITCHEN '+json.dumps({'positive':len(rows),'negative':len(negative),'digests':[digest(r['model'])for r in rows],'whole_model_pass':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-open-kitchen-module
+          path: open-kitchen.json
+          retention-days: 30
