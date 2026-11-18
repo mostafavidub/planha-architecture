@@ -50,6 +50,12 @@ jobs:
           assert first_positive_body_contact([['0','0'],['4','0']],'.7',[['2','.35','3','1']]) is None
           assert first_positive_body_contact([['4','0'],['0','0']],'.7',[['2','-.1','3','.1']])=='13/20'
           assert first_positive_body_contact([['0','0'],['0','0'],['4','0']],'.7',[['2','-.1','3','.1']])=='33/20'
+          assert first_positive_body_contact([['0','0'],['4','0']],'.7',[['-.1','-.1','.1','.1']])=='0'
+          assert first_positive_body_contact([['0','0'],['1.65','0']],'.7',[['2','-.1','3','.1']]) is None
+          for p,width in [([['0','0']],'.7'),([['0','0'],['0','0']],'.7'),([['0','0'],['1','0']],'0')]:
+              try:first_positive_body_contact(p,width,[['0','0','1','1']])
+              except ValueError:pass
+              else:raise AssertionError('INVALID_CONTACT_INPUT_ACCEPTED')
           paths=['app/local_integration/ordered_guest_group_diagnostic.py','app/local_integration/local_seating_group_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-ordered-guest-group.yml']
           sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
           for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
@@ -62,7 +68,7 @@ jobs:
               assert digest(model)==mh and digest(ctx)==digest(row['context'])
               origin=review['multiproposal_provenance127'];assert origin['verified'] is True and origin['errors']==[] and origin['pending']==[] and origin['model_hash']==mh and origin['source_revision']==source
               assert review['status']=='PASS_CONCEPT_SCOPED_REVIEW' and review['errors']==[] and review['pending']==[]
-              study=assess(model);assert study['model_digest']==mh and digest(model)==mh and all(study[k] is False for k in ('accepted','qualified','delivery_allowed','display_allowed'))
+              study=assess(model,review);assert study['model_digest']==mh and digest(model)==mh and all(study[k] is False for k in ('accepted','qualified','delivery_allowed','display_allowed'))
               out['rows'].append({'source_artifact':path,'model_digest':mh,'fresh_review':review,'study':study,'current_producer_claim':False})
               Path('ordered-guest-group.json').write_text(json.dumps(out,ensure_ascii=False))
           require_unchanged(root,sources);assert revision()==source and guard(FREEZE)==12991
