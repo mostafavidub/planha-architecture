@@ -1,0 +1,49 @@
+name: V25 bounded source-fit diagnosis
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-fit-diagnosis.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fit-diagnosis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Trace actual source parameters; no integration or approval
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B - <<'PY'
+          import sys,json
+          from pathlib import Path
+          from fractions import Fraction as F
+          root=Path.cwd()
+          sys.path[:0]=[str(root/'frontend'),str(root/'engine'),str(root/'app/local_integration/candidate/bundle25')]
+          from guard400 import guard
+          freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
+          assert guard(freeze)==12991
+          from constructor129 import frame
+          from private_bundle129 import build
+          from private_bundle25_candidate import build as candidate
+          from coarse_bundle25_candidate import propose
+          raw={'W':'25','L':'25','n':2,'requested_count':1}
+          for family in ['FRONT_REAR','LEFT_RIGHT']:
+              core,_=frame(raw,family)
+              x0,y0,x1,y1=map(F,core['units']['A'])
+              original=build(core); experimental=candidate(core)
+              row={'family':family,'unit_width':str(x1-x0),'unit_depth':str(y1-y0),'original_fixed_depth':'4.8','original_required_unit_depth':'11','original_bundle_exists':original is not None,'candidate_depth':'4.5','candidate_required_unit_depth':'10.7','candidate_bundle_exists':experimental is not None,'test_only':True,'accepted':False,'delivery_allowed':False}
+              if experimental is not None:
+                  p=propose(core,time_limit=3)
+                  row['candidate_proposal']={k:p.get(k) for k in ['status','solver_status','solver_message','variables','constraints','not_global_infeasibility']}
+              print('FIT_DIAGNOSIS '+json.dumps(row),flush=True)
+          assert guard(freeze)==12991
+          PY
