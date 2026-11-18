@@ -1,0 +1,6151 @@
+{
+  "schema": "IRP13_SOURCE_STATE_SECTIONS358",
+  "parent_initial": false,
+  "verdict": "UNKNOWN",
+  "fresh_or_solver": false,
+  "delivery_allowed": false,
+  "rows": [
+    {
+      "type": "double",
+      "original": {
+        "module_digest": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+        "source_room_floor_m2": "696/25",
+        "after_wall_and_fixture_sections": {
+          "free_area_m2": "2341/100",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "19/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/10",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "8/5"
+                  ],
+                  [
+                    "16/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "8/5",
+                  "8/5"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "8/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "8/5",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "9/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "16/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "16/5",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "all_source_reservations_envelope": {
+          "free_area_m2": "3481/200",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "1/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "1/50",
+                  "3/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/5"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/5",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/25",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "87/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "5/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "71/20"
+                ]
+              },
+              {
+                "interval": [
+                  "87/100",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "33/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "33/25",
+                  "89/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "89/50",
+                  "179/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "179/100",
+                  "183/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "183/100",
+                  "46/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "46/25",
+                  "47/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "47/25",
+                  "19/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/10",
+                  "13/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/5",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "7/10"
+                  ],
+                  [
+                    "41/10",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "7/10",
+                  "7/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "7/10"
+                  ],
+                  [
+                    "41/10",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "7/10",
+                  "7/10"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "16/5"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "16/5"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "11/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "16/5"
+                ]
+              },
+              {
+                "interval": [
+                  "11/20",
+                  "7/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "16/5"
+                ]
+              },
+              {
+                "interval": [
+                  "7/10",
+                  "33/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "33/40",
+                  "17/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/20",
+                  "47/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "47/40",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "5/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5/4",
+                  "61/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "61/40",
+                  "8/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "8/5",
+                  "109/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "109/50",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "11/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "16/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "16/5",
+                  "33/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "33/10",
+                  "4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "4",
+                  "41/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "41/10",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "source_operation_inventory": [
+          {
+            "id": "door:M.bed1.entry",
+            "state_count": 4,
+            "continuous_segment_count": 2,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half1",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half2",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          }
+        ],
+        "reservation_inventory": [
+          {
+            "id": "door:M.bed1.entry/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "11/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "11/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/1/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/0",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "3/20",
+              "89/50",
+              "17/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/1",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "109/50",
+              "89/50",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/2",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "17/100",
+              "33/25",
+              "109/50"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "46/25",
+              "3/20",
+              "47/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "46/25",
+              "3/20",
+              "47/25",
+              "47/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "46/25",
+              "47/40",
+              "47/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "179/100",
+              "3/20",
+              "183/100",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "179/100",
+              "47/40",
+              "183/100",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "179/100",
+              "3/20",
+              "183/100",
+              "47/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          }
+        ],
+        "activity_ids": [
+          "bed1.bed_back",
+          "bed1.bed_front",
+          "bed1.changing",
+          "bed1.closet_front"
+        ],
+        "fixture_ids": [
+          "bed1.bed",
+          "bed1.closet"
+        ],
+        "coverage": "ALL_DECLARED_SOURCE_DOOR_AND_CLOSET_ENDPOINT_PANEL_ACTOR_AND_CONTINUOUS_SWEEPS_PLUS_REQUIRED_ACTIVITIES",
+        "not_claimed": "NOT_SIMULTANEOUS_USE_REQUIREMENT; NOT_ALL_IMAGINABLE_JOINT_SCENARIOS; NOT_PATH_OR_CLEARANCE_ADMISSION"
+      },
+      "counterfactual": {
+        "module_digest": "9a69263c2d06b0b1caedf25eed8cffbe266578fcf7ff2324b9cdf8cba1af9c0d",
+        "source_room_floor_m2": "696/25",
+        "after_wall_and_fixture_sections": {
+          "free_area_m2": "2341/100",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "67/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "3/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "81/20"
+                ]
+              },
+              {
+                "interval": [
+                  "67/20",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "8/5"
+                  ],
+                  [
+                    "16/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "8/5",
+                  "8/5"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "3/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "3/4",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "8/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "8/5",
+                  "16/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "16/5",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "all_source_reservations_envelope": {
+          "free_area_m2": "3481/200",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "1/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "1/50",
+                  "3/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/5"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/5",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/25",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "87/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "5/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "71/20"
+                ]
+              },
+              {
+                "interval": [
+                  "87/100",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "33/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "33/25",
+                  "79/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "79/40",
+                  "93/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "93/40",
+                  "107/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "107/40",
+                  "333/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "333/100",
+                  "67/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "67/20",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "7/10"
+                  ],
+                  [
+                    "41/10",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "7/10",
+                  "7/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "7/10"
+                  ],
+                  [
+                    "41/10",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "7/10",
+                  "7/10"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "11/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "11/20",
+                  "63/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "63/100",
+                  "16/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "16/25",
+                  "17/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "17/25",
+                  "69/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "69/100",
+                  "7/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "7/10",
+                  "73/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "73/100",
+                  "3/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "3/4",
+                  "17/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/20",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "5/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5/4",
+                  "29/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "7/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "29/20",
+                  "8/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "179/50",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "8/5",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "179/50",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "16/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "16/5",
+                  "33/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "33/10",
+                  "4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "4",
+                  "41/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "37/10"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "37/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "41/10",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "source_operation_inventory": [
+          {
+            "id": "door:M.bed1.entry",
+            "state_count": 4,
+            "continuous_segment_count": 2,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half1",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half2",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          }
+        ],
+        "reservation_inventory": [
+          {
+            "id": "door:M.bed1.entry/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "11/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "11/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/1/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/0",
+            "kind": "closet_shell",
+            "rect": [
+              "333/100",
+              "3/20",
+              "67/20",
+              "63/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/1",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "3/20",
+              "33/25",
+              "63/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/2",
+            "kind": "closet_shell",
+            "rect": [
+              "33/25",
+              "3/20",
+              "333/100",
+              "17/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "13/10",
+              "69/100",
+              "67/20",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "93/40",
+              "69/100",
+              "67/20",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "13/10",
+              "69/100",
+              "93/40",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "13/10",
+              "16/25",
+              "67/20",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "13/10",
+              "16/25",
+              "93/40",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "93/40",
+              "16/25",
+              "67/20",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          }
+        ],
+        "activity_ids": [
+          "bed1.bed_back",
+          "bed1.bed_front",
+          "bed1.changing",
+          "bed1.closet_front"
+        ],
+        "fixture_ids": [
+          "bed1.bed",
+          "bed1.closet"
+        ],
+        "coverage": "ALL_DECLARED_SOURCE_DOOR_AND_CLOSET_ENDPOINT_PANEL_ACTOR_AND_CONTINUOUS_SWEEPS_PLUS_REQUIRED_ACTIVITIES",
+        "not_claimed": "NOT_SIMULTANEOUS_USE_REQUIREMENT; NOT_ALL_IMAGINABLE_JOINT_SCENARIOS; NOT_PATH_OR_CLEARANCE_ADMISSION"
+      },
+      "independent_privacy_counterexamples": [
+        {
+          "code": "PRIVATE_TARGET_VISIBLE",
+          "target": "bed1.bed",
+          "opening": "M.bed1.entry",
+          "witness": {
+            "source": [
+              "-9/80",
+              "9/20"
+            ],
+            "target": [
+              "21/5",
+              "2"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        }
+      ],
+      "remaining_counterfactual_privacy_unknown": [
+        "ALL_RAYS_NOT_PROVEN:M.bed1.entry:changing"
+      ],
+      "counterfactual_source_status": "TEST_ONLY_DERIVATION_NOT_PRODUCER_REPLAY"
+    },
+    {
+      "type": "twin",
+      "original": {
+        "module_digest": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+        "source_room_floor_m2": "696/25",
+        "after_wall_and_fixture_sections": {
+          "free_area_m2": "2319/100",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "19/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/10",
+                  "19/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "9/10"
+                  ],
+                  [
+                    "9/5",
+                    "27/10"
+                  ],
+                  [
+                    "18/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "9/10",
+                  "9/10",
+                  "6/5"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "9/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/10",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "19/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "9/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "19/10",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/5",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "19/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "39/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "27/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "27/10",
+                  "18/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "18/5",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "all_source_reservations_envelope": {
+          "free_area_m2": "3131/200",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "1/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "1/50",
+                  "3/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/5"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/5",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/25",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "87/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "5/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "71/20"
+                ]
+              },
+              {
+                "interval": [
+                  "87/100",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "33/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "33/25",
+                  "89/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "89/50",
+                  "179/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "179/100",
+                  "183/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "183/100",
+                  "46/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "46/25",
+                  "47/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "47/25",
+                  "19/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/10",
+                  "13/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/5",
+                  "19/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/5",
+                  "5"
+                ],
+                "free_components": [
+                  [
+                    "9/2",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "9/2",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/10"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "11/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/20",
+                  "33/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "33/40",
+                  "17/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/20",
+                  "9/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/10",
+                  "47/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "47/40",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "5/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5/4",
+                  "61/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "61/40",
+                  "9/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/5",
+                  "109/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "109/50",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "13/5",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "6/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "27/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "27/10",
+                  "18/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "18/5",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "22/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "22/5",
+                  "9/2"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/2",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "source_operation_inventory": [
+          {
+            "id": "door:M.bed1.entry",
+            "state_count": 4,
+            "continuous_segment_count": 2,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half1",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half2",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          }
+        ],
+        "reservation_inventory": [
+          {
+            "id": "door:M.bed1.entry/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "11/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "11/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/1/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/0",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "3/20",
+              "89/50",
+              "17/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/1",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "109/50",
+              "89/50",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/2",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "17/100",
+              "33/25",
+              "109/50"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "46/25",
+              "3/20",
+              "47/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "46/25",
+              "3/20",
+              "47/25",
+              "47/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "46/25",
+              "47/40",
+              "47/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "179/100",
+              "3/20",
+              "183/100",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "179/100",
+              "47/40",
+              "183/100",
+              "11/5"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "179/100",
+              "3/20",
+              "183/100",
+              "47/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "19/10",
+              "33/40",
+              "13/5",
+              "61/40"
+            ]
+          }
+        ],
+        "activity_ids": [
+          "bed1.bedA_back",
+          "bed1.bedA_front",
+          "bed1.bedB_back",
+          "bed1.bedB_front",
+          "bed1.changing",
+          "bed1.closet_front"
+        ],
+        "fixture_ids": [
+          "bed1.bedA",
+          "bed1.bedB",
+          "bed1.closet"
+        ],
+        "coverage": "ALL_DECLARED_SOURCE_DOOR_AND_CLOSET_ENDPOINT_PANEL_ACTOR_AND_CONTINUOUS_SWEEPS_PLUS_REQUIRED_ACTIVITIES",
+        "not_claimed": "NOT_SIMULTANEOUS_USE_REQUIREMENT; NOT_ALL_IMAGINABLE_JOINT_SCENARIOS; NOT_PATH_OR_CLEARANCE_ADMISSION"
+      },
+      "counterfactual": {
+        "module_digest": "6390a87a297f441046052e8ed8a38dff6be983012609aac19ce87e726dba8d14",
+        "source_room_floor_m2": "696/25",
+        "after_wall_and_fixture_sections": {
+          "free_area_m2": "2319/100",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "67/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "3/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "81/20"
+                ]
+              },
+              {
+                "interval": [
+                  "67/20",
+                  "19/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "9/10"
+                  ],
+                  [
+                    "9/5",
+                    "27/10"
+                  ],
+                  [
+                    "18/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "9/10",
+                  "9/10",
+                  "6/5"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "3/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "13/10",
+                  "49/20"
+                ]
+              },
+              {
+                "interval": [
+                  "3/4",
+                  "9/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "9/10",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "9/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/5",
+                  "27/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              },
+              {
+                "interval": [
+                  "27/10",
+                  "18/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "18/5",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "all_source_reservations_envelope": {
+          "free_area_m2": "3131/200",
+          "slabs": {
+            "0": [
+              {
+                "interval": [
+                  "0",
+                  "1/50"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "1/50",
+                  "3/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/5"
+                  ],
+                  [
+                    "11/5",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/5",
+                  "13/5"
+                ]
+              },
+              {
+                "interval": [
+                  "3/25",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "87/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "5/4",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "71/20"
+                ]
+              },
+              {
+                "interval": [
+                  "87/100",
+                  "13/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "13/10",
+                  "33/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "33/25",
+                  "79/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "79/40",
+                  "93/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "93/40",
+                  "107/40"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "107/40",
+                  "333/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "333/100",
+                  "67/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "3/20"
+                  ],
+                  [
+                    "29/20",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/20",
+                  "67/20"
+                ]
+              },
+              {
+                "interval": [
+                  "67/20",
+                  "19/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              },
+              {
+                "interval": [
+                  "19/5",
+                  "5"
+                ],
+                "free_components": [
+                  [
+                    "9/2",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5",
+                  "57/10"
+                ],
+                "free_components": [
+                  [
+                    "9/2",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "3/10"
+                ]
+              },
+              {
+                "interval": [
+                  "57/10",
+                  "29/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "24/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "24/5"
+                ]
+              }
+            ],
+            "1": [
+              {
+                "interval": [
+                  "0",
+                  "3/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "3/20",
+                  "17/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/100",
+                  "1/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "17/100",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "1/5",
+                  "11/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/20",
+                  "63/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "63/100",
+                  "16/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "16/25",
+                  "17/25"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/25",
+                  "69/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "69/100",
+                  "73/100"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "73/100",
+                  "3/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "3/4",
+                  "17/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "17/20",
+                  "9/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/10",
+                  "6/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "6/5",
+                  "5/4"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "17/100"
+                  ],
+                  [
+                    "87/100",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "1/20",
+                  "43/100",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "5/4",
+                  "29/20"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "13/10"
+                  ],
+                  [
+                    "67/20",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "59/50",
+                  "9/20",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "29/20",
+                  "9/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "92/25",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/5",
+                  "11/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "1/50"
+                  ],
+                  [
+                    "3/25",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "1/50",
+                  "92/25",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "11/5",
+                  "27/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "27/10",
+                  "18/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "18/5",
+                  "37/10"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "37/10",
+                  "22/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "22/5",
+                  "9/2"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "19/5"
+                  ],
+                  [
+                    "57/10",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "19/5",
+                  "1/10"
+                ]
+              },
+              {
+                "interval": [
+                  "9/2",
+                  "24/5"
+                ],
+                "free_components": [
+                  [
+                    "0",
+                    "29/5"
+                  ]
+                ],
+                "component_widths_m": [
+                  "29/5"
+                ]
+              }
+            ]
+          },
+          "method": "EXACT_RECTANGLE_UNION_SUBTRACTION_AT_ALL_EDGE_BREAKPOINTS; ZERO_AREA_CONTACT_NOT_POSITIVE_FLOOR"
+        },
+        "source_operation_inventory": [
+          {
+            "id": "door:M.bed1.entry",
+            "state_count": 4,
+            "continuous_segment_count": 2,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half1",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          },
+          {
+            "id": "closet:M.bed1.closet/half2",
+            "state_count": 2,
+            "continuous_segment_count": 1,
+            "hand_geometry": "SOURCE_POINTS_NO_ADDED_AREA; ACTUAL_REACH_CHECK_SEPARATE"
+          }
+        ],
+        "reservation_inventory": [
+          {
+            "id": "door:M.bed1.entry/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "17/100",
+              "11/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "1/5",
+              "3/25",
+              "6/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/2/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "17/20"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/panel",
+            "kind": "panel_state",
+            "rect": [
+              "1/50",
+              "6/5",
+              "3/25",
+              "11/5"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/state/3/actor",
+            "kind": "actor_state",
+            "rect": [
+              "-9/10",
+              "11/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "17/100",
+              "3/20",
+              "87/100",
+              "5/4"
+            ]
+          },
+          {
+            "id": "door:M.bed1.entry/segment/1/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "-9/10",
+              "3/20",
+              "-1/5",
+              "5/4"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/0",
+            "kind": "closet_shell",
+            "rect": [
+              "333/100",
+              "3/20",
+              "67/20",
+              "63/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/1",
+            "kind": "closet_shell",
+            "rect": [
+              "13/10",
+              "3/20",
+              "33/25",
+              "63/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/shell/2",
+            "kind": "closet_shell",
+            "rect": [
+              "33/25",
+              "3/20",
+              "333/100",
+              "17/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "13/10",
+              "69/100",
+              "67/20",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "93/40",
+              "69/100",
+              "67/20",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "13/10",
+              "69/100",
+              "93/40",
+              "73/100"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half1/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/panel/continuous",
+            "kind": "panel_continuous",
+            "rect": [
+              "13/10",
+              "16/25",
+              "67/20",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/panel",
+            "kind": "panel_state",
+            "rect": [
+              "13/10",
+              "16/25",
+              "93/40",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/0/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/panel",
+            "kind": "panel_state",
+            "rect": [
+              "93/40",
+              "16/25",
+              "67/20",
+              "17/25"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/state/1/actor",
+            "kind": "actor_state",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          },
+          {
+            "id": "closet:M.bed1.closet/half2/segment/0/actor",
+            "kind": "actor_continuous",
+            "rect": [
+              "79/40",
+              "3/4",
+              "107/40",
+              "29/20"
+            ]
+          }
+        ],
+        "activity_ids": [
+          "bed1.bedA_back",
+          "bed1.bedA_front",
+          "bed1.bedB_back",
+          "bed1.bedB_front",
+          "bed1.changing",
+          "bed1.closet_front"
+        ],
+        "fixture_ids": [
+          "bed1.bedA",
+          "bed1.bedB",
+          "bed1.closet"
+        ],
+        "coverage": "ALL_DECLARED_SOURCE_DOOR_AND_CLOSET_ENDPOINT_PANEL_ACTOR_AND_CONTINUOUS_SWEEPS_PLUS_REQUIRED_ACTIVITIES",
+        "not_claimed": "NOT_SIMULTANEOUS_USE_REQUIREMENT; NOT_ALL_IMAGINABLE_JOINT_SCENARIOS; NOT_PATH_OR_CLEARANCE_ADMISSION"
+      },
+      "independent_privacy_counterexamples": [
+        {
+          "code": "PRIVATE_TARGET_VISIBLE",
+          "target": "bed1.bedA",
+          "opening": "M.bed1.entry",
+          "witness": {
+            "source": [
+              "-9/80",
+              "9/20"
+            ],
+            "target": [
+              "171/40",
+              "63/40"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        },
+        {
+          "code": "PRIVATE_TARGET_VISIBLE",
+          "target": "bed1.bedB",
+          "opening": "M.bed1.entry",
+          "witness": {
+            "source": [
+              "-9/80",
+              "9/20"
+            ],
+            "target": [
+              "171/40",
+              "117/40"
+            ],
+            "state": "fully_open",
+            "scope": "Clear ray from an interior point of the open aperture; no claim about real observer height."
+          }
+        }
+      ],
+      "remaining_counterfactual_privacy_unknown": [
+        "ALL_RAYS_NOT_PROVEN:M.bed1.entry:changing"
+      ],
+      "counterfactual_source_status": "TEST_ONLY_DERIVATION_NOT_PRODUCER_REPLAY"
+    }
+  ],
+  "current_room_coverage": [
+    {
+      "unit": "A",
+      "room": "bed1",
+      "module_digest": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+      "type": "double",
+      "covered": true
+    },
+    {
+      "unit": "A",
+      "room": "bed2",
+      "module_digest": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+      "type": "twin",
+      "covered": true
+    },
+    {
+      "unit": "A",
+      "room": "bed3",
+      "module_digest": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+      "type": "twin",
+      "covered": true
+    },
+    {
+      "unit": "B",
+      "room": "bed1",
+      "module_digest": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+      "type": "double",
+      "covered": true
+    },
+    {
+      "unit": "B",
+      "room": "bed2",
+      "module_digest": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+      "type": "twin",
+      "covered": true
+    },
+    {
+      "unit": "B",
+      "room": "bed3",
+      "module_digest": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+      "type": "twin",
+      "covered": true
+    }
+  ],
+  "source_state_sections_complete": true,
+  "missing": [],
+  "per_unit_functional_rationale": [
+    {
+      "unit": "A",
+      "current_source_bundle_privacy_and_private_topology": "SAME_MODEL_SOURCE_ROWS_PASS_LIMITED",
+      "validated_task_pairs": 50,
+      "alternatives": {
+        "baseline351": {
+          "shorter_paths": [
+            "A|bed1.bed_front|WC_front",
+            "A|bed1.bed_front|armchair3_front",
+            "A|bed1.bed_front|armchair4_front",
+            "A|bed1.bed_front|basin_front",
+            "A|bed1.bed_front|shower_use",
+            "A|bed1.bed_front|sofa2_front",
+            "A|bed2.bedA_front|WC_front",
+            "A|bed2.bedA_front|armchair3_front",
+            "A|bed2.bedA_front|armchair4_front",
+            "A|bed2.bedA_front|basin_front",
+            "A|bed2.bedA_front|shower_use",
+            "A|bed2.bedA_front|sofa2_front",
+            "A|bed2.bedB_front|WC_front",
+            "A|bed2.bedB_front|armchair3_front",
+            "A|bed2.bedB_front|armchair4_front",
+            "A|bed2.bedB_front|basin_front",
+            "A|bed2.bedB_front|shower_use",
+            "A|bed2.bedB_front|sofa2_front",
+            "A|bed3.bedA_front|WC_front",
+            "A|bed3.bedA_front|armchair3_front",
+            "A|bed3.bedA_front|armchair4_front",
+            "A|bed3.bedA_front|basin_front",
+            "A|bed3.bedA_front|shower_use",
+            "A|bed3.bedA_front|sofa2_front",
+            "A|bed3.bedB_front|WC_front",
+            "A|bed3.bedB_front|armchair3_front",
+            "A|bed3.bedB_front|armchair4_front",
+            "A|bed3.bedB_front|basin_front",
+            "A|bed3.bedB_front|shower_use",
+            "A|bed3.bedB_front|sofa2_front"
+          ],
+          "longer_paths": [
+            "A|bed1.bed_front|armchair1_front",
+            "A|bed1.bed_front|armchair2_front",
+            "A|bed1.bed_front|sofa1_front",
+            "A|bed2.bedA_front|armchair1_front",
+            "A|bed2.bedA_front|armchair2_front",
+            "A|bed2.bedA_front|sofa1_front",
+            "A|bed2.bedB_front|armchair1_front",
+            "A|bed2.bedB_front|armchair2_front",
+            "A|bed2.bedB_front|sofa1_front",
+            "A|bed3.bedA_front|armchair1_front",
+            "A|bed3.bedA_front|armchair2_front",
+            "A|bed3.bedA_front|sofa1_front",
+            "A|bed3.bedB_front|armchair1_front",
+            "A|bed3.bedB_front|armchair2_front",
+            "A|bed3.bedB_front|sofa1_front"
+          ],
+          "protected_net_room_areas": {
+            "A|bed1": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            },
+            "A|bed2": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            },
+            "A|bed3": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            }
+          },
+          "reason": "preserve source room area and usable bundle; retain these explicit route gains with disclosed route losses; no weighted compensation or global minimum claim"
+        },
+        "translated357": {
+          "shorter_paths": [
+            "A|bed1.bed_front|WC_front",
+            "A|bed1.bed_front|armchair1_front",
+            "A|bed1.bed_front|armchair3_front",
+            "A|bed1.bed_front|basin_front",
+            "A|bed1.bed_front|shower_use",
+            "A|bed1.bed_front|sofa2_front",
+            "A|bed2.bedA_front|WC_front",
+            "A|bed2.bedA_front|armchair1_front",
+            "A|bed2.bedA_front|armchair3_front",
+            "A|bed2.bedA_front|armchair4_front",
+            "A|bed2.bedA_front|basin_front",
+            "A|bed2.bedA_front|entry",
+            "A|bed2.bedA_front|shower_use",
+            "A|bed2.bedA_front|sofa2_front",
+            "A|bed2.bedB_front|WC_front",
+            "A|bed2.bedB_front|armchair1_front",
+            "A|bed2.bedB_front|armchair3_front",
+            "A|bed2.bedB_front|armchair4_front",
+            "A|bed2.bedB_front|basin_front",
+            "A|bed2.bedB_front|entry",
+            "A|bed2.bedB_front|shower_use",
+            "A|bed2.bedB_front|sofa2_front",
+            "A|bed3.bedA_front|WC_front",
+            "A|bed3.bedA_front|armchair1_front",
+            "A|bed3.bedA_front|armchair3_front",
+            "A|bed3.bedA_front|armchair4_front",
+            "A|bed3.bedA_front|basin_front",
+            "A|bed3.bedA_front|entry",
+            "A|bed3.bedA_front|shower_use",
+            "A|bed3.bedA_front|sofa2_front",
+            "A|bed3.bedB_front|WC_front",
+            "A|bed3.bedB_front|armchair1_front",
+            "A|bed3.bedB_front|armchair3_front",
+            "A|bed3.bedB_front|armchair4_front",
+            "A|bed3.bedB_front|basin_front",
+            "A|bed3.bedB_front|entry",
+            "A|bed3.bedB_front|shower_use",
+            "A|bed3.bedB_front|sofa2_front"
+          ],
+          "longer_paths": [
+            "A|bed1.bed_front|armchair2_front",
+            "A|bed1.bed_front|armchair4_front",
+            "A|bed1.bed_front|entry",
+            "A|bed1.bed_front|sofa1_front",
+            "A|bed2.bedA_front|armchair2_front",
+            "A|bed2.bedA_front|sofa1_front",
+            "A|bed2.bedB_front|armchair2_front",
+            "A|bed2.bedB_front|sofa1_front",
+            "A|bed3.bedA_front|armchair2_front",
+            "A|bed3.bedA_front|sofa1_front",
+            "A|bed3.bedB_front|armchair2_front",
+            "A|bed3.bedB_front|sofa1_front"
+          ],
+          "protected_net_room_areas": {
+            "A|bed1": {
+              "selected": "696/25",
+              "alternative": "981/50",
+              "selected_minus_alternative": "411/50",
+              "no_shrink": true
+            },
+            "A|bed2": {
+              "selected": "696/25",
+              "alternative": "981/40",
+              "selected_minus_alternative": "663/200",
+              "no_shrink": true
+            },
+            "A|bed3": {
+              "selected": "696/25",
+              "alternative": "981/40",
+              "selected_minus_alternative": "663/200",
+              "no_shrink": true
+            }
+          },
+          "reason": "preserve source room area and usable bundle; retain these explicit route gains with disclosed route losses; no weighted compensation or global minimum claim"
+        }
+      }
+    },
+    {
+      "unit": "B",
+      "current_source_bundle_privacy_and_private_topology": "SAME_MODEL_SOURCE_ROWS_PASS_LIMITED",
+      "validated_task_pairs": 50,
+      "alternatives": {
+        "baseline351": {
+          "shorter_paths": [
+            "B|bed1.bed_front|WC_front",
+            "B|bed1.bed_front|armchair3_front",
+            "B|bed1.bed_front|armchair4_front",
+            "B|bed1.bed_front|basin_front",
+            "B|bed1.bed_front|shower_use",
+            "B|bed1.bed_front|sofa2_front",
+            "B|bed2.bedA_front|WC_front",
+            "B|bed2.bedA_front|armchair3_front",
+            "B|bed2.bedA_front|armchair4_front",
+            "B|bed2.bedA_front|basin_front",
+            "B|bed2.bedA_front|shower_use",
+            "B|bed2.bedA_front|sofa2_front",
+            "B|bed2.bedB_front|WC_front",
+            "B|bed2.bedB_front|armchair3_front",
+            "B|bed2.bedB_front|armchair4_front",
+            "B|bed2.bedB_front|basin_front",
+            "B|bed2.bedB_front|shower_use",
+            "B|bed2.bedB_front|sofa2_front",
+            "B|bed3.bedA_front|WC_front",
+            "B|bed3.bedA_front|armchair3_front",
+            "B|bed3.bedA_front|armchair4_front",
+            "B|bed3.bedA_front|basin_front",
+            "B|bed3.bedA_front|shower_use",
+            "B|bed3.bedA_front|sofa2_front",
+            "B|bed3.bedB_front|WC_front",
+            "B|bed3.bedB_front|armchair3_front",
+            "B|bed3.bedB_front|armchair4_front",
+            "B|bed3.bedB_front|basin_front",
+            "B|bed3.bedB_front|shower_use",
+            "B|bed3.bedB_front|sofa2_front"
+          ],
+          "longer_paths": [
+            "B|bed1.bed_front|armchair1_front",
+            "B|bed1.bed_front|armchair2_front",
+            "B|bed1.bed_front|sofa1_front",
+            "B|bed2.bedA_front|armchair1_front",
+            "B|bed2.bedA_front|armchair2_front",
+            "B|bed2.bedA_front|sofa1_front",
+            "B|bed2.bedB_front|armchair1_front",
+            "B|bed2.bedB_front|armchair2_front",
+            "B|bed2.bedB_front|sofa1_front",
+            "B|bed3.bedA_front|armchair1_front",
+            "B|bed3.bedA_front|armchair2_front",
+            "B|bed3.bedA_front|sofa1_front",
+            "B|bed3.bedB_front|armchair1_front",
+            "B|bed3.bedB_front|armchair2_front",
+            "B|bed3.bedB_front|sofa1_front"
+          ],
+          "protected_net_room_areas": {
+            "B|bed1": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            },
+            "B|bed2": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            },
+            "B|bed3": {
+              "selected": "696/25",
+              "alternative": "696/25",
+              "selected_minus_alternative": "0",
+              "no_shrink": true
+            }
+          },
+          "reason": "preserve source room area and usable bundle; retain these explicit route gains with disclosed route losses; no weighted compensation or global minimum claim"
+        },
+        "translated357": {
+          "shorter_paths": [
+            "B|bed1.bed_front|WC_front",
+            "B|bed1.bed_front|armchair1_front",
+            "B|bed1.bed_front|armchair3_front",
+            "B|bed1.bed_front|basin_front",
+            "B|bed1.bed_front|shower_use",
+            "B|bed1.bed_front|sofa2_front",
+            "B|bed2.bedA_front|WC_front",
+            "B|bed2.bedA_front|armchair1_front",
+            "B|bed2.bedA_front|armchair3_front",
+            "B|bed2.bedA_front|armchair4_front",
+            "B|bed2.bedA_front|basin_front",
+            "B|bed2.bedA_front|entry",
+            "B|bed2.bedA_front|shower_use",
+            "B|bed2.bedA_front|sofa2_front",
+            "B|bed2.bedB_front|WC_front",
+            "B|bed2.bedB_front|armchair1_front",
+            "B|bed2.bedB_front|armchair3_front",
+            "B|bed2.bedB_front|armchair4_front",
+            "B|bed2.bedB_front|basin_front",
+            "B|bed2.bedB_front|entry",
+            "B|bed2.bedB_front|shower_use",
+            "B|bed2.bedB_front|sofa2_front",
+            "B|bed3.bedA_front|WC_front",
+            "B|bed3.bedA_front|armchair1_front",
+            "B|bed3.bedA_front|armchair3_front",
+            "B|bed3.bedA_front|armchair4_front",
+            "B|bed3.bedA_front|basin_front",
+            "B|bed3.bedA_front|entry",
+            "B|bed3.bedA_front|shower_use",
+            "B|bed3.bedA_front|sofa2_front",
+            "B|bed3.bedB_front|WC_front",
+            "B|bed3.bedB_front|armchair1_front",
+            "B|bed3.bedB_front|armchair3_front",
+            "B|bed3.bedB_front|armchair4_front",
+            "B|bed3.bedB_front|basin_front",
+            "B|bed3.bedB_front|entry",
+            "B|bed3.bedB_front|shower_use",
+            "B|bed3.bedB_front|sofa2_front"
+          ],
+          "longer_paths": [
+            "B|bed1.bed_front|armchair2_front",
+            "B|bed1.bed_front|armchair4_front",
+            "B|bed1.bed_front|entry",
+            "B|bed1.bed_front|sofa1_front",
+            "B|bed2.bedA_front|armchair2_front",
+            "B|bed2.bedA_front|sofa1_front",
+            "B|bed2.bedB_front|armchair2_front",
+            "B|bed2.bedB_front|sofa1_front",
+            "B|bed3.bedA_front|armchair2_front",
+            "B|bed3.bedA_front|sofa1_front",
+            "B|bed3.bedB_front|armchair2_front",
+            "B|bed3.bedB_front|sofa1_front"
+          ],
+          "protected_net_room_areas": {
+            "B|bed1": {
+              "selected": "696/25",
+              "alternative": "981/50",
+              "selected_minus_alternative": "411/50",
+              "no_shrink": true
+            },
+            "B|bed2": {
+              "selected": "696/25",
+              "alternative": "981/40",
+              "selected_minus_alternative": "663/200",
+              "no_shrink": true
+            },
+            "B|bed3": {
+              "selected": "696/25",
+              "alternative": "981/40",
+              "selected_minus_alternative": "663/200",
+              "no_shrink": true
+            }
+          },
+          "reason": "preserve source room area and usable bundle; retain these explicit route gains with disclosed route losses; no weighted compensation or global minimum claim"
+        }
+      }
+    }
+  ],
+  "finite_scope_evidence_ready_for_audit": true,
+  "rationale": "IR-P13 finite source-profile evidence: exact net sections with source state inventory, actual usable bundles/closets/private topology, validated via-entry task routes and per-unit room-area tradeoffs, two independently witnessed longitudinal privacy failures. Not an exhaustive placement search or all-scenario certificate.",
+  "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+  "elapsed_seconds": 0.04110379299982014,
+  "evaluator_sha256": "61301890eb2edbe28c91568956b131d206ba570de2e91e18cccd4782f5fa281e"
+}

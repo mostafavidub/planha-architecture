@@ -1,0 +1,4185 @@
+{
+  "schema": "371_CONSERVATIVE_REPAIR_COMPARISON",
+  "collision_resolved": true,
+  "remaining_collision_units": [],
+  "no_new_or_changed_error_or_unknown_witness": false,
+  "new_or_changed_witness_digests": {
+    "errors": [
+      "616b7aff199ae557306ef69a2cecb1bfc1612f7250b92bf9669b1ca7dce7da8e",
+      "6c95441227ba0e145dc98693bfca5511fc26193b5d0d74e46a38d88386bf04e7",
+      "20bb5bbc041fb2bf8219b3b2187d336a834d905f23414bf7f37152daaa55caaa",
+      "977ab0c123459791114a29bd0c678676fd2245d778a75831d0b161c26fe3bd4f",
+      "5e03edbf05d822ec158b3b8eabeedafc45c921abf729bb6b39f9c794bb32f838",
+      "c7fa2a920699421f8e1899435bfff042a6e998e242aa4ec56f64f9190330f580",
+      "6176eeebccfb06baa4f95378b478f3c3bbaec3301794572b6e9e2751a3a22305",
+      "301651e0bac666de2519f70c2d6e5cda369e339a4c198af9076a443f0829fa0d"
+    ],
+    "pending": [],
+    "original_pending": [],
+    "not_evaluated": []
+  },
+  "before_report_digest": "b899fce30c28174b3458d2eb6b8cd0de882a9ee6742eb663a8b3079227bc0d51",
+  "after_report_digest": "afc208c1d5ee254cda8d5506db12e5e901fad0b673fd65816ddaa38d5557252f",
+  "before_errors": [
+    {
+      "code": "FIXTURE_COLLISION",
+      "fixtures": [
+        "sofa1",
+        "armchair2"
+      ]
+    },
+    {
+      "code": "FIXTURE_COLLISION",
+      "fixtures": [
+        "sofa1",
+        "armchair2"
+      ]
+    },
+    {
+      "code": "MISSING_REQUIRED_ACTIVITY_ROUTES",
+      "failures": [
+        {
+          "unit": "A",
+          "route": "sofa1_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED"
+        },
+        {
+          "unit": "A",
+          "route": "armchair2_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED"
+        },
+        {
+          "unit": "B",
+          "route": "sofa1_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED"
+        },
+        {
+          "unit": "B",
+          "route": "armchair2_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED"
+        },
+        {
+          "unit": "A",
+          "route": "sofa1_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "living_access_other_occupied_seats"
+        },
+        {
+          "unit": "A",
+          "route": "armchair2_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "living_access_other_occupied_seats"
+        },
+        {
+          "unit": "A",
+          "route": "guest_living",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+        },
+        {
+          "unit": "B",
+          "route": "sofa1_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "living_access_other_occupied_seats"
+        },
+        {
+          "unit": "B",
+          "route": "armchair2_front",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "living_access_other_occupied_seats"
+        },
+        {
+          "unit": "B",
+          "route": "guest_living",
+          "reason": "ROUTE_ENDPOINT_BLOCKED",
+          "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+        }
+      ]
+    },
+    {
+      "code": "ROUTE_TARGET_BINDING",
+      "unit": "A",
+      "target": "sofa1_front"
+    },
+    {
+      "code": "ROUTE_TARGET_BINDING",
+      "unit": "A",
+      "target": "armchair2_front"
+    },
+    {
+      "code": "ROUTE_TARGET_BINDING",
+      "unit": "B",
+      "target": "sofa1_front"
+    },
+    {
+      "code": "ROUTE_TARGET_BINDING",
+      "unit": "B",
+      "target": "armchair2_front"
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "body_route_sweeps",
+      "witness": {
+        "routes": [
+          {
+            "unit": "A",
+            "route": "bed1.bed_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed1.bed_back",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed1.closet_front",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed1.changing",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.closet_front",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.bedA_front",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.bedA_back",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.bedB_front",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.bedB_back",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed2.changing",
+            "points": 14,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.closet_front",
+            "points": 16,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.bedA_front",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.bedA_back",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.bedB_front",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.bedB_back",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "bed3.changing",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "WC_front",
+            "points": 17,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "WC_use",
+            "points": 22,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "shower_use",
+            "points": 18,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "basin_front",
+            "points": 14,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "kitchen_work",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_front_left",
+            "points": 10,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_front_right",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_back_left",
+            "points": 7,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_back_right",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_left",
+            "points": 8,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "dining_right",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "sofa2_front",
+            "points": 7,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "armchair1_front",
+            "points": 5,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "armchair3_front",
+            "points": 5,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "armchair4_front",
+            "points": 5,
+            "body_m": ".7"
+          },
+          {
+            "unit": "A",
+            "route": "kitchen",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed1.bed_front",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed1.bed_back",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed1.closet_front",
+            "points": 10,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed1.changing",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.closet_front",
+            "points": 10,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.bedA_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.bedA_back",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.bedB_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.bedB_back",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed2.changing",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.closet_front",
+            "points": 14,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.bedA_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.bedA_back",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.bedB_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.bedB_back",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "bed3.changing",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "WC_front",
+            "points": 13,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "WC_use",
+            "points": 18,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "shower_use",
+            "points": 14,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "basin_front",
+            "points": 10,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "kitchen_work",
+            "points": 9,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_front_left",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_front_right",
+            "points": 15,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_back_left",
+            "points": 6,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_back_right",
+            "points": 11,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_left",
+            "points": 10,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "dining_right",
+            "points": 12,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "sofa2_front",
+            "points": 5,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "armchair1_front",
+            "points": 5,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "armchair3_front",
+            "points": 3,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "armchair4_front",
+            "points": 3,
+            "body_m": ".7"
+          },
+          {
+            "unit": "B",
+            "route": "kitchen",
+            "points": 9,
+            "body_m": ".7"
+          }
+        ],
+        "errors": [
+          {
+            "unit": "A",
+            "code": "ACTUAL_ACTIVITY_ROUTE_INVENTORY"
+          },
+          {
+            "unit": "B",
+            "code": "ACTUAL_ACTIVITY_ROUTE_INVENTORY"
+          }
+        ],
+        "pending": []
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "fixture_inventory_use",
+      "witness": {
+        "capacity": {
+          "errors": [
+            {
+              "code": "CAPACITY_AUDIT_MALFORMED",
+              "detail": "'sofa1_front'"
+            }
+          ],
+          "pending": [],
+          "evidence": {
+            "status": "FAIL_SCOPED",
+            "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+            "units": [],
+            "worst_unit_margin": null,
+            "scope": "Actual double2/single1 sleeping places, one per real dining chair and conservative one .7-body place per real sofa/armchair. Living access and normal seat-transfer tested with other living and dining seats occupied. Own support contact only during seat task, not walking. Height/ergonomics NOT_VERIFIED. Not full fixture operations, kitchen/bath/privacy or whole-plan admission.",
+            "accepted": false
+          }
+        },
+        "source_placement": {
+          "errors": [],
+          "pending": [],
+          "evidence": [
+            {
+              "unit": "A",
+              "room": "bed1",
+              "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "A",
+              "room": "bed2",
+              "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "A",
+              "room": "bed3",
+              "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "A",
+              "room": "bath",
+              "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "A",
+              "room": "kitchen",
+              "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "B",
+              "room": "bed1",
+              "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "B",
+              "room": "bed2",
+              "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "B",
+              "room": "bed3",
+              "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "B",
+              "room": "bath",
+              "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+              "local_status": "PASS_MODULE_SCOPED"
+            },
+            {
+              "unit": "B",
+              "room": "kitchen",
+              "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+              "local_status": "PASS_MODULE_SCOPED"
+            }
+          ],
+          "status": "PASS_PLACEMENT_SCOPED",
+          "whole_model_pass": false
+        },
+        "fresh_functional_components": [
+          {
+            "status": "PASS_LIMITED",
+            "witness": {
+              "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+              "operation_component": "doors",
+              "actual_operation_ids": [
+                "A.bed1.entry",
+                "A.bed2.entry",
+                "A.bed3.entry",
+                "A.bath",
+                "A.WC",
+                "A.shower",
+                "B.bed1.entry",
+                "B.bed2.entry",
+                "B.bed3.entry",
+                "B.bath",
+                "B.WC",
+                "B.shower",
+                "A.entry",
+                "B.entry"
+              ],
+              "errors": [],
+              "pending": []
+            },
+            "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval"
+          },
+          {
+            "status": "PASS_LIMITED",
+            "witness": {
+              "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+              "operation_component": "closets",
+              "actual_operation_ids": [
+                "bed1.closet",
+                "bed2.closet",
+                "bed3.closet",
+                "bed1.closet",
+                "bed2.closet",
+                "bed3.closet"
+              ],
+              "errors": [],
+              "pending": []
+            },
+            "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval"
+          },
+          {
+            "status": "PASS_LIMITED",
+            "witness": {
+              "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+              "operation_component": "kitchen",
+              "actual_operation_ids": [
+                "A",
+                "B"
+              ],
+              "errors": [],
+              "pending": []
+            },
+            "scope": "Actual continuous source-sized body/panel/hand and obstacle checks, with explicit hardware assumptions; not installation approval"
+          },
+          {
+            "status": "PASS_LIMITED",
+            "witness": {
+              "modules": [
+                {
+                  "checker_version": "SERVICE_MODULE117_INDEPENDENT_V1",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "status": "PASS_MODULE_SCOPED",
+                  "errors": [],
+                  "pending": [],
+                  "evidence": {
+                    "privacy": [
+                      {
+                        "target": "WC_use",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": {
+                          "wall": "A.WC_right.assembly0",
+                          "axis": 0,
+                          "plane": "81/40",
+                          "projected_interval": [
+                            "3/800",
+                            "663/1000"
+                          ],
+                          "conditional_closed_boundary": false
+                        },
+                        "conditional_closed_boundary": null,
+                        "counterexample": null
+                      },
+                      {
+                        "target": "shower_use",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": {
+                          "wall": "A.shower_right.assembly0",
+                          "axis": 0,
+                          "plane": "37/40",
+                          "projected_interval": [
+                            "1/76",
+                            "43/60"
+                          ],
+                          "conditional_closed_boundary": false
+                        },
+                        "conditional_closed_boundary": null,
+                        "counterexample": null
+                      },
+                      {
+                        "target": "shower_floor",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": null,
+                        "conditional_closed_boundary": {
+                          "wall": "A.shower_right.assembly0",
+                          "axis": 0,
+                          "plane": "37/40",
+                          "projected_interval": [
+                            "0",
+                            "387/440"
+                          ],
+                          "conditional_closed_boundary": true
+                        },
+                        "counterexample": null
+                      }
+                    ]
+                  },
+                  "whole_model_pass": false,
+                  "eligible_for_draft_export": false,
+                  "accepted": false,
+                  "release": false
+                },
+                {
+                  "checker_version": "SERVICE_MODULE117_INDEPENDENT_V1",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "status": "PASS_MODULE_SCOPED",
+                  "errors": [],
+                  "pending": [],
+                  "evidence": {
+                    "privacy": [
+                      {
+                        "target": "WC_use",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": {
+                          "wall": "A.WC_right.assembly0",
+                          "axis": 0,
+                          "plane": "81/40",
+                          "projected_interval": [
+                            "3/800",
+                            "663/1000"
+                          ],
+                          "conditional_closed_boundary": false
+                        },
+                        "conditional_closed_boundary": null,
+                        "counterexample": null
+                      },
+                      {
+                        "target": "shower_use",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": {
+                          "wall": "A.shower_right.assembly0",
+                          "axis": 0,
+                          "plane": "37/40",
+                          "projected_interval": [
+                            "1/76",
+                            "43/60"
+                          ],
+                          "conditional_closed_boundary": false
+                        },
+                        "conditional_closed_boundary": null,
+                        "counterexample": null
+                      },
+                      {
+                        "target": "shower_floor",
+                        "opening": "S.bath",
+                        "necessary_actual_boundary_face": [
+                          "21/20",
+                          "0",
+                          "2",
+                          "0"
+                        ],
+                        "strict": null,
+                        "conditional_closed_boundary": {
+                          "wall": "A.shower_right.assembly0",
+                          "axis": 0,
+                          "plane": "37/40",
+                          "projected_interval": [
+                            "0",
+                            "387/440"
+                          ],
+                          "conditional_closed_boundary": true
+                        },
+                        "counterexample": null
+                      }
+                    ]
+                  },
+                  "whole_model_pass": false,
+                  "eligible_for_draft_export": false,
+                  "accepted": false,
+                  "release": false
+                }
+              ],
+              "placement": {
+                "errors": [],
+                "pending": [],
+                "evidence": [
+                  {
+                    "unit": "A",
+                    "room": "bed1",
+                    "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "A",
+                    "room": "bed2",
+                    "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "A",
+                    "room": "bed3",
+                    "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "A",
+                    "room": "bath",
+                    "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "A",
+                    "room": "kitchen",
+                    "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "B",
+                    "room": "bed1",
+                    "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "B",
+                    "room": "bed2",
+                    "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "B",
+                    "room": "bed3",
+                    "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "B",
+                    "room": "bath",
+                    "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  },
+                  {
+                    "unit": "B",
+                    "room": "kitchen",
+                    "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                    "local_status": "PASS_MODULE_SCOPED"
+                  }
+                ],
+                "status": "PASS_PLACEMENT_SCOPED",
+                "whole_model_pass": false
+              },
+              "errors": [],
+              "pending": []
+            },
+            "scope": "Source-backed wet equipment/operations and exact placed-neighbor binding, not complete H07 private-node deletion test"
+          },
+          {
+            "status": "PASS_LIMITED",
+            "witness": {
+              "status": "PLANAR_SEAT_ACCESS_STUDY",
+              "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+              "seats": [
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_front_left",
+                  "standing_body": [
+                    "637/40",
+                    "283/40",
+                    "133/8",
+                    "311/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_front_right",
+                  "standing_body": [
+                    "749/40",
+                    "283/40",
+                    "777/40",
+                    "311/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_back_left",
+                  "standing_body": [
+                    "637/40",
+                    "383/40",
+                    "133/8",
+                    "411/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_back_right",
+                  "standing_body": [
+                    "749/40",
+                    "383/40",
+                    "777/40",
+                    "411/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_left",
+                  "standing_body": [
+                    "619/40",
+                    "299/40",
+                    "647/40",
+                    "327/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "A",
+                  "seat": "dining_chair_right",
+                  "standing_body": [
+                    "767/40",
+                    "367/40",
+                    "159/8",
+                    "79/8"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_front_left",
+                  "standing_body": [
+                    "637/40",
+                    "809/40",
+                    "133/8",
+                    "837/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_front_right",
+                  "standing_body": [
+                    "749/40",
+                    "809/40",
+                    "777/40",
+                    "837/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_back_left",
+                  "standing_body": [
+                    "637/40",
+                    "709/40",
+                    "133/8",
+                    "737/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_back_right",
+                  "standing_body": [
+                    "749/40",
+                    "709/40",
+                    "777/40",
+                    "737/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_left",
+                  "standing_body": [
+                    "619/40",
+                    "793/40",
+                    "647/40",
+                    "821/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                },
+                {
+                  "unit": "B",
+                  "seat": "dining_chair_right",
+                  "standing_body": [
+                    "767/40",
+                    "145/8",
+                    "159/8",
+                    "753/40"
+                  ],
+                  "source_module_hash": "8e0bf52f68e709c45c65dcf40de6e838ba311b22f2abd91452f1b88b522e2c3c",
+                  "other_occupied_seats": 5
+                }
+              ],
+              "scope": "Sequential seating/pull/side-exit with three other seats occupied, rigid .7 body and .4 pull. Only own-seat task contact is allowed. Public walking has no chair exception. Height, support forces and real ergonomics NOT_VERIFIED; not whole-plan approval.",
+              "accepted": false,
+              "errors": [],
+              "pending": []
+            },
+            "scope": "Fresh source-bound planar sequential seat pull and side-exit with three occupied neighbors; own-seat contact only for this task, never public walking. Height/support forces/real ergonomics NOT_VERIFIED."
+          }
+        ],
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": []
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "program_functional_roles",
+      "witness": {
+        "actual_capacity": {
+          "errors": [
+            {
+              "code": "CAPACITY_AUDIT_MALFORMED",
+              "detail": "'sofa1_front'"
+            }
+          ],
+          "pending": [],
+          "evidence": {
+            "status": "FAIL_SCOPED",
+            "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+            "units": [],
+            "worst_unit_margin": null,
+            "scope": "Actual double2/single1 sleeping places, one per real dining chair and conservative one .7-body place per real sofa/armchair. Living access and normal seat-transfer tested with other living and dining seats occupied. Own support contact only during seat task, not walking. Height/ergonomics NOT_VERIFIED. Not full fixture operations, kitchen/bath/privacy or whole-plan admission.",
+            "accepted": false
+          }
+        },
+        "public_scenarios": {
+          "errors": [
+            {
+              "code": "CAPACITY_AUDIT_MALFORMED",
+              "detail": "'sofa1_front'"
+            }
+          ],
+          "pending": [
+            "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+            "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+            "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+            "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+          ],
+          "evidence": {
+            "status": "FAIL_SCOPED",
+            "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+            "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+            "routes": [
+              {
+                "unit": "A",
+                "route": "guest_dining",
+                "body_width": "7/10",
+                "segments": 11,
+                "all_occupied_chair_motion_included": true
+              },
+              {
+                "unit": "A",
+                "route": "kitchen_to_dining_floor",
+                "body_width": "7/10",
+                "segments": 13,
+                "all_occupied_chair_motion_included": true
+              },
+              {
+                "unit": "B",
+                "route": "guest_dining",
+                "body_width": "7/10",
+                "segments": 13,
+                "all_occupied_chair_motion_included": true
+              },
+              {
+                "unit": "B",
+                "route": "kitchen_to_dining_floor",
+                "body_width": "7/10",
+                "segments": 13,
+                "all_occupied_chair_motion_included": true
+              }
+            ],
+            "source_lines": {
+              "Blueprint": [
+                286,
+                293,
+                294,
+                295,
+                377,
+                378,
+                382,
+                3988,
+                3989,
+                3990
+              ],
+              "PRD": [
+                161
+              ]
+            },
+            "accepted": false,
+            "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance."
+          }
+        },
+        "wet_service": {
+          "status": "PASS_LIMITED",
+          "witness": {
+            "modules": [
+              {
+                "checker_version": "SERVICE_MODULE117_INDEPENDENT_V1",
+                "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                "status": "PASS_MODULE_SCOPED",
+                "errors": [],
+                "pending": [],
+                "evidence": {
+                  "privacy": [
+                    {
+                      "target": "WC_use",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": {
+                        "wall": "A.WC_right.assembly0",
+                        "axis": 0,
+                        "plane": "81/40",
+                        "projected_interval": [
+                          "3/800",
+                          "663/1000"
+                        ],
+                        "conditional_closed_boundary": false
+                      },
+                      "conditional_closed_boundary": null,
+                      "counterexample": null
+                    },
+                    {
+                      "target": "shower_use",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": {
+                        "wall": "A.shower_right.assembly0",
+                        "axis": 0,
+                        "plane": "37/40",
+                        "projected_interval": [
+                          "1/76",
+                          "43/60"
+                        ],
+                        "conditional_closed_boundary": false
+                      },
+                      "conditional_closed_boundary": null,
+                      "counterexample": null
+                    },
+                    {
+                      "target": "shower_floor",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": null,
+                      "conditional_closed_boundary": {
+                        "wall": "A.shower_right.assembly0",
+                        "axis": 0,
+                        "plane": "37/40",
+                        "projected_interval": [
+                          "0",
+                          "387/440"
+                        ],
+                        "conditional_closed_boundary": true
+                      },
+                      "counterexample": null
+                    }
+                  ]
+                },
+                "whole_model_pass": false,
+                "eligible_for_draft_export": false,
+                "accepted": false,
+                "release": false
+              },
+              {
+                "checker_version": "SERVICE_MODULE117_INDEPENDENT_V1",
+                "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                "status": "PASS_MODULE_SCOPED",
+                "errors": [],
+                "pending": [],
+                "evidence": {
+                  "privacy": [
+                    {
+                      "target": "WC_use",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": {
+                        "wall": "A.WC_right.assembly0",
+                        "axis": 0,
+                        "plane": "81/40",
+                        "projected_interval": [
+                          "3/800",
+                          "663/1000"
+                        ],
+                        "conditional_closed_boundary": false
+                      },
+                      "conditional_closed_boundary": null,
+                      "counterexample": null
+                    },
+                    {
+                      "target": "shower_use",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": {
+                        "wall": "A.shower_right.assembly0",
+                        "axis": 0,
+                        "plane": "37/40",
+                        "projected_interval": [
+                          "1/76",
+                          "43/60"
+                        ],
+                        "conditional_closed_boundary": false
+                      },
+                      "conditional_closed_boundary": null,
+                      "counterexample": null
+                    },
+                    {
+                      "target": "shower_floor",
+                      "opening": "S.bath",
+                      "necessary_actual_boundary_face": [
+                        "21/20",
+                        "0",
+                        "2",
+                        "0"
+                      ],
+                      "strict": null,
+                      "conditional_closed_boundary": {
+                        "wall": "A.shower_right.assembly0",
+                        "axis": 0,
+                        "plane": "37/40",
+                        "projected_interval": [
+                          "0",
+                          "387/440"
+                        ],
+                        "conditional_closed_boundary": true
+                      },
+                      "counterexample": null
+                    }
+                  ]
+                },
+                "whole_model_pass": false,
+                "eligible_for_draft_export": false,
+                "accepted": false,
+                "release": false
+              }
+            ],
+            "placement": {
+              "errors": [],
+              "pending": [],
+              "evidence": [
+                {
+                  "unit": "A",
+                  "room": "bed1",
+                  "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bed2",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bed3",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bath",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "kitchen",
+                  "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed1",
+                  "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed2",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed3",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bath",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "kitchen",
+                  "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                  "local_status": "PASS_MODULE_SCOPED"
+                }
+              ],
+              "status": "PASS_PLACEMENT_SCOPED",
+              "whole_model_pass": false
+            },
+            "errors": [],
+            "pending": []
+          },
+          "scope": "Source-backed wet equipment/operations and exact placed-neighbor binding, not complete H07 private-node deletion test"
+        },
+        "nonprivate_wet_access": {
+          "status": "PASS_LIMITED",
+          "witness": {
+            "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+            "rows": [
+              {
+                "unit": "A",
+                "activity": "WC_front",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "15.05",
+                    "12.075"
+                  ],
+                  [
+                    "15.05",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "10.625"
+                  ],
+                  [
+                    "10.335",
+                    "10.625"
+                  ],
+                  [
+                    "10.335",
+                    "10.675"
+                  ],
+                  [
+                    "11.075",
+                    "10.675"
+                  ],
+                  [
+                    "11.075",
+                    "10.625"
+                  ],
+                  [
+                    "11.275",
+                    "10.625"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "301/20",
+                    "483/40"
+                  ]
+                ],
+                "private_intersections": 0
+              },
+              {
+                "unit": "A",
+                "activity": "shower_use",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "15.05",
+                    "12.075"
+                  ],
+                  [
+                    "15.05",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "10.625"
+                  ],
+                  [
+                    "9.965",
+                    "10.625"
+                  ],
+                  [
+                    "9.965",
+                    "10.675"
+                  ],
+                  [
+                    "9.13",
+                    "10.675"
+                  ],
+                  [
+                    "9.13",
+                    "10.025"
+                  ],
+                  [
+                    "9.075",
+                    "10.025"
+                  ],
+                  [
+                    "9.075",
+                    "9.825"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "301/20",
+                    "483/40"
+                  ]
+                ],
+                "private_intersections": 0
+              },
+              {
+                "unit": "A",
+                "activity": "basin_front",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "15.05",
+                    "12.075"
+                  ],
+                  [
+                    "15.05",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "12.005"
+                  ],
+                  [
+                    "14.725",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "11.925"
+                  ],
+                  [
+                    "13.825",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.935"
+                  ],
+                  [
+                    "13.425",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.875"
+                  ],
+                  [
+                    "10.275",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "8.945"
+                  ],
+                  [
+                    "10.225",
+                    "10.825"
+                  ],
+                  [
+                    "10.125",
+                    "10.825"
+                  ],
+                  [
+                    "10.125",
+                    "11.675"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "301/20",
+                    "483/40"
+                  ]
+                ],
+                "private_intersections": 0
+              },
+              {
+                "unit": "B",
+                "activity": "WC_front",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "13.825",
+                    "15.925"
+                  ],
+                  [
+                    "13.825",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "17.375"
+                  ],
+                  [
+                    "10.335",
+                    "17.375"
+                  ],
+                  [
+                    "10.335",
+                    "17.325"
+                  ],
+                  [
+                    "11.075",
+                    "17.325"
+                  ],
+                  [
+                    "11.075",
+                    "17.375"
+                  ],
+                  [
+                    "11.275",
+                    "17.375"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "553/40",
+                    "637/40"
+                  ]
+                ],
+                "private_intersections": 0
+              },
+              {
+                "unit": "B",
+                "activity": "shower_use",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "13.825",
+                    "15.925"
+                  ],
+                  [
+                    "13.825",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "17.375"
+                  ],
+                  [
+                    "9.965",
+                    "17.375"
+                  ],
+                  [
+                    "9.965",
+                    "17.325"
+                  ],
+                  [
+                    "9.13",
+                    "17.325"
+                  ],
+                  [
+                    "9.13",
+                    "17.975"
+                  ],
+                  [
+                    "9.075",
+                    "17.975"
+                  ],
+                  [
+                    "9.075",
+                    "18.175"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "553/40",
+                    "637/40"
+                  ]
+                ],
+                "private_intersections": 0
+              },
+              {
+                "unit": "B",
+                "activity": "basin_front",
+                "deleted_private_regions": 3,
+                "path_points": [
+                  [
+                    "13.825",
+                    "15.925"
+                  ],
+                  [
+                    "13.825",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.065"
+                  ],
+                  [
+                    "13.425",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.125"
+                  ],
+                  [
+                    "10.275",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "19.055"
+                  ],
+                  [
+                    "10.225",
+                    "17.175"
+                  ],
+                  [
+                    "10.125",
+                    "17.175"
+                  ],
+                  [
+                    "10.125",
+                    "16.325"
+                  ]
+                ],
+                "source_common_endpoints": [
+                  [
+                    "553/40",
+                    "637/40"
+                  ]
+                ],
+                "private_intersections": 0
+              }
+            ],
+            "errors": [],
+            "pending": []
+          },
+          "scope": "Every required bath-use target reached from actual common-route endpoint without swept-body intersection with any bedroom or declared private intermediate floor. Common-route, full obstacle and wet operation gates separately mandatory."
+        },
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          },
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": [
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+        ]
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "guest_living_route",
+      "witness": {
+        "status": "FAIL_SCOPED",
+        "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+        "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+        "routes": [
+          {
+            "unit": "A",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 11,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "A",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          }
+        ],
+        "source_lines": {
+          "Blueprint": [
+            286,
+            293,
+            294,
+            295,
+            377,
+            378,
+            382,
+            3988,
+            3989,
+            3990
+          ],
+          "PRD": [
+            161
+          ]
+        },
+        "accepted": false,
+        "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance.",
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": [
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+        ]
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "guest_dining_route",
+      "witness": {
+        "status": "FAIL_SCOPED",
+        "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+        "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+        "routes": [
+          {
+            "unit": "A",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 11,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "A",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          }
+        ],
+        "source_lines": {
+          "Blueprint": [
+            286,
+            293,
+            294,
+            295,
+            377,
+            378,
+            382,
+            3988,
+            3989,
+            3990
+          ],
+          "PRD": [
+            161
+          ]
+        },
+        "accepted": false,
+        "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance.",
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": [
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+        ]
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "serving_route",
+      "witness": {
+        "status": "FAIL_SCOPED",
+        "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+        "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+        "routes": [
+          {
+            "unit": "A",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 11,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "A",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "guest_dining",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          },
+          {
+            "unit": "B",
+            "route": "kitchen_to_dining_floor",
+            "body_width": "7/10",
+            "segments": 13,
+            "all_occupied_chair_motion_included": true
+          }
+        ],
+        "source_lines": {
+          "Blueprint": [
+            286,
+            293,
+            294,
+            295,
+            377,
+            378,
+            382,
+            3988,
+            3989,
+            3990
+          ],
+          "PRD": [
+            161
+          ]
+        },
+        "accepted": false,
+        "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance.",
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": [
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+          "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+          "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+        ]
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "worst_unit_function",
+      "witness": {
+        "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+        "units": [
+          {
+            "unit": "A",
+            "capacity": null,
+            "measured_floor_areas_m2": {
+              "ownership": "134631/400",
+              "structural": "2939/250",
+              "fixture_footprints": "10849/400",
+              "declared_activity": "5633/200",
+              "declared_route": "228573/4000",
+              "unaccounted_declared_floor": "849563/4000"
+            },
+            "bedroom_count": 3,
+            "declared_activity_route_lengths_m": {
+              "bed1.bed_front": "1001/40",
+              "bed1.bed_back": "989/40",
+              "bed1.closet_front": "451/20",
+              "bed1.changing": "203/8",
+              "bed2.closet_front": "89/4",
+              "bed2.bedA_front": "1019/40",
+              "bed2.bedA_back": "947/40",
+              "bed2.bedB_front": "947/40",
+              "bed2.bedB_back": "199/8",
+              "bed2.changing": "1019/40",
+              "bed3.closet_front": "209/10",
+              "bed3.bedA_front": "193/8",
+              "bed3.bedA_back": "893/40",
+              "bed3.bedB_front": "893/40",
+              "bed3.bedB_back": "941/40",
+              "bed3.changing": "193/8",
+              "WC_front": "437/40",
+              "WC_use": "467/40",
+              "shower_use": "473/40",
+              "basin_front": "437/40",
+              "kitchen_work": "123/8",
+              "dining_front_left": "47/8",
+              "dining_front_right": "71/8",
+              "dining_back_left": "27/8",
+              "dining_back_right": "247/40",
+              "dining_left": "201/40",
+              "dining_right": "281/40",
+              "sofa2_front": "249/40",
+              "armchair1_front": "15/8",
+              "armchair3_front": "107/40",
+              "armchair4_front": "39/8",
+              "kitchen": "123/8"
+            },
+            "longest_declared_route_m": "1019/40",
+            "window_contacts": [
+              {
+                "id": "A.bed1.window",
+                "room": "A.bed1",
+                "destination": {
+                  "edge": "bottom"
+                },
+                "plan_rect": [
+                  "4.9",
+                  "0",
+                  "6.9",
+                  "0.25"
+                ]
+              },
+              {
+                "id": "A.bed2.window",
+                "room": "A.bed2",
+                "destination": {
+                  "edge": "bottom"
+                },
+                "plan_rect": [
+                  "12",
+                  "0",
+                  "14",
+                  "0.25"
+                ]
+              },
+              {
+                "id": "A.bed3.window",
+                "room": "A.bed3",
+                "destination": {
+                  "edge": "bottom"
+                },
+                "plan_rect": [
+                  "19.1",
+                  "0",
+                  "21.1",
+                  "0.25"
+                ]
+              },
+              {
+                "id": "A.living.window",
+                "room": "A.living",
+                "destination": {
+                  "edge": "bottom"
+                },
+                "plan_rect": [
+                  "0.55",
+                  "0",
+                  "2.55",
+                  "0.25"
+                ]
+              }
+            ],
+            "front_orientation_is_assumed_not_actual_north": true,
+            "overall_spatial_quality": "NOT_VERIFIED",
+            "daylight_ventilation": "NOT_VERIFIED",
+            "independent_other_mandatory_checks": "Separately required for every unit by named whole-model gate; no average substitutes for failure"
+          },
+          {
+            "unit": "B",
+            "capacity": null,
+            "measured_floor_areas_m2": {
+              "ownership": "33501/100",
+              "structural": "2939/250",
+              "fixture_footprints": "10849/400",
+              "declared_activity": "5633/200",
+              "declared_route": "226469/4000",
+              "unaccounted_declared_floor": "845397/4000"
+            },
+            "bedroom_count": 3,
+            "declared_activity_route_lengths_m": {
+              "bed1.bed_front": "119/5",
+              "bed1.bed_back": "47/2",
+              "bed1.closet_front": "853/40",
+              "bed1.changing": "483/20",
+              "bed2.closet_front": "841/40",
+              "bed2.bedA_front": "97/4",
+              "bed2.bedA_back": "449/20",
+              "bed2.bedB_front": "449/20",
+              "bed2.bedB_back": "473/20",
+              "bed2.changing": "97/4",
+              "bed3.closet_front": "787/40",
+              "bed3.bedA_front": "229/10",
+              "bed3.bedA_back": "211/10",
+              "bed3.bedB_front": "211/10",
+              "bed3.bedB_back": "223/10",
+              "bed3.changing": "229/10",
+              "WC_front": "97/10",
+              "WC_use": "209/20",
+              "shower_use": "53/5",
+              "basin_front": "97/10",
+              "kitchen_work": "283/20",
+              "dining_front_left": "71/10",
+              "dining_front_right": "101/10",
+              "dining_back_left": "23/5",
+              "dining_back_right": "37/5",
+              "dining_left": "25/4",
+              "dining_right": "33/4",
+              "sofa2_front": "5",
+              "armchair1_front": "31/10",
+              "armchair3_front": "12/5",
+              "armchair4_front": "23/5",
+              "kitchen": "283/20"
+            },
+            "longest_declared_route_m": "97/4",
+            "window_contacts": [
+              {
+                "id": "B.bed1.window",
+                "room": "B.bed1",
+                "destination": {
+                  "edge": "top"
+                },
+                "plan_rect": [
+                  "4.9",
+                  "27.75",
+                  "6.9",
+                  "28"
+                ]
+              },
+              {
+                "id": "B.bed2.window",
+                "room": "B.bed2",
+                "destination": {
+                  "edge": "top"
+                },
+                "plan_rect": [
+                  "12",
+                  "27.75",
+                  "14",
+                  "28"
+                ]
+              },
+              {
+                "id": "B.bed3.window",
+                "room": "B.bed3",
+                "destination": {
+                  "edge": "top"
+                },
+                "plan_rect": [
+                  "19.1",
+                  "27.75",
+                  "21.1",
+                  "28"
+                ]
+              },
+              {
+                "id": "B.living.window",
+                "room": "B.living",
+                "destination": {
+                  "edge": "top"
+                },
+                "plan_rect": [
+                  "0.55",
+                  "27.75",
+                  "2.55",
+                  "28"
+                ]
+              }
+            ],
+            "front_orientation_is_assumed_not_actual_north": true,
+            "overall_spatial_quality": "NOT_VERIFIED",
+            "daylight_ventilation": "NOT_VERIFIED",
+            "independent_other_mandatory_checks": "Separately required for every unit by named whole-model gate; no average substitutes for failure"
+          }
+        ],
+        "worst_measured_vectors": {
+          "longest_declared_route_m": {
+            "worst_observed_value": "1019/40",
+            "units_at_value": [
+              "A"
+            ],
+            "spread": "49/40",
+            "not_a_quality_or_necessity_threshold": true
+          },
+          "unaccounted_declared_floor_m2": {
+            "worst_observed_value": "849563/4000",
+            "units_at_value": [
+              "A"
+            ],
+            "spread": "2083/2000",
+            "not_a_quality_or_necessity_threshold": true
+          }
+        },
+        "errors": [
+          {
+            "code": "CAPACITY_AUDIT_MALFORMED",
+            "detail": "'sofa1_front'"
+          }
+        ],
+        "pending": [
+          "PER_UNIT_CAPACITY_VECTOR_INCOMPLETE"
+        ],
+        "averaging_used": false
+      }
+    },
+    {
+      "code": "RULE_FAILED",
+      "requirement_id": "circulation_functional_integrity",
+      "witness": {
+        "actual_functional_integrity": {
+          "status": "FAIL",
+          "witness": {
+            "rule": "Q04",
+            "source": {
+              "Q04": {
+                "source_line": 591,
+                "source_text": "Q04 CIRCULATION \u2014 \u0637\u0648\u0644 \u0645\u0633\u06cc\u0631 \u0648\u0627\u0642\u0639\u06cc \u0648\u0631\u0648\u062f \u062a\u0627 \u0639\u0645\u0644\u06a9\u0631\u062f\u0647\u0627\u060c \u062f\u0648\u0631\u0632\u062f\u0646 \u0646\u0633\u0628\u062a \u0628\u0647 \u0645\u0633\u06cc\u0631 \u0645\u0631\u062c\u0639\u060c \u062a\u0639\u062f\u0627\u062f \u06af\u0644\u0648\u06af\u0627\u0647 \u0648 \u067e\u06cc\u0686 \u0648 \u0633\u0637\u062d \u0645\u0635\u0631\u0641\u200c\u0634\u062f\u0647 \u06af\u0631\u062f\u0634\u061b profile \u0641\u0639\u0627\u0644\u06cc\u062a \u0645\u0639\u0644\u0648\u0645 \u0628\u0627\u0634\u062f. \u062d\u0630\u0641 \u0631\u0627\u0647\u0631\u0648 \u0628\u0627 \u062a\u062e\u0631\u06cc\u0628 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0648\u0627\u0642\u0639\u06cc \u0628\u0631\u062a\u0631\u06cc \u0646\u06cc\u0633\u062a.",
+                "source_modified": "2026-11-12T19:13:23.746Z"
+              },
+              "IR-P10": {
+                "source_line": 4002,
+                "source_text": "IR-P10 | \u06af\u0631\u062f\u0634 \u0622\u0634\u06a9\u0627\u0631 \u0648 \u067e\u0646\u0647\u0627\u0646\n\u062f\u0631 \u0647\u0645\u0647 \u067e\u0644\u0627\u0646\u200c\u0647\u0627\u061b \u0645\u0633\u06cc\u0631 \u0639\u0628\u0648\u0631 \u0627\u0632 \u0645\u06cc\u0627\u0646 \u0645\u0628\u0644\u0645\u0627\u0646 \u0641\u0631\u0636\u06cc\u060c \u0645\u0642\u0627\u0628\u0644 \u062a\u0644\u0648\u06cc\u0632\u06cc\u0648\u0646 \u0648 \u0646\u0627\u062d\u06cc\u0647 \u063a\u0630\u0627\u062e\u0648\u0631\u06cc \u0646\u06cc\u0632 \u06af\u0631\u062f\u0634 \u0627\u0633\u062a\u061b \u0645\u0633\u0627\u062d\u062a \u06cc\u06a9\u200c\u0628\u0627\u0631 \u0634\u0645\u0631\u062f\u0647 \u0634\u0648\u062f. \u0645\u0646\u0628\u0639 \u0648 \u0631\u062f\u06cc\u0627\u0628\u06cc: S04\u061b Q04. \u0645\u0635\u0627\u0644\u062d\u0647: \u0631\u0627\u0647\u0631\u0648\u06cc \u062d\u0630\u0641\u200c\u0634\u062f\u0647 \u062f\u0631 \u0628\u0631\u0627\u0628\u0631 \u0627\u062e\u062a\u0644\u0627\u0644 \u0641\u0639\u0627\u0644\u06cc\u062a. \u0632\u06cc\u0631\u0622\u0632\u0645\u0648\u0646 \u062c\u0627\u0631\u06cc: \u0645\u0633\u0627\u062d\u062a \u06af\u0631\u062f\u0634 \u0627\u062e\u062a\u0635\u0627\u0635\u06cc \u0648 \u06af\u0631\u062f\u0634 \u062f\u0627\u062e\u0644 \u0646\u0634\u06cc\u0645\u0646/\u063a\u0630\u0627\u062e\u0648\u0631\u06cc \u062c\u062f\u0627 \u0627\u0646\u062f\u0627\u0632\u0647\u200c\u06af\u06cc\u0631\u06cc \u0648 \u0628\u062f\u0648\u0646 \u062f\u0648\u0628\u0627\u0631\u0647\u200c\u0634\u0645\u0627\u0631\u06cc \u06af\u0632\u0627\u0631\u0634 \u0634\u0648\u0646\u062f\u061b \u0646\u0648\u0627\u0631 \u0628\u0627\u0631\u06cc\u06a9 \u0628\u0627 \u0646\u0627\u0645 \u00ab\u0627\u062f\u0627\u0645\u0647 \u0646\u0634\u06cc\u0645\u0646\u00bb \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0633\u0637\u062d \u0646\u0634\u0633\u062a\u0646 \u0645\u062d\u0633\u0648\u0628 \u0634\u0648\u062f \u06a9\u0647 \u0686\u06cc\u062f\u0645\u0627\u0646 \u0648 \u0639\u0628\u0648\u0631 \u0647\u0645\u200c\u0632\u0645\u0627\u0646 \u0642\u0627\u0628\u0644 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0634\u0627\u0647\u062f \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0646\u062f. \u062d\u0630\u0641 \u0646\u0627\u0645 \u0631\u0627\u0647\u0631\u0648 \u06cc\u0627 \u062f\u06cc\u0648\u0627\u0631\u060c \u0628\u0647\u200c\u062a\u0646\u0647\u0627\u06cc\u06cc \u0641\u0636\u0627\u06cc \u0645\u0641\u06cc\u062f \u0627\u06cc\u062c\u0627\u062f \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.",
+                "source_modified": "2026-11-12T19:13:23.746Z"
+              },
+              "long_corridor_condition": {
+                "source_line": 7,
+                "text": "\u0631\u0627\u0647\u0631\u0648\u06cc \u0637\u0648\u0644\u0627\u0646\u06cc \u062a\u0646\u0647\u0627 \u0628\u0627 \u0645\u0642\u0627\u06cc\u0633\u0647 \u0628\u062f\u06cc\u0644 \u0648 \u062f\u0644\u06cc\u0644 \u0636\u0631\u0648\u0631\u062a \u0645\u062c\u0627\u0632 \u0627\u0633\u062a."
+              },
+              "blueprint_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a"
+            },
+            "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+            "errors": [
+              "body:ACTUAL_FUNCTIONAL_CIRCULATION_FAILED",
+              "public_scenarios:ACTUAL_FUNCTIONAL_CIRCULATION_FAILED"
+            ],
+            "pending": [],
+            "module_placement": {
+              "errors": [],
+              "pending": [],
+              "evidence": [
+                {
+                  "unit": "A",
+                  "room": "bed1",
+                  "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bed2",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bed3",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "bath",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "A",
+                  "room": "kitchen",
+                  "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed1",
+                  "module_hash": "65d0d7b44a7f966b5bf59bdcc9095f4c08a2021c79a213f9b8f1e50eb5fc1517",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed2",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bed3",
+                  "module_hash": "812b0dbdb1093b17d22ef12b6e03e464ad12ddbbc2ad82b25388e161c34dac4f",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "bath",
+                  "module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+                  "local_status": "PASS_MODULE_SCOPED"
+                },
+                {
+                  "unit": "B",
+                  "room": "kitchen",
+                  "module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+                  "local_status": "PASS_MODULE_SCOPED"
+                }
+              ],
+              "status": "PASS_PLACEMENT_SCOPED",
+              "whole_model_pass": false
+            },
+            "checks": {
+              "core": {
+                "status": "PASS_LIMITED",
+                "witness": {
+                  "rule": "H15",
+                  "source": {
+                    "source_line": 579,
+                    "source_text": "H15 CORE_2D \u2014 \u062f\u0631 MVP \u0641\u0642\u0637 \u062c\u0627\u0646\u0645\u0627\u06cc\u06cc \u0645\u0641\u0647\u0648\u0645\u06cc \u06cc\u06a9 \u0647\u0633\u062a\u0647 \u067e\u0644\u0647 \u0645\u0634\u062a\u0631\u06a9\u060c \u0622\u0633\u0627\u0646\u0633\u0648\u0631\u060c \u0644\u0627\u0628\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u06cc\u0631\u0648\u0646 \u0645\u062d\u0641\u0638\u0647 \u067e\u0644\u0647 \u0648 \u062f\u0633\u062a\u0631\u0633\u06cc \u0645\u0633\u062a\u0642\u0644 \u0648 \u067e\u06cc\u0648\u0633\u062a\u0647 \u0647\u0631 \u0648\u0627\u062d\u062f \u062f\u0631 \u0642\u0627\u0628 \u0637\u0631\u0627\u062d\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f. \u062d\u0630\u0641 \u0627\u062c\u0632\u0627\u06cc \u0627\u0644\u0632\u0627\u0645\u06cc\u060c \u062a\u062f\u0627\u062e\u0644 \u0642\u0637\u0639\u06cc \u06cc\u0627 \u0639\u0628\u0648\u0631 \u0627\u062c\u0628\u0627\u0631\u06cc \u0627\u0632 \u0645\u062d\u0641\u0638\u0647 \u067e\u0644\u0647 \u0627\u06cc\u0631\u0627\u062f \u0645\u0641\u0647\u0648\u0645\u06cc \u0627\u0633\u062a. \u0638\u0631\u0641\u06cc\u062a \u0648 \u0645\u062f\u0644 \u0627\u062c\u0631\u0627\u06cc\u06cc\u060c \u0645\u0642\u0637\u0639 \u0648 \u0633\u0631\u06af\u06cc\u0631 \u067e\u0644\u0647\u060c \u0646\u0635\u0628 \u0622\u0633\u0627\u0646\u0633\u0648\u0631\u060c \u0686\u0627\u0647\u06a9 \u0648 \u0628\u0627\u0644\u0627\u0633\u0631\u06cc \u0648 \u062a\u0623\u06cc\u06cc\u062f \u0627\u0628\u0639\u0627\u062f \u0627\u062c\u0631\u0627\u06cc\u06cc POST_MVP / NOT_EVALUATED \u0647\u0633\u062a\u0646\u062f \u0648 \u0641\u0642\u062f\u0627\u0646 \u0622\u0646\u0647\u0627 \u0628\u0647\u200c\u062a\u0646\u0647\u0627\u06cc\u06cc \u06af\u0627\u0645 \u062f\u0648\u0645 MVP \u0631\u0627 \u0645\u062a\u0648\u0642\u0641 \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f. \u062d\u0636\u0648\u0631 \u0634\u0645\u0627\u062a\u06cc\u06a9 \u0647\u06cc\u0686 \u062a\u0623\u06cc\u06cc\u062f \u0642\u0627\u0646\u0648\u0646\u06cc \u06cc\u0627 \u0627\u062c\u0631\u0627\u06cc\u06cc \u0627\u06cc\u062c\u0627\u062f \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.",
+                    "source_modified": "2026-11-12T19:13:23.746Z"
+                  },
+                  "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+                  "errors": [],
+                  "pending": [],
+                  "routes": [
+                    {
+                      "route": "stair_A",
+                      "segments": 2,
+                      "source": "stair",
+                      "destination": "A"
+                    },
+                    {
+                      "route": "lift_A",
+                      "segments": 2,
+                      "source": "lift",
+                      "destination": "A"
+                    },
+                    {
+                      "route": "stair_B",
+                      "segments": 2,
+                      "source": "stair",
+                      "destination": "B"
+                    },
+                    {
+                      "route": "lift_B",
+                      "segments": 2,
+                      "source": "lift",
+                      "destination": "B"
+                    }
+                  ],
+                  "body_m": "7/10",
+                  "hardware_and_external_entry": "NOT_EVALUATED_OUTSIDE_CONCEPT"
+                },
+                "scope": "Actual same-model exact 2D geometry for H15; no hardware, legal, daylight or architectural-quality approval."
+              },
+              "hosts": {
+                "status": "PASS_LIMITED",
+                "witness": {
+                  "rule": "H10",
+                  "source": {
+                    "source_line": 573,
+                    "source_text": "H10 OPENING_HOST \u2014 \u0645\u06cc\u0632\u0628\u0627\u0646\u060c \u0628\u0627\u0632\u0647 \u0631\u0648\u06cc \u062f\u06cc\u0648\u0627\u0631\u060c \u0639\u0631\u0636 \u0648 \u062f\u0648 \u0641\u0636\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u0647\u0631 \u0628\u0627\u0632\u0634\u0648 \u0645\u0639\u0644\u0648\u0645 \u0628\u0627\u0634\u0646\u062f. QA: \u062f\u0631 \u0631\u0648\u06cc \u0645\u0631\u0632 \u0635\u062d\u06cc\u062d \u0645\u062b\u0628\u062a\u061b \u062f\u0631 \u062f\u0631 \u0641\u0636\u0627\u06cc \u062e\u0627\u0644\u06cc \u06cc\u0627 \u067e\u0646\u062c\u0631\u0647 \u0628\u06cc\u200c\u0645\u06cc\u0632\u0628\u0627\u0646 \u0645\u0646\u0641\u06cc. \u0645\u06cc\u0632\u0628\u0627\u0646 \u0646\u0627\u0645\u0639\u0644\u0648\u0645 \u2192 INDETERMINATE \u0628\u0627 \u0639\u0644\u062a MISSING_EVIDENCE\u061b \u0628\u06cc\u200c\u0645\u06cc\u0632\u0628\u0627\u0646\u200c\u0628\u0648\u062f\u0646\u0650 \u0627\u062b\u0628\u0627\u062a\u200c\u0634\u062f\u0647 \u0628\u0627 \u0645\u06cc\u0632\u0628\u0627\u0646\u0650 \u0647\u0646\u0648\u0632 \u062b\u0628\u062a\u200c\u0646\u0634\u062f\u0647 \u0641\u0631\u0642 \u062f\u0627\u0631\u062f. \u0645\u0631\u062c\u0639:B2\u061b \u062a\u0631\u0645\u06cc\u0645 \u0645\u0633\u062a\u0644\u0632\u0645 \u06a9\u0646\u062a\u0631\u0644 \u062f\u0648\u0628\u0627\u0631\u0647 \u0631\u0648\u0627\u0628\u0637 \u0627\u0633\u062a.",
+                    "source_modified": "2026-11-12T19:13:23.746Z"
+                  },
+                  "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+                  "errors": [],
+                  "pending": [],
+                  "openings": [
+                    {
+                      "opening": "A.entry",
+                      "host": "A.unit_boundary",
+                      "regions": [
+                        "lobby",
+                        "A.public_access"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.entry",
+                      "host": "B.unit_boundary",
+                      "regions": [
+                        "lobby",
+                        "B.public_access"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "stair.entry",
+                      "host": "core.stair.right",
+                      "regions": [
+                        "stair",
+                        "lobby"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "lift.entry",
+                      "host": "core.lift.left",
+                      "regions": [
+                        "lift",
+                        "lobby"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.bed1.entry",
+                      "host": "A.bed1.left",
+                      "regions": [
+                        "A.private_access",
+                        "A.bed1"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.bed2.entry",
+                      "host": "A.bed2.left",
+                      "regions": [
+                        "A.private_access",
+                        "A.bed2"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.bed3.entry",
+                      "host": "A.bed3.left",
+                      "regions": [
+                        "A.private_access",
+                        "A.bed3"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.bath",
+                      "host": "A.bath.A.bath_right1",
+                      "regions": [
+                        "A.public_access",
+                        "A.bath"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.WC",
+                      "host": "A.bath.A.WC_right",
+                      "regions": [
+                        "A.vanity",
+                        "A.WC"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.shower",
+                      "host": "A.bath.A.shower_right",
+                      "regions": [
+                        "A.vanity",
+                        "A.shower"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "A.kitchen.entry",
+                      "host": "A.kitchen.front",
+                      "regions": [
+                        "A.kitchen_public_access",
+                        "A.kitchen"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.bed1.entry",
+                      "host": "B.bed1.left",
+                      "regions": [
+                        "B.private_access",
+                        "B.bed1"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.bed2.entry",
+                      "host": "B.bed2.left",
+                      "regions": [
+                        "B.private_access",
+                        "B.bed2"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.bed3.entry",
+                      "host": "B.bed3.left",
+                      "regions": [
+                        "B.private_access",
+                        "B.bed3"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.bath",
+                      "host": "B.bath.A.bath_right1",
+                      "regions": [
+                        "B.public_access",
+                        "B.bath"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.WC",
+                      "host": "B.bath.A.WC_right",
+                      "regions": [
+                        "B.vanity",
+                        "B.WC"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.shower",
+                      "host": "B.bath.A.shower_right",
+                      "regions": [
+                        "B.vanity",
+                        "B.shower"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "opening": "B.kitchen.entry",
+                      "host": "B.kitchen.front",
+                      "regions": [
+                        "B.kitchen_public_access",
+                        "B.kitchen"
+                      ],
+                      "crossing_found": true
+                    },
+                    {
+                      "window": "A.bed1.window",
+                      "host": "front",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "A.bed2.window",
+                      "host": "front",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "A.bed3.window",
+                      "host": "front",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "B.bed1.window",
+                      "host": "back",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "B.bed2.window",
+                      "host": "back",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "B.bed3.window",
+                      "host": "back",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "A.living.window",
+                      "host": "front",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    },
+                    {
+                      "window": "B.living.window",
+                      "host": "back",
+                      "scope": "Actual object geometry only; light/ventilation excluded, not evaluated."
+                    }
+                  ],
+                  "body_m": "7/10",
+                  "logical_bath_regions_scope": "Actual explicit partition regions must also have source-placement binding in separate mandatory gate."
+                },
+                "scope": "Actual same-model exact 2D geometry for H10; no hardware, legal, daylight or architectural-quality approval."
+              },
+              "body": {
+                "status": "FAIL",
+                "witness": {
+                  "routes": [
+                    {
+                      "unit": "A",
+                      "route": "bed1.bed_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed1.bed_back",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed1.closet_front",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed1.changing",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.closet_front",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.bedA_front",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.bedA_back",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.bedB_front",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.bedB_back",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed2.changing",
+                      "points": 14,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.closet_front",
+                      "points": 16,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.bedA_front",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.bedA_back",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.bedB_front",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.bedB_back",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "bed3.changing",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "WC_front",
+                      "points": 17,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "WC_use",
+                      "points": 22,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "shower_use",
+                      "points": 18,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "basin_front",
+                      "points": 14,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "kitchen_work",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_front_left",
+                      "points": 10,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_front_right",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_back_left",
+                      "points": 7,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_back_right",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_left",
+                      "points": 8,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "dining_right",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "sofa2_front",
+                      "points": 7,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "armchair1_front",
+                      "points": 5,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "armchair3_front",
+                      "points": 5,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "armchair4_front",
+                      "points": 5,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "A",
+                      "route": "kitchen",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed1.bed_front",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed1.bed_back",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed1.closet_front",
+                      "points": 10,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed1.changing",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.closet_front",
+                      "points": 10,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.bedA_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.bedA_back",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.bedB_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.bedB_back",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed2.changing",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.closet_front",
+                      "points": 14,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.bedA_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.bedA_back",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.bedB_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.bedB_back",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "bed3.changing",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "WC_front",
+                      "points": 13,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "WC_use",
+                      "points": 18,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "shower_use",
+                      "points": 14,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "basin_front",
+                      "points": 10,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "kitchen_work",
+                      "points": 9,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_front_left",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_front_right",
+                      "points": 15,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_back_left",
+                      "points": 6,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_back_right",
+                      "points": 11,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_left",
+                      "points": 10,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "dining_right",
+                      "points": 12,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "sofa2_front",
+                      "points": 5,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "armchair1_front",
+                      "points": 5,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "armchair3_front",
+                      "points": 3,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "armchair4_front",
+                      "points": 3,
+                      "body_m": ".7"
+                    },
+                    {
+                      "unit": "B",
+                      "route": "kitchen",
+                      "points": 9,
+                      "body_m": ".7"
+                    }
+                  ],
+                  "errors": [
+                    {
+                      "unit": "A",
+                      "code": "ACTUAL_ACTIVITY_ROUTE_INVENTORY"
+                    },
+                    {
+                      "unit": "B",
+                      "code": "ACTUAL_ACTIVITY_ROUTE_INVENTORY"
+                    }
+                  ],
+                  "pending": []
+                },
+                "scope": "All declared activity route swept bodies against actual owners/walls/all open panels/fixtures; required named guest/chair/service inventory separately remains mandatory"
+              },
+              "public_scenarios": {
+                "status": "FAIL",
+                "witness": {
+                  "status": "FAIL_SCOPED",
+                  "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+                  "checker_sha256": "aa282091606bbdfc3cd91b58567d2757edb6f2959ce8c0fbc62d593af4f82c99",
+                  "routes": [
+                    {
+                      "unit": "A",
+                      "route": "guest_dining",
+                      "body_width": "7/10",
+                      "segments": 11,
+                      "all_occupied_chair_motion_included": true
+                    },
+                    {
+                      "unit": "A",
+                      "route": "kitchen_to_dining_floor",
+                      "body_width": "7/10",
+                      "segments": 13,
+                      "all_occupied_chair_motion_included": true
+                    },
+                    {
+                      "unit": "B",
+                      "route": "guest_dining",
+                      "body_width": "7/10",
+                      "segments": 13,
+                      "all_occupied_chair_motion_included": true
+                    },
+                    {
+                      "unit": "B",
+                      "route": "kitchen_to_dining_floor",
+                      "body_width": "7/10",
+                      "segments": 13,
+                      "all_occupied_chair_motion_included": true
+                    }
+                  ],
+                  "source_lines": {
+                    "Blueprint": [
+                      286,
+                      293,
+                      294,
+                      295,
+                      377,
+                      378,
+                      382,
+                      3988,
+                      3989,
+                      3990
+                    ],
+                    "PRD": [
+                      161
+                    ]
+                  },
+                  "accepted": false,
+                  "scope": "Public route/chair geometry and declared inventory only; no generic sofa seating/population inference, no area-ratio threshold, no whole-plan acceptance.",
+                  "errors": [
+                    {
+                      "code": "CAPACITY_AUDIT_MALFORMED",
+                      "detail": "'sofa1_front'"
+                    }
+                  ],
+                  "pending": [
+                    "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:A",
+                    "PUBLIC_CAPACITY_INSTANCE_GEOMETRY_PROOF:B",
+                    "PUBLIC_REQUIRED_ROUTE_MISSING:A.guest_living",
+                    "PUBLIC_REQUIRED_ROUTE_MISSING:B.guest_living"
+                  ]
+                },
+                "scope": "Combined named public guest/chair/capacity/service scenario audit. Missing any applicable witness is retained; no blanket capacity PASS or reduction of occupant count."
+              },
+              "bath_nonprivate": {
+                "status": "PASS_LIMITED",
+                "witness": {
+                  "model_hash": "0e802ba59e0de3c07e28725af309c5aebf40274876b8e30d4a7ff1264b56618a",
+                  "rows": [
+                    {
+                      "unit": "A",
+                      "activity": "WC_front",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "15.05",
+                          "12.075"
+                        ],
+                        [
+                          "15.05",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "10.625"
+                        ],
+                        [
+                          "10.335",
+                          "10.625"
+                        ],
+                        [
+                          "10.335",
+                          "10.675"
+                        ],
+                        [
+                          "11.075",
+                          "10.675"
+                        ],
+                        [
+                          "11.075",
+                          "10.625"
+                        ],
+                        [
+                          "11.275",
+                          "10.625"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "301/20",
+                          "483/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    },
+                    {
+                      "unit": "A",
+                      "activity": "shower_use",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "15.05",
+                          "12.075"
+                        ],
+                        [
+                          "15.05",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "10.625"
+                        ],
+                        [
+                          "9.965",
+                          "10.625"
+                        ],
+                        [
+                          "9.965",
+                          "10.675"
+                        ],
+                        [
+                          "9.13",
+                          "10.675"
+                        ],
+                        [
+                          "9.13",
+                          "10.025"
+                        ],
+                        [
+                          "9.075",
+                          "10.025"
+                        ],
+                        [
+                          "9.075",
+                          "9.825"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "301/20",
+                          "483/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    },
+                    {
+                      "unit": "A",
+                      "activity": "basin_front",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "15.05",
+                          "12.075"
+                        ],
+                        [
+                          "15.05",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "12.005"
+                        ],
+                        [
+                          "14.725",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "11.925"
+                        ],
+                        [
+                          "13.825",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.935"
+                        ],
+                        [
+                          "13.425",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.875"
+                        ],
+                        [
+                          "10.275",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "8.945"
+                        ],
+                        [
+                          "10.225",
+                          "10.825"
+                        ],
+                        [
+                          "10.125",
+                          "10.825"
+                        ],
+                        [
+                          "10.125",
+                          "11.675"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "301/20",
+                          "483/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    },
+                    {
+                      "unit": "B",
+                      "activity": "WC_front",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "13.825",
+                          "15.925"
+                        ],
+                        [
+                          "13.825",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "17.375"
+                        ],
+                        [
+                          "10.335",
+                          "17.375"
+                        ],
+                        [
+                          "10.335",
+                          "17.325"
+                        ],
+                        [
+                          "11.075",
+                          "17.325"
+                        ],
+                        [
+                          "11.075",
+                          "17.375"
+                        ],
+                        [
+                          "11.275",
+                          "17.375"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "553/40",
+                          "637/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    },
+                    {
+                      "unit": "B",
+                      "activity": "shower_use",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "13.825",
+                          "15.925"
+                        ],
+                        [
+                          "13.825",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "17.375"
+                        ],
+                        [
+                          "9.965",
+                          "17.375"
+                        ],
+                        [
+                          "9.965",
+                          "17.325"
+                        ],
+                        [
+                          "9.13",
+                          "17.325"
+                        ],
+                        [
+                          "9.13",
+                          "17.975"
+                        ],
+                        [
+                          "9.075",
+                          "17.975"
+                        ],
+                        [
+                          "9.075",
+                          "18.175"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "553/40",
+                          "637/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    },
+                    {
+                      "unit": "B",
+                      "activity": "basin_front",
+                      "deleted_private_regions": 3,
+                      "path_points": [
+                        [
+                          "13.825",
+                          "15.925"
+                        ],
+                        [
+                          "13.825",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.065"
+                        ],
+                        [
+                          "13.425",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.125"
+                        ],
+                        [
+                          "10.275",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "19.055"
+                        ],
+                        [
+                          "10.225",
+                          "17.175"
+                        ],
+                        [
+                          "10.125",
+                          "17.175"
+                        ],
+                        [
+                          "10.125",
+                          "16.325"
+                        ]
+                      ],
+                      "source_common_endpoints": [
+                        [
+                          "553/40",
+                          "637/40"
+                        ]
+                      ],
+                      "private_intersections": 0
+                    }
+                  ],
+                  "errors": [],
+                  "pending": []
+                },
+                "scope": "Every required bath-use target reached from actual common-route endpoint without swept-body intersection with any bedroom or declared private intermediate floor. Common-route, full obstacle and wet operation gates separately mandatory."
+              }
+            },
+            "units": [
+              {
+                "unit": "A",
+                "route_body_union_m2": "328283/4000",
+                "declared_entry_union_m2": "1423/80",
+                "not_route_proven_floor_m2": "0",
+                "not_route_proven_parts": [],
+                "classification": "NOT_ROUTE_PROVEN; not automatically useful seating or necessary corridor. Door/other operation floor is assessed by separate mandatory operation gates."
+              },
+              {
+                "unit": "B",
+                "route_body_union_m2": "10206/125",
+                "declared_entry_union_m2": "71239/4000",
+                "not_route_proven_floor_m2": "0",
+                "not_route_proven_parts": [],
+                "classification": "NOT_ROUTE_PROVEN; not automatically useful seating or necessary corridor. Door/other operation floor is assessed by separate mandatory operation gates."
+              }
+            ],
+            "common_unprogrammed_components": [],
+            "common_not_route_proven_area_m2": "1109/400",
+            "functional_claim_boundary": "Only actual required body-route swept union counted as route use. Unused floor is preserved and disclosed, never labelled necessary circulation or useful public area by this audit.",
+            "review_separation": "Layout alternative, preference tradeoffs and absolute necessity are REVIEW, not excused collisions or fake functional floor.",
+            "route_cost_facts": {
+              "rule": "Q04",
+              "source": {},
+              "source_document_sha256": "d9cf1ac027529a0c340d6ce4c8a3c8dee595202832dcddc6484480caf9584d9a",
+              "errors": [],
+              "pending": [
+                "LONG_CORRIDOR_APPLICABILITY_AND_COMPARATIVE_NECESSITY_NOT_YET_BOUND"
+              ],
+              "units": [
+                {
+                  "unit": "A",
+                  "routes": {
+                    "bed1.bed_front": {
+                      "length_m": "1001/40",
+                      "unobstructed_manhattan_lower_bound_m": "173/8",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.bed_back": {
+                      "length_m": "989/40",
+                      "unobstructed_manhattan_lower_bound_m": "153/8",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.closet_front": {
+                      "length_m": "451/20",
+                      "unobstructed_manhattan_lower_bound_m": "383/20",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.changing": {
+                      "length_m": "203/8",
+                      "unobstructed_manhattan_lower_bound_m": "791/40",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.closet_front": {
+                      "length_m": "89/4",
+                      "unobstructed_manhattan_lower_bound_m": "267/20",
+                      "excess_over_lower_bound_m": "89/10",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedA_front": {
+                      "length_m": "1019/40",
+                      "unobstructed_manhattan_lower_bound_m": "463/40",
+                      "excess_over_lower_bound_m": "139/10",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedA_back": {
+                      "length_m": "947/40",
+                      "unobstructed_manhattan_lower_bound_m": "391/40",
+                      "excess_over_lower_bound_m": "139/10",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedB_front": {
+                      "length_m": "947/40",
+                      "unobstructed_manhattan_lower_bound_m": "391/40",
+                      "excess_over_lower_bound_m": "139/10",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedB_back": {
+                      "length_m": "199/8",
+                      "unobstructed_manhattan_lower_bound_m": "319/40",
+                      "excess_over_lower_bound_m": "169/10",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.changing": {
+                      "length_m": "1019/40",
+                      "unobstructed_manhattan_lower_bound_m": "327/40",
+                      "excess_over_lower_bound_m": "173/10",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.closet_front": {
+                      "length_m": "209/10",
+                      "unobstructed_manhattan_lower_bound_m": "301/20",
+                      "excess_over_lower_bound_m": "117/20",
+                      "direction_changes": 14,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedA_front": {
+                      "length_m": "193/8",
+                      "unobstructed_manhattan_lower_bound_m": "731/40",
+                      "excess_over_lower_bound_m": "117/20",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedA_back": {
+                      "length_m": "893/40",
+                      "unobstructed_manhattan_lower_bound_m": "659/40",
+                      "excess_over_lower_bound_m": "117/20",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedB_front": {
+                      "length_m": "893/40",
+                      "unobstructed_manhattan_lower_bound_m": "659/40",
+                      "excess_over_lower_bound_m": "117/20",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedB_back": {
+                      "length_m": "941/40",
+                      "unobstructed_manhattan_lower_bound_m": "587/40",
+                      "excess_over_lower_bound_m": "177/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.changing": {
+                      "length_m": "193/8",
+                      "unobstructed_manhattan_lower_bound_m": "611/40",
+                      "excess_over_lower_bound_m": "177/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "WC_front": {
+                      "length_m": "437/40",
+                      "unobstructed_manhattan_lower_bound_m": "209/40",
+                      "excess_over_lower_bound_m": "57/10",
+                      "direction_changes": 15,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "WC_use": {
+                      "length_m": "467/40",
+                      "unobstructed_manhattan_lower_bound_m": "239/40",
+                      "excess_over_lower_bound_m": "57/10",
+                      "direction_changes": 20,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "shower_use": {
+                      "length_m": "473/40",
+                      "unobstructed_manhattan_lower_bound_m": "329/40",
+                      "excess_over_lower_bound_m": "18/5",
+                      "direction_changes": 16,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "basin_front": {
+                      "length_m": "437/40",
+                      "unobstructed_manhattan_lower_bound_m": "213/40",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "kitchen_work": {
+                      "length_m": "123/8",
+                      "unobstructed_manhattan_lower_bound_m": "91/8",
+                      "excess_over_lower_bound_m": "4",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_front_left": {
+                      "length_m": "47/8",
+                      "unobstructed_manhattan_lower_bound_m": "47/8",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 8,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_front_right": {
+                      "length_m": "71/8",
+                      "unobstructed_manhattan_lower_bound_m": "347/40",
+                      "excess_over_lower_bound_m": "1/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_back_left": {
+                      "length_m": "27/8",
+                      "unobstructed_manhattan_lower_bound_m": "27/8",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 5,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_back_right": {
+                      "length_m": "247/40",
+                      "unobstructed_manhattan_lower_bound_m": "247/40",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_left": {
+                      "length_m": "201/40",
+                      "unobstructed_manhattan_lower_bound_m": "201/40",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 6,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_right": {
+                      "length_m": "281/40",
+                      "unobstructed_manhattan_lower_bound_m": "281/40",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "sofa2_front": {
+                      "length_m": "249/40",
+                      "unobstructed_manhattan_lower_bound_m": "249/40",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 5,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair1_front": {
+                      "length_m": "15/8",
+                      "unobstructed_manhattan_lower_bound_m": "15/8",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 3,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair3_front": {
+                      "length_m": "107/40",
+                      "unobstructed_manhattan_lower_bound_m": "17/8",
+                      "excess_over_lower_bound_m": "11/20",
+                      "direction_changes": 3,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair4_front": {
+                      "length_m": "39/8",
+                      "unobstructed_manhattan_lower_bound_m": "173/40",
+                      "excess_over_lower_bound_m": "11/20",
+                      "direction_changes": 3,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "kitchen": {
+                      "length_m": "123/8",
+                      "unobstructed_manhattan_lower_bound_m": "91/8",
+                      "excess_over_lower_bound_m": "4",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "scenario:kitchen_to_dining_floor": {
+                      "length_m": "191/10",
+                      "unobstructed_manhattan_lower_bound_m": "69/5",
+                      "excess_over_lower_bound_m": "53/10",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "scenario:guest_dining": {
+                      "length_m": "281/40",
+                      "unobstructed_manhattan_lower_bound_m": "281/40",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    }
+                  },
+                  "all_route_body_union_m2": "328283/4000",
+                  "route_inside_designated_circulation_m2": "1423/80",
+                  "route_inside_living_or_dining_m2": "10921/1000",
+                  "regions_may_overlap_and_are_not_added": true
+                },
+                {
+                  "unit": "B",
+                  "routes": {
+                    "bed1.bed_front": {
+                      "length_m": "119/5",
+                      "unobstructed_manhattan_lower_bound_m": "102/5",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.bed_back": {
+                      "length_m": "47/2",
+                      "unobstructed_manhattan_lower_bound_m": "179/10",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.closet_front": {
+                      "length_m": "853/40",
+                      "unobstructed_manhattan_lower_bound_m": "717/40",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 8,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed1.changing": {
+                      "length_m": "483/20",
+                      "unobstructed_manhattan_lower_bound_m": "371/20",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.closet_front": {
+                      "length_m": "841/40",
+                      "unobstructed_manhattan_lower_bound_m": "97/8",
+                      "excess_over_lower_bound_m": "89/10",
+                      "direction_changes": 8,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedA_front": {
+                      "length_m": "97/4",
+                      "unobstructed_manhattan_lower_bound_m": "62/5",
+                      "excess_over_lower_bound_m": "237/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedA_back": {
+                      "length_m": "449/20",
+                      "unobstructed_manhattan_lower_bound_m": "53/5",
+                      "excess_over_lower_bound_m": "237/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedB_front": {
+                      "length_m": "449/20",
+                      "unobstructed_manhattan_lower_bound_m": "53/5",
+                      "excess_over_lower_bound_m": "237/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.bedB_back": {
+                      "length_m": "473/20",
+                      "unobstructed_manhattan_lower_bound_m": "44/5",
+                      "excess_over_lower_bound_m": "297/20",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed2.changing": {
+                      "length_m": "97/4",
+                      "unobstructed_manhattan_lower_bound_m": "47/5",
+                      "excess_over_lower_bound_m": "297/20",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.closet_front": {
+                      "length_m": "787/40",
+                      "unobstructed_manhattan_lower_bound_m": "651/40",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedA_front": {
+                      "length_m": "229/10",
+                      "unobstructed_manhattan_lower_bound_m": "39/2",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedA_back": {
+                      "length_m": "211/10",
+                      "unobstructed_manhattan_lower_bound_m": "177/10",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedB_front": {
+                      "length_m": "211/10",
+                      "unobstructed_manhattan_lower_bound_m": "177/10",
+                      "excess_over_lower_bound_m": "17/5",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.bedB_back": {
+                      "length_m": "223/10",
+                      "unobstructed_manhattan_lower_bound_m": "159/10",
+                      "excess_over_lower_bound_m": "32/5",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "bed3.changing": {
+                      "length_m": "229/10",
+                      "unobstructed_manhattan_lower_bound_m": "33/2",
+                      "excess_over_lower_bound_m": "32/5",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "WC_front": {
+                      "length_m": "97/10",
+                      "unobstructed_manhattan_lower_bound_m": "4",
+                      "excess_over_lower_bound_m": "57/10",
+                      "direction_changes": 11,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "WC_use": {
+                      "length_m": "209/20",
+                      "unobstructed_manhattan_lower_bound_m": "19/4",
+                      "excess_over_lower_bound_m": "57/10",
+                      "direction_changes": 16,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "shower_use": {
+                      "length_m": "53/5",
+                      "unobstructed_manhattan_lower_bound_m": "7",
+                      "excess_over_lower_bound_m": "18/5",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "basin_front": {
+                      "length_m": "97/10",
+                      "unobstructed_manhattan_lower_bound_m": "41/10",
+                      "excess_over_lower_bound_m": "28/5",
+                      "direction_changes": 8,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "kitchen_work": {
+                      "length_m": "283/20",
+                      "unobstructed_manhattan_lower_bound_m": "203/20",
+                      "excess_over_lower_bound_m": "4",
+                      "direction_changes": 7,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_front_left": {
+                      "length_m": "71/10",
+                      "unobstructed_manhattan_lower_bound_m": "71/10",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_front_right": {
+                      "length_m": "101/10",
+                      "unobstructed_manhattan_lower_bound_m": "99/10",
+                      "excess_over_lower_bound_m": "1/5",
+                      "direction_changes": 13,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_back_left": {
+                      "length_m": "23/5",
+                      "unobstructed_manhattan_lower_bound_m": "23/5",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 4,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_back_right": {
+                      "length_m": "37/5",
+                      "unobstructed_manhattan_lower_bound_m": "37/5",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 9,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_left": {
+                      "length_m": "25/4",
+                      "unobstructed_manhattan_lower_bound_m": "25/4",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 8,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "dining_right": {
+                      "length_m": "33/4",
+                      "unobstructed_manhattan_lower_bound_m": "33/4",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 10,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "sofa2_front": {
+                      "length_m": "5",
+                      "unobstructed_manhattan_lower_bound_m": "5",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 3,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair1_front": {
+                      "length_m": "31/10",
+                      "unobstructed_manhattan_lower_bound_m": "31/10",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 3,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair3_front": {
+                      "length_m": "12/5",
+                      "unobstructed_manhattan_lower_bound_m": "12/5",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 1,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "armchair4_front": {
+                      "length_m": "23/5",
+                      "unobstructed_manhattan_lower_bound_m": "23/5",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 1,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "kitchen": {
+                      "length_m": "283/20",
+                      "unobstructed_manhattan_lower_bound_m": "203/20",
+                      "excess_over_lower_bound_m": "4",
+                      "direction_changes": 7,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "scenario:kitchen_to_dining_floor": {
+                      "length_m": "191/10",
+                      "unobstructed_manhattan_lower_bound_m": "69/5",
+                      "excess_over_lower_bound_m": "53/10",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    },
+                    "scenario:guest_dining": {
+                      "length_m": "33/4",
+                      "unobstructed_manhattan_lower_bound_m": "33/4",
+                      "excess_over_lower_bound_m": "0",
+                      "direction_changes": 12,
+                      "lower_bound_is_not_feasible_alternative": true
+                    }
+                  },
+                  "all_route_body_union_m2": "10206/125",
+                  "route_inside_designated_circulation_m2": "71239/4000",
+                  "route_inside_living_or_dining_m2": "2619/250",
+                  "regions_may_overlap_and_are_not_added": true
+                }
+              ],
+              "source_line": 7,
+              "no_numeric_length_threshold_invented": true,
+              "required_next_evidence": [
+                "Actual same-program alternative with fresh routes, not Manhattan lower bound",
+                "Record functional differences and why current route is necessary; retain comparison outcomes",
+                "Corridor applicability cannot be supplied as an unsupported long=false flag"
+              ]
+            }
+          },
+          "scope": "Actual same-model exact 2D geometry for Q04; no hardware, legal, daylight or architectural-quality approval."
+        },
+        "final_route_classification": {
+          "status": "PASS_LIMITED",
+          "witness": {
+            "errors": [],
+            "pending": [],
+            "units": [
+              {
+                "unit": "A",
+                "actual_entry_area_m2": "1423/80",
+                "final_route_entry_area_m2": "1423/80",
+                "entry_difference_m2": "0",
+                "living_difference_m2": "0",
+                "final_paths": 34
+              },
+              {
+                "unit": "B",
+                "actual_entry_area_m2": "71239/4000",
+                "final_route_entry_area_m2": "71239/4000",
+                "entry_difference_m2": "0",
+                "living_difference_m2": "0",
+                "final_paths": 34
+              }
+            ],
+            "residual_useful_capacity_proven": false
+          },
+          "scope": "Exact union of final .7 body routes including scenarios, intersected with actual ownership and excluding fixed functional rooms/physical walls. Remaining public floor is not automatically useful living, necessary circulation or physical dead corridor."
+        },
+        "errors": [
+          "body:ACTUAL_FUNCTIONAL_CIRCULATION_FAILED",
+          "public_scenarios:ACTUAL_FUNCTIONAL_CIRCULATION_FAILED"
+        ],
+        "pending": []
+      }
+    }
+  ],
+  "before_pending": [],
+  "before_original_pending": [
+    "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+  ],
+  "before_not_evaluated": [
+    "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+  ],
+  "after_raw_status": "FAIL",
+  "mechanics_success": false,
+  "semantic_qualification": "UNKNOWN_NEW_GEOMETRY_NOT_REPROVEN",
+  "test_only": true,
+  "accepted": false,
+  "delivery_allowed": false
+}

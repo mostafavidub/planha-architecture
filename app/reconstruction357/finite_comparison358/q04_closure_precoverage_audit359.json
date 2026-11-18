@@ -1,0 +1,4872 @@
+{
+  "schema": "Q04_FINITE359_CLOSURE",
+  "verdict": "PASS_SCOPED_FINITE_Q04",
+  "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+  "record_digest": "51b5e525e102f3dc8694ea6e94cac168b6f399f62423c66c2b441f9d8c80981b",
+  "fresh_result_digest": "d507c92f399f45c191b329170f308c78801618661941e93435d16340850f09a0",
+  "current_gate": {
+    "schema": "ENGINEERING_OPERATIONALIZATION359_INTRINSIC_ELIGIBILITY",
+    "verdict": "PASS",
+    "eligible": true,
+    "live_authority": false,
+    "repair_authority": false,
+    "delivery_allowed": false,
+    "parent_complete": false,
+    "new_fresh_execution": false,
+    "rows": [
+      {
+        "id": "B01",
+        "source_section": "H01",
+        "source_requirement_ids": [
+          "input_exact_domain"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "input_exact_domain": "8a3d850bfef9d1ca328bc87c2440c648e93da0d8c0de934b2adcef1c4d7829a8"
+        }
+      },
+      {
+        "id": "B02",
+        "source_section": "H02/H03",
+        "source_requirement_ids": [
+          "containment_all_entities",
+          "valid_exact_regions"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "containment_all_entities": "810db18d95fb296c17f63c96198e315f70e115f604ae3bfa852096b867892a20",
+          "valid_exact_regions": "87043692229bdb7722ac8ee5b746bde86c587adc7cfe7657e962868a5e34e0d9"
+        }
+      },
+      {
+        "id": "B03",
+        "source_section": "H04/H06",
+        "source_requirement_ids": [
+          "partition_ledger"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "partition_ledger": "17d4655cb7b1181c8660f98a836303649bf363ad934368f400056854d64bea98"
+        }
+      },
+      {
+        "id": "B04",
+        "source_section": "H05",
+        "source_requirement_ids": [
+          "unit_independence"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "unit_independence": "22674e644d7e89b496ff04cb0ceb37324366710eec2b26dd47d622a880198fb1"
+        }
+      },
+      {
+        "id": "B05",
+        "source_section": "H07",
+        "source_requirement_ids": [
+          "bath_nonprivate_access"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "bath_nonprivate_access": "935ccd96ea17cb254db8745c723b4dc31da98c1ac295a3ec49269034061afad7"
+        }
+      },
+      {
+        "id": "B06",
+        "source_section": "H08",
+        "source_requirement_ids": [
+          "body_route_sweeps"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3"
+        }
+      },
+      {
+        "id": "B07",
+        "source_section": "H09",
+        "source_requirement_ids": [
+          "wall_network"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "wall_network": "0f1190a7d411a56491ce3b02023eb38980538d5d5bd412e6c8d9d45daf2a0790"
+        }
+      },
+      {
+        "id": "B08",
+        "source_section": "H10",
+        "source_requirement_ids": [
+          "opening_hosts",
+          "actual_opening_geometry"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "opening_hosts": "baa15cf73531c5d522651c0c96a42c025c8044346e943736cb983d659b1ad382",
+          "actual_opening_geometry": "64f21a434855b1826f3368342b04892cc4d5daeadbf0539d858a9c148025075d"
+        }
+      },
+      {
+        "id": "B09",
+        "source_section": "H11",
+        "source_requirement_ids": [
+          "door_operation",
+          "closet_operation"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+          "closet_operation": "ad6a33a193db05fb8cbb0f2be65b9dceb0a3d4777b07350780339d0cfa08c578"
+        }
+      },
+      {
+        "id": "B10",
+        "source_section": "H12",
+        "source_requirement_ids": [
+          "fixture_inventory_use"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd"
+        }
+      },
+      {
+        "id": "B11",
+        "source_section": "H13/Q01",
+        "source_requirement_ids": [
+          "program_functional_roles",
+          "zero_laundry"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "program_functional_roles": "19d14a711ee0aea774f3176dd445e9077481a0810ddbcb1f3d33be7df9b35e70",
+          "zero_laundry": "5131ba803110f23d3d990e1a0f3a1d67a90859d4478f8bb7a11afdb0a0f3828b"
+        }
+      },
+      {
+        "id": "B12",
+        "source_section": "H15",
+        "source_requirement_ids": [
+          "core_concept"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "core_concept": "182929f6b6711f7de62a1c4bff83422b0d353897f119d1dc3c4b052b7cda3859"
+        }
+      },
+      {
+        "id": "B13",
+        "source_section": "H17",
+        "source_requirement_ids": [
+          "kitchen_essential_operation",
+          "bath_service_operation"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "kitchen_essential_operation": "158db4825d927964f0ba44322f98f6e433ee72ea645edf74b55088978eed08ea",
+          "bath_service_operation": "ba76dca5ccb2203929bb979ac8b3b43b363895c7d7087fe1e1e9502f1db15333"
+        }
+      },
+      {
+        "id": "B14",
+        "source_section": "Q05.VISIBILITY_ONLY",
+        "source_requirement_ids": [
+          "privacy_scenarios"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "privacy_scenarios": "faec94288dae94b530854328bc6aafa9d3bab2af28f8286ee369cc4588f5b772"
+        }
+      },
+      {
+        "id": "B15",
+        "source_section": "Q06",
+        "source_requirement_ids": [
+          "guest_living_route",
+          "guest_dining_route"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "guest_living_route": "98a991465c6612b6c361d31c9736813c3e97e502dd19e4a038237faa4c1b99ce",
+          "guest_dining_route": "68e761bde56abeb4e5ecd38e8532bb42937ce4e6cd9a36d2e71d3e0029441662"
+        }
+      },
+      {
+        "id": "B16",
+        "source_section": "Q07.ESSENTIAL_USE",
+        "source_requirement_ids": [
+          "serving_route"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "serving_route": "adb6e27dc25656510c4e7d03fa8a020bf62b2117628169968e475b0e3d884f98"
+        }
+      },
+      {
+        "id": "B17",
+        "source_section": "Q10.ARRIVAL_USE",
+        "source_requirement_ids": [
+          "core_concept"
+        ],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {
+          "core_concept": "182929f6b6711f7de62a1c4bff83422b0d353897f119d1dc3c4b052b7cda3859"
+        }
+      },
+      {
+        "id": "B18",
+        "source_section": "H19",
+        "source_requirement_ids": [],
+        "verdict": "PASS",
+        "missing": [],
+        "row_digests": {}
+      }
+    ],
+    "missing": [],
+    "excluded_dependencies": [
+      "Q04",
+      "Q11_FINAL",
+      "Q12",
+      "ALL_12_PARENT_PASS",
+      "long_corridor_necessity"
+    ],
+    "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROFILE; STORED_ARTIFACT; OPEN_TRANSIT_AND_DECLARED_SOURCE_OPERATION_SCENARIOS; NOT_GLOBAL_OPTIMUM_OR_TECHNICAL_CORE",
+    "evidence": {
+      "record_digest": "51b5e525e102f3dc8694ea6e94cac168b6f399f62423c66c2b441f9d8c80981b",
+      "new_result_digest": "d507c92f399f45c191b329170f308c78801618661941e93435d16340850f09a0",
+      "model_digest": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+      "group_digest": "08a4b8d64ce0367cb736a703d2507a4cebfe5faad10c29ca62af987279cb8bfb",
+      "component_digests": {
+        "access": "7b68984b1f2bf0eca10719530cc4fea7a4ac2947f7ed0328d5736886aa5e7aff",
+        "openings": "668931be223aef59d49e935433f3381583caa370b12cdfff16b149e8f013f4bb",
+        "guest": "76da78ab98b588c7f4afb25deb9d7671e72d1e94cf81b62b3ed13c59583e52db",
+        "kitchen": "548dd6dcec6c1dca1f1138c60f6b89dd0d334e555e8ad16c82d7266f63f04bcb"
+      },
+      "source_pins_digest": "24229ba36234ce737abda3a3e125b7c53b7287874fb007da9791eb1710d27a0d"
+    }
+  },
+  "current_gate_evaluator_sha256": "2e9db9d48d5744afaf1c15455142d3ddc81e5cdd2562a67a3b463481c27899f2",
+  "purpose": {
+    "schema": "CIRCULATION_ROLE359_INTRINSIC_NOT_NECESSITY",
+    "model_hash": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+    "review_digest": "d507c92f399f45c191b329170f308c78801618661941e93435d16340850f09a0",
+    "record_digest": "51b5e525e102f3dc8694ea6e94cac168b6f399f62423c66c2b441f9d8c80981b",
+    "source_row_digests": {
+      "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3",
+      "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd",
+      "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+      "private_grouping": "7f756ff365d0b9a8ed3ab666efdd68716c7f409a54cf0af75d7991cb3180e7ea",
+      "circulation_functional_integrity": "202ebbf932024b0b74cf8427e190bd0d8588c66de4be4ca6695a7b7114274d1a",
+      "bath_service_operation": "ba76dca5ccb2203929bb979ac8b3b43b363895c7d7087fe1e1e9502f1db15333",
+      "kitchen_essential_operation": "158db4825d927964f0ba44322f98f6e433ee72ea645edf74b55088978eed08ea",
+      "partition_ledger": "17d4655cb7b1181c8660f98a836303649bf363ad934368f400056854d64bea98",
+      "guest_living_route": "98a991465c6612b6c361d31c9736813c3e97e502dd19e4a038237faa4c1b99ce",
+      "guest_dining_route": "68e761bde56abeb4e5ecd38e8532bb42937ce4e6cd9a36d2e71d3e0029441662",
+      "serving_route": "adb6e27dc25656510c4e7d03fa8a020bf62b2117628169968e475b0e3d884f98"
+    },
+    "hall_origin": {
+      "file": "staging359_hall_clamp/private_hall_producer359.py",
+      "source_inventory_digest": "8860b07298fd3e21e5867705fbb74d09c3f1bc6a9f856744ece7f7403de919ad",
+      "selector": "Exact source clamp from same-model source ports/original paths/actual all operation+activity reservations, then source wall formula",
+      "not_necessity_proof": true
+    },
+    "units": [
+      {
+        "unit": "A",
+        "required_target_inventory": [
+          {
+            "activity_id": "bed1.bed_front",
+            "geometry": [
+              "3.1",
+              "0.95",
+              "5.1",
+              "1.85"
+            ],
+            "target": [
+              "4.1",
+              "1.4"
+            ],
+            "route_digest": "e07f88f00a9344bbad2cd494f80a7c69b12c98c383082de9b7d64ab742c54dae"
+          },
+          {
+            "activity_id": "bed1.bed_back",
+            "geometry": [
+              "3.1",
+              "3.45",
+              "5.1",
+              "4.35"
+            ],
+            "target": [
+              "4.1",
+              "3.9"
+            ],
+            "route_digest": "dded9b9f59f8fe0db98c80de0272a8db8e67731e1b048a7dc2ba5f5fba9aea38"
+          },
+          {
+            "activity_id": "bed1.closet_front",
+            "geometry": [
+              "6.2",
+              "0.4",
+              "6.9",
+              "2.45"
+            ],
+            "target": [
+              "6.55",
+              "1.425"
+            ],
+            "route_digest": "0a639026bf5b11ae94fe731d1665aa20df4c6aefd02099eb58b385ecd5482f1a"
+          },
+          {
+            "activity_id": "bed1.changing",
+            "geometry": [
+              "3.1",
+              "3.55",
+              "3.8",
+              "4.25"
+            ],
+            "target": [
+              "3.45",
+              "3.9"
+            ],
+            "route_digest": "7761e34a2fb183dce93b33ab9c9fd001a8f1ec2e317caf130845b4b3220ab7b9"
+          },
+          {
+            "activity_id": "bed2.closet_front",
+            "geometry": [
+              "12",
+              "0.4",
+              "12.7",
+              "2.45"
+            ],
+            "target": [
+              "12.35",
+              "1.425"
+            ],
+            "route_digest": "0a4b183e92b16a69d86a871825e3cb0e4efa54936ff357e237da3eb4fd1e1818"
+          },
+          {
+            "activity_id": "bed2.bedA_front",
+            "geometry": [
+              "13.9",
+              "0.25",
+              "15.8",
+              "1.15"
+            ],
+            "target": [
+              "14.85",
+              "0.7"
+            ],
+            "route_digest": "15136265343eed0a478eb3fe8dbdeca198928b0fefb61061e5630e02c8c533f3"
+          },
+          {
+            "activity_id": "bed2.bedA_back",
+            "geometry": [
+              "13.9",
+              "2.05",
+              "15.8",
+              "2.95"
+            ],
+            "target": [
+              "14.85",
+              "2.5"
+            ],
+            "route_digest": "0608676772dffd0a9ffab7e9d3c473b76f121d6d3dccb67748c7fa24900f40b5"
+          },
+          {
+            "activity_id": "bed2.bedB_front",
+            "geometry": [
+              "13.9",
+              "2.05",
+              "15.8",
+              "2.95"
+            ],
+            "target": [
+              "14.85",
+              "2.5"
+            ],
+            "route_digest": "0608676772dffd0a9ffab7e9d3c473b76f121d6d3dccb67748c7fa24900f40b5"
+          },
+          {
+            "activity_id": "bed2.bedB_back",
+            "geometry": [
+              "13.9",
+              "3.85",
+              "15.8",
+              "4.75"
+            ],
+            "target": [
+              "14.85",
+              "4.3"
+            ],
+            "route_digest": "e77022610c74cc7d2728908e55a80ab8cf70f7f7bc76d9bbf646ac89a7859586"
+          },
+          {
+            "activity_id": "bed2.changing",
+            "geometry": [
+              "15.1",
+              "3.95",
+              "15.8",
+              "4.65"
+            ],
+            "target": [
+              "15.45",
+              "4.3"
+            ],
+            "route_digest": "72a6a45be7d5d733f5b6124b2529799401d79d5b030ecb3438cfe41667a9cea7"
+          },
+          {
+            "activity_id": "bed3.closet_front",
+            "geometry": [
+              "19.1",
+              "0.4",
+              "19.8",
+              "2.45"
+            ],
+            "target": [
+              "19.45",
+              "1.425"
+            ],
+            "route_digest": "813f1886b44c82dab3ad8cdff35e2005c5638da6498b00f1e468920fa5e40001"
+          },
+          {
+            "activity_id": "bed3.bedA_front",
+            "geometry": [
+              "21",
+              "0.25",
+              "22.9",
+              "1.15"
+            ],
+            "target": [
+              "21.95",
+              "0.7"
+            ],
+            "route_digest": "efa0cffef15c0499fabffb9135dce0b604296e57ddb48f206109d78e880863dd"
+          },
+          {
+            "activity_id": "bed3.bedA_back",
+            "geometry": [
+              "21",
+              "2.05",
+              "22.9",
+              "2.95"
+            ],
+            "target": [
+              "21.95",
+              "2.5"
+            ],
+            "route_digest": "e212d88c2f511c3234945321d7672bca070687614ebfd4801521d410011b6fcc"
+          },
+          {
+            "activity_id": "bed3.bedB_front",
+            "geometry": [
+              "21",
+              "2.05",
+              "22.9",
+              "2.95"
+            ],
+            "target": [
+              "21.95",
+              "2.5"
+            ],
+            "route_digest": "e212d88c2f511c3234945321d7672bca070687614ebfd4801521d410011b6fcc"
+          },
+          {
+            "activity_id": "bed3.bedB_back",
+            "geometry": [
+              "21",
+              "3.85",
+              "22.9",
+              "4.75"
+            ],
+            "target": [
+              "21.95",
+              "4.3"
+            ],
+            "route_digest": "5d01e20f005708a075cf3a9b382e3a0fd51c49a075dfc3ac345195813d7877e2"
+          },
+          {
+            "activity_id": "bed3.changing",
+            "geometry": [
+              "22.2",
+              "3.95",
+              "22.9",
+              "4.65"
+            ],
+            "target": [
+              "22.55",
+              "4.3"
+            ],
+            "route_digest": "01def0ef142a4e65ea830a5e36f8ea57ca5361c3cc0476ffc667ad3e2a39bf18"
+          },
+          {
+            "activity_id": "WC_front",
+            "geometry": [
+              "10.925",
+              "10.275",
+              "11.625",
+              "10.975"
+            ],
+            "target": [
+              "11.275",
+              "10.625"
+            ],
+            "route_digest": "2dc1a2eeea68ee3d56ed6dd979a4dfb3a043596150cf2d199b55dc933582031c"
+          },
+          {
+            "activity_id": "WC_use",
+            "geometry": [
+              "10.925",
+              "9.525",
+              "11.625",
+              "10.225"
+            ],
+            "target": [
+              "11.275",
+              "9.875"
+            ],
+            "route_digest": "1fbcfb80049f4fafce3fca9b6d653c0ca90f8ff8f017f5c7fa1a09a3a01ed59c"
+          },
+          {
+            "activity_id": "shower_use",
+            "geometry": [
+              "8.725",
+              "9.475",
+              "9.425",
+              "10.175"
+            ],
+            "target": [
+              "9.075",
+              "9.825"
+            ],
+            "route_digest": "ee76e9a0a0671359797425a9667a06bfd8373a80721a27b2636c45ea450fb07f"
+          },
+          {
+            "activity_id": "basin_front",
+            "geometry": [
+              "9.775",
+              "11.325",
+              "10.475",
+              "12.025"
+            ],
+            "target": [
+              "10.125",
+              "11.675"
+            ],
+            "route_digest": "92c5b079524df80a50fd9f2ab1b540af375090d0f09231bf733780efad4afcf7"
+          },
+          {
+            "activity_id": "kitchen_work",
+            "geometry": [
+              "5.625",
+              "8.325",
+              "6.325",
+              "11.225"
+            ],
+            "target": [
+              "5.975",
+              "9.775"
+            ],
+            "route_digest": "e64dc7abfc0aec2a7232e47f7fbe0416dfe8ce3076639fe942f03f80c0d68619"
+          },
+          {
+            "activity_id": "dining_front_left",
+            "geometry": [
+              "15.925",
+              "7.075",
+              "16.625",
+              "7.775"
+            ],
+            "target": [
+              "16.275",
+              "7.425"
+            ],
+            "route_digest": "811d7a508a660b2685e6d0bb5869b4a41a1fe4a454c53049c22a2a57ee87457e"
+          },
+          {
+            "activity_id": "dining_front_right",
+            "geometry": [
+              "18.725",
+              "7.075",
+              "19.425",
+              "7.775"
+            ],
+            "target": [
+              "19.075",
+              "7.425"
+            ],
+            "route_digest": "98a0502c07de716d31fbcd3994f45ec8342154737730367f811b78e6d4eaa5a5"
+          },
+          {
+            "activity_id": "dining_back_left",
+            "geometry": [
+              "15.925",
+              "9.575",
+              "16.625",
+              "10.275"
+            ],
+            "target": [
+              "16.275",
+              "9.925"
+            ],
+            "route_digest": "e9c1c33c991daee6b347875e2e03a9189ff7f4a8f5ff54062890f7b714d6b640"
+          },
+          {
+            "activity_id": "dining_back_right",
+            "geometry": [
+              "18.725",
+              "9.575",
+              "19.425",
+              "10.275"
+            ],
+            "target": [
+              "19.075",
+              "9.925"
+            ],
+            "route_digest": "c42e2d41556b0d47e671fe6192eeca409ddc404f60d73ada4ec0d91c048d6446"
+          },
+          {
+            "activity_id": "dining_left",
+            "geometry": [
+              "15.475",
+              "7.475",
+              "16.175",
+              "8.175"
+            ],
+            "target": [
+              "15.825",
+              "7.825"
+            ],
+            "route_digest": "cdad8fbbb8675c7a092a10ab5007c9164a25027fc5528f52267ef62c5135fb0b"
+          },
+          {
+            "activity_id": "dining_right",
+            "geometry": [
+              "19.175",
+              "9.175",
+              "19.875",
+              "9.875"
+            ],
+            "target": [
+              "19.525",
+              "9.525"
+            ],
+            "route_digest": "ee80f918d99bd6b25d17c365e1db2cb4325a4abe23ee3f46094c4ad53f907895"
+          },
+          {
+            "activity_id": "sofa1_front",
+            "geometry": [
+              "18.775",
+              "11.775",
+              "20.975",
+              "12.475"
+            ],
+            "target": [
+              "19.875",
+              "12.125"
+            ],
+            "route_digest": "8ba14cee8eff2dab9e912645e6da00ba20cd9f5e0918176772e02e4486dd642c"
+          },
+          {
+            "activity_id": "sofa2_front",
+            "geometry": [
+              "10.925",
+              "8.525",
+              "13.125",
+              "9.225"
+            ],
+            "target": [
+              "12.025",
+              "8.875"
+            ],
+            "route_digest": "df48652618f0098a5ac14dfc5bdccaac24cdc03a066db425adfa7ed5e6c72bb0"
+          },
+          {
+            "activity_id": "armchair1_front",
+            "geometry": [
+              "15.775",
+              "10.975",
+              "16.575",
+              "11.675"
+            ],
+            "target": [
+              "16.175",
+              "11.325"
+            ],
+            "route_digest": "8961360552755cf7ccaeb8c1b350f163d2f4ac05dfe23add5824242f627331a8"
+          },
+          {
+            "activity_id": "armchair2_front",
+            "geometry": [
+              "17.275",
+              "10.975",
+              "18.075",
+              "11.675"
+            ],
+            "target": [
+              "17.675",
+              "11.325"
+            ],
+            "route_digest": "2579059544c4d48831ed3565e8e675edc352b037df50ef7c625d0a5037e87fdc"
+          },
+          {
+            "activity_id": "armchair3_front",
+            "geometry": [
+              "14.175",
+              "10.075",
+              "14.975",
+              "10.775"
+            ],
+            "target": [
+              "14.575",
+              "10.425"
+            ],
+            "route_digest": "af8db0f8f92e73aa2960b15bcfbbcd120e35d452edcff6f288913a528f890b5d"
+          },
+          {
+            "activity_id": "armchair4_front",
+            "geometry": [
+              "14.175",
+              "7.875",
+              "14.975",
+              "8.575"
+            ],
+            "target": [
+              "14.575",
+              "8.225"
+            ],
+            "route_digest": "941545127311368ec408bc1b1f39ea57870425a7914ddd16e79e943c52f6b5ec"
+          },
+          {
+            "scenario_route": "kitchen_to_dining_floor",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "ff7bb6836294c1973ed27beff1f181d96e4b69414334c2ca72c8c8fc46c1adcd"
+          },
+          {
+            "scenario_route": "guest_living",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "c0647f599de414bbf45473fa6c6e4bd55d615f1b83528d33e11e1d1a57eaf2ec"
+          },
+          {
+            "scenario_route": "guest_dining",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "59b381818822461dedc7eec907c292002df404e95c525c5f410279bd1b439c0e"
+          }
+        ],
+        "untargeted_terminal_extensions": [],
+        "private_margin_operationalization": {
+          "basis": "SOURCE_TRANSVERSE_CLEAR_DEPTH_CROSS_SECTION_AROUND_REQUIRED_PATH_ONLY",
+          "source_max_clear_width_m": "1.0",
+          "engineering_assumption": "Transverse floor around a verified traversal within the actual source corridor width is a supporting margin; no unsupported longitudinal tail is granted function.",
+          "regions": [
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "179/20",
+              "3/4",
+              "199/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "43/40",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "71/40"
+            ],
+            [
+              "321/20",
+              "87/20",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "101/20"
+            ],
+            [
+              "321/20",
+              "41/20",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "11/4"
+            ],
+            [
+              "321/20",
+              "41/20",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "11/4"
+            ],
+            [
+              "321/20",
+              "77/20",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "91/20"
+            ],
+            [
+              "321/20",
+              "77/20",
+              "341/20",
+              "26/5"
+            ],
+            [
+              "321/20",
+              "3/4",
+              "341/20",
+              "91/20"
+            ],
+            [
+              "179/20",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "179/20",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "179/20",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "179/20",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "37/4",
+              "26/5",
+              "559/40",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "67/4",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "135/8",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "67/4",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "67/4",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "67/4",
+              "31/5"
+            ],
+            [
+              "547/40",
+              "26/5",
+              "67/4",
+              "31/5"
+            ]
+          ]
+        },
+        "private_circulation_components": [
+          {
+            "regions": [
+              [
+                "179/20",
+                "1/4",
+                "199/20",
+                "26/5"
+              ],
+              [
+                "179/20",
+                "26/5",
+                "341/20",
+                "31/5"
+              ],
+              [
+                "321/20",
+                "1/4",
+                "341/20",
+                "26/5"
+              ],
+              [
+                "531/40",
+                "31/5",
+                "115/8",
+                "127/20"
+              ]
+            ],
+            "area_m2": "3633/200",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing",
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing",
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing"
+            ],
+            "actual_body_route_coverage_m2": "12029/800",
+            "source_use_coverage_m2": "3477/200",
+            "unsupported_margin_area_m2": "123/200",
+            "unsupported_margin_regions": [
+              [
+                "99/10",
+                "1/4",
+                "199/20",
+                "3/4"
+              ],
+              [
+                "97/10",
+                "1/4",
+                "99/10",
+                "2/5"
+              ],
+              [
+                "193/20",
+                "1/4",
+                "97/10",
+                "2/5"
+              ],
+              [
+                "179/20",
+                "1/4",
+                "9",
+                "3/4"
+              ],
+              [
+                "9",
+                "1/4",
+                "193/20",
+                "2/5"
+              ],
+              [
+                "135/8",
+                "26/5",
+                "341/20",
+                "31/5"
+              ],
+              [
+                "17",
+                "1/4",
+                "341/20",
+                "3/4"
+              ],
+              [
+                "67/4",
+                "1/4",
+                "17",
+                "2/5"
+              ],
+              [
+                "321/20",
+                "1/4",
+                "163/10",
+                "3/4"
+              ],
+              [
+                "163/10",
+                "1/4",
+                "327/20",
+                "2/5"
+              ],
+              [
+                "327/20",
+                "1/4",
+                "67/4",
+                "2/5"
+              ]
+            ],
+            "verdict": "UNKNOWN_MARGIN_OR_BLIND_APPENDAGE_REQUIRES_SOURCE_FUNCTION"
+          }
+        ],
+        "entry_circulation_components": [
+          {
+            "regions": [
+              [
+                "45/8",
+                "297/40",
+                "437/40",
+                "65/8"
+              ],
+              [
+                "45/8",
+                "65/8",
+                "259/40",
+                "331/40"
+              ],
+              [
+                "439/50",
+                "65/8",
+                "237/25",
+                "341/40"
+              ],
+              [
+                "409/40",
+                "65/8",
+                "437/40",
+                "341/40"
+              ],
+              [
+                "439/50",
+                "341/40",
+                "597/40",
+                "343/40"
+              ],
+              [
+                "539/40",
+                "63/8",
+                "597/40",
+                "341/40"
+              ],
+              [
+                "439/50",
+                "343/40",
+                "567/40",
+                "369/40"
+              ],
+              [
+                "79/8",
+                "369/40",
+                "85/8",
+                "1859/200"
+              ],
+              [
+                "523/40",
+                "369/40",
+                "567/40",
+                "75/8"
+              ],
+              [
+                "523/40",
+                "75/8",
+                "599/40",
+                "81/8"
+              ],
+              [
+                "539/40",
+                "81/8",
+                "597/40",
+                "431/40"
+              ],
+              [
+                "539/40",
+                "431/40",
+                "567/40",
+                "463/40"
+              ],
+              [
+                "539/40",
+                "463/40",
+                "751/40",
+                "467/40"
+              ],
+              [
+                "599/40",
+                "439/40",
+                "751/40",
+                "463/40"
+              ],
+              [
+                "539/40",
+                "467/40",
+                "631/40",
+                "477/40"
+              ],
+              [
+                "723/40",
+                "467/40",
+                "751/40",
+                "471/40"
+              ],
+              [
+                "723/40",
+                "471/40",
+                "809/40",
+                "499/40"
+              ],
+              [
+                "539/40",
+                "477/40",
+                "627/40",
+                "2471/200"
+              ],
+              [
+                "539/40",
+                "2471/200",
+                "569/40",
+                "497/40"
+              ],
+              [
+                "599/40",
+                "87/8",
+                "901/50",
+                "439/40"
+              ],
+              [
+                "79/8",
+                "1859/200",
+                "423/40",
+                "75/8"
+              ],
+              [
+                "539/40",
+                "61/8",
+                "567/40",
+                "63/8"
+              ],
+              [
+                "531/40",
+                "127/20",
+                "115/8",
+                "61/8"
+              ]
+            ],
+            "area_m2": "40391/2000",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing",
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing",
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing",
+              "WC_front",
+              "WC_use",
+              "shower_use",
+              "basin_front",
+              "kitchen_work",
+              "dining_front_left",
+              "dining_front_right",
+              "dining_back_left",
+              "dining_back_right",
+              "dining_left",
+              "dining_right",
+              "sofa1_front",
+              "sofa2_front",
+              "armchair1_front",
+              "armchair2_front",
+              "armchair3_front",
+              "armchair4_front",
+              "scenario:kitchen_to_dining_floor",
+              "scenario:guest_living",
+              "scenario:guest_dining"
+            ],
+            "actual_body_route_coverage_m2": "40391/2000",
+            "source_use_coverage_m2": "591/100",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "44/5",
+                "3/4",
+                "179/20",
+                "29/20"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "199/20",
+                "3/4",
+                "101/10",
+                "29/20"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "341/20",
+                "3/4",
+                "86/5",
+                "29/20"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          }
+        ],
+        "service_inventory": [
+          {
+            "room": "bath",
+            "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+            "actual_service_required_targets": [
+              "WC_front",
+              "WC_use",
+              "shower_use",
+              "basin_front"
+            ],
+            "route_sweep_area_inside_service_m2": "4701/1000",
+            "route_only_after_actual_fixture_activity_deduction_m2": "1013/800",
+            "route_only_regions": [
+              [
+                "21/2",
+                "75/8",
+                "423/40",
+                "411/40"
+              ],
+              [
+                "79/8",
+                "75/8",
+                "21/2",
+                "379/40"
+              ],
+              [
+                "79/8",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "75/8",
+                "423/40",
+                "411/40"
+              ],
+              [
+                "79/8",
+                "75/8",
+                "21/2",
+                "379/40"
+              ],
+              [
+                "79/8",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "389/40",
+                "85/8",
+                "411/40"
+              ],
+              [
+                "79/8",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "389/40",
+                "85/8",
+                "411/40"
+              ],
+              [
+                "397/40",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "75/8",
+                "423/40",
+                "411/40"
+              ],
+              [
+                "79/8",
+                "75/8",
+                "21/2",
+                "379/40"
+              ],
+              [
+                "79/8",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "75/8",
+                "423/40",
+                "411/40"
+              ],
+              [
+                "79/8",
+                "75/8",
+                "21/2",
+                "379/40"
+              ],
+              [
+                "79/8",
+                "407/40",
+                "21/2",
+                "411/40"
+              ],
+              [
+                "391/40",
+                "447/40",
+                "419/40",
+                "453/40"
+              ],
+              [
+                "431/40",
+                "387/40",
+                "437/40",
+                "411/40"
+              ],
+              [
+                "437/40",
+                "409/40",
+                "459/40",
+                "411/40"
+              ],
+              [
+                "431/40",
+                "387/40",
+                "437/40",
+                "411/40"
+              ],
+              [
+                "437/40",
+                "409/40",
+                "93/8",
+                "411/40"
+              ],
+              [
+                "437/40",
+                "409/40",
+                "93/8",
+                "411/40"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "423/40",
+                "439/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "2137/200",
+                "439/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "2137/200",
+                "441/40"
+              ],
+              [
+                "1997/200",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "413/40",
+                "109/10",
+                "441/40"
+              ],
+              [
+                "109/10",
+                "413/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "1997/200",
+                "413/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "429/40",
+                "411/40",
+                "109/10",
+                "441/40"
+              ],
+              [
+                "109/10",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "429/40",
+                "411/40",
+                "109/10",
+                "439/40"
+              ],
+              [
+                "109/10",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "423/40",
+                "417/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "85/8",
+                "417/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "85/8",
+                "439/40"
+              ],
+              [
+                "397/40",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "2137/200",
+                "439/40"
+              ],
+              [
+                "397/40",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "2137/200",
+                "441/40"
+              ],
+              [
+                "1997/200",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "413/40",
+                "109/10",
+                "441/40"
+              ],
+              [
+                "109/10",
+                "413/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "1997/200",
+                "413/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "429/40",
+                "411/40",
+                "109/10",
+                "441/40"
+              ],
+              [
+                "109/10",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "429/40",
+                "411/40",
+                "109/10",
+                "439/40"
+              ],
+              [
+                "109/10",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "431/40",
+                "411/40",
+                "109/10",
+                "439/40"
+              ],
+              [
+                "109/10",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "431/40",
+                "411/40",
+                "437/40",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "423/40",
+                "439/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "1923/200",
+                "411/40",
+                "49/5",
+                "439/40"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "423/40",
+                "439/40"
+              ],
+              [
+                "49/5",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "1923/200",
+                "411/40",
+                "49/5",
+                "441/40"
+              ],
+              [
+                "49/5",
+                "411/40",
+                "2063/200",
+                "83/8"
+              ],
+              [
+                "47/5",
+                "413/40",
+                "49/5",
+                "441/40"
+              ],
+              [
+                "439/50",
+                "413/40",
+                "47/5",
+                "83/8"
+              ],
+              [
+                "49/5",
+                "413/40",
+                "2063/200",
+                "83/8"
+              ],
+              [
+                "47/5",
+                "411/40",
+                "237/25",
+                "441/40"
+              ],
+              [
+                "439/50",
+                "411/40",
+                "47/5",
+                "83/8"
+              ],
+              [
+                "349/40",
+                "411/40",
+                "237/25",
+                "83/8"
+              ],
+              [
+                "349/40",
+                "411/40",
+                "377/40",
+                "83/8"
+              ],
+              [
+                "21/2",
+                "411/40",
+                "423/40",
+                "447/40"
+              ],
+              [
+                "79/8",
+                "411/40",
+                "21/2",
+                "83/8"
+              ],
+              [
+                "79/8",
+                "443/40",
+                "21/2",
+                "447/40"
+              ],
+              [
+                "391/40",
+                "419/40",
+                "49/5",
+                "447/40"
+              ],
+              [
+                "21/2",
+                "419/40",
+                "423/40",
+                "447/40"
+              ],
+              [
+                "49/5",
+                "443/40",
+                "21/2",
+                "447/40"
+              ],
+              [
+                "391/40",
+                "419/40",
+                "49/5",
+                "447/40"
+              ],
+              [
+                "49/5",
+                "443/40",
+                "419/40",
+                "447/40"
+              ]
+            ],
+            "other_source_role_inventory": {},
+            "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+            "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+          },
+          {
+            "room": "kitchen",
+            "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+            "actual_service_required_targets": [
+              "kitchen_work"
+            ],
+            "route_sweep_area_inside_service_m2": "7/5",
+            "route_only_after_actual_fixture_activity_deduction_m2": "61/200",
+            "route_only_regions": [
+              [
+                "253/40",
+                "331/40",
+                "259/40",
+                "81/8"
+              ],
+              [
+                "231/40",
+                "331/40",
+                "253/40",
+                "333/40"
+              ],
+              [
+                "253/40",
+                "377/40",
+                "259/40",
+                "81/8"
+              ]
+            ],
+            "other_source_role_inventory": {},
+            "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+            "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+          }
+        ],
+        "source_connector_margin_proof": {
+          "schema": "SOURCE359_CONNECTOR_MARGIN_ROLE",
+          "model_hash": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+          "unit": "A",
+          "classification": "ENGINEERING_ROLE_OPERATIONALIZATION",
+          "source_row_digests": {
+            "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3",
+            "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+            "closet_operation": "ad6a33a193db05fb8cbb0f2be65b9dceb0a3d4777b07350780339d0cfa08c578",
+            "private_grouping": "7f756ff365d0b9a8ed3ab666efdd68716c7f409a54cf0af75d7991cb3180e7ea",
+            "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd",
+            "circulation_functional_integrity": "202ebbf932024b0b74cf8427e190bd0d8588c66de4be4ca6695a7b7114274d1a"
+          },
+          "source_clamp_digest": "396d3e7686a1004fb2d6d418dfb784daa81d6d437c752961e5e6eb817ddf3aa5",
+          "groups": [
+            {
+              "source_connector_index": 0,
+              "source_connector": [
+                "179/20",
+                "1/4",
+                "199/20",
+                "26/5"
+              ],
+              "source_junction": [
+                "179/20",
+                "26/5",
+                "199/20",
+                "31/5"
+              ],
+              "required_traversals": [
+                {
+                  "target_port": "A.bed1.entry",
+                  "path_digest": "9ca5b193dd34a6f1fed7432d5c8272443ab0ce9c302e2245e60a749e4016b464",
+                  "source_port_digest": "999825a131ebc00c237f1dd929bfecae18554e914bb1f9082d75d65072d647fb"
+                },
+                {
+                  "target_port": "A.bed2.entry",
+                  "path_digest": "4e0ae1ea1b92314f16f954869ae8a7fefaaba3d8db6be45bdb61ff0041d47a03",
+                  "source_port_digest": "d65786c64dc9e243bbfe8c16566b620820373427f9c9f977c04b2e638d05ab4d"
+                }
+              ],
+              "source_origin": "SOURCE359 full-width connector derived from actual source-bedroom gaps; same source hall junction, no longitudinal extension outside those boundaries"
+            },
+            {
+              "source_connector_index": 1,
+              "source_connector": [
+                "321/20",
+                "1/4",
+                "341/20",
+                "26/5"
+              ],
+              "source_junction": [
+                "321/20",
+                "26/5",
+                "341/20",
+                "31/5"
+              ],
+              "required_traversals": [
+                {
+                  "target_port": "A.bed3.entry",
+                  "path_digest": "a65f0adb4fd0071bcbe5e8008eb7ce3580c0b1f50d7b89e967fe04845676870a",
+                  "source_port_digest": "80fa2491e0d35ea54b9405a72f0ae8d9641ab2fbfba6846902c894c2ce894cad"
+                }
+              ],
+              "source_origin": "SOURCE359 full-width connector derived from actual source-bedroom gaps; same source hall junction, no longitudinal extension outside those boundaries"
+            }
+          ],
+          "claims": [
+            {
+              "region": [
+                "99/10",
+                "1/4",
+                "199/20",
+                "3/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "97/10",
+                "1/4",
+                "99/10",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "193/20",
+                "1/4",
+                "97/10",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "179/20",
+                "1/4",
+                "9",
+                "3/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "9",
+                "1/4",
+                "193/20",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "135/8",
+                "26/5",
+                "341/20",
+                "31/5"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "17",
+                "1/4",
+                "341/20",
+                "3/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "67/4",
+                "1/4",
+                "17",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "321/20",
+                "1/4",
+                "163/10",
+                "3/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "163/10",
+                "1/4",
+                "327/20",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "327/20",
+                "1/4",
+                "67/4",
+                "2/5"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            }
+          ],
+          "all_residual_cells_source_bound": true,
+          "necessity_claimed": false,
+          "scope": "A whole actual connector/portal junction can serve a checked required traversal without every floor point being a body sweep. No added terminal branch or outside longitudinal extension accepted. Q04 finite comparison remains separate."
+        },
+        "intrinsic_private_role_status": "PASS_SCOPED_SOURCE_WHOLE_CONNECTOR_ROLE"
+      },
+      {
+        "unit": "B",
+        "required_target_inventory": [
+          {
+            "activity_id": "bed1.bed_front",
+            "geometry": [
+              "3.1",
+              "26.15",
+              "5.1",
+              "27.05"
+            ],
+            "target": [
+              "4.1",
+              "26.6"
+            ],
+            "route_digest": "a35d0046b0bc9d47b88d7ce4b91426b72912fa4d3d3e2f4600bae112227e391a"
+          },
+          {
+            "activity_id": "bed1.bed_back",
+            "geometry": [
+              "3.1",
+              "23.65",
+              "5.1",
+              "24.55"
+            ],
+            "target": [
+              "4.1",
+              "24.1"
+            ],
+            "route_digest": "f45b1193c063e4c96fc65f5c3201cc340c8facdafbc7eea097ab2bfef2f3f52a"
+          },
+          {
+            "activity_id": "bed1.closet_front",
+            "geometry": [
+              "6.2",
+              "25.55",
+              "6.9",
+              "27.6"
+            ],
+            "target": [
+              "6.55",
+              "26.575"
+            ],
+            "route_digest": "bf39d36d7f7cd9ae6c86bddd12fa558947bd0a74c92117647bbdf764fb1d5f81"
+          },
+          {
+            "activity_id": "bed1.changing",
+            "geometry": [
+              "3.1",
+              "23.75",
+              "3.8",
+              "24.45"
+            ],
+            "target": [
+              "3.45",
+              "24.1"
+            ],
+            "route_digest": "a46d7f60343b7eb7f51a6e042baa1d3a3e7cd6a59844579884a28d373117b83c"
+          },
+          {
+            "activity_id": "bed2.closet_front",
+            "geometry": [
+              "12",
+              "25.55",
+              "12.7",
+              "27.6"
+            ],
+            "target": [
+              "12.35",
+              "26.575"
+            ],
+            "route_digest": "48a7afe1abd293d62c70b9b159b33e68be161a788352cadd138beaf811da86db"
+          },
+          {
+            "activity_id": "bed2.bedA_front",
+            "geometry": [
+              "13.9",
+              "26.85",
+              "15.8",
+              "27.75"
+            ],
+            "target": [
+              "14.85",
+              "27.3"
+            ],
+            "route_digest": "95bb72544672dbfb39b5cb22ad0c61925d4329ba5805e2efa2f8ae32b5412458"
+          },
+          {
+            "activity_id": "bed2.bedA_back",
+            "geometry": [
+              "13.9",
+              "25.05",
+              "15.8",
+              "25.95"
+            ],
+            "target": [
+              "14.85",
+              "25.5"
+            ],
+            "route_digest": "97577ca1eb864d57f6ed952f0cbacda8efe5fe65beaa7d8a1458240da3eabff1"
+          },
+          {
+            "activity_id": "bed2.bedB_front",
+            "geometry": [
+              "13.9",
+              "25.05",
+              "15.8",
+              "25.95"
+            ],
+            "target": [
+              "14.85",
+              "25.5"
+            ],
+            "route_digest": "97577ca1eb864d57f6ed952f0cbacda8efe5fe65beaa7d8a1458240da3eabff1"
+          },
+          {
+            "activity_id": "bed2.bedB_back",
+            "geometry": [
+              "13.9",
+              "23.25",
+              "15.8",
+              "24.15"
+            ],
+            "target": [
+              "14.85",
+              "23.7"
+            ],
+            "route_digest": "94d5dd2796b5ff91db317c3cd3f3c5056e4c51bb28834814b56bf3bdd21dee07"
+          },
+          {
+            "activity_id": "bed2.changing",
+            "geometry": [
+              "15.1",
+              "23.35",
+              "15.8",
+              "24.05"
+            ],
+            "target": [
+              "15.45",
+              "23.7"
+            ],
+            "route_digest": "5c94e10c2159a30321f8c8e6ea119a564d3d75d52e50d33c07960d6c58e0b374"
+          },
+          {
+            "activity_id": "bed3.closet_front",
+            "geometry": [
+              "19.1",
+              "25.55",
+              "19.8",
+              "27.6"
+            ],
+            "target": [
+              "19.45",
+              "26.575"
+            ],
+            "route_digest": "3b2644cab5f4830e7470a8aa9879af0513a028c2382284b61c02d36dd75fc36e"
+          },
+          {
+            "activity_id": "bed3.bedA_front",
+            "geometry": [
+              "21",
+              "26.85",
+              "22.9",
+              "27.75"
+            ],
+            "target": [
+              "21.95",
+              "27.3"
+            ],
+            "route_digest": "48b9a873e72b9ab090460b39aaaa1b1590a4477376481ebbbdac184de6aee137"
+          },
+          {
+            "activity_id": "bed3.bedA_back",
+            "geometry": [
+              "21",
+              "25.05",
+              "22.9",
+              "25.95"
+            ],
+            "target": [
+              "21.95",
+              "25.5"
+            ],
+            "route_digest": "c0676fca3c174493fd00e91918a7254a8a90d32a0aba8c27590bf142963b5209"
+          },
+          {
+            "activity_id": "bed3.bedB_front",
+            "geometry": [
+              "21",
+              "25.05",
+              "22.9",
+              "25.95"
+            ],
+            "target": [
+              "21.95",
+              "25.5"
+            ],
+            "route_digest": "c0676fca3c174493fd00e91918a7254a8a90d32a0aba8c27590bf142963b5209"
+          },
+          {
+            "activity_id": "bed3.bedB_back",
+            "geometry": [
+              "21",
+              "23.25",
+              "22.9",
+              "24.15"
+            ],
+            "target": [
+              "21.95",
+              "23.7"
+            ],
+            "route_digest": "2a55f4a19e94b05b8c2e62c19bcfd31392600ad923e666215fc1aa39806bbe57"
+          },
+          {
+            "activity_id": "bed3.changing",
+            "geometry": [
+              "22.2",
+              "23.35",
+              "22.9",
+              "24.05"
+            ],
+            "target": [
+              "22.55",
+              "23.7"
+            ],
+            "route_digest": "f92a78e4ddb0ec98e6a57694d8ff416679bddf9b563e80c0f4ef61eb56d3fb14"
+          },
+          {
+            "activity_id": "WC_front",
+            "geometry": [
+              "10.925",
+              "17.025",
+              "11.625",
+              "17.725"
+            ],
+            "target": [
+              "11.275",
+              "17.375"
+            ],
+            "route_digest": "1ee92e683bd96401afad0f66553436e21a0bced6a877d873ac1003aaff9f1669"
+          },
+          {
+            "activity_id": "WC_use",
+            "geometry": [
+              "10.925",
+              "17.775",
+              "11.625",
+              "18.475"
+            ],
+            "target": [
+              "11.275",
+              "18.125"
+            ],
+            "route_digest": "f1b39d6328954bd7b395a0b45aa1ad5d7d2676b5ba44550a8c711da991a69f5a"
+          },
+          {
+            "activity_id": "shower_use",
+            "geometry": [
+              "8.725",
+              "17.825",
+              "9.425",
+              "18.525"
+            ],
+            "target": [
+              "9.075",
+              "18.175"
+            ],
+            "route_digest": "d6509b50240763544c96a061456c4e4c31a4df1b010d1439a5067a1d2e9a53c1"
+          },
+          {
+            "activity_id": "basin_front",
+            "geometry": [
+              "9.775",
+              "15.975",
+              "10.475",
+              "16.675"
+            ],
+            "target": [
+              "10.125",
+              "16.325"
+            ],
+            "route_digest": "c0e410e31dccdb5cdccdb1ec4977abd705c33f1af41b3bd1d338181a7b11acbb"
+          },
+          {
+            "activity_id": "kitchen_work",
+            "geometry": [
+              "5.625",
+              "16.775",
+              "6.325",
+              "19.675"
+            ],
+            "target": [
+              "5.975",
+              "18.225"
+            ],
+            "route_digest": "1ae502891ec04821b20260e3de403ce749dc12abc69bade7e6d5b7e0fa6b8b52"
+          },
+          {
+            "activity_id": "dining_front_left",
+            "geometry": [
+              "15.925",
+              "20.225",
+              "16.625",
+              "20.925"
+            ],
+            "target": [
+              "16.275",
+              "20.575"
+            ],
+            "route_digest": "611e05a3bd2bd12a2bdc3e71958083c3149c4a1067a7491bf150566adabe0b92"
+          },
+          {
+            "activity_id": "dining_front_right",
+            "geometry": [
+              "18.725",
+              "20.225",
+              "19.425",
+              "20.925"
+            ],
+            "target": [
+              "19.075",
+              "20.575"
+            ],
+            "route_digest": "115d7cb018e1282755eee0681db4dae2fd560346a9f3dd9e94294d26214f9039"
+          },
+          {
+            "activity_id": "dining_back_left",
+            "geometry": [
+              "15.925",
+              "17.725",
+              "16.625",
+              "18.425"
+            ],
+            "target": [
+              "16.275",
+              "18.075"
+            ],
+            "route_digest": "cb131e65ee2de33d0335da5bddf08a7e03b72e2d50b9fe253e28f82820de6787"
+          },
+          {
+            "activity_id": "dining_back_right",
+            "geometry": [
+              "18.725",
+              "17.725",
+              "19.425",
+              "18.425"
+            ],
+            "target": [
+              "19.075",
+              "18.075"
+            ],
+            "route_digest": "4af887ae6d3cec59a0f7fff458ae85c9dace263a44a785d737cf3a92ed30d521"
+          },
+          {
+            "activity_id": "dining_left",
+            "geometry": [
+              "15.475",
+              "19.825",
+              "16.175",
+              "20.525"
+            ],
+            "target": [
+              "15.825",
+              "20.175"
+            ],
+            "route_digest": "3d9c25e3620566ad10208f417c762c8d2c924d4c8d274b13f9905fa866f87716"
+          },
+          {
+            "activity_id": "dining_right",
+            "geometry": [
+              "19.175",
+              "18.125",
+              "19.875",
+              "18.825"
+            ],
+            "target": [
+              "19.525",
+              "18.475"
+            ],
+            "route_digest": "292ed6b312a7da55d7d837e5b22668e65de6234337f5bfcf4ae6df0cb682fe8a"
+          },
+          {
+            "activity_id": "sofa1_front",
+            "geometry": [
+              "18.775",
+              "15.525",
+              "20.975",
+              "16.225"
+            ],
+            "target": [
+              "19.875",
+              "15.875"
+            ],
+            "route_digest": "9a358c789245267ea6a62ee3b4ec75ea12c1967836531be1f02f1dc83dde9743"
+          },
+          {
+            "activity_id": "sofa2_front",
+            "geometry": [
+              "10.925",
+              "18.775",
+              "13.125",
+              "19.475"
+            ],
+            "target": [
+              "12.025",
+              "19.125"
+            ],
+            "route_digest": "7706dcfab05709a9723fab0da5a374baf097fe51338d25ae8b90b0acb5fe3cce"
+          },
+          {
+            "activity_id": "armchair1_front",
+            "geometry": [
+              "15.775",
+              "16.325",
+              "16.575",
+              "17.025"
+            ],
+            "target": [
+              "16.175",
+              "16.675"
+            ],
+            "route_digest": "d06c100997dd5861376e0db9a7c3b1048151c8f1369137d195a15bdec2211736"
+          },
+          {
+            "activity_id": "armchair2_front",
+            "geometry": [
+              "17.275",
+              "16.325",
+              "18.075",
+              "17.025"
+            ],
+            "target": [
+              "17.675",
+              "16.675"
+            ],
+            "route_digest": "24ebd0258727003e854a8ab66fcb97a20ba351692c6896c7cc63e7a1bd00054c"
+          },
+          {
+            "activity_id": "armchair3_front",
+            "geometry": [
+              "14.175",
+              "17.225",
+              "14.975",
+              "17.925"
+            ],
+            "target": [
+              "14.575",
+              "17.575"
+            ],
+            "route_digest": "951b45a3526046332a1df3b5a001d5c6804a6974a0aa068bbf0382e16e8c16e5"
+          },
+          {
+            "activity_id": "armchair4_front",
+            "geometry": [
+              "14.175",
+              "19.425",
+              "14.975",
+              "20.125"
+            ],
+            "target": [
+              "14.575",
+              "19.775"
+            ],
+            "route_digest": "9b50c0268ab9dd884f6e570705e8f1ebe11b95cd1b6ad8d513e11e2801884398"
+          },
+          {
+            "scenario_route": "kitchen_to_dining_floor",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "437498f8687297325f330f3ca60e69858bed0648ae7eaf729cf42012f7bd6cc5"
+          },
+          {
+            "scenario_route": "guest_living",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "46d0d27527f503d0706266e80da75ae3326963d3c36b3ea0e25b8c56e4afac0a"
+          },
+          {
+            "scenario_route": "guest_dining",
+            "source_method": {
+              "name": "named_checks118.public_named_scenarios",
+              "code_sha256": "9485c29e6138327c8d1b88eed955d40c69506537d73dcfc947bfbd03a4497813"
+            },
+            "route_digest": "8b9db81ccafb841b0af3e6b24b46892bc55f6669495a6cc1d33dfcea3051e121"
+          }
+        ],
+        "untargeted_terminal_extensions": [],
+        "private_margin_operationalization": {
+          "basis": "SOURCE_TRANSVERSE_CLEAR_DEPTH_CROSS_SECTION_AROUND_REQUIRED_PATH_ONLY",
+          "source_max_clear_width_m": "1.0",
+          "engineering_assumption": "Transverse floor around a verified traversal within the actual source corridor width is a supporting margin; no unsupported longitudinal tail is granted function.",
+          "regions": [
+            [
+              "179/20",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "179/20",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "179/20",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "179/20",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "37/4",
+              "109/5",
+              "559/40",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "67/4",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "135/8",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "67/4",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "67/4",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "67/4",
+              "114/5"
+            ],
+            [
+              "547/40",
+              "109/5",
+              "67/4",
+              "114/5"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "179/20",
+              "114/5",
+              "199/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "1077/40"
+            ],
+            [
+              "321/20",
+              "1049/40",
+              "341/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "473/20"
+            ],
+            [
+              "321/20",
+              "459/20",
+              "341/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "519/20"
+            ],
+            [
+              "321/20",
+              "101/4",
+              "341/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "519/20"
+            ],
+            [
+              "321/20",
+              "101/4",
+              "341/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "483/20"
+            ],
+            [
+              "321/20",
+              "469/20",
+              "341/20",
+              "109/4"
+            ],
+            [
+              "321/20",
+              "114/5",
+              "341/20",
+              "483/20"
+            ],
+            [
+              "321/20",
+              "469/20",
+              "341/20",
+              "109/4"
+            ]
+          ]
+        },
+        "private_circulation_components": [
+          {
+            "regions": [
+              [
+                "179/20",
+                "109/5",
+                "341/20",
+                "114/5"
+              ],
+              [
+                "179/20",
+                "114/5",
+                "199/20",
+                "111/4"
+              ],
+              [
+                "321/20",
+                "114/5",
+                "341/20",
+                "111/4"
+              ],
+              [
+                "531/40",
+                "433/20",
+                "115/8",
+                "109/5"
+              ]
+            ],
+            "area_m2": "3633/200",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing",
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing",
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing"
+            ],
+            "actual_body_route_coverage_m2": "12029/800",
+            "source_use_coverage_m2": "3477/200",
+            "unsupported_margin_area_m2": "123/200",
+            "unsupported_margin_regions": [
+              [
+                "135/8",
+                "109/5",
+                "341/20",
+                "114/5"
+              ],
+              [
+                "99/10",
+                "109/4",
+                "199/20",
+                "111/4"
+              ],
+              [
+                "97/10",
+                "138/5",
+                "99/10",
+                "111/4"
+              ],
+              [
+                "193/20",
+                "138/5",
+                "97/10",
+                "111/4"
+              ],
+              [
+                "179/20",
+                "109/4",
+                "9",
+                "111/4"
+              ],
+              [
+                "9",
+                "138/5",
+                "193/20",
+                "111/4"
+              ],
+              [
+                "17",
+                "109/4",
+                "341/20",
+                "111/4"
+              ],
+              [
+                "67/4",
+                "138/5",
+                "17",
+                "111/4"
+              ],
+              [
+                "321/20",
+                "109/4",
+                "163/10",
+                "111/4"
+              ],
+              [
+                "163/10",
+                "138/5",
+                "327/20",
+                "111/4"
+              ],
+              [
+                "327/20",
+                "138/5",
+                "67/4",
+                "111/4"
+              ]
+            ],
+            "verdict": "UNKNOWN_MARGIN_OR_BLIND_APPENDAGE_REQUIRES_SOURCE_FUNCTION"
+          }
+        ],
+        "entry_circulation_components": [
+          {
+            "regions": [
+              [
+                "45/8",
+                "789/40",
+                "259/40",
+                "159/8"
+              ],
+              [
+                "45/8",
+                "159/8",
+                "437/40",
+                "823/40"
+              ],
+              [
+                "439/50",
+                "779/40",
+                "237/25",
+                "159/8"
+              ],
+              [
+                "409/40",
+                "779/40",
+                "437/40",
+                "159/8"
+              ],
+              [
+                "439/50",
+                "777/40",
+                "597/40",
+                "779/40"
+              ],
+              [
+                "539/40",
+                "779/40",
+                "597/40",
+                "161/8"
+              ],
+              [
+                "439/50",
+                "751/40",
+                "567/40",
+                "777/40"
+              ],
+              [
+                "523/40",
+                "149/8",
+                "567/40",
+                "751/40"
+              ],
+              [
+                "79/8",
+                "3741/200",
+                "85/8",
+                "751/40"
+              ],
+              [
+                "79/8",
+                "149/8",
+                "423/40",
+                "3741/200"
+              ],
+              [
+                "523/40",
+                "143/8",
+                "599/40",
+                "149/8"
+              ],
+              [
+                "539/40",
+                "689/40",
+                "597/40",
+                "143/8"
+              ],
+              [
+                "539/40",
+                "657/40",
+                "567/40",
+                "689/40"
+              ],
+              [
+                "539/40",
+                "653/40",
+                "751/40",
+                "657/40"
+              ],
+              [
+                "539/40",
+                "643/40",
+                "631/40",
+                "653/40"
+              ],
+              [
+                "723/40",
+                "649/40",
+                "751/40",
+                "653/40"
+              ],
+              [
+                "599/40",
+                "657/40",
+                "751/40",
+                "681/40"
+              ],
+              [
+                "599/40",
+                "681/40",
+                "901/50",
+                "137/8"
+              ],
+              [
+                "723/40",
+                "621/40",
+                "809/40",
+                "649/40"
+              ],
+              [
+                "539/40",
+                "3129/200",
+                "627/40",
+                "643/40"
+              ],
+              [
+                "539/40",
+                "623/40",
+                "569/40",
+                "3129/200"
+              ],
+              [
+                "539/40",
+                "161/8",
+                "567/40",
+                "163/8"
+              ],
+              [
+                "531/40",
+                "163/8",
+                "115/8",
+                "433/20"
+              ]
+            ],
+            "area_m2": "40391/2000",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing",
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing",
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing",
+              "WC_front",
+              "WC_use",
+              "shower_use",
+              "basin_front",
+              "kitchen_work",
+              "dining_front_left",
+              "dining_front_right",
+              "dining_back_left",
+              "dining_back_right",
+              "dining_left",
+              "dining_right",
+              "sofa1_front",
+              "sofa2_front",
+              "armchair1_front",
+              "armchair2_front",
+              "armchair3_front",
+              "armchair4_front",
+              "scenario:kitchen_to_dining_floor",
+              "scenario:guest_living",
+              "scenario:guest_dining"
+            ],
+            "actual_body_route_coverage_m2": "40391/2000",
+            "source_use_coverage_m2": "591/100",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "44/5",
+                "531/20",
+                "179/20",
+                "109/4"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed1.bed_front",
+              "bed1.bed_back",
+              "bed1.closet_front",
+              "bed1.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "199/20",
+                "531/20",
+                "101/10",
+                "109/4"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed2.closet_front",
+              "bed2.bedA_front",
+              "bed2.bedA_back",
+              "bed2.bedB_front",
+              "bed2.bedB_back",
+              "bed2.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          },
+          {
+            "regions": [
+              [
+                "341/20",
+                "531/20",
+                "86/5",
+                "109/4"
+              ]
+            ],
+            "area_m2": "21/200",
+            "required_targets_served": [
+              "bed3.closet_front",
+              "bed3.bedA_front",
+              "bed3.bedA_back",
+              "bed3.bedB_front",
+              "bed3.bedB_back",
+              "bed3.changing"
+            ],
+            "actual_body_route_coverage_m2": "21/200",
+            "source_use_coverage_m2": "0",
+            "unsupported_margin_area_m2": "0",
+            "unsupported_margin_regions": [],
+            "verdict": "PASS_EXACT_REQUIRED_PATH_USE_COMPONENT"
+          }
+        ],
+        "service_inventory": [
+          {
+            "room": "bath",
+            "source_module_hash": "0be7ed8e3019873c18682dd699fbd185a482f127e9a1f547bb8356b6de14c30c",
+            "actual_service_required_targets": [
+              "WC_front",
+              "WC_use",
+              "shower_use",
+              "basin_front"
+            ],
+            "route_sweep_area_inside_service_m2": "4701/1000",
+            "route_only_after_actual_fixture_activity_deduction_m2": "1013/800",
+            "route_only_regions": [
+              [
+                "21/2",
+                "709/40",
+                "423/40",
+                "149/8"
+              ],
+              [
+                "79/8",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "79/8",
+                "741/40",
+                "21/2",
+                "149/8"
+              ],
+              [
+                "21/2",
+                "709/40",
+                "423/40",
+                "149/8"
+              ],
+              [
+                "79/8",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "79/8",
+                "741/40",
+                "21/2",
+                "149/8"
+              ],
+              [
+                "21/2",
+                "709/40",
+                "85/8",
+                "731/40"
+              ],
+              [
+                "79/8",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "21/2",
+                "709/40",
+                "85/8",
+                "731/40"
+              ],
+              [
+                "397/40",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "21/2",
+                "709/40",
+                "423/40",
+                "149/8"
+              ],
+              [
+                "79/8",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "79/8",
+                "741/40",
+                "21/2",
+                "149/8"
+              ],
+              [
+                "21/2",
+                "709/40",
+                "423/40",
+                "149/8"
+              ],
+              [
+                "79/8",
+                "709/40",
+                "21/2",
+                "713/40"
+              ],
+              [
+                "79/8",
+                "741/40",
+                "21/2",
+                "149/8"
+              ],
+              [
+                "391/40",
+                "667/40",
+                "419/40",
+                "673/40"
+              ],
+              [
+                "431/40",
+                "709/40",
+                "437/40",
+                "733/40"
+              ],
+              [
+                "437/40",
+                "709/40",
+                "459/40",
+                "711/40"
+              ],
+              [
+                "431/40",
+                "709/40",
+                "437/40",
+                "733/40"
+              ],
+              [
+                "437/40",
+                "709/40",
+                "93/8",
+                "711/40"
+              ],
+              [
+                "437/40",
+                "709/40",
+                "93/8",
+                "711/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "423/40",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "2137/200",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "679/40",
+                "2137/200",
+                "709/40"
+              ],
+              [
+                "1997/200",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "679/40",
+                "109/10",
+                "707/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "707/40"
+              ],
+              [
+                "1997/200",
+                "141/8",
+                "21/2",
+                "707/40"
+              ],
+              [
+                "429/40",
+                "679/40",
+                "109/10",
+                "709/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "429/40",
+                "681/40",
+                "109/10",
+                "709/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "703/40",
+                "423/40",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "703/40",
+                "85/8",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "85/8",
+                "709/40"
+              ],
+              [
+                "397/40",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "2137/200",
+                "709/40"
+              ],
+              [
+                "397/40",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "679/40",
+                "2137/200",
+                "709/40"
+              ],
+              [
+                "1997/200",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "679/40",
+                "109/10",
+                "707/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "707/40"
+              ],
+              [
+                "1997/200",
+                "141/8",
+                "21/2",
+                "707/40"
+              ],
+              [
+                "429/40",
+                "679/40",
+                "109/10",
+                "709/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "429/40",
+                "681/40",
+                "109/10",
+                "709/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "431/40",
+                "681/40",
+                "109/10",
+                "709/40"
+              ],
+              [
+                "109/10",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "431/40",
+                "141/8",
+                "437/40",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "423/40",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "1923/200",
+                "681/40",
+                "49/5",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "681/40",
+                "423/40",
+                "709/40"
+              ],
+              [
+                "49/5",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "1923/200",
+                "679/40",
+                "49/5",
+                "709/40"
+              ],
+              [
+                "49/5",
+                "141/8",
+                "2063/200",
+                "709/40"
+              ],
+              [
+                "47/5",
+                "679/40",
+                "49/5",
+                "707/40"
+              ],
+              [
+                "439/50",
+                "141/8",
+                "47/5",
+                "707/40"
+              ],
+              [
+                "49/5",
+                "141/8",
+                "2063/200",
+                "707/40"
+              ],
+              [
+                "47/5",
+                "679/40",
+                "237/25",
+                "709/40"
+              ],
+              [
+                "439/50",
+                "141/8",
+                "47/5",
+                "709/40"
+              ],
+              [
+                "349/40",
+                "141/8",
+                "237/25",
+                "709/40"
+              ],
+              [
+                "349/40",
+                "141/8",
+                "377/40",
+                "709/40"
+              ],
+              [
+                "21/2",
+                "673/40",
+                "423/40",
+                "709/40"
+              ],
+              [
+                "79/8",
+                "673/40",
+                "21/2",
+                "677/40"
+              ],
+              [
+                "79/8",
+                "141/8",
+                "21/2",
+                "709/40"
+              ],
+              [
+                "391/40",
+                "673/40",
+                "49/5",
+                "701/40"
+              ],
+              [
+                "21/2",
+                "673/40",
+                "423/40",
+                "701/40"
+              ],
+              [
+                "49/5",
+                "673/40",
+                "21/2",
+                "677/40"
+              ],
+              [
+                "391/40",
+                "673/40",
+                "49/5",
+                "701/40"
+              ],
+              [
+                "49/5",
+                "673/40",
+                "419/40",
+                "677/40"
+              ]
+            ],
+            "other_source_role_inventory": {},
+            "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+            "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+          },
+          {
+            "room": "kitchen",
+            "source_module_hash": "b8cdb457c86bdfb537d940f19a2eb5356ea661d26b20c80a8724c162eb595eb0",
+            "actual_service_required_targets": [
+              "kitchen_work"
+            ],
+            "route_sweep_area_inside_service_m2": "7/5",
+            "route_only_after_actual_fixture_activity_deduction_m2": "61/200",
+            "route_only_regions": [
+              [
+                "253/40",
+                "143/8",
+                "259/40",
+                "789/40"
+              ],
+              [
+                "231/40",
+                "787/40",
+                "253/40",
+                "789/40"
+              ],
+              [
+                "253/40",
+                "143/8",
+                "259/40",
+                "743/40"
+              ]
+            ],
+            "other_source_role_inventory": {},
+            "exclusive_service_circulation_status": "UNKNOWN_ROLE_EXCLUSIVITY_NOT_PROVEN_BY_ROOM_NAME_OR_ROUTE_ONLY_AREA",
+            "scope": "Route-only bookkeeping excludes fixture/activity/door actor use; full continuous kitchen/bath activity reservation must be reconciled before declaring exclusively circulation."
+          }
+        ],
+        "source_connector_margin_proof": {
+          "schema": "SOURCE359_CONNECTOR_MARGIN_ROLE",
+          "model_hash": "cb516cd81801438b7d920c3e3f0a56f98c22fae1e3ba03718d9dc2f8724b1b12",
+          "unit": "B",
+          "classification": "ENGINEERING_ROLE_OPERATIONALIZATION",
+          "source_row_digests": {
+            "body_route_sweeps": "4f1ec1e9c1e6b75e149203277e87c3dcd85bcd5cab124fc053c1edf6298389c3",
+            "door_operation": "9d2a939787d1160e12acc5dd1b3eb1129f84954b52aaa4c9a28e3a93c5d4df74",
+            "closet_operation": "ad6a33a193db05fb8cbb0f2be65b9dceb0a3d4777b07350780339d0cfa08c578",
+            "private_grouping": "7f756ff365d0b9a8ed3ab666efdd68716c7f409a54cf0af75d7991cb3180e7ea",
+            "fixture_inventory_use": "597491f1ec1fbdedb99f1b460dfd44d4e7631b3fe054fb56f1617905ea1fd7fd",
+            "circulation_functional_integrity": "202ebbf932024b0b74cf8427e190bd0d8588c66de4be4ca6695a7b7114274d1a"
+          },
+          "source_clamp_digest": "70deb14de1973102794593007b09223fa653c00e856ec992b6d5f4280090c59b",
+          "groups": [
+            {
+              "source_connector_index": 0,
+              "source_connector": [
+                "179/20",
+                "114/5",
+                "199/20",
+                "111/4"
+              ],
+              "source_junction": [
+                "179/20",
+                "109/5",
+                "199/20",
+                "114/5"
+              ],
+              "required_traversals": [
+                {
+                  "target_port": "B.bed1.entry",
+                  "path_digest": "38c499a2a2276f1e40c8fe5b95af572b3f66ae884c51b0be353d26ac0a6c2062",
+                  "source_port_digest": "7322e7648e0120afdd1adfc21a1a665878b9e2ff8c1a37705cc6a40265a59724"
+                },
+                {
+                  "target_port": "B.bed2.entry",
+                  "path_digest": "46cfbccfc0d5479417a67b925f7e0a8e948ceb8369b7f4281f4364758acce600",
+                  "source_port_digest": "11746dbd6417b6eb57775bd264283d23adaa1d7989cdd3a2be718a4b2f2b604b"
+                }
+              ],
+              "source_origin": "SOURCE359 full-width connector derived from actual source-bedroom gaps; same source hall junction, no longitudinal extension outside those boundaries"
+            },
+            {
+              "source_connector_index": 1,
+              "source_connector": [
+                "321/20",
+                "114/5",
+                "341/20",
+                "111/4"
+              ],
+              "source_junction": [
+                "321/20",
+                "109/5",
+                "341/20",
+                "114/5"
+              ],
+              "required_traversals": [
+                {
+                  "target_port": "B.bed3.entry",
+                  "path_digest": "e8b3c50fc234884546a620fc22ee03f4fd8a1235e9262eff7d6f1d7fae4c1428",
+                  "source_port_digest": "ac22f10ad029f8c4353961fa7447f9ed105f754ccad2f511a1427dfec90ac791"
+                }
+              ],
+              "source_origin": "SOURCE359 full-width connector derived from actual source-bedroom gaps; same source hall junction, no longitudinal extension outside those boundaries"
+            }
+          ],
+          "claims": [
+            {
+              "region": [
+                "135/8",
+                "109/5",
+                "341/20",
+                "114/5"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "99/10",
+                "109/4",
+                "199/20",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "97/10",
+                "138/5",
+                "99/10",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "193/20",
+                "138/5",
+                "97/10",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "179/20",
+                "109/4",
+                "9",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "9",
+                "138/5",
+                "193/20",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                0
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "17",
+                "109/4",
+                "341/20",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "67/4",
+                "138/5",
+                "17",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "321/20",
+                "109/4",
+                "163/10",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "163/10",
+                "138/5",
+                "327/20",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            },
+            {
+              "region": [
+                "327/20",
+                "138/5",
+                "67/4",
+                "111/4"
+              ],
+              "source_connector_groups": [
+                1
+              ],
+              "uncovered_regions": [],
+              "verdict": "PASS_SCOPED_SOURCE_CONNECTOR_PORTAL_JUNCTION_MARGIN"
+            }
+          ],
+          "all_residual_cells_source_bound": true,
+          "necessity_claimed": false,
+          "scope": "A whole actual connector/portal junction can serve a checked required traversal without every floor point being a body sweep. No added terminal branch or outside longitudinal extension accepted. Q04 finite comparison remains separate."
+        },
+        "intrinsic_private_role_status": "PASS_SCOPED_SOURCE_WHOLE_CONNECTOR_ROLE"
+      }
+    ],
+    "parent_complete": false,
+    "fresh_execution": false,
+    "admission_allowed": false,
+    "necessity_comparison": "NOT_ASSESSED_HERE_REQUIRES_ELIGIBLE_FINITE_COMPARISON",
+    "status": "MEASURED_INTRINSIC_COMPONENT_PURPOSE_AND_EXPLICIT_GAPS"
+  },
+  "alternatives": [
+    {
+      "alternative": "baseline351",
+      "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+      "negative_comparison": {
+        "dominance": "FALSE",
+        "witness": {
+          "metric": "A/WC_front/length",
+          "current": "97/10",
+          "alternative": "45/4",
+          "increase": "31/20"
+        },
+        "missing_other_metrics_not_promoted": true
+      },
+      "retained_eligibility_evidence": {
+        "result": {
+          "schema": "ENGINEERING_OPERATIONALIZATION357_INTRINSIC_ELIGIBILITY",
+          "verdict": "PASS",
+          "eligible": true,
+          "live_authority": false,
+          "repair_authority": false,
+          "delivery_allowed": false,
+          "parent_complete": false,
+          "new_fresh_execution": false,
+          "rows": [
+            {
+              "id": "B01",
+              "source_section": "H01",
+              "source_requirement_ids": [
+                "input_exact_domain"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "input_exact_domain": "880179fc449b2e455f311ba535f7515f7b85dd4a47e8c01ef1a47f81f9aa4330"
+              }
+            },
+            {
+              "id": "B02",
+              "source_section": "H02/H03",
+              "source_requirement_ids": [
+                "containment_all_entities",
+                "valid_exact_regions"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "containment_all_entities": "1c4fe6d734c19f44635d538178bdcb66c10ecd1c43b72335fa535bf60a04bbc0",
+                "valid_exact_regions": "507c8c321fdb2a43ded02c05d77be5ef0fee736f2bce42eaf78651772a35303a"
+              }
+            },
+            {
+              "id": "B03",
+              "source_section": "H04/H06",
+              "source_requirement_ids": [
+                "partition_ledger"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "partition_ledger": "a1bf43bfdeb589edfbff16e57189c628cb3a2d87676a2b81adaad3e817331453"
+              }
+            },
+            {
+              "id": "B04",
+              "source_section": "H05",
+              "source_requirement_ids": [
+                "unit_independence"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "unit_independence": "0de2668d57e3ff2fb6eb76916348413f5b796745281d865a9200e9e6278b16f6"
+              }
+            },
+            {
+              "id": "B05",
+              "source_section": "H07",
+              "source_requirement_ids": [
+                "bath_nonprivate_access"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "bath_nonprivate_access": "e4b6b01787dd3793a0974939eb7baefa98f47a6923779dfc1787750b26629d67"
+              }
+            },
+            {
+              "id": "B06",
+              "source_section": "H08",
+              "source_requirement_ids": [
+                "body_route_sweeps"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "body_route_sweeps": "dbebf6d3416684e134f5aa045467742a09df8892e314b110e5660b4edc3c30af"
+              }
+            },
+            {
+              "id": "B07",
+              "source_section": "H09",
+              "source_requirement_ids": [
+                "wall_network"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "wall_network": "a116cb3bf10abcff45868356e574a06ee423c9d3e01ecd88bee5281b20d98732"
+              }
+            },
+            {
+              "id": "B08",
+              "source_section": "H10",
+              "source_requirement_ids": [
+                "opening_hosts",
+                "actual_opening_geometry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "opening_hosts": "a2b6fee3d354a1ed8890c4fcdbca0c36038c4bd5f2f795be290c6a67085ae854",
+                "actual_opening_geometry": "7cae0f2b047dde395598e82ac4768ebdb546c5bf665620436f803119a1c72be2"
+              }
+            },
+            {
+              "id": "B09",
+              "source_section": "H11",
+              "source_requirement_ids": [
+                "door_operation",
+                "closet_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "door_operation": "41649dd0c8bf7e66e46396409854b2c9e0a8cc1fa1764700faa3e51c407b0e6b",
+                "closet_operation": "209e66a959948ce3f280d4f7be67eeb998e870e130c96d2482aef89dab6f03eb"
+              }
+            },
+            {
+              "id": "B10",
+              "source_section": "H12",
+              "source_requirement_ids": [
+                "fixture_inventory_use"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "fixture_inventory_use": "4d0338d0443cdba0721943a5771d7416296ea6dbc5aa1894c906ec1730f031b1"
+              }
+            },
+            {
+              "id": "B11",
+              "source_section": "H13/Q01",
+              "source_requirement_ids": [
+                "program_functional_roles",
+                "zero_laundry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "program_functional_roles": "533ede7e3136a7d87807e4287a98bb1a2ed4f5f2c9bcf7d0cbda49e161cc0bca",
+                "zero_laundry": "6a9844b413eddcf434e976591969eb7a4bd6079884e859d4b4b56255353ebdd5"
+              }
+            },
+            {
+              "id": "B12",
+              "source_section": "H15",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "dc759f0a924a7d4c0cebf66d8574d98d53edc88c8e895064d2bae1e0bc5ff9cd"
+              }
+            },
+            {
+              "id": "B13",
+              "source_section": "H17",
+              "source_requirement_ids": [
+                "kitchen_essential_operation",
+                "bath_service_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "kitchen_essential_operation": "8b51a885e46eeb84553d7d65f3de0c3deb587caae70ef3f6c92ee6d49caf7db9",
+                "bath_service_operation": "f59492ec66e885fe89c5ee22d84ab10c326b2f70269a0115bf8769541db434d1"
+              }
+            },
+            {
+              "id": "B14",
+              "source_section": "Q05.VISIBILITY_ONLY",
+              "source_requirement_ids": [
+                "privacy_scenarios"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "privacy_scenarios": "0f58fc627a6e83aad83b4f228c8e536c2983a7b1b7aa73875198314eb5f80fef"
+              }
+            },
+            {
+              "id": "B15",
+              "source_section": "Q06",
+              "source_requirement_ids": [
+                "guest_living_route",
+                "guest_dining_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "guest_living_route": "df2302e60b8fae554c5a57994675be61ddfa1be178a0d36f0621e47c9091046d",
+                "guest_dining_route": "e31a8d92388491d77cda5d1a39f2948f795ae8ad7bc470399453bfceb710e7aa"
+              }
+            },
+            {
+              "id": "B16",
+              "source_section": "Q07.ESSENTIAL_USE",
+              "source_requirement_ids": [
+                "serving_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "serving_route": "e8e2b18b6e948520dbba0a1e366da0c9bae0b41a45aec30ac1fa0d51e6119f44"
+              }
+            },
+            {
+              "id": "B17",
+              "source_section": "Q10.ARRIVAL_USE",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "dc759f0a924a7d4c0cebf66d8574d98d53edc88c8e895064d2bae1e0bc5ff9cd"
+              }
+            },
+            {
+              "id": "B18",
+              "source_section": "H19",
+              "source_requirement_ids": [],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {}
+            }
+          ],
+          "missing": [],
+          "excluded_dependencies": [
+            "Q04",
+            "Q11_FINAL",
+            "Q12",
+            "ALL_12_PARENT_PASS",
+            "long_corridor_necessity"
+          ],
+          "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROFILE; STORED_ARTIFACT; OPEN_TRANSIT_AND_DECLARED_SOURCE_OPERATION_SCENARIOS; NOT_GLOBAL_OPTIMUM_OR_TECHNICAL_CORE",
+          "source_profile": "SOURCE351",
+          "evidence": {
+            "record_digest": "f37db26c3915f4afa69542355555ec0076db53f01754ba3ecb312e9e75edb3b2",
+            "new_result_digest": "11b3d28cac8c7003564f963ce44ab5b318be932ce36b7d7e0bc7ff3c26df4732",
+            "model_digest": "72bf70230039b8bdf1aaa23e8d105130f8726b6475ac4b97f741e9f0b0105928",
+            "group_digest": "cb6a32db270e43c9898569bdaf0db23af9fa80af1a0df57d13c35715ff634c5d",
+            "component_digests": {
+              "access": "c0c2e0d8c9850e784bdd9e8e676ba4eb2fdef6af6be5cf9c55378c926fc8d09c",
+              "openings": "99e5f379ea774954b2c6e0d080163ce747fa0547ebcfcea5c9d0a5df30c1518b",
+              "guest": "6c8db85bc6ef28e0e144488bac881a7653820c45e92ce0a15148ae9a75f947d4",
+              "kitchen": "cb02c8ae3b1bedc57b46d381c7371a4e569d7e60cc65c21e869a4e9991bea4a5"
+            },
+            "source_pins_digest": "b0d22d8c25accc3da80151cbaf5c5630fc4e9f5a8f1083654571444da2c9be7c"
+          }
+        },
+        "evaluator_sha256": "754211df4dcda2da88e9e54406269c75ffbf3c52f1038f2b5a53382d83ce6da7",
+        "result_digest": "b5d47074760a6b97d3204d063617cc7333165f6a649974365bed97d286e9c609",
+        "record_digest": "f37db26c3915f4afa69542355555ec0076db53f01754ba3ecb312e9e75edb3b2",
+        "fresh_result_digest": "11b3d28cac8c7003564f963ce44ab5b318be932ce36b7d7e0bc7ff3c26df4732"
+      },
+      "alternative_not_deleted": true
+    },
+    {
+      "alternative": "translated357",
+      "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+      "negative_comparison": {
+        "dominance": "FALSE",
+        "witness": {
+          "metric": "A/WC_front/length",
+          "current": "97/10",
+          "alternative": "209/20",
+          "increase": "3/4"
+        },
+        "missing_other_metrics_not_promoted": true
+      },
+      "retained_eligibility_evidence": {
+        "result": {
+          "schema": "ENGINEERING_OPERATIONALIZATION357_INTRINSIC_ELIGIBILITY",
+          "verdict": "PASS",
+          "eligible": true,
+          "live_authority": false,
+          "repair_authority": false,
+          "delivery_allowed": false,
+          "parent_complete": false,
+          "new_fresh_execution": false,
+          "rows": [
+            {
+              "id": "B01",
+              "source_section": "H01",
+              "source_requirement_ids": [
+                "input_exact_domain"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "input_exact_domain": "bc89ddff49b3b6fb74420aaddd0d21f064d5729d24e6efceeed71dd7fecf54e7"
+              }
+            },
+            {
+              "id": "B02",
+              "source_section": "H02/H03",
+              "source_requirement_ids": [
+                "containment_all_entities",
+                "valid_exact_regions"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "containment_all_entities": "e8d26444468951a645cacca05ead3a1ba86557103421a7943847e6e3dbf2b092",
+                "valid_exact_regions": "0cc27376a06325d8c20810616252ff877db1628f717dbc84148ed7272e1e9c8a"
+              }
+            },
+            {
+              "id": "B03",
+              "source_section": "H04/H06",
+              "source_requirement_ids": [
+                "partition_ledger"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "partition_ledger": "01dab6a9bcd56ccb6344ab4c45af573381a5d411a5b959677906d9a25501b027"
+              }
+            },
+            {
+              "id": "B04",
+              "source_section": "H05",
+              "source_requirement_ids": [
+                "unit_independence"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "unit_independence": "72bfc405c1900d112b2530b213b40abbc621fad15d307bba8912ef04f7219dfa"
+              }
+            },
+            {
+              "id": "B05",
+              "source_section": "H07",
+              "source_requirement_ids": [
+                "bath_nonprivate_access"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "bath_nonprivate_access": "08fa75f56aa32f6b1cd30679af3392f7ae747f8c1cdb12aef5c6274e2149595b"
+              }
+            },
+            {
+              "id": "B06",
+              "source_section": "H08",
+              "source_requirement_ids": [
+                "body_route_sweeps"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "body_route_sweeps": "b96cbec653c204eec0292fa64e614124db7a4dc46a7dc898baa70e56a01c8604"
+              }
+            },
+            {
+              "id": "B07",
+              "source_section": "H09",
+              "source_requirement_ids": [
+                "wall_network"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "wall_network": "eb394ab70fcab4976d1058e9d144e7f1df34c5a9015a92d7738c53df6da8536e"
+              }
+            },
+            {
+              "id": "B08",
+              "source_section": "H10",
+              "source_requirement_ids": [
+                "opening_hosts",
+                "actual_opening_geometry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "opening_hosts": "4fd0b90095d7703f23adaeccf7935a03821cf10488433368d730f883d12bf163",
+                "actual_opening_geometry": "53fb068f764d30ffa58fca02046ae5c8fa23da7637399c10eb8afdd6328c2dd6"
+              }
+            },
+            {
+              "id": "B09",
+              "source_section": "H11",
+              "source_requirement_ids": [
+                "door_operation",
+                "closet_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "door_operation": "b0ec7fa37e2e290aea6153c36249d90c826cbfd5e8b2c766563a61b5dbe03f12",
+                "closet_operation": "8215e7b5d9cd57b8bed47a6cc8238bb219a4f6d82bb0d4cd58f02bccfdf0d155"
+              }
+            },
+            {
+              "id": "B10",
+              "source_section": "H12",
+              "source_requirement_ids": [
+                "fixture_inventory_use"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "fixture_inventory_use": "fcd96dff7f6936e61d9c90aaeea8ce0ed2099685ada7d54cb6a6c6c3a7c2f282"
+              }
+            },
+            {
+              "id": "B11",
+              "source_section": "H13/Q01",
+              "source_requirement_ids": [
+                "program_functional_roles",
+                "zero_laundry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "program_functional_roles": "0b544006bb4ba6c830a5328339020e4aa61a219a183059c8cb3885a89c173c82",
+                "zero_laundry": "1221d24e9bc4410fe5bb9fbf699dd489bcca4788c9b2674733ae306545a10343"
+              }
+            },
+            {
+              "id": "B12",
+              "source_section": "H15",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "d9d317439831a44af5f4cb0591d7cd40a7acd3774beba4b4100c189d4f4faaae"
+              }
+            },
+            {
+              "id": "B13",
+              "source_section": "H17",
+              "source_requirement_ids": [
+                "kitchen_essential_operation",
+                "bath_service_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "kitchen_essential_operation": "bb56c61782b0dd82fd12eb3d5e623c3788033fe859f6d7f87f5eaac61bf7fa20",
+                "bath_service_operation": "60d824718cade1b7c711bfe6c83ade2394b4ccb4833acd8c0855e055b35affb9"
+              }
+            },
+            {
+              "id": "B14",
+              "source_section": "Q05.VISIBILITY_ONLY",
+              "source_requirement_ids": [
+                "privacy_scenarios"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "privacy_scenarios": "6acea38ddbebfcd512dfde2ef2a5791952bda8d7d29a60a135f99a62a3b8b6b8"
+              }
+            },
+            {
+              "id": "B15",
+              "source_section": "Q06",
+              "source_requirement_ids": [
+                "guest_living_route",
+                "guest_dining_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "guest_living_route": "30b377877d9e329ed8b7266771204c77c7af603080045eacead51b15da664714",
+                "guest_dining_route": "54494b6c06e9d3c9666ab5cb0a5cf863faea56a15d340d9686dbaec07e598d32"
+              }
+            },
+            {
+              "id": "B16",
+              "source_section": "Q07.ESSENTIAL_USE",
+              "source_requirement_ids": [
+                "serving_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "serving_route": "9b2730e26d1db3fd2a2ed20b88a4902d1db481d1f512fa8b4716d71c1f833ab2"
+              }
+            },
+            {
+              "id": "B17",
+              "source_section": "Q10.ARRIVAL_USE",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "d9d317439831a44af5f4cb0591d7cd40a7acd3774beba4b4100c189d4f4faaae"
+              }
+            },
+            {
+              "id": "B18",
+              "source_section": "H19",
+              "source_requirement_ids": [],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {}
+            }
+          ],
+          "missing": [],
+          "excluded_dependencies": [
+            "Q04",
+            "Q11_FINAL",
+            "Q12",
+            "ALL_12_PARENT_PASS",
+            "long_corridor_necessity"
+          ],
+          "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROFILE; STORED_ARTIFACT; OPEN_TRANSIT_AND_DECLARED_SOURCE_OPERATION_SCENARIOS; NOT_GLOBAL_OPTIMUM_OR_TECHNICAL_CORE",
+          "evidence": {
+            "record_digest": "271eec6ae4c2a40f89c3830265ed6f5d391fbb37d6efd5493fb1d5b359bc18da",
+            "new_result_digest": "92ff5cdb560ab296bcd1928f8a742e9a052fbfb92ad12557b02946f054e7a071",
+            "model_digest": "278cd911d7fba15fcbcdb0e5cbf2b2ef48256eaa70290389015b05bb2ec20ea1",
+            "group_digest": "547ed1787f7372b33bacf72624795306ea0a9e8ad262509972140287d8050d8c",
+            "component_digests": {
+              "access": "74cfd3060036b27632eb43bbcff3d19e014ad7c276422060b93b299b987c49ea",
+              "openings": "785124287309016f24b9cf5d099763906234e286eb91d2c3da05213662af1684",
+              "guest": "1bd1b999db3b89f8bf643eed04be8600a1600c65af26d0d886067c32e7a54c20",
+              "kitchen": "42bda4fd0d77ad19df0fdf21a88c1e8883dfd23046a2f187c132b28eaa004a0a"
+            },
+            "source_pins_digest": "ebde28184c9f6500922a9f56f7ae5a1b49c2c086b6041f3925d4249430e3307f"
+          }
+        },
+        "evaluator_sha256": "008cdba3cda7f1a520e64759b369bcc323949b888e75fde98af4c77ef48eb1f2",
+        "result_digest": "39ec992ae38e2a586c4d9f4c8f80702ba9d13a49c3f19937d3edc07f699ecb44",
+        "record_digest": "271eec6ae4c2a40f89c3830265ed6f5d391fbb37d6efd5493fb1d5b359bc18da",
+        "fresh_result_digest": "92ff5cdb560ab296bcd1928f8a742e9a052fbfb92ad12557b02946f054e7a071"
+      },
+      "alternative_not_deleted": true
+    },
+    {
+      "alternative": "row358",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "negative_comparison": {
+        "dominance": "FALSE",
+        "witness": {
+          "metric": "A/circulation_m2",
+          "current": "77351/2000",
+          "alternative": "101151/2000",
+          "increase": "119/10"
+        },
+        "missing_other_metrics_not_promoted": true
+      },
+      "retained_eligibility_evidence": {
+        "result": {
+          "schema": "ENGINEERING_OPERATIONALIZATION358_INTRINSIC_ELIGIBILITY",
+          "verdict": "PASS",
+          "eligible": true,
+          "live_authority": false,
+          "repair_authority": false,
+          "delivery_allowed": false,
+          "parent_complete": false,
+          "new_fresh_execution": false,
+          "rows": [
+            {
+              "id": "B01",
+              "source_section": "H01",
+              "source_requirement_ids": [
+                "input_exact_domain"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "input_exact_domain": "6ec8dcb3b5ade2fe28285aea8f9b0885fd63c71e0ef88794e44dc309e98a6bac"
+              }
+            },
+            {
+              "id": "B02",
+              "source_section": "H02/H03",
+              "source_requirement_ids": [
+                "containment_all_entities",
+                "valid_exact_regions"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "containment_all_entities": "cdc4a166e5015b21f88a0279e9e19ff9a5978965702f7cef440b9877bdabfd0e",
+                "valid_exact_regions": "96ec1c2ec3205206a217923aa939260c3a55acb02628d87721c3db5eb02ad60f"
+              }
+            },
+            {
+              "id": "B03",
+              "source_section": "H04/H06",
+              "source_requirement_ids": [
+                "partition_ledger"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "partition_ledger": "10ce233dd0e0d2af5deca1a46f788efa3e24cbd717fb126f42677fc0d926f47d"
+              }
+            },
+            {
+              "id": "B04",
+              "source_section": "H05",
+              "source_requirement_ids": [
+                "unit_independence"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "unit_independence": "05b82baa52901e06b710d195d5e8be30bed884378a25666c3b6ab48cf03cffbf"
+              }
+            },
+            {
+              "id": "B05",
+              "source_section": "H07",
+              "source_requirement_ids": [
+                "bath_nonprivate_access"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "bath_nonprivate_access": "1c51baccac827fe84ff83caf80d376cbbe4e981b991d4803e387ca48d574d593"
+              }
+            },
+            {
+              "id": "B06",
+              "source_section": "H08",
+              "source_requirement_ids": [
+                "body_route_sweeps"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "body_route_sweeps": "d1661e6e718a04df904c6b46e2f974d5daefc8eecd4d61185d5427c030a2c51b"
+              }
+            },
+            {
+              "id": "B07",
+              "source_section": "H09",
+              "source_requirement_ids": [
+                "wall_network"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "wall_network": "f06b89c7f79269e3a755c4ce436c32b196d2e65c615c00569a7985edeb3fe244"
+              }
+            },
+            {
+              "id": "B08",
+              "source_section": "H10",
+              "source_requirement_ids": [
+                "opening_hosts",
+                "actual_opening_geometry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "opening_hosts": "411addcd8418222ceb5f2cd4a3a030c1a6664470ac9613ad526b8ae60f2d1145",
+                "actual_opening_geometry": "ea75e3740248c63d96c9ae20c6c877e3f7cec8f0275ca3926fd84ffa76ff05b9"
+              }
+            },
+            {
+              "id": "B09",
+              "source_section": "H11",
+              "source_requirement_ids": [
+                "door_operation",
+                "closet_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "door_operation": "d69c8170538c7704e97483cb96ed2958d7d185a588d47219b27092ae77d5767d",
+                "closet_operation": "05097a7ab07b5378f6c6d581b08e6df15d2b26061101f8766a28149a46fd3210"
+              }
+            },
+            {
+              "id": "B10",
+              "source_section": "H12",
+              "source_requirement_ids": [
+                "fixture_inventory_use"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "fixture_inventory_use": "0743fff0a53f23e51c7e6af12352e4402f429c1bd3e3a58df6b8c6060025106b"
+              }
+            },
+            {
+              "id": "B11",
+              "source_section": "H13/Q01",
+              "source_requirement_ids": [
+                "program_functional_roles",
+                "zero_laundry"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "program_functional_roles": "e807715b8150947a1ca86d9bc0e3dfc1890ee2c84f265db72d4500b1645608a8",
+                "zero_laundry": "ab5445dbc5b302f95de18fb717758b99b329da75c0eb0c8ddda71765e1b79e43"
+              }
+            },
+            {
+              "id": "B12",
+              "source_section": "H15",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "86d588c26f8b2ba56b4a22350e5d376870fbdef2fd9b190cd258066da513199a"
+              }
+            },
+            {
+              "id": "B13",
+              "source_section": "H17",
+              "source_requirement_ids": [
+                "kitchen_essential_operation",
+                "bath_service_operation"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "kitchen_essential_operation": "bd42ee989f2670cba8431a78aa9c8c51ff4dea1b2c900e0cef9d38889df0c27d",
+                "bath_service_operation": "cbf6b612842714084ab414db8b209fc73f10fb6c4663fe2cf009f8b77da03743"
+              }
+            },
+            {
+              "id": "B14",
+              "source_section": "Q05.VISIBILITY_ONLY",
+              "source_requirement_ids": [
+                "privacy_scenarios"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "privacy_scenarios": "eb55054eb03aea6e06dd9ba0616ed15b6a1f5080dbfd7ef1464a53203cdbd1ea"
+              }
+            },
+            {
+              "id": "B15",
+              "source_section": "Q06",
+              "source_requirement_ids": [
+                "guest_living_route",
+                "guest_dining_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "guest_living_route": "f4790cbe8cc75e8cd08522a9566a3f29d83ae55949bf10fe5a4974eca21c5dea",
+                "guest_dining_route": "fab5231a94138ba54919937ad8788e9a8af6ace12a0b0c8f7863eccee45b1f55"
+              }
+            },
+            {
+              "id": "B16",
+              "source_section": "Q07.ESSENTIAL_USE",
+              "source_requirement_ids": [
+                "serving_route"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "serving_route": "ad38ce95a01d174b42333e38368cdab2b255563bc3c52cdb1afb3a72c3d50dc5"
+              }
+            },
+            {
+              "id": "B17",
+              "source_section": "Q10.ARRIVAL_USE",
+              "source_requirement_ids": [
+                "core_concept"
+              ],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {
+                "core_concept": "86d588c26f8b2ba56b4a22350e5d376870fbdef2fd9b190cd258066da513199a"
+              }
+            },
+            {
+              "id": "B18",
+              "source_section": "H19",
+              "source_requirement_ids": [],
+              "verdict": "PASS",
+              "missing": [],
+              "row_digests": {}
+            }
+          ],
+          "missing": [],
+          "excluded_dependencies": [
+            "Q04",
+            "Q11_FINAL",
+            "Q12",
+            "ALL_12_PARENT_PASS",
+            "long_corridor_necessity"
+          ],
+          "scope": "CURRENT_TWO_UNIT_THREE_BEDROOM_SOURCE_PROFILE; STORED_ARTIFACT; OPEN_TRANSIT_AND_DECLARED_SOURCE_OPERATION_SCENARIOS; NOT_GLOBAL_OPTIMUM_OR_TECHNICAL_CORE",
+          "evidence": {
+            "record_digest": "b58ac4754dbaf14f2b8380e2d9029cd8f064fc93bacc438b1186dc1722bbb86b",
+            "new_result_digest": "102832ed687c81c66690181cf531d4d823a79c6c66f3704d9f12bce6017e3f9d",
+            "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+            "group_digest": "b3a6d18c7d07a6162a6d724e7e1b84f99440dbae5cf19199569f335f9ee99051",
+            "component_digests": {
+              "access": "f7914a55a433b34a360a26cbe6f83c7a1456f0612964784b68998a202891904e",
+              "openings": "afab570d70024a867fa43a6dd1d63157884566c0f714baf84817cd365e31a1c9",
+              "guest": "849dd50a19454006a545c683794d0baafc5f8c08f6ce257cc680607c1a54a8b3",
+              "kitchen": "669c6a0cda017ade37a00fd8e8e9f5a6d2f9d24a619e516c8386993d898f7689"
+            },
+            "source_pins_digest": "4f0b9312cf15be07348096ff70c11f12a010d595909b9f7f6eabc8c5185856b3"
+          }
+        },
+        "evaluator_sha256": "c28ae7a545393c3a40cf58526801e5c4befd3a0b86d7665f799b93efe0c765b7",
+        "result_digest": "b7ade0a73b4ab5d94a0e23be2896ab07a6b95017d02149d79207d26f1734aa31",
+        "record_digest": "b58ac4754dbaf14f2b8380e2d9029cd8f064fc93bacc438b1186dc1722bbb86b",
+        "fresh_result_digest": "102832ed687c81c66690181cf531d4d823a79c6c66f3704d9f12bce6017e3f9d"
+      },
+      "alternative_not_deleted": true
+    }
+  ],
+  "full_band_branch": {
+    "proof": {
+      "schema": "FULL_BAND358_BRANCH_PROTECTED_COUNTEREXAMPLE",
+      "artifact_sha256": "eec824c3e006946b58f9a5ee4e94ac4776c0ccecb90a3b840f7e822480afb29d",
+      "artifact": "staging358_core_branch/actual_full_band358.json",
+      "model_digest": "0b2ec3eb1d25a79d0e377c612f2321376336399acd2a277de31b8fbaa1c59fd6",
+      "independently_remeasured": [
+        {
+          "unit": "A",
+          "before_m2": "33501/100",
+          "after_m2": "24939/80",
+          "loss_m2": "9309/400"
+        },
+        {
+          "unit": "B",
+          "before_m2": "33501/100",
+          "after_m2": "24939/80",
+          "loss_m2": "9309/400"
+        }
+      ],
+      "terminal_state": "INELIGIBLE_FOR_DECLARED_NONDECREASING_OWNERSHIP_COMPARISON_DOMAIN",
+      "intrinsically_invalid": false,
+      "global_infeasible": false,
+      "full_plan_constructed": false,
+      "adapter_status": {
+        "full_band_has_core_extent_x": false,
+        "coarse129_requires_core_extent_x": true,
+        "constructor129_FRONT_REAR_uses_compact": true,
+        "full_band_solver_supported_without_new_adapter": false
+      },
+      "policy_authority": "ENGINEERING358_CONSERVATIVE_COMPARATIVE_DOMAIN_NOT_UNIVERSAL_OWNER_MINIMUM",
+      "parent_acceptance": false,
+      "source_binding": "CURRENT_FROZEN_SOURCE114_PRIMITIVE_ARTIFACT_AND_UNCHANGED_SOURCE_HASHES"
+    },
+    "current_core_and_ownership_binding": true,
+    "state": "EXCLUDED_ONLY_FROM_NONDECREASING_OWNERSHIP_DOMAIN_NOT_INTRINSIC_INVALIDITY"
+  },
+  "current_self_comparison": "EXACT_TIE_NOT_STRICT_DOMINANCE",
+  "counterfactual_358_to359": {
+    "preserved_exact_geometry_inventory": true,
+    "same_metric_inventory": true,
+    "improved": [
+      "A/circulation_m2",
+      "B/circulation_m2"
+    ],
+    "worsened": [],
+    "strict_objective_improvement": true,
+    "scope": "B18_CURRENT_PASS_PLUS_PRIOR_FIXED_B18_358; REQUIRED_OBJECT_USE_AND_ROUTE_GEOMETRY_PRESERVED; NOT_GLOBAL_SUPERIORITY"
+  },
+  "bottleneck_scope": {
+    "below_source_body_blocked_required_routes": 0,
+    "basis": "Current intrinsic B06 source-profile body-sweep gate PASS; no invented preferred-clearance threshold",
+    "scope": "SOURCE_REQUIRED_ACTUAL_ROUTE_FEASIBILITY_ONLY; NO_ALTERNATIVE_ROUTE_OPTIMUM"
+  },
+  "finite_scope": "Three named constructed alternatives plus current self tie and explicit source114 full-band protected-ownership branch; no exhaustive global topology enumeration",
+  "source233": "Q04 [447999,464629], sourceSHA046cb8490a0865b74a9f844fa7db513490c50393e21923d1aa458f846fa89108",
+  "engineering_assumption": "Exact componentwise nondeterioration over named per-unit actual-target route lengths/turns and circulation area. One strictly worse objective refutes dominance regardless of other unknown dimensions. Source-role margins are accepted only through separately audited source connector proof.",
+  "all12_accepted": false,
+  "delivery_allowed": false,
+  "new_fresh_execution": false,
+  "live_authority": false,
+  "audit_status": "PENDING_INDEPENDENT_CLOSURE_AUDIT"
+}
