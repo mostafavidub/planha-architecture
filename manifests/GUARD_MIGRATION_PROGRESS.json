@@ -1,13 +1,21 @@
 {
-  "status": "PARTIAL_GUARD_DEPENDENCY_IMPORT",
+  "status": "STOPPED_TIMEBOX_PARTIAL_GUARD_DEPENDENCY_IMPORT",
   "unique_blobs_staged": 1468,
   "additional_unique_blobs_total": 1687,
   "historical_guard_bypassed": false,
   "full_execution_verified": false,
+  "verified_checkpoint": "6c3ed57aaba48bc3a1c7bf5cc99054c7626282fc",
+  "reviewed_at_utc": "2026-11-18T19:34:42.664Z",
+  "previous_operation_start_utc": "2026-11-18T15:52:00Z",
+  "previous_operation_deadline_utc": "2026-11-18T18:52:00Z",
+  "completion_claim": false,
   "notes": [
-    "Source contents read only; writes via GitHub.",
-    "Known matching engine/frontend blobs reused.",
-    "Required aliases to duplicate content paths pending.",
-    "Credential/email/DB-key scans including ZIP members had no flagged match; not a universal sensitive-data guarantee."
+    "Readback of main and commit history confirms checkpoint is still partial; no later committed migration result was present.",
+    "Owner's subsequent explicit approval covers required historical code/runtime/reference/rule_contract/world_record_schema copies in this private repository, excluding credentials, databases and personal information.",
+    "Previous worker reported additional uncommitted objects and alias work, but no recoverable tree SHA or committed result is available here. Those reports are not counted as completed migration.",
+    "Required duplicate-content path aliases and source/destination closure verification remain open.",
+    "Prior operation timebox expired. Resume only as a separately tracked recovery task; independent analysis and scoped contract validation may proceed without claiming full generation.",
+    "35 scoped tests passed only at dd877b160d86be9a985e520f4444d303cc379e06; no full execution evidence for this checkpoint.",
+    "Source contents were read only; writes via GitHub. No guard bypass."
   ]
 }
