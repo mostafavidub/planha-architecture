@@ -16,9 +16,10 @@ def bindings():
     return snapshot(ROOT,['app/local_integration/'+n for n in FILES])
 def construct(raw,proposals):
     from open_front_world_assembly import assemble
-    if set(proposals)!= {'A','B'}:raise ValueError('EXPLICIT_PAIR_REQUIRED')
+    if type(raw) is not dict or set(raw)!={'W','L','n','requested_count'} or any(type(raw[k]) is not str for k in ('W','L')) or type(raw['n']) is not int or raw['n']!=2 or type(raw['requested_count']) is not int or not 1<=raw['requested_count']<=12:raise ValueError('STUDY_CANONICAL_RAW_SCHEMA')
+    if type(proposals) is not dict or set(proposals)!= {'A','B'}:raise ValueError('EXPLICIT_PAIR_REQUIRED')
     for p in proposals.values():
-        if p.get('bedrooms')!=2 or p.get('sleep_roles')!=['double','twin']:raise ValueError('STUDY_PROGRAM_SCOPE')
+        if type(p) is not dict or type(p.get('bedrooms')) is not int or p['bedrooms']!=2 or p.get('sleep_roles')!=['double','twin'] or p.get('status')!='PROPOSAL_ONLY' or p.get('capacity_profile')!='LEGACY_SOURCE_PROGRAM' or p.get('ordered_macro') is not None:raise ValueError('STUDY_PROGRAM_SCOPE')
     w,l,n=parse(raw)
     if not(5<=w<=25 and 5<=l<=25)or n!=2:raise ValueError('STUDY_INPUT_DOMAIN')
     core=core_first(w,l)
