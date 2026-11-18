@@ -84,6 +84,7 @@ jobs:
                       cr=child['candidates'][0]['exploratory_redirection_receipt'];assert cr['parent_run_id']==data['run_id'] and cr['parent_candidate_id']==c['candidate_id']
                       report.update(child_run=child['run_id'],child_model=child['candidates'][0]['model_digest'],child_state=cr['state'],generated_count=child['generated_count'])
                       expect(page.locator('#plans')).to_be_empty();report['checks']+=['explicit_pair_endpoint_not_legacy_repair','double_continue_one_request','child_receipt_verified_no_authority']
+                      page.screenshot(path='explicit-ui-success.png',full_page=True)
                       for route in ('export','download'):
                           denied=ctx.request.get(url+'/'+route+'/'+child['run_id']);assert denied.status==403 and denied.json()['artifact_bytes_sent']==0
                       page.locator('#history-refresh').click()
@@ -150,8 +151,8 @@ jobs:
           report=Path('explicit-ui-result.json')
           if not report.is_file():raise SystemExit('NO_UI_REPORT')
           r=json.loads(report.read_text());shutil.copyfile(report,dest/report.name)
-          screenshot=Path('explicit-ui.png')
-          if screenshot.is_file():shutil.copyfile(screenshot,dest/screenshot.name)
+          for screenshot in Path('.').glob('explicit-ui*.png'):
+              if screenshot.is_file():shutil.copyfile(screenshot,dest/screenshot.name)
           copied=[]
           if r.get('passed') is True:
               for kind in ('parent_run','child_run'):
