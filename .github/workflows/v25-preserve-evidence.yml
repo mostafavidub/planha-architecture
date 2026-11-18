@@ -57,6 +57,12 @@ jobs:
           run-id: 44402682012
           name: v25-explicit-two-bedroom-redesign
           path: _artifact_input/44402682012
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44403413844
+          name: v25-explicit-two-bedroom-redesign
+          path: _artifact_input/44403413844
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
@@ -99,3 +105,24 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
           echo "EVIDENCE_COMMIT=$(git rev-parse HEAD)"
+      - name: Independently verify archives retrieved from pushed Git objects
+        run: |
+          git fetch origin main
+          python -B - <<'PY'
+          import subprocess,json,hashlib,tarfile,gzip,io
+          def read(path):
+              return subprocess.check_output(['git','show','origin/main:'+path])
+          index=json.loads(read('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json'))
+          for archive in index['archives']:
+              data=read('evidence/archive/'+archive['path'])
+              assert hashlib.sha256(data).hexdigest()==archive['sha256']
+              assert len(data)==archive['size']
+              with tarfile.open(fileobj=io.BytesIO(data),mode='r:gz') as tar:
+                  members={m.name:m for m in tar.getmembers()}
+                  assert set(members)=={r['path'] for r in archive['members']}
+                  for member in archive['members']:
+                      content=tar.extractfile(members[member['path']]).read()
+                      assert len(content)==member['size']
+                      assert hashlib.sha256(content).hexdigest()==member['sha256']
+          print('REMOTE_ARCHIVE_VERIFIED '+json.dumps({'commit':subprocess.check_output(['git','rev-parse','origin/main'],text=True).strip(),'archives':len(index['archives']),'members':sum(len(a['members']) for a in index['archives'])}),flush=True)
+          PY
