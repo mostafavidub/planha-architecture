@@ -78,7 +78,8 @@ def assess(model):
                 if not same_point(direct[0],u['entry_point']) or not same_point(direct[-1],dining) or not local_polyline_clear(direct,str(body),box,obstacles):raise ValueError('DIRECT_ROUTE_GEOMETRY')
                 if any(not covered(b,list(map(rect,floor))) for b in sweeps(direct,body)):raise ValueError('DIRECT_ROUTE_FLOOR')
                 living_activities=[u['activities'][seat['access_activity_id']] for seat in seats]
-                dining_material=chairs+[q for k,q in u['fixtures'].items() if u['fixture_metadata'][k]['kind']=='dining_table']
+                table_id=u['dining_module_placement']['id_map']['table']
+                dining_material=chairs+[u['fixtures'][table_id]]
                 contact=first_positive_body_contact(direct,body,dining_material)
                 if contact is not None:raise ValueError('DIRECT_ROUTE_DINING_OCCUPANCY_COLLISION')
                 row['direct_dining_comparison'].update(length_m=str(sum(abs(F(b[0])-F(a[0]))+abs(F(b[1])-F(a[1])) for a,b in zip(direct,direct[1:]))),turns=direction_changes(direct),first_living_access_activity_contact_m=first_positive_body_contact(direct,body,living_activities),first_declared_dining_floor_contact_m=first_positive_body_contact(direct,body,u['rooms']['dining']),dining_occupied_material_contact_m=contact)
