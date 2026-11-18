@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - '.github/workflows/v25-guard-diagnostic.yml'
+      - 'app/review390_preaudit/source_freeze.json'
+      - 'app/review399_e1_5_identity_preaudit/source_freeze.json'
+      - 'app/review400_e1_5_schema_preaudit/source_freeze.json'
   workflow_dispatch:
 permissions:
   contents: read
