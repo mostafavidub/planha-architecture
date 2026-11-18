@@ -1,0 +1,305 @@
+{
+  "run": 44415900223,
+  "commit": "d01296b92f4b1c2315a13f213b91fd7e2388481f",
+  "operation_start": "2026-11-18T22:07:31Z",
+  "operation_deadline": "2026-11-19T01:07:31Z",
+  "completed_utc": "2026-11-18T23:00:54Z",
+  "scope": "Independent fork; typed public floor reservation; no frozen guard or floor-role change",
+  "source_bound_apron": true,
+  "exact_observed_overlap_negative_test": true,
+  "zero_margin_boundary_positive_test": true,
+  "rows": [
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "a083d513dee841210430b9e28489aa983790c01f8b084fad9f5c6d769ee1e044",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 1,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "4b3cfe5aad78d39342e1f2b96ec067b8901d32d04c702a7e2e2c8038c7047093",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 2,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "12ab9d199dc2eef8b95c7aa854e6f3e36f1a74c7f8d9e8131ed2bac03f739e55",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 3,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "df04022b516963a1200a85ac34342ca27bc052b5f6749ed7d16c4566c40f3249",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "20",
+        "L": "20",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "a8cc2bce40cd0a499e10b99bba0aeb990976dc18187d53c05638c0fbc2453eca",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "25",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "087eeb4284c2f820f16885eebbe85eb9a0e741d93c004b7effae5eb6cf2d8c89",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "24",
+        "L": "18",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 0,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "d70889e36669ff8f455a487bc4634370307ad1d64b449c12f2b183ab6ce4f618",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    },
+    {
+      "raw": {
+        "W": "24",
+        "L": "18",
+        "n": 2,
+        "requested_count": 1
+      },
+      "variant": 1,
+      "proposal_status": "PROPOSAL_ONLY",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "model": "e9c935224078ac50af214d750db5c42ed7e1e2ce3f6ceadbf2b861b31dbd3440",
+      "seated_only_group": [
+        {
+          "unit": "A",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        },
+        {
+          "unit": "B",
+          "state": "LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY"
+        }
+      ],
+      "local_group": [
+        {
+          "unit": "A",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        },
+        {
+          "unit": "B",
+          "state": "NO_LOCAL_SHARED_WITNESS_IN_BOUNDED_STUDY",
+          "nonseating_crossings": []
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "active_producer_integrated": false
+}
