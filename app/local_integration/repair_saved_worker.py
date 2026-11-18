@@ -13,6 +13,7 @@ def load_source(run_id,candidate_id):
     candidates=[c for c in r['candidates']if c['candidate_id']==candidate_id]
     if len(candidates)!=1:raise ValueError('UNIQUE_CANDIDATE_REQUIRED')
     c=candidates[0]
+    if c.get('generation_context',{}).get('construction_trace',{}).get('schema')!='CONSTRUCTION_TRACE129_HIERARCHICAL_FRAME_V1':raise ValueError('SAVED_REPAIR_CONSTRUCTOR_NOT_REGISTERED')
     if c['review_decision']['state']!='REJECTED_PHYSICAL':raise ValueError('SAVED_REJECTED_CANDIDATE_REQUIRED')
     if c.get('repair_receipt',{}).get('test_only'):raise ValueError('CONTROLLED_RECORD_NOT_NATURAL')
     return body,r,c
