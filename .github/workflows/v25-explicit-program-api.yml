@@ -44,6 +44,9 @@ jobs:
                   c=result['candidates'][0];assert c['generation_context']['construction_trace']['schema']=='CONSTRUCTION_TRACE127_PAIR_V1'
                   assert c['physical_review']['multiproposal_provenance127']['verified'] is True
                   assert c['functional_review']['display_allowed'] is False and c['accepted'] is False and c['qualified'] is False
+                  living=c['functional_review']['living_connectivity_study'];assert living['model_digest']==c['model_digest'] and living['state']=='UNKNOWN_CONTINUOUS_USEFUL_LIVING' and len(living['units'])==2 and 'missing' not in living
+                  assert 'living_connectivity_diagnostic.py' in c['functional_review']['local_review_source_hashes']
+                  assert all(x['state']=='UNKNOWN' for x in c['functional_review']['requirements'] if x['id']!='INTERNAL_INSTANCE_CAPACITY')
                   assert result['envelope']['received_input']==raw and c['model']['inputs']==['15','25',2]
                   history=summary(result['run_id']);assert history['live_model_restored'] is False
                   denied,payload=output_gate(result['run_id']);assert denied==403 and payload['artifact_bytes_sent']==0
