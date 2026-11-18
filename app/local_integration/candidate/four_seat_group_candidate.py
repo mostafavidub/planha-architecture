@@ -16,7 +16,7 @@ def bath_apron_dining_separated(rectangles):
  bath=list(map(lambda v:F(str(v)),rectangles['bath']));dining=list(map(lambda v:F(str(v)),rectangles['dining']))
  module=build(str(bath[2]-bath[0]),str(bath[3]-bath[1]))
  gross=module['reserved_approach_gross']
- if gross!=[['7/10','-19/20','23/10','0']]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
+ if len(gross)!=1 or list(map(F,gross[0]))!=list(map(F,['.7','-.95','2.3','0'])):raise ValueError('SOURCE_BATH_APRON_CHANGED')
  q=list(map(F,gross[0]));a=[q[0]+bath[0],q[1]+bath[1],q[2]+bath[0],q[3]+bath[1]]
  return a[2]<=dining[0] or dining[2]<=a[0] or a[3]<=dining[1] or dining[3]<=a[1]
 
@@ -400,7 +400,7 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  # Full source approach must not enter dining, a different typed floor role.
  # Preserve every previous obstacle constraint; zero extra architectural margin.
  from bathroom_module117 import build as source_bath
- if source_bath()['reserved_approach_gross']!=[['7/10','-19/20','23/10','0']]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
+ if [list(map(F,q)) for q in source_bath()['reserved_approach_gross']]!=[list(map(F,['.7','-.95','2.3','0']))]:raise ValueError('SOURCE_BATH_APRON_CHANGED')
  dk=4*next(i for i,z in enumerate(specs) if z[0]=='dining')
  dining_floor=[aff(dk),aff(dk+1),plus(aff(dk),aff(dk+2)),plus(aff(dk+1),aff(dk+3))]
  zz=[var(0,1) for _ in range(4)];row({z:1 for z in zz},hi=3)
