@@ -32,7 +32,7 @@ def assess(module):
             'base_module_digest':digest(base),'base_producer_sha256':base['source_binding']['producer_sha256'],
             'fixture_source_sha256':base['source_binding']['fixture_source_sha256'],
             'delta_contract':'remove front.right; expand existing permanent arch to W and exact threshold floor; retain every other value'}
-        if module!=expected:errors.append('NOT_EXACT_ALLOWED_SOURCE_DELTA')
+        if digest(module)!=digest(expected):errors.append('NOT_EXACT_ALLOWED_SOURCE_DELTA')
         walls=[checker114.rect(q) for q in module['walls'].values()]
         host=checker114.rect(module['wall_hosts']['front'])
         openings=module['openings']
