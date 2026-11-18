@@ -1,0 +1,100 @@
+name: Preserve selected V25 evidence in private repository
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-preserve-evidence.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve-generated-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44397199424
+          name: v25-k305-isolated-matrix
+          path: _artifact_input/44397199424
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44397669969
+          name: v25-real-generation-evidence
+          path: _artifact_input/44397669969
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44399621847
+          name: v25-four-guest-route-study
+          path: _artifact_input/44399621847
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44400938194
+          name: v25-real-browser-evidence
+          path: _artifact_input/44400938194
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44402005886
+          name: v25-wall-counterfactual-only
+          path: _artifact_input/44402005886
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44401790896
+          name: v25-explicit-two-bedroom-study
+          path: _artifact_input/44401790896
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44402682012
+          name: v25-explicit-two-bedroom-redesign
+          path: _artifact_input/44402682012
+      - name: Bound and hash explicitly selected generated artifacts
+        run: |
+          python -B - <<'PY'
+          import json,tarfile,gzip,io,hashlib,re
+          from pathlib import Path
+          source=Path('_artifact_input');dest=Path('evidence/archive');dest.mkdir(parents=True,exist_ok=True)
+          index={'scope':'Generated V25 plan/test/loopback-browser evidence only; private repository; original Actions artifacts expire after30days','archives':[]}
+          for folder in sorted(source.iterdir()):
+              members=[];raw=io.BytesIO()
+              with tarfile.open(fileobj=raw,mode='w') as tar:
+                  for p in sorted(folder.rglob('*')):
+                      if p.is_symlink():raise ValueError('SYMLINK_FORBIDDEN')
+                      if not p.is_file():continue
+                      if p.suffix.lower() not in ('.json','.png','.zip'):raise ValueError('UNEXPECTED_GENERATED_EVIDENCE_FILE:'+p.name)
+                      data=p.read_bytes()
+                      if len(data)>12_000_000:raise ValueError('MEMBER_SIZE_LIMIT')
+                      if p.suffix=='.json':
+                          json.loads(data)
+                          if re.search(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{40,}|AKIA[A-Z0-9]{16}',data):raise ValueError('POSSIBLE_CREDENTIAL_CONTENT')
+                      relative=str(p.relative_to(folder))
+                      info=tarfile.TarInfo(relative);info.size=len(data);info.mtime=0;info.mode=0o644
+                      tar.addfile(info,io.BytesIO(data))
+                      members.append({'path':relative,'size':len(data),'sha256':hashlib.sha256(data).hexdigest()})
+              packed=gzip.compress(raw.getvalue(),mtime=0)
+              if len(packed)>10_000_000:raise ValueError('ARCHIVE_SIZE_LIMIT')
+              name='V25_run_'+folder.name+'.tar.gz';(dest/name).write_bytes(packed)
+              index['archives'].append({'run_id':int(folder.name),'path':name,'size':len(packed),'sha256':hashlib.sha256(packed).hexdigest(),'members':members})
+          if sum(a['size'] for a in index['archives'])>25_000_000:raise ValueError('TOTAL_SIZE_LIMIT')
+          (dest/'V25_SELECTED_EVIDENCE_INDEX.json').write_text(json.dumps(index,ensure_ascii=False,indent=2)+'\n')
+          print('PRESERVATION '+json.dumps({'archives':len(index['archives']),'bytes':sum(a['size'] for a in index['archives']),'runs':[a['run_id'] for a in index['archives']]}),flush=True)
+          PY
+      - name: Commit selected evidence without rewriting project source
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evidence/archive
+          if git diff --cached --quiet; then echo "Evidence already preserved"; exit 0; fi
+          git commit -m "Preserve selected V25 generated evidence with content hashes"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "EVIDENCE_COMMIT=$(git rev-parse HEAD)"
