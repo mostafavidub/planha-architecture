@@ -1,0 +1,44 @@
+name: V25 live cycle stored evidence audit
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-live-evidence-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Read exact preserved live evidence and verify receipt chain
+        run: |
+          python -B - <<'PY'
+          import json,tarfile,hashlib
+          from pathlib import Path
+          def digest(x):return hashlib.sha256(json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44417514104)
+          path=Path('evidence/archive')/a['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(path,'r:gz') as tar:
+              def read(name):
+                  data=tar.extractfile(name).read();assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']==name);return json.loads(data)
+              report=read('pair-http.json');child=report['continuation'];d=child['candidates'][0];receipt=d['exploratory_redirection_receipt'];parent=read('evidence/requests/'+receipt['parent_run_id']+'/result.json');p=parent['candidates'][0]
+          assert child['generated_count']==1 and child['reused_parent'] is False and child['qualified_count']==0
+          assert receipt['parent_model_digest']==p['model_digest']==digest(p['model'])
+          assert receipt['final_model_digest']==d['model_digest']==digest(d['model']) and d['model_digest']!=p['model_digest']
+          assert digest({k:v for k,v in receipt.items() if k!='receipt_digest'})==receipt['receipt_digest']
+          assert parent['envelope']==child['envelope'] and receipt['parent_pending_preserved']==p['physical_review']['pending']
+          assert p['review_decision']['state']=='REJECTED_PHYSICAL' and d['physical_review']['errors']==[] and d['physical_review']['pending']==[]
+          assert all(receipt[k] is False for k in ('accepted','display_allowed','delivery_allowed','qualified','production_repair_registered'))
+          result={'source_run':44417514104,'parent_run':parent['run_id'],'child_run':child['run_id'],'parent_model':p['model_digest'],'child_model':d['model_digest'],'request_digest':child['envelope']['canonical_request_digest'],'receipt_digest':receipt['receipt_digest'],'physical_status':d['physical_review']['status'],'decision':d['review_decision'],'functional_requirements':d['functional_review']['requirements'],'checks':report['checks'],'scope':'Stored evidence integrity of actual live run; no new geometry run','accepted':False,'delivery_allowed':False}
+          Path('live-cycle-audit.json').write_text(json.dumps(result,ensure_ascii=False))
+          print('LIVE_CYCLE_AUDIT '+json.dumps(result),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v25-live-cycle-audit
+          path: live-cycle-audit.json
+          retention-days: 30
