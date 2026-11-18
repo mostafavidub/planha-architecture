@@ -1,0 +1,227 @@
+{
+  "commit": "4d1e946d6cc8c197c5ef0e07d56b78ca07578021",
+  "run": 44401790896,
+  "job": 135146479533,
+  "started_utc": "2026-11-18T21:27:35Z",
+  "finished_utc": "2026-11-18T21:30:18Z",
+  "deadline_utc": "2026-11-19T00:27:35Z",
+  "physical_pass": 2,
+  "physical_fail": 3,
+  "no_proposal": 1,
+  "qualification": 0,
+  "active_three_bedroom_profile_changed": false,
+  "scope": "Explicit different programme, source-only test experiment. Natural route failure has pending checks and is NOT eligible for current production repair operator",
+  "artifact_id": 14473141272,
+  "artifact_sha256": "c1d43eea77a6c2dd3f308342d935c082c1e70546a286e7ea282ec51038dd9545",
+  "rows": [
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "FRONT_REAR",
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    },
+    {
+      "raw": {
+        "W": "15",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "LEFT_RIGHT",
+      "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+      "review_status": null,
+      "errors": null,
+      "pending": null,
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    },
+    {
+      "raw": {
+        "W": "20",
+        "L": "20",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "FRONT_REAR",
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "FAIL",
+      "errors": [
+        {
+          "code": "MISSING_REQUIRED_ACTIVITY_ROUTES",
+          "failures": [
+            {
+              "unit": "A",
+              "route": "guest_dining",
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+            },
+            {
+              "unit": "B",
+              "route": "guest_dining",
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion"
+            }
+          ]
+        }
+      ],
+      "pending": [
+        "RULE_NOT_EVALUATED:circulation_functional_integrity",
+        "RULE_NOT_EVALUATED:guest_dining_route",
+        "RULE_NOT_EVALUATED:guest_living_route",
+        "RULE_NOT_EVALUATED:private_grouping",
+        "RULE_NOT_EVALUATED:program_functional_roles",
+        "RULE_NOT_EVALUATED:serving_route"
+      ],
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    },
+    {
+      "raw": {
+        "W": "20",
+        "L": "20",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "LEFT_RIGHT",
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "FAIL",
+      "errors": [
+        "UNKNOWN_RECORD_FIELDS:root.walls",
+        "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+        "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+        "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+        "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+        "UNKNOWN_RECORD_FIELDS:root.walls",
+        "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+        "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+        "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+        "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+      ],
+      "pending": [
+        "RULE_NOT_EVALUATED:circulation_functional_integrity",
+        "RULE_NOT_EVALUATED:private_grouping"
+      ],
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    },
+    {
+      "raw": {
+        "W": "25",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "FRONT_REAR",
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "errors": [],
+      "pending": [],
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    },
+    {
+      "raw": {
+        "W": "25",
+        "L": "25",
+        "n": 2,
+        "requested_count": 1
+      },
+      "family": "LEFT_RIGHT",
+      "proposal_status": "PROPOSAL_ONLY",
+      "review_status": "FAIL",
+      "errors": [
+        "UNKNOWN_RECORD_FIELDS:root.walls",
+        "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+        "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+        "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+        "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+        "UNKNOWN_RECORD_FIELDS:root.walls",
+        "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+        "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+        "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+        "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+        "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+        "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+        "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+        "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+        "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+      ],
+      "pending": [
+        "RULE_NOT_EVALUATED:circulation_functional_integrity",
+        "RULE_NOT_EVALUATED:private_grouping"
+      ],
+      "execution_error": null,
+      "test_only": true,
+      "accepted": false
+    }
+  ]
+}
