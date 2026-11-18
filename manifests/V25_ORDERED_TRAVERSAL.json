@@ -1,19 +1,19 @@
 {
   "schema": "V25_ORDERED_TRAVERSAL_V1",
-  "review_start_utc": "2026-11-18T19:38:00Z",
-  "review_end_utc": "2026-11-18T19:40:20.656Z",
-  "review_deadline_utc": "2026-11-18T22:38:00Z",
+  "review_start_utc": "2026-11-18T21:19:00Z",
+  "review_end_utc": "2026-11-18T21:19:50Z",
+  "review_deadline_utc": "2026-11-19T00:19:00Z",
   "review_scope": "sequential triage and independent scoped execution; not full implementation",
   "items": [
     {
       "id": "V25-01",
       "status": "PARTIAL",
-      "evidence": "ممیزی checkpoint انجام شد؛ انتقال۱۴۶۸/۱۶۸۷ و aliasها ناقص. تأیید منشأ همه کدها بسته نشده."
+      "evidence": "بازیابی دقیقclosure تاریخی:8178/8178مسیر و12991pin؛ منشأ همه تغییرات خارجclosure واصل588 همچنان اثبات نشده."
     },
     {
       "id": "V25-02",
-      "status": "BLOCKED",
-      "evidence": "closure guard400 ناقص و gateway وابسته به .venv؛ اجرای مستقل محصول ممکن نیست. عملیات انتقال timeoutشده دوباره شروع نشد."
+      "status": "PASS_SCOPED_RUNNER",
+      "evidence": "gateway قابل‌حمل باsys.executable وguard معتبر درGitHub Actions؛۱۵درخواست واقعی انجام شد."
     },
     {
       "id": "V25-03",
@@ -22,8 +22,8 @@
     },
     {
       "id": "V25-04",
-      "status": "PARTIAL",
-      "evidence": "dimension_contract، prepare، generation_gateway و repair_saved_run کنترل دامنه دارند. ورودی‌های legacy و UI همگی این دور ممیزی نشده‌اند؛ این گام کامل نیست."
+      "status": "PARTIAL_PASS",
+      "evidence": "کنترلactiveCLI وsavedrepair باexactraw trace؛۹تست ورودی/entrypoint پاس. contract114 تاریخی5..45 است وکامل‌بودن همهentrypointها ادعا نمی‌شود."
     },
     {
       "id": "V25-05",
@@ -42,18 +42,18 @@
     },
     {
       "id": "V25-08",
-      "status": "BLOCKED",
-      "evidence": "ردیابی تازه۲۵×۲۵ نیازمند runner/closure معتبر است. صفرمدل تاریخی حکم ناممکنی نیست."
+      "status": "DONE_SCOPED_DIAGNOSIS",
+      "evidence": "ناموفق‌بودنoriginalROW و برخورد apron تشخیص داده شد؛ اندازه‌ها و گیت‌ها بدون کوچک‌کردنfixture درcandidateمستقل بازپارامتری شد."
     },
     {
       "id": "V25-09",
-      "status": "BLOCKED",
-      "evidence": "bundle25 آزمایشی، بدون بسته شواهد برنامه/ظرفیت و اجرای مستقل. ادغام یا کاهش اندازه اتاق برای ساختن PASS انجام نشد."
+      "status": "PARTIAL_PASS",
+      "evidence": "kitchen3.6×3.05 وbeddepth4.5 درحدمنبع؛fixture/operations ثابت؛guard محفوظ؛۶PASS فیزیکی مستقل؛چهارUNKNOWN باز."
     },
     {
       "id": "V25-10",
-      "status": "BLOCKED",
-      "evidence": "ساخت تازه در دامنه در این GitHub commit اجرا نشده؛ گیت runner باز است."
+      "status": "PASS_PHYSICAL_SCOPE_ONLY",
+      "evidence": "مدل تازه25×25 درمسیرactive ساخته وreview شد، اماqualification/display ممنوع."
     },
     {
       "id": "V25-11",
@@ -62,13 +62,13 @@
     },
     {
       "id": "V25-12",
-      "status": "BLOCKED",
-      "evidence": "سه مدل تازه معتبر اعشاری/نامتقارن موجود نیست؛ ۱۲ورودی parseشده مدل هندسی نیستند."
+      "status": "PARTIAL_PASS",
+      "evidence": "۶نمونه مستقل شامل25×24.5،24.5×25،24×24 و۴مدلactive؛مدل کامل واجدشرایط هنوزصفر."
     },
     {
       "id": "V25-13",
-      "status": "BLOCKED",
-      "evidence": "ماتریس هندسی تا رفع runner/closure قابل اجرا نیست؛ ترتیب پیش‌ثبت حفظ شد."
+      "status": "DONE_MATRIX_NOT_DOMAIN_PROOF",
+      "evidence": "۱۲درخواستoriginalصفرمدل؛۱۸حالتcandidate۶PASSفیزیکی؛۱۵درخواستactive۴مدل/صفرqualified. نه اثباتکلدامنه."
     },
     {
       "id": "V25-14",
@@ -78,7 +78,7 @@
     {
       "id": "V25-15",
       "status": "NOT_OBSERVED_CURRENT_RANGE",
-      "evidence": "رد طبیعی جدید در۵..۲۵ مشاهده/اجرا نشده؛۴۵×۴۵ و fixture تزریقی جای این شاهد نیست."
+      "evidence": "۹درخواستمرزیواقعی همproposalنداد؛ردفیزیکیطبیعی برایrepairهنوزمشاهده نشد."
     },
     {
       "id": "V25-16",
@@ -88,7 +88,7 @@
     {
       "id": "V25-17",
       "status": "BLOCKED",
-      "evidence": "parent ردشده معتبر در دامنه جاری و runner لازم است؛ child تازه ساخته نشد."
+      "evidence": "runnerرفع شد ولیparentردشدهطبیعی جاری هنوزموجودنیست؛sourceidentity/tracebindingتقویت شد."
     },
     {
       "id": "V25-18",
@@ -102,8 +102,8 @@
     },
     {
       "id": "V25-20",
-      "status": "BLOCKED",
-      "evidence": "UI واقعی به runner و خروجی معتبر نیاز دارد؛ مرورگر/سابقه زنده در این دور اجرا نشده."
+      "status": "PARTIAL_PASS",
+      "evidence": "۱۱تستloopbackHTTP و۸syntheticDOM درآزمونmechanics؛livebrowser workflow هنوزاجرا نشده."
     },
     {
       "id": "V25-21",
@@ -113,7 +113,7 @@
     {
       "id": "V25-22",
       "status": "PARTIAL",
-      "evidence": "چهار UNKNOWN عملکردی پابرجاست. PRD کفایت نور/تهویه و مهندسی اجرای پله/آسانسور را POST_MVP می‌داند، نه PASS؛ حضور و جانمایی مفهومی هسته و باقی کنترل‌های هندسی محفوظ."
+      "evidence": "۴مسیرمهمان×۲واحد باپروفایلمنبع وoperationsشاهد مستقل دارند؛چهارUNKNOWN کامل،counterfactualدیواروliving وبرنامه مناسب هنوزباز.تشخیصcounterfactualتک‌دیواردرحالاجرا."
     },
     {
       "id": "V25-23",
@@ -123,7 +123,7 @@
     {
       "id": "V25-24",
       "status": "PARTIAL_AUDIT_COMPLETE",
-      "evidence": "پیمایش وضعیت۲۴ردیف انجام شد، نه اجرای موفق۲۴گام. commit/CI محدود ثبت شد؛ G0، تولید و چرخه طبیعی بازند. آمادگی محصول یا تکمیل کل مرحله ادعا نمی‌شود."
+      "evidence": "closureوrunnerرفع‌شده و تولیدمتغیرمحدودثبت‌شده؛چرخهطبیعی،پوششکلدامنه/n1/چهارUNKNOWN/qualifieddiversity باز؛۳۰۳آغازنشده."
     }
   ],
   "tests": [
@@ -144,10 +144,38 @@
         44382481442,
         44382481461
       ]
+    },
+    {
+      "commit": "3e5771eb1d80a224b93bba1d3fda7e531e447959",
+      "scope": "64 Python mechanics and 13 input/provenance; unchanged guard8178paths12991pins",
+      "runs": [
+        44397544916,
+        44397544882,
+        44397544939
+      ]
+    },
+    {
+      "commit": "d0c6055e0e7bf44283e3bb4af427c04f9357deea",
+      "scope": "15 actual gateway requests,4 constructed models,zero qualification",
+      "runs": [
+        44397669969
+      ]
+    },
+    {
+      "commit": "9b7c068be5a8b385764a2808757e045a6381a06a",
+      "scope": "4 exact-point tests and8 fresh source-profile guest route witnesses; fullPRDunknown",
+      "runs": [
+        44399621847
+      ]
     }
   ],
-  "migration_restarted": false,
+  "migration_restarted": true,
   "all_tasks_successful": false,
   "whole_cycle_verified": false,
-  "stage303_execution_started": false
+  "stage303_execution_started": false,
+  "previous_review": {
+    "start": "2026-11-18T19:38:00Z",
+    "end": "2026-11-18T19:40:20.656Z"
+  },
+  "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim"
 }
