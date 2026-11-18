@@ -43,7 +43,7 @@
    if(!repairSource&&expected.program?.bedrooms_per_unit===2&&typeof window.dispatchEvent==='function')window.dispatchEvent(new CustomEvent('planha-verified-pair-parents',{detail:{run_id:data.run_id,request:raw,candidates:data.candidates}}));
    plans.replaceChildren(...views);status.textContent=(pairContinuation?'بازطراحی اکتشافی دوخواب؛ نه اصلاح تولیدی یا تأیید معماری. ':repairSource?'ادامه اصلاح یک عضو ذخیره‌شده، نه بازتولید همه گزینه‌ها. ':'')+`${data.generated_count} مدل آزمایشی ساخته شد؛ تعداد واجدشرایط صفر از هدف ${data.requested_count} است. نمایش گزینه طراحی تا تکمیل شواهد عملکردی ضروری مسدود است.`;
    result.textContent=JSON.stringify({run_id:data.run_id,outcome:data.outcome,program_policy:data.program_policy,review_decisions:data.candidates.map(c=>c.review_decision),diversity_report:data.diversity_report,functional_reviews:data.candidates.map(c=>c.functional_review||{state:'MISSING_REQUIRED_FUNCTIONAL_PROOF',display_allowed:false}),attempts:data.attempts.map(a=>({family:a.family,state:a.state,reason:a.reason})),accepted:false,delivery_allowed:false},null,2);result.hidden=false;
-  }catch(error){if(!fresh()||error.name==='AbortError')return;clear();plans.replaceChildren();status.textContent='اجرا یا کنترل هویت پاسخ کامل نشد؛ نتیجه‌ای پذیرفته نشد.';}
+  }catch(error){if(!fresh()||error.name==='AbortError')return;clear();plans.replaceChildren();status.textContent='اجرا یا کنترل هویت پاسخ کامل نشد؛ نتیجه‌ای پذیرفته نشد. ['+(/^[A-Z_]+$/.test(error.message)?error.message:'CLIENT_VERIFICATION_FAILED')+']';}
   finally{if(fresh()){generateButton.disabled=false;button.disabled=false;active=null;}}
  }
  generateButton.addEventListener('click',()=>run());
