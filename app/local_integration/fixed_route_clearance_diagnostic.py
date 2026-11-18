@@ -15,13 +15,24 @@ def fixed_polyline_capacity(path,box,obstacles):
         moving=True;seg=[min(a[0],c[0]),min(a[1],c[1]),max(a[0],c[0]),max(a[1],c[1])]
         for label,distance in [('left',seg[0]-b[0]),('bottom',seg[1]-b[1]),('right',b[2]-seg[2]),('top',b[3]-seg[3])]:
             if distance<0:raise ValueError('CENTER_ROUTE_OUTSIDE_BOUND')
-            limits.append((distance,{'segment':index,'kind':'ownership_boundary','edge':label}))
+            limits.append((distance,{'segment':index,'kind':'route_domain_box_boundary','edge':label,'endpoint_attains_limit':True,'segment_interior_attains_limit':a[0]==c[0] if label in ('left','right') else a[1]==c[1]}))
         for oi,q in enumerate(map(rect,obstacles)):
             dx=max(q[0]-seg[2],seg[0]-q[2],F(0));dy=max(q[1]-seg[3],seg[1]-q[3],F(0))
-            limits.append((max(dx,dy),{'segment':index,'kind':'obstacle','obstacle_index':oi,'rect':list(map(str,q))}))
+            distance=max(dx,dy)
+            def pd(point):return max(q[0]-point[0],point[0]-q[2],q[1]-point[1],point[1]-q[3],F(0))
+            lo,hi=F(0),F(1)
+            for axis in (0,1):
+                delta=c[axis]-a[axis]
+                if delta:
+                    t0,t1=(q[axis]-distance-a[axis])/delta,(q[axis+2]+distance-a[axis])/delta
+                    lo=max(lo,min(t0,t1));hi=min(hi,max(t0,t1))
+                elif not q[axis]-distance<=a[axis]<=q[axis+2]+distance:
+                    lo,hi=F(1),F(0);break
+            interior=(lo<hi and hi>0 and lo<1) or (lo==hi and 0<lo<1)
+            limits.append((distance,{'segment':index,'kind':'obstacle','obstacle_index':oi,'rect':list(map(str,q)),'endpoint_attains_limit':min(pd(a),pd(c))==distance,'segment_interior_attains_limit':interior}))
     if not moving:raise ValueError('NONZERO_ORTHOGONAL_ROUTE_REQUIRED')
     distance=min(d for d,_ in limits)
-    return {'schema':'FIXED_POLYLINE_LINF_CLEARANCE_V1','maximum_uniform_axis_aligned_square_width_m':str(2*distance),'limiting_constraints':[x for d,x in limits if d==distance],'scope':'Exact fixed-path source-scenario geometric capacity only; not best rerouted path, human turning/comfort, door-state completeness or regulatory minimum','accepted':False}
+    return {'schema':'FIXED_POLYLINE_LINF_CLEARANCE_V1','maximum_uniform_axis_aligned_square_width_m':str(2*distance),'limiting_constraints':[x for d,x in limits if d==distance],'route_domain_box':list(map(str,b)),'route_domain_box_digest':digest(list(map(str,b))),'scope':'Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum','accepted':False}
 
 def assess(model,physical_review):
     mh=digest(model)
