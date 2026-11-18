@@ -1,0 +1,36 @@
+{
+  "schema": "V25_TARGETED_FREEZE_RECOVERY_V1",
+  "start_utc": "2026-11-18T19:46:00Z",
+  "deadline_utc": "2026-11-18T22:46:00Z",
+  "completed_at_utc": "2026-11-18T19:49:49.941Z",
+  "scope": "Only three original frozen manifests; no bulk closure migration",
+  "source_read_only": true,
+  "registered_commit": "fcbe7537e2c5352a2bde8a91dc2fd5131ead455e",
+  "tested_commit": "2e796736d07ae2b1a4f0aac88a5571769388edef",
+  "run": 44384283227,
+  "job": 135084489474,
+  "files": [
+    {
+      "path": "app/review390_preaudit/source_freeze.json",
+      "sha256": "3c77b90d4bbf425148c1c8482c7127cb07ae9503c54f94271debad7728a7f0f1",
+      "git_blob": "736af3b6cd76cd12b8b6f593ffef8a50d0b5b56e"
+    },
+    {
+      "path": "app/review399_e1_5_identity_preaudit/source_freeze.json",
+      "sha256": "1a2994cc77c897519d2c4877099b0bb9c1b7cedc99e42d8cc4b6cd7ccd938519",
+      "git_blob": "7f70a58b84a6f36ede2d7ec066c73490ffd0098b"
+    },
+    {
+      "path": "app/review400_e1_5_schema_preaudit/source_freeze.json",
+      "sha256": "530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0",
+      "git_blob": "8e2fabfa880f962c0d9fd72924ed989f0bbf70f4"
+    }
+  ],
+  "method": "Compute Git blob identifiers from read-only original bytes; verify existing GitHub blobs; register only three paths using existing objects. No re-upload necessary.",
+  "verified_by_ci": "All three original SHA256 matched; freeze and keyset comparisons passed before guard reached individual file check.",
+  "guard_result": "FAILURE_SOURCE_OR_EVIDENCE_CHANGED",
+  "first_remaining_failure": "independent378actual/evidence/review378_actual_v1/fresh.json",
+  "guard_bypassed": false,
+  "full_closure_complete": false,
+  "full_execution_verified": false
+}
