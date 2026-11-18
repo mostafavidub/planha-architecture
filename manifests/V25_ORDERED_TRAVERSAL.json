@@ -94,39 +94,34 @@
     },
     {
       "id": "V25-16",
-      "status": "PARTIAL_SEPARATE_EXPLORATORY_OPERATOR",
-      "evidence": "endpoint جدا روی والد طبیعی۱۸×۲۰ اجرا شد ولی جست‌وجوی محدود فرزند موفق نداشت؛ parent حفظ و generated_count=0. عملگر129 تغییر نکرد.",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
       "evidence_runs": [
-        44412011025,
-        44409718206
+        44417514104
       ]
     },
     {
       "id": "V25-17",
-      "status": "PARTIAL_EXPLORATORY_NOT_LIVE_SUCCESS",
-      "evidence": "بازپخش والد تاریخی فرزند فیزیکی موفق می‌سازد؛ سه نمونه HTTP تازه فرزند موفق تولید نکردند. روش گروهی مستقل اکنون روی replay والد طبیعی آزموده می‌شود.",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
       "evidence_runs": [
-        44409718206,
-        44412011025,
-        44413136071
+        44417514104
       ]
     },
     {
       "id": "V25-18",
-      "status": "PASS_FRESH_PHYSICAL_EXPLORATORY_ONLY",
-      "evidence": "فرزندان اکتشافی تازه PASS فیزیکی با errors/pending خالی گرفتند؛ چهار UNKNOWN و پذیرش معماری باز است.",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
       "evidence_runs": [
-        44403413844,
-        44406994713
+        44417514104
       ]
     },
     {
       "id": "V25-19",
-      "status": "BLOCKED_PRODUCTION_CYCLE",
-      "evidence": "چرخه اکتشافی از والد واقعی replay شد؛ چرخه یکپارچه محصول و ادامه HTTP از تولید تازه و qualification هنوز کامل نیست.",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
       "evidence_runs": [
-        44406994713,
-        44407576996
+        44417514104
       ]
     },
     {
@@ -234,7 +229,7 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-18T22:54:59Z",
+  "last_evidence_update_utc": "2026-11-18T23:06:25Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
@@ -245,6 +240,7 @@
   "live_cycle_operation": {
     "start_utc": "2026-11-18T21:27:35Z",
     "deadline_utc": "2026-11-19T00:27:35Z",
-    "state": "RUNNING_DISTINCT_GROUPED_SEARCH_REPLAY_STUDY_NO_LIVE_SUCCESS"
+    "state": "COMPLETED_LIVE_EXPLORATORY_SCOPE_ONLY",
+    "completed_utc": "2026-11-18T23:06:25Z"
   }
 }
