@@ -13,11 +13,12 @@ def bounds(rs):
     if not qs:raise ValueError('RECTANGLE_INVENTORY_REQUIRED')
     return [str(min(q[0] for q in qs)),str(min(q[1] for q in qs)),str(max(q[2] for q in qs)),str(max(q[3] for q in qs))]
 def hit(a,b):return max(a[0],b[0])<min(a[2],b[2]) and max(a[1],b[1])<min(a[3],b[3])
-def assess(model):
+def assess(model,actor_scenario='OTHER_STANDING_ACTIVITIES_OCCUPIED'):
+    if actor_scenario not in ('OTHER_STANDING_ACTIVITIES_OCCUPIED','OTHER_SEATS_OCCUPIED'):raise ValueError('UNKNOWN_ACTOR_SCENARIO')
     from geometry114 import cells,route
     from checker114 import covered
     from shared_geometry137 import local_polyline_clear
-    result={'schema':'V25_LOCAL_SHARED_SEATING_STUDY_V1','model_digest':digest(model),'units':[],'state':'UNKNOWN_COHERENT_USEFUL_LIVING','accepted':False,'display_allowed':False,'delivery_allowed':False,'qualified':False,'historical_shared_gate_invoked':False,'scope':'Restricted actual-seat group witness; no ergonomic, useful-area, programme, historical marker or global-infeasibility claim'}
+    result={'schema':'V25_LOCAL_SHARED_SEATING_STUDY_V1','model_digest':digest(model),'actor_scenario':actor_scenario,'units':[],'state':'UNKNOWN_COHERENT_USEFUL_LIVING','accepted':False,'display_allowed':False,'delivery_allowed':False,'qualified':False,'historical_shared_gate_invoked':False,'scope':'Restricted actual-seat group witness; no ergonomic, useful-area, programme, historical marker or global-infeasibility claim'}
     try:
         body=F(model['profile']['body_m'])
         if body<=0:raise ValueError('SOURCE_PROFILE_REQUIRED')
@@ -59,7 +60,7 @@ def assess(model):
                 point=center(list(map(str,q)));attempt={'body_rect':list(map(str,q)),'routes':[]}
                 for k in ids:
                     if time.monotonic()-started>20:row['budget_exhausted']=True;break
-                    target=center(activities[k]);obs=obstacles+[r for other,r in activities.items() if other!=k]
+                    target=center(activities[k]);obs=obstacles+([r for other,r in activities.items() if other!=k] if actor_scenario=='OTHER_STANDING_ACTIVITIES_OCCUPIED' else [])
                     path,reason=route(point,target,group,obs,body=str(body))
                     entry={'fixture_id':k,'activity_id':seatmap[k]['access_activity_id'],'path':path,'reason':reason}
                     if path:
@@ -71,6 +72,6 @@ def assess(model):
                 if len(attempt['routes'])==len(ids) and all(r['path'] for r in attempt['routes']):
                     row['state']='LOCAL_SHARED_BODY_ACCESS_WITNESS_ONLY';break
             result['units'].append(row)
-        result['remaining']=['Witness does not approve seating conversation/orientation or comfort','Tight bbox is only a restricted search domain; failure is not global impossibility','Other standing-seat activities conservatively occupied simultaneously','No programme or useful-area qualification; no historical gate marker synthesized']
+        result['remaining']=['Witness does not approve seating conversation/orientation or comfort','Tight bbox is only a restricted search domain; failure is not global impossibility','Both actor scenarios are distinct source-profile studies; seated-only does not prove simultaneous standing-activity access','No programme or useful-area qualification; no historical gate marker synthesized']
     except (KeyError,ValueError,TypeError,IndexError,ZeroDivisionError) as e:result['missing']=[type(e).__name__+':'+str(e)]
     return result
