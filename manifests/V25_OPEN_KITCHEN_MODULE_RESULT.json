@@ -35,9 +35,9 @@
     "reason": "guard400 frontend import path absent; corrected without guard change"
   },
   "remaining": [
-    "Independent assembler/constructor/replay trace",
-    "Independent whole-checker and named adapters without filtering historical source errors",
-    "Whole-plan privacy/public routing and functional alternatives"
+    "Independent whole-checker and named adapters preserving every obligation with new schema, without filtering historical errors",
+    "Whole-plan privacy/public routing and functional alternatives; four functional UNKNOWNs",
+    "Permanent archive awaiting separately scoped permission"
   ],
   "placement": {
     "run": 44423597513,
@@ -46,5 +46,81 @@
     "units": 2,
     "negative_cases": 2,
     "scope": "Exact source rigid A/B coordinate mapping, not neighbor or whole-plan validation"
+  },
+  "final_binding_regression": {
+    "run": 44424755955,
+    "commit": "a3ef7a84dc99db9b48c2645e9bebe270dc775680",
+    "positive": 3,
+    "negative": 9,
+    "placement_units": 2,
+    "placement_negative": 4,
+    "digests": [
+      "08e7eaddbdccb0f5c9d7fdab0acbf5bad98f87aafca53e496cd7f6b7fea9692e",
+      "b0d2ebe46fff94edec134c16bd60b099051b07d8e6e6a0c25a2aea3ba54190a7",
+      "44a3076585d4a5486fb9a138bb2bb82d146b9bbd2c9d8d7a83c179ac626c2731"
+    ],
+    "whole_model_pass": false
+  },
+  "review_correction": "Python value equality replaced by canonical JSON digest equality; type-confusion negatives independently passed",
+  "world_origin": {
+    "run": 44424740173,
+    "commit": "12dd7823a4524db1c6b2cf1d75e47a0aefa5e8d4",
+    "model_digest": "b8050a31571367941748a3bcc47112ca809f811bc46268ea7653becdd333d880",
+    "origin_verified": true,
+    "negative_tests": 11,
+    "historical_status": "FAIL",
+    "historical_errors": [
+      {
+        "code": "SOURCE_MODULE_RECHECK_FAILED",
+        "requirement_id": null
+      },
+      {
+        "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY",
+        "requirement_id": null
+      },
+      {
+        "code": "SOURCE_MODULE_RECHECK_FAILED",
+        "requirement_id": null
+      },
+      {
+        "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY",
+        "requirement_id": null
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "fixture_inventory_use"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "program_functional_roles"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "bath_service_operation"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "privacy_scenarios"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "q11_functional_boundary"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "circulation_functional_integrity"
+      }
+    ],
+    "historical_pending": [
+      "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+      "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+      "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+      "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+      "RULE_NOT_EVALUATED:closet_operation",
+      "RULE_NOT_EVALUATED:door_operation",
+      "RULE_NOT_EVALUATED:kitchen_essential_operation",
+      "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+    ],
+    "whole_physical_verified": false
   }
 }
