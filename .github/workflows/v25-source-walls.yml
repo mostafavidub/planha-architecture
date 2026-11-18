@@ -1,0 +1,79 @@
+name: V25 source-bound wall counterfactuals
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-source-walls.yml'
+      - 'app/local_integration/source_wall_counterfactual.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Fresh replay live child then isolated positive null and kitchen probes
+        run: |
+          timeout 900s python -B - <<'PY'
+          import sys,json,hashlib,tarfile,inspect
+          from pathlib import Path
+          from fractions import Fraction as F
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from engine114 import revision
+          from constructor127 import build,context
+          from evaluate_pair127 import evaluate
+          from review_cycle import digest
+          from source_wall_counterfactual import assess,bound_source
+          from guest_four_route_diagnostic import assess as guest_routes
+          from checker114 import check_whole_privacy117
+          from privacy115 import closure_gaps
+          paths=['app/local_integration/source_wall_counterfactual.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/kitchen_guest_review.py','.github/workflows/v25-source-walls.yml']
+          sources=snapshot(root,paths);source=revision();assert guard(FREEZE)==12991
+          for fn,name in [(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py'),(check_whole_privacy117,'checker114.py'),(closure_gaps,'privacy115.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives'] if x['run_id']==44417514104)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz') as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256'] for m in a['members'] if m['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];trace=saved['generation_context']['construction_trace'];ps=trace['proposals']
+          packet=build(trace['raw'],'FRONT_REAR',ps['A'],ps['B']);ctx=context(trace['raw'],packet,ps);m=packet['world_model'];review=evaluate(packet,ctx);mh=digest(m)
+          assert mh==saved['model_digest']=='073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44' and digest(ctx)==digest(saved['generation_context'])
+          negatives=[]
+          for label,sid,expected in [('wrong_parent','A.bed1.back','0'*64),('unknown_source','not_a_wall',mh),('physical_alias','physical_wall_22',mh)]:
+              try:assess(m,review,sid,expected)
+              except ValueError:negatives.append(label)
+              else:raise AssertionError(label)
+          ids=['A.bed1.back','A.bed1.front','A.kitchen.front.right']
+          out={'scope':'THREE_SOURCE_WALL_PROBES_NOT_ALL_WALL_CLOSURE','source_files':sources,'source_revision':source,'parent_model_digest':mh,'negative_tests':negatives,'probes':[],'accepted':False,'delivery_allowed':False}
+          for sid in ids:
+              result=assess(m,review,sid,mh)
+              if sid=='A.bed1.back':
+                  assert F(result['free_geometric_gain_m2'])==F('327/400')
+                  room=next(x for x in result['closure'] if x['room']=='A.bed1');assert room['before_gaps']==[] and room['after_gaps']
+              if sid=='A.bed1.front':
+                  assert F(result['free_geometric_gain_m2'])==0
+                  assert all(x['before_gaps']==x['after_gaps'] for x in result['closure'])
+                  assert result['baseline_routes']==result['probe_routes']
+                  assert result['privacy_before']==result['privacy_after']
+              if sid=='A.kitchen.front.right':assert F(result['free_geometric_gain_m2'])==F('453/4000')
+              out['probes'].append(result);Path('source-wall-probes.json').write_text(json.dumps(out,ensure_ascii=False))
+          require_unchanged(root,sources);assert digest(m)==mh and revision()==source and guard(FREEZE)==12991
+          def brief(r):return {'source':r['source_id'],'material_m2':r['free_geometric_gain_m2'],'changed_closures':[x for x in r['closure'] if x['before_gaps']!=x['after_gaps']],'routes_before':[{'unit':u['unit'],'route':q['id'],'state':q['state'],'length':q.get('length_m')} for u in r['baseline_routes']['units'] for q in u['routes']],'routes_after':[{'unit':u['unit'],'route':q['id'],'state':q['state'],'length':q.get('length_m')} for u in r['probe_routes']['units'] for q in u['routes']],'privacy_before':{k:r['privacy_before'].get(k) for k in ['status','errors','pending']},'privacy_after':{k:r['privacy_after'].get(k) for k in ['status','errors','pending']}}
+          print('SOURCE_WALL_PROBES '+json.dumps({'model':mh,'negative_tests':negatives,'probes':[brief(r) for r in out['probes']],'accepted':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-source-wall-probes
+          path: source-wall-probes.json
+          retention-days: 30
