@@ -171,6 +171,30 @@ jobs:
           run-id: 44415900223
           name: v25-four-seat-master
           path: _artifact_input/44415900223
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44416903509
+          name: v25-grouped-rejection
+          path: _artifact_input/44416903509
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44417404259
+          name: v25-explicit-pair-operator
+          path: _artifact_input/44417404259
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44417514104
+          name: v25-pair-http
+          path: _artifact_input/44417514104
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 44416886004
+          name: v25-four-seat-master
+          path: _artifact_input/44416886004
       - name: Bound and hash explicitly selected generated artifacts
         run: |
           python -B - <<'PY'
