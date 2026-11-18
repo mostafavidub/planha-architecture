@@ -1,0 +1,86 @@
+name: V25 same-programme circulation comparison
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-circulation-comparison.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Exact baseline replay and independent alternatives with same programme
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1000s python -B - <<'PY'
+          import sys,json,tarfile,hashlib,copy
+          from pathlib import Path
+          from fractions import Fraction as F
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE,inventory
+          from review_cycle import digest
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from search114 import propose
+          from engine114 import revision
+          from functional_review import assess
+          from producer_provenance import snapshot,require_unchanged
+          pins=guard(FREEZE);assert pins==12991;source=revision()
+          hashes=snapshot(root,['app/local_integration/functional_review.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/explicit_pair_redirection.py'])
+          index=json.loads((root/'evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(a for a in index['archives'] if a['run_id']==44409434536)
+          archive=root/'evidence/archive'/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          matches=[]
+          with tarfile.open(archive,'r:gz') as tar:
+              for member in a['members']:
+                  if not member['path'].endswith('/result.json'):continue
+                  data=tar.extractfile(member['path']).read();assert hashlib.sha256(data).hexdigest()==member['sha256']
+                  r=json.loads(data)
+                  for c in r.get('candidates',[]):
+                      if c['model_digest']=='3eef47c867a767b64e1298ddb101a9de1ce0f6469c423dae5b204b33a841c098':matches.append(c)
+          assert len(matches)==1
+          prior=matches[0];trace=prior['generation_context']['construction_trace'];raw=trace['raw'];ps=trace['proposals'];family='FRONT_REAR'
+          baseline=build(raw,family,ps['A'],ps['B']);bctx=context(raw,baseline,ps)
+          assert digest(baseline['world_model'])==prior['model_digest'];assert digest(bctx)==digest(prior['generation_context'])
+          protected=inventory(baseline['world_model']);core,_=frame(raw,family)
+          def record(packet,ctx,variant):
+              m=packet['world_model'];review=evaluate(packet,ctx);functional=assess(m,review,source)
+              metric=[]
+              for u in functional['living_connectivity_study']['units']:
+                  study=next(s for s in u['studies'] if s['label']=='CONCEPTUAL_PUBLIC_UNION_PROBE')
+                  ready=bool(study['paths']) and all(p['path'] for p in study['paths'])
+                  metric.append({'unit':u['unit'],'connected':ready,'sum_anchor_path_m':str(sum(F(p['length_m']) for p in study['paths'])) if ready else None,'max_path_m':str(max(F(p['length_m']) for p in study['paths'])) if ready else None,'sum_turns':sum(p['turns'] for p in study['paths']) if ready else None})
+              return {'variant':variant,'packet':packet,'context':ctx,'review':review,'functional_review':functional,'model_digest':digest(m),'metrics':metric,'accepted':False,'delivery_allowed':False}
+          base=record(baseline,bctx,'ARCHIVED_BASELINE_FRESH_REPLAY')
+          result={'scope':'COUNTERFACTUAL_ORGANIZATION_COMPARISON_ONLY_NOT_REPAIR_OR_ACCEPTANCE','raw':raw,'source_revision':source,'source_hashes':hashes,'baseline':base,'alternatives':[],'accepted':False,'delivery_allowed':False,'deadline_utc':'2026-11-19T01:07:31Z'}
+          Path('circulation-comparison.json').write_text(json.dumps(result,ensure_ascii=False))
+          for variant in (1,2,3):
+              p=propose(core,2,time_limit=3,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+              if p.get('status')!='PROPOSAL_ONLY':result['alternatives'].append({'variant':variant,'proposal':p});continue
+              packet=build(raw,family,p,p);ctx=context(raw,packet,{'A':p,'B':p});m=packet['world_model']
+              assert inventory(m)==protected and m['profile']==baseline['world_model']['profile'] and m['inputs']==baseline['world_model']['inputs'] and digest(packet['core'])==digest(baseline['core'])
+              alt=record(packet,ctx,variant);alt['programme_fixtures_core_profile_preserved']=True
+              alt['fresh_physical_pass']=alt['review']['status']=='PASS_CONCEPT_SCOPED_REVIEW' and alt['review']['errors']==[] and alt['review']['pending']==[]
+              alt['shorter_in_both_units']=all(a['connected'] and b['connected'] and F(a['sum_anchor_path_m'])<F(b['sum_anchor_path_m']) for a,b in zip(alt['metrics'],base['metrics']))
+              alt['not_global_optimum_or_useful_area_proof']=True
+              result['alternatives'].append(alt);Path('circulation-comparison.json').write_text(json.dumps(result,ensure_ascii=False))
+          require_unchanged(root,hashes);assert revision()==source and guard(FREEZE)==pins
+          def brief(r):return {k:r.get(k) for k in ['variant','model_digest','metrics','fresh_physical_pass','shorter_in_both_units','programme_fixtures_core_profile_preserved']}
+          print('CIRCULATION_COMPARISON '+json.dumps({'baseline':brief(base),'baseline_physical_status':base['review']['status'],'alternatives':[brief(a) for a in result['alternatives']],'accepted':False,'delivery_allowed':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-circulation-comparison
+          path: circulation-comparison.json
+          retention-days: 30
