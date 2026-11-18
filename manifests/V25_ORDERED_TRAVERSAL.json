@@ -32,10 +32,10 @@
     },
     {
       "id": "V25-06",
-      "status": "PARTIAL_EXPLICIT_PROGRAM_API",
-      "evidence": "API صریح دوخوابه بدون fallback اضافه و در ۱۵×۲۵ آزموده شد؛ پیش‌فرض همچنان سه‌خوابه است. انتخاب خودکار برنامه و n1 و فرم۲ باز است.",
+      "status": "PARTIAL_EXPLICIT_PROGRAM_API_AND_UI",
+      "evidence": "انتخاب صریح دو/سه‌خواب و پیش‌فرض سه‌خواب در UI واقعی تأیید شد؛ انتخاب خودکار برنامه، n1 و فرم۲ باز است.",
       "evidence_runs": [
-        44405056710
+        44421177419
       ]
     },
     {
@@ -79,8 +79,11 @@
     },
     {
       "id": "V25-14",
-      "status": "PARTIAL",
-      "evidence": "پیوند review→decision و functional_review بررسی شد؛ چهار الزام ضروری UNKNOWN. نگاشت جامع همه قواعد فعال به داده/checker/تصمیم کامل نیست."
+      "status": "PARTIAL_FROZEN_REGISTRY_TRACE",
+      "evidence": "۸۹قاعده/۳۸نیاز تاریخی ردیابی؛۲۹PASS_LIMITED،۱ارزیابی‌نشده،۷نامرتبط مرحله،۱خارج دامنه. شش الزام محصول و نگاشت همه اسناد جاری و چهارUNKNOWN باز است.",
+      "evidence_runs": [
+        44421757612
+      ]
     },
     {
       "id": "V25-15",
@@ -126,10 +129,11 @@
     },
     {
       "id": "V25-20",
-      "status": "PARTIAL_REAL_BROWSER_PASS",
-      "evidence": "Chromium واقعی، سرور و worker واقعی، ورودی۲۶رد، تولید۲۵×۲۵، history، export403 و پاک‌شدن نتیجه با تغییر ورودی آزموده شد. UI صریح۲ و بازطراحی طبیعی هنوز باز.",
+      "status": "PASS_EXPLICIT_UI_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "۱۴کنترل Chromium واقعی و۲۳تست پاسخ موفق؛ دو تصویر مشاهده شد. ادامه دوخوابه جدا، لغو، تاریخچه، رد۲۶ و ممنوعیت نمایش/تحویل محفوظ. نه پذیرش معماری.",
       "evidence_runs": [
-        44400938194
+        44421177419,
+        44420400051
       ]
     },
     {
@@ -139,12 +143,13 @@
     },
     {
       "id": "V25-22",
-      "status": "PARTIAL_GROUP_WITNESS_NOT_QUALIFICATION",
-      "evidence": "master مستقل۶حالت physicalPASS باbaseline واقعی؛۱۲واحد اتصال محلی سناریوی نشسته و۴واحد سناریوی ایستاده محافظه‌کار. چهار UNKNOWN باز؛ قید apron حمام در fork مستقل در آزمون است.",
+      "status": "PARTIAL_EXACT_DIAGNOSTICS_NOT_QUALIFICATION",
+      "evidence": "۸مدل جدید physicalPASS؛ شواهد گروه و مسیر ترتیب‌دار مهمان؛ سهprobeدیوار باintervalدقیق و nullcontrol؛ ظرفیت دقیق۸مسیر ثابت .7 با گواهsweep. مسیر ترتیب‌دار اثبات سازمان طبیعی نیست؛ حذف دیوار آشپزخانه نیازمند قرارداد منبع مستقل است؛ چهارUNKNOWN باز.",
       "evidence_runs": [
-        44413801814,
-        44414249134,
-        44410953889
+        44416886004,
+        44418924830,
+        44420044477,
+        44421091175
       ]
     },
     {
@@ -154,10 +159,10 @@
     },
     {
       "id": "V25-24",
-      "status": "PARTIAL_AUDIT_AND_DURABLE_EVIDENCE",
-      "evidence": "۲۴آرشیو۲۵۰عضو۱۷۴۸۱۳۵۹بایت پس ازpush ازremote باSHA256/size تک‌عضو تأیید؛ نه اثبات کل تاریخچه یاپذیرش.۳۰۳آغازنشده.",
+      "status": "PARTIAL_DURABLE_ARCHIVE_APPROVAL_PENDING",
+      "evidence": "۳۳آرشیو/۲۷۱عضو/۲۲۹۰۷۸۹۱بایت تأیید remote. سه بسته جدید UIضروری/clearance/ruletrace تا تأیید مشخص workflow فقطartifact۳۰روزه‌اند.۳۰۳آغازنشده.",
       "evidence_runs": [
-        44415348190
+        44420287604
       ]
     }
   ],
@@ -229,12 +234,12 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-18T23:06:25Z",
+  "last_evidence_update_utc": "2026-11-18T23:34:11Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "RUNNING_GROUP_MASTER_TYPED_BATH_APPROACH_REGRESSION",
+    "state": "PARTIAL_DIAGNOSTICS_COMPLETE_FOUR_FUNCTIONAL_UNKNOWNS_REMAIN",
     "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage"
   },
   "live_cycle_operation": {
