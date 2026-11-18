@@ -11,7 +11,7 @@ def run(body):
     if envelope['canonical_request'].get('program')!={'bedrooms_per_unit':2}:
         raise InputError('EXPLICIT_TWO_BEDROOM_PROGRAM_REQUIRED','program',409)
     from producer_provenance import snapshot,require_unchanged
-    files=['app/local_integration/explicit_two_bedroom_worker.py','app/local_integration/parametric_worker.py','app/local_integration/review_cycle.py','app/local_integration/functional_review.py','app/local_integration/guest_four_route_diagnostic.py']
+    files=['app/local_integration/explicit_two_bedroom_worker.py','app/local_integration/parametric_worker.py','app/local_integration/review_cycle.py','app/local_integration/functional_review.py','app/local_integration/guest_four_route_diagnostic.py','app/local_integration/living_connectivity_diagnostic.py']
     sources=snapshot(ROOT,files)
     sys.path[:0]=[str(ROOT/'frontend'),str(ENGINE)]
     from guard400 import guard
