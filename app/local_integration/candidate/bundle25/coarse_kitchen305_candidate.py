@@ -8,7 +8,7 @@ import time
 import numpy as np
 from scipy.optimize import milp,Bounds,LinearConstraint
 from contract114 import S
-from private_bundle25_candidate import build as private_source
+from private_kitchen305_candidate import build as private_source
 
 def propose(core,time_limit=3):
  start=time.monotonic();template=private_source(core,variant=2)
