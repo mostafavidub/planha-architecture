@@ -43,11 +43,17 @@ jobs:
                   started=time.monotonic();row={'W':W,'L':L,'family':family}
                   try:
                       _,raw=prepare(json.dumps({'W':W,'L':L,'n':2,'requested_count':1}).encode())
-                      core,_=frame(raw,family);p=propose(core,time_limit=3);row['proposal']=p
+                      core,_=frame(raw,family)
+                      if core is None:
+                          p={'status':'UNSUPPORTED_CURRENT_CORE_FIT','not_global_infeasibility':True}
+                      else:p=propose(core,time_limit=3)
+                      row['proposal']=p
                       if p.get('status')=='PROPOSAL_ONLY':
                           packet=build(raw,family,p);ctx=context(raw,p,packet);review=evaluate(packet,ctx)
                           row.update(packet=packet,context=ctx,review=review,functional_review=assess(packet['world_model'],review,revision()))
-                  except Exception as error:row['error']=type(error).__name__+':'+str(error)
+                  except Exception as error:
+                      row['error']=type(error).__name__+':'+str(error)
+                      if str(error)=='OUTSIDE_CURRENT_COMMON_INTERFACE_METHOD_NOT_GLOBAL_INFEASIBILITY':row['proposal']={'status':'UNSUPPORTED_CURRENT_CORE_FIT','not_global_infeasibility':True}
                   row['elapsed_seconds']=time.monotonic()-started;evidence['rows'].append(row)
                   print('K305_ROW '+json.dumps({k:v for k,v in row.items() if k not in ['packet','context','proposal','review','functional_review']}|{'proposal_status':row.get('proposal',{}).get('status'),'review_status':row.get('review',{}).get('status'),'errors':row.get('review',{}).get('errors'),'pending':row.get('review',{}).get('pending'),'functional':row.get('functional_review')}),flush=True)
           assert guard(freeze)==12991
