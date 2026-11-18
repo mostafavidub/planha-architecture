@@ -34,11 +34,11 @@ jobs:
               try:
                   with urllib.request.urlopen(req,timeout=170) as r:return r.status,json.load(r)
               except urllib.error.HTTPError as e:return e.code,json.load(e)
-          report={'scope':'LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY','sample':'SECOND_DISTINCT_PREREGISTERED_DIMENSION_SET','operation_deadline_utc':'2026-11-19T00:27:35Z','attempts':[],'accepted':False,'delivery_allowed':False}
+          report={'scope':'LIVE_HTTP_EXPLICIT_EXPLORATORY_ONLY','sample':'REMAINING_SECOND_SET_CONTINUE_AFTER_NO_CHILD','operation_deadline_utc':'2026-11-19T00:27:35Z','attempts':[],'continuations':[],'accepted':False,'delivery_allowed':False}
           try:
               s,r=call('/redesign-explicit-two',{'run_id':'../bad','candidate_id':'0'*64});assert s==422
               parent=None
-              for W,L in [('15','20'),('16','20'),('18','20'),('18','22'),('18','24'),('20','18'),('20','22'),('22','18'),('22','20'),('24','18'),('25','20'),('25','22')]:
+              for W,L in [('18','22'),('18','24'),('20','18'),('20','22'),('22','18'),('22','20'),('24','18'),('25','20'),('25','22')]:
                   s,r=call('/generate',{'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}})
                   if s!=200:
                       report['attempts'].append({'input':[W,L],'http_status':s,'outcome':r.get('outcome'),'code':r.get('code')})
@@ -51,13 +51,23 @@ jobs:
                           try:require_rejection(c['physical_review'])
                           except ValueError:continue
                           parent=(r,c);break
-                  if parent:break
+                  if parent:
+                      pr,pc=parent
+                      cs,cr=call('/redesign-explicit-two',{'run_id':pr['run_id'],'candidate_id':pc['candidate_id']})
+                      state=cr.get('candidates',[{}])[0].get('exploratory_redirection_receipt',{}).get('state') if cr.get('candidates') else cr.get('outcome')
+                      report['continuations'].append({'parent_run':pr['run_id'],'input':[W,L],'http_status':cs,'state':state,'generated_count':cr.get('generated_count'),'reused_parent':cr.get('reused_parent')})
+                      Path('pair-http.json').write_text(json.dumps(report))
+                      if cs==200 and state=='FRESH_PHYSICAL_PASS_FUNCTIONAL_UNKNOWN':
+                          assert cr['generated_count']==1 and cr['reused_parent'] is False
+                          precomputed=(cs,cr);break
+                      if cs==200:assert cr['generated_count']==0 and cr['reused_parent'] is True
+                      parent=None
               if parent is None:
-                  report['state']='BLOCKED_NO_FRESH_NATURAL_PARENT_IN_BOUNDED_SAMPLE'
+                  report['state']='BLOCKED_NO_SUCCESSFUL_LIVE_CHILD_IN_REMAINING_SAMPLE'
               else:
                   r,c=parent;args={'run_id':r['run_id'],'candidate_id':c['candidate_id']}
                   s,legacy=call('/repair',args);assert s==422
-                  s,child=call('/redesign-explicit-two',args)
+                  s,child=precomputed
                   report['continuation_http_status']=s;report['continuation']=child
                   Path('pair-http.json').write_text(json.dumps(report))
                   assert s==200,(s,child)
@@ -72,7 +82,7 @@ jobs:
                       s,g=call(path+child['run_id']);assert s==403 and g['artifact_bytes_sent']==0
                   s,h=call('/history/'+child['run_id']);assert s==200 and h['live_model_restored'] is False
                   report['state']=receipt['state']
-                  report['checks']=['real_http_parent_created_not_archived_import','legacy_repair_refuses_pair','same_request_parent_and_pending_bound','fresh_child_decision_bound','history_only','export_and_download_403','no_production_repair_authority']
+                  report['checks']=['real_http_parent_created_not_archived_import','legacy_repair_refuses_pair','same_request_parent_and_pending_bound','fresh_final_decision_bound','history_only','export_and_download_403','no_production_repair_authority']
               Path('pair-http.json').write_text(json.dumps(report,ensure_ascii=False))
               print('PAIR_HTTP '+json.dumps({k:v for k,v in report.items() if k!='continuation'}),flush=True)
           finally:
