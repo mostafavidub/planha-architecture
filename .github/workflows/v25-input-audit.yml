@@ -20,4 +20,4 @@ jobs:
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         working-directory: app/local_integration
-        run: python -B -m unittest -v test_v25_input_audit test_v25_active_entrypoints
+        run: python -B -m unittest -v test_v25_input_audit test_v25_active_entrypoints test_producer_provenance
