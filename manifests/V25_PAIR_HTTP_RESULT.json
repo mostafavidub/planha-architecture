@@ -1,0 +1,45 @@
+{
+  "task": "V25-16/17-B",
+  "tested_commit": "30ac9b01b1e7973652b36593339ef48fc2c1df76",
+  "run": 44407576996,
+  "job": 135166787563,
+  "completed_utc": "2026-11-18T22:06:20Z",
+  "operation_deadline_utc": "2026-11-19T00:27:35Z",
+  "state": "BLOCKED_NO_FRESH_NATURAL_PARENT_IN_BOUNDED_SAMPLE",
+  "requests": [
+    [
+      "20",
+      "20"
+    ],
+    [
+      "20",
+      "20"
+    ],
+    [
+      "20",
+      "20"
+    ],
+    [
+      "19.5",
+      "20"
+    ],
+    [
+      "20",
+      "19.5"
+    ],
+    [
+      "21",
+      "20"
+    ]
+  ],
+  "fresh_generated": 6,
+  "fresh_physical_pass_semantic_unknown": 6,
+  "eligible_natural_failures": 0,
+  "continuation_endpoint_success_tested": false,
+  "artifact_run": 44407576996,
+  "artifact_name": "v25-pair-http",
+  "artifact_id": 14475701745,
+  "accepted": false,
+  "delivery_allowed": false,
+  "next": "Continue independent functional witness work; no archived parent substituted for live generation and no production cycle completion claimed."
+}
