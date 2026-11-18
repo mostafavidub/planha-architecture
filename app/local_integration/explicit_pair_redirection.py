@@ -43,10 +43,12 @@ def redirect(body,parent_model,parent_context):
     from engine114 import revision
     from constructor127 import frame,build,context
     from evaluate_pair127 import evaluate
-    from search114 import propose
-    for fn,name in [(frame,'constructor127.py'),(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py'),(propose,'search114.py')]:
+    sys.path.insert(0,str(ROOT/'app/local_integration/candidate'))
+    from four_seat_group_candidate import propose
+    for fn,name in [(frame,'constructor127.py'),(build,'constructor127.py'),(context,'constructor127.py'),(evaluate,'evaluate_pair127.py')]:
         if Path(inspect.getsourcefile(fn)).resolve()!=(ENGINE/name).resolve():raise ValueError('EXPLORATORY_IMPORT_PATH')
-    sources=snapshot(ROOT,['app/local_integration/explicit_pair_redirection.py','app/local_integration/parametric_worker.py','app/local_integration/dimension_contract.py','app/local_integration/review_cycle.py'])
+    if Path(inspect.getsourcefile(propose)).resolve()!=(ROOT/'app/local_integration/candidate/four_seat_group_candidate.py').resolve():raise ValueError('GROUPED_PRODUCER_IMPORT_PATH')
+    sources=snapshot(ROOT,['app/local_integration/candidate/four_seat_group_candidate.py','app/local_integration/explicit_pair_redirection.py','app/local_integration/parametric_worker.py','app/local_integration/dimension_contract.py','app/local_integration/review_cycle.py'])
     before=revision();pins=guard(FREEZE)
     if pins!=12991:raise ValueError('HISTORICAL_GUARD_COUNT')
     trace=parent_context.get('construction_trace',{})
@@ -63,10 +65,10 @@ def redirect(body,parent_model,parent_context):
     if origin.get('verified')is not True or origin.get('model_hash')!=digest(parent_model) or origin.get('source_revision')!=before or origin.get('errors')!=[] or origin.get('pending')!=[]:raise ValueError('EXPLORATORY_PARENT_PROVENANCE')
     require_rejection(fresh)
     started=time.monotonic();core,_=frame(raw,family);protected=inventory(parent_model)
-    result={'schema':'V25_EXPLICIT_PAIR_REDIRECTION_V1','scope':'EXPLORATORY_ONLY_NOT_PRODUCTION_REPAIR','request_digest':envelope['canonical_request_digest'],'source_revision':before,'source_files':sources,'parent_model_digest':digest(parent_model),'parent_context_digest':digest(parent_context),'fresh_parent_review':fresh,'parent_pending_preserved':copy.deepcopy(fresh['pending']),'attempts':[],'child':None,'accepted':False,'delivery_allowed':False,'qualified':False,'display_allowed':False,'production_repair_registered':False}
-    for variant in (1,2,3):
+    result={'schema':'V25_EXPLICIT_PAIR_REDIRECTION_V1','scope':'EXPLORATORY_ONLY_NOT_PRODUCTION_REPAIR','request_digest':envelope['canonical_request_digest'],'source_revision':before,'source_files':sources,'parent_model_digest':digest(parent_model),'parent_context_digest':digest(parent_context),'fresh_parent_review':fresh,'parent_pending_preserved':copy.deepcopy(fresh['pending']),'search_strategy':'SOURCE_BOUND_GROUPED_GUEST_MOTION_V1','attempts':[],'child':None,'accepted':False,'delivery_allowed':False,'qualified':False,'display_allowed':False,'production_repair_registered':False}
+    for variant in (0,1,2):
         if time.monotonic()-started>100:break
-        p=propose(core,2,time_limit=3,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+        p=propose(core,2,time_limit=12,variant=variant,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
         attempt={'variant':variant,'proposal':p};result['attempts'].append(attempt)
         if p.get('status')!='PROPOSAL_ONLY':continue
         child_packet=build(raw,family,p,p);child_context=context(raw,child_packet,{'A':p,'B':p});model=child_packet['world_model']
