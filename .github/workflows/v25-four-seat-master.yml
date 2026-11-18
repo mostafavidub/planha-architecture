@@ -25,6 +25,7 @@ jobs:
         run: |
           timeout 1300s python -B - <<'PY'
           import sys,json,inspect,ast,tarfile,hashlib
+          from fractions import Fraction as F
           from pathlib import Path
           root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration/candidate'),str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
           from guard400 import guard
@@ -77,6 +78,13 @@ jobs:
               row={'raw':raw,'variant':variant,'proposal':proposal,'not_global_infeasibility':True}
               if proposal.get('status')=='PROPOSAL_ONLY':
                   packet=build(raw,'FRONT_REAR',proposal,proposal);ctx=context(raw,packet,{'A':proposal,'B':proposal});review=evaluate(packet,ctx);model=packet['world_model'];mh=digest(model)
+                  # Independent actual-world translation/reflection of every source motion bound.
+                  local=proposal['independent_kitchen_motion_reservation']['translated_bounds']
+                  expectedA=[list(map(F,q)) for q in local];length=F(raw['L'])
+                  expectedB=[[q[0],length-q[3],q[2],length-q[1]] for q in expectedA]
+                  for uid,expected in [('A',expectedA),('B',expectedB)]:
+                      op=next(o for o in model['operations']['kitchen'] if o['unit']==uid)
+                      assert [list(map(F,q)) for q in op['motion_envelopes']]==expected,'ACTUAL_KITCHEN_MOTION_PLACEMENT_MISMATCH'
                   assert model['inputs']==[W,L,2]
                   assert inventory(model)==protected and model['profile']==expected_profile and model['program']==expected_program and digest(packet['core'])==digest(core)
                   assert ctx['construction_trace']['raw']==raw and ctx['construction_trace']['proposals']=={'A':proposal,'B':proposal} and ctx['construction_trace']['model_hash']==mh
