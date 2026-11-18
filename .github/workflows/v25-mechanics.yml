@@ -22,7 +22,7 @@ jobs:
         working-directory: app/local_integration
         env:
           PYTHONDONTWRITEBYTECODE: '1'
-        run: python -B -m unittest -v test_dimension_contract test_parametric_contract test_review_cycle test_range25 test_v25_input_audit test_repair_receipt
+        run: python -B -m unittest -v test_dimension_contract test_parametric_contract test_review_cycle test_range25 test_v25_input_audit test_repair_receipt test_explicit_pair_review
       - name: V25-21 controlled failures and owned-worker cancellation
         working-directory: app/local_integration
         env:
