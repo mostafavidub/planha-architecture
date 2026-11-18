@@ -1,0 +1,86 @@
+name: V25 actual Chromium integration
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-real-browser.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  actual-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1 playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Real page and real model with no design display or delivery
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 600s python -B - <<'PY'
+          import json,subprocess,sys,time
+          from pathlib import Path
+          from playwright.sync_api import sync_playwright,expect
+          server=subprocess.Popen([sys.executable,'-B','validation_server.py','--port','0'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+          report={'scope':'Actual Chromium UI + real loopback server/worker; not architectural qualification','checks':[]}
+          try:
+              address=json.loads(server.stdout.readline());url='http://127.0.0.1:'+str(address['port'])
+              with sync_playwright() as p:
+                  browser=p.chromium.launch();context=browser.new_context();context.tracing.start(screenshots=True,snapshots=True,sources=True)
+                  page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+                  try:
+                      page.goto(url);expect(page.locator('#generate')).to_be_enabled()
+                      for name,value in [('W','26'),('L','25'),('n','2'),('requested_count','1')]:page.locator('input[name="'+name+'"]').fill(value)
+                      with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=180000) as pending:page.locator('#generate').click()
+                      invalid=pending.value.json();assert pending.value.status==422 and invalid['code']=='DIMENSION_OUT_OF_OWNER_RANGE'
+                      expect(page.locator('#status')).to_contain_text('بزرگ‌تر از ۲۵')
+                      assert 'run_id' not in invalid
+                      report['checks'].append('out_of_range_rejected_in_real_UI')
+                      page.locator('input[name="W"]').fill('25')
+                      with page.expect_response(lambda r:r.url.endswith('/generate'),timeout=180000) as pending:page.locator('#generate').click()
+                      result=pending.value.json();assert pending.value.status==200 and result['generated_count']==1 and result['qualified_count']==0
+                      expect(page.locator('#status')).to_contain_text('1 مدل آزمایشی',timeout=15000)
+                      expect(page.locator('#plans')).to_be_empty();assert page.locator('#plans svg').count()==0
+                      visible=json.loads(page.locator('#result').inner_text());assert visible['accepted'] is False and visible['delivery_allowed'] is False
+                      report['checks'].append('actual_generated_model_identity_verified_by_browser_and_preview_blocked')
+                      run_id=result['run_id'];report['run_id']=run_id;report['model_digest']=result['candidates'][0]['model_digest']
+                      current_request=[page.locator('input[name="'+n+'"]').input_value() for n in ['W','L','n','requested_count']]
+                      page.locator('#history-refresh').click()
+                      button=page.locator('#history-list button').filter(has_text=run_id).first
+                      expect(button).to_be_visible();button.click()
+                      expect(page.locator('#history-detail')).to_contain_text('سابقه ذخیره‌شده',timeout=15000)
+                      assert current_request==[page.locator('input[name="'+n+'"]').input_value() for n in ['W','L','n','requested_count']]
+                      expect(page.locator('#plans')).to_be_empty()
+                      denied=context.request.get(url+'/export/'+run_id);assert denied.status==403 and denied.json()['delivery_allowed'] is False
+                      report['checks'].append('history_does_not_restore_live_model_and_export_denied')
+                      page.locator('input[name="W"]').fill('24.5')
+                      expect(page.locator('#plans')).to_be_empty();expect(page.locator('#result')).to_be_hidden()
+                      report['checks'].append('input_change_invalidates_current_result')
+                      assert not errors,errors
+                      report['browser_version']=browser.version;report['passed']=True
+                      page.screenshot(path='v25-browser.png',full_page=True)
+                  finally:
+                      report['browser_errors']=errors;report['final_status_text']=page.locator('#status').inner_text()
+                      context.tracing.stop(path='v25-browser-trace.zip');browser.close()
+          finally:
+              server.terminate()
+              try:server.wait(timeout=10)
+              except subprocess.TimeoutExpired:server.kill();server.wait()
+              Path('v25-browser-result.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+              print('ACTUAL_BROWSER '+json.dumps(report,ensure_ascii=False),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-real-browser-evidence
+          path: |
+            app/local_integration/v25-browser*
+            app/local_integration/evidence/requests
+          retention-days: 30
