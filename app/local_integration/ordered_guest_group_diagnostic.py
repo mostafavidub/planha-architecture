@@ -6,6 +6,29 @@ from guest_four_route_diagnostic import center,same_point
 from living_connectivity_diagnostic import direction_changes
 from local_seating_group_diagnostic import assess as group_assess,bounds
 
+def first_positive_body_contact(path,width,regions):
+    """Exact infimum distance of positive body/rectangle overlap; tangency excluded."""
+    half=F(width)/2;travelled=F(0);best=None
+    for pa,pb in zip(path,path[1:]):
+        a,b=list(map(F,pa)),list(map(F,pb));delta=[b[i]-a[i] for i in range(2)]
+        length=abs(delta[0])+abs(delta[1])
+        if delta[0] and delta[1]:raise ValueError('CONTACT_PATH_NOT_ORTHOGONAL')
+        if not length:continue
+        for q in map(rect,regions):
+            low,high=F(0),F(1);possible=True
+            for axis in (0,1):
+                lo,hi=q[axis]-half,q[axis+2]+half
+                if delta[axis]==0:
+                    if not lo<a[axis]<hi:possible=False;break
+                else:
+                    t0,t1=(lo-a[axis])/delta[axis],(hi-a[axis])/delta[axis]
+                    low=max(low,min(t0,t1));high=min(high,max(t0,t1))
+            if possible and low<high:
+                d=travelled+length*low
+                best=d if best is None else min(best,d)
+        travelled+=length
+    return None if best is None else str(best)
+
 def assess(model):
     from geometry114 import cells,route
     from checker114 import covered
@@ -49,6 +72,17 @@ def assess(model):
                 if any(not covered(b,list(map(rect,floor))) for b in sweeps(path,body)):raise ValueError('ORDERED_ROUTE_FLOOR')
                 leg.update(length_m=str(sum(abs(F(b[0])-F(a[0]))+abs(F(b[1])-F(a[1])) for a,b in zip(path,path[1:]))),turns=direction_changes(path))
             if len(row['legs'])==3 and all(x['path'] for x in row['legs']):row['state']='EXISTS_ORDERED_GUEST_ROUTE_ONLY'
+            direct,reason=route(u['entry_point'],dining,box,obstacles,body=str(body))
+            row['direct_dining_comparison']={'path':direct,'reason':reason,'scope':'Same-obstacle route proposal, not certified principal route or globally shortest'}
+            if direct:
+                if not same_point(direct[0],u['entry_point']) or not same_point(direct[-1],dining) or not local_polyline_clear(direct,str(body),box,obstacles):raise ValueError('DIRECT_ROUTE_GEOMETRY')
+                if any(not covered(b,list(map(rect,floor))) for b in sweeps(direct,body)):raise ValueError('DIRECT_ROUTE_FLOOR')
+                living_activities=[u['activities'][seat['access_activity_id']] for seat in seats]
+                dining_material=chairs+[q for k,q in u['fixtures'].items() if u['fixture_metadata'][k]['kind']=='dining_table']
+                contact=first_positive_body_contact(direct,body,dining_material)
+                if contact is not None:raise ValueError('DIRECT_ROUTE_DINING_OCCUPANCY_COLLISION')
+                row['direct_dining_comparison'].update(length_m=str(sum(abs(F(b[0])-F(a[0]))+abs(F(b[1])-F(a[1])) for a,b in zip(direct,direct[1:]))),turns=direction_changes(direct),first_living_access_activity_contact_m=first_positive_body_contact(direct,body,living_activities),first_declared_dining_floor_contact_m=first_positive_body_contact(direct,body,u['rooms']['dining']),dining_occupied_material_contact_m=contact)
+
         if digest(model)!=mh:raise ValueError('MODEL_CHANGED')
         result['remaining']=['Natural principal circulation and guest-first-living organization not proved by a forced detour','Furniture orientation/conversation and useful living area unqualified','Door scenario completeness and source profile ergonomics remain open','No nonfunctional-wall counterfactual closure']
     except (KeyError,ValueError,TypeError,IndexError,StopIteration) as e:result['missing']=[type(e).__name__+':'+str(e)]
