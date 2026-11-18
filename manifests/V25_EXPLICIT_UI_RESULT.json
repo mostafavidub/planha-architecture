@@ -1,0 +1,26 @@
+{
+  "schema": "V25_EXPLICIT_UI_RESULT_V1",
+  "start_utc": "2026-11-18T23:08:56Z",
+  "completed_utc": "2026-11-18T23:32:46Z",
+  "deadline_utc": "2026-11-19T02:08:56Z",
+  "run": 44421177419,
+  "commit": "d429013ba3d112492692ac3b2565e42bc4d0252e",
+  "checks_passed": 14,
+  "browser_errors": [],
+  "visual_screenshots_reviewed": 2,
+  "unit_replay_tests": 23,
+  "unit_run": 44420400051,
+  "child_model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+  "state": "FRESH_PHYSICAL_PASS_FUNCTIONAL_UNKNOWN",
+  "accepted": false,
+  "delivery_allowed": false,
+  "artifact": {
+    "name": "v25-explicit-ui-essential",
+    "id": 14481033284,
+    "bytes": 981373,
+    "sha256": "55f7e7a75079cd9813a27380fdea6e1623d6eac7908fdf34abc9880877197bd2",
+    "retention_days": 30
+  },
+  "scope": "Explicit selection and exploratory continuation UI only; not whole V25 completion",
+  "durability": "Archive workflow change blocked pending explicit approval; artifact remains available"
+}
