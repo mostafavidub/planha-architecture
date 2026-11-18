@@ -1,0 +1,33 @@
+{
+  "task": "V25-16/17-A",
+  "operation_started_utc": "2026-11-18T21:27:35Z",
+  "operation_deadline_utc": "2026-11-19T00:27:35Z",
+  "test_completed_utc": "2026-11-18T21:59:59Z",
+  "tested_commit": "ff715cb7ac6edde9f6945286243bbe78c2d61549",
+  "workflow_run": 44406994713,
+  "job": 135164761203,
+  "status": "PASS_SCOPED_ARCHIVED_PARENT_REPLAY",
+  "scope": "Separate callable explicit-pair exploratory redirection; no production constructor129 repair",
+  "parent_model_digest": "f475b286a6e033552a6d0cfa786d51ff3ba16b9f66201f2e997f2f26d570cf4f",
+  "child_model_digest": "59ccf2bc893ed2ed771cb28ee3ade7c05bb04bd74e778fe159a7c781b2654a7c",
+  "variant": 1,
+  "negative_tests": [
+    "pending_only",
+    "other_error",
+    "unknown_pending",
+    "missing_explicit_program",
+    "different_input",
+    "wrong_parent_hash"
+  ],
+  "historical_guard_count": 12991,
+  "pending_preserved": 6,
+  "accepted": false,
+  "delivery_allowed": false,
+  "production_repair_registered": false,
+  "remaining": [
+    "Live HTTP continuation from freshly generated natural rejection",
+    "Four functional UNKNOWNs",
+    "One-unit generation and domain/program coverage",
+    "Production cycle closure before303tasks"
+  ]
+}
