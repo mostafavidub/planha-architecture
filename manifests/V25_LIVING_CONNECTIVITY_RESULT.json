@@ -1,0 +1,641 @@
+{
+  "task": "V25-22-LIVING-WITNESS",
+  "start_utc": "2026-11-18T22:07:31Z",
+  "deadline_utc": "2026-11-19T01:07:31Z",
+  "result_utc": "2026-11-18T22:15:08Z",
+  "state": "SCOPED_DIAGNOSTIC_EXECUTED_FULL_LIVING_UNKNOWN",
+  "tested_commit": "2a76dddd7dfac9d32c0cb7dd0218f2fff42f9ef9",
+  "initial_failure": {
+    "run": 44409041217,
+    "error": "UNSUPPORTED_MULTI_OWNER_BOX",
+    "resolution": "bbox only search domain with complete exact non-floor complement and independent swept-union coverage; never bbox acceptance"
+  },
+  "summaries": [
+    {
+      "run": 44409434536,
+      "summary": [
+        {
+          "request": {
+            "W": "25",
+            "L": "25",
+            "n": 2,
+            "requested_count": 1
+          },
+          "generated": 1,
+          "models": [
+            {
+              "model": "d71204b74f8a0283012a97c05fb9f0cfa2f71a1f77b4e448634cd6af721c6759",
+              "units": [
+                {
+                  "unit": "A",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "250027/2500",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "581199/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "91/20",
+                          "turns": 4
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "141/20",
+                          "turns": 6
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "25/4",
+                          "turns": 5
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "91/20",
+                          "turns": 3
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "15/4",
+                          "turns": 6
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit": "B",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "250027/2500",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "581199/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "91/20",
+                          "turns": 4
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "141/20",
+                          "turns": 6
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "25/4",
+                          "turns": 5
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "91/20",
+                          "turns": 3
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "15/4",
+                          "turns": 6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "request": {
+            "W": "15",
+            "L": "25",
+            "n": 2,
+            "requested_count": 1,
+            "program": {
+              "bedrooms_per_unit": 2
+            }
+          },
+          "generated": 1,
+          "models": [
+            {
+              "model": "3eef47c867a767b64e1298ddb101a9de1ce0f6469c423dae5b204b33a841c098",
+              "units": [
+                {
+                  "unit": "A",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "323487/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "434249/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "2591/200",
+                          "turns": 7
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "409/25",
+                          "turns": 8
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "369/25",
+                          "turns": 9
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit": "B",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "323487/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "434249/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "2591/200",
+                          "turns": 7
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "409/25",
+                          "turns": 8
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "369/25",
+                          "turns": 9
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "run": 44409413108,
+      "summary": [
+        {
+          "request": {
+            "W": "25",
+            "L": "25",
+            "n": 2,
+            "requested_count": 1
+          },
+          "generated": 1,
+          "models": [
+            {
+              "model": "8a7b0b6ec4c0e86e91fd460c82f23e5af59219269c6b80d374e6c6e19a493e41",
+              "units": [
+                {
+                  "unit": "A",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "465669/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "581199/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit": "B",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "465669/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "581199/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "NO_CONNECTED_BODY_ROUTE",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "request": {
+            "W": "15",
+            "L": "25",
+            "n": 2,
+            "requested_count": 1,
+            "program": {
+              "bedrooms_per_unit": 2
+            }
+          },
+          "generated": 1,
+          "models": [
+            {
+              "model": "3eef47c867a767b64e1298ddb101a9de1ce0f6469c423dae5b204b33a841c098",
+              "units": [
+                {
+                  "unit": "A",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "323487/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "434249/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "2591/200",
+                          "turns": 7
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "409/25",
+                          "turns": 8
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "369/25",
+                          "turns": 9
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "unit": "B",
+                  "studies": [
+                    {
+                      "label": "DECLARED_RESIDUAL_LIVING",
+                      "state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+                      "floor_area_m2": "323487/5000",
+                      "paths": [
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        },
+                        {
+                          "state": "NO_WITNESS_IN_THIS_STUDY",
+                          "reason": "ROUTE_ENDPOINT_BLOCKED",
+                          "length": null,
+                          "turns": null
+                        }
+                      ]
+                    },
+                    {
+                      "label": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+                      "state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+                      "floor_area_m2": "434249/5000",
+                      "paths": [
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "2591/200",
+                          "turns": 7
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "409/25",
+                          "turns": 8
+                        },
+                        {
+                          "state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+                          "reason": null,
+                          "length": "369/25",
+                          "turns": 9
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "accepted": false,
+  "delivery_allowed": false,
+  "qualified": false,
+  "remaining": [
+    "Source profile ergonomic validity",
+    "All functional seating activity scenarios",
+    "Comparison to shorter organization and coherent seating group",
+    "Useful-area proof with correct denominators",
+    "No architectural inference from residual classification alone"
+  ]
+}
