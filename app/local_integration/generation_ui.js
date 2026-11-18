@@ -1,9 +1,9 @@
 'use strict';
 // This separate view never changes the historical 400 form or its one-shot guard.
 (() => {
- const generateButton=document.querySelector('#generate'),plans=document.querySelector('#plans');
+ const generateButton=document.querySelector('#generate'),plans=document.querySelector('#plans'),cancelButton=document.querySelector('#generation-cancel');
  let active=null,sequence=0;
- function cancel(){sequence++;if(active)active.abort();active=null;generateButton.disabled=false;plans.replaceChildren();}
+ function cancel(){sequence++;if(active)active.abort();active=null;generateButton.disabled=false;if(cancelButton)cancelButton.disabled=true;plans.replaceChildren();}
  form.addEventListener('input',cancel);
  form.addEventListener('submit',cancel);
  window.addEventListener('popstate',cancel);
@@ -11,7 +11,7 @@
  async function run(repairSource=null){
   if(generateButton.disabled)return;
   invalidate();cancel();const current=sequence,formBody=JSON.stringify(snapshot()),raw=repairSource?repairSource.request:snapshot(),body=JSON.stringify(raw),pairContinuation=repairSource?.mode==='explicit-pair';active=new AbortController();const signal=active.signal;
-  generateButton.disabled=true;button.disabled=true;clear();status.textContent=repairSource?'ادامه اصلاح عضو ردشده با بازسازی و بررسی تازه در حال اجراست…':'ساخت و بررسی واقعی در حال اجراست…';
+  generateButton.disabled=true;if(cancelButton)cancelButton.disabled=false;button.disabled=true;clear();status.textContent=repairSource?'ادامه اصلاح عضو ردشده با بازسازی و بررسی تازه در حال اجراست…':'ساخت و بررسی واقعی در حال اجراست…';
   const fresh=()=>current===sequence&&JSON.stringify(snapshot())===formBody;
   try{
    const response=await fetch(repairSource?(pairContinuation?'/redesign-explicit-two':'/repair'):'/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:repairSource?JSON.stringify({run_id:repairSource.run_id,candidate_id:repairSource.candidate_id}):body,signal});const wire=typeof response.text==='function'?readExactWire(await response.text()):{data:await response.json(),numbers:null};const data=wire.data;if(!fresh())return;
@@ -44,8 +44,9 @@
    plans.replaceChildren(...views);status.textContent=(pairContinuation?'بازطراحی اکتشافی دوخواب؛ نه اصلاح تولیدی یا تأیید معماری. ':repairSource?'ادامه اصلاح یک عضو ذخیره‌شده، نه بازتولید همه گزینه‌ها. ':'')+`${data.generated_count} مدل آزمایشی ساخته شد؛ تعداد واجدشرایط صفر از هدف ${data.requested_count} است. نمایش گزینه طراحی تا تکمیل شواهد عملکردی ضروری مسدود است.`;
    result.textContent=JSON.stringify({run_id:data.run_id,outcome:data.outcome,program_policy:data.program_policy,review_decisions:data.candidates.map(c=>c.review_decision),diversity_report:data.diversity_report,functional_reviews:data.candidates.map(c=>c.functional_review||{state:'MISSING_REQUIRED_FUNCTIONAL_PROOF',display_allowed:false}),attempts:data.attempts.map(a=>({family:a.family,state:a.state,reason:a.reason})),accepted:false,delivery_allowed:false},null,2);result.hidden=false;
   }catch(error){if(!fresh()||error.name==='AbortError')return;clear();plans.replaceChildren();status.textContent='اجرا یا کنترل هویت پاسخ کامل نشد؛ نتیجه‌ای پذیرفته نشد. ['+(/^[A-Z_]+$/.test(error.message)?error.message:'CLIENT_VERIFICATION_FAILED')+']';}
-  finally{if(fresh()){generateButton.disabled=false;button.disabled=false;active=null;}}
+  finally{if(fresh()){generateButton.disabled=false;button.disabled=false;if(cancelButton)cancelButton.disabled=true;active=null;}}
  }
+ if(cancelButton)cancelButton.addEventListener('click',()=>{if(!active)return;invalidate();cancel();status.textContent='اجرا لغو شد؛ پاسخ دیررس کنار گذاشته می‌شود و نتیجه‌ای پذیرفته نشد.';});
  generateButton.addEventListener('click',()=>run());
  window.addEventListener('planha-repair-request',event=>{if(active||generateButton.disabled)return;const source=event.detail;if(!source||!validUiRequest(source.request))return;if(source.mode==='explicit-pair' ? source.request.program?.bedrooms_per_unit!==2 : source.request.program?.bedrooms_per_unit===2)return;for(const key of ['W','L','n','requested_count'])form.elements.namedItem(key).value=String(source.request[key]);const choice=form.elements.namedItem('bedrooms_per_unit');if(choice)choice.value=String(source.request.program?.bedrooms_per_unit||3);run(source);});
 })();
