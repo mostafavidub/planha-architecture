@@ -1,0 +1,59 @@
+name: V25 explicit two-bedroom source experiment
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-explicit-two-bedroom.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  explicit-program-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Generate explicit different program and freshly replay/review
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1200s python -B - <<'PY'
+          import sys,json,time,hashlib
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'engine'),str(root/'frontend'),str(root/'app/local_integration')]
+          from guard400 import guard
+          freeze='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0';assert guard(freeze)==12991
+          from dimension_contract import parse
+          from constructor127 import frame,build,context
+          from evaluate_pair127 import evaluate
+          from search114 import propose
+          rows=[]
+          for W,L in [('15','25'),('20','20'),('25','25')]:
+              for family in ['FRONT_REAR','LEFT_RIGHT']:
+                  raw={'W':W,'L':L,'n':2,'requested_count':1};parse(json.dumps(raw).encode())
+                  row={'raw':raw,'family':family,'explicit_test_program':{'bedrooms_per_unit':2,'sleep_roles':['double','twin']},'test_only':True,'accepted':False,'delivery_allowed':False}
+                  try:
+                      core,_=frame(raw,family)
+                      p=propose(core,2,time_limit=3,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='FRAME125_SERVICE_SIDE' if family=='LEFT_RIGHT' else 'SIDE_ROOTED_SERVICES')
+                      row['proposal']=p
+                      if p.get('status')=='PROPOSAL_ONLY':
+                          packet=build(raw,family,p,p);ctx=context(raw,packet,{'A':p,'B':p});review=evaluate(packet,ctx)
+                          row.update(packet=packet,context=ctx,review=review)
+                  except Exception as e:row['execution_error']=type(e).__name__+':'+str(e)
+                  rows.append(row)
+                  print('TWO_BED_STUDY '+json.dumps({'raw':raw,'family':family,'proposal_status':row.get('proposal',{}).get('status'),'review_status':row.get('review',{}).get('status'),'errors':row.get('review',{}).get('errors'),'pending':row.get('review',{}).get('pending'),'execution_error':row.get('execution_error'),'test_only':True,'accepted':False}),flush=True)
+          assert guard(freeze)==12991
+          evidence={'scope':'Explicit 2-bedroom alternative only; no automatic reduction of requested 3-bedroom program, no suitability proof and no production adapter integration','producer_sha256':hashlib.sha256((root/'engine/search114.py').read_bytes()).hexdigest(),'rows':rows,'accepted':False,'delivery_allowed':False}
+          Path('explicit-two-bedroom-study.json').write_text(json.dumps(evidence,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-explicit-two-bedroom-study
+          path: explicit-two-bedroom-study.json
+          retention-days: 30
