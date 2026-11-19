@@ -73,6 +73,8 @@ def child(folder,case,nonce):
   retain('original_replay',construction_replay127.verify(model,ctx))
   retain('physical',evaluate_pair127.evaluate(packet,ctx))
   need(originals['physical']['model_hash']==digest(model),'PHYSICAL_MODEL_BINDING')
+  out.update(physical_status=originals['physical'].get('status'),physical_error_counts=code_counts(originals['physical'].get('errors',[])),
+   physical_pending_counts=code_counts(originals['physical'].get('pending',[])),legacy_replay_verified=originals['original_replay'].get('verified')is True);save()
   out['stage']='INSTALLED_SUBSET_CHECK';save()
   expected=installation_expectations(proposals,L);pin('expected_installation',expected);check()
   retain('installed_source_subset',verify_installed_subset(model,expected))
