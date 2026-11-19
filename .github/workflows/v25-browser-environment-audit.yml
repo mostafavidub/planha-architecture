@@ -1,0 +1,20 @@
+name: V25 browser environment read-only audit
+on:
+  push:
+    paths: ['.github/workflows/v25-browser-environment-audit.yml']
+  workflow_dispatch:
+permissions: {}
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Observe existing browser paths and versions only
+        run: |
+          for name in google-chrome google-chrome-stable chromium chromium-browser; do
+            p=$(command -v "$name" || true)
+            if [ -n "$p" ]; then
+              printf 'OBSERVED_BROWSER_PATH=%s\n' "$p"
+              "$p" --version
+            fi
+          done
