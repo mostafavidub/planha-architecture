@@ -58,9 +58,11 @@ class HTTP(unittest.TestCase):
   release=threading.Event()
   def slow(raw):
    release.wait(4);return original(raw)
-  with patch.object(w,'LIMIT_SECONDS',.05),patch.object(s,'run_live',side_effect=fake),patch.object(s,'public_summary',side_effect=slow):
-   status,data=self.request();self.assertEqual(status,504)
-   self.assertTrue(s.LOCK.locked());release.set();until(lambda:not s.LOCK.locked())
+  try:
+   with patch.object(w,'LIMIT_SECONDS',.05),patch.object(s,'run_live',side_effect=fake),patch.object(s,'public_summary',side_effect=slow):
+    status,data=self.request();self.assertEqual(status,504)
+    self.assertTrue(s.LOCK.locked());release.set();until(lambda:not s.LOCK.locked())
+  finally:release.set();until(lambda:not s.LOCK.locked())
   self.assertTrue(s.HTTP_BOUNDARY.snapshot()[-1]['worker_state'].startswith('LATE_'))
  def test_preflight_overrun_no_dispatch(self):
   original=s.preflight
@@ -90,6 +92,12 @@ class HTTP(unittest.TestCase):
    status,out=self.request()
   self.assertEqual(status,200);self.assertEqual(out['decision']['state'],'NO_VERIFIED_DECISION')
   self.assertFalse(out['http_lifecycle']['evidence_usable'])
+ def test_expired_before_worker_scheduling_no_dispatch(self):
+  original=threading.Thread.start
+  def delayed(thread):time.sleep(.08);return original(thread)
+  with patch.object(w,'LIMIT_SECONDS',.03),patch.object(threading.Thread,'start',delayed),patch.object(s,'run_live',side_effect=AssertionError('NO_RUN')) as run:
+   status,out=self.request();self.assertEqual(status,504);run.assert_not_called()
+  until(lambda:not s.LOCK.locked());self.assertFalse(s.HTTP_BOUNDARY.snapshot()[-1]['generation_started'])
  def test_invalid_unsupported_no_boundary(self):
   with patch.object(s,'run_live',side_effect=AssertionError('NO_RUN')) as run:
    self.assertEqual(self.request(b'{"W":"26","L":"20","n":2}')[0],422)
