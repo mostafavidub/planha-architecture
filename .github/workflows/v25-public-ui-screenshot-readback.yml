@@ -1,0 +1,30 @@
+name: V25 public UI screenshot readback only
+on:
+  push:
+    paths: ['.github/workflows/v25-public-ui-screenshot-readback.yml']
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  screenshots:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          repository: mostafavidub/planha-architecture
+          name: public-three-field-local-ui-task1-6
+          run-id: 44462498782
+          github-token: ${{ github.token }}
+          path: ui-artifact
+      - name: Read only three named PNGs for pixel review
+        run: |
+          python - <<'PY'
+          import pathlib,base64,hashlib,json
+          for name in ('desktop-empty.png','mobile-empty.png','mobile-blocked-result.png'):
+           fs=list(pathlib.Path('ui-artifact').rglob(name));assert len(fs)==1
+           data=fs[0].read_bytes();assert data.startswith(b'\x89PNG\r\n\x1a\n') and len(data)<1000000
+           print('PNG_META:'+json.dumps({'name':name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()}))
+           print('PNG_DATA:'+name+':'+base64.b64encode(data).decode())
+          PY
