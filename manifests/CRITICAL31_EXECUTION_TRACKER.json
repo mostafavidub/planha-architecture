@@ -491,14 +491,19 @@
       "description_verbatim": "۴.۳. ساخت طرح تازه و اجرای دوباره همه بررسی‌های لازم، نه فقط تست خطای قبلی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_FRESH_REPAIR_AND_ALL_GATES_CURRENT_QUALIFICATION_BLOCKED",
       "dependencies": [
         "4.2"
       ],
       "start_utc": "2026-11-19T05:28:33Z",
       "deadline_utc": "2026-11-19T08:28:33Z",
       "shared_child_budget_seconds": 240,
-      "scope": "One existing exploratory operator plus fresh protected binding, original replay/fullphysical and four current gates; no quality approval or matrix."
+      "scope": "One existing exploratory operator plus fresh protected binding, original replay/fullphysical and four current gates; no quality approval or matrix.",
+      "completed_utc": "2026-11-19T05:41:31Z",
+      "tested_commit": "54b001d2e3b128b3dc0ecb45dae172291a37eb65",
+      "run": 44466696183,
+      "tests": "34 tests plus one fresh bounded repair chain in final run",
+      "remaining": "Current UNKNOWN and historical unresolved remain; production repair registration and qualification not claimed."
     },
     {
       "id": "4.4",
