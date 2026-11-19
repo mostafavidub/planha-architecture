@@ -302,14 +302,23 @@
       "description_verbatim": "۳.۲. بررسی تناسب برنامه فضایی و ظرفیت واقعی هر واحد. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_SOURCE_CAPACITY_VERIFIED_QUALITY_PROFILE_OPEN",
       "dependencies": [
         "3.1",
         "1.2"
       ],
       "start_utc": "2026-11-19T04:03:32Z",
       "deadline_utc": "2026-11-19T07:03:32Z",
-      "scope": "Source-backed actual programme/capacity assessment on same real model, explicit missing quality/profile; no arbitrary pass thresholds."
+      "scope": "Source-backed actual programme/capacity assessment on same real model, explicit missing quality/profile; no arbitrary pass thresholds.",
+      "checkpoint_utc": "2026-11-19T04:11:02Z",
+      "commit": "19ff506ffe0a6db7dc261b992360301ccaa0cc44",
+      "run": 44456479873,
+      "tests": {
+        "unit_helper": 21,
+        "detached_actual_inventory_mutations": 6
+      },
+      "criterion_state": "UNKNOWN",
+      "remaining": "Quality anchors/ergonomic scenarios, AP07/Pareto evidence, clothing volume/full simultaneous bundle and net-capacity prefilter remain. Actual scoped capacity is not suitability."
     },
     {
       "id": "3.3",
@@ -317,11 +326,14 @@
       "description_verbatim": "۳.۳. بررسی مسیرهای مهمان در کنار محدوده واقعی کار و حرکت آشپزخانه. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "3.1",
         "2.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T04:11:34Z",
+      "deadline_utc": "2026-11-19T07:11:34Z",
+      "scope": "Source-bound real guest destinations and four routes per unit against actual work/motion zones; preserve original physical FAIL and unqualified scenarios."
     },
     {
       "id": "3.4",
