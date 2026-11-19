@@ -6,6 +6,7 @@ on:
       - 'app/local_integration/open_front_world*.py'
       - 'app/local_integration/open_front_placement_check.py'
       - 'app/local_integration/open_front_operation_check.py'
+      - 'app/local_integration/open_front_typed_public.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -34,7 +35,7 @@ jobs:
           from review_cycle import digest
           from checker114 import evaluate
           from producer_provenance import snapshot,require_unchanged
-          sources=snapshot(root,['.github/workflows/v25-open-world.yml','app/local_integration/open_front_placement_check.py','app/local_integration/open_front_operation_check.py']);assert guard(FREEZE)==12991
+          sources=snapshot(root,['.github/workflows/v25-open-world.yml','app/local_integration/open_front_placement_check.py','app/local_integration/open_front_operation_check.py','app/local_integration/open_front_typed_public.py']);assert guard(FREEZE)==12991
           index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives']if x['run_id']==44417514104)
           archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
           with tarfile.open(archive,'r:gz')as tar:data=tar.extractfile('pair-http.json').read()
