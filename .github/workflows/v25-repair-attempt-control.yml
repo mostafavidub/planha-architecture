@@ -1,0 +1,60 @@
+name: V25 repair attempt budget task4.4
+on:
+  push:
+    paths:
+      - 'app/local_integration/repair_attempt_control.py'
+      - 'app/local_integration/test_repair_attempt_control.py'
+      - '.github/workflows/v25-repair-attempt-control.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  control:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-fresh-repair-chain-task4-3
+          run-id: 44466696183
+          github-token: ${{ github.token }}
+          path: budget-input
+      - name: Ledger negatives and actual controlled process timeout without solver
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_repair_attempt_control
+      - name: Read and classify retained real repair receipt
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import json,pathlib,hashlib,sys
+          from repair_attempt_control import *
+          fs=list(pathlib.Path('budget-input').rglob('parent-receipt.json'));assert len(fs)==1
+          receipt=json.loads(fs[0].read_text());classification=classify_retained_parent(receipt)
+          complete=json.loads((fs[0].parent/'repair-complete.json').read_text())
+          assert receipt['observed_result_digest']==digest(complete)
+          assert complete['parent_model_digest']=='67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181'
+          assert receipt['child_model_digest']=='073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44'
+          account=new_account(complete['parent_model_digest']);account,token=reserve(account,digest(account))
+          account=finish(account,digest(account),token['token'],elapsed_seconds=receipt['elapsed_seconds'],outcome='CANDIDATE',model_digest=receipt['child_model_digest'])
+          timeout=run_bounded([sys.executable,'-u','-c','import time;print("controlled-start",flush=True);time.sleep(10)'],.3)
+          assert timeout['timed_out'] and timeout['kill_sent'] and timeout['wait_completed']
+          out={'schema':'TASK4_4_REPAIR_BUDGET_EVIDENCE_V1','classification':classification,'original_parent_receipt_digest':digest(receipt),'original_nonce':receipt['nonce'],'audit_account':account,'audit_account_scope':'Reconstruction from retained real receipt, not the original execution ledger or a new repair attempt','remaining_seconds':account['seconds']-account['used_seconds'],'controlled_timeout':timeout,'fresh_geometry_executed':False,'integration_limit':'New control primitive tested independently; task4.3 original hard-timeout code not replaced by this commit. Original final run did not time out. End-to-end history consumption is task4.5.','source_sha256':hashlib.sha256(pathlib.Path('app/local_integration/repair_attempt_control.py').read_bytes()).hexdigest(),**{k:False for k in AUTH}}
+          pathlib.Path('repair-budget-evidence.json').write_text(json.dumps(out,sort_keys=True,indent=2));print(json.dumps(out,sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: repair-attempt-control-task4-4
+          path: repair-budget-evidence.json
+          retention-days: 30

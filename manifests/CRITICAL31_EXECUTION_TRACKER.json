@@ -511,10 +511,13 @@
       "description_verbatim": "۴.۴. مدیریت سقف تلاش، توقف بدون پیشرفت و اعلام روشنِ اصلاح ناموفق. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "4.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:43:03Z",
+      "deadline_utc": "2026-11-19T08:43:03Z",
+      "scope": "Shared attempt budget/no-progress control, controlled subprocess timeout and retained4.3 receipt classification; no new solver."
     },
     {
       "id": "4.5",
