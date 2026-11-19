@@ -8,6 +8,11 @@ SCHEMAS={
  'KITCHEN_GUEST_PATH_SEPARATION':'SOURCE_BOUND_FOUR_GUEST_ROUTES_V1',
  'CONTINUOUS_USEFUL_LIVING':'CURRENT_LIVING_SOURCE_EVIDENCE_V1',
  'NONFUNCTIONAL_WALL_EXCLUSION':'SOURCE_WALL_FUNCTION_EVIDENCE_V1'}
+REQUIRED_SOURCES={
+ 'CURRENT_PROGRAM_SUITABILITY':{'app/local_integration/current_programme_evaluator.py','app/local_integration/program_profile_registry.py','specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json'},
+ 'KITCHEN_GUEST_PATH_SEPARATION':{'app/local_integration/source_guest_route_evaluator.py','app/local_integration/current_programme_evaluator.py','app/local_integration/kitchen_guest_review.py','app/local_integration/guest_four_route_diagnostic.py'},
+ 'CONTINUOUS_USEFUL_LIVING':{'app/local_integration/source_living_evaluator.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/kitchen_guest_review.py'},
+ 'NONFUNCTIONAL_WALL_EXCLUSION':{'app/local_integration/source_wall_function_evaluator.py','app/local_integration/source_wall_counterfactual.py','app/local_integration/current_programme_evaluator.py'}}
 def error_markers(value):
  found=[]
  def walk(v,path):
@@ -51,14 +56,15 @@ def assemble(bundle,assessments,expected_digests):
  for cid,r in assessments.items():
   ensure(digest(r)==expected_digests[cid],'ASSESSMENT_DIGEST:'+cid)
   ensure(r['schema']==SCHEMAS[cid] and r['model_digest']==mh,'ASSESSMENT_MODEL_SCHEMA:'+cid)
-  if cid!='CURRENT_PROGRAM_SUITABILITY':ensure(r['criterion']==cid,'ASSESSMENT_CRITERION')
+  # Programme V1 lacks a criterion field; its unique versioned schema maps explicitly to this ID.
+  ensure(r.get('criterion',cid if cid=='CURRENT_PROGRAM_SUITABILITY' else None)==cid,'ASSESSMENT_CRITERION')
   ensure(all(r.get(k) is False for k in AUTH),'ASSESSMENT_AUTHORITY')
   replay=r['reports']['replay'] if cid=='CURRENT_PROGRAM_SUITABILITY' else r['replay']
   ensure(digest(replay)==digest(reference_replay),'ASSESSMENT_REPLAY:'+cid)
   report=r['historical_physical_report'] if cid=='CURRENT_PROGRAM_SUITABILITY' else r['original_physical_report']
   declared=r['historical_physical_digest'] if cid=='CURRENT_PROGRAM_SUITABILITY' else r['original_physical_digest']
   ensure(declared==ph and digest(report)==ph,'ASSESSMENT_PHYSICAL:'+cid)
-  snap=r['source_snapshot'];ensure(type(snap) is dict and bool(snap),'SOURCE_SNAPSHOT')
+  snap=r['source_snapshot'];ensure(type(snap) is dict and set(snap)==REQUIRED_SOURCES[cid],'SOURCE_SNAPSHOT_REQUIRED_SET')
   for path,h in snap.items():
    ensure(type(path) is str and (path.startswith('app/local_integration/') or path.startswith('specs/')) and '..' not in path.split('/'),'SOURCE_PATH')
    actual=ROOT/path
@@ -66,7 +72,7 @@ def assemble(bundle,assessments,expected_digests):
    ensure(hashlib.sha256(actual.read_bytes()).hexdigest()==h,'SOURCE_SNAPSHOT_CHANGED:'+path)
    ensure(path not in sourcepins or sourcepins[path]==h,'SOURCE_CONFLICT');sourcepins[path]=h
   state=r['state'];ensure(state in ('PASS','FAIL','UNKNOWN','NOT_EVALUATED'),'RAW_CRITERION_STATE')
-  errors=error_markers(r);effective='EVALUATOR_ERROR' if errors else state;states[cid]=effective
+  errors=error_markers(r);effective='FAIL' if state=='FAIL' else 'EVALUATOR_ERROR' if errors else state;states[cid]=effective
   rows.append({'criterion':cid,'reported_state':state,'effective_state':effective,'evaluator_errors':errors,'assessment_digest':digest(r)})
  out={'schema':'SAME_MODEL_CURRENT_FOUR_DECISION_V1','model_digest':mh,'physical_digest':ph,'engine_revision':ENGINE_REVISION,
   'original_reports':copy.deepcopy(bundle['reports']),'original_report_digests':copy.deepcopy(bundle['report_digests']),
@@ -74,6 +80,7 @@ def assemble(bundle,assessments,expected_digests):
   'decision':decide(physical,states),'source_snapshot':sourcepins,
   'scope':'Decision over four actual same-model current evidence reports plus retained original physical report. No error/pending suppression; no replacement of frozen gates; no claim of whole PRD or public delivery qualification.',
   **{k:False for k in AUTH}}
+ if any(r['evaluator_errors'] for r in rows) and 'EVALUATOR_ERROR' not in out['decision']['blockers']:out['decision']['blockers'].append('EVALUATOR_ERROR')
  ensure(digest([bundle,assessments,expected_digests])==pin,'INPUT_MUTATION')
  for path,h in sourcepins.items():ensure(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,'SOURCE_CHANGED_DURING_DECISION')
  out['integrity_verified']=True
