@@ -948,9 +948,220 @@
     "input_run": 44455198301,
     "input_artifact": 14497880207
   },
-  "existing_alternative_comparison": "COMPATIBILITY_INSPECTION_IN_PROGRESS; no alternative geometry generated",
+  "existing_alternative_comparison": {
+    "accepted": false,
+    "alternative_model": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "alternative_physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+    "checks": {
+      "fixture_catalog_hash": true,
+      "fixture_ids_and_dimensions": true,
+      "inputs": true,
+      "profile": true,
+      "program": true,
+      "same_engine": true
+    },
+    "comparisons": [
+      {
+        "domain": "DECLARED_RESIDUAL_LIVING",
+        "routes": [
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "A"
+      },
+      {
+        "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+        "routes": [
+          {
+            "alternative_length": "52/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "321/200",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": "26/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": "11/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "11/5",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "A"
+      },
+      {
+        "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+        "routes": [
+          {
+            "alternative_length": "52/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "321/200",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": "26/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": "11/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "11/5",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "A"
+      },
+      {
+        "domain": "DECLARED_RESIDUAL_LIVING",
+        "routes": [
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": null,
+            "alternative_state": "NO_WITNESS_THIS_DOMAIN",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "B"
+      },
+      {
+        "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+        "routes": [
+          {
+            "alternative_length": "52/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "321/200",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": "26/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": "11/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "11/5",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "B"
+      },
+      {
+        "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+        "routes": [
+          {
+            "alternative_length": "52/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "321/200",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "armchair1"
+          },
+          {
+            "alternative_length": "26/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+            "current_length": null,
+            "current_state": "NO_WITNESS_THIS_DOMAIN",
+            "target": "armchair2"
+          },
+          {
+            "alternative_length": "11/5",
+            "alternative_state": "PASS_ACCESS_WITNESS_ONLY",
+            "comparison": "BOTH_WITNESSES",
+            "current_length": "11/5",
+            "current_state": "PASS_ACCESS_WITNESS_ONLY",
+            "target": "sofa2"
+          }
+        ],
+        "unit": "B"
+      }
+    ],
+    "current_model": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "delivery_allowed": false,
+    "fresh_alternative_physical_digest": "19d7a605398c1c34e132e3d9d6a11ff2755a9632f040270b2cc29052a3adcffb",
+    "notice": "Existing alternative, not newly generated; same metrics do not imply global optimality or programme quality. Original current FAIL retained.",
+    "qualified": false,
+    "schema": "EXISTING_LIVING_ALTERNATIVE_COMPARISON_V1",
+    "status": "SAME_SOURCE_PROGRAMME_EXISTING_GEOMETRIES_COMPARED",
+    "commit": "17e90e4bef41ea4ef507668e50e17c2d159a9399",
+    "run": 44458422610,
+    "job": 135339037580,
+    "archive_sha256": "3c227801016f42c1d7dd0d7354ba64f2363c320fd56482c7acc245f6963fed90",
+    "child_path": "evidence/requests/4ac2d52f-e014-4c02-80d7-89f033ab93aa/exploratory_evidence.json",
+    "artifact": 14498309104,
+    "artifact_zip_sha256": "538aebc17d35e99c9eb174e4234dd2a855aa4295caf1b9a7e7daabbf40373861",
+    "expiry": "2026-12-19T04:28:13Z",
+    "interpretation": "Existing alternative connects all three targets in access/local-group domains but one shared witnessed route is substantially longer, one equal, and one unavailable in current. This is not a shorter-organisation or global-quality winner certificate. Both residual-floor studies lack witnesses; useful area and criterion remain UNKNOWN."
+  },
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "shorter_physical_organisation_status": "EXISTING_ALTERNATIVE_COMPARED_NO_SHORTER_ACCEPTABLE_ORGANISATION_PROVEN"
 }
