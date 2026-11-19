@@ -4,6 +4,8 @@ on:
     paths:
       - 'tests/r4/test_exact_geometry_transport.py'
       - '.github/workflows/r4-exact-geometry-units.yml'
+      - 'app/local_integration/declared_geometry_projection_study.py'
+      - 'tests/r4/test_declared_geometry_projection.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -20,4 +22,5 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install numpy==2.4.6 scipy==1.17.1
       - run: python -B -m unittest discover -s tests/r4 -p test_exact_geometry_transport.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_declared_geometry_projection.py -v
       - run: git diff --exit-code
