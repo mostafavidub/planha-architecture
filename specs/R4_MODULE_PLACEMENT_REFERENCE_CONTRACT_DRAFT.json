@@ -1,0 +1,80 @@
+{
+  "schema": "R4_MODULE_PLACEMENT_REFERENCE_CONTRACT_DRAFT_V1",
+  "task": "R4-2.09",
+  "status": "DRAFT_NOT_RUN",
+  "deadline": "2026-11-19T10:34:33Z",
+  "base_commit": "ff24f501f2c19b3cb6e9b637d8d31e3bc05f7f75",
+  "source_bindings": [
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/place_module116.py",
+      "blob_sha": "8dab53d28173052c6b106bf91fd7d2585d9e3da6"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/place_bathroom117.py",
+      "blob_sha": "982bbb6dc584641b1a4894751e0f13e252da10ea"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/place_kitchen117.py",
+      "blob_sha": "8d4048d922f8c1052028e0c2e3172f2b8e75c3ce"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/assemble114.py",
+      "blob_sha": "6e19b12c62820e015055765e0fe56d6339cd4312"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/dining_module118.py",
+      "blob_sha": "313b9673e8efcb48e9fa61d0ca24b6b33507310f"
+    }
+  ],
+  "contract_scope": "Only placement record structure, supplied module hash, exact JSON/D4 types, ID-reference existence and typed namespace injectivity. No geometric equality or source authenticity.",
+  "module_record": {
+    "required": [
+      "module",
+      "module_hash",
+      "transform",
+      "id_map",
+      "unit_id",
+      "room_id",
+      "geometry_scope"
+    ],
+    "additional_fields": false,
+    "identity": [
+      "unit_id",
+      "room_id"
+    ],
+    "reference_namespaces": {
+      "walls": "global model.walls",
+      "wall_hosts": "global model.wall_hosts",
+      "fixtures": "unit-local fixtures",
+      "activities": "unit-local activities"
+    },
+    "injectivity": "Per namespace; same local fixture/activity ID in A/B allowed; multiple source owners of same unit-local or global target rejected. Different namespace references may intentionally share strings."
+  },
+  "dining_record": {
+    "location": "units[].dining_module_placement",
+    "separate_from_module_placements": true,
+    "id_map": "fixture-only map table→dining_table, every other fixture→dining_+source key",
+    "activity_mapping": "NOT_VALIDATED: assemble114 lines114–115 separately derive standing activities and west/east aliases; not represented in dining id_map.",
+    "capacity_status": "NOT_EVALUATED_OCCUPIED_RISE_PENDING"
+  },
+  "transforms": {
+    "matrix": "Exactly2x2 builtin integer signed permutation; booleans/floats/singular transforms rejected",
+    "translation": "Exactly two rational coordinate strings; no numeric type coercion"
+  },
+  "not_checked": [
+    "Source modules authentic against builders/pins",
+    "Coordinate geometry equal to transformed source",
+    "Opening/port/role semantic references",
+    "Dining activity/operation state binding",
+    "Alias material union",
+    "Complete14recordpath schema",
+    "Whole-model physical/current criteria"
+  ],
+  "fixtures": "Synthetic detached fixtures only, not real source module or model. Geometry-changing fixture is intentionally a positive reference-only test and never admission.",
+  "tests_prepared": 16,
+  "tests_executed": 0,
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
