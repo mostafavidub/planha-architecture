@@ -1,0 +1,48 @@
+{
+  "task": "3.1",
+  "status": "REQUIREMENTS_CATALOG_ONLY",
+  "started_at": "2026-11-19T03:18:16Z",
+  "deadline": "2026-11-19T06:18:16Z",
+  "catalog_path": "specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json",
+  "tested_commit": "0c385d434d1655898218ecd20eb52b902b88ec15",
+  "run_id": 44451216527,
+  "job_id": 135315353992,
+  "ci_completed_at": "2026-11-19T03:24:46Z",
+  "ci_scope": "Structural validation of four IDs, mandatory fields, exact locator shapes, twenty PROPOSED cases and false authority. No plan tests or model/evaluator execution.",
+  "source_readback": {
+    "date": "2026-11-19",
+    "Blueprint": {
+      "id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+      "revision": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+      "tabs": [
+        "t.jgj9urck6sd",
+        "t.z09xooqq00st",
+        "t.j4w0y56xvj8u"
+      ]
+    },
+    "PRD": {
+      "id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+      "revision": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+      "tab": "t.0"
+    },
+    "correction": "PRD ranges above118000 were initially associated with Blueprint ID; actual PRD ID was found and all five ranges verified. Catalog uses distinct correct documents."
+  },
+  "artifact": "Catalog is durable in repository. CI logs may expire; no transient artifact dependency. Reproduce structural check with .github/workflows/v25-criteria-catalog.yml at tested commit. Re-fetch live Docs separately for future source changes.",
+  "source_and_code_scope": "No generator, evaluator, frozen engine, registry or orchestrator changes. No V25-22 geometry work.",
+  "all_four_current_states": "UNKNOWN",
+  "proposed_cases": 20,
+  "executed_geometry_cases": 0,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "independent_review": {
+    "reviewer": "geometry_review",
+    "scope": "Read-only semantic catalog review, not model evaluation",
+    "findings_resolved": [
+      "Known-rule guardrails separated from actual missing rule",
+      "Living-floor continuity domain separated from authorized circulation access domain",
+      "Proven missing required seating separated from missing witness data"
+    ],
+    "parent_review": "Missing-rule classification independently requested by parent and corrected"
+  }
+}
