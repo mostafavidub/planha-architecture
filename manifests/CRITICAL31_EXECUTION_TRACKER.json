@@ -141,14 +141,22 @@
       "description_verbatim": "۱.۵. اتصال قواعد مقایسه کیفیت و گزینه‌های مناسب؛ اگر معیار کیفیت موجود نباشد تصمیم قطعی داده نشود. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_BOUND_EVIDENCE_COMPARISON_QUALITY_SELECTION_OPEN",
       "dependencies": [
         "1.4",
         "3.1"
       ],
       "start_utc": "2026-11-19T04:50:46Z",
       "deadline_utc": "2026-11-19T07:50:46Z",
-      "scope": "Comparable source-bound evidence only, no arbitrary weights or winner when calibrated quality remains open."
+      "scope": "Comparable source-bound evidence only, no arbitrary weights or winner when calibrated quality remains open.",
+      "checkpoint_utc": "2026-11-19T04:55:17Z",
+      "commit": "7fbf125dfef2210864ef48f1a7f422d1b876209c",
+      "run": 44461526009,
+      "tests": {
+        "comparison": 16,
+        "actual_existing_pair_rows": 18
+      },
+      "remaining": "Comparable bound metrics only, not independent remeasurement or quality selection; calibrated quality floors/anchors/directions remain open, winner/Pareto null."
     },
     {
       "id": "1.6",
