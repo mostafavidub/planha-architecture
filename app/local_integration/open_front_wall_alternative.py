@@ -35,6 +35,36 @@ def compare_routes(before,after):
         rows.append(row)
     return rows
 
+def compare_living(before,after):
+    rows=[]
+    for study in (before,after):
+        if study.get('missing') or len(study.get('units',[]))!=2 or {u['unit']for u in study['units']}!={'A','B'}:
+            raise ValueError('LIVING_COMPARISON_INCOMPLETE')
+    au={u['unit']:u for u in before['units']};bu={u['unit']:u for u in after['units']}
+    labels={'DECLARED_RESIDUAL_LIVING','CONCEPTUAL_PUBLIC_UNION_PROBE'}
+    for uid in sorted(au):
+        a={s['label']:s for s in au[uid]['studies']};b={s['label']:s for s in bu[uid]['studies']}
+        if len(au[uid]['studies'])!=2 or len(bu[uid]['studies'])!=2 or set(a)!=labels or set(b)!=labels:raise ValueError('LIVING_SCOPE_INVENTORY')
+        for label in sorted(labels):
+            x,y=a[label],b[label]
+            for key in ('anchor_fixture_id','target_fixture_ids','seat_endpoints'):
+                if digest(x[key])!=digest(y[key]):raise ValueError('LIVING_TARGET_BINDING')
+            if not x['target_fixture_ids']:raise ValueError('EMPTY_LIVING_TARGETS')
+            xp={(p['from_fixture'],p['to_fixture']):p for p in x['paths']}
+            yp={(p['from_fixture'],p['to_fixture']):p for p in y['paths']}
+            if len(xp)!=len(x['paths']) or len(yp)!=len(y['paths']) or set(xp)!=set(yp):raise ValueError('LIVING_PATH_INVENTORY')
+            paths=[]
+            for key in sorted(xp):
+                o,n=xp[key],yp[key];row={'from_fixture':key[0],'to_fixture':key[1],'before_state':o['state'],'after_state':n['state']}
+                if o['path']and n['path']:
+                    if o['width_m']!=n['width_m']:raise ValueError('LIVING_BODY_PROFILE_CHANGED')
+                    row.update(length_delta_m=str(F(n['length_m'])-F(o['length_m'])),before_turns=o['turns'],after_turns=n['turns'])
+                paths.append(row)
+            rows.append({'unit':uid,'scope':label,'before_state':x['state'],'after_state':y['state'],
+                'before_floor_area_m2':x['floor_area_m2'],'after_floor_area_m2':y['floor_area_m2'],
+                'area_not_proven_useful':True,'paths':paths})
+    return rows
+
 def assess(packet,trace,baseline_packet,baseline_context):
     from open_front_evaluator import assess as evaluate
     from guest_four_route_diagnostic import assess as guests
@@ -64,6 +94,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
         if study.get('missing') or len(study.get('units',[]))!=2 or {u['unit']for u in study['units']}!={'A','B'}:
             raise ValueError('LIVING_COMPARISON_INCOMPLETE')
     comparison=compare_routes(before_guests,after_guests)
+    living_comparison=compare_living(before_living,after_living)
     if digest([packet,trace,baseline_packet,baseline_context])!=bundle:raise ValueError('WALL_ALTERNATIVE_INPUT_MUTATED')
     require_unchanged(ROOT,review['source_snapshot'])
     require_unchanged(ROOT,sources)
@@ -72,7 +103,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
       'removed_source_wall_ids':sorted(removed),'remaining_source_wall_count':len(new['walls']),
       'source_snapshot':sources,'fresh_evaluator':review,
       'released_physical_material_m2':review['boundary_comparison']['released_physical_material_m2'],
-      'route_comparisons':comparison,'before_guest_study':before_guests,'after_guest_study':after_guests,
+      'route_comparisons':comparison,'living_comparisons':living_comparison,'before_guest_study':before_guests,'after_guest_study':after_guests,
       'before_living_connectivity':before_living,'after_living_connectivity':after_living,
       'status':'COMPARISON_EXECUTED_CURRENT_WALL_RULE_UNKNOWN',
       'NONFUNCTIONAL_WALL_EXCLUSION':'UNKNOWN','whole_physical_verified':False,
