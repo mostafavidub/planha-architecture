@@ -61,6 +61,53 @@ def run():
         world=copy.deepcopy(packet['world_model']);mutate(world)
         r=check_transport(packet['local_model'],world,packet['core']);assert not r['verified'],name
         transport_negatives.append({'name':name,'errors':r['errors']})
+    # Actual nested field discovery is test targeting only, never acceptance schema.
+    def mutate_named(v,names,change,path='root'):
+        if type(v)is dict:
+            for key,value in v.items():
+                if key in names:
+                    change(value);return path+'.'+key
+                found=mutate_named(value,names,change,path+'.'+key)
+                if found:return found
+        elif type(v)is list:
+            for i,value in enumerate(v):
+                found=mutate_named(value,names,change,path+'['+str(i)+']')
+                if found:return found
+        return None
+    def direct_negative(name,change):
+        world=copy.deepcopy(packet['world_model']);target=change(world)
+        assert target,name+': missing actual target'
+        r=check_transport(packet['local_model'],world,packet['core'])
+        assert not r['verified'] and 'INDEPENDENT_D4_TYPED_WORLD_MISMATCH'in r['errors'],(name,r)
+        transport_negatives.append({'name':name,'actual_target':target,'errors':r['errors']})
+    direct_negative('canonical_transform_translation',lambda m:mutate_named(m['operations'],{'canonical_transform','canonical_isometry'},lambda t:t['translation'].__setitem__(0,'999'),'operations'))
+    direct_negative('operation_point',lambda m:mutate_named(m['operations'],{'hinge','hand_point','access_point','workpoint'},lambda q:q.__setitem__(0,'999'),'operations'))
+    def route_change(m):
+        unit=m['units'][0];name=next(iter(unit['routes']));path=unit['routes'][name]
+        path[min(1,len(path)-1)][0]='999';return 'units[0].routes.'+name
+    direct_negative('route_middle_point',route_change)
+    def rotation_change(m):
+        unit=m['units'][0];name=next(iter(unit['fixture_metadata']));md=unit['fixture_metadata'][name]
+        md['rotation_deg']=(md.get('rotation_deg',0)+90)%180;return 'units[0].fixture_metadata.'+name+'.rotation_deg'
+    direct_negative('fixture_axis_rotation',rotation_change)
+    def embedded_change(m):
+        module=m['module_placements'][0]['module']
+        def rect_change(v,path='module'):
+            if type(v)is list and len(v)==4 and all(type(x)in(str,int,float) for x in v):
+                try:[float(x) for x in v]
+                except ValueError:return None
+                v[0]='999';return path
+            if type(v)is dict:
+                for k,x in v.items():
+                    found=rect_change(x,path+'.'+k)
+                    if found:return found
+            elif type(v)is list:
+                for i,x in enumerate(v):
+                    found=rect_change(x,path+'['+str(i)+']')
+                    if found:return found
+            return None
+        return rect_change(module)
+    direct_negative('embedded_source_module_rectangle',embedded_change)
     local=copy.deepcopy(packet['local_model']);world=copy.deepcopy(packet['world_model'])
     local['mystery']=[1,2];world['mystery']=[1,2]
     r=check_transport(local,world,packet['core']);assert not r['verified']
