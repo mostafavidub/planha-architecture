@@ -443,10 +443,13 @@
       "description_verbatim": "۴.۱. اتصال علت رد واقعی به عملگر اصلاح مناسب. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "2.5"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:09:49Z",
+      "deadline_utc": "2026-11-19T08:09:49Z",
+      "scope": "Bind real rejection/current decision and full preserved physical report to existing explicit_pair_redirection eligibility; no solver/child generation. Independent of task1.6 browser install."
     },
     {
       "id": "4.2",
