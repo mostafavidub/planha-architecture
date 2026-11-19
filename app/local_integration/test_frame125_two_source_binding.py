@@ -49,6 +49,7 @@ def run():
     sides=[r for r in matrix['cases'] if r['topology']=='SIDE_ROOTED_SERVICES' and 'packet'in r]
     assert sides,'ACTUAL_SIDE_PROPOSAL_REQUIRED_FOR_LABEL_NEGATIVE'
     for row in sides:
+        rejected=verify(row['packet'],row['context']);assert not rejected['scoped_verified'] and 'FRAME_PROPOSAL_organization_topology'in rejected['errors']
         p=copy.deepcopy(row['context']['construction_trace']['proposals']['A']);p['organization_topology']=TOPOLOGY
         try:topology_check(p,row['packet']['core'])
         except ValueError as ex:direct.append({'name':'actual_side_relabel_'+row['input']['W'],'errors':[str(ex)],'scope':'DIRECT_TOPOLOGY_NOT_REPLAY','original_proposal_digest':digest(row['context']['construction_trace']['proposals']['A'])})
@@ -65,7 +66,7 @@ def run():
         u=m['units'][0];u['routes'][next(iter(u['routes']))][0][0]='999'
     def rotation(m):
         u=m['units'][0];v=u['fixture_metadata'][next(iter(u['fixture_metadata']))];v['rotation_deg']=(v['rotation_deg']+90)%180
-    for name,fn in [('canonical',canonical),('operation_point',point),('route_point',route),('rotation',rotation),('module_source',lambda m:m['module_placements'][0]['module']['bounds'][0].__setitem__(0,'999')),('placement',lambda m:m['module_placements'][0]['transform'].__setitem__('matrix',[[1,0],[0,1]])),('numeric_type',lambda m:m['units'][0]['fixtures'][next(iter(m['units'][0]['fixtures']))].__setitem__(0,1.0))]:
+    for name,fn in [('canonical',canonical),('operation_point',point),('route_point',route),('rotation',rotation),('module_source',lambda m:m['module_placements'][0]['module']['bounds'][0].__setitem__(0,'999')),('placement',lambda m:m['module_placements'][0]['transform'].__setitem__('matrix',[[1,0],[0,1]])),('numeric_type',lambda m:m['units'][0]['fixtures'][next(iter(m['units'][0]['fixtures']))].__setitem__(0,float(packet['world_model']['units'][0]['fixtures'][next(iter(packet['world_model']['units'][0]['fixtures']))][0])))]:
         world=copy.deepcopy(packet['world_model']);fn(world);r=check_transport(packet['local_model'],world,packet['core'])
         assert not r['verified'] and 'INDEPENDENT_D4_TYPED_WORLD_MISMATCH'in r['errors'],(name,r)
         direct.append({'name':name,'errors':r['errors'],'scope':'DIRECT_D4_NOT_REPLAY'})
