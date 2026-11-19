@@ -43,6 +43,9 @@ def check(s,expected,a):
   need(finite(row['elapsed_seconds'])and row['reported_outcome']in REPORTED,'LEDGER_ROW_OUTCOME')
   need(row['observed_model_digest']is None or hash_ok(row['observed_model_digest']),'LEDGER_ROW_MODEL')
   need(row['process_digest']is None or hash_ok(row['process_digest']),'LEDGER_ROW_PROCESS')
+  if row['observed_receipt_verified']is True:
+   if row['reported_outcome']=='BLOCKED_NO_PARENT_PROPOSAL':need(row['observed_model_digest']is None,'LEDGER_NO_PARENT_MODEL')
+   elif row['reported_outcome']in('BLOCKED_NO_SUPPORTED_CAUSE','BLOCKED_REPAIR_CONTROLLER_ADAPTER'):need(hash_ok(row['observed_model_digest']),'LEDGER_VERIFIED_PARENT_MODEL')
   need(type(row['internal_count_verified'])is bool and (row['internal_attempt_count']is None or type(row['internal_attempt_count'])is int and row['internal_attempt_count']>=0),'LEDGER_INTERNAL_COUNT')
   if row['internal_count_verified']:need(row['observed_receipt_verified']is True and row['internal_attempt_count']==1,'LEDGER_VERIFIED_INTERNAL_COUNT')
   need(row['quality_improvement']is False,'LEDGER_NO_QUALITY_CLAIM')

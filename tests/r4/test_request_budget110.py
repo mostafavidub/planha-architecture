@@ -46,6 +46,14 @@ class Ledger(unittest.TestCase):
    with self.assertRaises(ValueError):l.check(bad,l.digest(bad),a)
   bad=copy.deepcopy(s);bad['anchor']['request_digest']='0'*64
   with self.assertRaises(ValueError):l.check(bad,l.digest(bad),a)
+ def test_verified_parent_presence_matches_reported_outcome(self):
+  r,h,a,s,alloc=self.fixture()
+  with self.assertRaisesRegex(ValueError,'LEDGER_VERIFIED_PARENT_MODEL'):self.finish(a,s,alloc,model_digest=None)
+  with self.assertRaisesRegex(ValueError,'LEDGER_NO_PARENT_MODEL'):self.finish(a,s,alloc,reported_outcome='BLOCKED_NO_PARENT_PROPOSAL')
+  out=self.finish(a,s,alloc,reported_outcome='BLOCKED_NO_PARENT_PROPOSAL',model_digest=None)
+  self.assertEqual(out['state'],'BLOCKED_NO_PARENT_PROPOSAL')
+  bad=self.finish(a,s,alloc);bad['history'][0]['observed_model_digest']=None;bad['unique_observed_models']=[]
+  with self.assertRaisesRegex(ValueError,'LEDGER_VERIFIED_PARENT_MODEL'):l.check(bad,l.digest(bad),a)
  def test_duplicate_model_no_quality_progress(self):
   r,h,a,s,alloc=self.fixture(prior=('a'*64,));out=self.finish(a,s,alloc)
   self.assertEqual(out['state'],'REPEATED_MODEL_NO_PROGRESS');self.assertFalse(out['history'][0]['receipt_verified']);self.assertFalse(out['history'][0]['quality_improvement'])
