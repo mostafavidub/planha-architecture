@@ -59,57 +59,11 @@ class InventoryTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'^ADDITION_CLASSIFICATION$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
  def test_changed_provenance_tamper(self):
   m=copy.deepcopy(self.manifest);m['changed_source_tasks']['app/local_integration/request_trace109.py']['task']='R4-X.04'
-  with self.assertRaisesRegex(ValueError,'^CHANGED_PROVENANCE_MISMATCH
-  m=copy.deepcopy(self.manifest);m['self_paths_unhashed'].append('tests/**')
-  with self.assertRaisesRegex(ValueError,'^SELF_SCOPE_CHANGED$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
- def test_old_manifest_pinned(self):
-  p=self.root/inv.OLD;old=p.read_bytes()
-  try:
-   p.write_bytes(old+b' ')
-   with self.assertRaisesRegex(ValueError,'^OLD_MANIFEST_CHANGED$'):inv.scan(self.root)
-  finally:p.write_bytes(old)
- def test_old_failure_not_rewritten(self):
-  import current_entry_inventory_x03 as historical
-  with self.assertRaisesRegex(ValueError,'^INVENTORY_SOURCE_CHANGED$'):historical.scan()
- def test_changed_during_read(self):
-  real=inv.read;target='app/local_integration/report_lifecycle112.py';calls=[0]
-  def changing(root,path):
-   data=real(root,path)
-   if path==target:
-    calls[0]+=1
-    if calls[0]>1:return data+b' '
-   return data
-  with patch.object(inv,'read',side_effect=changing):
-   with self.assertRaisesRegex(ValueError,'^SOURCE_CHANGED_DURING_READ$'):inv.scan(self.root)
-if __name__=='__main__':unittest.main()
-):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
+  with self.assertRaisesRegex(ValueError,'^CHANGED_PROVENANCE_MISMATCH$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
  def test_addition_commit_tamper(self):
   for value in ('z'*40,'0'*40):
    m=copy.deepcopy(self.manifest);m['reviewed_additions'][0]['source_change_commit']=value
-   with self.assertRaisesRegex(ValueError,'^ADDITION_PROVENANCE(_MISMATCH)?
-  m=copy.deepcopy(self.manifest);m['self_paths_unhashed'].append('tests/**')
-  with self.assertRaisesRegex(ValueError,'^SELF_SCOPE_CHANGED$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
- def test_old_manifest_pinned(self):
-  p=self.root/inv.OLD;old=p.read_bytes()
-  try:
-   p.write_bytes(old+b' ')
-   with self.assertRaisesRegex(ValueError,'^OLD_MANIFEST_CHANGED$'):inv.scan(self.root)
-  finally:p.write_bytes(old)
- def test_old_failure_not_rewritten(self):
-  import current_entry_inventory_x03 as historical
-  with self.assertRaisesRegex(ValueError,'^INVENTORY_SOURCE_CHANGED$'):historical.scan()
- def test_changed_during_read(self):
-  real=inv.read;target='app/local_integration/report_lifecycle112.py';calls=[0]
-  def changing(root,path):
-   data=real(root,path)
-   if path==target:
-    calls[0]+=1
-    if calls[0]>1:return data+b' '
-   return data
-  with patch.object(inv,'read',side_effect=changing):
-   with self.assertRaisesRegex(ValueError,'^SOURCE_CHANGED_DURING_READ$'):inv.scan(self.root)
-if __name__=='__main__':unittest.main()
-):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
+   with self.assertRaisesRegex(ValueError,'^ADDITION_PROVENANCE(_MISMATCH)?$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
  def test_self_scope_not_wildcard(self):
   m=copy.deepcopy(self.manifest);m['self_paths_unhashed'].append('tests/**')
   with self.assertRaisesRegex(ValueError,'^SELF_SCOPE_CHANGED$'):inv.reconcile(m,inv.decode((ROOT/inv.OLD).read_bytes()))
