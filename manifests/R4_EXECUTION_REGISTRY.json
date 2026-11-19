@@ -186,7 +186,7 @@
       "start_utc": "2026-11-19T07:18:42Z",
       "deadline_utc": "2026-11-19T10:18:42Z",
       "checkpoint_utc": "2026-11-19T07:22:34Z",
-      "draft_commit": "aa2ee130c80caeeaafeb40c4702212e61078d42a",
+      "draft_commit": "2899f46cd2b96b1f36985edc52209c252ec886bc",
       "draft_branch": "r4-scope-ledger-draft",
       "test_execution": "NOT_RUN",
       "baseline_assessment": "NOT_RUN_DEPENDENCY_R4_1_01_BLOCKED",
@@ -2673,5 +2673,92 @@
     "V25-22"
   ],
   "whole_cycle_qualified": false,
-  "stage303_started": false
+  "stage303_started": false,
+  "additional_gap_tasks": [
+    {
+      "id": "R4-X.01",
+      "title": "قرارداد و adapter ذخیره‌سازی پروژه کاربر",
+      "status": "PLANNED",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "dependencies": [
+        "R4-3.05"
+      ],
+      "source": "New necessary gap relayed by coordinating parent2026-11-19; FR-PERSISTENCE118328–118743",
+      "scope": "Project storage contract and adapter binding owner/project/input/ruleversion/status/selectedsnapshot/retention. No provisioning, paid service, permissions expansion or secrets without separate authorization.",
+      "done": "Versioned owner/snapshot/retention contract; adapter with immutable hashes and documented backend; unit/contract tests with persistence and deletion policy; no claim of live storage from mocks.",
+      "blockers": [
+        "Storage backend absent/unconfigured",
+        "Authentication/owner identity contract absent",
+        "Permission for provisioning or payments not implied"
+      ],
+      "started": false
+    },
+    {
+      "id": "R4-X.02",
+      "title": "بازیابی و دانلود مجوزدار همان snapshot بدون تولید دوباره",
+      "status": "PLANNED",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "dependencies": [
+        "R4-X.01",
+        "R4-3.09"
+      ],
+      "source": "New necessary gap relayed by coordinating parent2026-11-19; FR-PERSISTENCE118328–118743",
+      "scope": "Owner-authorized retrieve/download exact stored snapshot; cross-owner/stale/tamper/no-regeneration checks. Qualified positive remains dependent on actualqualification.",
+      "done": "Actual storage/auth retrieval with hash-equal output and zero generation calls; cross-owner/stale/tamper rejected; restart/revisit durability verified. Synthetic positive not qualified product evidence.",
+      "blockers": [
+        "Storage/auth unavailable",
+        "No qualified design/output for positive finaldelivery"
+      ],
+      "started": false
+    }
+  ],
+  "adequacy_gap_queue": [
+    {
+      "id": "R4-GAP-INPUT-ERROR-SEMANTICS",
+      "owner_task": "R4-1.02",
+      "state": "DRAFT_NOT_RUN",
+      "action": "Validate current PRD n error categories after infrastructure restored."
+    },
+    {
+      "id": "R4-GAP-BASELINE-EXECUTION",
+      "owner_task": "R4-1.01",
+      "state": "BLOCKED_CI",
+      "action": "Run fixed historical baseline audit before attaching dd3b report-level statuses."
+    },
+    {
+      "id": "R4-GAP-COMPLETE-PRD-CROSSWALK",
+      "owner_task": "R4-1.03",
+      "state": "MISSING_EVIDENCE",
+      "action": "Review remaining source requirements and required applicability beyond89historical/fourcurrent; do not advertise this finite map as wholePRD."
+    },
+    {
+      "id": "R4-GAP-REPORT-DESIGN-SEPARATION",
+      "owner_task": "R4-1.11",
+      "state": "MISSING_EVIDENCE",
+      "action": "All89current/per-unit G_REPORT completeness separately from G_DESIGN; four reports insufficient."
+    },
+    {
+      "id": "R4-GAP-RETURN-ROUTING-ALL89",
+      "owner_task": "R4-1.09",
+      "state": "MISSING_EVIDENCE",
+      "action": "Explicit failure routing and comprehensive currentphase review; fresh four checks do not establish all89manual review."
+    },
+    {
+      "id": "R4-GAP-ALL-BOUND-CATEGORIES",
+      "owner_task": "R4-1.10",
+      "state": "MISSING_EVIDENCE",
+      "action": "Finite positive policy for allrequired bound categories plus semantic cycle; currentoutercontroller not fullinnerloopproof."
+    },
+    {
+      "id": "R4-GAP-USER-PERSISTENCE",
+      "state": "MISSING_EVIDENCE",
+      "action": "User-linked durable sameoutput retrieval requires dedicated adapter and authorization tests; evidence archiveR4-4.11 alone insufficient.",
+      "owner_tasks": [
+        "R4-X.01",
+        "R4-X.02"
+      ]
+    }
+  ]
 }
