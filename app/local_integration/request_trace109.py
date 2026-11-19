@@ -9,7 +9,7 @@ from same_version_front_rear_contract import digest
 from program_profile_registry import lookup
 ROOT=Path(__file__).resolve().parents[2]
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
-FILES=('request_trace109.html','request_trace109.js','request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
+FILES=('request_budget110.py','request_trace109.html','request_trace109.js','request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
 DEADLINE=datetime(2026,11,19,15,59,9,tzinfo=timezone.utc)
 def need(ok,code):
  if not ok:raise ValueError(code)
@@ -89,13 +89,46 @@ def invalidate(result):
  result['evidence_usable']=False
  return result
 def finalize_result(base,request,expected,elapsed,process_started):
+ import time
+ import request_budget110 as ledger
+ began=time.monotonic();initial_elapsed=elapsed
+ base['result_state_before_finalization']=base.get('state','FAILED_CLOSED')
+ reserved=copy.deepcopy(base['account']);reserved_digest=base['account_reserved_digest']
  try:validate_request(request,expected);base['source_integrity_verified']=True
  except Exception:base.update(state='SOURCE_INTEGRITY_ERROR',source_integrity_verified=False,receipt_verified=False)
+ elapsed+=time.monotonic()-began
+ observed_state=base.get('state','FAILED_CLOSED')
+ if observed_state not in ledger.REPORTED:observed_state='FAILED_CLOSED'
+ process=base.get('process')
+ if process is not None and process.get('timed_out')is True:observed_state='TIMED_OUT';base['receipt_verified']=False
+ observed_verified=base['receipt_verified']
+ try:
+  a=ledger.anchor(request,expected)
+  account=ledger.finish(reserved,reserved_digest,a,reserved['active']['token'],elapsed_seconds=elapsed,
+   reported_outcome=observed_state,model_digest=base.get('parent_model_digest'),receipt_verified=observed_verified,
+   process_digest=None if process is None else digest(process),internal_attempt_count=base.get('attempt_count'),
+   internal_count_verified=observed_verified)
+  ledger.check(account,digest(account),a)
+  base.update(account=account,account_digest=digest(account),account_finalization_verified=True,state=account['state'],receipt_verified=account['history'][-1]['receipt_verified'])
+ except Exception as ex:
+  base.update(state='ACCOUNT_FINALIZATION_FAILED',account_finalization_verified=False,receipt_verified=False,
+   account_reserved=reserved,account_reserved_digest=reserved_digest,account_error_type=type(ex).__name__)
+  # Do not release or reset a reservation whose finalization failed.
+  base['account']=reserved; base['account_digest']=digest(reserved)
+ # Final monotonic eligibility cutoff follows source verification and ledger validation.
+ # The following fixed-shape record/JSON encoding is not a preempted runtime phase.
+ elapsed=initial_elapsed+time.monotonic()-began
+ if base.get('account_finalization_verified')is True:
+  account=base['account'];row=account['history'][0]
+  account['used_seconds']=elapsed;row['elapsed_seconds']=elapsed
+  row['outcome'],row['receipt_verified']=ledger.terminal(row,account['anchor'])
+  account['state']=row['outcome']
+  base.update(state=account['state'],receipt_verified=row['receipt_verified'],account_digest=digest(account))
  if not base['receipt_verified']:invalidate(base)
  else:base['evidence_usable']=True
- account=base['account'];account['active']=False;account['used_seconds']=elapsed
- account['history']=[{'request_digest':expected,'outcome':base.get('state','FAILED_CLOSED'),'elapsed_seconds':elapsed,'process_started':process_started,'receipt_verified':base['receipt_verified']}]
- base.update(account_digest=digest(account),elapsed_seconds=elapsed,durable_full_reports=False)
+ base.update(elapsed_seconds=elapsed,durable_full_reports=False,
+  budget_scope='Process group is preempted; wrapper/source/receipt verification and provisional ledger validation are measured until final eligibility cutoff and invalidated at deadline, not preempted. Fixed-shape final record/JSON encoding and HTTP body read/network delivery excluded.',
+  original_outcome_observed=observed_state,process_started_observed=process_started)
  base['trace'].append({'stage':'REQUEST_FINALIZED','utc':stamp(),'state':base['state']})
  return base
 def run(body):
@@ -110,7 +143,9 @@ def run(body):
  if not pf['execution_ready']:return {**base,'state':pf['state'],'attempt_count':0}
  request=make_request(body);expected=digest(request)
  base.update(request_digest=expected,nonce=request['nonce'],account_id=request['account_id'],source_digest=digest(request['source_snapshot']))
- account={'schema':'REQUEST_ACCOUNT109_V1','account_id':request['account_id'],'request_digest':expected,'allocated_seconds':request['allocated_seconds'],'used_attempts':1,'active':True,'parent_model_digest':None,'history':[],'scope':'Request reservation, not historical parent-bound repair account; one parent attempt, no repair dispatch'}
+ import request_budget110 as ledger
+ a=ledger.anchor(request,expected);account=ledger.create(a);account,allocation=ledger.reserve(account,digest(account),a)
+ base['account_reserved_digest']=digest(account)
  base['account']=account;trace.append({'stage':'REQUEST_ACCOUNT_RESERVED','utc':stamp(),'account_digest':digest(account)})
  process=None;out=None;reports=None
  try:
@@ -131,7 +166,6 @@ def run(body):
    base.update(receipt_verified=True,state=out['state'],attempt_count=out['attempt_count'],parent_model_digest=out.get('parent_model_digest'),
     full_report_digests=copy.deepcopy(out['report_digests']),current_states={k:v['state']for k,v in out.get('parent_current',{}).items()},
     parent_physical=copy.deepcopy(out.get('parent_physical')),runtime_trace=copy.deepcopy(out.get('stage_trace',[])))
-   account['parent_model_digest']=out.get('parent_model_digest')
    trace.append({'stage':'REAL_REPORT_BINDING_VERIFIED','utc':stamp()})
    trace.append({'stage':'REPAIR_CONTROLLER_NOT_EXECUTED','utc':stamp(),'reason':'SKIPPED_NO_SUPPORTED_CAUSE'if out['state']=='BLOCKED_NO_SUPPORTED_CAUSE'else'SKIPPED_DEPENDENCY'})
  except Exception as ex:

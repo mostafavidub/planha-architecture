@@ -54,11 +54,13 @@ class Contract(unittest.TestCase):
   c.invalidate(x);self.assertFalse(x['receipt_verified']);self.assertNotIn('current_states',x);self.assertEqual(x['observed_unverified_evidence']['current_states']['x'],'PASS')
  def test_final_source_failure_rebuilds_account_outcome(self):
   r=c.make_request(B);h=c.digest(r)
-  base={'state':'BLOCKED_NO_SUPPORTED_CAUSE','receipt_verified':True,'current_states':{'x':'UNKNOWN'},'account':{'active':True},'trace':[]}
+  import request_budget110 as ledger
+  a=ledger.anchor(r,h);account=ledger.create(a);account,_=ledger.reserve(account,c.digest(account),a)
+  base={'state':'BLOCKED_NO_SUPPORTED_CAUSE','receipt_verified':True,'current_states':{'x':'UNKNOWN'},'account':account,'account_reserved_digest':c.digest(account),'trace':[],'attempt_count':1}
   with patch.object(c,'validate_request',side_effect=ValueError('REQUEST_SOURCE')):c.finalize_result(base,r,h,1.25,True)
   self.assertEqual(base['state'],'SOURCE_INTEGRITY_ERROR');self.assertFalse(base['receipt_verified']);self.assertNotIn('current_states',base)
   self.assertEqual(base['account']['history'][0]['outcome'],base['state']);self.assertFalse(base['account']['history'][0]['receipt_verified'])
-  self.assertEqual(c.digest(base['account']),base['account_digest']);self.assertFalse(base['account']['active'])
+  self.assertEqual(c.digest(base['account']),base['account_digest']);self.assertIsNone(base['account']['active'])
  def test_process_failure_no_verified_receipt(self):
   for key,value in [('returncode',True),('returncode',1),('timed_out',True),('wait_completed',False)]:
    r,h,o,reports,p=self.fixture();p[key]=value
