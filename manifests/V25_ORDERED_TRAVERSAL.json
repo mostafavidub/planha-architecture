@@ -138,8 +138,13 @@
     },
     {
       "id": "V25-21",
-      "status": "PARTIAL_PASS",
-      "evidence": "۸تست کنترل‌شده شکست/لغو در dd496bfe موفق: executable مفقود در موقت، timeout با ساعت تسریع‌شده، پایان worker خواب واقعی و socket. این‌ها تولید هندسه، endurance۱۵۰ثانیه یا تمام رقابت‌های UI نیستند."
+      "status": "PASS_LISTED_LIFECYCLE_SCENARIOS_SCOPED_NOT_EXHAUSTIVE",
+      "evidence": "دوtimeoutواقعی۱۵۰ثانیهgeneration/repair.executeدر44435153299؛دوTCPgenerationقطع+retryواقعی/immutableپرونده/health/رد۲۶در44435888115. کلیک‌تکراری/پاسخ‌کهنهChromium44421177419 شواهدجدا؛ششblobUI/serverثابت. controlledworkerنههندسه،repairHTTP/descendantsدلخواه/تمامraceهااثباتنشده؛سناریوهایثبت‌شدهشاهددارند.",
+      "evidence_runs": [
+        44435153299,
+        44435888115,
+        44421177419
+      ]
     },
     {
       "id": "V25-22",
@@ -245,7 +250,7 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T01:07:44Z",
+  "last_evidence_update_utc": "2026-11-19T01:18:43Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
@@ -282,5 +287,16 @@
     "completed_utc": "2026-11-19T01:06:52Z",
     "state": "COMPLETED_READ_ONLY_PREFLIGHT_SCOPE_ONLY",
     "run": 44434365012
+  },
+  "lifecycle_operation": {
+    "id": "V25-21-REAL-LIFECYCLE",
+    "start_utc": "2026-11-19T01:09:46Z",
+    "deadline_utc": "2026-11-19T04:09:46Z",
+    "state": "COMPLETED_SCOPED_TESTS",
+    "runs": [
+      44435153299,
+      44435888115
+    ],
+    "criterion_map": "manifests/V25_LIFECYCLE_SCENARIO_MAP.json"
   }
 }
