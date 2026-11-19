@@ -180,7 +180,9 @@ def admission(contract, expected_contract_digest, binding, expected_binding_dige
                              errors=copy.deepcopy(row['errors']), pending=copy.deepcopy(row['pending']),
                              missing=copy.deepcopy(row['missing']))
                 # A definite violation never disappears merely because another check errors.
-                if row['state'] == 'FAIL': reasons.append('NECESSARY_FAIL')
+                if row['state'] == 'FAIL':
+                    reasons.append('NECESSARY_FAIL' if spec['applicability'] == 'REQUIRED'
+                                   else 'REPORTED_FAIL_APPLICABILITY_UNRESOLVED')
                 if row['state'] == 'ERROR' or row['errors']: reasons.append('EVALUATOR_ERROR')
                 if row['pending']: reasons.append('NECESSARY_PENDING')
                 reasons.extend(row['missing'])
@@ -193,11 +195,11 @@ def admission(contract, expected_contract_digest, binding, expected_binding_dige
                 # study until the scope conflict is explicitly reconciled.
             else:
                 if spec['applicability'] == 'UNRESOLVED':
-                    reasons.append('APPLICABILITY_UNKNOWN')
+                    reasons.append('UNRESOLVED_APPLICABILITY')
                 if not found:
                     reasons.append('MISSING_EVIDENCE')
                 elif row['state'] in ('UNKNOWN', 'NOT_EVALUATED'):
-                    reasons.append('NECESSARY_' + row['state'])
+                    reasons.append(('NECESSARY_' if spec['applicability'] == 'REQUIRED' else 'REPORTED_') + row['state'])
             for reason in dict.fromkeys(reasons):
                 out['blockers'].append({'code': reason, 'obligation': k[0], 'subject': k[1]})
             out['rows'].append(entry)

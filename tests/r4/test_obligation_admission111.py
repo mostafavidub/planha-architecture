@@ -29,7 +29,7 @@ class AdmissionTests(unittest.TestCase):
                              set(a.CURRENT_IDS) | {'CALIBRATED_UNIT_QUALITY'})
         out = run(c, b, r)
         self.assertTrue(out['consistency_verified'])
-        self.assertIn('APPLICABILITY_UNKNOWN', codes(out))
+        self.assertIn('UNRESOLVED_APPLICABILITY', codes(out))
         self.assertFalse(out['declared_conditions_complete'])
         self.assertTrue(all(out[k] is False for k in a.AUTH))
     def test_four_pass_only_missing_other_obligations(self):
@@ -105,6 +105,13 @@ class AdmissionTests(unittest.TestCase):
     def test_conditional_and_stage_applicability_not_invented(self):
         c,b,r=fixture()
         self.assertEqual({x['obligation'] for x in c['obligations'] if x['applicability']=='UNRESOLVED'},a.UNRESOLVED_APPLICABILITY)
+    def test_unresolved_failure_is_not_asserted_mvp_mandatory(self):
+        c,b,r=fixture()
+        row=next(x for x in r['synthetic']['rows'] if x['obligation']=='window_opportunities')
+        row['state']='FAIL'
+        out=run(c,b,r)
+        self.assertIn('REPORTED_FAIL_APPLICABILITY_UNRESOLVED',codes(out))
+        self.assertNotIn('NECESSARY_FAIL',codes(out))
     def test_global_errors_not_hidden_by_pass_rows(self):
         c,b,r=fixture();r['synthetic']['errors']=['synthetic evaluator failure']
         self.assertIn('EVALUATOR_ERROR',codes(run(c,b,r)))
