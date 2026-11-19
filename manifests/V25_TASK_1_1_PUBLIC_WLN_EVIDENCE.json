@@ -1,0 +1,72 @@
+{
+  "schema": "V25_TASK_1_1_PUBLIC_WLN_EVIDENCE_V1",
+  "task": "1.1",
+  "status": "COMPLETED_INPUT_CONTRACT_ONLY",
+  "start_utc": "2026-11-19T03:04:00Z",
+  "verified_end_utc": "2026-11-19T03:07:16Z",
+  "overall_deadline_utc": "2026-11-19T05:51:01Z",
+  "tested_commit": "8128cd34b5599d01072519f2ec80b91c281e607b",
+  "files": [
+    "app/local_integration/public_wln_contract.py",
+    "app/local_integration/test_public_wln_contract.py",
+    ".github/workflows/v25-public-wln.yml"
+  ],
+  "run": {
+    "id": 44449120537,
+    "job_id": 135308429268,
+    "conclusion": "success",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44449120537"
+  },
+  "tests": {
+    "public": 20,
+    "existing_dimension": 18,
+    "existing_input_audit": 5,
+    "total": 43,
+    "all_passed": true
+  },
+  "guard": {
+    "before": 12991,
+    "after": 12991,
+    "tracked_checkout_unchanged": true
+  },
+  "artifact": {
+    "id": 14495090767,
+    "name": "public-wln-task-1-1-tests",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44449120537/artifacts/14495090767",
+    "zip_sha256": "54a21343975faf91ea0154134b8a2d3dbe3d50b99932c8b31119b3930d84b5b9",
+    "retention_days": 30,
+    "expiry_expected_utc": "2026-12-19T03:07:15Z",
+    "expiry_note": "Expected from upload timestamp and retention; may be deleted earlier by repository owner.",
+    "reproduce": "Checkout tested_commit in GitHub Actions; run .github/workflows/v25-public-wln.yml with its exact Python/dependency versions and original frozen guard. No local execution required."
+  },
+  "review": {
+    "reviewer": "independent_code_reviewer",
+    "reviewed_commit": "8128cd34b5599d01072519f2ec80b91c281e607b",
+    "new_blockers_found": false
+  },
+  "contract": {
+    "public_fields": [
+      "W",
+      "L",
+      "n"
+    ],
+    "axis_range_inclusive": [
+      5,
+      25
+    ],
+    "exact_decimals": "String form, including supported Persian/Arabic digits. JSON decimal and exponent tokens (including 2.0 and 2e0) explicitly unsupported 409.",
+    "unit_count": "Positive integer contract input; n!=2 is valid input but current engine conversion unsupported 409.",
+    "extra_fields": "Rejected including bedrooms, program and requested_count.",
+    "internal_requested_count": 1
+  },
+  "limitations": [
+    "Input contract only, not automatic programme integration, generated model, architectural acceptance or public UI deployment.",
+    "verify_public(original_bytes,envelope) must be invoked at a future external integration boundary; engine_raw without original bytes does not authenticate transport_body_sha256.",
+    "automatic_program_search.py remains the earlier incomplete draft and was not changed or validated in task 1.1.",
+    "Guard-after is verified for this successful run; no claim about guard-after in a failed run."
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
