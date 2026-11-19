@@ -1,0 +1,675 @@
+{
+  "schema": "V25_OPEN_WORLD_INTEGRATED_MATRIX_MANIFEST_V1",
+  "started_at": "2026-11-19T00:39:53.977719+00:00",
+  "finished_at": "2026-11-19T00:48:25.423749+00:00",
+  "github_sha": "568e8249713ea28b61985bd1c070d03be91935f3",
+  "github_run_id": "44430765347",
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "completed_study_cases": 3,
+  "scoped_clean_cases": 3,
+  "integrated_executed_cases": 3,
+  "integrated_zero_errors_cases": 3,
+  "whole_physical_verified": false,
+  "conclusion": "success",
+  "run_url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44430765347",
+  "artifact": {
+    "id": 14487326872,
+    "name": "v25-open-world-matrix",
+    "size_in_bytes": 1037183,
+    "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14487326872",
+    "archive_download_url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14487326872/zip",
+    "expired": false,
+    "created_at": "2026-11-19T00:48:27Z",
+    "expires_at": "2026-12-19T00:48:25Z",
+    "updated_at": "2026-11-19T00:48:27Z",
+    "digest": "sha256:1f89b2988e4a732ff18732de3b33f141f2f06d43882babd52096b4fac0bb5396",
+    "workflow_run": {
+      "id": 44430765347,
+      "repository_id": 1462976226,
+      "head_repository_id": 1462976226,
+      "head_branch": "main",
+      "head_sha": "568e8249713ea28b61985bd1c070d03be91935f3"
+    },
+    "durably_archived": false
+  },
+  "cases": [
+    {
+      "inputs": [
+        "15",
+        "25",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "85d490dd23ab40e9b2ffd1b5d07088b650766fad90c7d097ce301d92a7d59296",
+      "baseline_context_digest": "1a13e8e41a6a8267a1403294575b476d938fdde34c29c4797ff549d48bbdfeb5",
+      "proposal_digest": "70c5728c5ec983fb089d6eaa75c22029999e087c134027c2eedede381822dc25",
+      "baseline_fresh_verified": true,
+      "model_digest": "1dea4684c300c3daff9269693faaffe5df2aee7a577d0a660034c3ec93dee13a",
+      "scoped_clean": true,
+      "study_executed": true,
+      "integrated": {
+        "inputs": [
+          "15",
+          "25",
+          2
+        ],
+        "model_digest": "1dea4684c300c3daff9269693faaffe5df2aee7a577d0a660034c3ec93dee13a",
+        "status": "UNKNOWN_REQUIRED_STUDY",
+        "errors": [],
+        "pending": [
+          "CURRENT_FUNCTIONAL_UNKNOWN:CONTINUOUS_USEFUL_LIVING",
+          "CURRENT_FUNCTIONAL_UNKNOWN:CURRENT_PROGRAM_SUITABILITY",
+          "CURRENT_FUNCTIONAL_UNKNOWN:KITCHEN_GUEST_PATH_SEPARATION",
+          "CURRENT_FUNCTIONAL_UNKNOWN:NONFUNCTIONAL_WALL_EXCLUSION",
+          "CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED",
+          "RULE_NOT_EVALUATED:q11_functional_boundary",
+          "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+        ],
+        "named_status": "NOT_EVALUATED_REQUIRED",
+        "named_errors": [],
+        "named_pending": [
+          "RULE_NOT_EVALUATED:q11_functional_boundary"
+        ],
+        "current_requirements": {
+          "INTERNAL_INSTANCE_CAPACITY": "PASS_SCOPED",
+          "CURRENT_PROGRAM_SUITABILITY": "UNKNOWN",
+          "KITCHEN_GUEST_PATH_SEPARATION": "UNKNOWN",
+          "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+          "NONFUNCTIONAL_WALL_EXCLUSION": "UNKNOWN"
+        },
+        "scope_source": {
+          "path": "references/CONCEPT_GATE_FA.md",
+          "sha256": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+          "scope": "Pinned historical limited concept source only; no scope117 pending reduction, no current PRD approval"
+        },
+        "nonleaf_interfaces": [
+          {
+            "opening_id": "stair.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "lift.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "A.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          },
+          {
+            "opening_id": "B.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          }
+        ],
+        "whole_physical_verified": false,
+        "source_snapshot": {
+          "app/local_integration/open_front_evaluator.py": "09da55726a01137e179b6993c79cc4ed3a8d6deba988a5ddaccf1f1884f74dfe",
+          "app/local_integration/open_front_world_origin.py": "2e0296980e9e0c1cf781b779077fa8ebae6669b0cbad9cefce128d037b8b6847",
+          "app/local_integration/open_front_world_assembly.py": "bae6ee2e5838c6b52156d761ee1fa7495795bd8154e50c22c7f7b3efc21e0c06",
+          "app/local_integration/open_front_kitchen_study.py": "20380b9b85fd5ecf2217182097a3c16a8272d808bc1788b01d17ffde6be21891",
+          "app/local_integration/open_front_kitchen_check.py": "2db4984fcd79eedda92c1da7d855c68231905f5ed150d7f8fea0461c372d1a85",
+          "app/local_integration/open_front_kitchen_place.py": "6596d540ee2e32d881b0b3d68a93b203b4e4be59fefdad0dff62565c0fb6c641",
+          "app/local_integration/open_front_placement_check.py": "840cbf4982eb7bd8ed3b5fafbf50cbbbe1e89dd30c4a0adfe58a9101dbb8707c",
+          "app/local_integration/open_front_typed_public.py": "88ac54809f43051f9671615c4967e9ae84a89cd334b63d9fedbe5f8fc2414ffc",
+          "app/local_integration/open_front_operation_check.py": "b77d96a026978b37ef02b17ccf90ccd86858d601f040d0d6c0eda8e6de497910",
+          "app/local_integration/open_front_raw_physical.py": "59163197c88d4a223d573cf4350a35323dfa3a1a0bb01a00ff6b84335b3e260a",
+          "app/local_integration/open_front_rule_contract.py": "6c98b0cbe3cadfb162eded9015d746eeb316a2cf15a18c598d678d5ec22c4c78",
+          "app/local_integration/open_front_named_checks.py": "fe894eb5893f9394b97b91209ade0fd8d71f9dd412e7cd970f246cb641bb8fa8",
+          "app/local_integration/open_front_circulation_scope.py": "6b475810ede0e56ede5437de5454f53c56deb9ad428f774eca477dc61243d547",
+          "app/local_integration/open_front_circulation_integrity.py": "e5edb50c85244f566aaa12835a88b67a72724e320b4d2e9b5449722b2e1ca81c",
+          "app/local_integration/open_front_circulation_frame.py": "eabd9a2b64e7f1af20cc5a7f30afe35fed4a7e169bc79bfdbeacf171df1314a9",
+          "app/local_integration/open_front_q11_pending.py": "d3591e7e1fd683b38294f616a1c3fc5da7b8f9fd9e35a0677189edadcc655862",
+          "app/local_integration/open_front_boundary_comparison.py": "15bdb91dc5ce393a7c493388afef02602ff632af2c7ff0ebae9efb0dc8f7659e",
+          "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+          "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+          "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+          "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+          "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+          "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b"
+        },
+        "zero_errors_asserted": true
+      },
+      "scopes": [
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "51/200"
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    },
+    {
+      "inputs": [
+        "20",
+        "20",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "d527360507cf0103dc7141e04353aefcfd1d0087050e7165c8ada0b3cedcd723",
+      "baseline_context_digest": "21a11df713e98ed39b5e4eb6d05efaf67541881b68f77a71a6a6fca8c0a59693",
+      "proposal_digest": "8013593048e7717a92d05292a560d8b17603ba780ad12b8e3eae0cde5cf99583",
+      "baseline_fresh_verified": true,
+      "model_digest": "fcd137549889cd436cc949a667c2245675925646c08826d210be81ae35b45c20",
+      "scoped_clean": true,
+      "study_executed": true,
+      "integrated": {
+        "inputs": [
+          "20",
+          "20",
+          2
+        ],
+        "model_digest": "fcd137549889cd436cc949a667c2245675925646c08826d210be81ae35b45c20",
+        "status": "UNKNOWN_REQUIRED_STUDY",
+        "errors": [],
+        "pending": [
+          "CURRENT_FUNCTIONAL_UNKNOWN:CONTINUOUS_USEFUL_LIVING",
+          "CURRENT_FUNCTIONAL_UNKNOWN:CURRENT_PROGRAM_SUITABILITY",
+          "CURRENT_FUNCTIONAL_UNKNOWN:KITCHEN_GUEST_PATH_SEPARATION",
+          "CURRENT_FUNCTIONAL_UNKNOWN:NONFUNCTIONAL_WALL_EXCLUSION",
+          "CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED",
+          "RULE_NOT_EVALUATED:q11_functional_boundary",
+          "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+        ],
+        "named_status": "NOT_EVALUATED_REQUIRED",
+        "named_errors": [],
+        "named_pending": [
+          "RULE_NOT_EVALUATED:q11_functional_boundary"
+        ],
+        "current_requirements": {
+          "INTERNAL_INSTANCE_CAPACITY": "PASS_SCOPED",
+          "CURRENT_PROGRAM_SUITABILITY": "UNKNOWN",
+          "KITCHEN_GUEST_PATH_SEPARATION": "UNKNOWN",
+          "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+          "NONFUNCTIONAL_WALL_EXCLUSION": "UNKNOWN"
+        },
+        "scope_source": {
+          "path": "references/CONCEPT_GATE_FA.md",
+          "sha256": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+          "scope": "Pinned historical limited concept source only; no scope117 pending reduction, no current PRD approval"
+        },
+        "nonleaf_interfaces": [
+          {
+            "opening_id": "stair.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "lift.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "A.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          },
+          {
+            "opening_id": "B.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          }
+        ],
+        "whole_physical_verified": false,
+        "source_snapshot": {
+          "app/local_integration/open_front_evaluator.py": "09da55726a01137e179b6993c79cc4ed3a8d6deba988a5ddaccf1f1884f74dfe",
+          "app/local_integration/open_front_world_origin.py": "2e0296980e9e0c1cf781b779077fa8ebae6669b0cbad9cefce128d037b8b6847",
+          "app/local_integration/open_front_world_assembly.py": "bae6ee2e5838c6b52156d761ee1fa7495795bd8154e50c22c7f7b3efc21e0c06",
+          "app/local_integration/open_front_kitchen_study.py": "20380b9b85fd5ecf2217182097a3c16a8272d808bc1788b01d17ffde6be21891",
+          "app/local_integration/open_front_kitchen_check.py": "2db4984fcd79eedda92c1da7d855c68231905f5ed150d7f8fea0461c372d1a85",
+          "app/local_integration/open_front_kitchen_place.py": "6596d540ee2e32d881b0b3d68a93b203b4e4be59fefdad0dff62565c0fb6c641",
+          "app/local_integration/open_front_placement_check.py": "840cbf4982eb7bd8ed3b5fafbf50cbbbe1e89dd30c4a0adfe58a9101dbb8707c",
+          "app/local_integration/open_front_typed_public.py": "88ac54809f43051f9671615c4967e9ae84a89cd334b63d9fedbe5f8fc2414ffc",
+          "app/local_integration/open_front_operation_check.py": "b77d96a026978b37ef02b17ccf90ccd86858d601f040d0d6c0eda8e6de497910",
+          "app/local_integration/open_front_raw_physical.py": "59163197c88d4a223d573cf4350a35323dfa3a1a0bb01a00ff6b84335b3e260a",
+          "app/local_integration/open_front_rule_contract.py": "6c98b0cbe3cadfb162eded9015d746eeb316a2cf15a18c598d678d5ec22c4c78",
+          "app/local_integration/open_front_named_checks.py": "fe894eb5893f9394b97b91209ade0fd8d71f9dd412e7cd970f246cb641bb8fa8",
+          "app/local_integration/open_front_circulation_scope.py": "6b475810ede0e56ede5437de5454f53c56deb9ad428f774eca477dc61243d547",
+          "app/local_integration/open_front_circulation_integrity.py": "e5edb50c85244f566aaa12835a88b67a72724e320b4d2e9b5449722b2e1ca81c",
+          "app/local_integration/open_front_circulation_frame.py": "eabd9a2b64e7f1af20cc5a7f30afe35fed4a7e169bc79bfdbeacf171df1314a9",
+          "app/local_integration/open_front_q11_pending.py": "d3591e7e1fd683b38294f616a1c3fc5da7b8f9fd9e35a0677189edadcc655862",
+          "app/local_integration/open_front_boundary_comparison.py": "15bdb91dc5ce393a7c493388afef02602ff632af2c7ff0ebae9efb0dc8f7659e",
+          "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+          "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+          "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+          "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+          "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+          "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b"
+        },
+        "zero_errors_asserted": true
+      },
+      "scopes": [
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "531/2000"
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    },
+    {
+      "inputs": [
+        "24",
+        "18",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "b1164620a32b61774b0daee7b749654bf69fd48de34771849f63aa78e79e505b",
+      "baseline_context_digest": "c349ca1fe526eab24fd14c282b84a63074f83bd9b2aaf1b9c73690529f43ca3d",
+      "proposal_digest": "99235b525520dda3bbf707d1df684910018291723fa31e1ff35eb1d7afdb0dc5",
+      "baseline_fresh_verified": true,
+      "model_digest": "3ca8191681380b887b2a3299149e0fbc4df33a41d66b022c56a03c0368762c83",
+      "scoped_clean": true,
+      "study_executed": true,
+      "integrated": {
+        "inputs": [
+          "24",
+          "18",
+          2
+        ],
+        "model_digest": "3ca8191681380b887b2a3299149e0fbc4df33a41d66b022c56a03c0368762c83",
+        "status": "UNKNOWN_REQUIRED_STUDY",
+        "errors": [],
+        "pending": [
+          "CURRENT_FUNCTIONAL_UNKNOWN:CONTINUOUS_USEFUL_LIVING",
+          "CURRENT_FUNCTIONAL_UNKNOWN:CURRENT_PROGRAM_SUITABILITY",
+          "CURRENT_FUNCTIONAL_UNKNOWN:KITCHEN_GUEST_PATH_SEPARATION",
+          "CURRENT_FUNCTIONAL_UNKNOWN:NONFUNCTIONAL_WALL_EXCLUSION",
+          "CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED",
+          "RULE_NOT_EVALUATED:q11_functional_boundary",
+          "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+        ],
+        "named_status": "NOT_EVALUATED_REQUIRED",
+        "named_errors": [],
+        "named_pending": [
+          "RULE_NOT_EVALUATED:q11_functional_boundary"
+        ],
+        "current_requirements": {
+          "INTERNAL_INSTANCE_CAPACITY": "PASS_SCOPED",
+          "CURRENT_PROGRAM_SUITABILITY": "UNKNOWN",
+          "KITCHEN_GUEST_PATH_SEPARATION": "UNKNOWN",
+          "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+          "NONFUNCTIONAL_WALL_EXCLUSION": "UNKNOWN"
+        },
+        "scope_source": {
+          "path": "references/CONCEPT_GATE_FA.md",
+          "sha256": "8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e",
+          "scope": "Pinned historical limited concept source only; no scope117 pending reduction, no current PRD approval"
+        },
+        "nonleaf_interfaces": [
+          {
+            "opening_id": "stair.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "lift.entry",
+            "kind": "core_access_interface",
+            "hardware_status": "NOT_EVALUATED"
+          },
+          {
+            "opening_id": "A.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          },
+          {
+            "opening_id": "B.kitchen.entry",
+            "kind": "permanent_open_arch",
+            "hardware_status": "NO_LEAF_SOURCE_ARCH"
+          }
+        ],
+        "whole_physical_verified": false,
+        "source_snapshot": {
+          "app/local_integration/open_front_evaluator.py": "09da55726a01137e179b6993c79cc4ed3a8d6deba988a5ddaccf1f1884f74dfe",
+          "app/local_integration/open_front_world_origin.py": "2e0296980e9e0c1cf781b779077fa8ebae6669b0cbad9cefce128d037b8b6847",
+          "app/local_integration/open_front_world_assembly.py": "bae6ee2e5838c6b52156d761ee1fa7495795bd8154e50c22c7f7b3efc21e0c06",
+          "app/local_integration/open_front_kitchen_study.py": "20380b9b85fd5ecf2217182097a3c16a8272d808bc1788b01d17ffde6be21891",
+          "app/local_integration/open_front_kitchen_check.py": "2db4984fcd79eedda92c1da7d855c68231905f5ed150d7f8fea0461c372d1a85",
+          "app/local_integration/open_front_kitchen_place.py": "6596d540ee2e32d881b0b3d68a93b203b4e4be59fefdad0dff62565c0fb6c641",
+          "app/local_integration/open_front_placement_check.py": "840cbf4982eb7bd8ed3b5fafbf50cbbbe1e89dd30c4a0adfe58a9101dbb8707c",
+          "app/local_integration/open_front_typed_public.py": "88ac54809f43051f9671615c4967e9ae84a89cd334b63d9fedbe5f8fc2414ffc",
+          "app/local_integration/open_front_operation_check.py": "b77d96a026978b37ef02b17ccf90ccd86858d601f040d0d6c0eda8e6de497910",
+          "app/local_integration/open_front_raw_physical.py": "59163197c88d4a223d573cf4350a35323dfa3a1a0bb01a00ff6b84335b3e260a",
+          "app/local_integration/open_front_rule_contract.py": "6c98b0cbe3cadfb162eded9015d746eeb316a2cf15a18c598d678d5ec22c4c78",
+          "app/local_integration/open_front_named_checks.py": "fe894eb5893f9394b97b91209ade0fd8d71f9dd412e7cd970f246cb641bb8fa8",
+          "app/local_integration/open_front_circulation_scope.py": "6b475810ede0e56ede5437de5454f53c56deb9ad428f774eca477dc61243d547",
+          "app/local_integration/open_front_circulation_integrity.py": "e5edb50c85244f566aaa12835a88b67a72724e320b4d2e9b5449722b2e1ca81c",
+          "app/local_integration/open_front_circulation_frame.py": "eabd9a2b64e7f1af20cc5a7f30afe35fed4a7e169bc79bfdbeacf171df1314a9",
+          "app/local_integration/open_front_q11_pending.py": "d3591e7e1fd683b38294f616a1c3fc5da7b8f9fd9e35a0677189edadcc655862",
+          "app/local_integration/open_front_boundary_comparison.py": "15bdb91dc5ce393a7c493388afef02602ff632af2c7ff0ebae9efb0dc8f7659e",
+          "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+          "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+          "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+          "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+          "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+          "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b"
+        },
+        "zero_errors_asserted": true
+      },
+      "scopes": [
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "36/125"
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    }
+  ],
+  "freeze": "530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "eligible_for_draft_export": false,
+  "all_rules_approved": false,
+  "current_Q11_complete": false,
+  "limits": [
+    "Three archived variant-0 proposals only: 15x25,20x20,24x18, two units/two bedrooms per unit. No new solver search.",
+    "Independent evaluator UNKNOWN_REQUIRED_STUDY, zero errors asserted for all three. 89 registry rows are coverage, not 89 approvals.",
+    "Each named contract NOT_EVALUATED_REQUIRED with q11_functional_boundary pending; full current Q11 remains open.",
+    "Each current INTERNAL_INSTANCE_CAPACITY PASS_SCOPED; four current functional requirements remain UNKNOWN.",
+    "Raw capacity/spatial-quality pending preserved; no scope117 reducer or fake historical identity.",
+    "Historical whole checker FAIL retained unfiltered. No whole physical acceptance, display, export or delivery authority.",
+    "Only dedicated workflow and result manifests changed for this task; no implementation, frozen engine or archive workflow changes.",
+    "Artifact retention 30 days, not durably archived; source archive remains existing durable evidence.",
+    "303 tasks not started."
+  ]
+}
