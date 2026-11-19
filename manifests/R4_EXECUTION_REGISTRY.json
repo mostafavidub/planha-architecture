@@ -986,7 +986,18 @@
       ],
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PARTIAL_ONE_BED_SOURCE_BRANCH_CONFIRMED_SELECTED_ADAPTER_NOT_IMPLEMENTED",
+      "started_at": "2026-11-19T07:52:35Z",
+      "deadline": "2026-11-19T10:52:35Z",
+      "checkpoint_at": "2026-11-19T07:53:42Z",
+      "manifest": "manifests/R4_2_05_ONE_BEDROOM_BUNDLE_INTERFACE_AUDIT.json",
+      "remaining": [
+        "same_version_front_rear_contract.py:bind_request",
+        "front_rear_runtime_adapter.py:undefined",
+        "current_programme_evaluator.py:inventory",
+        "left_right_two_source_binding.py:proposal_check",
+        "current_programme_evaluator.py:proven_capacity_violation"
+      ]
     },
     {
       "id": "R4-2.06",

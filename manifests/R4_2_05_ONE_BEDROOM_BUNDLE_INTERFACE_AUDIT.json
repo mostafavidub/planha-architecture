@@ -1,0 +1,164 @@
+{
+  "schema": "R4_2_05_ONE_BEDROOM_BUNDLE_INTERFACE_AUDIT_V1",
+  "task_id": "R4-2.05",
+  "started_at": "2026-11-19T07:52:35Z",
+  "deadline": "2026-11-19T10:52:35Z",
+  "checkpoint_at": "2026-11-19T07:53:42Z",
+  "status": "PARTIAL_ONE_BED_SOURCE_BRANCH_CONFIRMED_SELECTED_ADAPTER_NOT_IMPLEMENTED",
+  "scope": "Read selected registry/search/assembly/capacity/evaluator interfaces only; no whole-model execution or repository-wide absence proof.",
+  "source_base_commit": "25ef3caff6e529562a3595739fec1d3a440936c5",
+  "source_files": [
+    {
+      "path": "app/local_integration/program_profile_registry.py",
+      "blob_sha": "af549f86f39e2e57554cd48e0ffdea54d5444262"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/search114.py",
+      "blob_sha": "65e0f278c9f9ef480388d3ea8056161c0a938a36"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/assemble114.py",
+      "blob_sha": "6e19b12c62820e015055765e0fe56d6339cd4312"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/program_capacity_audit118.py",
+      "blob_sha": "50c394512b6a34c8d7b99af932fecbb1508bd1b4"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/bedroom_module116.py",
+      "blob_sha": "289b23f25bafaa05281015b521affad5ab5a415d"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/public_witness118.py",
+      "blob_sha": "36f49057da712f29953bbc940a0dd8e9285ee64b"
+    },
+    {
+      "path": "app/local_integration/current_programme_evaluator.py",
+      "blob_sha": "d4971f45f833395f6e24397087feedc9e0e40d8e"
+    },
+    {
+      "path": "app/local_integration/same_version_front_rear_contract.py",
+      "blob_sha": "0c182a3e26ba48ef6a42df2bf40c2a2ab67c055c"
+    },
+    {
+      "path": "app/local_integration/front_rear_runtime_adapter.py",
+      "blob_sha": "92ce916b71bb05f0087e2527a51dd8de4d40a676"
+    }
+  ],
+  "source_chain": [
+    {
+      "symbol": "program_profile_registry._record(1)",
+      "finding": "Approved design programme1bed/double/2people, source branch present; adapter explicitly NOT_AUDITED. Not actual population, not automatic quality approval."
+    },
+    {
+      "symbol": "search114.propose",
+      "lines": [
+        15,
+        19,
+        21,
+        23,
+        26,
+        360
+      ],
+      "finding": "Explicit bedrooms1/sleep_roles[double] creates one private room with double bounds; keeps standard bath/kitchen/dining and four living furniture use reservations. Source dimensions are provisional method bounds, not universal minima."
+    },
+    {
+      "symbol": "assemble114.assemble",
+      "lines": [
+        68,
+        73,
+        80,
+        81,
+        107,
+        112,
+        114,
+        115,
+        117,
+        123
+      ],
+      "finding": "One double module is installed; no twin ifsleep_rolesdouble; dining118fourchairs andtwo sofas/twoarmchairs stay. Dining standing activities and left/right aliases preserved. This remains existing2unit grammar, notn1."
+    },
+    {
+      "symbol": "bedroom_module116.build",
+      "finding": "Doublebed1.bed andbed1.closet withfront/backbed access,closetfront andchanging activities; source operations/privacy and placedwholechecks stillrequired."
+    },
+    {
+      "symbol": "public_witness118.bind_capacity",
+      "lines": [
+        51,
+        53,
+        54,
+        56,
+        59
+      ],
+      "finding": "Sleep actual double gives2designplaces; dining4distinct chairs/living4one-body studies do not change residents2."
+    },
+    {
+      "symbol": "program_capacity_audit118.examine",
+      "finding": "Counts must be at least actualsleep/residentdesigncapacity, not equal. Extra dining/living instances alone are not a failure or proof of optimality. Actualroutes/sizes/support/operations matter; clothing sufficiency unverified."
+    }
+  ],
+  "concrete_blockers": [
+    {
+      "file": "same_version_front_rear_contract.py",
+      "symbol": "bind_request",
+      "reason": "Explicit selected PROGRAM_2BED_V1 only, case18x20/n2. Intentional scope, notbug."
+    },
+    {
+      "file": "front_rear_runtime_adapter.py",
+      "symbols": [
+        "proposal_transport",
+        "packet_binding",
+        "run"
+      ],
+      "reason": "Two-bedroom coordinate/nameinventory, approved programme2identity and explicitdouble+twin call. Changing these toacceptonebed withoutnewcontract would weaken existingbinding."
+    },
+    {
+      "file": "current_programme_evaluator.py",
+      "symbol": "inventory",
+      "lines": [
+        22,
+        25,
+        27,
+        31,
+        62,
+        81
+      ],
+      "reason": "Expected4designpeople, bed1double+bed2twin,4placements/unit andPROGRAM2registry. Onebed requires separate sourceboundinventory/evaluator contract; source count module alone doesnot satisfyit."
+    },
+    {
+      "file": "left_right_two_source_binding.py",
+      "symbol": "proposal_check",
+      "reason": "Existing2bedproposal schema/nameinventory is intentional; not reusable unchanged as onebedadmission."
+    },
+    {
+      "file": "current_programme_evaluator.py",
+      "symbol": "proven_capacity_violation",
+      "lines": [
+        69,
+        71
+      ],
+      "reason": "Hard-coded sleeping_places!=4 in necessary-violation helper. Merely removing bed2 from expected_modules would still misclassify a valid2person programme. A separate versioned wholeprogramme check is required; do not edit this historicaltwo-bedhelper."
+    }
+  ],
+  "minimum_next_action": "Prepare a separate versioned one-bedroom programme adapter and same-model source inventory contract only when its source-built fixture and fresh full-gate tests can be run. Preserve the current two-bedroom path unchanged. Do not infer readiness from onebed sourcebranch, no silent fallback or programme reduction insiderepair.",
+  "not_proven": [
+    "Fresh onebedmodel feasible for any currentpubliccase",
+    "Whole bundle usability/quality/closetvolume or ergonomic support",
+    "Currentonebedevaluatorintegration",
+    "Currentn1unitcountgeneration",
+    "Allsite/repository onebedcapabilityabsence"
+  ],
+  "dependencies_open": [
+    "R4-2.01"
+  ],
+  "tests_executed": 0,
+  "solver_executed": false,
+  "draft_code_created": false,
+  "active_code_changes": [],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "review": "Independent conceptual review confirms n2withonebed/unit is distinct fromn1. Additional4seat bundle is not proof ofquality. Exactonebedproposal/terminal/sourceinstance contract may be prepared separately but not runtime readiness."
+}
