@@ -18,7 +18,7 @@ def run():
     sources=snapshot(ROOT,paths);engine=source_state();assert guard(FREEZE)==12991
     for fn,path in [(propose,ENGINE/'search114.py'),(build,ENGINE/'constructor127.py'),(verify,ENGINE/'construction_replay127.py'),(evaluate_pair,ENGINE/'evaluate_pair127.py'),(assess,ROOT/'app/local_integration/functional_review.py')]:
         assert Path(inspect.getsourcefile(fn)).resolve()==path.resolve()
-    report={'schema':'V25_EXPLICIT_TWO_TOPOLOGY_COMPARISON_V1','preregistered_cases':CASES,'settings':SETTINGS,'source_snapshot':sources,'engine_revision':ENGINE_PIN,'schema_pin':SCHEMA_PIN,'guard_before':12991,'cases':[],'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'production_supported':False,'global_infeasibility_proven':False,'scope':'Original unfiltered constructor/replay/inventory/pair/current. Source-derived shape/D4 only for original SIDE_ROOTED contract; FRAME125 binding NOT_APPLICABLE. No retries or candidate selection.'}
+    report={'schema':'V25_EXPLICIT_TWO_TOPOLOGY_COMPARISON_V1','operation_deadline_utc':'2026-11-19T04:49:30Z','preregistered_cases':CASES,'settings':SETTINGS,'source_snapshot':sources,'engine_revision':ENGINE_PIN,'schema_pin':SCHEMA_PIN,'guard_before':12991,'cases':[],'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'production_supported':False,'global_infeasibility_proven':False,'scope':'Original unfiltered constructor/replay/inventory/pair/current. Source-derived shape/D4 only for original SIDE_ROOTED contract; FRAME125 binding NOT_APPLICABLE. No retries or candidate selection.'}
     def save(): (ROOT/'topology-comparison.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
     save()
     for W,L,topology in CASES:
