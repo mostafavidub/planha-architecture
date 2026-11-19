@@ -27,7 +27,7 @@ def contract():
       'technical_profile_is_program_approval':False,
       'search':{'topology':'SIDE_ROOTED_SERVICES','organization_profile':'UNRESTRICTED',
         'ordered_macro':False,'variant':0,'fixed_witness':None,'diagnostic_capture':None,
-        'requested_count':1,'count_meaning':'Internal bounded study budget, not product output count',
+        'time_limit_seconds':None,'time_limit_status':'NOT_SELECTED_TASK_2_5','requested_count':1,'count_meaning':'Internal bounded study budget, not product output count',
         'no_witness_is_global_infeasibility':False},
       'engine_revision':ENGINE_REVISION,'guard_count':12991,
       'api_parameters':copy.deepcopy(APIS),
@@ -63,7 +63,7 @@ def bind_request(body,envelope,program_id):
     if type(program_id) is not str or program_id!='PROGRAM_2BED_V1':raise ValueError('SELECTED_PROGRAM_ONLY')
     if raw!={'W':'18','L':'20','n':2,'requested_count':1}:raise ValueError('SELECTED_CASE_ONLY')
     p=lookup(program_id)
-    if p['approval']['status']!='APPROVED_DESIGN_PROGRAM' or p['sleep_roles']!=['double','twin']:
+    if p['approval']['status']!='APPROVED_DESIGN_PROGRAM' or p['sleep_roles']!=['double','twin'] or any(digest(p[k])!=digest(v) for k,v in {'id':'PROGRAM_2BED_V1','version':1,'bedrooms_per_unit':2,'design_persons_per_unit':4,'capacity_means_actual_population':False}.items()):
         raise ValueError('PROGRAM_REGISTRY_CHANGED')
     c=contract()
     return {'schema':'FRONT_REAR_TWO_REQUEST_BINDING_V1','contract_digest':digest(c),
