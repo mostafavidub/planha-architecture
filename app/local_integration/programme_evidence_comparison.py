@@ -10,8 +10,10 @@ def inventory(m):
 def compare(a,b,left,right,expected):
  a,_=transport(a);b,_=transport(b);left,_=transport(left);right,_=transport(right);expected,_=transport(expected)
  initial=digest([a,b,left,right,expected]);reasons=[];rows=[]
+ producer=ROOT/'app/local_integration/programme_evidence_comparison.py';producer_hash=hashlib.sha256(producer.read_bytes()).hexdigest()
  out={'schema':'PROGRAMME_ALTERNATIVE_EVIDENCE_COMPARISON_V1','status':'NOT_COMPARABLE','quality_comparison':'UNRESOLVED_PROFILE',
   'winner':None,'pareto_front':None,'quality_scores':None,'models':[digest(a),digest(b)],'reasons':reasons,'comparisons':rows,
+  'comparison_source_snapshot':{'app/local_integration/programme_evidence_comparison.py':producer_hash},
   'scope':'Two existing same-request/programme models with equal source evaluator/scenario definitions; evidence deltas only, not programme suitability, ranking or all-PRD qualification.',
   **{k:False for k in AUTH}}
  def need(condition,reason):
@@ -75,4 +77,8 @@ def compare(a,b,left,right,expected):
   reasons.append('COMPARISON_INPUT_OR_EVALUATOR_ERROR:'+type(ex).__name__+':'+str(ex));out['comparisons']=[]
  finally:
   if digest([a,b,left,right,expected])!=initial:raise ValueError('COMPARISON_INPUT_MUTATION')
+  if hashlib.sha256(producer.read_bytes()).hexdigest()!=producer_hash:raise ValueError('COMPARISON_PRODUCER_CHANGED')
+  for path,h in left.get('source_snapshot',{}).items():
+   if path in ('app/local_integration/source_living_evaluator.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/kitchen_guest_review.py') and hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=h:
+    out['status']='NOT_COMPARABLE';out['comparisons']=[];reasons.append('SOURCE_CHANGED_DURING_COMPARISON')
  return out
