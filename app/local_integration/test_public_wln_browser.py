@@ -1,5 +1,5 @@
 """GitHub Actions browser test: actual live backend, no mocked generation."""
-import json,subprocess,sys,pathlib,time
+import json,subprocess,sys,pathlib,time,importlib.metadata
 from playwright.sync_api import sync_playwright
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 def main():
@@ -45,7 +45,7 @@ def main():
    page.wait_for_function("document.querySelector('#result').dataset.state==='error'")
    assert 'تلاش دوباره خودکار' in page.locator('#result').inner_text()
    assert not page.locator('#submit').is_disabled()
-   receipt={'schema':'PUBLIC_THREE_FIELD_BROWSER_EVIDENCE_V1','actual_request':requests[0],'actual_response':data,'elapsed_seconds':time.monotonic()-started,
+   receipt={'schema':'PUBLIC_THREE_FIELD_BROWSER_EVIDENCE_V1','actual_request':requests[0],'actual_response':data,'live_start_through_network_abort_ui_journey_seconds':time.monotonic()-started,'playwright_version':importlib.metadata.version('playwright'),'screenshots_captured_not_human_visual_review':True,
     'viewports':[[1280,900],[390,844]],'horizontal_overflow_mobile':False,'http_invalid_and_unsupported_before_live':True,
     'one_live_request_only':True,'network_abort_after_live_was_intercepted_no_server_execution':True,
     'diagnostic_api_unchanged':True,'public_deployed':False,'plan_rendered':False,'download_available':False}
