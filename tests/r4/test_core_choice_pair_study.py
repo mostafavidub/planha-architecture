@@ -14,6 +14,13 @@ class CoreStudyTests(unittest.TestCase):
    'openings':[{'id':u+'.entry','rect':[str(s.F(core['entry_centers'][u][0])-s.F('.65')),str(s.F(core['entry_centers'][u][1])-s.F('.075')),str(s.F(core['entry_centers'][u][0])+s.F('.65')),str(s.F(core['entry_centers'][u][1])+s.F('.075'))],'host_wall_id':u+'.unit_boundary','connects':['lobby',u+'.entry_circulation']}for u in('A','B')]}
   from entry117 import install
   install(m)
+  from contract114 import S
+  m['common_routes']={}
+  for uid in ('A','B'):
+   box=list(map(s.F,core['units'][uid]));ex=s.F(core['entry_centers'][uid][0]);ey=box[3]-s.F('.4')if uid=='A'else box[1]+s.F('.4')
+   for src in ('stair','lift'):
+    a,b,c,d=map(s.F,core[src]);cy=(b+d)/2;sx=c-s.F('.4')if src=='stair'else a+s.F('.4')
+    m['common_routes'][src+'_'+uid]=[[S(x),S(y)]for x,y in ((sx,cy),(ex,cy),(ex,ey))]
   return core,m
  def test_both_source_components(self):
   for choice in s.CHOICES:
@@ -56,6 +63,12 @@ class CoreStudyTests(unittest.TestCase):
   self.assertIn('SOURCE_CLEAR_SIZES_CHANGED',s.core_geometry(m,core)['errors'])
   core,m=self.model('FRONT_REAR_FULL_BAND114');m['common_spaces']['lobby']=[['5.1','8.625','6','9.5'],['7','8.625','8','9.5']]
   self.assertIn('LOBBY_GRAPH_DISCONNECTED',s.core_geometry(m,core)['errors'])
+ def test_empty_stationary_and_malformed_common_route(self):
+  for path,code in (([],'COMMON_ROUTE_TYPED_PATH_REQUIRED'),([['1','1'],['1','1']],'COMMON_ROUTE_NO_MOVEMENT'),([[1,'1'],['2','1']],'COMMON_ROUTE_TYPED_PATH_REQUIRED'),([['1','1'],['2','2']],'COMMON_ROUTE_NOT_ORTHOGONAL')):
+   core,m=self.model('FRONT_REAR_FULL_BAND114');m['common_routes']['stair_A']=path
+   self.assertIn(code,s.core_geometry(m,core)['errors'])
+  core,m=self.model('FRONT_REAR_FULL_BAND114');del m['common_routes']['lift_B']
+  self.assertIn('COMMON_ROUTE_INVENTORY',s.core_geometry(m,core)['errors'])
  def test_detached_receipt_mutations(self):
   core,m=self.model('FRONT_REAR_FULL_BAND114');profile=lookup('PROGRAM_2BED_V1')
   args=[RAW,'FRONT_REAR_FULL_BAND114',profile,core,{'A':{'x':1},'B':{'x':1}},m,{'file':'a'*64},'1'*32]
@@ -86,6 +99,8 @@ class AssessmentOnlyTests(unittest.TestCase):
   for key in ('errors','pending'):
    bad=copy.deepcopy(rows);bad['opening_hosts']['witness'][key]=['SYNTHETIC_BLOCKER'];self.assertFalse(s.predicates_verified(bad))
   bad=copy.deepcopy(rows);del bad['opening_hosts'];self.assertFalse(s.predicates_verified(bad))
+  for malformed in (None,False,()):
+   bad=copy.deepcopy(rows);bad['core_concept']['witness']['errors']=malformed;self.assertFalse(s.predicates_verified(bad))
  def test_core_adapter_fixed_scope_before_model_access(self):
   raw={**RAW,'W':'19'}
   with self.assertRaisesRegex(ValueError,'CORE_ASSESSMENT_DIMENSION_SCOPE'):

@@ -68,6 +68,16 @@ def core_geometry(model,core):
     a=lobby[i];dx=min(a[2],b[2])-max(a[0],b[0]);dy=min(a[3],b[3])-max(a[1],b[1])
     if j not in seen and dx>=0 and dy>=0 and(dx>0 or dy>0):todo.add(j)
   if len(seen)!=len(lobby):errors.append('LOBBY_GRAPH_DISCONNECTED')
+ required_routes={a+'_'+u for a in ('stair','lift')for u in ('A','B')}
+ routes=model.get('common_routes')
+ if type(routes)is not dict or set(routes)!=required_routes:errors.append('COMMON_ROUTE_INVENTORY')
+ else:
+  for path in routes.values():
+   valid=type(path)is list and len(path)>=2 and all(type(p)is list and len(p)==2 and all(type(v)is str and re.fullmatch(r'-?[0-9]+(?:[.][0-9]+)?',v)is not None for v in p)for p in path)
+   if not valid:errors.append('COMMON_ROUTE_TYPED_PATH_REQUIRED');continue
+   points=[tuple(map(F,p))for p in path]
+   if not any(a!=b for a,b in zip(points,points[1:])):errors.append('COMMON_ROUTE_NO_MOVEMENT')
+   if any(a[0]!=b[0]and a[1]!=b[1]for a,b in zip(points,points[1:])):errors.append('COMMON_ROUTE_NOT_ORTHOGONAL')
  entries=[]
  for uid in ('A','B'):
   os_=[o for o in model['openings']if o.get('id')==uid+'.entry']
@@ -92,7 +102,8 @@ def predicates_verified(predicates):
  for name,row in predicates.items():
   if type(row)is not dict:return False
   details=row.get('witness',row)
-  if type(details)is not dict or row.get('status')!=expected[name]or details.get('errors')or details.get('pending'):return False
+  if type(details)is not dict or type(details.get('errors'))is not list or type(details.get('pending'))is not list:return False
+  if row.get('status')!=expected[name]or details['errors']or details['pending']:return False
  return True
 def core_assessment(raw,choice,profile,core,proposals,model,sources,nonce,receipt,origin,predicates):
  """Same-process source replay prerequisite, never an externally trusted signature."""
@@ -117,13 +128,14 @@ def core_assessment(raw,choice,profile,core,proposals,model,sources,nonce,receip
 def actual_candidate_negatives(model,core,raw,choice,profile,proposals,sources,nonce,receipt):
  """Detached actual-model mutation; binding and direct geometry layers kept separate."""
  baseline=digest(model);rows=[]
- for kind in ('MISSING_LIFT','DUPLICATE_STAIR','ENTRY_FROM_STAIR','OWNERSHIP_OVERLAP','COMMON_ROUTE_THROUGH_OTHER_CORE'):
+ for kind in ('MISSING_LIFT','DUPLICATE_STAIR','ENTRY_FROM_STAIR','OWNERSHIP_OVERLAP','COMMON_ROUTE_THROUGH_OTHER_CORE','EMPTY_COMMON_ROUTE'):
   bad=copy.deepcopy(model)
   if kind=='MISSING_LIFT':del bad['common_spaces']['lift']
   elif kind=='DUPLICATE_STAIR':bad['common_spaces']['stair2']=copy.deepcopy(bad['common_spaces']['stair'])
   elif kind=='ENTRY_FROM_STAIR':
    next(o for o in bad['openings']if o['id']=='A.entry')['connects']=['stair','A.public_access']
   elif kind=='OWNERSHIP_OVERLAP':bad['units'][1]['ownership']=copy.deepcopy(bad['units'][0]['ownership'])
+  elif kind=='EMPTY_COMMON_ROUTE':bad['common_routes']['stair_A']=[]
   else:
    from contract114 import S
    lift=list(map(F,bad['common_spaces']['lift']));x=(lift[0]+lift[2])/2;y=(lift[1]+lift[3])/2
