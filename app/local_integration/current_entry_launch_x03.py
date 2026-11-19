@@ -5,12 +5,20 @@ import argparse,hashlib,importlib,inspect,json
 from pathlib import Path
 from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
- 'PUBLIC_WLN_18X20':('public_wln_server','e92c711e37ef2fec46bf03e76cd1f4b59f61c5be'),
- 'REQUEST_TRACE_18X22':('request_trace_server109','a1574a1a4b15878f882530912a42ccfe341e6ffa')}
+ 'PUBLIC_WLN_18X20':('public_wln_server','b3cb9e9ad0ef34349d3c6740f6285f95b865371a'),
+ 'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
+DIAGNOSTICS_BLOB='3fd879fc77870bfbbfbc4ae2c8aafc54b0a86638'
+def diagnostics_guard():
+ path=ROOT/'app/local_integration/public_input_errors403.py';data=path.read_bytes()
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==DIAGNOSTICS_BLOB,'CURRENT_DIAGNOSTICS_SOURCE_CHANGED')
+ module=importlib.import_module('public_input_errors403')
+ need(Path(inspect.getsourcefile(module.parse_public_errors)).resolve()==path.resolve(),'CURRENT_DIAGNOSTICS_IMPORT_PATH')
+ module.guard()
+ return hashlib.sha256(data).hexdigest()
 def server(identifier,port=0):
  need(type(identifier)is str and identifier in SERVICES,'UNREGISTERED_OR_HISTORICAL_SERVICE_CURRENT_DISABLED')
  need(type(port)is int and 0<=port<=65535,'LOOPBACK_PORT_REQUIRED')
- before=parser_guard();name,pin=SERVICES[identifier]
+ before=parser_guard();diagnostic_pin=diagnostics_guard();name,pin=SERVICES[identifier]
  path=ROOT/'app/local_integration'/ (name+'.py');data=path.read_bytes()
  need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==pin,'CURRENT_SERVICE_SOURCE_CHANGED')
  module=importlib.import_module(name)
@@ -22,7 +30,7 @@ def server(identifier,port=0):
  try:
   after=path.read_bytes()
   need(hashlib.sha1(b'blob '+str(len(after)).encode()+bytes([0])+after).hexdigest()==pin,'CURRENT_SERVICE_CHANGED_DURING_STARTUP')
-  need(source_snapshot()==before,'CURRENT_BOUNDARY_SOURCE_CHANGED')
+  need(source_snapshot()==before and diagnostics_guard()==diagnostic_pin,'CURRENT_BOUNDARY_SOURCE_CHANGED')
   return server
  except BaseException:
   server.server_close()

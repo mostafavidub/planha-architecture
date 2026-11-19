@@ -13,6 +13,12 @@ form.addEventListener('submit',async event=>{
  try{
   const response=await fetch('/api/public/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(raw)});
   const data=await response.json();
+   if(data.schema==="PUBLIC_WLN_ERROR_SET_V1"){
+    if(data.acceptance_contract!=="V25_PUBLIC_WLN_CONTRACT_V3"||data.generation_started!==false||!Array.isArray(data.errors)||!data.errors.length||!['accepted','qualified','display_allowed','delivery_allowed'].every(k=>data[k]===false))throw new Error("INVALID_ERROR_SET");
+    if(!data.errors.every(e=>e&&typeof e.code==="string"&&(e.field===null||typeof e.field==="string")&&Number.isInteger(e.status)&&[409,422].includes(e.status)))throw new Error("INVALID_ERROR_ROW");
+    if(![409,422].includes(response.status)||response.status!==data.primary_status||!data.errors.some(e=>e.code===data.code&&e.field===data.field&&e.status===data.primary_status))throw new Error("INCONSISTENT_ERROR_PRIMARY");
+    show("invalid","درخواست اجرا نشد؛ خطاهای ورودی:\n"+data.errors.map(e=>(["W","L","n"].includes(e.field)?e.field:"JSON")+": "+e.code+" ["+e.status+"]").join("\n"));return;
+   }
   if(response.status===422 || response.status===415){
    show('invalid','ورودی پذیرفته نشد؛ هیچ تولیدی برای این خطای ورودی آغاز نشده است.');return;
   }

@@ -699,7 +699,7 @@
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/public_wln_server.py": {
-      "blob": "e92c711e37ef2fec46bf03e76cd1f4b59f61c5be",
+      "blob": "b3cb9e9ad0ef34349d3c6740f6285f95b865371a",
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/r4_baseline_audit.py": {
@@ -743,7 +743,7 @@
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/request_trace_server109.py": {
-      "blob": "a1574a1a4b15878f882530912a42ccfe341e6ffa",
+      "blob": "fbe215097b43c576ff3c97d44e741cea3d0de834",
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/review_cycle.py": {
@@ -903,7 +903,7 @@
       "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
     },
     "app/local_integration/current_entry_launch_x03.py": {
-      "blob": "f8ec421d7ccce9268e489af7bd43592cb2873590",
+      "blob": "728c983d5ec0ff902d464e24bc5c70a294925ee8",
       "classification": "SERVER_OWNED_CURRENT_LAUNCHER"
     },
     "app/local_integration/ap07_core_scheduler206.py": {
@@ -929,6 +929,14 @@
     ".github/workflows/r4-codec-environment402.yml": {
       "blob": "fb42bb4e41e2c445f3e87b4f1cb916d547b5c546",
       "classification": "OFFICIAL_PYPI_CODEC_ENVIRONMENT_STUDY_NO_SOLVER_NO_UPLOAD"
+    },
+    "app/local_integration/public_input_errors403.py": {
+      "blob": "3fd879fc77870bfbbfbc4ae2c8aafc54b0a86638",
+      "classification": "CURRENT_V3_ACCEPTANCE_VERSIONED_FIELD_ERROR_DIAGNOSTICS_NO_SOLVER"
+    },
+    ".github/workflows/r4-input-errors403.yml": {
+      "blob": "a0eaba1c4b105c351acc55c0af9b509bff0453ed",
+      "classification": "CURRENT_V3_ACCEPTANCE_VERSIONED_FIELD_ERROR_DIAGNOSTICS_NO_SOLVER"
     }
   },
   "top_level_paths": [
@@ -1199,7 +1207,9 @@
     ".github/workflows/r4-dxf-codec307.yml",
     ".github/workflows/r4-preview-codec306.yml",
     ".github/workflows/r4-paired-codec308.yml",
-    ".github/workflows/r4-codec-environment402.yml"
+    ".github/workflows/r4-codec-environment402.yml",
+    "app/local_integration/public_input_errors403.py",
+    ".github/workflows/r4-input-errors403.yml"
   ],
   "inventory_self_paths": [],
   "python_names": [
@@ -1319,7 +1329,8 @@
     "study_frame125_two_nonsquare.py",
     "validate_request.py",
     "validate_wln_preregistration.py",
-    "validation_server.py"
+    "validation_server.py",
+    "public_input_errors403.py"
   ],
   "explicit_current_registry_methods": [
     "current_entry_boundary_x03.propose_current",

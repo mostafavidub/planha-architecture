@@ -2,7 +2,8 @@
 import argparse,json,threading
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
-from public_wln_contract import parse_public,verify_public
+from public_wln_contract import verify_public
+from public_input_errors403 import parse_public_errors as parse_public, response as input_error_response
 from dimension_contract import InputError,MAX_BODY
 from automatic_program_search import run_live
 from live_program_scheduler import preflight
@@ -58,7 +59,8 @@ class Handler(BaseHTTPRequestHandler):
   if len(body)!=int(lengths[0]):self.reply(422,{'code':'BODY_INCOMPLETE'});return
   try:
    envelope=parse_public(body);verify_public(body,envelope);pf=preflight(body)
-  except InputError as ex:self.reply(ex.status,{'schema':'PUBLIC_WLN_INPUT_ERROR_V1','code':ex.code,'field':ex.field,**{k:False for k in AUTH}});return
+  except InputError as ex:self.reply(ex.status,input_error_response(ex));return
+  except Exception:self.reply(500,{'code':'INPUT_VALIDATION_FAILED_CLOSED','generation_started':False,**{k:False for k in AUTH}});return
   if not pf['execution_ready']:
    self.reply(409,public_summary({'preflight':pf,'state':pf['state']}));return
   if not LOCK.acquire(blocking=False):self.reply(409,{'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}});return

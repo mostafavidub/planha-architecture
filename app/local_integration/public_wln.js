@@ -5,14 +5,18 @@
  function show(text,state){result.textContent=text;result.dataset.state=state;}
  form.addEventListener("submit",async function(event){
   event.preventDefault();if(busy)return;
-  const n=Number(form.elements.n.value);
-  if(!Number.isSafeInteger(n)||(n!==1&&n!==2)){show("تعداد واحد مجاز فقط ۱ یا ۲ است.","error");return;}
-  const body={W:form.elements.W.value,L:form.elements.L.value,n:n};
+  const body={W:form.elements.W.value,L:form.elements.L.value,n:form.elements.n.value};
   busy=true;button.disabled=true;Array.from(form.elements).forEach(x=>x.disabled=true);
   show("بررسی محدود در حال اجراست. هنوز هیچ طرحی تأیید نشده است.","running");
   try{
    const response=await fetch("/api/public/plan",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
    const data=await response.json();
+   if(data.schema==="PUBLIC_WLN_ERROR_SET_V1"){
+    if(data.acceptance_contract!=="V25_PUBLIC_WLN_CONTRACT_V3"||data.generation_started!==false||!Array.isArray(data.errors)||!data.errors.length||!['accepted','qualified','display_allowed','delivery_allowed'].every(k=>data[k]===false))throw new Error("INVALID_ERROR_SET");
+    if(!data.errors.every(e=>e&&typeof e.code==="string"&&(e.field===null||typeof e.field==="string")&&Number.isInteger(e.status)&&[409,422].includes(e.status)))throw new Error("INVALID_ERROR_ROW");
+    if(![409,422].includes(response.status)||response.status!==data.primary_status||!data.errors.some(e=>e.code===data.code&&e.field===data.field&&e.status===data.primary_status))throw new Error("INCONSISTENT_ERROR_PRIMARY");
+    show("درخواست اجرا نشد؛ خطاهای ورودی:\n"+data.errors.map(e=>(["W","L","n"].includes(e.field)?e.field:"JSON")+": "+e.code+" ["+e.status+"]").join("\n"),"error");return;
+   }
    if(data.code==="STUDY_BUSY_NO_QUEUE"){show("یک بررسی دیگر در حال اجراست. درخواست شما در صف قرار نگرفت؛ تلاش دوباره خودکار نیست.","blocked");return;}
    if(data.schema==="PUBLIC_WLN_STUDY_SUMMARY_V1"){
     if(data.accepted!==false||data.qualified!==false||data.display_allowed!==false||data.delivery_allowed!==false||data.plan_count_available!==0||data.plan_payload!==null||data.download_available!==false)throw new Error("UNSAFE_SUMMARY");
