@@ -1,0 +1,32 @@
+name: V25 explicit two source-derived binding study
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-left-right-two-binding.yml'
+      - 'app/local_integration/left_right_two_source_binding.py'
+      - 'app/local_integration/test_left_right_two_source_binding.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scoped-binding:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Fresh original source diagnostic and unfiltered physical report
+        run: timeout 360s python -B app/local_integration/diagnose_left_right_two.py
+      - name: Source-derived shape and independent D4 only
+        run: timeout 360s python -B app/local_integration/test_left_right_two_source_binding.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-left-right-two-binding-study
+          path: left-right-two-*.json
+          retention-days: 30
