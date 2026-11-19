@@ -1,0 +1,80 @@
+{
+  "task": "3.5",
+  "start": "2026-11-19T04:29:22Z",
+  "deadline": "2026-11-19T07:29:22Z",
+  "status": "PARTIAL_EXACT_SOURCE_WALL_REMOVAL_EVIDENCE_FUNCTIONAL_NECESSITY_OPEN",
+  "tested_commit": "fcafde6cec36a3df08bc21828d01c281c7b8a941",
+  "run": 44459297261,
+  "job": 135341889225,
+  "tests": {
+    "helper": 9,
+    "wrong_model_physical_report_negative": 1
+  },
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "original_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+  "original_physical_status": "FAIL",
+  "criterion_state": "UNKNOWN",
+  "integrity_verified": true,
+  "counts": {
+    "all_source_walls": 91,
+    "boundary_dependency_probes": 46,
+    "module_bound_removal_probes": 70,
+    "non_module_inventory_only": 21,
+    "zero_unique_material_probes": 18
+  },
+  "artifact": {
+    "id": 14499022903,
+    "digest": "sha256:642dba681edc1ae4e6933d40ef200ce21c9796b7544667efc1327d917200564c",
+    "expires_at": "2026-12-19T04:35:44Z"
+  },
+  "scope": "Detached source-removal material and fixed-region boundary/limited separator consequences only; not a model, necessity proof, alternative placement, or deletion authorization.",
+  "remaining": [
+    "Alternative placement/shorter organisation per wall not proven",
+    "Useful-area benefit and full furnishing/use consequences not proven",
+    "Fresh rerouted access and full privacy scenarios not evaluated by this probe",
+    "Core/shell non-module walls inventoried only, no removal authorization"
+  ],
+  "examples": [
+    {
+      "id": "A.bed1.back",
+      "free_geometric_gain_m2": "327/400",
+      "useful_area_gain_m2": null,
+      "boundaries": [
+        {
+          "region": "A.bed1",
+          "length_m": "109/20"
+        }
+      ]
+    },
+    {
+      "id": "A.bed1.front",
+      "free_geometric_gain_m2": "0",
+      "useful_area_gain_m2": null,
+      "boundaries": []
+    },
+    {
+      "id": "A.kitchen.front.right",
+      "free_geometric_gain_m2": "453/4000",
+      "useful_area_gain_m2": null,
+      "boundaries": [
+        {
+          "region": "A.kitchen",
+          "length_m": "151/200"
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    "Zero unique material means overlapping source contributions, not architectural nonfunctionality.",
+    "Boundary coverage loss on fixed source floor is a dependency witness, not wall necessity or optimal placement.",
+    "Privacy probe only strict single-wall source-bed separators; absent certificate is not proven sight.",
+    "Routes are fixed existing paths against wall material only, not fresh access improvement.",
+    "Core/shell walls not removed or authorized for removal.",
+    "No constructed model or historical gate modification."
+  ],
+  "reproduce": "Checkout tested commit and run .github/workflows/v25-source-wall-function.yml while input artifact14497880207 remains available (expires2026-12-19T04:01:05Z). It verifies original bundle SHA fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720. After expiration reconstruct original task2.5 at9bf9ada0a9c71b413d07573e97aed0cdce6a71cd; exact new model identity must be reverified, not assumed.",
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "display_allowed": false
+}
