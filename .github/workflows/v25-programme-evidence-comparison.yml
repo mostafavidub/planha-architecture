@@ -1,0 +1,80 @@
+name: V25 programme evidence comparison task1.5
+on:
+  push:
+    paths:
+      - 'app/local_integration/programme_evidence_comparison.py'
+      - 'app/local_integration/test_programme_evidence_comparison.py'
+      - '.github/workflows/v25-programme-evidence-comparison.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-original-runtime-task-2-5
+          run-id: 44455198301
+          github-token: ${{ github.token }}
+          path: comparison-original
+      - uses: actions/download-artifact@v4
+        with:
+          name: existing-living-alternative-comparison
+          run-id: 44458422610
+          github-token: ${{ github.token }}
+          path: comparison-existing
+      - name: Comparator negative and scope tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_programme_evidence_comparison
+      - name: Bound comparison of two retained actual models
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,tarfile,hashlib
+          from programme_evidence_comparison import compare,digest
+          from front_rear_runtime_adapter import source_audit
+          before=source_audit()
+          fs=list(pathlib.Path('comparison-original').rglob('runtime-bundle.json'));assert len(fs)==1
+          raw=fs[0].read_bytes();assert hashlib.sha256(raw).hexdigest()=='fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720'
+          current=json.loads(raw)['packet']['world_model']
+          archive=pathlib.Path('evidence/archive/V25_run_44417514104.tar.gz')
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()=='3c227801016f42c1d7dd0d7354ba64f2363c320fd56482c7acc245f6963fed90'
+          with tarfile.open(archive,'r:gz') as t:
+           raw=t.extractfile('evidence/requests/4ac2d52f-e014-4c02-80d7-89f033ab93aa/exploratory_evidence.json').read()
+          assert hashlib.sha256(raw).hexdigest()=='4db29049bf9d88fad455245da8d42c269c8f5f305c0b4a63f4fe42e699ee7b77'
+          alternative=json.loads(raw)['child']['packet']['world_model']
+          assert digest(alternative)=='073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44'
+          fs=list(pathlib.Path('comparison-existing').rglob('existing-living-comparison.json'));assert len(fs)==1
+          raw=fs[0].read_bytes();evidence=json.loads(raw)
+          left,right=evidence['current_assessment'],evidence['alternative_assessment']
+          out=compare(current,alternative,left,right,{'models':[digest(current),digest(alternative)],'reports':[digest(left),digest(right)]})
+          out['input_evidence']={'existing_comparison_run':44458422610,'file_sha256':hashlib.sha256(raw).hexdigest(),'replay_mode':'Retained verified same-source reports, not newly generated models'}
+          assert source_audit()==before
+          pathlib.Path('programme-evidence-comparison.json').write_text(json.dumps(out,sort_keys=True,ensure_ascii=False,indent=2))
+          print(json.dumps({k:v for k,v in out.items() if k!='original_physical_reports'},sort_keys=True))
+          assert out['status']=='COMPARABLE_SCOPED_EVIDENCE_NOT_QUALITY_RANKING'
+          assert out['winner'] is None and out['quality_comparison']=='UNRESOLVED_PROFILE' and out['pareto_front'] is None
+          assert out['physical_statuses']==['FAIL','PASS_CONCEPT_SCOPED_REVIEW']
+          assert out['physical_failure_preserved']==[True,False]
+          assert all(out[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: programme-evidence-comparison-task1-5
+          path: programme-evidence-comparison.json
+          retention-days: 30
