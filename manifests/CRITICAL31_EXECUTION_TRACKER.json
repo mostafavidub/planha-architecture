@@ -233,13 +233,22 @@
       "description_verbatim": "۲.۴. تست دستکاری مدل، ورودی، برنامه و منشأ؛ خطا و موارد نامعلوم باید حفظ شوند. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PASS_LISTED_SYNTHETIC_ADVERSARIAL_CASES_NOT_LIVE_CYCLE",
       "dependencies": [
         "2.3"
       ],
       "start_utc": "2026-11-19T03:45:00Z",
       "deadline_utc": "2026-11-19T06:45:00Z",
-      "scope": "Adversarial exact input/programme/model/origin/report mutation; original evidence retention and fail-closed serialization; no geometric qualification."
+      "scope": "Adversarial exact input/programme/model/origin/report mutation; original evidence retention and fail-closed serialization; no geometric qualification.",
+      "checkpoint_utc": "2026-11-19T03:49:34Z",
+      "commit": "905472fbd5c584489f793dffe72d9a331c442af5",
+      "run": 44454050998,
+      "tests": {
+        "adversarial": 19,
+        "previous": 99,
+        "total": 118
+      },
+      "remaining": "No real model/solver/original replay run; full live chain and hard process timeout remain2.5."
     },
     {
       "id": "2.5",
@@ -247,10 +256,13 @@
       "description_verbatim": "۲.۵. اجرای یک مسیر واقعی تولید تا گزارش ارزیابی؛ نتیجه تاریخی جدا بماند و هیچ خطایی صرفاً برای قبولی حذف نشود. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "2.4"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:49:50Z",
+      "deadline_utc": "2026-11-19T06:49:50Z",
+      "scope": "First fresh original FRONT_REAR18x20/n2/program2 live chain with outer process timeout, full unfiltered reports and exact sources."
     },
     {
       "id": "3.1",
