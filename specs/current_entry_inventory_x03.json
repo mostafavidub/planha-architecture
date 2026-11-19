@@ -921,6 +921,10 @@
     ".github/workflows/r4-preview-codec306.yml": {
       "blob": "3842a99c63ad019443bcc4d308dcde08d6afd8d2",
       "classification": "SYNTHETIC_PREVIEW_BROWSER_STUDY_NO_SOLVER_NO_UPLOAD"
+    },
+    ".github/workflows/r4-paired-codec308.yml": {
+      "blob": "cdb0d7580f3f4380e3c828d1d8ef3806ae568b16",
+      "classification": "SYNTHETIC_PAIRED_CODEC_STUDY_NO_SOLVER_NO_UPLOAD"
     }
   },
   "top_level_paths": [
@@ -1189,7 +1193,8 @@
     "app/local_integration/validate_wln_preregistration.py",
     "app/local_integration/validation_server.py",
     ".github/workflows/r4-dxf-codec307.yml",
-    ".github/workflows/r4-preview-codec306.yml"
+    ".github/workflows/r4-preview-codec306.yml",
+    ".github/workflows/r4-paired-codec308.yml"
   ],
   "inventory_self_paths": [],
   "python_names": [

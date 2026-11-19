@@ -1,0 +1,26 @@
+name: R4 paired synthetic codecs
+on:
+  push:
+    paths:
+      - 'studies/r4/paired_codec308.py'
+      - 'studies/r4/test_paired_codec308.py'
+      - '.github/workflows/r4-paired-codec308.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  paired:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ezdxf==1.4.3
+      - run: python -B -m unittest discover -s studies/r4 -p test_paired_codec308.py -v
+      - run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
