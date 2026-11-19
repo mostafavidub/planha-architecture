@@ -1,0 +1,63 @@
+{
+  "schema": "V25_TASK_1_2_PROGRAM_REGISTRY_EVIDENCE_V1",
+  "task": "1.2",
+  "status": "COMPLETED_REGISTRY_SCOPE_ONLY",
+  "start_utc": "2026-11-19T03:08:30Z",
+  "verified_end_utc": "2026-11-19T03:12:01Z",
+  "overall_deadline_utc": "2026-11-19T05:51:01Z",
+  "tested_commit": "622393243a2c10b9835fac5dca9a90399e406629",
+  "run": {
+    "id": 44449675063,
+    "job_id": 135310260149,
+    "conclusion": "success",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44449675063"
+  },
+  "tests": {
+    "registry": 11,
+    "public_contract": 20,
+    "existing_dimension": 18,
+    "existing_input": 5,
+    "total": 54,
+    "all_passed": true
+  },
+  "source_audit": {
+    "result": "MODULE_INVENTORY_OBSERVED_ONLY",
+    "double": "bed1.bed 2x1.6m; closet .6x2.05m; exact 4 activity IDs",
+    "twin": "bed1.bedA/bedB each1.9x.9m, one design place each; exact6 activity IDs",
+    "dining": "table .8x1.2m, four distinct .5x.5 chairs with unique seat IDs; transfer profile explicitly unvalidated",
+    "guards_before_after": [
+      12991,
+      12991
+    ],
+    "source_unchanged_assertion": true,
+    "tracked_checkout_unchanged": true,
+    "whole_model_constructed": false
+  },
+  "artifact": {
+    "id": 14494837675,
+    "name": "program-registry-task-1-2",
+    "sha256_zip": "0a0d9ca8a175382809d8ebb797c6f39bdad88323b171f74bfee67da0d81848dc",
+    "retention_days": 30,
+    "expiry_expected_utc": "2026-12-19T03:11:59Z",
+    "expiry_note": "Expected from upload+retention, may be deleted earlier.",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44449675063/artifacts/14494837675",
+    "reproduce": "Run .github/workflows/v25-program-registry.yml from tested_commit in GitHub Actions; source audit writes program-registry-source-audit.json, unittest logs program-registry-tests.txt."
+  },
+  "approval_vs_readiness": {
+    "one_bed": "Approved two-design-person programme; source branch exists but whole-plan adapter not independently audited.",
+    "two_bed": "Approved four-design-person double+twin programme; bounded experimental adapter exists, not qualified or programme-suitable.",
+    "three_bed": "Unapproved capacity profile, approval source intentionally absent, excluded from approved registry enumeration.",
+    "quality": "PROFILE_NOT_READY for all, no fabricated bounds, scores or Pareto anchors.",
+    "bundle_relation": "Adequacy for same design group is required, not verified. Seat/bed counts need not equal; four source chairs do not increase one-bedroom sleep capacity or alone invalidate it."
+  },
+  "limitations": [
+    "No orchestrator or planner integration, task1.3 not executed.",
+    "No whole-bundle functional acceptance, actual population inference, global feasibility or room-quality approval.",
+    "Living source inventory read from assemble/public_witness, not independently constructed in the module-only audit.",
+    "automatic_program_search.py remains previous incomplete draft and was not changed by task1.2."
+  ],
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "display_allowed": false
+}
