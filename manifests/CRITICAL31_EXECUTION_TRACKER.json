@@ -1,0 +1,579 @@
+{
+  "schema": "CRITICAL31_EXECUTION_TRACKER_V1",
+  "baseline_commit": "bf1366952597d12351eff5d361736a5f9a86bafe",
+  "source_messages": [
+    "Sentinel_07f14bfa5fd48191a696c9acfd3bbf71",
+    "Sentinel_7645ac973d70819190ded31859b26a9b",
+    "Sentinel_7fd3e4a3a8fc819197a10c659c847828"
+  ],
+  "tasks": [
+    {
+      "id": "0.1",
+      "original_id": "۰.۱",
+      "description_verbatim": "۰.۱. تعیین commit مبنا و تفکیک کد فعال، تاریخی و آزمایشی؛ خروجی: یک فهرست قابل استناد. ۳۰ دقیقه",
+      "estimate_minutes": 30,
+      "max_minutes": 180,
+      "status": "DONE_SCOPED",
+      "dependencies": []
+    },
+    {
+      "id": "0.2",
+      "original_id": "۰.۲",
+      "description_verbatim": "۰.۲. ثبت وضعیت واقعی کارهای قبلی و وابستگی‌ها، از جمله کد نیمه‌کاره انتخاب خودکار. ۴۵ دقیقه",
+      "estimate_minutes": 45,
+      "max_minutes": 180,
+      "status": "DONE_SCOPED",
+      "dependencies": [
+        "0.1"
+      ]
+    },
+    {
+      "id": "0.3",
+      "original_id": "۰.۳",
+      "description_verbatim": "۰.۳. انتخاب یک مسیر محدود برای اولین چرخه کامل و تعیین معیار قبولی آن، بدون ادعای پوشش همه زمین‌ها. ۴۵ دقیقه",
+      "estimate_minutes": 45,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.2"
+      ]
+    },
+    {
+      "id": "1.1",
+      "original_id": "۱.۱",
+      "description_verbatim": "۱.۱. تکمیل و تست قرارداد ورودی فقط عرض، طول و تعداد واحد؛ رد ابعاد خارج ۵ تا ۲۵ و ورودی اضافی. ۶۰ دقیقه",
+      "estimate_minutes": 60,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.3"
+      ]
+    },
+    {
+      "id": "1.2",
+      "original_id": "۱.۲",
+      "description_verbatim": "۱.۲. تعریف برنامه‌های فضایی و ظرفیت‌های دارای منبع؛ هر برنامه بدون سازنده، پشتیبانی‌شده اعلام نشود. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.3"
+      ]
+    },
+    {
+      "id": "1.3",
+      "original_id": "۱.۳",
+      "description_verbatim": "۱.۳. ساخت جست‌وجوی خودکارِ گزینه‌های برنامه با ثبت علت، بودجه و ترتیب بررسی. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "1.1",
+        "1.2",
+        "2.1"
+      ]
+    },
+    {
+      "id": "1.4",
+      "original_id": "۱.۴",
+      "description_verbatim": "۱.۴. بررسی تغییر هسته، تقسیم و جانمایی پیش از بررسی برنامه با خواب کمتر؛ بدون تغییر پنهانی برنامه. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "1.3"
+      ]
+    },
+    {
+      "id": "1.5",
+      "original_id": "۱.۵",
+      "description_verbatim": "۱.۵. اتصال قواعد مقایسه کیفیت و گزینه‌های مناسب؛ اگر معیار کیفیت موجود نباشد تصمیم قطعی داده نشود. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "1.4",
+        "3.1"
+      ]
+    },
+    {
+      "id": "1.6",
+      "original_id": "۱.۶",
+      "description_verbatim": "۱.۶. اتصال فرم نهایی سه‌فیلدی به API و جداکردن ابزار آزمایشی از فرم محصول. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "1.1",
+        "1.3"
+      ]
+    },
+    {
+      "id": "2.1",
+      "original_id": "۲.۱",
+      "description_verbatim": "۲.۱. انتخاب یک مولد و ارزیاب هم‌نسخه و مشخص‌کردن قرارداد داده و منشأ آن‌ها. ۶۰ دقیقه",
+      "estimate_minutes": 60,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.3"
+      ]
+    },
+    {
+      "id": "2.2",
+      "original_id": "۲.۲",
+      "description_verbatim": "۲.۲. نگاشت هر قاعده ضروری به داده، بررسی‌کننده، شاهد و اثر آن بر تصمیم. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "2.1",
+        "3.1"
+      ]
+    },
+    {
+      "id": "2.3",
+      "original_id": "۲.۳",
+      "description_verbatim": "۲.۳. اتصال بررسی‌های هندسی، عملکردی و قواعد به همان مدل ساخته‌شده. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "2.2"
+      ]
+    },
+    {
+      "id": "2.4",
+      "original_id": "۲.۴",
+      "description_verbatim": "۲.۴. تست دستکاری مدل، ورودی، برنامه و منشأ؛ خطا و موارد نامعلوم باید حفظ شوند. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "2.3"
+      ]
+    },
+    {
+      "id": "2.5",
+      "original_id": "۲.۵",
+      "description_verbatim": "۲.۵. اجرای یک مسیر واقعی تولید تا گزارش ارزیابی؛ نتیجه تاریخی جدا بماند و هیچ خطایی صرفاً برای قبولی حذف نشود. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "2.4"
+      ]
+    },
+    {
+      "id": "3.1",
+      "original_id": "۳.۱",
+      "description_verbatim": "۳.۱. استخراج معیار و داده لازم برای هر چهار بررسی از اسناد؛ مشخص‌کردن مواردی که معیار معتبرشان هنوز وجود ندارد. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.3"
+      ]
+    },
+    {
+      "id": "3.2",
+      "original_id": "۳.۲",
+      "description_verbatim": "۳.۲. بررسی تناسب برنامه فضایی و ظرفیت واقعی هر واحد. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "3.1",
+        "1.2"
+      ]
+    },
+    {
+      "id": "3.3",
+      "original_id": "۳.۳",
+      "description_verbatim": "۳.۳. بررسی مسیرهای مهمان در کنار محدوده واقعی کار و حرکت آشپزخانه. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "3.1",
+        "2.3"
+      ]
+    },
+    {
+      "id": "3.4",
+      "original_id": "۳.۴",
+      "description_verbatim": "۳.۴. بررسی نشیمن پیوسته و قابل استفاده، شامل چیدمان و گردش، نه فقط مساحت. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "3.1",
+        "2.3"
+      ]
+    },
+    {
+      "id": "3.5",
+      "original_id": "۳.۵",
+      "description_verbatim": "۳.۵. بررسی نقش دیوارها با مقایسه حذف یا جایگذاری جایگزین و اثر بر حریم و مسیر. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "3.1",
+        "2.3"
+      ]
+    },
+    {
+      "id": "3.6",
+      "original_id": "۳.۶",
+      "description_verbatim": "۳.۶. اتصال نتیجه هر بررسی به تصمیم نهایی و تست موارد نامعلوم و شکست. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5"
+      ]
+    },
+    {
+      "id": "4.1",
+      "original_id": "۴.۱",
+      "description_verbatim": "۴.۱. اتصال علت رد واقعی به عملگر اصلاح مناسب. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "2.5"
+      ]
+    },
+    {
+      "id": "4.2",
+      "original_id": "۴.۲",
+      "description_verbatim": "۴.۲. حفظ ورودی، تعداد واحد، برنامه، ظرفیت و تجهیزات لازم و ثبت رابطه طرح قبلی و جدید. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "4.1"
+      ]
+    },
+    {
+      "id": "4.3",
+      "original_id": "۴.۳",
+      "description_verbatim": "۴.۳. ساخت طرح تازه و اجرای دوباره همه بررسی‌های لازم، نه فقط تست خطای قبلی. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "4.2"
+      ]
+    },
+    {
+      "id": "4.4",
+      "original_id": "۴.۴",
+      "description_verbatim": "۴.۴. مدیریت سقف تلاش، توقف بدون پیشرفت و اعلام روشنِ اصلاح ناموفق. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "4.3"
+      ]
+    },
+    {
+      "id": "4.5",
+      "original_id": "۴.۵",
+      "description_verbatim": "۴.۵. آزمون واقعی از تاریخچه: طرح ردشده → طرح تازه → بررسی مجدد، همراه تست دستکاری و عدم تحویل طرح ناقص. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "4.4",
+        "3.6"
+      ]
+    },
+    {
+      "id": "5.1",
+      "original_id": "۵.۱",
+      "description_verbatim": "۵.۱. پیش‌ثبت زمین‌های کوچک، متوسط، بزرگ، غیرمربع، اعشاری و مرزی و انتظار هر آزمون. ۶۰ دقیقه",
+      "estimate_minutes": 60,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "0.3"
+      ]
+    },
+    {
+      "id": "5.2",
+      "original_id": "۵.۲",
+      "description_verbatim": "۵.۲. اجرای مسیر واقعی از فرم سه‌فیلدی تا تولید و ارزیابی برای نمونه‌ها و ثبت جداگانه علت هر نتیجه. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "1.6",
+        "2.5"
+      ]
+    },
+    {
+      "id": "5.3",
+      "original_id": "۵.۳",
+      "description_verbatim": "۵.۳. اجرای حداقل یک چرخه واقعی رد و بازطراحی تا رسیدن به طرح واجد همه شرایط یا ثبت علت شکست. ۱۵۰ دقیقه",
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "5.2",
+        "4.5"
+      ]
+    },
+    {
+      "id": "5.4",
+      "original_id": "۵.۴",
+      "description_verbatim": "۵.۴. تست نمایش و خروجی DXF برای طرح تأییدشده و جلوگیری از خروجی طرح ردشده یا نامعلوم. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "5.3",
+        "3.6"
+      ]
+    },
+    {
+      "id": "5.5",
+      "original_id": "۵.۵",
+      "description_verbatim": "۵.۵. سنجش تعداد و تنوع واقعی طرح‌های تأییدشده و اعلام صریح کسری نسبت به شش طرح. ۹۰ دقیقه",
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "5.4"
+      ]
+    },
+    {
+      "id": "5.6",
+      "original_id": "۵.۶",
+      "description_verbatim": "۵.۶. تطبیق نسخه GitHub، قواعد سند، نتایج، محدودیت‌ها و شواهد ماندگار؛ ثبت موارد باقی‌مانده. ۱۲۰ دقیقه",
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "NOT_STARTED",
+      "dependencies": [
+        "5.5"
+      ]
+    }
+  ],
+  "prior_v25": [
+    {
+      "id": "V25-01",
+      "status": "PARTIAL",
+      "evidence": "بازیابی دقیقclosure تاریخی:8178/8178مسیر و12991pin؛ منشأ همه تغییرات خارجclosure واصل588 همچنان اثبات نشده."
+    },
+    {
+      "id": "V25-02",
+      "status": "PASS_SCOPED_RUNNER",
+      "evidence": "gateway قابل‌حمل باsys.executable وguard معتبر درGitHub Actions؛۱۵درخواست واقعی انجام شد."
+    },
+    {
+      "id": "V25-03",
+      "status": "PASS_HISTORY_TAXONOMY_SCOPED_NINE_LEGACY_TESTS_BLOCKED",
+      "evidence": "علت‌های دقیق و چندگانه درhistory حفظ شد؛run44438109457 درcommit5e2574ca:۱۹تست،۳رکورد واقعی آرشیوشده و۴حالتChromium DOM موفق؛guard12991. ۹تست قدیمی به‌علتfixture غایب مسدود،نهPASS. عدم بازیابی مدل وexport403 محفوظ؛نه هندسه تازه/QAبصری/QUALIFIEDمثبت/کل قراردادمحصول.",
+      "evidence_runs": [
+        44438109457
+      ]
+    },
+    {
+      "id": "V25-04",
+      "status": "PARTIAL_PASS",
+      "evidence": "کنترلactiveCLI وsavedrepair باexactraw trace؛۹تست ورودی/entrypoint پاس. contract114 تاریخی5..45 است وکامل‌بودن همهentrypointها ادعا نمی‌شود."
+    },
+    {
+      "id": "V25-05",
+      "status": "PARTIAL_PASS",
+      "evidence": "۵تست تازه ورودی روی df778025، همراه۳۵تست قبلی موفق؛ پوشش parser/adapter نه کل محصول."
+    },
+    {
+      "id": "V25-06",
+      "status": "PARTIAL_DIAGNOSTIC_PROGRAM_NOT_PUBLIC_D07",
+      "evidence": "انتخاب صریح دو/سه‌خواب و پیش‌فرض سه‌خواب در UI واقعی تأیید شد؛ انتخاب خودکار برنامه، n1 و فرم۲ باز است.",
+      "evidence_runs": [
+        44421177419
+      ],
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
+    },
+    {
+      "id": "V25-07",
+      "status": "DONE_PREREGISTRATION_ONLY",
+      "evidence": "۱۲زوج ورودی ثبت شدند؛ شمار واحد۲، شمارگزینه۱. parsing دقیق آزموده شد؛ اجرای هندسه موضوع۱۳ است."
+    },
+    {
+      "id": "V25-08",
+      "status": "DONE_SCOPED_DIAGNOSIS",
+      "evidence": "ناموفق‌بودنoriginalROW و برخورد apron تشخیص داده شد؛ اندازه‌ها و گیت‌ها بدون کوچک‌کردنfixture درcandidateمستقل بازپارامتری شد."
+    },
+    {
+      "id": "V25-09",
+      "status": "PARTIAL_PASS",
+      "evidence": "kitchen3.6×3.05 وbeddepth4.5 درحدمنبع؛fixture/operations ثابت؛guard محفوظ؛۶PASS فیزیکی مستقل؛چهارUNKNOWN باز."
+    },
+    {
+      "id": "V25-10",
+      "status": "PASS_PHYSICAL_SCOPE_ONLY",
+      "evidence": "مدل تازه25×25 درمسیرactive ساخته وreview شد، اماqualification/display ممنوع."
+    },
+    {
+      "id": "V25-11",
+      "status": "PARTIAL_SOURCE_DERIVED_D4_STUDY_PASS_HISTORICAL_GATE_FAIL",
+      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده. مقایسه44444599800:چهارreplayمعتبرولیهمهFAIL؛۲۰SIDE۶۵error،۲۰FRAMEو۲۵هردو۴۰schemaerror؛۴UNKNOWNوFRAMEbindingNOT_APPLICABLEمحفوظ. FRAME44445639710:دوpositiveمحدود،۱۶negativeو۱۳directnegative؛historicalFAIL40/2pending/4UNKNOWN محفوظ. غیرمربع44447123050:دوno-proposal،دوFRAMEsource/D4passباoriginalFAIL40؛مرزnp.float64نقش‌محدودوثابت‌مقداررفعشد. کلخانوادهناقص،checkpointبرایاولویتV25-06.",
+      "evidence_runs": [
+        44440172082,
+        44440388271,
+        44441849585,
+        44443156785,
+        44444599800,
+        44445639710,
+        44447123050
+      ]
+    },
+    {
+      "id": "V25-12",
+      "status": "PARTIAL_PASS",
+      "evidence": "۶نمونه مستقل شامل25×24.5،24.5×25،24×24 و۴مدلactive؛مدل کامل واجدشرایط هنوزصفر."
+    },
+    {
+      "id": "V25-13",
+      "status": "DONE_MATRIX_NOT_DOMAIN_PROOF",
+      "evidence": "۱۲درخواستoriginalصفرمدل؛۱۸حالتcandidate۶PASSفیزیکی؛۱۵درخواستactive۴مدل/صفرqualified. نه اثباتکلدامنه."
+    },
+    {
+      "id": "V25-14",
+      "status": "PARTIAL_FROZEN_REGISTRY_TRACE",
+      "evidence": "۸۹قاعده/۳۸نیاز تاریخی ردیابی؛۲۹PASS_LIMITED،۱ارزیابی‌نشده،۷نامرتبط مرحله،۱خارج دامنه. شش الزام محصول و نگاشت همه اسناد جاری و چهارUNKNOWN باز است.",
+      "evidence_runs": [
+        44421757612
+      ]
+    },
+    {
+      "id": "V25-15",
+      "status": "NATURAL_REJECTION_OBSERVED",
+      "evidence": "رد طبیعی HTTP۱۸×۲۰ واجد پیش‌شرط و۲۴×۱۸ خارج دامنه عملگر مشاهده شد؛ مورد دوم apron حمام وارد dining است.",
+      "evidence_runs": [
+        44412011025,
+        44413136071,
+        44414249134
+      ]
+    },
+    {
+      "id": "V25-16",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
+      "evidence_runs": [
+        44417514104
+      ]
+    },
+    {
+      "id": "V25-17",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
+      "evidence_runs": [
+        44417514104
+      ]
+    },
+    {
+      "id": "V25-18",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
+      "evidence_runs": [
+        44417514104
+      ]
+    },
+    {
+      "id": "V25-19",
+      "status": "PASS_LIVE_EXPLORATORY_SCOPE_NOT_PRODUCT_CLOSURE",
+      "evidence": "HTTPتازه۱۸×۲۰:تولیدوالدواقعی،ردطبیعی،endpointاکتشافی،فرزندتازهPASSفیزیکی؛request/pending/history/403صحیح.چهارUNKNOWNوعملگرproductionوqualificationباز.",
+      "evidence_runs": [
+        44417514104
+      ]
+    },
+    {
+      "id": "V25-20",
+      "status": "PASS_DIAGNOSTIC_UI_ONLY_PUBLIC_D07_NONCONFORMANT",
+      "evidence": "۱۴کنترل Chromium واقعی و۲۳تست پاسخ موفق؛ دو تصویر مشاهده شد. ادامه دوخوابه جدا، لغو، تاریخچه، رد۲۶ و ممنوعیت نمایش/تحویل محفوظ. نه پذیرش معماری.",
+      "evidence_runs": [
+        44421177419,
+        44420400051
+      ],
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
+    },
+    {
+      "id": "V25-21",
+      "status": "PASS_LISTED_LIFECYCLE_SCENARIOS_SCOPED_NOT_EXHAUSTIVE",
+      "evidence": "دوtimeoutواقعی۱۵۰ثانیهgeneration/repair.executeدر44435153299؛دوTCPgenerationقطع+retryواقعی/immutableپرونده/health/رد۲۶در44435888115. کلیک‌تکراری/پاسخ‌کهنهChromium44421177419 شواهدجدا؛ششblobUI/serverثابت. controlledworkerنههندسه،repairHTTP/descendantsدلخواه/تمامraceهااثباتنشده؛سناریوهایثبت‌شدهشاهددارند.",
+      "evidence_runs": [
+        44435153299,
+        44435888115,
+        44421177419
+      ],
+      "later_change_note": "history_ui.js برایtaxonomyدرV25-03تغییرکرد؛برابری۶blob باrunقدیمی صرفاًدرcheckpoint01:18بود،نهHEADکنونی. run44438109457 چهارDOMhistorycaseراجدیدتستکرد،نهتکرارهمه۱۴سناریویUI."
+    },
+    {
+      "id": "V25-22",
+      "status": "TIMEBOX_STOPPED_PARTIAL_CURRENT_FUNCTIONAL_CLOSURE_OPEN",
+      "evidence": "Evaluator۱۸×۲۰ وmatrixevaluator۱۵×۲۵/۲۰×۲۰/۲۴×۱۸ مستقل صفرخطا ولی۷pending وچهارUNKNOWN دارند. جایگزینsource-built دوwallآشپزخانه با۸guestpath ثابت و۷negative تأیید؛۰٫۲۲۶۵m²مصالح کمتر،نه usefularea.۸۹wallباقی؛livingresidual همچنان درdiagnostic بدونشاهداتصال.qualification/تحویل/۳۰۳ممنوع. endpoint attribution در44433258552:هرstandingbody۰٫۴۹m²کاملدرگردش/public،صفرresidual وبدونمانعفیزیکی؛blockedبودنresidual یک محدودیتdomainاست،نهاثباتناممکنیliving. سقف01:07:31رسید؛کلگامباچهارUNKNOWNبهپایاننزدیکنیست،متوقف/ناقصثبتشد؛هیچrunفعالیندارد.",
+      "evidence_runs": [
+        44416886004,
+        44418924830,
+        44420044477,
+        44421091175,
+        44424755955,
+        44424740173,
+        44426199579,
+        44426858702,
+        44428198877,
+        44428930218,
+        44430645378,
+        44430765347,
+        44432473286,
+        44433258552
+      ]
+    },
+    {
+      "id": "V25-23",
+      "status": "BLOCKED_VERIFIED_NO_QUALIFIED_CURRENT_CANDIDATE",
+      "evidence": "preflight44434365012چهارمدل۱۸×۲۰/۱۵×۲۵/۲۰×۲۰/۲۴×۱۸راUNKNOWNوqualified0تأییدکرد؛تنوعگزینهواجدشرایطاثباتنشد."
+    },
+    {
+      "id": "V25-24",
+      "status": "PARTIAL_READ_ONLY_PREFLIGHT_COMPLETE_ARCHIVE_APPROVAL_PENDING",
+      "evidence": "44434365012:۳۳آرشیو/۲۷۱عضو/۲۲۹۰۷۸۹۱بایتhash/sizeصحیح؛workflowدرcommitدقیقوinputarchive۴مطالعهجدیدموجود. نهبازاجرایهمهآزمایش‌ها؛۴artifactجدیدموقت،archiveworkflowمجازنشده؛بدونتغییرpermissionیاarchive.",
+      "evidence_runs": [
+        44420287604,
+        44434365012
+      ]
+    }
+  ],
+  "task_0_2": {
+    "start_utc": "2026-11-19T03:01:04Z",
+    "completed_utc": "2026-11-19T03:01:34Z",
+    "deadline_utc": "2026-11-19T06:01:04Z",
+    "status": "DONE_SCOPED_STATE_AND_DEPENDENCY_INVENTORY",
+    "unfinished_files": [
+      "public_wln_contract.py",
+      "automatic_program_search.py"
+    ],
+    "unverified_findings": [
+      "automatic_program_search.py contains an inconsistent ENGINE_PIN literal; read-only finding, no runtime failure asserted",
+      "automatic program _actual_inventory expects source fields and contains unused guessed fixture names; needs source mapping and dedicated tests",
+      "no dedicated automatic-program test or UI integration at baseline"
+    ],
+    "blockers": [
+      "four current functional UNKNOWN",
+      "legacy record schema lacks explicit-two LEFT_RIGHT",
+      "nine historical history tests need missing fixture files",
+      "evidence archive approval remains pending for privileged ingest",
+      "no qualified candidate for positive output/diversity"
+    ]
+  },
+  "whole_cycle_verified": false,
+  "stage303_started": false
+}
