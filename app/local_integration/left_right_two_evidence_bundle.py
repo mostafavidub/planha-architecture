@@ -22,9 +22,12 @@ def evaluate(packet,ctx):
       'scope':'Independent orchestration of original physical/named and current diagnostics. Source-derived shape/D4 only, not independent declarative semantic schema, not a replacement admission contract; historical incompatibility and all pending retained.',
       'stages':[]}
     paths=['app/local_integration/'+name for name in LOCAL_FILES]
-    sources=snapshot(ROOT,paths);engine_before=source_state();immutable=digest([packet,ctx])
+    sources=snapshot(ROOT,paths);engine_before=source_state();immutable=digest([packet,ctx]);report_digests={}
+    def freeze_report(section):
+        report_digests[section]=digest(result[section])
     def unchanged():
         ensure(digest([packet,ctx])==immutable,'BUNDLE_INPUT_MUTATION')
+        for section,value in report_digests.items():ensure(digest(result[section])==value,'COMPLETED_REPORT_MUTATION:'+section)
         require_unchanged(ROOT,sources);ensure(source_state()==engine_before,'BUNDLE_ENGINE_CHANGED')
         ensure(guard(FREEZE)==12991,'FROZEN_GUARD_CHANGED')
     def record_pending(section,report):
@@ -33,7 +36,7 @@ def evaluate(packet,ctx):
         for row in report.get('out_of_scope',[]):result['pending_obligations'].append({'section':section,'field':'out_of_scope','value':copy.deepcopy(row)})
     try:
         ensure(guard(FREEZE)==12991,'FROZEN_GUARD_CHANGED')
-        shape=source_binding(packet,ctx);result['source_derived_shape_d4']=shape
+        shape=source_binding(packet,ctx);result['source_derived_shape_d4']=shape;freeze_report('source_derived_shape_d4')
         result['stages'].append('source_derived_shape_d4')
         unchanged()
         ensure(shape['scoped_verified'],'SOURCE_DERIVED_BINDING_FAILED')
@@ -43,7 +46,7 @@ def evaluate(packet,ctx):
             ensure(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'BUNDLE_IMPORTED_CALLABLE_PATH')
         historical=evaluate_pair127.evaluate(packet,ctx)
         ensure(historical.get('model_hash')==mh,'HISTORICAL_MODEL_BINDING')
-        result['historical_full_report']=historical
+        result['historical_full_report']=historical;freeze_report('historical_full_report')
         result['stages'].append('original_evaluate_pair127_with_original_physical_named');unchanged()
         historical_hash=digest(historical)
         result['historical_report_digest_before_current']=historical_hash
@@ -53,6 +56,7 @@ def evaluate(packet,ctx):
         ensure(actual==wanted and len(actual)==len(set(actual)),'NAMED_REQUIREMENT_INVENTORY')
         ensure(audit['model_hash']==mh and audit['all_rules_approved']is False,'NAMED_MODEL_AUTHORITY')
         result['named_requirement_inventory']={'ids':actual,'count':len(actual),'contract_hash':audit['contract_hash'],'model_hash':mh}
+        freeze_report('named_requirement_inventory')
         current=functional_review.assess(model,historical,ENGINE_PIN)
         ensure(digest(historical)==historical_hash,'CURRENT_MUTATED_HISTORICAL_REPORT')
         result['historical_report_digest_after_current']=digest(historical)
@@ -61,7 +65,7 @@ def evaluate(packet,ctx):
         ensure(set(ids)==CURRENT_UNKNOWN|{'INTERNAL_INSTANCE_CAPACITY'} and len(ids)==5,'CURRENT_REQUIREMENT_INVENTORY')
         ensure(all(r['state']=='UNKNOWN' for r in rows if r['id'] in CURRENT_UNKNOWN),'CURRENT_UNKNOWN_REQUIRED')
         ensure(all(current[k]is False for k in ('accepted','qualified','display_allowed','delivery_allowed')),'CURRENT_AUTHORITY')
-        result['current_functional_report']=current
+        result['current_functional_report']=current;freeze_report('current_functional_report')
         result['stages'].append('original_current_functional_assess');unchanged()
         record_pending('source_derived_shape_d4',shape)
         record_pending('original_evaluate_pair127',historical)
@@ -84,5 +88,5 @@ def evaluate(packet,ctx):
         except Exception as ex:
             result.update(status='EVIDENCE_BUNDLE_FAILED_CLOSED',completed=False)
             result['errors'].append({'section':'final_immutability','type':type(ex).__name__,'detail':str(ex)})
-        result.update(source_snapshot=sources,engine_revision=ENGINE_PIN,input_bundle_digest=immutable,output_bundle_digest=digest([packet,ctx]),guard_expected=12991)
+        result.update(completed_report_digests=copy.deepcopy(report_digests),source_snapshot=sources,engine_revision=ENGINE_PIN,input_bundle_digest=immutable,output_bundle_digest=digest([packet,ctx]),guard_expected=12991)
     return result
