@@ -76,7 +76,7 @@ class Boundaries(unittest.TestCase):
    self.assertIs(out['input_valid'],True);dispatch.assert_not_called()
   two=preflight(b'{"W":"18","L":"20","n":2}');self.assertIs(two['execution_ready'],True)
  def test_versions_and_current_static_ui_domain(self):
-  self.assertEqual(SCHEMA,'V25_PUBLIC_WLN_CONTRACT_V2');self.assertEqual(DOMAIN_POLICY_VERSION,'MVP_UNIT_DOMAIN_PRD_V2')
+  self.assertEqual(SCHEMA,'V25_PUBLIC_WLN_CONTRACT_V3');self.assertEqual(DOMAIN_POLICY_VERSION,'MVP_UNIT_DOMAIN_PRD_V3')
   html=(ROOT/'app/local_integration/public_wln.html').read_text()
   js=(ROOT/'app/local_integration/public_wln.js').read_text()
   self.assertIn('min="1" max="2" step="1"',html);self.assertEqual(html.count('<input '),3)

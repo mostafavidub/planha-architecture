@@ -1,0 +1,30 @@
+name: R4 input V3 draft targeted checks
+on:
+  push:
+    branches: [r4-input-v3-draft]
+    paths: ['.github/workflows/r4-input-v3-draft.yml', 'tests/r4/test_current_input_contract.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  input:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V3 draft HTTP and parser tests without solver
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B -m unittest discover -s tests/r4 -p test_current_input_contract.py -v
+          cd app/local_integration
+          python -B -m unittest -v test_public_wln_contract test_dimension_contract test_v25_input_audit
+      - name: No tracked source mutation
+        if: always()
+        run: git diff --exit-code
