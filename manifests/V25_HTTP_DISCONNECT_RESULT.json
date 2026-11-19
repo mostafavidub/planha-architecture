@@ -1,0 +1,63 @@
+{
+  "schema": "V25_REAL_HTTP_GENERATION_DISCONNECT_V1",
+  "status": "PASS_CONTROLLED_GENERATION_HTTP_DISCONNECT_ONLY",
+  "connected_idle_seconds": 1.2555776659999935,
+  "disconnect_to_persisted_seconds": 0.24300438400000246,
+  "actual_worker_ready": true,
+  "cancelled_while_connected": false,
+  "persisted_http_status": 499,
+  "worker_returncode": -9,
+  "wait_completed": true,
+  "owned_process_group_absent": true,
+  "post_disconnect_health_status": 200,
+  "out_of_domain_status": 422,
+  "out_of_domain_result": {
+    "schema": "PLANHA_MAC_PARAMETRIC_EXPERIMENT_V1",
+    "outcome": "INVALID_INPUT",
+    "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+    "field": "W",
+    "accepted": false,
+    "delivery_allowed": false
+  },
+  "worker_launch_count": 1,
+  "dispatch": [
+    {
+      "interpreter_is_active": true,
+      "requested_new_session": true,
+      "requested_worker": "parametric_worker.py"
+    }
+  ],
+  "request_result_lifecycle_persisted": true,
+  "clock_accelerated": false,
+  "disconnect_mocked": false,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "scope": "Real TCP disconnect and production Handler cancellation with one controlled owned sleeping worker and temporary storage. 499 is persisted, not received by the disconnected client. No geometry, repair HTTP, descendant-process or all-race proof.",
+  "server_stopped_after_test": true,
+  "source_snapshot": {
+    ".github/workflows/v25-http-disconnect.yml": "847249a8fe18d1becd83482c1e8d1c592d4cd76a753d1e9e379a3f9794b26118",
+    "app/local_integration/test_http_disconnect.py": "9d6876db6ff732e52a1438ac11350fb36f0968ec74b93788f757f90a123d1029",
+    "app/local_integration/validation_server.py": "13bbbc00b8cab81cf5c8ec218e2d5e284e7969a75ff3484c00ff507cb74ac883",
+    "app/local_integration/generation_gateway.py": "4ca67273e3e23f564985f219c98b53d3115cb8c9b465cb23ddda4f645ba04911",
+    "app/local_integration/dimension_contract.py": "3a600826b9aad926241057f4dfcbe5ff56bfbf6ee5605f6fdf382e92b0df3818",
+    "app/local_integration/parametric_worker.py": "fdecfc8fd1d448231d23cb537280487ec63ac86b0802f275d7974d3683087f6d"
+  },
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "operation_start": "2026-11-19T01:09:46Z",
+  "operation_deadline": "2026-11-19T04:09:46Z",
+  "commit": "bfda48a0a60835e8c5cbb09bc56dc939183500f5",
+  "run_id": 44435375055,
+  "job_id": 135262786854,
+  "artifact": {
+    "id": 14488876513,
+    "name": "v25-http-disconnect",
+    "size_bytes": 1308,
+    "sha256": "30468a8df17754fa592a1ec64af9bb7d36042619f5569fae73da1d0244e915ab",
+    "expires_at": "2026-12-19T01:14:48Z",
+    "durably_archived": false
+  },
+  "whole_cycle_verified": false,
+  "stage303_execution_started": false
+}
