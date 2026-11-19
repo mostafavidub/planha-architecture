@@ -168,11 +168,12 @@ def child(folder,case,nonce):
   out['stage']='CURRENT_ASSESSMENTS';save()
   evidence={'packet':packet,'context':ctx,'model_digest':digest(model),'reports':{'physical':copy.deepcopy(originals['physical']),'original_replay':copy.deepcopy(originals['original_replay'])},'report_digests':{k:pins[k]for k in ('physical','original_replay')}}
   pin('current_evidence',evidence)
-  out['current_assessments']={}
+  out['current_assessments']={};out['current_assessment_attempted']=True;out['current_assessment_call_count']=0
   for name in CURRENT:
    out['stage']='ASSESS_'+name;save()
    mod=__import__(name);path=ROOT/'app/local_integration'/(name+'.py')
    need(Path(mod.__file__).resolve()==path and Path(inspect.getsourcefile(mod.assess)).resolve()==path,'CURRENT_IMPORT_PATH')
+   out['current_assessment_call_count']+=1;save()
    result=mod.assess(evidence)
    # Preserve returned report before validation, including errors or malformed JSON-shaped evidence.
    captured,json_ok=capture_returned(result)
