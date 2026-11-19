@@ -1,6 +1,7 @@
 """Loopback-only three-field public-contract study UI. Not published production."""
 import argparse,json,threading,time
 from http_withholding_x04 import Boundary
+from http_evidence_x07 import run_bound
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from public_wln_contract import verify_public
@@ -21,6 +22,7 @@ def public_summary(result):
   'actual_live_attempts':len(rows),'fresh_model_executed':result.get('fresh_model_executed',False),
   'source_integrity_verified':result.get('source_integrity_verified',False),
   'attempt_states':[r['state'] for r in rows],
+  'full_evidence_binding':result.get('http_full_evidence',{'state':'NOT_EVALUATED','binding_verified':False}),
   'decision':decision if decision is not None else {'state':'NO_VERIFIED_DECISION','blockers':['NO_VERIFIED_COMPLETE_EVIDENCE']},
   'remaining':['Variable-dimension automatic programme search incomplete','One-bedroom adapter not ready','Current functional quality/profile checks unresolved'],
   'plan_count_available':0,'plan_payload':None,'download_available':False,
@@ -67,7 +69,7 @@ class Handler(BaseHTTPRequestHandler):
   if not pf['execution_ready']:
    self.reply(409,public_summary({'preflight':pf,'state':pf['state']}));return
   if not LOCK.acquire(blocking=False):self.reply(409,{'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}});return
-  status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=run_live,project=public_summary)
+  status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=lambda b:run_bound(b,run_live),project=public_summary)
   self.reply(status,value)
 def server(port=0):return ThreadingHTTPServer(('127.0.0.1',port),Handler)
 if __name__=='__main__':

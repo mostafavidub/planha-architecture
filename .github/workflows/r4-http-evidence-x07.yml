@@ -1,0 +1,25 @@
+name: HTTP full evidence X07 controlled
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/local_integration/http_evidence_x07.py
+      - tests/r4/test_http_evidence_x07.py
+      - .github/workflows/r4-http-evidence-x07.yml
+permissions:
+  contents: read
+jobs:
+  controlled:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - run: python -B -m unittest discover -s tests/r4 -p test_http_evidence_x07.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_http_withholding_x04.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_current_entry_launch_x03.py -v

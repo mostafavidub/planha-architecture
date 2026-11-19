@@ -5,7 +5,7 @@ import argparse,hashlib,importlib,inspect,json
 from pathlib import Path
 from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
- 'PUBLIC_WLN_18X20':('public_wln_server','3063058f102a96d67deedee270a119a5fa6b898c'),
+ 'PUBLIC_WLN_18X20':('public_wln_server','da45aa429bf055ec021e3e4110024b05a85ae49c'),
  'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
 DIAGNOSTICS_BLOB='4dba239c1484c6eda7985cde0b590680ec9ed3f3'
 def diagnostics_guard():
@@ -21,11 +21,20 @@ def withholding_guard():
  module=importlib.import_module('http_withholding_x04')
  need(Path(inspect.getsourcefile(module.Boundary)).resolve()==path.resolve() and Path(inspect.getsourcefile(module.Boundary.execute)).resolve()==path.resolve(),'CURRENT_WITHHOLDING_IMPORT_PATH')
  return hashlib.sha256(data).hexdigest()
+def evidence_guard():
+ path=ROOT/'app/local_integration/http_evidence_x07.py';data=path.read_bytes()
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='d66c06650de6611c16147094771dd46b76063248','CURRENT_EVIDENCE_SOURCE_CHANGED')
+ module=importlib.import_module('http_evidence_x07')
+ for fn in (module.run_bound,module.consume,module.guard):
+  need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
+ module.guard()
+ return hashlib.sha256(data).hexdigest()
 def server(identifier,port=0):
  need(type(identifier)is str and identifier in SERVICES,'UNREGISTERED_OR_HISTORICAL_SERVICE_CURRENT_DISABLED')
  need(type(port)is int and 0<=port<=65535,'LOOPBACK_PORT_REQUIRED')
  before=parser_guard();diagnostic_pin=diagnostics_guard();name,pin=SERVICES[identifier]
  withholding_pin=withholding_guard() if identifier=='PUBLIC_WLN_18X20' else None
+ evidence_pin=evidence_guard() if identifier=='PUBLIC_WLN_18X20' else None
  path=ROOT/'app/local_integration'/ (name+'.py');data=path.read_bytes()
  need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==pin,'CURRENT_SERVICE_SOURCE_CHANGED')
  module=importlib.import_module(name)
@@ -39,6 +48,7 @@ def server(identifier,port=0):
   need(hashlib.sha1(b'blob '+str(len(after)).encode()+bytes([0])+after).hexdigest()==pin,'CURRENT_SERVICE_CHANGED_DURING_STARTUP')
   need(source_snapshot()==before and diagnostics_guard()==diagnostic_pin,'CURRENT_BOUNDARY_SOURCE_CHANGED')
   if withholding_pin is not None:need(withholding_guard()==withholding_pin,'CURRENT_WITHHOLDING_CHANGED_DURING_STARTUP')
+  if evidence_pin is not None:need(evidence_guard()==evidence_pin,'CURRENT_EVIDENCE_CHANGED_DURING_STARTUP')
   return server
  except BaseException:
   server.server_close()
