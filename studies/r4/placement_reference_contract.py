@@ -39,7 +39,7 @@ def check(model):
             by[u["id"]]=u
         require(set(by)=={"A","B"},"UNIT_INVENTORY")
         require(type(model["module_placements"]) is list,"PLACEMENT_LIST")
-        instances=set();claimed=set()
+        instances=set();claimed=set();unvalidated=[]
         def bind(mapping,source,target,namespace,uid,instance):
             require(type(source) is dict and type(target) is dict,"REFERENCE_DICTIONARY")
             seen=set()
@@ -70,6 +70,8 @@ def check(model):
                 bind(ids,mod[kind],model[kind],kind,uid,room)
             for kind in ("fixtures","activities"):
                 bind(ids,mod["unit"][kind],by[uid][kind],kind,uid,room)
+            checked=set(mod["walls"])|set(mod["wall_hosts"])|set(mod["unit"]["fixtures"])|set(mod["unit"]["activities"])
+            unvalidated.append({"unit":uid,"room":room,"unvalidated_id_map_keys":sorted(set(ids)-checked)})
         dining_count=0
         for uid,u in by.items():
             p=u["dining_module_placement"]
@@ -86,8 +88,8 @@ def check(model):
             # Activities are generated separately by assemble114, NOT dining id_map.
             dining_count+=1
         require(digest(model)==before,"INPUT_MUTATION")
-        out.update(reference_verified=True,module_instances=len(instances),dining_instances=dining_count)
-    except (ValueError,TypeError,KeyError,IndexError,ZeroDivisionError,RecursionError) as e:
+        out.update(reference_verified=True,module_instances=len(instances),dining_instances=dining_count,counts_scope="PRESENT_RECORDS_ONLY_NOT_COMPLETENESS",unvalidated_id_map_keys=unvalidated)
+    except (ValueError,TypeError,KeyError,IndexError,ZeroDivisionError,RecursionError,UnicodeError) as e:
         out["errors"].append(type(e).__name__+":"+str(e))
-    out["not_checked"]=["SOURCE_AUTHENTICITY","GEOMETRIC_PLACEMENT_EQUALITY","OPENING_PORT_ROLE_REFERENCES","OPERATIONS_STATES","DINING_ACTIVITY_BINDING","MATERIAL_ALIAS_UNION","WHOLE_SCHEMA","PHYSICAL_OR_CURRENT_CRITERIA"]
+    out["not_checked"]=["MODULE_INVENTORY_COMPLETENESS","EMBEDDED_MODULE_CONTENT_COMPLETENESS","UNVALIDATED_EXTRA_ID_MAP_REFERENCES","SOURCE_AUTHENTICITY","GEOMETRIC_PLACEMENT_EQUALITY","OPENING_PORT_ROLE_REFERENCES","OPERATIONS_STATES","DINING_ACTIVITY_BINDING","MATERIAL_ALIAS_UNION","WHOLE_SCHEMA","PHYSICAL_OR_CURRENT_CRITERIA"]
     return out

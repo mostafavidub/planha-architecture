@@ -35,6 +35,15 @@ class References(unittest.TestCase):
     def test_geometry_mutation_explicitly_not_covered(self):
         m=fixture();m["units"][0]["fixtures"]["sink"]=["99","99","100","100"]
         r=check(m);self.assertTrue(r["reference_verified"]);self.assertIn("GEOMETRIC_PLACEMENT_EQUALITY",r["not_checked"]);self.assertFalse(r["accepted"])
+    def test_empty_present_inventory_is_not_complete_inventory(self):
+        m=fixture();m["module_placements"]=[]
+        r=check(m);self.assertTrue(r["reference_verified"]);self.assertEqual(r["module_instances"],0);self.assertIn("MODULE_INVENTORY_COMPLETENESS",r["not_checked"])
+    def test_extra_map_reference_is_disclosed_not_verified(self):
+        m=fixture();m["module_placements"][0]["id_map"]["invented"]="absent"
+        r=check(m);self.assertTrue(r["reference_verified"]);self.assertIn("invented",r["unvalidated_id_map_keys"][0]["unvalidated_id_map_keys"]);self.assertFalse(r["qualified"])
+    def test_surrogate_is_structured_error(self):
+        m=fixture();m["module_placements"][0]["geometry_scope"]="\\ud800"
+        r=check(m);self.assertFalse(r["reference_verified"]);self.assertTrue(r["errors"])
     def test_json_identity_not_python_equality(self):
         self.assertNotEqual(digest(1),digest(1.0));self.assertNotEqual(digest(False),digest(0))
 if __name__=="__main__":unittest.main()

@@ -68,13 +68,16 @@
     "Dining activity/operation state binding",
     "Alias material union",
     "Complete14recordpath schema",
-    "Whole-model physical/current criteria"
+    "Whole-model physical/current criteria",
+    "Module and embedded source content inventory completeness; counts cover present records only",
+    "Extra module id_map keys may refer to legitimate ports/openings/roles; they are listed as unvalidated rather than silently claimed checked"
   ],
   "fixtures": "Synthetic detached fixtures only, not real source module or model. Geometry-changing fixture is intentionally a positive reference-only test and never admission.",
-  "tests_prepared": 16,
+  "tests_prepared": 19,
   "tests_executed": 0,
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "review_corrections": "Empty module inventory and unvalidated extra mappings explicitly disclosed; structured Unicode error fixture added."
 }
