@@ -1,0 +1,601 @@
+{
+  "schema": "V25_LEFT_RIGHT_TWO_SOURCE_D4_RESULT_V1",
+  "task": "V25-11",
+  "commit": "95e7e2b076cb49a4b0fb4f0c05f8906b88c7dc11",
+  "run": 44441849585,
+  "job": 135284340086,
+  "report": {
+    "schema": "V25_LEFT_RIGHT_TWO_SOURCE_BINDING_TEST_V1",
+    "positive": [
+      {
+        "input": {
+          "W": "25",
+          "L": "25",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "report": {
+          "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+          "scoped_verified": true,
+          "errors": [],
+          "accepted": false,
+          "delivery_allowed": false,
+          "qualified": false,
+          "whole_physical_verified": false,
+          "whole_functional_verified": false,
+          "historical_schema_replaced": false,
+          "pending": [
+            "WHOLE_FUNCTIONAL_UNKNOWN",
+            "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+          ],
+          "source_dependency": "Pinned executable constructor/frame/assemble/modules and source ledger functions. No independent declarative semantic grammar. Not a production evaluator replacement.",
+          "shape_paths": [
+            "root.walls",
+            "root.wall_hosts",
+            "root.source_wall_hosts",
+            "root.units[].rooms",
+            "root.units[].fixtures",
+            "root.units[].fixture_metadata",
+            "root.units[].activities",
+            "root.units[].routes",
+            "root.units[].route_targets",
+            "root.room_metadata",
+            "root.proposal_network_paths",
+            "root.module_aprons",
+            "root.physical_wall_network.source_aliases",
+            "root.wall_finish_profile"
+          ],
+          "independent_d4": {
+            "verified": true,
+            "errors": [],
+            "accepted": false,
+            "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+          },
+          "source_files": {
+            "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+            "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+            "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+            "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+            "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+            "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+            "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+            "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+            "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+            "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+            "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+            "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+            "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+            "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+            "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+            "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+            "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+          },
+          "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+          "local_model_hash": "4dfac44007ee1163219e649fe9655312f054e447b1d1df1157bb83d884a95730",
+          "model_hash": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+          "context_hash": "69f1e68eaafd039e660506d80f2d531a134ddde901fc54427ecc71d4d9a3e7cc",
+          "canonical_type_policy": "Exact JSON type/value equality; bool is not int, numbers are not strings."
+        }
+      }
+    ],
+    "negative": [
+      {
+        "name": "missing_local_operations",
+        "errors": [
+          "SOURCE_DERIVED_LOCAL_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "extra_local_numeric_field",
+        "errors": [
+          "SOURCE_DERIVED_LOCAL_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "bed3_injected",
+        "errors": [
+          "SOURCE_DERIVED_LOCAL_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "fixture_world_tamper",
+        "errors": [
+          "INDEPENDENT_D4_FAILED:['INDEPENDENT_D4_TYPED_WORLD_MISMATCH']"
+        ]
+      },
+      {
+        "name": "operation_world_removed",
+        "errors": [
+          "INDEPENDENT_D4_FAILED:['INDEPENDENT_D4_TYPED_WORLD_MISMATCH']"
+        ]
+      },
+      {
+        "name": "module_transform",
+        "errors": [
+          "INDEPENDENT_D4_FAILED:['INDEPENDENT_D4_TYPED_WORLD_MISMATCH']"
+        ]
+      },
+      {
+        "name": "raw_outside25",
+        "errors": [
+          "RAW_RANGE"
+        ]
+      },
+      {
+        "name": "raw_type_int",
+        "errors": [
+          "RAW_DECIMAL_TYPE"
+        ]
+      },
+      {
+        "name": "raw_n_bool",
+        "errors": [
+          "RAW_N"
+        ]
+      },
+      {
+        "name": "raw_extra",
+        "errors": [
+          "RAW_FIELDS"
+        ]
+      },
+      {
+        "name": "core_tamper",
+        "errors": [
+          "SOURCE_DERIVED_CORE_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "unit_swap",
+        "errors": [
+          "SOURCE_DERIVED_LOCAL_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "proposal_extra",
+        "errors": [
+          "PROPOSAL_FIELDS"
+        ]
+      },
+      {
+        "name": "proposal_bedrooms_bool",
+        "errors": [
+          "PROPOSAL_PROGRAM"
+        ]
+      },
+      {
+        "name": "proposal_sleep_program",
+        "errors": [
+          "PROPOSAL_SLEEP_ROLES"
+        ]
+      },
+      {
+        "name": "geometry_numeric_type",
+        "errors": [
+          "INDEPENDENT_D4_FAILED:['INDEPENDENT_D4_TYPED_WORLD_MISMATCH']"
+        ]
+      },
+      {
+        "name": "context_source_extra",
+        "errors": [
+          "SOURCE_DERIVED_CONTEXT_TYPED_MISMATCH"
+        ]
+      },
+      {
+        "name": "admission_true",
+        "errors": [
+          "PACKET_FAMILY_AUTHORITY"
+        ]
+      }
+    ],
+    "independent_transport_negative": [
+      {
+        "name": "world_missing_operations",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_extra_numeric",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_swapped_units",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_fixture_coordinate",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_fixture_type",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_placement_transform",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "world_operation_removed",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "canonical_transform_translation",
+        "actual_target": "operations.kitchen[0].canonical_isometry",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "operation_point",
+        "actual_target": "operations.doors[0].states[0].hand_point",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "route_middle_point",
+        "actual_target": "units[0].routes.bed1.bed_front",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "fixture_axis_rotation",
+        "actual_target": "units[0].fixture_metadata.bed1.bed.rotation_deg",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "embedded_source_module_rectangle",
+        "actual_target": "module.bounds[0]",
+        "errors": [
+          "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+        ]
+      },
+      {
+        "name": "unknown_local_and_world_top_numeric",
+        "errors": [
+          "UNKNOWN_OR_MISSING_LOCAL_TOP_FIELD"
+        ]
+      },
+      {
+        "name": "unknown_numeric_role",
+        "errors": [
+          "UNKNOWN_NUMERIC_FIELD:negative.unregistered_numeric"
+        ]
+      }
+    ],
+    "passed": true,
+    "source_snapshot": {
+      "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048",
+      "app/local_integration/test_left_right_two_source_binding.py": "bc4bf9d520a13b8433601babcc2b3e132e15b92bc166e43cf6573b16beee749a",
+      "app/local_integration/diagnose_left_right_two.py": "778eb8151a4b878d15fcd44f43bcc3879b07415c001a969e770aa28f940cfded",
+      ".github/workflows/v25-left-right-two-binding.yml": "fd6d8fe237d2e16144cf49d8d2ffbd90d4b7325ee2e49ec7eca4af613a4e0075"
+    },
+    "guard_before": 12991,
+    "guard_after": 12991,
+    "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+    "accepted": false,
+    "delivery_allowed": false,
+    "historical_schema_errors_preserved": true,
+    "scope": "Study-only source-derived shape and independent D4. Fresh packets from same workflow. Original full evaluator FAIL report remains separate and unchanged; no production family support or qualification."
+  },
+  "fresh_diagnostic": {
+    "schema": "V25_LEFT_RIGHT_EXPLICIT_TWO_DIAGNOSTIC_V1",
+    "preregistered_inputs": [
+      [
+        "25",
+        "25"
+      ],
+      [
+        "20",
+        "20"
+      ],
+      [
+        "18",
+        "20"
+      ]
+    ],
+    "settings": {
+      "bedrooms": 2,
+      "sleep_roles": [
+        "double",
+        "twin"
+      ],
+      "time_limit": 3,
+      "variant": 0,
+      "ordered_macro": false,
+      "topology": "SIDE_ROOTED_SERVICES"
+    },
+    "source_snapshot": {
+      "app/local_integration/diagnose_left_right_two.py": "778eb8151a4b878d15fcd44f43bcc3879b07415c001a969e770aa28f940cfded",
+      "app/local_integration/explicit_two_bedroom_worker.py": "c05bf6fbea575ba992b0b31588ef64f5c1f8767fe4894d9482e039ce05f956ed",
+      "app/local_integration/parametric_worker.py": "fdecfc8fd1d448231d23cb537280487ec63ac86b0802f275d7974d3683087f6d",
+      "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+      "app/local_integration/dimension_contract.py": "3a600826b9aad926241057f4dfcbe5ff56bfbf6ee5605f6fdf382e92b0df3818",
+      ".github/workflows/v25-left-right-two.yml": "d049a5b2661c691918c11ca3cdcce6b867e7b8ae316365a66fb89d7789c8d15e",
+      "app/reconstruction357/planha_general150_runtime_work/search114.py": "93e1329f3c45f75102740ef5c8c95e7e8e27d3eb2bbaa76448658172d4ff004b",
+      "app/reconstruction357/planha_general150_runtime_work/constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+      "app/reconstruction357/planha_general150_runtime_work/construction_replay127.py": "dbaa28d57568e67da051d7b518528a595878385b4d4964550462ceec83f11ea8",
+      "app/reconstruction357/planha_general150_runtime_work/world_inventory125.py": "9b1847ddd82ec592b5aeef0a148d3f273077f6c7357969f5afd90a3be4319475",
+      "app/reconstruction357/planha_general150_runtime_work/evaluate_pair127.py": "fa5ab77206cb055a9a210b6bee99b2e28b9793d8895b2fb9c463b3edb8de2d99",
+      "app/reconstruction357/planha_general150_runtime_work/evaluate_world125.py": "fc8cc500ff7af79210f72253351565940758449fc58d3dc3b86a6c95ea2bfbdd",
+      "app/reconstruction357/planha_general150_runtime_work/checker114.py": "30de230316e9f3856433961651326f362ffe98ee7ceec4e813eb0bde1a7d1a02",
+      "app/reconstruction357/planha_general150_runtime_work/world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55",
+      "app/reconstruction357/planha_general150_runtime_work/frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+      "app/reconstruction357/planha_general150_runtime_work/common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+      "app/reconstruction357/planha_general150_runtime_work/assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+      "app/reconstruction357/planha_general150_runtime_work/world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea"
+    },
+    "engine_revision_before": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+    "schema_pin": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+    "schema_scope": "Closed prior one-bedroom schema plus previously independently whole-gated128 three-bedroom six-person records;129 source-local parameter record enumerated explicitly. No numeric geometry meaning inferred from keyset; independent transform and fresh whole checks mandatory.",
+    "worker_constant_policy": [
+      {
+        "line": 48,
+        "value": {
+          "family": "LEFT_RIGHT",
+          "state": "UNSUPPORTED_CURRENT_SOURCE_RECORD_SCHEMA",
+          "reason": "Known source schema mismatch; not global geometric infeasibility"
+        }
+      }
+    ],
+    "cases": [
+      {
+        "input": {
+          "W": "25",
+          "L": "25",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "stage": "original_evaluate_pair127",
+        "accepted": false,
+        "raw": {
+          "W": "25",
+          "L": "25",
+          "n": 2,
+          "requested_count": 1
+        },
+        "request_digest": "254b4def1a8060206218b182192e92f8a27f38f029e701a45b29b8dc1d0c3176",
+        "core_digest": "7d37b5c975817f0dd08948e7302242e6d814ec55704f88a5251462efcd6c55d2",
+        "proposal_digest": "61c4a32c99019600ee1b07aa3410e7b32533a0f56c321fd6fa65e4359f6ec98c",
+        "proposal_status": "PROPOSAL_ONLY",
+        "local_model_digest": "4dfac44007ee1163219e649fe9655312f054e447b1d1df1157bb83d884a95730",
+        "world_model_digest": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+        "context_digest": "69f1e68eaafd039e660506d80f2d531a134ddde901fc54427ecc71d4d9a3e7cc",
+        "replay": {
+          "verified": true,
+          "errors": [],
+          "pending": [],
+          "model_hash": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+          "trace_hash": "d28fa581b68d9c04457f52d56fd9c295bd5160c0b873e8f354c7eea8a711ee2f",
+          "source_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+          "scope": "Ordered A/B same-program deterministic whole-construction provenance only. No geometry, operation, privacy, diversity or admission receipt transferred. Separate fresh whole gate remains required.",
+          "accepted": false
+        },
+        "world_inventory": {
+          "errors": [
+            "UNKNOWN_RECORD_FIELDS:root.walls",
+            "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+            "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+            "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+            "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+            "UNKNOWN_RECORD_FIELDS:root.walls",
+            "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+            "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+            "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+            "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+          ],
+          "pending": [],
+          "model_hash": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+          "local_model_hash": "4dfac44007ee1163219e649fe9655312f054e447b1d1df1157bb83d884a95730",
+          "derived_requirements": [
+            "fresh physical_wall_network",
+            "fresh spatial_accounting"
+          ],
+          "scope": "Exact enumerated D4 fields; not whole admission; fixture rotation is axis only, operation angles canonical"
+        },
+        "mismatch_paths": [
+          "root.module_aprons",
+          "root.physical_wall_network.source_aliases",
+          "root.proposal_network_paths",
+          "root.room_metadata",
+          "root.source_wall_hosts",
+          "root.units[].activities",
+          "root.units[].fixture_metadata",
+          "root.units[].fixtures",
+          "root.units[].rooms",
+          "root.units[].route_targets",
+          "root.units[].routes",
+          "root.wall_finish_profile",
+          "root.wall_hosts",
+          "root.walls"
+        ],
+        "schema_failure_observed_on_fresh_model": true,
+        "result": "FRESH_MODEL_DIAGNOSTIC_RECORDED",
+        "evaluator_input_bundle_digest": "6097707717951622ce3597738411e95b5472e82181b56e5eb785a3d5e8c07d85",
+        "evaluation_seconds": 26.483742835000015,
+        "evaluator_output_bundle_digest": "6097707717951622ce3597738411e95b5472e82181b56e5eb785a3d5e8c07d85",
+        "elapsed_seconds": 39.98642332700001,
+        "original_full_evaluation_summary": {
+          "status": "FAIL",
+          "model_hash": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+          "errors": [
+            "UNKNOWN_RECORD_FIELDS:root.walls",
+            "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+            "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+            "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+            "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+            "UNKNOWN_RECORD_FIELDS:root.walls",
+            "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+            "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+            "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+            "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+            "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+            "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+            "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+            "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+            "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+          ],
+          "pending": [
+            "RULE_NOT_EVALUATED:circulation_functional_integrity",
+            "RULE_NOT_EVALUATED:private_grouping"
+          ],
+          "accepted": false,
+          "all_rules_approved": false
+        }
+      },
+      {
+        "input": {
+          "W": "20",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "stage": "proposal",
+        "accepted": false,
+        "raw": {
+          "W": "20",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1
+        },
+        "request_digest": "e8a081b48db60bc1192bfd0cc7220dbb686c8ed6f16c9b21640e5fd0effe56e7",
+        "core_digest": "c047291dd20509682e0b5c1763a29938630f8fc8cedb856afb8bae23678f6a8f",
+        "proposal_digest": "6c1415fb803cbbe5d2d99de4257f34234ba2a493acc29c06cddd3833e87659e7",
+        "proposal_status": "SEARCH_TIMEOUT_NO_WITNESS",
+        "result": "NO_FRESH_MODEL",
+        "schema_failure_observed_on_fresh_model": false,
+        "elapsed_seconds": 3.1270271260000015
+      },
+      {
+        "input": {
+          "W": "18",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "stage": "proposal",
+        "accepted": false,
+        "raw": {
+          "W": "18",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1
+        },
+        "request_digest": "29944c04be9db6681d7db61ae112133964f494ba2c3005e55ca4b338cc40b724",
+        "core_digest": "cf002db9cd7ac80285259e497c11739882c9d5f69f8fa4d8347e667431f55f2a",
+        "proposal_digest": "12e793111304fb68387c8f29a2123e3b3b37d1ca79b51fef5692f2e88b305f0f",
+        "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+        "result": "NO_FRESH_MODEL",
+        "schema_failure_observed_on_fresh_model": false,
+        "elapsed_seconds": 0.20739686400000323
+      }
+    ],
+    "accepted": false,
+    "delivery_allowed": false,
+    "qualified": false,
+    "global_infeasibility_proven": false,
+    "guard_before": 12991,
+    "scope": "Independent fresh LEFT_RIGHT proposals, original construction/replay/inventory and original unfiltered evaluate_pair127. Original production worker remains unchanged and unsupported. Physical errors and pending retained; no qualification, repair, or schema extension.",
+    "completed": true,
+    "guard_after": 12991,
+    "engine_revision_after": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+    "fresh_models": 1
+  },
+  "artifacts": [
+    {
+      "id": 14491254141,
+      "name": "v25-left-right-two-binding-study",
+      "size": 184820,
+      "sha": "sha256:95afad890c0e0c13691db7018c5ad352222609c49309b9f763fb7e69f5da22fa",
+      "expires": "2026-12-19T02:08:38Z"
+    }
+  ],
+  "archived": false,
+  "independent_read_only_review": "No new weakening found through95e7e2b. Route test name middle_point can be endpoint for two-point path; test is route-point mutation, not proof of an interior-only case.",
+  "production_family_supported": false,
+  "historical_schema_replaced": false,
+  "whole_cycle_verified": false
+}
