@@ -1,4 +1,5 @@
 name: R4 precision boundary study
+# Upper endpoint uses the same bounded runner; no relaxation or extra criteria run.
 on:
   push:
     paths:
