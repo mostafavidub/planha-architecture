@@ -141,10 +141,13 @@
       "description_verbatim": "۲.۱. انتخاب یک مولد و ارزیاب هم‌نسخه و مشخص‌کردن قرارداد داده و منشأ آن‌ها. ۶۰ دقیقه",
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "0.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:13:24Z",
+      "deadline_utc": "2026-11-19T06:13:24Z",
+      "scope": "Select and audit same-version frozen FRONT_REAR producer/replay/evaluator contract for first slice; no new geometry or global acceptance"
     },
     {
       "id": "2.2",
