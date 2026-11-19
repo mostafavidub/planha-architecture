@@ -1,0 +1,281 @@
+{
+  "schema": "V25_EVIDENCE_PREFLIGHT_V1",
+  "start_utc": "2026-11-19T01:05:00Z",
+  "deadline_utc": "2026-11-19T04:05:00Z",
+  "finished_at": "2026-11-19T01:06:50.008961+00:00",
+  "archive_index_sha256": "7f128b7827c37c63f547ab1a95919860c4271d2fd216eb2fb12e438252637465",
+  "existing_archives": [
+    {
+      "run_id": 44397199424,
+      "sha256": "3d64db61871ca8f9ec911be223621bf2aeb4d26aafab1542a7497ffd16b767c1",
+      "bytes": 1084859,
+      "members": 1
+    },
+    {
+      "run_id": 44397669969,
+      "sha256": "4aaa27faa368c9f8b8e1900164068ee617e892e76f577667d713212e16e48d18",
+      "bytes": 1143575,
+      "members": 64
+    },
+    {
+      "run_id": 44399621847,
+      "sha256": "daaa8605a30a03559f1da70f309228a680e3aba14ebfff803da71d22a47ad81d",
+      "bytes": 187320,
+      "members": 1
+    },
+    {
+      "run_id": 44400938194,
+      "sha256": "ef4059f3a00f5de1e753a101fbfb91d6653cdfa5d211b93a218982d0ef8d8fa2",
+      "bytes": 1493784,
+      "members": 10
+    },
+    {
+      "run_id": 44401790896,
+      "sha256": "fa223b68a75251cdc301e749d07001f9c4353a8299e44790b036b53e8ba8b0d6",
+      "bytes": 747774,
+      "members": 1
+    },
+    {
+      "run_id": 44402005886,
+      "sha256": "183ff645a933001e011d42248c97a6aaecabcdd287a6c350f5535fd2cec31a84",
+      "bytes": 191107,
+      "members": 1
+    },
+    {
+      "run_id": 44402682012,
+      "sha256": "793f97b857a00e431fbc7b38795f0779a64b5c11ae9cd767bec86e81fc85db4f",
+      "bytes": 150301,
+      "members": 1
+    },
+    {
+      "run_id": 44403413844,
+      "sha256": "77a4c158907e407a8c4ae9ba8a95e06532ff3c37261fb1d9308929dcd9a913ee",
+      "bytes": 601777,
+      "members": 1
+    },
+    {
+      "run_id": 44405056710,
+      "sha256": "bf1473e4d6249325caa6a6b00e7b029b5a21ca65de888080dea17b410d023623",
+      "bytes": 712765,
+      "members": 16
+    },
+    {
+      "run_id": 44406994713,
+      "sha256": "00c8d48f60ab79ed666db05203e1e3357382958da6bba8dd7459248a3ca30b00",
+      "bytes": 266622,
+      "members": 1
+    },
+    {
+      "run_id": 44407576996,
+      "sha256": "7bc5fef0ed2152a2261e209d5650fbebfb99d002a5bed1003de02beed126e12f",
+      "bytes": 1343491,
+      "members": 28
+    },
+    {
+      "run_id": 44409413108,
+      "sha256": "217520b9c1456076d58a9ffe1ed1b0bc14d0cfe285f1cf99ed1278a0096e4b48",
+      "bytes": 870240,
+      "members": 12
+    },
+    {
+      "run_id": 44409434536,
+      "sha256": "6fedaa281a16368ed43c1b294660c31c9cea34be4365c8169ec055fdfb74fcff",
+      "bytes": 873173,
+      "members": 13
+    },
+    {
+      "run_id": 44409718206,
+      "sha256": "6bbb45747c340cfd270be90d130daf49b404d85429dc86d2dbaae1e9779673b9",
+      "bytes": 266460,
+      "members": 1
+    },
+    {
+      "run_id": 44410163467,
+      "sha256": "33287e3b024b6acb40baf184a960478178b218deaaf330f5b3dcc93c38403e26",
+      "bytes": 718102,
+      "members": 16
+    },
+    {
+      "run_id": 44410459233,
+      "sha256": "ccb20d8accace91deb981276f9d41a6e97c8fe2d2786847d307f4404cd9e6d0e",
+      "bytes": 619888,
+      "members": 1
+    },
+    {
+      "run_id": 44410953889,
+      "sha256": "7ae46c226848753ee6d565d3951fb0c213a177a4cb425ecd5f577bee0c4089bc",
+      "bytes": 620071,
+      "members": 1
+    },
+    {
+      "run_id": 44411831819,
+      "sha256": "65035bf40ae13bfaf0832ede00795722ef7f5eaca58f015610fdb90d340e1e59",
+      "bytes": 234706,
+      "members": 1
+    },
+    {
+      "run_id": 44411988933,
+      "sha256": "712a3096da832bdb8d8e60a7cf8514a18303279f446af51e08b6e3009f98fb06",
+      "bytes": 718010,
+      "members": 16
+    },
+    {
+      "run_id": 44412011025,
+      "sha256": "64b3373f17f56e9c7b997023c157969f8adcb65dc1d7c72b3936dff1417bb556",
+      "bytes": 1112817,
+      "members": 21
+    },
+    {
+      "run_id": 44412740546,
+      "sha256": "94cd7055a02b0fb82170d48fc525eb347c7fe97fc54be06af26dc461d586b428",
+      "bytes": 942953,
+      "members": 1
+    },
+    {
+      "run_id": 44413136071,
+      "sha256": "0325cb18978e26d8ff76a440e9d9d213cb1c86bd0cf80dbb2f6256a7d17e6973",
+      "bytes": 1565477,
+      "members": 40
+    },
+    {
+      "run_id": 44413801814,
+      "sha256": "09b133cb35cf938d8e97dfaecfab7a5ebdc6deb3232b9b6332b747631151a14d",
+      "bytes": 944032,
+      "members": 1
+    },
+    {
+      "run_id": 44414249134,
+      "sha256": "ed747c16d5298187fe003a368b4e0b128467cfd549799ffb6984494056ba2109",
+      "bytes": 72055,
+      "members": 1
+    },
+    {
+      "run_id": 44415606870,
+      "sha256": "ed7b067c9386c8a56521b110e6c2d93672cb4fa217ce5830b26bada5248a25a6",
+      "bytes": 677523,
+      "members": 1
+    },
+    {
+      "run_id": 44415900223,
+      "sha256": "8389c4db94f356a0edff165571fca718d6d0bd2d6f16ce3f820b4178f0ea06c3",
+      "bytes": 1270478,
+      "members": 1
+    },
+    {
+      "run_id": 44416886004,
+      "sha256": "d15964e643cda0c75e690248a1dc75366347be82c279104fafca94a32c6baa32",
+      "bytes": 1268745,
+      "members": 1
+    },
+    {
+      "run_id": 44416903509,
+      "sha256": "cccea082e55b4ccf82791bb1f1baadc90b09439a97eec23bc7f6bb3728df3d3a",
+      "bytes": 680617,
+      "members": 1
+    },
+    {
+      "run_id": 44417404259,
+      "sha256": "76a47deb85f93acca2cf318dbfc892f88fcae9383d79164ba81b8c0511856aae",
+      "bytes": 266425,
+      "members": 1
+    },
+    {
+      "run_id": 44417514104,
+      "sha256": "3c227801016f42c1d7dd0d7354ba64f2363c320fd56482c7acc245f6963fed90",
+      "bytes": 1134264,
+      "members": 13
+    },
+    {
+      "run_id": 44418627439,
+      "sha256": "807a0aea333773a163c8ee393c6489403d4d35cafeed4daf2f4e768430de8679",
+      "bytes": 1660,
+      "members": 1
+    },
+    {
+      "run_id": 44418924830,
+      "sha256": "36196b225e4326bfff8c615483f2daf9d3805c70557f4a392bfdab7aa1267455",
+      "bytes": 120609,
+      "members": 1
+    },
+    {
+      "run_id": 44420044477,
+      "sha256": "d6339340d9206509bf494358469f0165a6fb251f4c2cbd49a0e1d292d0f595c8",
+      "bytes": 6211,
+      "members": 1
+    }
+  ],
+  "archive_count": 33,
+  "member_count": 271,
+  "archive_bytes": 22907891,
+  "recent_reproduction_inputs": [
+    {
+      "manifest": "manifests/V25_OPEN_FRONT_EVALUATOR_RESULT.json",
+      "manifest_sha256": "a004e004c0b798c68c5704ec66ba964534b0cc5e88dae70b4ce2c8a1ef4b8a5b",
+      "test_commit": "010ee0308cede378ddbb4b0ce8cd3d020cfd8233",
+      "workflow": ".github/workflows/v25-open-evaluator.yml",
+      "workflow_sha256": "9e91d8d0041e3108bb5a704cac11cf832b3e108a3253fb5a2932bf4591a80eae",
+      "input_archive_run": 44417514104,
+      "artifact_id": 14487166124,
+      "expires_at": "2026-12-19T00:41:17Z",
+      "artifact_durably_archived": false,
+      "source_and_recorded_input_available": true,
+      "actual_full_reexecution_performed": false
+    },
+    {
+      "manifest": "evidence/V25_OPEN_WORLD_INTEGRATED_MATRIX_MANIFEST.json",
+      "manifest_sha256": "b497226a5fe5a19e2e03fa10c447db830fb3964fc60aeebc8081c28fc6faf912",
+      "test_commit": "568e8249713ea28b61985bd1c070d03be91935f3",
+      "workflow": ".github/workflows/v25-open-world-matrix.yml",
+      "workflow_sha256": "e61ebc8a9296e181d15f660f654480913990774572e4439fa90aafedfafc67a1",
+      "input_archive_run": 44416886004,
+      "artifact_id": 14487326872,
+      "expires_at": "2026-12-19T00:48:25Z",
+      "artifact_durably_archived": false,
+      "source_and_recorded_input_available": true,
+      "actual_full_reexecution_performed": false
+    },
+    {
+      "manifest": "manifests/V25_WALL_ALTERNATIVE_RESULT.json",
+      "manifest_sha256": "d464396c7e7bc721c843a1a678840413642e770f61cb2630c430a2ffd426ee19",
+      "test_commit": "12107b140bb491b1ec65b35553e761cab6d52f66",
+      "workflow": ".github/workflows/v25-wall-alternative.yml",
+      "workflow_sha256": "8a44d9e7af64ab68af4c289d8ada9b425dd02feebfe62ecaa2fcabdf110548c6",
+      "input_archive_run": 44417514104,
+      "artifact_id": 14487556526,
+      "expires_at": "2026-12-19T00:53:44Z",
+      "artifact_durably_archived": false,
+      "source_and_recorded_input_available": true,
+      "actual_full_reexecution_performed": false
+    },
+    {
+      "manifest": "manifests/V25_LIVING_ENDPOINT_ATTRIBUTION_RESULT.json",
+      "manifest_sha256": "c461ceb2752fedd2c8eeeda8d5dc0f6e574f7bd5eec128a51b70aef8e66d92a2",
+      "test_commit": "5a5fda3f74808ebeef311faf8949911b6bb4effd",
+      "workflow": ".github/workflows/v25-living-endpoints.yml",
+      "workflow_sha256": "57bf1488a8ef51e283698d1508b6a741a9f5acb02bc9b8edade5fc8f24eaea37",
+      "input_archive_run": 44417514104,
+      "artifact_id": 14486484920,
+      "expires_at": "2026-12-19T01:00:09Z",
+      "artifact_durably_archived": false,
+      "source_and_recorded_input_available": true,
+      "actual_full_reexecution_performed": false
+    }
+  ],
+  "V25_23_state": "BLOCKED_NO_QUALIFIED_CURRENT_CANDIDATE",
+  "audited_current_model_count": 4,
+  "qualified_count": 0,
+  "V25_24_state": "PASS_READ_ONLY_PREFLIGHT_NOT_COMPLETE_DURABLE_ARCHIVE",
+  "archive_additions_performed": false,
+  "permissions_changed": false,
+  "remaining": [
+    "Four recent detailed Actions artifacts are still temporary, not durably archived",
+    "This verifies source workflow and saved input availability, not fresh reexecution of every experiment",
+    "New artifact archival workflow permissions remain separately awaiting explicit approval"
+  ],
+  "stage303_execution_started": false,
+  "whole_cycle_verified": false,
+  "run_id": 44434365012,
+  "job_id": 135259361981,
+  "commit": "526052d816ca2d9ba0e649b50779ea3c874aeea5",
+  "conclusion": "success"
+}
