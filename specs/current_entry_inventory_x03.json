@@ -855,12 +855,56 @@
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/current_entry_inventory_x03.py": {
-      "blob": "4eecd8f9238a89afe3b7b253bbf308fac73c5b0a",
+      "blob": "62aa23e0cadc9f0fb71748f2073dc63c82636798",
       "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
     },
     ".github/workflows/r4-current-entry-boundary-x03.yml": {
-      "blob": "b0040c9b77b7a629c494f1b6e9504e88c1e15bb3",
+      "blob": "d3af5e1b2b708bedafdaa4b879bd84793015a7cf",
       "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    "frontend": {
+      "blob": "da7c37f84ef71d14d02ce4268f8216e064b3a375",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "backend": {
+      "blob": "e09acce61cc9ac977313a5ae4e82951a04b5a6b9",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "engine": {
+      "blob": "f3b0b9d5c5fce7e8288f504c601816f83848eb34",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "current": {
+      "blob": "7a0b7f0078361bdeeb90e0b1b96cd55a4c0d14d4",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "latest": {
+      "blob": "7a0b7f0078361bdeeb90e0b1b96cd55a4c0d14d4",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "README.md": {
+      "blob": "62230abccafbd60a676d83ba96839d15334fd17c",
+      "classification": "CURRENT_LAUNCH_INSTRUCTIONS_AND_HISTORICAL_NOTES"
+    },
+    "app/reconstruction357/staging400_e1_5_schema_states/server390.py": {
+      "blob": "878bf622734e802fcd4f6281eac8b5ec3b88b194",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "app/reconstruction357/staging400_e1_5_schema_states/launch390.py": {
+      "blob": "cd9a99079bb2424da657528c499733200608cb70",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "app/reconstruction357/staging400_e1_5_schema_states/contract390.py": {
+      "blob": "d9a4888b9d0304c93b5c58d3be1082f07aab5996",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "app/reconstruction357/staging368_final_pipeline/request_contract368.py": {
+      "blob": "383a990f0e7cb0860cbbc5d356c4d1a3d1c9f149",
+      "classification": "HISTORICAL_ALIAS_OR_ENTRY_NOT_REGISTERED_FOR_CURRENT_DISPATCH"
+    },
+    "app/local_integration/current_entry_launch_x03.py": {
+      "blob": "f8ec421d7ccce9268e489af7bd43592cb2873590",
+      "classification": "SERVER_OWNED_CURRENT_LAUNCHER"
     }
   },
   "top_level_paths": [
@@ -978,6 +1022,7 @@
     "app/local_integration/core_choice_pair_study.py",
     "app/local_integration/current_entry_boundary_x03.py",
     "app/local_integration/current_entry_inventory_x03.py",
+    "app/local_integration/current_entry_launch_x03.py",
     "app/local_integration/current_four_decision.py",
     "app/local_integration/current_programme_evaluator.py",
     "app/local_integration/current_report_adapter111.py",
@@ -1136,10 +1181,12 @@
     "cause_directed_contract108.py",
     "coarse_kitchen305_candidate.py",
     "compare_left_right_two_topologies.py",
+    "contract390.py",
     "controlled_repair_entrypoint.py",
     "core_choice_pair_study.py",
     "current_entry_boundary_x03.py",
     "current_entry_inventory_x03.py",
+    "current_entry_launch_x03.py",
     "current_four_decision.py",
     "current_programme_evaluator.py",
     "current_report_adapter111.py",
@@ -1164,6 +1211,7 @@
     "guest_route_certificate_study.py",
     "history_status_taxonomy.py",
     "kitchen_guest_review.py",
+    "launch390.py",
     "left_right_two_evidence_bundle.py",
     "left_right_two_source_binding.py",
     "live_program_scheduler.py",
@@ -1215,6 +1263,7 @@
     "repair_saved_worker.py",
     "report_lifecycle112.py",
     "request_budget110.py",
+    "request_contract368.py",
     "request_trace109.py",
     "request_trace_server109.py",
     "review_cycle.py",
@@ -1222,6 +1271,7 @@
     "run_history.py",
     "run_wln_http_matrix.py",
     "same_version_front_rear_contract.py",
+    "server390.py",
     "single_bed_wall_separator_extension.py",
     "source_activity_target_reference_study.py",
     "source_finish_profile_reference_study.py",
@@ -1256,5 +1306,10 @@
     "FROZEN_DIRECT_PYTHON_CALLS_NOT_DISABLED",
     "NOT_A_COMPLETE_REPOSITORY_CALLGRAPH",
     "DOMAIN_VALIDITY_IS_NOT_GENERATOR_READINESS_OR_QUALIFICATION"
-  ]
+  ],
+  "registered_http_services": [
+    "PUBLIC_WLN_18X20",
+    "REQUEST_TRACE_18X22"
+  ],
+  "historical_aliases_are_not_current_launch_commands": true
 }

@@ -7,13 +7,18 @@ ROOT=Path(__file__).resolve().parents[2]
 MANIFEST=ROOT/'specs/current_entry_inventory_x03.json'
 def blob(data):
  return hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()
+def read_source(path):
+ p=ROOT/path
+ return str(p.readlink()).encode()if p.is_symlink()else p.read_bytes()
 def scan():
  manifest=json.loads(MANIFEST.read_text());rows=[];dynamic=[]
  for path,record in manifest['files'].items():
-  data=(ROOT/path).read_bytes()
+  data=read_source(path)
   if blob(data)!=record['blob']:raise ValueError('INVENTORY_SOURCE_CHANGED')
   row={'path':path,'blob':record['blob'],'classification':record['classification']}
-  if path.endswith('.py'):
+  if (ROOT/path).is_symlink():
+   row['historical_target']=data.decode();row['current_launcher_registered']=False
+  elif path.endswith('.py'):
    tree=ast.parse(data,filename=path)
    row['functions']=sorted({n.name for n in ast.walk(tree)if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef))})
    row['imports']=sorted({(n.module or '')for n in ast.walk(tree)if isinstance(n,ast.ImportFrom)}|{a.name for n in ast.walk(tree)if isinstance(n,ast.Import)for a in n.names})
@@ -31,7 +36,7 @@ def scan():
  expected=set(manifest['top_level_paths'])|set(manifest['inventory_self_paths'])
  if observed!=expected:raise ValueError('UNREGISTERED_CURRENT_SURFACE_REVIEW_REQUIRED')
  before=manifest['files']
- if any(blob((ROOT/p).read_bytes())!=r['blob']for p,r in before.items()):raise ValueError('INVENTORY_CHANGED_DURING_READ')
+ if any(blob(read_source(p))!=r['blob']for p,r in before.items()):raise ValueError('INVENTORY_CHANGED_DURING_READ')
  return {'schema':'CURRENT_ENTRY_INVENTORY_X03_V1','rows':rows,'dynamic_unresolved':dynamic,
   'scope':'Pinned selected integration Python plus all workflows at this revision; not every repository callable or runtime dynamic target',
   'registered_dispatch_is_not_python_isolation':True,'literal_legacy_import_isolation':'NOT_IMPLEMENTED',

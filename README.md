@@ -1,3 +1,22 @@
+# Current launch boundary X03
+
+مسیر اجرای جاری، فقط launcher صریح زیر است. هر دو سرویس مطالعه loopback هستند؛ محصول تأییدشده، خروجی قابل تحویل یا مجوز معماری نیستند.
+
+```sh
+python -B app/local_integration/current_entry_launch_x03.py --service PUBLIC_WLN_18X20
+python -B app/local_integration/current_entry_launch_x03.py --service REQUEST_TRACE_18X22
+```
+
+- ورودی HTTP فقط W/L/n؛ هر ضلع شامل ۵ تا ۲۵. ورودی معتبر خارج دامنه مطالعه، unsupported است، نه هندسه ناممکن. اولی مطالعه ۱۸×۲۰ و دومی parent-only ۱۸×۲۲ است.
+- انتخاب سرویس از enum سمت سرور است؛ module path، نام alias و capability کاربر پذیرفته نمی‌شوند. هیچ اجرای تاریخی fallback نیست.
+- میانبرهای `frontend`، `backend`، `engine`، `current` و `latest` **فرمان اجرای جاری نیستند**. برای وابستگی‌ها و منشأ تاریخی حفظ شده‌اند. استفاده مستقیم از launch/serverهای آن‌ها در current dispatch غیرفعال است؛ اسکریپت Python خام همچنان می‌تواند مستقلاً اجرا شود و این مخزن sandbox یا packaging isolation نیست.
+- raw parser تاریخی ۵..۴۵ دست‌نخورده است. گزارش آن، حتی physical PASS، مجوز ورود به boundary جاری نیست. replay تاریخی باید روی commit/منابع تاریخی خودش و با برچسب تاریخی بررسی شود، نه با تغییر provenance.
+- API مستقیم فعلی گزارش‌ها دامنه مدل را پیش از ارزیابی بررسی می‌کند. سازنده و producer ثبت‌شده در `current_entry_boundary_x03.py` ورودی عمومی را از اصل bytes بازسازی می‌کنند؛ primitiveهای core-only و importهای پویا به‌تنهایی مجوز current ندارند.
+- پنج workflow قدیمی ارزیابی artifact در این revision explicit-disabled هستند؛ تاریخچه runها و source commitهایشان حذف نشده است. pipeline جدید فقط آزمون synthetic/source-built بدون تولید تازه یا upload است.
+- مرز دامنه و source binding، جایگزین کل بررسی فیزیکی، معیارهای جاری یا اصالت اجرای زنده نیست. تمام authorityهای تحویل false می‌مانند.
+
+## Historical migration notes (not current launch instructions)
+
 # Planha Architecture
 
 این مخزن خصوصی، مرجع توسعه از این پس است. تغییر کد فقط در GitHub انجام می‌شود؛ نسخه مک و محیط ابری نباید برای توسعه ویرایش شوند.
