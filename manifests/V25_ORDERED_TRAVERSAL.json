@@ -17,8 +17,8 @@
     },
     {
       "id": "V25-03",
-      "status": "PARTIAL",
-      "evidence": "کد gateway و review_cycle خوانده شد؛ وضعیت خطای ورودی، unsupported، خطای وابستگی، لغو، timeout و رد/UNKNOWN جداست. ۸تست review در۳۵تست موفق؛ ممیزی جامع تمام وضعیت‌ها نه."
+      "status": "IN_PROGRESS_HISTORY_STATUS_LOSS_FIX",
+      "evidence": "ممیزی مستقل01:25UTC: attemptهای علت‌دار درخروجی زنده حفظ ولی ازخلاصهhistory حذف می‌شوند؛ صفرمدل‌های متفاوت همگیEXPERIMENT_COMPLETED دیده می‌شوند. اصلاحadditive باحفظoutcome/admission و آزمون جدا درجریان؛تکمیل ادعا نمی‌شود."
     },
     {
       "id": "V25-04",
@@ -298,5 +298,12 @@
       44435888115
     ],
     "criterion_map": "manifests/V25_LIFECYCLE_SCENARIO_MAP.json"
+  },
+  "status_contract_operation": {
+    "id": "V25-03-HISTORY-TAXONOMY",
+    "start_utc": "2026-11-19T01:25:01Z",
+    "deadline_utc": "2026-11-19T04:25:01Z",
+    "state": "IN_PROGRESS",
+    "scope": "Preserve distinct observed outcome causes in historical summaries; no geometry or qualification change"
   }
 }
