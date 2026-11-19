@@ -144,7 +144,7 @@
     {
       "id": "V25-22",
       "status": "PARTIAL_NEW_SOURCE_MODULE_AND_ADAPTERS_NOT_QUALIFICATION",
-      "evidence": "گروه، مسیر ترتیب‌دار مهمان، probe دیوار و ظرفیت مسیر ثابت بررسی شد. ماژول آشپزخانه مستقل و placement A/B و origin جدید با تست تغییرنوع JSON تأیید شدند؛ adapterهای placement وoperations در مدل جدید مثبت‌اند. wholechecker تاریخی همچنان FAIL است؛ مقایسه واقعی قبل/بعد درحال آزمون، چهارUNKNOWN و ممنوعیتتحویل محفوظ.",
+      "evidence": "ماژول جدید،placement،operations،origin و قبل/بعد واقعی مستقل آزموده شدند. rawcore صفرخطا ولیNOT_EVALUATED باpending ظرفیت/کیفیت،بدونحذفpending. نتیجه۹b90cfee باassertionصریح ومرور مستقل تأیید؛ماتریسابعادبیشتر درحال اجرا. wholeevaluator/named-currentgates وچهارUNKNOWN باز؛هیچqualification/تحویل/۳۰۳.",
       "evidence_runs": [
         44416886004,
         44418924830,
@@ -152,7 +152,9 @@
         44421091175,
         44424755955,
         44424740173,
-        44426199579
+        44426199579,
+        44426858702,
+        44428198877
       ]
     },
     {
@@ -237,18 +239,21 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-18T23:34:11Z",
+  "last_evidence_update_utc": "2026-11-19T00:23:13Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "RUNNING_REAL_BASELINE_BOUNDARY_COMPARISON_NEW_WHOLE_GATE_NOT_IMPLEMENTED",
+    "state": "RAW_CORE_SCOPED_CHECKPOINT_COMPLETE_VARIABLE_DIMENSION_MATRIX_RUNNING",
     "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage",
     "latest_subtask": {
       "id": "V25-22-OPEN-KITCHEN",
       "start_utc": "2026-11-18T23:41:09Z",
       "deadline_utc": "2026-11-19T01:07:31Z",
-      "running_test": 44426858702
+      "running_test": 44426858702,
+      "latest_verified_run": 44428198877,
+      "raw_status": "NOT_EVALUATED_REQUIRED_CAPACITY_QUALITY_PENDING",
+      "matrix_worker": "/root/migration_continue/new_schema_matrix"
     }
   },
   "live_cycle_operation": {
