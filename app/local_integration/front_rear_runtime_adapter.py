@@ -97,7 +97,7 @@ def run(body,*,solver_seconds):
  binding_pin=digest(binding);raw=copy.deepcopy(binding['raw'])
  out={'schema':'FRONT_REAR_ORIGINAL_RUNTIME_BUNDLE_V1','status':'NOT_COMPLETED',
   'binding':binding,'stages':[],'reports':{},'errors':[],
-  'construction_returned':False,'model_binding_verified':False,'report_transports':{},
+  'constructor_called':False,'construction_returned':False,'model_binding_verified':False,'report_transports':{},
   'fresh_model_executed':False,'completed':False,'production_supported':False,
   'solver_budget_seconds':solver_seconds,'outer_hard_timeout_required':True,
   **{k:False for k in AUTHORITY}}
@@ -140,6 +140,7 @@ def run(body,*,solver_seconds):
    from left_right_two_source_binding import proposal_check
    proposal_check(proposal)
    stage='constructor'
+   out['constructor_called']=True
    packet=constructor127.build(raw,'FRONT_REAR',proposal,proposal)
    out.update(construction_returned=True,fresh_model_executed=True)
    ctx=constructor127.context(raw,packet,{'A':proposal,'B':proposal})
