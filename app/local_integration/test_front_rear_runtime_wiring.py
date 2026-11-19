@@ -19,6 +19,17 @@ class WiringSmoke(unittest.TestCase):
   pins={k:a.digest(v) for k,v in reports.items()}
   a.verify_reports(reports,pins)
   self.assertEqual(reports['physical']['errors'],['x'])
+ def test_original_report_copy_is_separate(self):
+  original={};live={};pins={};report={'errors':['x'],'pending':['y']}
+  a.preserve_report(original,live,pins,'physical',report)
+  self.assertIsNot(original['physical'],report)
+  a.verify_reports(original,pins);a.verify_reports(live,pins)
+ def test_producer_enum_smoke(self):
+  self.assertEqual(a.proposal_disposition({'status':'SEARCH_TIMEOUT_NO_WITNESS'}),'SEARCH_TIMEOUT_NO_WITNESS')
+  with self.assertRaises(ValueError):a.proposal_disposition({'status':'UNKNOWN'})
+ def test_snapshot_precedes_audit(self):
+  source=Path(a.__file__).read_text()
+  self.assertLess(source.index('sources=snapshot(ROOT,paths)'),source.index('audit=source_audit();'))
  def test_no_module_top_level_live_call(self):
   tree=ast.parse(Path(a.__file__).read_text())
   for n in tree.body:
