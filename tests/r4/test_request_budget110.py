@@ -10,7 +10,11 @@ B=b'{"W":"18","L":"22","n":2}'
 class Ledger(unittest.TestCase):
  def fixture(self,seconds=10,prior=()):
   # Request metadata is synthetic; no geometry or solver runs.
-  r=bridge.make_request(B,seconds=seconds);h=l.digest(r);a=l.anchor(r,h,prior);s=l.create(a);s,alloc=l.reserve(s,l.digest(s),a)
+  # Freeze only request-fixture creation; live runtime deadline is never extended.
+  with patch.object(bridge,'datetime',wraps=bridge.datetime)as clock,patch('subprocess.Popen',side_effect=AssertionError('FIXTURE_NO_PROCESS')):
+   clock.now.return_value=bridge.datetime(2026,11,19,13,0,0,tzinfo=bridge.timezone.utc)
+   r=bridge.make_request(B,seconds=seconds)
+  h=l.digest(r);a=l.anchor(r,h,prior);s=l.create(a);s,alloc=l.reserve(s,l.digest(s),a)
   return r,h,a,s,alloc
  def finish(self,a,s,alloc,**kw):
   args={'elapsed_seconds':1,'reported_outcome':'BLOCKED_NO_SUPPORTED_CAUSE','model_digest':'a'*64,'receipt_verified':True,'internal_attempt_count':1,'internal_count_verified':True};args.update(kw)
