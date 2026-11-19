@@ -452,13 +452,19 @@
       "description_verbatim": "۴.۱. اتصال علت رد واقعی به عملگر اصلاح مناسب. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_EXISTING_OPERATOR_SELECTION_NO_EXECUTION",
       "dependencies": [
         "2.5"
       ],
       "start_utc": "2026-11-19T05:09:49Z",
       "deadline_utc": "2026-11-19T08:09:49Z",
-      "scope": "Bind real rejection/current decision and full preserved physical report to existing explicit_pair_redirection eligibility; no solver/child generation. Independent of task1.6 browser install."
+      "scope": "Bind real rejection/current decision and full preserved physical report to existing explicit_pair_redirection eligibility; no solver/child generation. Independent of task1.6 browser install.",
+      "completed_utc": "2026-11-19T05:20:34Z",
+      "tested_commit": "20a86d096203c5a5c90ef185b4730f71806dadd5",
+      "run": 44464386479,
+      "tests": "8 unit + 9 detached evidence negatives",
+      "manifest": "manifests/V25_TASK_4_1_REJECTION_OPERATOR_EVIDENCE.json",
+      "remaining": "Fresh protected child execution and all gates in4.2/4.3; no operator execution occurred."
     },
     {
       "id": "4.2",
@@ -466,10 +472,13 @@
       "description_verbatim": "۴.۲. حفظ ورودی، تعداد واحد، برنامه، ظرفیت و تجهیزات لازم و ثبت رابطه طرح قبلی و جدید. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "4.1"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:21:18Z",
+      "deadline_utc": "2026-11-19T08:21:18Z",
+      "scope": "Exact typed programme/input/profile/core and actual fixture-ID/dimension preservation plus parent lineage; no fresh child yet."
     },
     {
       "id": "4.3",

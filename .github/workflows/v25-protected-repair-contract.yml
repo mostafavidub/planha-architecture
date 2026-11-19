@@ -1,0 +1,93 @@
+name: V25 typed repair protection task4.2
+on:
+  push:
+    paths:
+      - 'app/local_integration/protected_repair_contract.py'
+      - 'app/local_integration/test_protected_repair_contract.py'
+      - '.github/workflows/v25-protected-repair-contract.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  protect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: live-programme-scheduler-1-3-1-4
+          run-id: 44460753648
+          github-token: ${{ github.token }}
+          path: protection-input
+      - uses: actions/download-artifact@v4
+        with:
+          name: rejection-operator-selection-task4-1
+          run-id: 44464386479
+          github-token: ${{ github.token }}
+          path: protection-selection
+      - name: Synthetic typed-contract tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_protected_repair_contract
+      - name: Actual parent preservation and detached adversarial mutations without generation
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,copy
+          from protected_repair_contract import freeze_parent,verify_child,digest
+          from front_rear_runtime_adapter import source_audit
+          before=source_audit()
+          fs=list(pathlib.Path('protection-input').rglob('runtime-bundle.json'));assert len(fs)==1
+          runtime=json.loads(fs[0].read_text())
+          assert digest(runtime)=='ce47b8433c94aaf216c6fd0d67c8ca9bcc563466f85ba17d3bfdb1fa05d89234'
+          selection=json.loads(pathlib.Path('protection-selection/rejection-operator-selection.json').read_text())
+          assert selection['full_physical_digest']=='44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322'
+          contract=freeze_parent(selection,runtime,expected_selection_digest=digest(selection),expected_runtime_digest=digest(runtime))
+          packet=runtime['packet'];ctx=runtime['context'];original=digest(runtime)
+          positive=verify_child(contract,digest(contract),packet,ctx)
+          assert positive['protected_state_verified'] and not positive['model_changed']
+          cases=['program_type','program_lower','profile_type','core_extra','fixture_dimension','fixture_kind','source_size_type','fixture_remove','fixture_alias','duplicate_unit','input_type','authority','context_hash','contract_digest']
+          negatives=[]
+          for case in cases:
+           p=copy.deepcopy(packet);c=copy.deepcopy(ctx);m=p['world_model'];u=m['units'][0];fid=next(iter(u['fixtures']))
+           if case=='program_type':m['program']['units']=float(m['program']['units'])
+           elif case=='program_lower':m['program']['bedrooms_per_unit']=1
+           elif case=='profile_type':m['profile']['body_m']=0.7
+           elif case=='core_extra':p['core']['unlisted']=False
+           elif case=='fixture_dimension':u['fixtures'][fid][2]=str(float(u['fixtures'][fid][2])+0.1)
+           elif case=='fixture_kind':u['fixture_metadata'][fid]['kind']='different'
+           elif case=='source_size_type':u['fixture_metadata'][fid]['source_size_m']=[False,0]
+           elif case=='fixture_remove':del u['fixtures'][fid];del u['fixture_metadata'][fid]
+           elif case=='fixture_alias':u['fixtures'][fid+'.alias']=copy.deepcopy(u['fixtures'][fid]);u['fixture_metadata'][fid+'.alias']=copy.deepcopy(u['fixture_metadata'][fid])
+           elif case=='duplicate_unit':m['units'][1]['id']=m['units'][0]['id']
+           elif case=='input_type':m['inputs']['n']=2.0
+           elif case=='authority':m['accepted']=True
+           c['construction_trace']['model_hash']=digest(m)
+           if case=='context_hash':c['construction_trace']['model_hash']='0'*64
+           try:verify_child(contract,'0'*64 if case=='contract_digest' else digest(contract),p,c)
+           except (ValueError,KeyError):negatives.append(case)
+          assert negatives==cases
+          assert digest(runtime)==original and source_audit()==before
+          pathlib.Path('typed-repair-contract.json').write_text(json.dumps(contract,sort_keys=True,indent=2))
+          out={'schema':'TASK4_2_PROTECTION_EVIDENCE_V1','contract_digest':digest(contract),'parent_model_digest':runtime['model_digest'],'positive_same_parent_only':positive,'negative_count':len(negatives),'negative_cases':negatives,'original_physical_digest':selection['full_physical_digest'],'original_physical_status':selection['full_physical_report']['status'],'pending_count':len(selection['full_physical_report']['pending']),'source_integrity_verified':True,'fresh_child_generated':False,'solver_executed':False,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
+          pathlib.Path('typed-repair-evidence.json').write_text(json.dumps(out,sort_keys=True,indent=2));print(json.dumps(out,sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: typed-repair-protection-task4-2
+          path: |
+            typed-repair-contract.json
+            typed-repair-evidence.json
+          retention-days: 30
