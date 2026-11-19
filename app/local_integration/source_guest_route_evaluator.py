@@ -38,7 +38,8 @@ def assess(bundle):
  import construction_replay127
  from public_program_audit118 import bind_operation_destination,covered
  from geometry114 import route,cells
- ensure(Path(inspect.getsourcefile(route)).resolve()==(ENGINE/'geometry114.py').resolve(),'ROUTER_SOURCE')
+ for fn,file in ((route,'fast_route120.py'),(cells,'fast_cells120.py'),(bind_operation_destination,'public_program_audit118.py'),(covered,'public_program_audit118.py')):
+  ensure(Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/file).resolve(),'ACTUAL_CALLABLE_SOURCE:'+file)
  replay=construction_replay127.verify(m,bundle['context'])
  ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  ensure(digest(bundle)==pin,'REPLAY_INPUT_MUTATION')
