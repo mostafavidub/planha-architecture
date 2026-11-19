@@ -7,6 +7,7 @@ on:
       - 'app/local_integration/open_front_placement_check.py'
       - 'app/local_integration/open_front_operation_check.py'
       - 'app/local_integration/open_front_typed_public.py'
+      - 'app/local_integration/open_front_boundary_comparison.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -35,7 +36,7 @@ jobs:
           from review_cycle import digest
           from checker114 import evaluate
           from producer_provenance import snapshot,require_unchanged
-          sources=snapshot(root,['.github/workflows/v25-open-world.yml','app/local_integration/open_front_placement_check.py','app/local_integration/open_front_operation_check.py','app/local_integration/open_front_typed_public.py']);assert guard(FREEZE)==12991
+          sources=snapshot(root,['.github/workflows/v25-open-world.yml','app/local_integration/open_front_placement_check.py','app/local_integration/open_front_operation_check.py','app/local_integration/open_front_typed_public.py','app/local_integration/open_front_boundary_comparison.py']);assert guard(FREEZE)==12991
           index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives']if x['run_id']==44417514104)
           archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
           with tarfile.open(archive,'r:gz')as tar:data=tar.extractfile('pair-http.json').read()
@@ -96,13 +97,27 @@ jobs:
               else:rec['module']['accepted']=0;rec['module_hash']=digest(rec['module'])
               assert not source_nonleaf117(changed,opening),case
               arch_negatives.append(case)
+          from constructor127 import build as baseline_build,context as baseline_context_fn
+          from open_front_boundary_comparison import assess as boundary_assess
+          baseline_packet=baseline_build(t['raw'],'FRONT_REAR',t['proposals']['A'],t['proposals']['B'])
+          baseline_context=baseline_context_fn(t['raw'],baseline_packet,t['proposals'])
+          assert digest(baseline_packet['world_model'])==saved['model_digest']
+          boundary=boundary_assess(packet,trace,baseline_packet,baseline_context)
+          boundary_negative=[]
+          for case in ('baseline_mutation','different_proposal'):
+              bp=deepcopy(baseline_packet);bc=deepcopy(baseline_context)
+              if case=='baseline_mutation':bp['world_model']['accepted']=True
+              else:bc['construction_trace']['proposals']['A']['bedrooms']=3
+              try:boundary_assess(packet,trace,bp,bc)
+              except ValueError:boundary_negative.append(case)
+              else:raise AssertionError('BASELINE_BINDING_BYPASS:'+case)
           try:historical=evaluate(m)
           except Exception as e:historical={'status':'CHECKER_EXCEPTION_NOT_APPROVAL','exception':type(e).__name__,'detail':str(e)}
           assert historical.get('status') not in ('PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED')
           require_unchanged(root,sources);assert guard(FREEZE)==12991
-          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'new_schema_placement':placement,'placement_negatives':placement_negatives,'operation_study':operation_study,'arch_negative_tests':arch_negatives,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
+          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'new_schema_placement':placement,'placement_negatives':placement_negatives,'operation_study':operation_study,'arch_negative_tests':arch_negatives,'boundary_comparison':boundary,'boundary_negative_tests':boundary_negative,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
           Path('open-world.json').write_text(json.dumps(out,ensure_ascii=False))
-          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'operation_errors':oe,'operation_pending':op,'arch_negative_tests':len(arch_negatives),'new_placement_status':placement['status'],'new_placement_errors':placement['errors'],'new_placement_pending':placement['pending'],'placement_negative_tests':len(placement_negatives),'historical_status':historical.get('status'),'historical_errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in historical.get('errors',[])],'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
+          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'boundary_status':boundary['status'],'boundary_errors':boundary['errors'],'boundary_pending':boundary['pending'],'released_physical_material_m2':boundary['released_physical_material_m2'],'boundary_negative_tests':len(boundary_negative),'operation_errors':oe,'operation_pending':op,'arch_negative_tests':len(arch_negatives),'new_placement_status':placement['status'],'new_placement_errors':placement['errors'],'new_placement_pending':placement['pending'],'placement_negative_tests':len(placement_negatives),'historical_status':historical.get('status'),'historical_errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in historical.get('errors',[])],'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
