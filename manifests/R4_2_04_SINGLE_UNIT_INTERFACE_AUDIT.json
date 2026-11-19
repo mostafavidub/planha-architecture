@@ -1,0 +1,177 @@
+{
+  "schema": "R4_2_04_SINGLE_UNIT_INTERFACE_AUDIT_V1",
+  "task_id": "R4-2.04",
+  "started_at": "2026-11-19T07:42:38Z",
+  "deadline": "2026-11-19T10:42:38Z",
+  "status": "PARTIAL_SOURCE_INTERFACE_AUDIT_NO_SINGLE_UNIT_IMPLEMENTATION",
+  "scope": "SOURCE_INSPECTION_NOT_EXECUTED_SELECTED_CONSTRUCTOR_CHAIN_ONLY",
+  "base_commit": "3eb13264225a916831a8c0f3e368e9e70f17efda",
+  "source_files": [
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/contract114.py",
+      "blob_sha": "a2631c6a38a43b8d423edf82ad8d526ced1b8196"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/constructor127.py",
+      "blob_sha": "beb67bf4b08a65242305519a678eef94fef3fad6"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/frame_contract125.py",
+      "blob_sha": "de9d4b2daa8024e1feac526649dafb6ac301706a"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/common_core125.py",
+      "blob_sha": "8bb43b9cd86852605e19c7c78a4d4f04b0b739ba"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/entry117.py",
+      "blob_sha": "56483ecd624dee7fddca5097ba284f8689bcfd9c"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/public_witness118.py",
+      "blob_sha": "36f49057da712f29953bbc940a0dd8e9285ee64b"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/search114.py",
+      "blob_sha": "65e0f278c9f9ef480388d3ea8056161c0a938a36"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/assemble114.py",
+      "blob_sha": "6e19b12c62820e015055765e0fe56d6339cd4312"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/construction_replay127.py",
+      "blob_sha": "16b44b228d8dce909b3f45181d0c0d722c1a188f"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/checker114.py",
+      "blob_sha": "4f25ae5b9444c077159af90e872a84f4fcb25f42"
+    }
+  ],
+  "n2_assumptions": [
+    {
+      "file": "contract114.py",
+      "symbol": "parse/core_first/program",
+      "finding": "parse rejects n!=2; central band/core ownership and entries are A/B; programme declares same count in both units. Historical5..45 parser remains unchanged."
+    },
+    {
+      "file": "constructor127.py",
+      "symbol": "frame/build/context",
+      "finding": "frame explicitlyN2_ONLY; build calls assemble with exactlyA/B and outputs two proposal hashes; trace is127_PAIR."
+    },
+    {
+      "file": "assemble114.py",
+      "lines": [
+        15,
+        18,
+        21,
+        24,
+        26,
+        36,
+        53,
+        57,
+        142,
+        156
+      ],
+      "finding": "ExactA/B proposal keys; inputs/program.units=2; two shared-unit boundary apertures; B reflection; unit entry and common route targets generated from that topology."
+    },
+    {
+      "file": "frame_contract125.py",
+      "symbol": "local_core",
+      "finding": "Reads both A and B bounds/entries, solver_inputs ends2; cannot represent single ownership without a different core contract."
+    },
+    {
+      "file": "common_core125.py",
+      "symbol": "build",
+      "finding": "Two flanking units, A/B portals and stair/lift routes are part of core physical model; deleting one unit leaves obsolete interfaces and unassigned material."
+    },
+    {
+      "file": "entry117.py",
+      "symbol": "install",
+      "finding": "Recognizes A.entry/B.entry only; panel/actor inside direction inferred from uidA versusB. Newn1orientation must come from an explicit actual host/interface contract, not a fake pair label."
+    },
+    {
+      "file": "construction_replay127.py",
+      "symbol": "verify",
+      "finding": "Parses through114, requires exactlyA/B proposals and same programme, replays constructor127. No single-assignment origin contract."
+    },
+    {
+      "file": "checker114.py",
+      "lines": [
+        44,
+        55
+      ],
+      "finding": "Original full checker rejects n!=2 and unitcount!=2 independently; suppressing those errors would not establish all other source/named/current coverage."
+    }
+  ],
+  "reuse_candidates": [
+    {
+      "file": "search114.py",
+      "lines": [
+        11,
+        12,
+        27
+      ],
+      "scope": "Consumes one local unit box core.units.A andentry_centers.A for a programme proposal. Potential lower-level reuse only after an explicit new single-unit frame adapter; not readiness or fresh witness."
+    },
+    {
+      "files": [
+        "bedroom_module116.py",
+        "twin_module118.py",
+        "bathroom_module117.py",
+        "kitchen_module117.py",
+        "dining_module118.py"
+      ],
+      "scope": "Existing immutable component contracts and operation profiles may be reused if whole-world placement/reference checks pass; one-bedroom programme is distinct from one-unit count."
+    },
+    {
+      "file": "public_witness118.py",
+      "scope": "Iterates actual units, but origin/entry/floor/operation prerequisites must be audited for a new single-unit model; not automatic compatibility."
+    }
+  ],
+  "minimum_new_contract": [
+    {
+      "id": "OWNERSHIP_CORE",
+      "needs": "Exact one-unit ownership plus conceptual common/core access regions, host/aperture/entry roles and material/floor partition; no mandatory copy of current central band or removal of conceptual access.",
+      "pending": "No single-unit spatial constructor selected or verified. Stair/lift technical certification remains POST_MVP, but actual conceptual geometry/access remains bound."
+    },
+    {
+      "id": "SINGLE_ASSIGNMENT_ORIGIN",
+      "needs": "Exactly one source programme assignment, explicit raw.n=1, new producer/trace/replayer identity and same-version hashes. Do not spoof127_PAIR markers."
+    },
+    {
+      "id": "ENTRY_ORIENTATION",
+      "needs": "Actual opening host, inward/outward side, rigid transform and authorized floor must determine actors/routes, notA/B string conventions."
+    },
+    {
+      "id": "PROGRAMME_INDEPENDENCE",
+      "needs": "n=1 does not imply one bedroom; approved design capacity programme and bundle independently chosen and preserved, no hidden fallback."
+    },
+    {
+      "id": "EVALUATOR_VERSION",
+      "needs": "Separate evaluator contract for actual single-unit schema with preserved physical/named/current obligations and applicability; original checker report retained unchanged when run, not filtered intoPASS."
+    },
+    {
+      "id": "PROOF",
+      "needs": "Source-built single-unit case and negatives for missing/duplicate unit, staleBentry/routes, ownership gaps/overlap, wrongorientation/ref/hash/typedcount; fresh current checks. All NOT_RUN."
+    },
+    {
+      "id": "AGGREGATE_APPLICABILITY",
+      "needs": "Explicit cardinality/applicability for capacity aggregates, worst-unit comparisons, current criterion rows and lineage. One-unit model must not inherit two-unit bookkeeping or silently skip necessary per-unit checks."
+    }
+  ],
+  "dependencies_open": [
+    "R4-2.01",
+    "R4-2.02"
+  ],
+  "tests_executed": 0,
+  "solver_executed": false,
+  "active_code_changes": [],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "next_meaningful_work": "Select a source-supported single-unit ownership/core construction contract before implementation; no evidence that simply relaxing parser or deleting B works. Avoid another coverage table or broad reimplementation without execution capability.",
+  "review": "Conceptual independent review confirmed no half-plot/central-band mandate; n1 is unit count, not bedroom count. Aggregate/worst-unit, capacity and identity/lineage applicability must be audited rather than ignoring old FAIL. No source lines freshly reread by reviewer in this turn.",
+  "checkpoint_at": "2026-11-19T07:45:00Z"
+}

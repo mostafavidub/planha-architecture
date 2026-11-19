@@ -923,7 +923,16 @@
       ],
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PARTIAL_SOURCE_INTERFACE_AUDIT_NO_SINGLE_UNIT_IMPLEMENTATION",
+      "started_at": "2026-11-19T07:42:38Z",
+      "deadline": "2026-11-19T10:42:38Z",
+      "checkpoint_at": "2026-11-19T07:45:00Z",
+      "manifest": "manifests/R4_2_04_SINGLE_UNIT_INTERFACE_AUDIT.json",
+      "remaining": [
+        "Source-supported single-unit core/ownership and entry contract not selected",
+        "New single-assignment producer/replayer/evaluator not implemented",
+        "All runtime tests and dependencies remain open"
+      ]
     },
     {
       "id": "R4-2.05",
