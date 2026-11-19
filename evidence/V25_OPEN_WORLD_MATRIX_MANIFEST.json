@@ -1,0 +1,416 @@
+{
+  "schema": "V25_OPEN_WORLD_MATRIX_RUN_MANIFEST_V1",
+  "started_at": "2026-11-19T00:26:12.078188+00:00",
+  "finished_at": "2026-11-19T00:31:09.050833+00:00",
+  "github_sha": "a80f20cdc01355432abaefbc20ae9e8f2e4ba615",
+  "github_run_id": "44428930218",
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "completed_study_cases": 3,
+  "scoped_clean_cases": 3,
+  "whole_physical_verified": false,
+  "conclusion": "success",
+  "run_url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44428930218",
+  "artifact": {
+    "id": 14486435440,
+    "name": "v25-open-world-matrix",
+    "size_in_bytes": 844188,
+    "sha256": "9df30418cd3572c5274d0f461d93b68177dbf7d848bab75a437df9db73dfaf3b",
+    "created_at": "2026-11-19T00:31:10Z",
+    "expires_at": "2026-12-19T00:31:09Z",
+    "durably_archived": false
+  },
+  "source_archive": {
+    "run_id": 44416886004,
+    "path": "V25_run_44416886004.tar.gz",
+    "size": 1268745,
+    "sha256": "d15964e643cda0c75e690248a1dc75366347be82c279104fafca94a32c6baa32",
+    "members": [
+      {
+        "path": "four-seat-master.json",
+        "size": 13796722,
+        "sha256": "f3a42b5555f002b1a2e9966d036bc6e0302ada22413dda887ca138ea011fc2a1"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "inputs": [
+        "15",
+        "25",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "85d490dd23ab40e9b2ffd1b5d07088b650766fad90c7d097ce301d92a7d59296",
+      "baseline_context_digest": "1a13e8e41a6a8267a1403294575b476d938fdde34c29c4797ff549d48bbdfeb5",
+      "proposal_digest": "70c5728c5ec983fb089d6eaa75c22029999e087c134027c2eedede381822dc25",
+      "baseline_fresh_verified": true,
+      "model_digest": "1dea4684c300c3daff9269693faaffe5df2aee7a577d0a660034c3ec93dee13a",
+      "scoped_clean": true,
+      "study_executed": true,
+      "scopes": [
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "51/200"
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "15",
+            "25",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested error witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    },
+    {
+      "inputs": [
+        "20",
+        "20",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "d527360507cf0103dc7141e04353aefcfd1d0087050e7165c8ada0b3cedcd723",
+      "baseline_context_digest": "21a11df713e98ed39b5e4eb6d05efaf67541881b68f77a71a6a6fca8c0a59693",
+      "proposal_digest": "8013593048e7717a92d05292a560d8b17603ba780ad12b8e3eae0cde5cf99583",
+      "baseline_fresh_verified": true,
+      "model_digest": "fcd137549889cd436cc949a667c2245675925646c08826d210be81ae35b45c20",
+      "scoped_clean": true,
+      "study_executed": true,
+      "scopes": [
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "531/2000"
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "20",
+            "20",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested error witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    },
+    {
+      "inputs": [
+        "24",
+        "18",
+        2
+      ],
+      "variant": 0,
+      "baseline_model_digest": "b1164620a32b61774b0daee7b749654bf69fd48de34771849f63aa78e79e505b",
+      "baseline_context_digest": "c349ca1fe526eab24fd14c282b84a63074f83bd9b2aaf1b9c73690529f43ca3d",
+      "proposal_digest": "99235b525520dda3bbf707d1df684910018291723fa31e1ff35eb1d7afdb0dc5",
+      "baseline_fresh_verified": true,
+      "model_digest": "3ca8191681380b887b2a3299149e0fbc4df33a41d66b022c56a03c0368762c83",
+      "scoped_clean": true,
+      "study_executed": true,
+      "scopes": [
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "placement",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_PLACEMENT_SCOPED"
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "operations",
+          "errors": [],
+          "pending": []
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "boundary_comparison",
+          "errors": [],
+          "pending": [],
+          "status": "PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED",
+          "released_physical_material_m2": "36/125"
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "raw_physical_core",
+          "status": "NOT_EVALUATED",
+          "errors": [],
+          "pending": [
+            "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+          ]
+        },
+        {
+          "inputs": [
+            "24",
+            "18",
+            2
+          ],
+          "scope": "historical_checker_unfiltered",
+          "status": "FAIL",
+          "errors": [
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "SOURCE_MODULE_RECHECK_FAILED"
+            },
+            {
+              "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "fixture_inventory_use"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "program_functional_roles"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "bath_service_operation"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "privacy_scenarios"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "q11_functional_boundary"
+            },
+            {
+              "code": "RULE_FAILED",
+              "requirement_id": "circulation_functional_integrity"
+            }
+          ],
+          "pending": [
+            "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+            "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+            "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+            "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+            "RULE_NOT_EVALUATED:closet_operation",
+            "RULE_NOT_EVALUATED:door_operation",
+            "RULE_NOT_EVALUATED:kitchen_essential_operation",
+            "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+          ],
+          "error_detail": "Full unfiltered nested error witnesses retained in artifact; this manifest lists codes only."
+        }
+      ]
+    }
+  ],
+  "freeze": "530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0",
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "functional_state": "UNKNOWN",
+  "current_Q11_complete": false,
+  "limits": [
+    "Only three archived variant-0 proposals at 15x25,20x20,24x18, two units, two bedrooms per unit; no solver search or qualification.",
+    "Fresh baseline physical/provenance, baseline/model/context/proposal digests, archive/member SHA and new origin replay checked.",
+    "Scoped clean means placement, operation and closet-boundary/before-after checks only. Raw physical core remains NOT_EVALUATED with VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED.",
+    "Historical whole checker remains FAIL; errors were not filtered or reinterpreted as new-contract approval.",
+    "Released physical material is not useful floor area or architectural wall-necessity proof.",
+    "No core engine, implementation, production or archive workflow changes. Artifact retention is 30 days; automatic durable archiving was not enabled.",
+    "Four functional UNKNOWNs, current Q11 and named rules remain; 303 tasks not started."
+  ]
+}
