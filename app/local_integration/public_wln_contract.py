@@ -38,7 +38,7 @@ def engine_raw(envelope):
             if key!='transport_body_sha256' and digest(envelope[key])!=digest(expected[key]): raise ValueError(key)
         h=envelope['transport_body_sha256']
         if type(h) is not str or len(h)!=64 or any(c not in '0123456789abcdef' for c in h): raise ValueError('HASH')
-    except (KeyError,TypeError,ValueError,UnicodeError):
+    except (KeyError,TypeError,ValueError,UnicodeError,RecursionError):
         raise InputError('ENVELOPE_BINDING_CHANGED')
     c=envelope['canonical_request'];out={}
     if c['unit_count']!=2: raise InputError('UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT','n',409)
