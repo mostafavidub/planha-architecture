@@ -13,7 +13,7 @@ def compare(a,b,left,right,expected):
  producer=ROOT/'app/local_integration/programme_evidence_comparison.py';producer_hash=hashlib.sha256(producer.read_bytes()).hexdigest()
  out={'schema':'PROGRAMME_ALTERNATIVE_EVIDENCE_COMPARISON_V1','status':'NOT_COMPARABLE','quality_comparison':'UNRESOLVED_PROFILE',
   'observed_physical_reports':[copy.deepcopy(r.get('original_physical_report')) if type(r) is dict else None for r in (left,right)],'physical_report_model_digest_bindings':[False,False],
-  'winner':None,'pareto_front':None,'quality_scores':None,'models':[digest(a),digest(b)],'reasons':reasons,'comparisons':rows,
+  'winner':None,'pareto_front':None,'quality_scores':None,'measurement_scope':'Metrics read from bound evaluator reports, not independently remeasured by this comparator','models':[digest(a),digest(b)],'reasons':reasons,'comparisons':rows,
   'comparison_source_snapshot':{'app/local_integration/programme_evidence_comparison.py':producer_hash},
   'scope':'Two existing same-request/programme models with equal source evaluator/scenario definitions; evidence deltas only, not programme suitability, ranking or all-PRD qualification.',
   **{k:False for k in AUTH}}
