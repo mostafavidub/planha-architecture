@@ -143,13 +143,16 @@
     },
     {
       "id": "V25-22",
-      "status": "PARTIAL_EXACT_DIAGNOSTICS_NOT_QUALIFICATION",
-      "evidence": "۸مدل جدید physicalPASS؛ شواهد گروه و مسیر ترتیب‌دار مهمان؛ سهprobeدیوار باintervalدقیق و nullcontrol؛ ظرفیت دقیق۸مسیر ثابت .7 با گواهsweep. مسیر ترتیب‌دار اثبات سازمان طبیعی نیست؛ حذف دیوار آشپزخانه نیازمند قرارداد منبع مستقل است؛ چهارUNKNOWN باز.",
+      "status": "PARTIAL_NEW_SOURCE_MODULE_AND_ADAPTERS_NOT_QUALIFICATION",
+      "evidence": "گروه، مسیر ترتیب‌دار مهمان، probe دیوار و ظرفیت مسیر ثابت بررسی شد. ماژول آشپزخانه مستقل و placement A/B و origin جدید با تست تغییرنوع JSON تأیید شدند؛ adapterهای placement وoperations در مدل جدید مثبت‌اند. wholechecker تاریخی همچنان FAIL است؛ مقایسه واقعی قبل/بعد درحال آزمون، چهارUNKNOWN و ممنوعیتتحویل محفوظ.",
       "evidence_runs": [
         44416886004,
         44418924830,
         44420044477,
-        44421091175
+        44421091175,
+        44424755955,
+        44424740173,
+        44426199579
       ]
     },
     {
@@ -239,8 +242,14 @@
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "PARTIAL_DIAGNOSTICS_COMPLETE_FOUR_FUNCTIONAL_UNKNOWNS_REMAIN",
-    "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage"
+    "state": "RUNNING_REAL_BASELINE_BOUNDARY_COMPARISON_NEW_WHOLE_GATE_NOT_IMPLEMENTED",
+    "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage",
+    "latest_subtask": {
+      "id": "V25-22-OPEN-KITCHEN",
+      "start_utc": "2026-11-18T23:41:09Z",
+      "deadline_utc": "2026-11-19T01:07:31Z",
+      "running_test": 44426858702
+    }
   },
   "live_cycle_operation": {
     "start_utc": "2026-11-18T21:27:35Z",
