@@ -122,6 +122,9 @@ def readback(folder,result):
   need(digest(bundle)==result[key],'READBACK_BUNDLE_DIGEST')
   mh=digest(bundle['packet']['world_model'])
   need(mh==result[label+'_model_digest'],'READBACK_MODEL')
+  if label+'_cause'in reports:
+   cause=reports[label+'_cause']
+   need(cause['model_digest']==mh and cause['physical_digest']==result['report_digests'][label+'_physical'],'READBACK_CAUSE_MODEL_PHYSICAL')
   if label+'_physical'in reports:
    physical=reports[label+'_physical'];need(physical['model_hash']==mh,'READBACK_PHYSICAL_MODEL')
    from one_bed_pair_source_study import code_counts
@@ -143,6 +146,11 @@ def readback(folder,result):
 
  if 'cause_resolution'in reports:
   resolution=reports['cause_resolution']
+  from cause_directed_contract108 import resolution as recompute_resolution,check_child
+  need(digest(recompute_resolution(reports['parent_cause'],reports['child_cause']))==digest(resolution),'READBACK_RESOLUTION_RECOMPUTE')
+  cb=read(folder/'child-bundle.json')
+  need(digest(check_child(reports['parent_contract'],cb['packet'],cb['proposals']))==digest(reports['child_preservation']),'READBACK_CHILD_PROTECTION')
+  need(digest(result.get('new_supported_causes'))==digest(resolution['new_supported_causes']),'READBACK_NEW_CAUSES')
   need(digest(result.get('resolution_rows'))==digest(resolution['rows']),'READBACK_RESOLUTION_ROWS')
   expected=resolution['all_target_causes_resolved'] and not resolution['new_supported_causes']
   need(result.get('cause_repair_verified')is expected,'READBACK_RESOLUTION_STATE')
