@@ -405,13 +405,16 @@
       "description_verbatim": "۳.۶. اتصال نتیجه هر بررسی به تصمیم نهایی و تست موارد نامعلوم و شکست. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "3.2",
         "3.3",
         "3.4",
         "3.5"
-      ]
+      ],
+      "start_utc": "2026-11-19T04:37:04Z",
+      "deadline_utc": "2026-11-19T07:37:04Z",
+      "scope": "Bind actual same-model four criteria and complete original physical report to fail-closed decision; preserve missing profile and no authority."
     },
     {
       "id": "4.1",
