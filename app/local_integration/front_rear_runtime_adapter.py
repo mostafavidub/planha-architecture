@@ -25,6 +25,37 @@ def transport(value):
  out=visit(value,[])
  ensure(digest(out)==digest(value),'TRANSPORT_DIGEST_CHANGE')
  return out,{'tuple_paths':changes,'before_digest':digest(value),'after_digest':digest(out),'scope':'JSON tuple-to-array only; exact scalar types retained'}
+def proposal_transport(value):
+ """Pinned search114 two-bedroom coordinate boundary only; no metadata coercion."""
+ import numpy as np
+ ensure(type(value) is dict,'PROPOSAL_OBJECT')
+ out=copy.deepcopy(value);conversions=[]
+ names={'bed1','bed2','bath','kitchen','dining','sofa1_use','sofa2_use','chair1_use','chair2_use','entry_apron'}
+ def number(x,path):
+  if type(x) is not np.float64:return x
+  y=float(x)
+  ensure(math.isfinite(y) and x.as_integer_ratio()==y.as_integer_ratio(),'PROPOSAL_SCALAR_NOT_EXACT')
+  ensure(digest(x)==digest(y),'PROPOSAL_SCALAR_JSON_CHANGE')
+  conversions.append({'path':path,'source_type':'numpy.float64','target_type':'builtins.float',
+   'binary_ratio':[str(v) for v in y.as_integer_ratio()],'hex':y.hex()})
+  return y
+ if 'rectangles' in out:
+  ensure(type(out['rectangles']) is dict and set(out['rectangles'])==names,'PROPOSAL_RECTANGLE_KEYS')
+  for name,q in out['rectangles'].items():
+   ensure(type(q) is list and len(q)==4,'PROPOSAL_RECTANGLE_SHAPE')
+   out['rectangles'][name]=[number(x,['rectangles',name,i]) for i,x in enumerate(q)]
+ if 'network_paths' in out:
+  ensure(type(out['network_paths']) is dict and set(out['network_paths'])<=names-{'entry_apron'},'PROPOSAL_NETWORK_KEYS')
+  for name,path in out['network_paths'].items():
+   ensure(type(path) is list and len(path)==5,'PROPOSAL_NETWORK_SHAPE')
+   for i,p in enumerate(path):
+    ensure(type(p) is list and len(p)==2,'PROPOSAL_POINT_SHAPE')
+    path[i]=[number(x,['network_paths',name,i,j]) for j,x in enumerate(p)]
+ normalized,receipt=transport(out)
+ ensure(digest(value)==digest(normalized),'PROPOSAL_TRANSPORT_DIGEST_CHANGE')
+ receipt.update(coordinate_conversions=conversions,source='Pinned search114.propose rectangles/network_paths only',
+  original_digest=digest(value),scope='Tuple JSON boundary plus exact finite binary64 coordinate transport; no programme, metadata, count or authority coercion')
+ return normalized,receipt
 def verify_reports(reports,pins):
  for key,h in pins.items():
   normalized,_=transport(reports[key])
@@ -132,7 +163,7 @@ def run(body,*,solver_seconds):
   stage='proposal'
   proposal=search114.propose(core,2,time_limit=solver_seconds,variant=0,fixed_witness=None,diagnostic_capture=None,
    sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',organization_profile='UNRESTRICTED')
-  proposal,receipt=transport(proposal);freeze_object('proposal',proposal);freeze_report('proposal_transport',receipt)
+  proposal,receipt=proposal_transport(proposal);freeze_object('proposal',proposal);freeze_report('proposal_transport',receipt)
   out['proposal']=copy.deepcopy(proposal);out['stages'].append(stage);unchanged()
   if proposal_disposition(proposal)!='PROPOSAL_ONLY':
    out.update(status='NO_PROPOSAL_IN_BOUNDED_ATTEMPT',completed=True,global_infeasibility_proven=False)
