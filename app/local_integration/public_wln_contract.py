@@ -4,9 +4,23 @@ from decimal import Decimal, localcontext
 from dimension_contract import (InputError, MAX_BODY, JsonDecimal, _pairs,
     _nonfinite, _integer, _bounded_tree, _number, digest)
 
-SCHEMA = 'V25_PUBLIC_WLN_CONTRACT_V2'
-DOMAIN_POLICY_VERSION = 'MVP_UNIT_DOMAIN_PRD_V2'
+SCHEMA = 'V25_PUBLIC_WLN_CONTRACT_V3'
+DOMAIN_POLICY_VERSION = 'MVP_UNIT_DOMAIN_PRD_V3'
 VALID_UNIT_COUNTS = (1, 2)
+def _unit_count(value):
+    # Missing/null/blank are unfilled required input, not a replacement default.
+    if value is None or (type(value) is str and not value.strip()):
+        raise InputError('INPUT_REQUIRED','n',422)
+    # Keep the existing integer-token contract. Decimal/exponent tokens are
+    # semantic unit-brief errors, never rounded and never generalized to W/L.
+    if isinstance(value,JsonDecimal): raise InputError('INVALID_BRIEF','n',422)
+    try: n=_number(value,'n',count=True)
+    except InputError as ex:
+        if ex.status==422: raise InputError('INVALID_BRIEF','n',422)
+        raise
+    if n not in VALID_UNIT_COUNTS: raise InputError('INVALID_BRIEF','n',422)
+    return n
+
 def parse_public(body):
     if type(body) is not bytes: raise InputError('BODY_BYTES_REQUIRED')
     if len(body)>MAX_BODY: raise InputError('UNSUPPORTED_BODY_LIMIT',status=409)
@@ -16,13 +30,18 @@ def parse_public(body):
     except InputError: raise
     except RecursionError: raise InputError('UNSUPPORTED_NESTING_DEPTH',status=409)
     except (UnicodeError,ValueError): raise InputError('JSON_SYNTAX_INVALID')
-    _bounded_tree(raw)
+    # Exempt only the top-level scalar n decimal token from the generic wire
+    # rejection, so its known semantic error is classified below. All nested
+    # objects, numeric limits, duplicate/nonfinite parsing and W/L stay strict.
+    bounded=dict(raw) if type(raw) is dict else raw
+    if type(bounded) is dict and isinstance(bounded.get('n'),JsonDecimal): bounded['n']=0
+    _bounded_tree(bounded)
     if type(raw) is not dict: raise InputError('OBJECT_REQUIRED')
     if set(raw)-{'W','L','n'}: raise InputError('UNEXPECTED_PUBLIC_FIELD',sorted(set(raw)-{'W','L','n'})[0])
-    if {'W','L','n'}-set(raw): raise InputError('FIELD_REQUIRED',sorted({'W','L','n'}-set(raw))[0])
+    if 'n' not in raw: raise InputError('INPUT_REQUIRED','n',422)
+    if {'W','L'}-set(raw): raise InputError('FIELD_REQUIRED',sorted({'W','L'}-set(raw))[0])
     dimensions={a:_number(raw[a],a) for a in ('W','L')}
-    n=_number(raw['n'],'n',count=True)
-    if n not in VALID_UNIT_COUNTS: raise InputError('INVALID_BRIEF','n',422)
+    n=_unit_count(raw['n'])
     canonical={'dimensions_m':dimensions,'unit_count':n}
     return {'schema':SCHEMA,'received_input':copy.deepcopy(raw),
         'transport_body_sha256':hashlib.sha256(body).hexdigest(),

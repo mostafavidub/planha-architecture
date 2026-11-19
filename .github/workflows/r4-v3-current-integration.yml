@@ -1,0 +1,32 @@
+name: R4 V3 current integration checks
+on:
+  push:
+    branches: [r4-v3-current-integration, main]
+    paths: ['.github/workflows/r4-v3-current-integration.yml', 'app/local_integration/public_wln_contract.py', 'tests/r4/test_current_input_contract.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  input:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Current V3 real HTTP rejection and no-dispatch
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s tests/r4 -p test_current_input_contract.py -v
+      - name: Parser and server regressions, synthetic accepted-path wiring only
+        working-directory: app/local_integration
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest -v test_public_wln_contract test_public_wln_server test_dimension_contract test_v25_input_audit
+      - name: Tracked source unchanged
+        if: always()
+        run: git diff --exit-code
