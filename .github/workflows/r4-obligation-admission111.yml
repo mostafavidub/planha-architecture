@@ -1,0 +1,23 @@
+name: R4 declared obligation admission checks
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'app/local_integration/obligation_admission111.py'
+      - 'tests/r4/test_obligation_admission111.py'
+      - '.github/workflows/r4-obligation-admission111.yml'
+permissions:
+  contents: read
+jobs:
+  admission:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -B -m unittest discover -s tests/r4 -p test_obligation_admission111.py -v
+      - run: git diff --exit-code
