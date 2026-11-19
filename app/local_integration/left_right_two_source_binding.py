@@ -77,8 +77,8 @@ def proposal_check(p):
 
 def source_state():
     import engine114,constructor127,wall_union118,spatial_roles118
-    import assemble114,world_transform125,frame_contract125,common_core125,geometry114,space_accounting118
-    bindings=[(constructor127,'assemble',assemble114,'assemble'),(constructor127,'to_world',world_transform125,'to_world'),(constructor127,'local_core',frame_contract125,'local_core'),(frame_contract125,'build',common_core125,'build'),(spatial_roles118,'ledger',space_accounting118,'ledger'),(spatial_roles118,'cells',geometry114,'cells'),(wall_union118,'cells',geometry114,'cells')]
+    import assemble114,world_transform125,frame_contract125,common_core125,geometry114,space_accounting118,fast_cells120
+    bindings=[(constructor127,'assemble',assemble114,'assemble'),(constructor127,'to_world',world_transform125,'to_world'),(constructor127,'local_core',frame_contract125,'local_core'),(frame_contract125,'build',common_core125,'build'),(spatial_roles118,'ledger',space_accounting118,'ledger'),(geometry114,'cells',fast_cells120,'cells'),(spatial_roles118,'cells',fast_cells120,'cells'),(wall_union118,'cells',fast_cells120,'cells')]
     for owner,alias,module,name in bindings:
         fn=getattr(owner,alias);ensure(fn is getattr(module,name),'IMPORTED_CALLABLE_IDENTITY:'+alias)
         path=ENGINE/(module.__name__+'.py');ensure(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'DEPENDENCY_IMPORT:'+alias)
@@ -88,7 +88,7 @@ def source_state():
     functions=[(engine114.revision,'engine114.py'),(constructor127.frame,'constructor127.py'),(constructor127.build,'constructor127.py'),(constructor127.context,'constructor127.py'),(wall_union118.bind_physical_wall_union,'wall_union118.py'),(spatial_roles118.attach,'spatial_roles118.py')]
     for fn,name in functions:ensure(Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve(),'SOURCE_IMPORT:'+name)
     ensure(engine114.revision()==ENGINE_PIN,'ENGINE_PIN')
-    paths={name for _,name in functions}|{'assemble114.py','frame_contract125.py','common_core125.py','world_transform125.py','bedroom_module116.py','twin_module118.py','dining_module118.py','bathroom_module117.py','kitchen_module117.py','world_record_schema129.json'}
+    paths={name for _,name in functions}|{'assemble114.py','frame_contract125.py','common_core125.py','world_transform125.py','bedroom_module116.py','twin_module118.py','dining_module118.py','bathroom_module117.py','kitchen_module117.py','world_record_schema129.json','fast_cells120.py','geometry114.py','space_accounting118.py'}
     return {name:hashlib.sha256((ENGINE/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 def S(v):
