@@ -13,7 +13,7 @@ class Structural(unittest.TestCase):
   a=m.descriptor_import();rows=[]
   for case,p in zip(('V0','V2'),projections):
    folder=Path(d)/case;folder.mkdir();(folder/'projection.json').write_text(json.dumps(p))
-   desc=a.descriptor(p);rows.append({'case':case,**{k:'f'*64 for k in('raw_digest','core_digest','profile_digest','program_digest','source_digest')},'completed':True,'integrity_verified':True,'descriptor_state':'ACTUAL_MODEL_BOUND_DESCRIPTOR','projection_digest':m.digest(p),'model_digest':p['model_digest'],'descriptor_digest':m.digest(desc),'descriptor_signature':desc['signature']})
+   desc=a.descriptor(p);rows.append({'case':case,'variant':m.VARIANTS[case],'state':'FULL_REPORTS_RETAINED_NOT_QUALIFIED','evidence_usable':True,'independent_origin_verified':True,**{k:'f'*64 for k in('raw_digest','core_digest','profile_digest','program_digest','source_digest')},'completed':True,'integrity_verified':True,'descriptor_state':'ACTUAL_MODEL_BOUND_DESCRIPTOR','projection_digest':m.digest(p),'model_digest':p['model_digest'],'descriptor_digest':m.digest(desc),'descriptor_signature':desc['signature']})
   return rows
  def test_source_constraints_equal_objectives_differ_no_solver(self):
   import numpy as np
@@ -68,4 +68,20 @@ class Structural(unittest.TestCase):
  def test_unknown_cli_no_solver(self):
   with patch.object(sys,'argv',['structural_pair302.py','--retry']),patch.object(m,'run',side_effect=AssertionError('NO_RUN')):
    with self.assertRaises(ValueError):m.main()
+
+ def test_duplicate_case_not_comparable(self):
+  with tempfile.TemporaryDirectory()as d:
+   rows=self.retained(d,[self.projection(),self.projection('b'*64)]);rows[1]['case']='V0'
+   self.assertEqual(m.pair_readback(rows,Path(d))['state'],'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR')
+ def test_unusable_observation_not_comparison(self):
+  with tempfile.TemporaryDirectory()as d:
+   rows=self.retained(d,[self.projection(),self.projection('b'*64)]);rows[0]['evidence_usable']=False
+   self.assertEqual(m.pair_readback(rows,Path(d))['state'],'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR')
+ def test_descriptor_report_not_replaced_by_summary(self):
+  a=m.descriptor_import();d=a.descriptor(self.projection())
+  r={'descriptor_digest':m.digest(d),'report_digests':{'actual_descriptor':m.digest(d)},'model_digest':d['model_digest'],'descriptor_signature':d['signature'],'projection_digest':d['projection_digest']}
+  m.bind_descriptor_report(r,d)
+  r['descriptor_signature']='c'*64
+  with self.assertRaises(ValueError):m.bind_descriptor_report(r,d)
+
 if __name__=='__main__':unittest.main()

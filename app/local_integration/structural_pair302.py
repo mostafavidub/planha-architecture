@@ -75,10 +75,16 @@ def capture_returned(result):
  except (ValueError,RecursionError):
   return {'schema':'NONJSON_REPORT_OBSERVATION302_V1','state':'EVALUATOR_ERROR','raw_value_type':type(result).__name__ if type(result)in(dict,list,tuple,str,int,float,bool,type(None))else'OTHER','raw_preserved_as_json':False},False
  return copy.deepcopy(result),True
+def bind_descriptor_report(r,d):
+ need(type(d)is dict and d.get('schema')=='ACTUAL_MODEL_BOUND_DESCRIPTOR301_V1','DESCRIPTOR_SCHEMA')
+ need(digest(d)==r['descriptor_digest']==r['report_digests']['actual_descriptor'],'DESCRIPTOR_REPORT_DIGEST')
+ need(d['model_digest']==r['model_digest']and d['signature']==r['descriptor_signature']and d['projection_digest']==r['projection_digest'],'DESCRIPTOR_REPORT_ANCHORS')
+ need(all(d.get(k)is False for k in AUTH)and d.get('architectural_diversity_verified')is False,'DESCRIPTOR_AUTHORITY')
 def recheck_reports(r,reports):
  need(type(reports)is dict,'REPORT_TYPE')
  need(all(k in reports and digest(reports[k])==v for k,v in r.get('report_digests',{}).items()),'REPORT_FILE_DIGEST')
  if r.get('state')!='FULL_REPORTS_RETAINED_NOT_QUALIFIED'or r.get('completed')is not True:return
+ bind_descriptor_report(r,reports['actual_descriptor'])
  physical=reports['physical'];replay=reports['original_replay'];mh=r['model_digest']
  need(physical['model_hash']==mh and replay['verified']is True and replay['model_hash']==mh,'RETAINED_MODEL_REPLAY')
  need(r['physical_status']==physical['status']and digest(r['physical_error_counts'])==digest(code_counts(physical.get('errors',[])))and digest(r['physical_pending_counts'])==digest(code_counts(physical.get('pending',[]))),'PHYSICAL_SUMMARY')
@@ -112,7 +118,7 @@ def child(folder,case,nonce):
  import engine114,guard400,source_fit_candidate207,search114,contract114,constructor127,construction_replay127,evaluate_pair127
  import source_fit_profile207
  folder=Path(folder);folder.mkdir(exist_ok=False)
- out={'run_nonce':nonce,'schema':'STRUCTURAL_PAIR302_CASE_V1','case':case,'state':'STARTED','completed':False,'construction_observed':False,
+ out={'run_nonce':nonce,'schema':'STRUCTURAL_PAIR302_CASE_V1','case':case,'variant':VARIANTS[case],'state':'STARTED','completed':False,'construction_observed':False,
  'independent_origin_verified':False,'integrity_verified':False,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,
  'current_assessment_attempted':False,'current_four':'NOT_EVALUATED_FRESH_CURRENT_CRITERIA_NOT_RUN','technical_core':'POST_MVP_NOT_EVALUATED','internal_count_is_product_count':False}
  originals={};live={};pins={};inputs={};inputpins={};bundle=None;bp=None;snap=None;audited=False
@@ -260,7 +266,7 @@ def descriptor_import():
 def pair_readback(results,folder):
  if len(results)!=2 or [r.get('case')for r in results]!=['V0','V2']:
   return {'state':'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR','reason':'EXACT_TWO_REGISTERED_CASES_REQUIRED','architectural_diversity_verified':False,**{k:False for k in AUTH}}
- accepted=[r for r in results if r.get('completed')is True and r.get('descriptor_state')=='ACTUAL_MODEL_BOUND_DESCRIPTOR'and r.get('integrity_verified')is True]
+ accepted=[r for r in results if r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True and r.get('evidence_usable')is True and r.get('independent_origin_verified')is True and type(r.get('variant'))is int and r['variant']==VARIANTS[r['case']]and r.get('descriptor_state')=='ACTUAL_MODEL_BOUND_DESCRIPTOR'and r.get('integrity_verified')is True]
  if len(accepted)!=2:return {'state':'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR','reason':'NO_FALLBACK_OR_RESAMPLE','architectural_diversity_verified':False,**{k:False for k in AUTH}}
  need(all(type(results[0].get(k))is str and results[0][k]==results[1].get(k)for k in('raw_digest','core_digest','profile_digest','program_digest','source_digest')),'PAIR_COMMON_ANCHOR')
  a=descriptor_import();pin=a.guard();projections=[]
@@ -313,10 +319,11 @@ def run():
   valid_source=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()==selfpin
   if not valid_source or remaining()<=0:
    results=[invalidate(r,'GLOBAL_SOURCE_OR_BUDGET_ERROR')for r in results]
-  out={'schema':'STRUCTURAL_PAIR302_BATCH_V1','rows':results,'comparison':comparison,'elapsed_seconds':time.monotonic()-start,'allocation_seconds':allocation,'source_integrity_verified':valid_source,'seed':'NOT_EXPOSED_SOURCE_DEFAULT','variants':[0,2],'retry_count':0,'fresh_four_current_case_count':sum(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('V0','V2')),'subcriterion_fresh_four_current_complete':all(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('V0','V2')),'durable_raw_archive_created':False,'budget_scope':'Batch600 starts before source/runtime setup, after CI dependency installation; job13min also bounded separately. Each child240 includes current evaluators; parent verification measured not preempted. Encoding/network outside cutoff; absolute taskcap retained.','qualified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
-  if not valid_source or remaining()<=0:out['comparison']={'state':'GLOBAL_INTEGRITY_ERROR','architectural_diversity_verified':False,**{k:False for k in AUTH}}
+  out={'schema':'STRUCTURAL_PAIR302_BATCH_V1','rows':results,'comparison':comparison,'comparison_verified':comparison.get('state')in('EXACT_DESCRIPTOR_EQUIVALENT','DESCRIPTOR_DIFFERENCE_NOT_QUALITY'),'elapsed_seconds':time.monotonic()-start,'allocation_seconds':allocation,'source_integrity_verified':valid_source,'seed':'NOT_EXPOSED_SOURCE_DEFAULT','variants':[0,2],'retry_count':0,'fresh_four_current_case_count':sum(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('V0','V2')),'subcriterion_fresh_four_current_complete':all(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('V0','V2')),'durable_raw_archive_created':False,'budget_scope':'Batch600 starts before source/runtime setup, after CI dependency installation; job13min also bounded separately. Each child240 includes current evaluators; parent verification measured not preempted. Encoding/network outside cutoff; absolute taskcap retained.','qualified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
+  if not valid_source or remaining()<=0:out['comparison_verified']=False;out['comparison']={'state':'GLOBAL_INTEGRITY_ERROR','architectural_diversity_verified':False,**{k:False for k in AUTH}}
   print(json.dumps(out,sort_keys=True,allow_nan=False),flush=True)
   need(valid_source and remaining()>0,'GLOBAL_INTEGRITY')
+  need(comparison.get('state')!='PAIR_BINDING_ERROR','PAIR_COMPARISON_ERROR')
   need(all((r.get('completed')is True and r.get('integrity_verified')is True)or r.get('state')=='NOT_RUN_INSUFFICIENT_SHARED_BUDGET'for r in results if r['case']in('V0','V2')),'BATCH_COLLECTION_ERROR')
 def main():
  if len(sys.argv)==5 and sys.argv[1]=='--child':
