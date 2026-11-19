@@ -1,0 +1,86 @@
+name: V25 living existing alternative comparison
+on:
+  push:
+    paths: ['.github/workflows/v25-living-existing-comparison.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-original-runtime-task-2-5
+          run-id: 44455198301
+          github-token: ${{ github.token }}
+          path: current-input
+      - name: Compare only pinned two-bedroom child with current model
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          timeout --kill-after=5s 240s python -B - <<'PY'
+          import tarfile,pathlib,json,hashlib,copy
+          from fractions import Fraction as F
+          from source_living_evaluator import assess
+          from front_rear_runtime_adapter import source_audit
+          from same_version_front_rear_contract import digest
+          source_audit()
+          import evaluate_pair127
+          p=pathlib.Path('evidence/archive/V25_run_44417514104.tar.gz')
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='3c227801016f42c1d7dd0d7354ba64f2363c320fd56482c7acc245f6963fed90'
+          with tarfile.open(p,'r:gz') as t:
+           f=t.getmember('evidence/requests/4ac2d52f-e014-4c02-80d7-89f033ab93aa/exploratory_evidence.json')
+           data=t.extractfile(f).read();assert hashlib.sha256(data).hexdigest()=='4db29049bf9d88fad455245da8d42c269c8f5f305c0b4a63f4fe42e699ee7b77'
+           child=json.loads(data)['child']
+          fs=list(pathlib.Path('current-input').rglob('runtime-bundle.json'));assert len(fs)==1
+          raw=fs[0].read_bytes();assert hashlib.sha256(raw).hexdigest()=='fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720'
+          current=json.loads(raw);a=current['packet']['world_model'];b=child['packet']['world_model']
+          assert digest(b)==child['model_digest']=='073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44'
+          checks={k:digest(a[k])==digest(b[k]) for k in ('inputs','program','profile','fixture_catalog_hash')}
+          def inventory(m):
+           return [{k:sorted([str(abs(F(q[2])-F(q[0]))),str(abs(F(q[3])-F(q[1])))]) for k,q in u['fixtures'].items()} for u in m['units']]
+          checks['fixture_ids_and_dimensions']=digest(inventory(a))==digest(inventory(b))
+          checks['same_engine']=child['context']['construction_trace']['source_revision']==current['context']['construction_trace']['source_revision']
+          result={'schema':'EXISTING_LIVING_ALTERNATIVE_COMPARISON_V1','checks':checks,'current_model':digest(a),'alternative_model':digest(b),'accepted':False,'qualified':False,'delivery_allowed':False}
+          if not all(checks.values()):
+           result['status']='BLOCKED_COMPATIBILITY'
+          else:
+           before=digest(child)
+           physical=evaluate_pair127.evaluate(child['packet'],child['context'])
+           assert digest(child)==before and physical['model_hash']==digest(b)
+           wrapped={'schema':'EXPLICIT_EXISTING_ARCHIVE_MODEL_ADAPTER','packet':child['packet'],'context':child['context'],'model_digest':digest(b),'reports':{'physical':physical},'report_digests':{'physical':digest(physical)}}
+           left,right=assess(current),assess(wrapped)
+           assert left['integrity_verified'] and right['integrity_verified'] and not left.get('missing') and not right.get('missing')
+           assert digest(child)==before
+           comparisons=[]
+           for u,v in zip(left['units'],right['units']):
+            assert u['unit']==v['unit']
+            for s,t in zip(u['studies'],v['studies']):
+             assert (s['domain'],s['anchor_fixture_id'],s['target_fixture_ids'])==(t['domain'],t['anchor_fixture_id'],t['target_fixture_ids'])
+             rows=[]
+             for x,y in zip(s['routes'],t['routes']):
+              assert x['target_fixture']==y['target_fixture']
+              rows.append({'target':x['target_fixture'],'current_state':x['state'],'alternative_state':y['state'],'current_length':x.get('length_m'),'alternative_length':y.get('length_m'),'comparison':'BOTH_WITNESSES' if x.get('path') and y.get('path') else 'MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY'})
+             comparisons.append({'unit':u['unit'],'domain':s['domain'],'routes':rows})
+           result.update(status='SAME_SOURCE_PROGRAMME_EXISTING_GEOMETRIES_COMPARED',comparisons=comparisons,current_assessment=left,alternative_assessment=right,fresh_alternative_physical=physical,fresh_alternative_physical_digest=digest(physical),notice='Existing alternative, not newly generated; same metrics do not imply global optimality or programme quality. Original current FAIL retained.')
+          pathlib.Path('existing-living-comparison.json').write_text(json.dumps(result,sort_keys=True,indent=2))
+          compact={k:v for k,v in result.items() if k not in ('current_assessment','alternative_assessment','fresh_alternative_physical')}
+          if 'fresh_alternative_physical' in result:compact['alternative_physical_status']=result['fresh_alternative_physical']['status']
+          print(json.dumps(compact,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: existing-living-alternative-comparison
+          path: existing-living-comparison.json
+          retention-days: 30
