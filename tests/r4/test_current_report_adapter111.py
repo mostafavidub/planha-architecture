@@ -11,7 +11,7 @@ def fixture():
     b['coverage_digest']=a.digest(a.coverage_contract())
     p={'model_hash':b['model_digest'],'status':'FAIL','errors':['SYNTHETIC_PHYSICAL_FAILURE'],
        'pending':['SYNTHETIC_PENDING'],'original_pending':['SYNTHETIC_HISTORY']}
-    replay={'model_hash':b['model_digest'],'verified':True,'source_revision':'SYNTHETIC'}
+    replay={'model_hash':b['model_digest'],'verified':True,'source_revision':x.ENGINE_REVISION}
     current={}
     for cid,schema in x.SCHEMAS.items():
         r={'schema':schema,'criterion':cid,'model_digest':b['model_digest'],
@@ -69,6 +69,9 @@ class AdapterTests(unittest.TestCase):
         raw,b=fixture();pin=a.digest(raw);raw['physical']['pending'].append('SYNTHETIC_NEW')
         out=x.adapt(raw,pin,b,a.digest(b))
         self.assertEqual(out['state'],'EVIDENCE_ERROR');self.assertEqual(out['raw_reports'],raw)
+    def test_replay_wrong_revision_rehashed(self):
+        raw,b=fixture();raw['replay']['source_revision']='stale'
+        self.assertEqual(run(raw,b)['state'],'EVIDENCE_ERROR')
     def test_authority_and_unknown_state(self):
         for field,value in (('qualified',True),('state','NEW_STATE')):
             raw,b=fixture();raw['current'][next(iter(x.SCHEMAS))][field]=value

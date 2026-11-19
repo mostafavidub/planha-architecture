@@ -6,6 +6,7 @@ import copy
 import hashlib
 from obligation_admission111 import (AUTH, ROOT, digest, strict, require, hash_ok,
                                     coverage_contract, admission)
+ENGINE_REVISION = 'faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279'
 SCHEMAS = {
  'CURRENT_PROGRAM_SUITABILITY': 'CURRENT_PROGRAMME_SOURCE_EVALUATION_V1',
  'KITCHEN_GUEST_PATH_SEPARATION': 'SOURCE_BOUND_FOUR_GUEST_ROUTES_V1',
@@ -46,6 +47,7 @@ def adapt(raw, expected_raw_digest, binding, expected_binding_digest):
            'consistency_verified': False, 'live_execution_verified': False,
            'per_unit_criterion_mapping_verified': False,
            'whole_obligation_mapping_verified': False,
+           'unverified_anchor_associations': ['request_digest', 'source_digest', 'rule_digest', 'profile_digest'],
            **{k: False for k in AUTH}, 'aggregate_findings': [], 'unit_observations': [],
            'errors': [], 'raw_preservation': 'NOT_ESTABLISHED'}
     try:
@@ -60,7 +62,7 @@ def adapt(raw, expected_raw_digest, binding, expected_binding_digest):
         physical, replay = raw['physical'], raw['replay']
         mh = binding['model_digest']
         require(physical['model_hash'] == mh and replay['model_hash'] == mh, 'ORIGINAL_MODEL')
-        require(replay['verified'] is True, 'REPLAY_NOT_VERIFIED')
+        require(replay['verified'] is True and replay['source_revision'] == ENGINE_REVISION, 'REPLAY_REVISION_OR_VERIFICATION')
         require(type(physical['errors']) is list and type(physical['pending']) is list, 'PHYSICAL_LISTS')
         source_pins = {}
         for cid, r in raw['current'].items():
