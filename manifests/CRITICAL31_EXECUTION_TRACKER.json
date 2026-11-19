@@ -574,14 +574,19 @@
       "description_verbatim": "۵.۲. اجرای مسیر واقعی از فرم سه‌فیلدی تا تولید و ارزیابی برای نمونه‌ها و ثبت جداگانه علت هر نتیجه. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_ACTUAL_HTTP_MATRIX_VERIFIED_VARIABLE_GEOMETRY_UNSUPPORTED",
       "dependencies": [
         "1.6",
         "2.5"
       ],
       "start_utc": "2026-11-19T06:02:26Z",
       "deadline_utc": "2026-11-19T09:02:26Z",
-      "scope": "26 real nonready HTTP POSTs; two ready canonical cases not posted again; actual1.6 supported evidence reused separately. No new solver or variable-dimension geometry coverage claim."
+      "scope": "26 real nonready HTTP POSTs; two ready canonical cases not posted again; actual1.6 supported evidence reused separately. No new solver or variable-dimension geometry coverage claim.",
+      "completed_scoped_tests_utc": "2026-11-19T06:08:36Z",
+      "tested_commit": "8c3125f7e4ec235b50fbcf65ec94a061b51bfb1d",
+      "run": 44469980246,
+      "tests": "26 real HTTP nonready cases;2 ready cases not reexecuted; separately pinned existing1.6 actual witness",
+      "remaining": "Only selected18x20/n2 geometry witnessed. Other valid dimensions/unit counts unsupported; no new solver or full variable-dimension geometric coverage."
     },
     {
       "id": "5.3",
@@ -589,11 +594,19 @@
       "description_verbatim": "۵.۳. اجرای حداقل یک چرخه واقعی رد و بازطراحی تا رسیدن به طرح واجد همه شرایط یا ثبت علت شکست. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "DONE_SCOPED_ACTUAL_CYCLE_ASSESSED_QUALIFICATION_FAILURE_RECORDED",
       "dependencies": [
         "5.2",
         "4.5"
-      ]
+      ],
+      "start_utc": "2026-11-19T06:10:54Z",
+      "deadline_utc": "2026-11-19T09:10:54Z",
+      "scope": "Assessment of actual4.3 execution plus4.5 audit, no new or relabelled solver run",
+      "evidence_runs": [
+        44466696183,
+        44468288358
+      ],
+      "remaining": "Child physicalPASS_SCOPED but current decisionBLOCKED; no qualified product result."
     },
     {
       "id": "5.4",

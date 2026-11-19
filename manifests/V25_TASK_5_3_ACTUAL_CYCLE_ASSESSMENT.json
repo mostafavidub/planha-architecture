@@ -1,0 +1,74 @@
+{
+  "task": "5.3",
+  "status": "DONE_SCOPED_ACTUAL_CYCLE_ASSESSED_QUALIFICATION_FAILURE_RECORDED",
+  "start_utc": "2026-11-19T06:10:54Z",
+  "deadline_utc": "2026-11-19T09:10:54Z",
+  "scope": "Read-only assessment of previously executed and independently audited real cycle. No new attempt, solver, CI, or runtime timebox reset under this task number.",
+  "actual_execution": {
+    "task": "4.3",
+    "commit": "54b001d2e3b128b3dc0ecb45dae172291a37eb65",
+    "run": 44466696183,
+    "artifact": 14501644271,
+    "artifact_sha256": "d3856014551d283bb1813c66bc452825b1fd8bd5448fe1de8e028d6320430ba3",
+    "elapsed_seconds": 80.06103528700001,
+    "shared_child_seconds": 240,
+    "timed_out": false,
+    "selected_child_count": 1,
+    "constructed_candidate_count_observed": 1
+  },
+  "history_audit": {
+    "task": "4.5",
+    "commit": "094f298d066e5e04c169549ee84b85a1ae8bf495",
+    "run": 44468288358,
+    "artifact": 14502997075,
+    "artifact_sha256": "902c184fc18b2c1508337fa98df57361f399d9689edc09c36eeee1c08b085b46",
+    "pinned_negative_tests": 14,
+    "rehashed_structural_tests": 5
+  },
+  "parent": {
+    "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "physical_digest": "44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322",
+    "physical_status": "FAIL",
+    "cause": "A/B guest_dining NO_CONNECTED_BODY_ROUTE under historical whole-kitchen-exclusion profile",
+    "pending_preserved": 6
+  },
+  "child": {
+    "model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "physical_digest": "a6d3e620ca49df2ef06ed57db676d8e79628fc0f15acb30979c4db1f8de70799",
+    "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+    "physical_errors": 0,
+    "physical_pending": 0,
+    "distinct_from_parent": true,
+    "globally_novel_not_claimed": true
+  },
+  "qualification": {
+    "decision_digest": "afabc26974d97f27a9ed60caa2259f7fb6b24f47def17a0c1b47332bcf3fd0ba",
+    "state": "BLOCKED",
+    "blockers": [
+      "CURRENT_UNKNOWN",
+      "HISTORICAL_UNRESOLVED_RETAINED"
+    ],
+    "reason": "Necessary current functional evidence/profile/quality conditions remain unresolved; historical original_pending/not_evaluated retained. Physical pass is not whole PRD qualification.",
+    "not_claimed": [
+      "No geometric impossibility",
+      "No timeout in final run",
+      "No qualified plan",
+      "No closure of all current functional requirements"
+    ]
+  },
+  "operator_after_child": {
+    "same_rejection_scope_matches": false,
+    "reason": "Existing operator requires specific physicalFAIL A/B guest_dining; child no longer has that physical rejection.",
+    "no_other_operator_global_claim": false
+  },
+  "scope_boundary_5_2": "Existing selected18x20/n2 only; variable-dimension public generation unsupported outside selected contract.",
+  "evidence_paths": [
+    "manifests/V25_TASK_4_3_FRESH_REPAIR_CHAIN_EVIDENCE.json",
+    "manifests/V25_TASK_4_5_ACTUAL_HISTORY_EVIDENCE.json",
+    "manifests/V25_TASK_5_2_HTTP_MATRIX_EVIDENCE.json"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

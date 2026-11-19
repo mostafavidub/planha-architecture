@@ -1,0 +1,116 @@
+{
+  "task": "5.2",
+  "status": "PARTIAL_ACTUAL_HTTP_MATRIX_VERIFIED_VARIABLE_GEOMETRY_UNSUPPORTED",
+  "start_utc": "2026-11-19T06:02:26Z",
+  "deadline_utc": "2026-11-19T09:02:26Z",
+  "tested_commit": "8c3125f7e4ec235b50fbcf65ec94a061b51bfb1d",
+  "run": 44469980246,
+  "job": 135376796489,
+  "evidence": {
+    "accepted": false,
+    "actual_new_http_posts": 26,
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry_executed": false,
+    "new_solver_calls": 0,
+    "qualified": false,
+    "ready_cases_not_posted": 2,
+    "reused_supported_witness": {
+      "browser_receipt_digest": "3cd9b535285152178c299c3dc78d71dd06b7d5b1696b9c42e004111a6e3d02a1",
+      "compatibility": {
+        "engine_files_hashed": 377,
+        "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+        "integration_source_hashes": {
+          "app/local_integration/automatic_program_search.py": "9314667f2c455f3123a8b73fcb1864b3b61faef10f7b1eff4f1cabefea1dd67b",
+          "app/local_integration/current_four_decision.py": "8929ffaf179b0c69296f2d6104ba4cf50119df8e4f2957a22640178ae0eca7f8",
+          "app/local_integration/current_programme_evaluator.py": "c30ae83d0f9b3105c90dbd7c0c845cadcdd72c7401d110f53cfba80640ebb358",
+          "app/local_integration/front_rear_runtime_adapter.py": "bdeca58613e45f35fa951f25dc96315939f75e3c1f5464e356be1511c19d5126",
+          "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+          "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+          "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+          "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048",
+          "app/local_integration/live_program_scheduler.py": "79d9ee49a90d82ff18a842e83a458274982d1a922cf31e4af985074502966944",
+          "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+          "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+          "app/local_integration/program_profile_registry.py": "ea958ce04e5c4c577387350892c2b36bc8a96fa29a50288470de89748bda52c6",
+          "app/local_integration/program_search_order.py": "7441654d20ff1e6524637e3416f1d96c964ea3fe9d83fa519ecdc8caf78208f9",
+          "app/local_integration/public_wln_contract.py": "1806f0eaf588f0681e6bbce0ef1a2c9c5dacd617e3c704c99330763803f05c6e",
+          "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b",
+          "app/local_integration/same_version_front_rear_contract.py": "43edad16cc9a7356c150af84b158d4ef7394f4a7f39999a1a4a1a609eff123a6",
+          "app/local_integration/source_guest_route_evaluator.py": "fbeb74ab006df108e7181dc6e1eba715368b2622d1432fc12ca31d76b771f952",
+          "app/local_integration/source_living_evaluator.py": "69f935c47c196bddc57929eaed2caacc101fb750f8553f7cdc6248035d3336df",
+          "app/local_integration/source_wall_function_evaluator.py": "c3f1f76f2e12338c018c7042585c015180c54565d98cf2a837f2f4d751540ef3"
+        },
+        "scope": "Read-only current byte compatibility with retained runtime; no new replay, geometry or solver execution"
+      },
+      "decision_digest": "f95a1bfeb1ac2563c3ae557b016c53ab9a7f6c60bbed04d8419a959604042ed6",
+      "public_response": {
+        "accepted": false,
+        "actual_live_attempts": 1,
+        "attempt_states": [
+          "LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED"
+        ],
+        "case_scope": "18x20/n2 only; other valid cases currently unsupported",
+        "decision": {
+          "accepted": false,
+          "all_PRD_requirements_verified": false,
+          "blockers": [
+            "PHYSICAL_FAIL",
+            "CURRENT_UNKNOWN",
+            "PHYSICAL_PENDING",
+            "HISTORICAL_UNRESOLVED_RETAINED"
+          ],
+          "current_four_conditions_complete": false,
+          "delivery_allowed": false,
+          "display_allowed": false,
+          "qualified": false,
+          "state": "BLOCKED"
+        },
+        "delivery_allowed": false,
+        "display_allowed": false,
+        "download_available": false,
+        "fresh_model_executed": true,
+        "input_valid": true,
+        "mode": "LOCAL_SCOPED_STUDY_NOT_PRODUCT",
+        "plan_count_available": 0,
+        "plan_payload": null,
+        "programme_source": "Automatic approved registry programme2 for the selected study case; not quality-optimal selection",
+        "qualified": false,
+        "remaining": [
+          "Variable-dimension automatic programme search incomplete",
+          "One-bedroom adapter not ready",
+          "Current functional quality/profile checks unresolved"
+        ],
+        "schema": "PUBLIC_WLN_STUDY_SUMMARY_V1",
+        "source_integrity_verified": true,
+        "status": "LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED"
+      },
+      "request": {
+        "L": "20",
+        "W": "18",
+        "n": 2
+      },
+      "runtime_digest": "fa3cc02eed2e0fcc74503a2deb7b22641a3428e5506c03999bb69a59c6c0def1",
+      "scope": "Previous actual browser/public POST and fresh runtime witness reused; not a new positive plan or fresh full matrix",
+      "source_artifact": 14500313851,
+      "source_artifact_sha256": "fcbfe269bf8189882145b85570625c7f3f40491cc1296d19ecf53c357fbcb02b",
+      "source_run": 44462498782
+    },
+    "schema": "TASK5_2_ACTUAL_HTTP_MATRIX_V1",
+    "scope": "Current three-field API distinguishes valid-but-unsupported and rejected wire inputs. Geometry generation across variable dimensions remains unimplemented/unverified.",
+    "spec_sha256": "48a618b9bfc0b1f2ab015a4845ce7899fbc48b1e601a266a5852c98d3ff0732d",
+    "subprocess_attempts": [],
+    "subprocess_guard_scope": "Temporary negative-test Popen hook only, not a universal in-process solver ban. Zero new solver follows the real nonready/no-dispatch branch and actual_live_attempts0; production server unchanged"
+  },
+  "artifact": {
+    "id": 14504107095,
+    "sha256": "e6551e25b84df5d8e59bd5fceb247ecfd82d5cfada1d23809acf2a15fcde3eaf",
+    "expires_at": "2026-12-19T06:08:36Z"
+  },
+  "scope": "26 real nonready loopback HTTP requests; original supported browser/live witness reused and byte-compatible, not another generation or full geometry matrix.",
+  "reproduce": "Run .github/workflows/v25-wln-http-matrix.yml at tested commit; pinned existing1.6 artifact required; no new solver.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
