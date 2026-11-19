@@ -65,7 +65,7 @@
     {
       "id": "V25-11",
       "status": "IN_PROGRESS_LEFT_RIGHT_SOURCE_DIAGNOSIS",
-      "evidence": "مسیر FRONT_REAR صریح دوخوابه واقعی تولید می‌کند؛ n1 و LEFT_RIGHT و پوشش کافی کل دامنه بازند.",
+      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده.",
       "evidence_runs": [
         44401790896,
         44405056710
@@ -318,7 +318,11 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "READ_ONLY_DIAGNOSIS",
-    "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart"
+    "state": "IMPLEMENTING_SOURCE_DERIVED_SHAPE_D4_STUDY_ONLY",
+    "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
+    "evidence_runs": [
+      44440172082,
+      44440388271
+    ]
   }
 }
