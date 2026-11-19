@@ -46,6 +46,11 @@ class SchedulerTests(unittest.TestCase):
    with self.assertRaises(ValueError):s.run(BODY,clock=lambda:v)
   times=iter([1,0])
   with self.assertRaises(ValueError):s.run(BODY,clock=lambda:next(times))
+ def test_callback_clock_reverse_is_retained(self):
+  times=iter([1,1,0,2,2])
+  r=s.run(BODY,test_adapter=receipt,clock=lambda:next(times))
+  self.assertEqual(r['attempts'][0]['error']['detail'],'CLOCK_REVERSED')
+  self.assertNotIn('synthetic_receipt',r['attempts'][0])
  def test_mutation(self):
   def bad(q):q['raw']['n']=1;return receipt(q)
   r=s.run(BODY,test_adapter=bad,clock=lambda:0)
