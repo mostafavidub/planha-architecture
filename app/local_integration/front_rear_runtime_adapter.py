@@ -27,6 +27,14 @@ def transport(value):
  return out,{'tuple_paths':changes,'before_digest':digest(value),'after_digest':digest(out),'scope':'JSON tuple-to-array only; exact scalar types retained'}
 def verify_reports(reports,pins):
  for key,h in pins.items():ensure(digest(reports[key])==h,'COMPLETED_REPORT_MUTATION:'+key)
+def observed_digest(value):
+ try:return digest(value)
+ except Exception as ex:return 'NONCANONICAL:'+type(ex).__name__
+def observed_copy(value):
+ try:
+  out,_=transport(value)
+  return out
+ except Exception as ex:return {'unserializable_observation':type(ex).__name__}
 def preserve_report(originals,live,pins,key,value):
  live[key]=value
  originals[key]=copy.deepcopy(value)
@@ -138,8 +146,8 @@ def run(body,*,solver_seconds):
   except Exception as ex:
    out.update(status='RUNTIME_FAILED_CLOSED',completed=False)
    out['errors'].append({'stage':'final_integrity','kind':'INTEGRITY_ERROR','type':type(ex).__name__,'detail':str(ex)})
-  out['report_mutations']=[{'section':k,'original_digest':h,'observed_report':copy.deepcopy(live_reports[k])} for k,h in report_pins.items() if digest(live_reports[k])!=h]
-  out['object_integrity_verified']=all(digest(objects[k])==h for k,h in object_pins.items())
+  out['report_mutations']=[{'section':k,'original_digest':h,'observed_digest':observed_digest(live_reports[k]),'observed_report':observed_copy(live_reports[k])} for k,h in report_pins.items() if observed_digest(live_reports[k])!=h]
+  out['object_integrity_verified']=all(observed_digest(objects[k])==h for k,h in object_pins.items())
   out['forensic_notice']='On integrity failure, returned mutable objects are forensic observations, not originals or valid model evidence; original reports are separately preserved.'
   out.update(report_digests=copy.deepcopy(report_pins),object_digests=copy.deepcopy(object_pins),
    source_snapshot=sources,engine_revision=ENGINE_REVISION)
