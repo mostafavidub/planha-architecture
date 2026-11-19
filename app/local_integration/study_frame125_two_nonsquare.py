@@ -14,19 +14,30 @@ from guard400 import guard
 CASES=[(w,l,'FRAME125_SERVICE_SIDE') for w,l in [('18','20'),('20','18'),('20','25'),('25','20')]]
 SETTINGS={'bedrooms':2,'sleep_roles':['double','twin'],'time_limit':3,'variant':0,'ordered_macro':False,'organization_profile':'UNRESTRICTED'}
 def transport_boundary(packet,ctx):
+    import numpy as np,re,math
     findings=[]
-    def walk(v,path):
-        if type(v)not in(dict,list,str,int,float,bool,type(None)):
-            findings.append({'path':path,'type':type(v).__name__})
-        if type(v)is dict:
-            for k,z in v.items():walk(z,path+'.'+k)
-        elif type(v)in(list,tuple):
-            for i,z in enumerate(v):walk(z,path+'['+str(i)+']')
-    walk(packet,'packet');walk(ctx,'context')
-    assert all(r['type']=='tuple' for r in findings),'UNEXPECTED_LIVE_NONJSON_TYPE:'+str(findings)
-    before=digest([packet,ctx]);p,c=canonical_json([packet,ctx]);after=digest([p,c])
+    names='bed1|bed2|bath|kitchen|dining_front|dining_back|dining_west|dining_east|sofa1_use|sofa2_use|chair1_use|chair2_use'
+    rectangles='bed1|bed2|bath|kitchen|dining|sofa1_use|sofa2_use|chair1_use|chair2_use|entry_apron'
+    patterns=[
+        r'packet\.local_model\.proposal_network_paths\.('+names+r')\[[0-4]\]\[[01]\]',
+        r'context\.construction_trace\.proposals\.[AB]\.network_paths\.('+names+r')\[[0-4]\]\[[01]\]',
+        r'context\.construction_trace\.proposals\.[AB]\.rectangles\.('+rectangles+r')\[[0-3]\]']
+    def convert(v,path):
+        if type(v)is np.float64:
+            assert any(re.fullmatch(p,path) for p in patterns),'NUMPY_ROLE_NOT_AUTHORIZED:'+path
+            assert bool(np.isfinite(v)),'NUMPY_NONFINITE:'+path
+            f=float(v);assert v.as_integer_ratio()==f.as_integer_ratio(),'NUMPY_RATIO_CHANGED:'+path
+            j=json.loads(json.dumps(f,allow_nan=False));assert type(j)is float and j.as_integer_ratio()==f.as_integer_ratio(),'JSON_RATIO_CHANGED:'+path
+            findings.append({'path':path,'type':'numpy.float64','json_type':'float','binary_ratio':list(f.as_integer_ratio())})
+            return f
+        assert type(v)in(dict,list,str,int,float,bool,type(None)),'UNEXPECTED_LIVE_NONJSON_TYPE:'+path+':'+type(v).__name__
+        if type(v)is dict:return {k:convert(z,path+'.'+k) for k,z in v.items()}
+        if type(v)is list:return [convert(z,path+'['+str(i)+']') for i,z in enumerate(v)]
+        if type(v)is float:assert math.isfinite(v),'NONFINITE_JSON_FLOAT:'+path
+        return v
+    before=digest([packet,ctx]);p,c=convert(packet,'packet'),convert(ctx,'context');p,c=canonical_json([p,c]);after=digest([p,c])
     assert before==after,'JSON_TRANSPORT_VALUE_CHANGE'
-    return p,c,{'scope':'Explicit same JSON serialization boundary as prior artifact-fed FRAME tests; tuples become arrays only, no numeric/string coercion. Not origin or geometry repair.','live_non_json_paths':findings,'digest_before':before,'digest_after':after}
+    return p,c,{'scope':'Explicit artifact-equivalent JSON boundary. Only exact numpy.float64 in enumerated source proposal rectangle/path coordinate roles becomes builtin float with identical binary ratio and JSON numeric value. No geometry/origin repair; all other non-JSON types rejected.','live_non_json_paths':findings,'converted_count':len(findings),'digest_before':before,'digest_after':after}
 def run():
     paths=['app/local_integration/'+n for n in set(LOCAL_FILES+['diagnose_left_right_two.py','study_frame125_two_nonsquare.py','parametric_worker.py','dimension_contract.py','frame125_two_source_binding.py'])]
     paths+=['.github/workflows/v25-frame125-two-nonsquare.yml']
@@ -36,6 +47,13 @@ def run():
     report={'schema':'V25_FRAME125_TWO_NONSQUARE_V1','operation_deadline_utc':'2026-11-19T04:49:30Z','preregistered_cases':CASES,'settings':SETTINGS,'source_snapshot':sources,'engine_revision':ENGINE_PIN,'schema_pin':SCHEMA_PIN,'guard_before':12991,'cases':[],'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'production_supported':False,'global_infeasibility_proven':False,'scope':'Original unfiltered constructor/replay/inventory/pair/current. Separate FRAME125 source-derived shape/D4 contract. Exact nonsquare local/world axes, no retries or candidate selection.'}
     def save(): (ROOT/'frame125-two-nonsquare.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
     save()
+    import numpy as np
+    boundary_negatives=[]
+    for name,p in [('wrong_role',{'unknown':np.float64(1)}),('wrong_type',{'local_model':{'proposal_network_paths':{'bed1':[[np.float32(1),0]]}}}),('nan',{'local_model':{'proposal_network_paths':{'bed1':[[np.float64('nan'),0]]}}})]:
+        try:transport_boundary(p,{})
+        except (AssertionError,ValueError,TypeError) as ex:boundary_negatives.append({'name':name,'error':str(ex)})
+        else:raise AssertionError('BOUNDARY_NEGATIVE_ACCEPTED:'+name)
+    report['synthetic_transport_negative']=boundary_negatives;save()
     for W,L,topology in CASES:
         row={'input':{'W':W,'L':L,'n':2,'requested_count':1,'program':{'bedrooms_per_unit':2}},'topology':topology,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'stage':'prepare'}
         report['cases'].append(row);started=time.monotonic();frozen={};bundle=None
@@ -118,6 +136,6 @@ def run():
         h=row.get('historical_report',{});freq={}
         for e in h.get('errors',[]):
             k=e.split(':')[0] if isinstance(e,str) else e.get('code','UNKNOWN');freq[k]=freq.get(k,0)+1
-        summaries.append({'input':row['input'],'topology':row['topology'],'result':row['result'],'proposal_status':row.get('proposal_status'),'model_digest':row.get('world_model_digest'),'replay':row.get('replay',{}).get('verified'),'binding':row.get('source_binding',{}).get('status'),'historical_status':h.get('status'),'error_count':len(h.get('errors',[])),'error_codes':freq,'pending':h.get('pending',[]),'current_requirements':row.get('current_report',{}).get('requirements',[]),'exception':row.get('exception'),'historical_exception':row.get('historical_exception'),'current_exception':row.get('current_exception'),'axis_evidence':row.get('axis_evidence'),'axis_negative':row.get('axis_negative'),'json_transport_boundary':row.get('json_transport_boundary')})
+        summaries.append({'input':row['input'],'topology':row['topology'],'result':row['result'],'proposal_status':row.get('proposal_status'),'model_digest':row.get('world_model_digest'),'replay':row.get('replay',{}).get('verified'),'binding':row.get('source_binding',{}).get('status'),'historical_status':h.get('status'),'error_count':len(h.get('errors',[])),'error_codes':freq,'pending':h.get('pending',[]),'current_requirements':row.get('current_report',{}).get('requirements',[]),'exception':({k:(v[:500] if isinstance(v,str) else v) for k,v in row['exception'].items() if k!='traceback'} if 'exception'in row else None),'historical_exception':row.get('historical_exception'),'current_exception':row.get('current_exception'),'axis_evidence':row.get('axis_evidence'),'axis_negative':row.get('axis_negative'),'json_transport_boundary':({k:v for k,v in row['json_transport_boundary'].items() if k!='live_non_json_paths'} if 'json_transport_boundary'in row else None)})
     print('FRAME125_NONSQUARE '+json.dumps({'cases':summaries,'guard_before':12991,'guard_after':12991,'accepted':False,'delivery_allowed':False,'completed':True},ensure_ascii=False),flush=True)
 if __name__=='__main__':run()
