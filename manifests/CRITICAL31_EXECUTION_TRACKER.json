@@ -424,7 +424,16 @@
         "actual_routes": 8
       },
       "criterion_state": "UNKNOWN",
-      "remaining": "First-living/principal organization, full scenarios, bottleneck/opening and ergonomic profile unclosed. New work/motion zone scenario does not replace original whole-kitchen exclusion FAIL."
+      "remaining": "First-living/principal organization, full scenarios, bottleneck/opening and ergonomic profile unclosed. New work/motion zone scenario does not replace original whole-kitchen exclusion FAIL.",
+      "contact_clearance_extension": {
+        "continuation_start_utc": "2026-11-19T06:58:25Z",
+        "checkpoint_utc": "2026-11-19T07:02:53Z",
+        "deadline_utc": "2026-11-19T07:11:34Z",
+        "tested_commit": "eac54b4728287196f58b9a6a9fca3d25b0cc8354",
+        "run": 44476541739,
+        "state": "PARTIAL_SINGLE_ROUTE_EXACT_WITNESS_CURRENT_CRITERION_UNKNOWN",
+        "active_execution": false
+      }
     },
     {
       "id": "3.4",

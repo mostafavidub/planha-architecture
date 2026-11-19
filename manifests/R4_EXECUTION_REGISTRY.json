@@ -1,0 +1,2657 @@
+{
+  "schema": "R4_EXECUTION_REGISTRY_V1",
+  "plan_id": "R4-PLAN-20261119",
+  "source_document_id": "12YC7qIRtnQsTSXtRwtdZXusTRjfARz4L2ZHVt4VZ17w",
+  "source_tab": "t.0",
+  "source_interval": [
+    614551,
+    655233
+  ],
+  "source_read_utc": "2026-11-19T07:02:00Z",
+  "authorization": "Coordinating parent relayed explicit user approval to execute48 R4 tasks; each180min cap, record necessary gaps in queue and doc. Does not silently reset prior timeboxed work.",
+  "tasks": [
+    {
+      "id": "R4-1.01",
+      "title": "تثبیت شاهد شروع چرخه محدود",
+      "source_start": 619410,
+      "source_end": 620095,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 45 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: ندارد؛ مطالعه مبنا.",
+          "startIndex": 619447,
+          "endIndex": 619522,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: آخرین main و گزارش ۴.۴ را بخوان؛ commit، ورودی، برنامه، والد، فرزند، نسخه قواعد و وضعیت چهار معیار را ثبت کن. مدل dd3b… را با مدل‌های 67857… و 073a… اشتباه نگیر؛ هیچ گزارش را به مدل دیگر منتقل نکن.",
+          "startIndex": 619523,
+          "endIndex": 619734,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: خواندن مجدد همان بسته باید digest یکسان بدهد؛ تعویض مدل یا گزارش باید mismatch شود.",
+          "startIndex": 619735,
+          "endIndex": 619846,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: manifest مبنا با لینک run و hash کامل فایل‌ها؛ فقط صحت مبنا، نه قبول پلان.",
+          "startIndex": 619847,
+          "endIndex": 619949,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود artifact کامل یا source revision قابل بازیابی. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 619950,
+          "endIndex": 620095,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [],
+      "estimate_minutes": 45,
+      "max_minutes": 180,
+      "status": "IN_PROGRESS",
+      "start_utc": "2026-11-19T07:03:34Z",
+      "deadline_utc": "2026-11-19T10:03:34Z"
+    },
+    {
+      "id": "R4-1.02",
+      "title": "همسان‌سازی قرارداد ورودی فعال با PRD",
+      "source_start": 620096,
+      "source_end": 620887,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 60 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.01.",
+          "startIndex": 620143,
+          "endIndex": 620207,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: ابتدا اصلاح جاری عامل اجرا برای n را بخوان و اگر موجود است همان را تأیید کن، نه پیاده‌سازی موازی. فرم فقط W/L/n؛ هر ضلع در بازه بسته ۵ تا ۲۵؛ n فقط ۱ یا ۲. تاریخچه ۵..۴۵ و تست قدیمی VALID_N3 را دست‌کاری نکن؛ قرارداد فعال نسخه‌دار شود.",
+          "startIndex": 620208,
+          "endIndex": 620456,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: ۵ و۲۵ معتبر؛ ۴٫۹۹۹ و۲۵٫۰۰۱ در هر محور، n=۳/۴/کسری/خالی و فیلد اضافی پیش از solver رد شوند؛ n=۱ معتبر بودنش با readiness موتور جدا باشد.",
+          "startIndex": 620457,
+          "endIndex": 620620,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: آزمون parser و HTTP واقعی با شمار فراخوانی solver صفر برای invalid؛ تطبیق نسخه UI/API/test.",
+          "startIndex": 620621,
+          "endIndex": 620740,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: اصلاح هنوز در حال اجرا یا ناسازگاری دو قرارداد فعال. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 620741,
+          "endIndex": 620887,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.01"
+      ],
+      "estimate_minutes": 60,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.03",
+      "title": "دفتر شمول قواعد و پروفایل‌های باز",
+      "source_start": 620888,
+      "source_end": 621681,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.01.",
+          "startIndex": 620932,
+          "endIndex": 620996,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: چهار معیار جاری و همه الزامات لازم برای همین نمونه را به بند PRD، داده مدل و evaluator وصل کن. missing rule را از missing profile و missing evidence جدا کن. الزامات فنی پله/آسانسور و نور/تهویه خارج MVP را NOT_EVALUATED نگه دار؛ حضور مفهومی هسته باقی است.",
+          "startIndex": 620997,
+          "endIndex": 621265,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: قاعده روشن با شاهد ناقص UNKNOWN؛ نقض اثبات‌شده FAIL؛ شرط خارج دامنه نباید PASS یا blocker داخلی شود.",
+          "startIndex": 621266,
+          "endIndex": 621394,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: crosswalk نسخه‌دار با وضعیت و اقدام رفع هر مانع؛ هیچ کف کیفیت یا عدد بدن تازه بدون منبع.",
+          "startIndex": 621395,
+          "endIndex": 621511,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: منبع فعالیت/هم‌زمانی یا کالیبراسیون تخصصی معتبر برای شرط وابسته موجود نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 621512,
+          "endIndex": 621681,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.01"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.04",
+      "title": "اثبات برنامه و ظرفیت واقعی",
+      "source_start": 621722,
+      "source_end": 622517,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.03.",
+          "startIndex": 621759,
+          "endIndex": 621824,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: روی یک artifact معتبر، برنامه دوخوابه/۴نفر را با رجیستری و موجودی واقعی وسایل، ابعاد، فعالیت، نصب و تبدیل واحد A/B تطبیق بده. پوشش ورود، استفاده، خروج و حالت هم‌زمان لازم را جدا ثبت کن؛ gapهای انتقال انسان به غذاخوری را صریح تعیین تکلیف کن.",
+          "startIndex": 621825,
+          "endIndex": 622079,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: حذف واقعی تخت/فعالیت یا تغییر ابعاد باید کشف شود؛ داده مفقود UNKNOWN نه کمبود اثبات‌شده. replay موفق به‌تنهایی کف کیفیت نیست.",
+          "startIndex": 622080,
+          "endIndex": 622233,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش مستقل منبع‌بسته هر واحد و سناریو؛ PASS فقط در دامنه اثبات‌شده، فهرست gapهای باقی.",
+          "startIndex": 622234,
+          "endIndex": 622349,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: پروفایل انسانی/نصب ناسازگار یا فقدان شاهد لازم؛ task با BLOCKED بسته شود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 622350,
+          "endIndex": 622517,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.03"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.05",
+      "title": "چهار مسیر واقعی مهمان و آشپزخانه",
+      "source_start": 622518,
+      "source_end": 623324,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.03.",
+          "startIndex": 622561,
+          "endIndex": 622626,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: مقصد واقعی نشیمن، غذاخوری و WC را از مدل منبع استخراج کن؛ چهار مسیر entry→living، entry→dining، entry→WC و living→dining را تازه بساز. کف مجاز، public apron، تمام حرکات تجهیزات و بدن و صندلی را در سناریوی لازم لحاظ کن؛ دسترسی حمام حذف نشود.",
+          "startIndex": 622627,
+          "endIndex": 622881,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: نمونه تنها مسیر غذاخوری از کار آشپزی مردود؛ بازشدن یخچال یا کشو مسیر را قطع کند باید کشف شود؛ مسیر دیگر این شکست را جبران نکند.",
+          "startIndex": 622882,
+          "endIndex": 623037,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گراف، نوار عرض‌دار، گلوگاه، وضعیت عملیات و overlay همان modelhash برای هر مسیر.",
+          "startIndex": 623038,
+          "endIndex": 623145,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: عرض یا عملیات منبع‌دار ناقص؛ نیافتن مسیر در یک جست‌وجو مساوی ناممکن‌بودن جهانی نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 623146,
+          "endIndex": 623324,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.03"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.06",
+      "title": "نشیمن قابل چیدمان و مقایسه واقعی سازماندهی",
+      "source_start": 623325,
+      "source_end": 624197,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.03، R4-1.04.",
+          "startIndex": 623378,
+          "endIndex": 623452,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: residual living قابل چیدمان را از circulation مجاز جدا نگه دار. جاگیری و استفاده گروه مبلمان واقعی و مسیر بدن را ثابت کن. یک جانمایی جایگزین با همان برنامه بساز یا از شواهد موجود هم‌نسخه استفاده کن و سطح پیوسته، پرت و مسیرهای واقعی را مقایسه کن؛ bbox سطح مفید نیست.",
+          "startIndex": 623453,
+          "endIndex": 623732,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: نوار باریک و چند تکه با نام living نباید قبول شوند؛ اتصال seatها در union راهرو فقط شاهد دسترسی است. تغییر نام فضا نباید نتیجه را بهتر کند.",
+          "startIndex": 623733,
+          "endIndex": 623900,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: دو مدل هم‌برنامه و گزارش مقایسه منبع‌دار؛ طول/پیچ فقط اندازه‌گیری، نه امتیاز کیفیت خودساخته.",
+          "startIndex": 623901,
+          "endIndex": 624021,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود لنگر کیفیت یا گزینه واقعی کوتاه‌تر؛ تشخیص هندسی با قبولی معماری اشتباه نشود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 624022,
+          "endIndex": 624197,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.03",
+        "R4-1.04"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.07",
+      "title": "کارکرد واقعی هر دیوار افزوده",
+      "source_start": 624198,
+      "source_end": 625073,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.03.",
+          "startIndex": 624237,
+          "endIndex": 624302,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: فهرست دیوارهای افزوده، aliases و material union را ببند؛ برای هر دیوار فضای خدمت‌گیرنده و نقش غیر از پوشاندن دید را ثبت کن. حذف یا جابه‌جایی واقعی یک دیوار حل‌نشده را با همان برنامه مقایسه و وابستگی مسیر، چیدمان و حریم را دوباره بسنج؛ probe حذف صرفاً تشخیصی بماند.",
+          "startIndex": 624303,
+          "endIndex": 624581,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: دیوار فقط‌دید/L یا فضای صوری FAIL؛ loss مرز اتاق یا separator به‌تنهایی ضرورت دیوار را ثابت نکند؛ حذف alias با material صفر درست تشخیص داده شود.",
+          "startIndex": 624582,
+          "endIndex": 624754,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: دفتر per-wall با sourceID، هندسه قبل/بعد، اثر مستقل و verdict؛ پوشش double و single bed با کلید unit+instance.",
+          "startIndex": 624755,
+          "endIndex": 624893,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: غیبت مقایسه واقعی/فضای قابل استفاده؛ core و shell بدون قرارداد مجاز تغییر داده نشوند. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 624894,
+          "endIndex": 625073,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.03"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.08",
+      "title": "نسخه‌دار کردن مولد لازم برای رفع نقص واقعی",
+      "source_start": 625107,
+      "source_end": 625965,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.05، R4-1.06، R4-1.07.",
+          "startIndex": 625160,
+          "endIndex": 625243,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: از علت واقعی یک شکست، کوچک‌ترین تغییر در مولد یا قرارداد ماژول مستقل را انتخاب کن. قیود فعالیت/مسیر/گروه مبلمان از source بیایند؛ frozen guard تغییر نکند. اگر constructor/checker قدیمی قرارداد جدید را نمی‌شناسد، adapter و منشأ مستقل صریح بساز، نه فیلتر خطای تاریخی.",
+          "startIndex": 625244,
+          "endIndex": 625523,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: نقص هدف در نمونه بازگشت رفع شود؛ fixture/program/core محافظت‌شده و تست‌های منفی قبلی باقی بمانند؛ تغییر بی‌منبع رد شود.",
+          "startIndex": 625524,
+          "endIndex": 625671,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: diff محدود، source binding تازه، parent/child و full fresh reports؛ رفع یک خطا معادل قبول کل مدل نیست.",
+          "startIndex": 625672,
+          "endIndex": 625802,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: تعارض قرارداد downstream؛ محدودکردن validator برای سبزشدن مجاز نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 625803,
+          "endIndex": 625965,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.05",
+        "R4-1.06",
+        "R4-1.07"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.09",
+      "title": "اتصال درخواست عمومی به تولید، رد و بازطراحی",
+      "source_start": 625966,
+      "source_end": 626793,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.02، R4-1.08.",
+          "startIndex": 626020,
+          "endIndex": 626094,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: زنجیره UI/API سه‌فیلدی را به scheduler، انتخاب عملگر از علت رد، protected contract، controller و ارزیابی کامل وصل کن. از controlled_repair_entrypoint موجود استفاده کن؛ نام برنامه داخلی مشتق شود و انتخاب خواب به فرم نهایی برنگردد.",
+          "startIndex": 626095,
+          "endIndex": 626338,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: درخواست واقعی به والد و فرزند یکتا برسد؛ nonce/account/source غلط و receipt مدل دیگر رد شوند؛ ورود مستقیم caller authority اثری نداشته باشد.",
+          "startIndex": 626339,
+          "endIndex": 626507,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: یک trace انتهابه‌انتها با مراحل timestampدار و hashهای full reports؛ UI وضعیت BLOCKED را صادقانه نشان دهد.",
+          "startIndex": 626508,
+          "endIndex": 626642,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: ناهماهنگی runtime قراردادها یا فقدان علت رد قابل رسیدگی. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 626643,
+          "endIndex": 626793,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.02",
+        "R4-1.08"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.10",
+      "title": "بودجه، توقف و تاریخچه بدون از دست‌دادن خطا",
+      "source_start": 626794,
+      "source_end": 627604,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.09.",
+          "startIndex": 626847,
+          "endIndex": 626912,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: بودجه مشترک را پیش از هر attempt رزرو کن؛ هزینه variants داخلی را نیز قابل مشاهده کن. timeout، تکرار، no-child، no-progress و خطای finalize را ثبت کن؛ kill/wait و حفظ خروجی جزئی لازم است. سقف runtime را با سقف سه‌ساعته تسک اشتباه نگیر.",
+          "startIndex": 626913,
+          "endIndex": 627162,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: timeout کنترل‌شده، child واقعی بدون قبول، duplicate و شکست finalize؛ هیچ‌کدام infeasible یا موفقیت معماری نشوند و بودجه reset نشود.",
+          "startIndex": 627163,
+          "endIndex": 627322,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: ledger بازخوانی‌شده با مجموع هزینه و شمار یکتا، process receipt و گزارش اصلی محفوظ.",
+          "startIndex": 627323,
+          "endIndex": 627434,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: اجرای بیرون session یا worker بی‌مهار؛ مرز setup خارج runtime صریح ثبت شود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 627435,
+          "endIndex": 627604,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.09"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.11",
+      "title": "دروازه واحد تصمیم و جلوگیری از تحویل UNKNOWN",
+      "source_start": 627605,
+      "source_end": 628430,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.04، R4-1.05، R4-1.06، R4-1.07، R4-1.09.",
+          "startIndex": 627660,
+          "endIndex": 627761,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: همه شروط مشمول و چهار ارزیابی را روی همان مدل جمع کن. خطای منشأ/اجرایی از architectural FAIL و UNKNOWN جدا باشد. PASS تاریخی یا چهار PASS مصنوعی به‌تنهایی مجوز محصول نیست؛ کیفیت هر واحد و سایر شروط مشمول نیز لازم‌اند.",
+          "startIndex": 627762,
+          "endIndex": 627993,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: FAIL+ERROR هر دو حفظ شوند؛ artifact stale، source متفاوت، شرط ضروری UNKNOWN و authority جعلی همگی تحویل را مسدود کنند.",
+          "startIndex": 627994,
+          "endIndex": 628140,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول تصمیم کامل، source/rule/profile version، دلایل توقف و یک تابع admission مستقل آزموده‌شده.",
+          "startIndex": 628141,
+          "endIndex": 628263,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: کیفیت کالیبره یا شرط ضروری اثبات نشده؛ نمایش به‌عنوان گزینه طراحی ممنوع. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 628264,
+          "endIndex": 628430,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.04",
+        "R4-1.05",
+        "R4-1.06",
+        "R4-1.07",
+        "R4-1.09"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-1.12",
+      "title": "پذیرش چرخه محدود روی یک ورودی",
+      "source_start": 628431,
+      "source_end": 629257,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.10، R4-1.11.",
+          "startIndex": 628471,
+          "endIndex": 628545,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: یک اجرای تازه ۱۸×۲۰/n2 را از ورودی عمومی تا تصمیم نهایی انجام بده؛ شاهد والد مردود و اصلاح واقعی با تمام ارزیابی‌های تازه را نگه دار. اگر هیچ مدل واجد شرایط نیست نتیجه چرخه اجرایی را از نتیجه معماری جدا گزارش کن.",
+          "startIndex": 628546,
+          "endIndex": 628772,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: سناریوی واقعی رد→child distinct→بازبینی؛ همچنین شاخه توقف بدون child. آزمون مثبت qualified فقط با شاهد واقعی مجاز است، نه تزریق PASS.",
+          "startIndex": 628773,
+          "endIndex": 628934,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: بسته قابل replay و معیار خروج: یک گزینه واقعاً واجد شرایط برای بستن معماری چرخه؛ در غیر این صورت PARTIAL/BLOCKED با علت.",
+          "startIndex": 628935,
+          "endIndex": 629083,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود مدل واجد شرایط؛ عبور به توسعه مستقل ممکن است ولی این gate بسته اعلام نشود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 629084,
+          "endIndex": 629257,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.10",
+        "R4-1.11"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.01",
+      "title": "ثبت دامنه پشتیبانی و ماتریس خانواده‌ها",
+      "source_start": 629320,
+      "source_end": 630039,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.02، R4-1.03.",
+          "startIndex": 629369,
+          "endIndex": 629442,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: ورودی معتبر ۵..۲۵ و n1/2 را از قابلیت خانواده فعلی جدا کن؛ registry خانواده/هسته/تقسیم/برنامه با readiness و علت unsupported بساز. تعمیم فقط تغییر parser نیست؛ هر adapter باید قرارداد constructor/checker داشته باشد.",
+          "startIndex": 629443,
+          "endIndex": 629672,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: n1 معتبر بدون موتور باید unsupported شود نه invalid؛ n3 invalid بماند؛ timeout به no-fit قطعی تبدیل نشود.",
+          "startIndex": 629673,
+          "endIndex": 629806,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول source-bound پوشش فعلی/هدف با دامنه صریح و تست preflight.",
+          "startIndex": 629807,
+          "endIndex": 629897,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: خانواده n1 یا هندسه کوچک هنوز مولد معتبر ندارد. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 629898,
+          "endIndex": 630039,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.02",
+        "R4-1.03"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.02",
+      "title": "قرارداد هندسی W و L و تبدیل قاب",
+      "source_start": 630040,
+      "source_end": 630775,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.01.",
+          "startIndex": 630082,
+          "endIndex": 630147,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: مختصات دقیق، عرض/عمق، تبدیل A/B و rotation/reflection مجاز را برای هر خانواده مشخص کن. W/L swap را بی‌دلیل یک مدل ندان؛ transformation روی دیوار، بازشو، بردار عملیات و مسیر یکسان اعمال شود.",
+          "startIndex": 630148,
+          "endIndex": 630351,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: غیرمربع، اعشاری، signed permutation نامعتبر و تبدیل دو واحد با ID تکراری؛ نسبت binary و digest انتقال عددی حفظ شود.",
+          "startIndex": 630352,
+          "endIndex": 630495,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: آزمون‌های exact هندسه و transport محدود؛ هیچ تبدیل عمومی گزارش‌ها برای مخفی‌کردن ناسازگاری.",
+          "startIndex": 630496,
+          "endIndex": 630615,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: قاب مبهم، unit conversion نامعلوم یا metadata به‌جای هندسه واقعی. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 630616,
+          "endIndex": 630775,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.01"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.03",
+      "title": "آماده‌سازی هسته و تقسیم متغیر دوواحدی",
+      "source_start": 630776,
+      "source_end": 631508,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.02.",
+          "startIndex": 630824,
+          "endIndex": 630889,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: در خانواده موجود ابتدا گزینه‌های واقعی core/split را با برنامه ثابت اضافه کن؛ محفظه پله، آسانسور، لابی مستقل و ورود هر واحد از مشاع محفوظ باشد. آزمون فنی اجرایی هسته را به MVP تحمیل نکن.",
+          "startIndex": 630890,
+          "endIndex": 631090,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: یک هسته مشترک و دو ورودی مستقل؛ ورود از محفظه پله، دو پله مستقل، حذف آسانسور یا هم‌پوشانی مالکیت رد شوند.",
+          "startIndex": 631091,
+          "endIndex": 631224,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: candidateهای منبع‌بسته و replay/checker هر گزینه، با محدودیت دامنه ابعادی.",
+          "startIndex": 631225,
+          "endIndex": 631327,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: هسته مفهومی برای بعضی ابعاد جا نمی‌شود؛ نبود شاهد fit به infeasible جهانی ارتقا نیابد. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 631328,
+          "endIndex": 631508,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.02"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.04",
+      "title": "مسیر مستقل تک‌واحدی",
+      "source_start": 631509,
+      "source_end": 632214,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.01، R4-2.02.",
+          "startIndex": 631539,
+          "endIndex": 631613,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: قرارداد n1 شامل یک واحد مستقل همان تراز و هسته مفهومی معتبر بساز؛ خروجی n2 را با حذف برچسب یک واحد به n1 تبدیل نکن. source/ownership/entry و شمار واقعی واحدها در constructor و checker کنترل شوند.",
+          "startIndex": 631614,
+          "endIndex": 631823,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: n1 یک واحد واقعی؛ درخواست n2 نباید در کمبود ظرفیت به n1 بدل شود؛ mismatch تعداد واقعی و brief رد شود.",
+          "startIndex": 631824,
+          "endIndex": 631953,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: adapter و آزمون fresh n1 در حداقل یک هندسه؛ ادعای پوشش فقط همان دامنه اثبات‌شده.",
+          "startIndex": 631954,
+          "endIndex": 632062,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود مولد/برنامه معتبر n1؛ ثبت BLOCKED و ادامه کار مستقل. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 632063,
+          "endIndex": 632214,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.01",
+        "R4-2.02"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.05",
+      "title": "آماده‌سازی برنامه یک‌خوابه مصوب",
+      "source_start": 632250,
+      "source_end": 632938,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.01.",
+          "startIndex": 632292,
+          "endIndex": 632357,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: رجیستری یک‌خوابه/۲نفر را به ماژول‌های واقعی خواب، کمد، سرویس، آشپزخانه و فضای عمومی متصل کن. activity و fixtureها منبع داشته باشند؛ شمار کمتر خواب به حذف نیازهای عمومی تعبیر نشود.",
+          "startIndex": 632358,
+          "endIndex": 632551,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: موجودی و ظرفیت واقعی درست؛ استودیو/صفرخواب و حذف کمد مردود؛ fixture metadata با ابعاد واقعی ناهماهنگ رد شود.",
+          "startIndex": 632552,
+          "endIndex": 632688,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: constructor/replay/ارزیابی مستقل یک برنامه واقعی؛ کیفیت همچنان مستقل.",
+          "startIndex": 632689,
+          "endIndex": 632786,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: پروفایل یا ماژول منطبق آماده نیست؛ readiness false بماند. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 632787,
+          "endIndex": 632938,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.01"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.06",
+      "title": "انتخاب خودکار برنامه و AP07 عملیاتی",
+      "source_start": 632939,
+      "source_end": 633716,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.03، R4-2.04، R4-2.05.",
+          "startIndex": 632985,
+          "endIndex": 633068,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: برنامه‌های مجاز را بر ظرفیت خالص و قیود معتبر تولید کن؛ هسته/تقسیم/جانمایی/ادغام مجاز غیرخواب را با بودجه معنادار ثبت کن. کاهش خواب را alternative جدید با lineage بدان، نه repair همان برنامه. شرط exhaustive بی‌منبع نساز.",
+          "startIndex": 633069,
+          "endIndex": 633303,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: timeout برنامه بزرگ‌تر مجوز کاهش پنهانی نیست؛ n ثابت، خواب≥۱؛ all NOT_IMPLEMENTED به AP07 fulfilled تبدیل نشود.",
+          "startIndex": 633304,
+          "endIndex": 633443,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: attempt receipts واقعی و disposition هر مرحله، budget مشترک و علت انتخاب/عدم انتخاب.",
+          "startIndex": 633444,
+          "endIndex": 633556,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود کف کیفیت یا readiness برنامه جایگزین؛ برنده قطعی اعلام نشود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 633557,
+          "endIndex": 633716,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.03",
+        "R4-2.04",
+        "R4-2.05"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.07",
+      "title": "گسترش قیود به ابعاد غیرمربع",
+      "source_start": 633717,
+      "source_end": 634419,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.02، R4-2.03، R4-2.05.",
+          "startIndex": 633755,
+          "endIndex": 633838,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: قیود master را از ابعاد واقعی ماژول/approach/بدن استخراج کن؛ fit prefilter لازم را با checker هماهنگ کن، نه جایگزین آن. خطاهای apron حمام و kitchen motion را به regression منتقل کن.",
+          "startIndex": 633839,
+          "endIndex": 634034,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: عرض کم/عمق زیاد و برعکس، apron خارج کف، actor سمت نادرست در و guest برخوردکننده با motion رد شوند.",
+          "startIndex": 634035,
+          "endIndex": 634161,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: دو نمونه تازه متفاوت از ۱۸×۲۰ با full reports و نگاشت قیود جدید به source.",
+          "startIndex": 634162,
+          "endIndex": 634264,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: یک خانواده به‌طور واقعی پوشش ندارد؛ relaxation پنهانی ممنوع. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 634265,
+          "endIndex": 634419,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.02",
+        "R4-2.03",
+        "R4-2.05"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.08",
+      "title": "ابعاد اعشاری و مرزهای دامنه",
+      "source_start": 634420,
+      "source_end": 635144,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.07.",
+          "startIndex": 634458,
+          "endIndex": 634523,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: مختصات rational/JSON را در مسیر solver→constructor→model→report در ۵،۲۵ و اعشار معتبر آزمون کن؛ نقش allowlist مختصات و metadata جدا بماند. اعداد انتخابی تست، قانون طراحی نیستند.",
+          "startIndex": 634524,
+          "endIndex": 634715,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: ۵ و۲۵ پذیرفته در parser حتی اگر طراحی unsupported؛ ۲۵٫۰۰۱ رد؛ NaN/Infinity، boolean، duplicate keys و numpy خارج نقش مجاز رد شوند.",
+          "startIndex": 634716,
+          "endIndex": 634874,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش round-trip با hash و ratio، شاهد عدم ورود ورودی نامعتبر به solver.",
+          "startIndex": 634875,
+          "endIndex": 634975,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: عدم قابلیت طراحی در مرز، نه خطای parser؛ پذیرش عددی معادل پلان‌پذیری نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 634976,
+          "endIndex": 635144,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.07"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.09",
+      "title": "آزمون خانواده تازه با بررسی‌کننده هم‌نسخه",
+      "source_start": 635171,
+      "source_end": 635888,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.04، R4-2.07، R4-2.08.",
+          "startIndex": 635223,
+          "endIndex": 635306,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: برای هر مسیر تازه source snapshot واقعی imports، proposal، context، model، replay و full checker را ببند. قرارداد تاریخی اصل را برای مولد جدید جا نزن؛ authority مستقل و محدود باشد.",
+          "startIndex": 635307,
+          "endIndex": 635501,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: جابه‌جایی producer یا receipt، مدل قدیمی و تغییر پس از audit باید خطا شوند؛ report اصلی از بین نرود.",
+          "startIndex": 635502,
+          "endIndex": 635630,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش منشأ و ارزیابی هر خانواده با negative mutationهای واقعی.",
+          "startIndex": 635631,
+          "endIndex": 635721,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: checker قرارداد خانواده را نمی‌شناسد؛ نیاز به قرارداد مستقل، نه حذف خطا. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 635722,
+          "endIndex": 635888,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.04",
+        "R4-2.07",
+        "R4-2.08"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.10",
+      "title": "مقایسه کیفیت و برنامه بدون امتیاز جعلی",
+      "source_start": 635889,
+      "source_end": 636632,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.06، R4-2.09.",
+          "startIndex": 635938,
+          "endIndex": 636012,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: گزینه‌های هم‌ورودی را با معیارهای منبع‌دار و کف کیفیت هر واحد مقایسه کن. programme/input/scenario/profile/target/denominator مشترک لازم است. داده‌های طول مسیر و مساحت را از judgement کیفیت جدا نگه دار.",
+          "startIndex": 636013,
+          "endIndex": 636228,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: مدل با واحد ضعیف با میانگین واحد خوب قبول نشود؛ mismatch پروفایل NOT_COMPARABLE؛ no-witness نه infinity.",
+          "startIndex": 636229,
+          "endIndex": 636361,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: مقایسه بازتولیدپذیر، Pareto فقط با معیارهای معتبر؛ در نبود کالیبراسیون winner=null.",
+          "startIndex": 636362,
+          "endIndex": 636473,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: لنگر کیفیت/تأیید تخصصی معتبر موجود نیست؛ مقایسه توصیفی ممکن است. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 636474,
+          "endIndex": 636632,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.06",
+        "R4-2.09"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.11",
+      "title": "اجرای ماتریس کوچک تولید واقعی",
+      "source_start": 636633,
+      "source_end": 637385,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.09، R4-2.10.",
+          "startIndex": 636673,
+          "endIndex": 636747,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: یک batch کوچک از مربع/غیرمربع/اعشاری و n1/n2 پیش‌ثبت کن؛ شمار موارد را با سقف زمان تنظیم کن. هر ردیف باید اجرای تازه هندسه یا علت صریح عدم اجرا داشته باشد؛ HTTP رد ورودی جای تولید نیست.",
+          "startIndex": 636748,
+          "endIndex": 636947,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: حداقل نمونه‌های متفاوت واقعاً به constructor برسند؛ با seed و برنامه مشابه کنترل تکرار شود؛ missing artifact شکست شاهد است.",
+          "startIndex": 636948,
+          "endIndex": 637099,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول input→attempt→model→physical→four current→admission، با counts واقعی و لینک مستقل.",
+          "startIndex": 637100,
+          "endIndex": 637215,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: زمان/منبع ناکافی؛ ردیف باقی NOT_RUN بماند و batch بزرگ‌تر برچسب اجرا نگیرد. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 637216,
+          "endIndex": 637385,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.09",
+        "R4-2.10"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-2.12",
+      "title": "دروازه تعمیم و انتشار نقشه پوشش",
+      "source_start": 637386,
+      "source_end": 638134,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.11.",
+          "startIndex": 637428,
+          "endIndex": 637492,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: دامنه واقعاً پشتیبانی‌شده را از هدف کل بازه تفکیک کن. نمونه‌های موفق، شکست، unsupported و unknown را بی‌حذف منتشر کن؛ با آزمون محدود ادعای همه اعداد پیوسته نکن. پیش‌شرط‌های ریاضی خانواده اگر موجود است جدا استناد شود.",
+          "startIndex": 637493,
+          "endIndex": 637723,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: ورودی خارج دامنه خانواده با پیام صحیح؛ شکست یک ردیف پنهان نشود؛ success ratio فقط روی مجموعه از پیش مشخص.",
+          "startIndex": 637724,
+          "endIndex": 637857,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: ماتریس coverage نسخه‌دار و gap list؛ بستن تعمیم مستلزم شواهد fresh متنوع و قرارداد دامنه روشن.",
+          "startIndex": 637858,
+          "endIndex": 637980,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: شاهد فقط یک اندازه/برنامه؛ کلی‌گویی «پارامتریک کامل» ممنوع. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 637981,
+          "endIndex": 638134,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.11"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.01",
+      "title": "تعریف مقایسه‌پذیری و امضای طرح",
+      "source_start": 638200,
+      "source_end": 638802,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.11، R4-2.10.",
+          "startIndex": 638241,
+          "endIndex": 638314,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: امضای توپولوژی، جایگاه هسته/فضاها و روابط دسترسی را از مدل واقعی تعریف کن؛ input و برنامه و قاب مقایسه ثبت شوند. similarity را از byte equality جدا کن.",
+          "startIndex": 638315,
+          "endIndex": 638480,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: رنگ/نام/ترتیب JSON یا mirror صرف گزینه تازه نسازد؛ تغییر واقعی سازماندهی دیده شود.",
+          "startIndex": 638481,
+          "endIndex": 638591,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: قرارداد امضا و fixtureهای مثبت/منفی منبع‌دار.",
+          "startIndex": 638592,
+          "endIndex": 638665,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: آستانه شباهت مصوب نداریم؛ وزن دلخواه نساز. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 638666,
+          "endIndex": 638802,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.11",
+        "R4-2.10"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.02",
+      "title": "تولید تنوع ساختاری با برنامه ثابت",
+      "source_start": 638803,
+      "source_end": 639463,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.01، R4-2.09.",
+          "startIndex": 638847,
+          "endIndex": 638921,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: گزینه‌های واقعی core/split/placement را در بودجه معلوم تولید کن؛ هر نامزد provenance و full recheck مستقل داشته باشد. از مدل مردود برای تکمیل تعداد استفاده نکن.",
+          "startIndex": 638922,
+          "endIndex": 639096,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: یک تغییر ساختاری واقعی قابل ردیابی؛ duplicate seed یا اسم تازه حذف شود؛ تمام شروط هر مدل دوباره اجرا شوند.",
+          "startIndex": 639097,
+          "endIndex": 639231,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: فهرست candidateهای واقعی با rejected/unknown نیز محفوظ.",
+          "startIndex": 639232,
+          "endIndex": 639315,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود چند گزینه معتبر؛ عدد هدف مجوز شل‌کردن gate نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 639316,
+          "endIndex": 639463,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.01",
+        "R4-2.09"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.03",
+      "title": "ارزیابی جفت‌به‌جفت تنوع",
+      "source_start": 639464,
+      "source_end": 640059,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.02.",
+          "startIndex": 639498,
+          "endIndex": 639563,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: تمام k(k−1)/2 جفت را مقایسه کن؛ شباهت را تعدی نده. اختلاف واقعی هندسه/دسترسی/چیدمان را همراه تصویر تشخیصی همان مدل ثبت کن.",
+          "startIndex": 639564,
+          "endIndex": 639700,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: A شبیه B و B شبیه C نباید بدون آزمون A/C نتیجه دهد؛ مجموعه خالی تنوع PASS نگیرد.",
+          "startIndex": 639701,
+          "endIndex": 639809,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول کامل جفت‌ها و دلیل حفظ/حذف هر تکرار؛ برای۶ گزینه۱۵جفت.",
+          "startIndex": 639810,
+          "endIndex": 639897,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: معیار تمایز کافی نیست؛ نتیجه UNKNOWN و شمار قابل ارائه محدود بماند. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 639898,
+          "endIndex": 640059,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.02"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.04",
+      "title": "انتخاب مجموعه تا شش طرح",
+      "source_start": 640060,
+      "source_end": 640719,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.03، R4-1.11.",
+          "startIndex": 640094,
+          "endIndex": 640167,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: فقط گزینه‌های qualified همان ورودی را وارد مجموعه کن؛ سقف ترجیحی تا۶ در صورت امکان، نه تعهد۶. تعداد واقعی و دلیل کمتر بودن را گزارش کن؛ کیفیت هر واحد مقدم بر شمار.",
+          "startIndex": 640168,
+          "endIndex": 640345,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: ۰،۱،کمتر۶ و۶ گزینه با سیاست درست؛ fake padding، mirror و مدل UNKNOWN رد شوند.",
+          "startIndex": 640346,
+          "endIndex": 640451,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: manifest انتخاب با علت حذف و شمار دقیق؛ هیچ گزینه بر اساس تعداد alone پذیرفته نشود.",
+          "startIndex": 640452,
+          "endIndex": 640563,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: هیچ qualified واقعی؛ ادامه تست منفی مجاز، نمایش مثبت blocked. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 640564,
+          "endIndex": 640719,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.03",
+        "R4-1.11"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.05",
+      "title": "قرارداد snapshot خروجی",
+      "source_start": 640753,
+      "source_end": 641380,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.04.",
+          "startIndex": 640786,
+          "endIndex": 640850,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: snapshot immutable از مدل پذیرفته‌شده، report، rules/profile/source و units بساز؛ renderer و exporter تنها همین شناسه را مصرف کنند. تغییر هندسه snapshot تازه می‌خواهد.",
+          "startIndex": 640851,
+          "endIndex": 641032,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: گزارش مدل A با تصویر B، stale admission و فایل دست‌کاری‌شده رد شوند.",
+          "startIndex": 641033,
+          "endIndex": 641129,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: manifest واحد و hashهای ورودی/خروجی؛ نگاشت هر room/wall/opening.",
+          "startIndex": 641130,
+          "endIndex": 641222,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود admission معتبر یا قرارداد exporter؛ mock شاهد محصول نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 641223,
+          "endIndex": 641380,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.04"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.06",
+      "title": "پیش‌نمایش خوانا و منطبق",
+      "source_start": 641381,
+      "source_end": 642065,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.05.",
+          "startIndex": 641415,
+          "endIndex": 641480,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: نام فضاها، دیوارها، بازشوها، مرز و مقیاس را از snapshot ترسیم کن؛ مبلمان و ستون در خروجی MVP نمایش نده، ولی شواهد داخلی مبلمان حفظ شوند. زوم و شرح همان طرح باشد.",
+          "startIndex": 641481,
+          "endIndex": 641656,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: برچسب قطع‌شده/هم‌پوشان، رندر آینه ناخواسته و جهت قاب غلط کشف شود؛ تصویر مدل غیرqualified به‌عنوان گزینه ممنوع.",
+          "startIndex": 641657,
+          "endIndex": 641795,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: تصویر واقعی با مرور بصری ثبت‌شده و digest مدل؛ محدودیت تصویری صریح.",
+          "startIndex": 641796,
+          "endIndex": 641891,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود مدل واجد شرایط؛ renderer می‌تواند unit-test شود ولی نمایش نهایی مثبت نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 641892,
+          "endIndex": 642065,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.05"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.07",
+      "title": "DXF واقعی و کنترل round-trip",
+      "source_start": 642066,
+      "source_end": 642771,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.05.",
+          "startIndex": 642105,
+          "endIndex": 642170,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: DXF از همان مدل و واحد متر تولید کن؛ room names و geometry مورد نیاز حفظ، مبلمان/ستون خروجی حذف شوند. فایل را با خواننده مستقل بازخوانی و extents/closed geometry/units را مقایسه کن.",
+          "startIndex": 642171,
+          "endIndex": 642366,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: scale۱۰برابری، lost opening، نام فارسی خراب و snapshot دیگر باید fail کنند؛ صرف دانلود فایل خالی کافی نیست.",
+          "startIndex": 642367,
+          "endIndex": 642502,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: DXF، hash، گزارش parse مستقل و برابری هندسه/نام‌ها در تلورانس منبع‌دار.",
+          "startIndex": 642503,
+          "endIndex": 642602,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: تلورانس مصوب موجود نیست؛ مقایسه exact ممکن را انجام بده و حد خودساخته نده. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 642603,
+          "endIndex": 642771,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.05"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.08",
+      "title": "کنترل همسانی تصویر، DXF و گزارش",
+      "source_start": 642772,
+      "source_end": 643401,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.06، R4-3.07.",
+          "startIndex": 642814,
+          "endIndex": 642888,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: اشیای متناظر را با ID/modelhash و هندسه تطبیق کن؛ summary از report نهایی بیاید، نه متن ثابت UI. هش فایل به‌تنهایی همسانی معنایی را ثابت نمی‌کند.",
+          "startIndex": 642889,
+          "endIndex": 643048,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: بازشو یا room جاافتاده در یک خروجی، مدل قدیمی و report مثبت جعلی رد شوند.",
+          "startIndex": 643049,
+          "endIndex": 643150,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول parity شیءبه‌شیء، screenshot و DXF بازخوانی‌شده؛ mismatch صفر در دامنه تعریف‌شده.",
+          "startIndex": 643151,
+          "endIndex": 643265,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: تبدیل renderer/exporter قابل ردگیری نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 643266,
+          "endIndex": 643401,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.06",
+        "R4-3.07"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.09",
+      "title": "اتصال نمایش و دانلود به admission واقعی",
+      "source_start": 643438,
+      "source_end": 644119,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.08.",
+          "startIndex": 643488,
+          "endIndex": 643553,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: API رندر/دانلود باید admission سرور و snapshot جاری را دوباره بررسی کند؛ request flags نمی‌توانند اختیار بدهند. diagnostic endpoint از ارائه گزینه محصول جدا باشد.",
+          "startIndex": 643554,
+          "endIndex": 643730,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: UNKNOWN/FAIL/ERROR و token کهنه هیچ تصویر گزینه یا DXF تحویل ندهند؛ دسترسی مستقیم URL نیز مسدود شود.",
+          "startIndex": 643731,
+          "endIndex": 643859,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: تست HTTP مثبت واقعی qualified و منفی مستقیم endpoint؛ test تزریق‌شده جدا برچسب بخورد.",
+          "startIndex": 643860,
+          "endIndex": 643973,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: qualified مثبت نداریم؛ فقط بخش منفی قابل اتمام است. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 643974,
+          "endIndex": 644119,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.08"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.10",
+      "title": "رابط سه‌فیلدی و حالت‌های واقعی",
+      "source_start": 644120,
+      "source_end": 644831,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.09.",
+          "startIndex": 644161,
+          "endIndex": 644226,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: فرم W/L/n، progress، خطای فیلد، unsupported، no-qualified و تعداد واقعی گزینه‌ها را روشن کن. انتخاب تعداد خواب یا city ورودی اجباری نشود؛ کلیک طرح همان snapshot را باز کند.",
+          "startIndex": 644227,
+          "endIndex": 644413,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: موبایل/تبلت/دسکتاپ، شبکه قطع، پاسخ دیر، double-submit، back/reload؛ عدم ادعای «اجرا نشد» پس از اجرای نامعلوم.",
+          "startIndex": 644414,
+          "endIndex": 644551,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: browser trace و screenshot بازبینی‌شده با درخواست/پاسخ واقعی؛ UI دروغین success نداشته باشد.",
+          "startIndex": 644552,
+          "endIndex": 644672,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: runtime/endpoint یکپارچه نیست یا آزمون فقط static HTML بوده است. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 644673,
+          "endIndex": 644831,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.09"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.11",
+      "title": "توضیحات دامنه و شمارش صحیح",
+      "source_start": 644832,
+      "source_end": 645487,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.10.",
+          "startIndex": 644869,
+          "endIndex": 644933,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: مفهومی بودن و عدم تأیید اجرا/قانون/فنی پله و آسانسور را در خروجی روشن کن. candidate/constructed/reviewed/qualified/displayed/downloaded جدا شمارش شوند؛ نسخه اصلاحی جایگزین گزینه است.",
+          "startIndex": 644934,
+          "endIndex": 645130,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: بازطراحی دوباره به شمار تنوع اضافه نشود؛ هشدار جای gate آشپزخانه ضروری را نگیرد؛ کمتر۶ درست توضیح داده شود.",
+          "startIndex": 645131,
+          "endIndex": 645266,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: تست شمارش و متن‌ها با cases صفر/تکرار/اصلاح/partial.",
+          "startIndex": 645267,
+          "endIndex": 645347,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: عدم توافق source و UI درباره counts یا state. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 645348,
+          "endIndex": 645487,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.10"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-3.12",
+      "title": "دروازه خروجی قابل ارائه",
+      "source_start": 645488,
+      "source_end": 646151,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-3.11.",
+          "startIndex": 645522,
+          "endIndex": 645587,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: یک مجموعه واقعی واجد شرایط را با preview بزرگنمایی، شرح، DXF و parity کامل از مسیر عمومی آزمایش کن؛ نامزد فاقدشاهد را تنها به‌صورت گزارش تشخیصی متنی نگه دار.",
+          "startIndex": 645588,
+          "endIndex": 645759,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: دانلود همان مدل نمایش‌داده‌شده و رد مدل عوض‌شده؛ تست مثبت با artifact واقعی، نه mock.",
+          "startIndex": 645760,
+          "endIndex": 645873,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: بسته end-user همراه screenshots و DXF و model/report hashes؛ پذیرش بخش خروجی مشروط به qualified واقعی.",
+          "startIndex": 645874,
+          "endIndex": 646004,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: نبود qualified یا DXF واقعی؛ وضعیت BLOCKED نه تکمیل. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 646005,
+          "endIndex": 646151,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-3.11"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.01",
+      "title": "پیش‌ثبت ماتریس نهایی",
+      "source_start": 646210,
+      "source_end": 646965,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-2.12، R4-3.12.",
+          "startIndex": 646241,
+          "endIndex": 646314,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: مجموعه ورودی‌ها و انتظار هر ردیف را پیش از اجرا بنویس: مرزها، کوچک/متوسط/بزرگ، غیرمربع، اعشار و n1/n2. معتبر بودن را از انتظار feasibility جدا کن؛ n3 invalid است. مطالعات تاریخی حذف‌شده مانند۸×۲۰ را گزینه فعال پروژه نشمار.",
+          "startIndex": 646315,
+          "endIndex": 646551,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: هر case معیار و دامنه روشن داشته باشد؛ تغییر expected پس از دیدن failure بدون ثبت نسخه ممنوع.",
+          "startIndex": 646552,
+          "endIndex": 646673,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: فهرست نسخه‌دار cases، seed، بودجه، انتظار مراحل و علت انتخاب؛ بدون ادعای اجرای همه بازه پیوسته.",
+          "startIndex": 646674,
+          "endIndex": 646797,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: تعارض قرارداد پروژه خاص و دامنه عمومی؛ پیش از اجرای مورد مبهم حل/ثبت شود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 646798,
+          "endIndex": 646965,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-2.12",
+        "R4-3.12"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.02",
+      "title": "بسته بازتولید از GitHub",
+      "source_start": 646966,
+      "source_end": 647654,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.01.",
+          "startIndex": 647000,
+          "endIndex": 647065,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: commit و dependencies و source imports و قواعد/پروفایل‌ها را pin کن؛ clone تمیز یا runner هم‌نسخه، بدون اتکا به فایل لپ‌تاپ/نسخه ابری منتشرنشده. داده‌های ضروری اجرای شواهد را فهرست کن.",
+          "startIndex": 647066,
+          "endIndex": 647264,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: run بدون state محلی و فایل پنهان شروع شود؛ dependency یا source mismatch پیش از solver fail کند.",
+          "startIndex": 647265,
+          "endIndex": 647389,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: manifest محیط و replay دستورهای دقیق و hashها؛ فایل‌های حساس وارد repo نشوند.",
+          "startIndex": 647390,
+          "endIndex": 647495,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: داده لازم خارج repo یا package ناشناخته؛ منبع/مجوز نصب مشخص شود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 647496,
+          "endIndex": 647654,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.01"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.03",
+      "title": "مرز ورودی و جلوگیری از تولید نامعتبر",
+      "source_start": 647655,
+      "source_end": 648322,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.02.",
+          "startIndex": 647702,
+          "endIndex": 647766,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: ماتریس parser/API/UI را روی قرارداد نهایی اجرا کن؛ تمام خطاهای مستقل فیلدها را حفظ کن. فارسی/اعشار را طبق قرارداد واقعی، نه حدس normalize کن.",
+          "startIndex": 647767,
+          "endIndex": 647922,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: ۵/۲۵ و n1/2 معتبر؛ خارج بازه هر محور، n3/4، null/boolean/کسری، extra fields، عدد نامتناهی و JSON مبهم رد شوند.",
+          "startIndex": 647923,
+          "endIndex": 648061,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: request/response و شاهد صفر solver برای invalid؛ source version آزمون یکسان.",
+          "startIndex": 648062,
+          "endIndex": 648166,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: عدم انطباق UI و backend؛ CI قدیمی با انتظار غلط پذیرفته نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 648167,
+          "endIndex": 648322,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.02"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.04",
+      "title": "batch تازه تولید پارامتریک",
+      "source_start": 648360,
+      "source_end": 649098,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.02، R4-4.03.",
+          "startIndex": 648397,
+          "endIndex": 648471,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: اولین زیرمجموعه پیش‌ثبت‌شده را با اجرای واقعی solver و constructor و full checks انجام بده. برای هر نمونه فایل کامل و outcome ثبت کن؛ تست reused را در ستون جدا نگه دار.",
+          "startIndex": 648472,
+          "endIndex": 648654,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: نمونه‌های n1/n2 و غیرمربع واقعاً هندسه بسازند یا علت درست unsupported/no-witness بدهند؛ success مرحله اجرا به qualification تبدیل نشود.",
+          "startIndex": 648655,
+          "endIndex": 648818,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: ماتریس تازه با ورودی تا مدل و تمام gateها؛ counts و duration قابل حسابرسی.",
+          "startIndex": 648819,
+          "endIndex": 648921,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: سقف زمان batch؛ باقی NOT_RUN و نیاز به batch مستقل پیش‌ثبت‌شده، نه reset همان تسک. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 648922,
+          "endIndex": 649098,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.02",
+        "R4-4.03"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.05",
+      "title": "بازگشت نقص‌های معماری شناخته‌شده",
+      "source_start": 649099,
+      "source_end": 649828,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.04.",
+          "startIndex": 649142,
+          "endIndex": 649207,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: fixtures واقعی dining از آشپزخانه، apron حمام، living نواری، دیوار فقط‌دید و برنامه ناکافی را از archive به tests پایدار تبدیل کن؛ source لازم را حفظ کن. آزمون باید علت هدف را ببیند، نه صرف شکست provenance.",
+          "startIndex": 649208,
+          "endIndex": 649428,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: هر مدل معیوب با rule مربوط رد؛ نمونه اصلاح همان rule پاس محدود بگیرد و سایر gateها بازبینی شوند.",
+          "startIndex": 649429,
+          "endIndex": 649553,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش failure reason دقیق و paired before/after با modelhash؛ بدون monkeypatch نتیجه evaluator.",
+          "startIndex": 649554,
+          "endIndex": 649677,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: آرشیو در دسترس نیست یا fixture صرفاً invalid origin است. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 649678,
+          "endIndex": 649828,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.04"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.06",
+      "title": "چرخه واقعی رد و بازطراحی چند حالت",
+      "source_start": 649829,
+      "source_end": 650519,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.05.",
+          "startIndex": 649873,
+          "endIndex": 649938,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: روی موارد منتخب، رد طبیعی→انتخاب عملگر→حفظ برنامه→child→replay و چهار معیار را اجرا کن. علت رد، اقدام و پیامد را دنبال کن؛ همه موفقیت‌ها و شکست‌ها نگه داشته شوند.",
+          "startIndex": 649939,
+          "endIndex": 650115,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: یک اصلاح distinct و یک no-child/no-progress؛ تغییر ظرفیت/واحد/ابعاد وسایل برای فرار از شکست رد شود.",
+          "startIndex": 650116,
+          "endIndex": 650243,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: history مستقل با typed protected inventory و full original reports؛ هر child ارزیابی تازه.",
+          "startIndex": 650244,
+          "endIndex": 650362,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: عملگر برای علت شکست آماده نیست؛ به عملگر نامربوط fallback نکن. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 650363,
+          "endIndex": 650519,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.05"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.07",
+      "title": "توقف، هم‌زمانی و تداوم شواهد",
+      "source_start": 650520,
+      "source_end": 651223,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.06.",
+          "startIndex": 650559,
+          "endIndex": 650624,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: timeout/kill/wait، cancel، double request و restart را در محدوده طراحی سرویس بررسی کن؛ budget و lineage پس از خطا حفظ شوند. controlled worker و fresh geometry دو سطح شاهد جدا هستند.",
+          "startIndex": 650625,
+          "endIndex": 650820,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: task تکراری حساب دوبار یا reset نشود؛ failure finalize خروجی اصلی را حذف نکند؛ درخواست لغوشده بعداً silently deliver نشود.",
+          "startIndex": 650821,
+          "endIndex": 650971,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: ledger قبل/بعد، process receipt و trace شبکه؛ محدودیت تست کنترل‌شده صریح.",
+          "startIndex": 650972,
+          "endIndex": 651073,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: پشتیبانی restart/persistence در معماری فعلی تعریف نشده. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 651074,
+          "endIndex": 651223,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.06"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.08",
+      "title": "دست‌کاری منشأ و داده بین مراحل",
+      "source_start": 651255,
+      "source_end": 651982,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.02، R4-4.06.",
+          "startIndex": 651296,
+          "endIndex": 651370,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: تغییر model/proposal/context/source/rule/profile، report کهنه، collision IDs و metadata ابعاد دروغ را منفی‌آزمایی کن. Snapshot قبل/بعد و immutable original report بررسی شوند.",
+          "startIndex": 651371,
+          "endIndex": 651559,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: wrong model با report معتبر، npfloat خارج مختصات مجاز، source تغییرکرده و caller authority جعلی همگی fail closed.",
+          "startIndex": 651560,
+          "endIndex": 651701,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: ماتریس tamper با علت دقیق، حفظ original FAIL و تفکیک integrity ERROR از UNKNOWN معماری.",
+          "startIndex": 651702,
+          "endIndex": 651817,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: hash بدون source/runtime binding کافی نیست؛ دامنه آزمون محدود ثبت شود. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 651818,
+          "endIndex": 651982,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.02",
+        "R4-4.06"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.09",
+      "title": "آزمون نهایی مجموعه و خروجی‌ها",
+      "source_start": 651983,
+      "source_end": 652702,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.04، R4-4.08، R4-3.12.",
+          "startIndex": 652023,
+          "endIndex": 652106,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: برای qualifiedهای واقعی انتخاب/تنوع همه جفت‌ها، UI، رندر و DXF همان snapshot را آزمایش کن. اگر صفر qualified است مثبت خروجی را blocked اعلام و مسیرهای منع تحویل را کامل کن.",
+          "startIndex": 652107,
+          "endIndex": 652293,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: tamper فایل، لینک stale، دانلود مستقیم UNKNOWN، duplicate/mirror و overcount رد؛ مثبت فقط فایل واقعی همان مدل.",
+          "startIndex": 652294,
+          "endIndex": 652432,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش browser/visual/parity، تمام جفت‌ها، file hashes و تعداد واقعی تا۶.",
+          "startIndex": 652433,
+          "endIndex": 652533,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: گزینه پذیرفته‌شده یا پروفایل کیفیت موجود نیست؛ fixture مصنوعی جای آن نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 652534,
+          "endIndex": 652702,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.04",
+        "R4-4.08",
+        "R4-3.12"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.10",
+      "title": "بازبینی مستقل کیفیت و کالیبراسیون",
+      "source_start": 652703,
+      "source_end": 653443,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 150 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-1.03، R4-4.05، R4-4.09.",
+          "startIndex": 652747,
+          "endIndex": 652830,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: لنگرهای کیفیت و مجموعه Golden از نظر منبع/نسخه و تأیید معتبر بررسی شوند؛ AI گزارش آماده کند و جایی که رأی تخصصی لازم است آن را جعل نکند. شواهد فنی POST_MVP را به مانع مفهومی تبدیل نکن.",
+          "startIndex": 652831,
+          "endIndex": 653029,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: طرح با یک جنبه ضروری ضعیف از طریق میانگین قبول نشود؛ نبود رأی لازم UNKNOWN، نه تأیید خودکار.",
+          "startIndex": 653030,
+          "endIndex": 653150,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: جدول rule/profile/evidence/reviewer و موارد باز؛ Golden فقط با روند معتبر عنوان بگیرد.",
+          "startIndex": 653151,
+          "endIndex": 653265,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: رأی تخصصی یا لنگر معتبر فراهم نیست؛ بدون انتظار بی‌پایان ثبت BLOCKED و ادامه مستقل. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 653266,
+          "endIndex": 653443,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-1.03",
+        "R4-4.05",
+        "R4-4.09"
+      ],
+      "estimate_minutes": 150,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.11",
+      "title": "بایگانی ماندگار و replay مستقل",
+      "source_start": 653444,
+      "source_end": 654211,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 120 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.06، R4-4.08، R4-4.09.",
+          "startIndex": 653485,
+          "endIndex": 653568,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: manifest و گزارش کامل و تصاویر/DXF لازم را با مقصد مجاز و دسترسی مناسب بایگانی کن؛ artifact۳۰روزه تضمین بقا نیست. یک بسته را از archive دوباره بخوان و hash/replay تأیید کن؛ لازم نیست همه binaryها بی‌بررسی در repo ریخته شوند.",
+          "startIndex": 653569,
+          "endIndex": 653807,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: فایل ناقص/خراب یا hash غلط کشف شود؛ نبود secret/private payload در بسته اشتراکی بررسی شود.",
+          "startIndex": 653808,
+          "endIndex": 653926,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: آدرس archive، retention، hashes و گزارش بازیابی؛ اگر اجازه لازم نیست/هست صریح مشخص کن.",
+          "startIndex": 653927,
+          "endIndex": 654041,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: مجوز مقصد/داده یا ظرفیت نگهداری فراهم نیست؛ لینک منقضی‌شونده را دائمی ننام. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 654042,
+          "endIndex": 654211,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.06",
+        "R4-4.08",
+        "R4-4.09"
+      ],
+      "estimate_minutes": 120,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    },
+    {
+      "id": "R4-4.12",
+      "title": "گزارش نهایی انطباق و تصمیم مرحله بعد",
+      "source_start": 654212,
+      "source_end": 655233,
+      "source_paragraphs": [
+        {
+          "text": "وضعیت: PLANNED. برآورد: 90 دقیقه؛ سقف۱۸۰دقیقه. وابستگی: R4-4.07، R4-4.10، R4-4.11.",
+          "startIndex": 654259,
+          "endIndex": 654341,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "راهنمای اجرا: تمام تسک‌ها را با PLANNED/DONE_SCOPED/PARTIAL/BLOCKED/TIMEBOXED/NOT_RUN و شمار مدل‌های generated/reviewed/qualified جمع‌بندی کن. scope واقعی n، ابعاد، خانواده‌ها و خروجی را اعلام کن؛ هیچ انجام تسک فنی را برابر تکمیل محصول ندان.",
+          "startIndex": 654342,
+          "endIndex": 654583,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "آزمون مثبت/منفی و مرز ادعا: هر ادعای نهایی به artifact/version وصل باشد؛ missing/UNKNOWN و failureهای مستقل در خلاصه حذف نشوند؛ گزارش شاهد را دوباره باز کند.",
+          "startIndex": 654584,
+          "endIndex": 654741,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "معیار اتمام و شاهد اختصاصی: گزارش Go/No-Go مستدل و gap list با قدم بعدی؛ شروع۳۰۳ فقط مطابق شرط کاربر و پس از بسته‌شدن واقعی مرحله پیشین.",
+          "startIndex": 654742,
+          "endIndex": 654878,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "مانع و اقدام هنگام توقف: وجود شرط ضروری حل‌نشده؛ اعلام چرخه کامل یا شروع خودکار۳۰۳ از روی تعداد تسک مجاز نیست. ثبت علت و راهنمای ادامه الزامی است؛ گزارش مشترک شواهد نیز پیوست شود.",
+          "startIndex": 654879,
+          "endIndex": 655058,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        },
+        {
+          "text": "پایان برنامه R4-PLAN-20261119 | تعداد کنترل‌شده: ۴ مرحله، ۱۲ بخش، ۴۸ تسک. این پیوست اجرای هیچ‌یک از تسک‌ها را ادعا نمی‌کند؛ ۳۰۳ تسک سند بعدی با درج این برنامه آغاز نشده‌اند.",
+          "startIndex": 655060,
+          "endIndex": 655233,
+          "tabId": "t.0",
+          "namedStyleType": "NORMAL_TEXT",
+          "isListItem": false
+        }
+      ],
+      "dependencies": [
+        "R4-4.07",
+        "R4-4.10",
+        "R4-4.11"
+      ],
+      "estimate_minutes": 90,
+      "max_minutes": 180,
+      "status": "PLANNED"
+    }
+  ],
+  "scope_review_policy": "Before/after each task assess current cycle adequacy; append new necessary gaps with source and dependencies, not fake completion.",
+  "new_gap_queue": [],
+  "legacy_stopped": [
+    "1.3",
+    "1.4",
+    "V25-22"
+  ],
+  "whole_cycle_qualified": false,
+  "stage303_started": false
+}

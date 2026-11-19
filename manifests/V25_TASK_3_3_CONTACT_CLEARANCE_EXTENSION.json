@@ -1,0 +1,696 @@
+{
+  "task": "3.3",
+  "schema": "TASK3_3_SINGLE_ROUTE_CONTACT_CLEARANCE_EVIDENCE_V1",
+  "status": "PARTIAL_SINGLE_ROUTE_EXACT_WITNESS_CURRENT_CRITERION_UNKNOWN",
+  "original_start_utc": "2026-11-19T04:11:34Z",
+  "deadline_utc": "2026-11-19T07:11:34Z",
+  "continuation_start_utc": "2026-11-19T06:58:25Z",
+  "checkpoint_utc": "2026-11-19T07:02:53Z",
+  "tested_commit": "eac54b4728287196f58b9a6a9fca3d25b0cc8354",
+  "run": 44476541739,
+  "job": 135398357113,
+  "evidence": {
+    "accepted": false,
+    "capacity": {
+      "accepted": false,
+      "independent_sweep_certificate": {
+        "above_capacity_rejection": "ROUTE_OBSTACLE_COLLISION",
+        "at_capacity_clear": true,
+        "epsilon_is_not_design_threshold": true,
+        "test_epsilon_m": "1/1000000"
+      },
+      "limiting_constraints": [
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 101,
+          "rect": [
+            "419/40",
+            "1671/200",
+            "471/40",
+            "1691/200"
+          ],
+          "segment": 1,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 36,
+          "rect": [
+            "419/40",
+            "339/40",
+            "549/40",
+            "69/8"
+          ],
+          "segment": 2,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 101,
+          "rect": [
+            "419/40",
+            "1671/200",
+            "471/40",
+            "1691/200"
+          ],
+          "segment": 2,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 158,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 2,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 165,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 2,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 36,
+          "rect": [
+            "419/40",
+            "339/40",
+            "549/40",
+            "69/8"
+          ],
+          "segment": 3,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 101,
+          "rect": [
+            "419/40",
+            "1671/200",
+            "471/40",
+            "1691/200"
+          ],
+          "segment": 3,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 158,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 3,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 165,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 3,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 36,
+          "rect": [
+            "419/40",
+            "339/40",
+            "549/40",
+            "69/8"
+          ],
+          "segment": 4,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 80,
+          "rect": [
+            "543/40",
+            "69/8",
+            "549/40",
+            "91/8"
+          ],
+          "segment": 4,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 158,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 4,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 165,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 4,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 36,
+          "rect": [
+            "419/40",
+            "339/40",
+            "549/40",
+            "69/8"
+          ],
+          "segment": 5,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 80,
+          "rect": [
+            "543/40",
+            "69/8",
+            "549/40",
+            "91/8"
+          ],
+          "segment": 5,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 5,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 158,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 5,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 165,
+          "rect": [
+            "171/40",
+            "339/40",
+            "549/40",
+            "397/40"
+          ],
+          "segment": 5,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 6,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 130,
+          "rect": [
+            "119/8",
+            "183/25",
+            "123/8",
+            "411/50"
+          ],
+          "segment": 7,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 7,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 130,
+          "rect": [
+            "119/8",
+            "183/25",
+            "123/8",
+            "411/50"
+          ],
+          "segment": 8,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 8,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 130,
+          "rect": [
+            "119/8",
+            "183/25",
+            "123/8",
+            "411/50"
+          ],
+          "segment": 9,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 117,
+          "rect": [
+            "589/40",
+            "153/25",
+            "621/40",
+            "183/25"
+          ],
+          "segment": 10,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 10,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 117,
+          "rect": [
+            "589/40",
+            "153/25",
+            "621/40",
+            "183/25"
+          ],
+          "segment": 11,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 131,
+          "rect": [
+            "591/40",
+            "183/25",
+            "619/40",
+            "401/50"
+          ],
+          "segment": 11,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 117,
+          "rect": [
+            "589/40",
+            "153/25",
+            "621/40",
+            "183/25"
+          ],
+          "segment": 12,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 127,
+          "rect": [
+            "621/40",
+            "637/100",
+            "649/40",
+            "707/100"
+          ],
+          "segment": 12,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 117,
+          "rect": [
+            "589/40",
+            "153/25",
+            "621/40",
+            "183/25"
+          ],
+          "segment": 13,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 127,
+          "rect": [
+            "621/40",
+            "637/100",
+            "649/40",
+            "707/100"
+          ],
+          "segment": 13,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 126,
+          "rect": [
+            "621/40",
+            "647/100",
+            "657/40",
+            "697/100"
+          ],
+          "segment": 14,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 127,
+          "rect": [
+            "621/40",
+            "637/100",
+            "649/40",
+            "707/100"
+          ],
+          "segment": 14,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 126,
+          "rect": [
+            "621/40",
+            "647/100",
+            "657/40",
+            "697/100"
+          ],
+          "segment": 15,
+          "segment_interior_attains_limit": true
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 127,
+          "rect": [
+            "621/40",
+            "637/100",
+            "649/40",
+            "707/100"
+          ],
+          "segment": 15,
+          "segment_interior_attains_limit": false
+        },
+        {
+          "endpoint_attains_limit": true,
+          "kind": "obstacle",
+          "obstacle_index": 126,
+          "rect": [
+            "621/40",
+            "647/100",
+            "657/40",
+            "697/100"
+          ],
+          "segment": 16,
+          "segment_interior_attains_limit": true
+        }
+      ],
+      "maximum_uniform_axis_aligned_square_width_m": "7/10",
+      "route_domain_box": [
+        "1/4",
+        "1/4",
+        "71/4",
+        "397/40"
+      ],
+      "route_domain_box_digest": "661635e39958f8e29bf8e6b5607101322a07ff172408fd4dcf53ef302157e373",
+      "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+      "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum"
+    },
+    "contact_comparison_state": "REQUIRED_CONTACT_NOT_OBSERVED",
+    "contact_scope": "Infimum of positive body overlap, not natural first destination. Tie is not living priority; access activity is not useful living floor.",
+    "criterion": "KITCHEN_GUEST_PATH_SEPARATION",
+    "delivery_allowed": false,
+    "dining_binding": {
+      "module_hash": "cf41f558c69889e3309a36776ddb5285fb7b65da88e9f6c53b4e349f8f606e05",
+      "scope": "Actual post-pull standing station; vertical seated transfer still not proven",
+      "seat_id": "seat_east"
+    },
+    "dining_occupied_material_contact_m": null,
+    "display_allowed": false,
+    "first_declared_dining_floor_contact_m": "359/100",
+    "first_living_access_activity_contact_m": null,
+    "integrity_verified": true,
+    "living_activity_contact_strictly_before_dining_floor": null,
+    "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "original_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+    "qualified": false,
+    "replay": {
+      "accepted": false,
+      "errors": [],
+      "model_hash": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "pending": [],
+      "scope": "Ordered A/B same-program deterministic whole-construction provenance only. No geometry, operation, privacy, diversity or admission receipt transferred. Separate fresh whole gate remains required.",
+      "source_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+      "trace_hash": "1c33ad2847a9438be6e4ac6867ceb7a5b96f5947f395b7758b203ce97ac2bef8",
+      "verified": true
+    },
+    "retained_manifest_digest": "354f565e784b0d37621dcaee5b2bb004165fd62e288229cbe80aacd853701da7",
+    "retained_route": {
+      "body_m": "7/10",
+      "domain_box": [
+        "1/4",
+        "1/4",
+        "71/4",
+        "397/40"
+      ],
+      "end": [
+        "651/40",
+        "587/100"
+      ],
+      "floor_digest": "35392806e0d03351d661a24a1528fa0374a799889b18bdd177b8b6cb41eeb487",
+      "floor_roles": [
+        "living",
+        "entry_circulation",
+        "dining",
+        "kitchen"
+      ],
+      "id": "entry_dining",
+      "length_m": "2157/200",
+      "obstacle_count": 166,
+      "obstacle_digest": "70e1082fc0e52fd40dd09d522a5299bb50eccf01642f4c7788e89c178a020c10",
+      "ownership_digest": "cace239ccc0179642029d9dc861046be572aef9d7b588bf73cdd647ba0e180b7",
+      "path": [
+        [
+          "9.825",
+          "8.075"
+        ],
+        [
+          "9.825",
+          "8.005"
+        ],
+        [
+          "12.125",
+          "8.005"
+        ],
+        [
+          "12.125",
+          "8.125"
+        ],
+        [
+          "14.075",
+          "8.125"
+        ],
+        [
+          "14.075",
+          "8.275"
+        ],
+        [
+          "14.425",
+          "8.275"
+        ],
+        [
+          "14.425",
+          "8.37"
+        ],
+        [
+          "14.525",
+          "8.37"
+        ],
+        [
+          "14.525",
+          "8.57"
+        ],
+        [
+          "15.825",
+          "8.57"
+        ],
+        [
+          "15.825",
+          "7.67"
+        ],
+        [
+          "15.875",
+          "7.67"
+        ],
+        [
+          "15.875",
+          "7.42"
+        ],
+        [
+          "16.575",
+          "7.42"
+        ],
+        [
+          "16.575",
+          "7.32"
+        ],
+        [
+          "16.775",
+          "7.32"
+        ],
+        [
+          "16.775",
+          "5.87"
+        ],
+        [
+          "16.275",
+          "5.87"
+        ]
+      ],
+      "reason": null,
+      "segments": 18,
+      "start": [
+        "9.825",
+        "8.075"
+      ],
+      "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+      "wc_exception": null
+    },
+    "route_id": "entry_dining",
+    "schema": "SINGLE_GUEST_CONTACT_CLEARANCE_V1",
+    "scope": "One retained historicalV1-model route, not currentV2 generation, principal circulation, natural layout or ergonomic approval.",
+    "source_snapshot": {
+      "app/local_integration/current_programme_evaluator.py": "c30ae83d0f9b3105c90dbd7c0c845cadcdd72c7401d110f53cfba80640ebb358",
+      "app/local_integration/fixed_route_clearance_diagnostic.py": "efa1ab1b8a5b9f29991655bb654f0b9e4a44198744a5089cb9c25e1771c22b69",
+      "app/local_integration/guest_contact_clearance_extension.py": "acd760acad92d0ff074e2ad9b7103b1bb1de2c632d11498ee94a7c6e63e260b2",
+      "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+      "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+      "app/local_integration/ordered_guest_group_diagnostic.py": "9a85baeb35fe00975ab81e2b3fed77c16689c6e8cc27e246792620aaa0bf4db4",
+      "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b",
+      "app/local_integration/source_guest_route_evaluator.py": "fbeb74ab006df108e7181dc6e1eba715368b2622d1432fc12ca31d76b771f952"
+    },
+    "state": "UNKNOWN",
+    "unit": "A"
+  },
+  "tests": "One actual retained source-bound route; wrong-model rejection, stationary/diagonal negatives, forward/reverse contact checks, missing/tied/ordered contact checks, at-capacity/epsilon sweep certificate.",
+  "artifact": {
+    "id": 14506796394,
+    "sha256": "9a3b1ac378d2b6d8225d76ad76abcc66213f47be5c6335fc5d65d92f7f3621ad",
+    "expires_at": "2026-12-19T07:02:53Z"
+  },
+  "interpretation": [
+    "A.entry_dining length10.785m; fixed uniform square-body capacity exactly0.7m under166boundobstacles including actual floor/owner complements. This is not a door width, human comfort approval or global best route.",
+    "Positive body overlap with declared dining floor starts at infimum3.59m. No positive contact with any actual living-seat access activity along this path; ordering isNOT_OBSERVED/null, not a positive first-living witness.",
+    "No overlap with dining occupied table/chair material; this does not prove natural principal first-living organization.",
+    "Source model/physicalreport remain historicalV1; currentV2 generation was not executed, and no old public envelope was relabelled.",
+    "Whole criterion remainsUNKNOWN and originalphysicalFAIL retained. No model/solver or widening of timebox."
+  ],
+  "reproduction": {
+    "workflow": ".github/workflows/v25-guest-contact-clearance.yml",
+    "commit": "eac54b4728287196f58b9a6a9fca3d25b0cc8354",
+    "original_bundle_artifact": 14497880207,
+    "retained_route_manifest_blob": "bf9d458f3901a06cefe8a61881b2ca698ccec129",
+    "expiry": "Input/output artifacts temporary; durable route manifest cannot substitute for full original model."
+  },
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
