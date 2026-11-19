@@ -216,15 +216,16 @@
       "start_utc": "2026-11-19T03:39:07Z",
       "deadline_utc": "2026-11-19T06:39:07Z",
       "scope": "Connect same-version packet/context/replay/full physical/current report with immutable exact bindings; negative fixtures2.4 then fresh execution2.5.",
-      "checkpoint_utc": "2026-11-19T03:44:39Z",
-      "commit": "b8b88403d9e568d52c839ce5165b8f11a7e8de3b",
-      "run": 44453512887,
+      "checkpoint_utc": "2026-11-19T03:45:10Z",
+      "commit": "8b6a33e36c89fc8cf2baeaf73501d73f5078dcf2",
+      "run": 44453562388,
       "tests": {
         "wiring_smoke": 7,
         "previous": 92,
         "total": 99
       },
-      "remaining": "No solver/model/replay/evaluator execution; adversarial runtime2.4 and real execution2.5 remain. np.float64 explicitly unsupported at current transport."
+      "remaining": "No solver/model/replay/evaluator execution; adversarial runtime2.4 and real execution2.5 remain. np.float64 explicitly unsupported at current transport.",
+      "evidence_manifest_commit": "faebaac35373f2ca0307dfd0d39cb50fa39b9a98"
     },
     {
       "id": "2.4",
