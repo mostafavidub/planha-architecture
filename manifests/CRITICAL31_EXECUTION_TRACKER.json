@@ -69,10 +69,14 @@
       "description_verbatim": "۱.۲. تعریف برنامه‌های فضایی و ظرفیت‌های دارای منبع؛ هر برنامه بدون سازنده، پشتیبانی‌شده اعلام نشود. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "0.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:08:30Z",
+      "deadline_utc": "2026-11-19T05:51:01Z",
+      "carried_operation_start_utc": "2026-11-19T02:51:01Z",
+      "scope": "Separate approved programme, source inventory and execution readiness; no planner modification or suitability claim"
     },
     {
       "id": "1.3",
