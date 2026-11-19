@@ -263,6 +263,20 @@ def descriptor_import():
   need(Path(inspect.getsourcefile(fn)).resolve()==ROOT/'studies/r4/actual_descriptor301.py','DESCRIPTOR_CALLABLE')
  a.guard();dependency_guard()
  return a
+def canonical_diff(a,b):
+ need(len(a)==len(b),'CANONICAL_UNIT_COUNT')
+ rows=[];allowed={'BEFORE','AFTER','OVERLAP','CONTACT'}
+ for index,(x,y)in enumerate(zip(a,b)):
+  old={tuple(r[:2]):r[2]for r in x['spatial']};new={tuple(r[:2]):r[2]for r in y['spatial']}
+  need(set(old)==set(new),'CANONICAL_ROLE_PAIR_SET')
+  changes={}
+  for key in sorted(old):
+   if old[key]==new[key]:continue
+   need(all(v in allowed for v in old[key]+new[key]),'CANONICAL_RELATION_ENUM')
+   transition='|'.join(old[key])+'->'+'|'.join(new[key]);changes[transition]=changes.get(transition,0)+1
+  old_access={json.dumps(e,sort_keys=True)for e in x['access']};new_access={json.dumps(e,sort_keys=True)for e in y['access']}
+  rows.append({'canonical_unit_index':index,'left_unit_digest':digest(x),'right_unit_digest':digest(y),'spatial_pair_change_count':sum(changes.values()),'relation_transition_counts':changes,'access_added_count':len(new_access-old_access),'access_removed_count':len(old_access-new_access)})
+ return {'scope':'Canonical unit ordering after each whole-model global D4 and shared access/spatial unit permutation; not actual A/B attribution or valid transformed plans. No coordinates emitted.','left_canonical_digest':digest(a),'right_canonical_digest':digest(b),'units':rows}
 def pair_readback(results,folder):
  if len(results)!=2 or [r.get('case')for r in results]!=['V0','V2']:
   return {'state':'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR','reason':'EXACT_TWO_REGISTERED_CASES_REQUIRED','architectural_diversity_verified':False,**{k:False for k in AUTH}}
@@ -276,6 +290,8 @@ def pair_readback(results,folder):
   d=a.descriptor(p);need(digest(d)==r['descriptor_digest']and d['signature']==r['descriptor_signature'],'DESCRIPTOR_REREAD')
   projections.append(p)
  result=a.compare_projections(*projections)
+ ca,cb=[a.canonical(p)for p in projections]
+ result['canonical_diff']=canonical_diff(ca,cb) if result['state']!='NOT_COMPARABLE'else None
  result.update(model_hashes=[r['model_digest']for r in results],same_model=results[0]['model_digest']==results[1]['model_digest'],
   signatures=[r['descriptor_signature']for r in results],comparison_scope='Actual source-bound descriptor relationship difference, not quality or admission',
   canonical_difference_digest=digest([a.canonical(p)for p in projections]),common_input_programme_core_source_verified=True,**{k:False for k in AUTH})

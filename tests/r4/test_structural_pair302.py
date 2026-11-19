@@ -43,12 +43,12 @@ class Structural(unittest.TestCase):
   p=self.projection()
   with tempfile.TemporaryDirectory()as d:
    rows=self.retained(d,[p,copy.deepcopy(p)]);r=m.pair_readback(rows,Path(d))
-  self.assertTrue(r['same_model']);self.assertEqual(r['state'],'EXACT_DESCRIPTOR_EQUIVALENT');self.assertFalse(r['qualified'])
+  self.assertTrue(r['same_model']);self.assertEqual(r['state'],'EXACT_DESCRIPTOR_EQUIVALENT');self.assertFalse(r['qualified']);self.assertEqual(sum(x['spatial_pair_change_count']for x in r['canonical_diff']['units']),0)
  def test_projection_different_organisation_not_quality(self):
   p,q=self.projection(),self.projection('b'*64,'0')
   with tempfile.TemporaryDirectory()as d:
    rows=self.retained(d,[p,q]);r=m.pair_readback(rows,Path(d))
-  self.assertEqual(r['state'],'DESCRIPTOR_DIFFERENCE_NOT_QUALITY');self.assertFalse(r['architectural_diversity_verified'])
+  self.assertEqual(r['state'],'DESCRIPTOR_DIFFERENCE_NOT_QUALITY');self.assertFalse(r['architectural_diversity_verified']);self.assertGreater(sum(x['spatial_pair_change_count']for x in r['canonical_diff']['units']),0)
  def test_projection_program_mismatch_not_distinct(self):
   p,q=self.projection(),self.projection('b'*64);q['programme']['bedrooms']=1
   with tempfile.TemporaryDirectory()as d:
