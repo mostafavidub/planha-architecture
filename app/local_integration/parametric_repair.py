@@ -33,6 +33,8 @@ def protected(packet,fixture_id):
     return result
 
 def propose(raw,family,proposal,packet,context,review,source_revision,test_only=False):
+    from current_entry_boundary_x03 import check_raw_domain
+    check_raw_domain(raw)
     before=digest([raw,proposal,packet,context,review])
     if family!='FRONT_REAR' or packet.get('family')!=family:raise ValueError('UNSUPPORTED_REPAIR_FRAME')
     if proposal.get('generation_method') not in (['COARSE_BUNDLE_MILP_NOT_FULL_NETWORK_SOLVER','CONTROLLED_PARAMETRIC_COLLISION_FIXTURE_V1'] if test_only else ['COARSE_BUNDLE_MILP_NOT_FULL_NETWORK_SOLVER']):raise ValueError('UNREGISTERED_PROPOSAL_FAMILY')
@@ -71,6 +73,8 @@ def propose(raw,family,proposal,packet,context,review,source_revision,test_only=
     return result
 
 def verify_child(raw,parent,plan,child_packet,child_review,child_context):
+    from current_entry_boundary_x03 import check_raw_domain
+    check_raw_domain(raw)
     unsigned={k:v for k,v in plan.items()if k!='plan_digest'}
     if digest(unsigned)!=plan.get('plan_digest'):raise ValueError('PLAN_CHANGED')
     trace=child_context['construction_trace']

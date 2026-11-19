@@ -1,0 +1,32 @@
+name: Current entry domain boundary X03
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'app/local_integration/current_entry_boundary_x03.py'
+      - 'app/local_integration/current_entry_inventory_x03.py'
+      - 'specs/current_entry_inventory_x03.json'
+      - 'tests/r4/test_current_entry_boundary_x03.py'
+      - '.github/workflows/r4-current-entry-boundary-x03.yml'
+permissions:
+  contents: read
+jobs:
+  boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B app/local_integration/current_entry_inventory_x03.py
+      - run: python -B -m unittest discover -s tests/r4 -p test_current_entry_boundary_x03.py -v
+      - env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_current_four_decision test_current_programme_evaluator test_source_guest_route_evaluator test_source_living_evaluator test_source_wall_function_evaluator test_dimension_contract test_public_wln_contract test_v25_active_entrypoints
+      - run: python -B -m unittest discover -s tests/r4 -p test_current_report_adapter111.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_report_lifecycle112.py -v
+      - run: git diff --exit-code

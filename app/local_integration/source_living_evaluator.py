@@ -16,13 +16,15 @@ def box_of(parts):
  q=list(map(rect,parts));ensure(bool(q),'EMPTY_DOMAIN')
  return list(map(str,[min(x[0] for x in q),min(x[1] for x in q),max(x[2] for x in q),max(x[3] for x in q)]))
 def assess(bundle):
+ from current_entry_boundary_x03 import check_model_domain
+ check_model_domain(bundle['packet']['world_model'])
  bundle,_=transport(bundle);pin=digest(bundle);m=bundle['packet']['world_model'];mh=digest(m)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
  ensure(bundle['reports']['physical']['model_hash']==mh,'PHYSICAL_MODEL_BINDING')
  for k,v in bundle['reports'].items():ensure(digest(v)==bundle['report_digests'][k],'ORIGINAL_REPORT_DIGEST')
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration')]
  from producer_provenance import snapshot,require_unchanged
- snap=snapshot(ROOT,['app/local_integration/source_living_evaluator.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/kitchen_guest_review.py'])
+ snap=snapshot(ROOT,['app/local_integration/current_entry_boundary_x03.py','app/local_integration/source_living_evaluator.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/kitchen_guest_review.py'])
  audit=source_audit()
  import construction_replay127
  from geometry114 import cells,route
@@ -31,7 +33,7 @@ def assess(bundle):
  replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  ensure(digest(bundle)==pin,'REPLAY_MUTATION')
  body=F(m['profile']['body_m']);ensure(body==F('.7'),'PROFILE')
- out={'schema':'CURRENT_LIVING_SOURCE_EVIDENCE_V1','criterion':'CONTINUOUS_USEFUL_LIVING','state':'UNKNOWN','model_digest':mh,
+ out={'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','schema':'CURRENT_LIVING_SOURCE_EVIDENCE_V1','criterion':'CONTINUOUS_USEFUL_LIVING','state':'UNKNOWN','model_digest':mh,
   'original_physical_digest':bundle['report_digests']['physical'],'original_physical_report':copy.deepcopy(bundle['reports']['physical']),
   'units':[],'profile':copy.deepcopy(m['profile']),'replay':copy.deepcopy(replay),
   'scope':'Source-bound seating access, exact area accounting and limited local-group-domain probe. Not a complete coherent usable living proof.',

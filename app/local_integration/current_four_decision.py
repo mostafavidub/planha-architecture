@@ -13,6 +13,7 @@ REQUIRED_SOURCES={
  'KITCHEN_GUEST_PATH_SEPARATION':{'app/local_integration/source_guest_route_evaluator.py','app/local_integration/current_programme_evaluator.py','app/local_integration/kitchen_guest_review.py','app/local_integration/guest_four_route_diagnostic.py'},
  'CONTINUOUS_USEFUL_LIVING':{'app/local_integration/source_living_evaluator.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/living_connectivity_diagnostic.py','app/local_integration/fixed_route_clearance_diagnostic.py','app/local_integration/kitchen_guest_review.py'},
  'NONFUNCTIONAL_WALL_EXCLUSION':{'app/local_integration/source_wall_function_evaluator.py','app/local_integration/source_wall_counterfactual.py','app/local_integration/current_programme_evaluator.py'}}
+for _paths in REQUIRED_SOURCES.values(): _paths.add('app/local_integration/current_entry_boundary_x03.py')
 def error_markers(value):
  found=[]
  def walk(v,path):
@@ -43,6 +44,8 @@ def decide(physical,states):
   'blockers':blockers,'current_four_conditions_complete':all(s=='PASS' for s in states.values()),
   'all_PRD_requirements_verified':False,**{k:False for k in AUTH}}
 def assemble(bundle,assessments,expected_digests):
+ from current_entry_boundary_x03 import check_model_domain
+ check_model_domain(bundle['packet']['world_model'])
  producer_path=ROOT/'app/local_integration/current_four_decision.py'
  producer_hash=hashlib.sha256(producer_path.read_bytes()).hexdigest()
  bundle,_=transport(bundle);assessments,_=transport(assessments);expected_digests,_=transport(expected_digests)
@@ -57,6 +60,7 @@ def assemble(bundle,assessments,expected_digests):
  rows=[];states={};sourcepins={}
  for cid,r in assessments.items():
   ensure(digest(r)==expected_digests[cid],'ASSESSMENT_DIGEST:'+cid)
+  ensure(r.get('current_domain_policy')=='CURRENT_ENTRY_DOMAIN_X03_V1','CURRENT_DOMAIN_POLICY_REVISION')
   ensure(r['schema']==SCHEMAS[cid] and r['model_digest']==mh,'ASSESSMENT_MODEL_SCHEMA:'+cid)
   # Programme V1 lacks a criterion field; its unique versioned schema maps explicitly to this ID.
   ensure(r.get('criterion',cid if cid=='CURRENT_PROGRAM_SUITABILITY' else None)==cid,'ASSESSMENT_CRITERION')
@@ -76,7 +80,7 @@ def assemble(bundle,assessments,expected_digests):
   state=r['state'];ensure(state in ('PASS','FAIL','UNKNOWN','NOT_EVALUATED'),'RAW_CRITERION_STATE')
   errors=error_markers(r);effective='FAIL' if state=='FAIL' else 'EVALUATOR_ERROR' if errors else state;states[cid]=effective
   rows.append({'criterion':cid,'reported_state':state,'effective_state':effective,'evaluator_errors':errors,'assessment_digest':digest(r)})
- out={'schema':'SAME_MODEL_CURRENT_FOUR_DECISION_V1','model_digest':mh,'physical_digest':ph,'engine_revision':ENGINE_REVISION,
+ out={'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','schema':'SAME_MODEL_CURRENT_FOUR_DECISION_V1','model_digest':mh,'physical_digest':ph,'engine_revision':ENGINE_REVISION,
   'original_reports':copy.deepcopy(bundle['reports']),'original_report_digests':copy.deepcopy(bundle['report_digests']),
   'assessments':copy.deepcopy(assessments),'assessment_digests':copy.deepcopy(expected_digests),'criteria':rows,
   'decision':decide(physical,states),'source_snapshot':sourcepins,

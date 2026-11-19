@@ -6,6 +6,8 @@ import copy,time
 from parametric_repair import rect,moved,contains,overlap,source_key,protected,PUBLIC,F,digest
 
 def propose_route(raw,family,proposal,packet,context,review,source_revision):
+    from current_entry_boundary_x03 import check_raw_domain
+    check_raw_domain(raw)
     from constructor129 import build
     if family not in ('FRONT_REAR','LEFT_RIGHT') or packet['family']!=family:raise ValueError('ROUTE_REPAIR_FRAME')
     if proposal.get('generation_method')!='COARSE_BUNDLE_MILP_NOT_FULL_NETWORK_SOLVER':raise ValueError('ROUTE_REPAIR_SOURCE_FAMILY')

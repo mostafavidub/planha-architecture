@@ -5,6 +5,8 @@ from collections import Counter
 from parametric_repair import propose,verify_child,digest
 
 def attempt(raw,family,proposal,packet,context,review,source_revision,*,test_only=False):
+    from current_entry_boundary_x03 import check_raw_domain
+    check_raw_domain(raw)
     from constructor129 import build,context as make_context
     from evaluate_hierarchical129 import evaluate
     from engine114 import revision

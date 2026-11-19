@@ -1,14 +1,14 @@
 import copy,hashlib,unittest
 from current_four_decision import *
 def fixture():
- model={'synthetic_test_only':True};mh=digest(model)
+ model={'synthetic_test_only':True,'inputs':['18','20',2]};mh=digest(model)
  physical={'model_hash':mh,'status':'FAIL','errors':[{'code':'SYNTHETIC_FAIL'}],'pending':['SYNTHETIC_PENDING'],'original_pending':['OLD'],'not_evaluated':['OLD'],'out_of_scope':[{'code':'OLD'}]}
  replay={'verified':True,'model_hash':mh,'source_revision':ENGINE_REVISION,'errors':[],'pending':[]}
  bundle={'packet':{'world_model':model},'model_digest':mh,'reports':{'physical':physical,'replay':replay},'report_digests':{'physical':digest(physical),'replay':digest(replay)}}
  path='app/local_integration/current_four_decision.py';snap={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()}
  rows={}
  for cid,schema in SCHEMAS.items():
-  r={'schema':schema,'criterion':cid,'state':'UNKNOWN','model_digest':mh,'integrity_verified':True,'source_snapshot':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in REQUIRED_SOURCES[cid]},**{k:False for k in AUTH}}
+  r={'schema':schema,'criterion':cid,'state':'UNKNOWN','model_digest':mh,'integrity_verified':True,'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','source_snapshot':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in REQUIRED_SOURCES[cid]},**{k:False for k in AUTH}}
   if cid=='CURRENT_PROGRAM_SUITABILITY':r.update(reports={'replay':replay},historical_physical_report=physical,historical_physical_digest=digest(physical))
   else:r.update(replay=replay,original_physical_report=physical,original_physical_digest=digest(physical))
   rows[cid]=r

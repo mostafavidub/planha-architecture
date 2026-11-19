@@ -70,6 +70,8 @@ def proven_capacity_violation(cap):
  """Known source instance shortfall, not malformed input or hypothetical-profile collision."""
  return any(e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' for e in cap['errors']) or any(r['actual_places']['sleeping_places']!=4 for r in cap['evidence']['units'])
 def assess(bundle):
+ from current_entry_boundary_x03 import check_model_domain
+ check_model_domain(bundle['packet']['world_model'])
  """Same-model artifact evaluation. No generator, repair or admission."""
  bundle,_=transport(bundle);baseline=digest(bundle);model=bundle['packet']['world_model'];mh=digest(model)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
@@ -77,14 +79,14 @@ def assess(bundle):
  ensure(bundle['reports']['physical']['model_hash']==mh,'PHYSICAL_MODEL')
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration')]
  from producer_provenance import snapshot,require_unchanged
- snap=snapshot(ROOT,['app/local_integration/current_programme_evaluator.py','app/local_integration/program_profile_registry.py','specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json'])
+ snap=snapshot(ROOT,['app/local_integration/current_entry_boundary_x03.py','app/local_integration/current_programme_evaluator.py','app/local_integration/program_profile_registry.py','specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json'])
  profile=lookup('PROGRAM_2BED_V1');profilepin=digest(profile)
  audit=source_audit();require_unchanged(ROOT,snap)
  import construction_replay127,program_capacity_audit118
  for mod,fn in ((construction_replay127,'verify'),(program_capacity_audit118,'examine')):
   ensure(Path(inspect.getsourcefile(getattr(mod,fn))).resolve()==(ENGINE/(mod.__name__+'.py')).resolve(),'ACTUAL_EVALUATOR_SOURCE')
  reports={};live={};pins={}
- out={'schema':'CURRENT_PROGRAMME_SOURCE_EVALUATION_V1','criterion':'CURRENT_PROGRAM_SUITABILITY',
+ out={'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','schema':'CURRENT_PROGRAMME_SOURCE_EVALUATION_V1','criterion':'CURRENT_PROGRAM_SUITABILITY',
   'model_digest':mh,'profile_digest':profilepin,'engine_revision':ENGINE_REVISION,'state':'UNKNOWN',
   'scope':'Approved two-bedroom/four-design-person source programme, source-bound inventory and limited planar capacity; not quality, automatic selection or whole-bundle qualification',
   'findings':[],'reports':reports,**{k:False for k in AUTH}}

@@ -1,16 +1,14 @@
 name: V25 source living evaluator task3.4
+# Historical artifact pipeline is disabled on current source. Original commits remain replayable.
+# New data handling authorization and matching source revision are required before re-enabling.
 on:
-  push:
-    paths:
-      - 'app/local_integration/source_living_evaluator.py'
-      - 'app/local_integration/test_source_living_evaluator.py'
-      - '.github/workflows/v25-source-living.yml'
   workflow_dispatch:
 permissions:
   contents: read
   actions: read
 jobs:
   evaluate:
+    if: ${{ false }} # HISTORICAL_PIPELINE_NOT_CURRENT_DISPATCH
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:

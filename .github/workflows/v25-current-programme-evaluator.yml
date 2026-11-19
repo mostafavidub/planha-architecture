@@ -1,16 +1,14 @@
 name: V25 current programme evaluator task3.2
+# Historical artifact pipeline is disabled on current source. Original commits remain replayable.
+# New data handling authorization and matching source revision are required before re-enabling.
 on:
-  push:
-    paths:
-      - 'app/local_integration/current_programme_evaluator.py'
-      - 'app/local_integration/test_current_programme_evaluator.py'
-      - '.github/workflows/v25-current-programme-evaluator.yml'
   workflow_dispatch:
 permissions:
   contents: read
   actions: read
 jobs:
   evaluate:
+    if: ${{ false }} # HISTORICAL_PIPELINE_NOT_CURRENT_DISPATCH
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:

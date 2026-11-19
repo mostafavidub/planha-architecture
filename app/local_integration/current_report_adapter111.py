@@ -22,6 +22,8 @@ SOURCES = {
                             'kitchen_guest_review.py'),
  'NONFUNCTIONAL_WALL_EXCLUSION': ('source_wall_function_evaluator.py', 'source_wall_counterfactual.py',
                                  'current_programme_evaluator.py')}
+for _cid in SOURCES: SOURCES[_cid] += ('current_entry_boundary_x03.py',)
+DOMAIN_POLICY='CURRENT_ENTRY_DOMAIN_X03_V1'
 def source_snapshot(cid):
     paths = [x if '/' in x else 'app/local_integration/' + x for x in SOURCES[cid]]
     return {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in paths}
@@ -71,6 +73,7 @@ def adapt(raw, expected_raw_digest, binding, expected_binding_digest):
             require(r['model_digest'] == mh, 'CURRENT_MODEL')
             require(all(r[k] is False for k in AUTH), 'CURRENT_AUTHORITY')
             require(r['state'] in ('PASS', 'FAIL', 'UNKNOWN', 'NOT_EVALUATED'), 'CURRENT_STATE')
+            require(r.get('current_domain_policy') == DOMAIN_POLICY, 'CURRENT_DOMAIN_POLICY_REVISION')
             require(type(r['source_snapshot']) is dict and r['source_snapshot'] == source_snapshot(cid), 'CURRENT_SOURCE')
             source_pins[cid] = copy.deepcopy(r['source_snapshot'])
             if cid == 'CURRENT_PROGRAM_SUITABILITY':

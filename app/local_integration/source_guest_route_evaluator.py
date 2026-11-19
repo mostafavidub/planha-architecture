@@ -27,13 +27,15 @@ def route_check(path,start,end,body,parts,obstacles):
   ensure(not any(hit(band,rect(q)) for q in obstacles),'ROUTE_OBSTACLE_COLLISION')
  return len(bands)
 def assess(bundle):
+ from current_entry_boundary_x03 import check_model_domain
+ check_model_domain(bundle['packet']['world_model'])
  bundle,_=transport(bundle);pin=digest(bundle);m=bundle['packet']['world_model'];mh=digest(m)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
  for k,v in bundle['reports'].items():ensure(digest(v)==bundle['report_digests'][k],'ORIGINAL_REPORT_DIGEST')
  ensure(bundle['reports']['physical']['model_hash']==mh,'ORIGINAL_PHYSICAL_MODEL_BINDING')
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration')]
  from producer_provenance import snapshot,require_unchanged
- snap=snapshot(ROOT,['app/local_integration/source_guest_route_evaluator.py','app/local_integration/current_programme_evaluator.py','app/local_integration/kitchen_guest_review.py','app/local_integration/guest_four_route_diagnostic.py'])
+ snap=snapshot(ROOT,['app/local_integration/current_entry_boundary_x03.py','app/local_integration/source_guest_route_evaluator.py','app/local_integration/current_programme_evaluator.py','app/local_integration/kitchen_guest_review.py','app/local_integration/guest_four_route_diagnostic.py'])
  audit=source_audit()
  import construction_replay127
  from public_program_audit118 import bind_operation_destination,covered
@@ -44,7 +46,7 @@ def assess(bundle):
  ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  ensure(digest(bundle)==pin,'REPLAY_INPUT_MUTATION')
  body=F(m['profile']['body_m']);ensure(body==F('.7'),'SOURCE_PROFILE_NOT_SUPPORTED')
- out={'schema':'SOURCE_BOUND_FOUR_GUEST_ROUTES_V1','criterion':'KITCHEN_GUEST_PATH_SEPARATION','state':'UNKNOWN',
+ out={'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','schema':'SOURCE_BOUND_FOUR_GUEST_ROUTES_V1','criterion':'KITCHEN_GUEST_PATH_SEPARATION','state':'UNKNOWN',
   'model_digest':mh,'original_physical_digest':bundle['report_digests']['physical'],
   'original_physical_report':copy.deepcopy(bundle['reports']['physical']),'replay':copy.deepcopy(replay),'units':[],
   'profile':copy.deepcopy(m['profile']),'profile_scope':'Hypothetical source body width, not ergonomic approval',

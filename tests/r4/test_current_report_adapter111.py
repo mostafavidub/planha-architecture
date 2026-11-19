@@ -15,7 +15,7 @@ def fixture():
     current={}
     for cid,schema in x.SCHEMAS.items():
         r={'schema':schema,'criterion':cid,'model_digest':b['model_digest'],
-           'state':'UNKNOWN','integrity_verified':True,
+           'state':'UNKNOWN','integrity_verified':True,'current_domain_policy':x.DOMAIN_POLICY,
            'source_snapshot':x.source_snapshot(cid),**{k:False for k in a.AUTH}}
         if cid=='CURRENT_PROGRAM_SUITABILITY':
             r.update(historical_physical_report=copy.deepcopy(p),historical_physical_digest=a.digest(p),
@@ -28,6 +28,12 @@ def fixture():
     return {'physical':p,'replay':replay,'current':current},b
 def run(raw,b):return x.adapt(raw,a.digest(raw),b,a.digest(b))
 class AdapterTests(unittest.TestCase):
+    def test_preboundary_policy_cannot_upgrade_historical_report(self):
+        raw,b=fixture();raw['current'][next(iter(x.SCHEMAS))].pop('current_domain_policy')
+        out=run(raw,b)
+        self.assertFalse(out['consistency_verified'])
+        self.assertEqual(out['raw_reports'],raw)
+
     def test_source_shaped_not_live_and_preserved(self):
         raw,b=fixture();out=run(raw,b)
         self.assertTrue(out['consistency_verified'])

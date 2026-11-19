@@ -1,0 +1,1260 @@
+{
+  "schema": "CURRENT_ENTRY_SOURCE_INVENTORY_X03_V1",
+  "baseline_commit": "1d5404ac92b0d955f35812bea3469b2c2bd98bea",
+  "scope": "Selected integration Python, explicit producer primitives, and all workflows. Not every repository caller or dynamic import.",
+  "default_current_dispatch": "DISABLED_UNLESS_REGISTERED",
+  "literal_python_isolation": "NOT_IMPLEMENTED",
+  "historical_raw_domain": "5..45 remains executable; never current-domain admission",
+  "files": {
+    ".github/workflows/contract-checks.yml": {
+      "blob": "c14bd6f7f870efe661f99df414119743477f83e1",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-baseline-audit.yml": {
+      "blob": "f12f2d0c7b528483cee6f958b487b3b4f4eca6ba",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-cause-directed108.yml": {
+      "blob": "145c0f35a2fcfa4377988a81a3182d9c16713375",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-core-choice-pair-study.yml": {
+      "blob": "8678dac0d26cf53dc1feb3a6870776e884727179",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-current-v3-coverage.yml": {
+      "blob": "bfba00a3dea3343b70c955de4eadcd69cc4b0434",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-dining-arrival.yml": {
+      "blob": "5ced3b824f5fdfdafc6ad12f71e52c0c5e702bde",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-exact-geometry-units.yml": {
+      "blob": "c9d5b9438d55ddb768b1528759935e975d0d5c23",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-guest-certificate-units.yml": {
+      "blob": "f1dda1921dded8fd586b457a2ea7a8dcf5fc0c2b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-isolated-drafts.yml": {
+      "blob": "6004bd7f2268b80a98f60c5b8cf2290203c2bfda",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-obligation-admission111.yml": {
+      "blob": "1fdca5527c177a4ae33b61e69f724a5279a54c86",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-one-bed-pair-study.yml": {
+      "blob": "193f2b7ea3fe29247e6732952ac2ab07eb8aa6f1",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-precision-boundary208.yml": {
+      "blob": "6aaf2baa58724290543625bf95bd0d2e52715746",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-report-lifecycle112.yml": {
+      "blob": "8c88961ddec92bf9bb1a0c65ec66a0279c9853d1",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-request-budget110.yml": {
+      "blob": "a2e421bf2bcd9bc888d6dda7c438f25e8c53781b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-request-trace109-ui.yml": {
+      "blob": "70f2cb9a8dee9dca883a1901e083b774626a6419",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-request-trace109.yml": {
+      "blob": "51d616ac127d35716daca43e7be3562bdc39b004",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-source-fit-pair-study207.yml": {
+      "blob": "a9ab3415fc1d80bb553ca1c3ae9e272f0ba19964",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-v3-current-integration.yml": {
+      "blob": "f42444d72268abe819de480985bc075bef7a0679",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/r4-wall-record-units.yml": {
+      "blob": "00bd71347d05b5f06f422430218d5392c7523863",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-automatic-scheduler.yml": {
+      "blob": "471948eac5925b2e4fe154ba43f2eca505a80dab",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-boundary-cycle.yml": {
+      "blob": "749912522f00de26da509b6e0374381ed2b6b4b8",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-bounded-original-runtime.yml": {
+      "blob": "47c84a2d44c18145d0aeb22898630f10de6d217b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-bounded-repair-chain.yml": {
+      "blob": "a645c07bd6b9a1f551d3683b61d113db1c3229d7",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-browser-environment-audit.yml": {
+      "blob": "a9ae327bb1c95af705376d0a4cda25d58fb31d56",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-circulation-comparison.yml": {
+      "blob": "e8c5901c08da6ca6e9a2b6c17ef7bca7fa918bfe",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-controlled-repair-entrypoint.yml": {
+      "blob": "96e2e01506e471d9e1027599c29ae5352e8aa05b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-controlled-repair-live.yml": {
+      "blob": "97574583af69f0582e0b9c0fcebc5bdc780fe8ad",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-criteria-catalog.yml": {
+      "blob": "c20c692f4d4ff32f0ff6df080f2e28607e6861a0",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-current-four-decision.yml": {
+      "blob": "cce80d164a3aac43a4465a064f4ffa78b3d958cd",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-current-programme-evaluator.yml": {
+      "blob": "a7b0196643fae6f95b398b8842da9b94d12ada8c",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-evidence-preflight.yml": {
+      "blob": "5f5f435db5ce6a2441c4e9ee620264925da9e986",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-existing-alternative-compatibility.yml": {
+      "blob": "bedae9efefb30e497fd92817cab96fb97c9305a4",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-explicit-program-api.yml": {
+      "blob": "983eac86cb25ee2da2e8ab3a693167c3fc1362c8",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-explicit-two-bedroom.yml": {
+      "blob": "3c10bbc7d156cf04e2dc63a7e3c8d7ba0b2b5c74",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-explicit-ui-replay.yml": {
+      "blob": "467a28bcb6c3e848418e8a59ec65d21ac8fc4ed0",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-explicit-ui.yml": {
+      "blob": "af871e3c7ccc99fc88a0e0357704e0cda9286a0d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-fit-diagnosis.yml": {
+      "blob": "eee94263302a24a372d71bf56d87d7f0d93df31f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-fixed-clearance.yml": {
+      "blob": "5c3aafe2bf01501e90b55b443978bd055db6eb6d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-four-seat-master.yml": {
+      "blob": "454a2ba42407c831caadfefb5e501a36354bd4aa",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-frame125-two-binding.yml": {
+      "blob": "f4645fbda8aa583e2b0628f876449e7102c1e011",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-frame125-two-nonsquare.yml": {
+      "blob": "91bf673d1c8b8473694e5a2ad9f53a80c25ca80f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-generation-matrix.yml": {
+      "blob": "a53ef56632c13af58eed2d83914c500853df0170",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-grouped-rejection.yml": {
+      "blob": "b81f93781b067beefc7efbc85844aa91de632d05",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-guard-diagnostic.yml": {
+      "blob": "709e49ad5963cdb07d75af2a2f8675afe6f5ab45",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-guest-contact-clearance.yml": {
+      "blob": "aad50f0fd21d45bf57484df2d2acae80cc805b32",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-guest-routes.yml": {
+      "blob": "ccb7c956de52860c0cd65c4831c5c3e2774e55c1",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-history-status.yml": {
+      "blob": "c7829cd3de9ab2359bfd2c76bd6752d0f67057e0",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-http-disconnect.yml": {
+      "blob": "6f17067bd661728fcf5e6689dfec4fd696ef5c81",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-input-audit.yml": {
+      "blob": "006cd4a7826268ff41ed250199c3d60498de5f96",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-kitchen305-experiment.yml": {
+      "blob": "adb234842ee1dc9a8af8a526731c8ef819a77ce0",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-kitchen305-matrix.yml": {
+      "blob": "d2a592b4630062d8a050be427f674dec1aeb56cf",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-left-right-two-binding.yml": {
+      "blob": "68fe7d8420a892ee18c1bc47ce38205b421f3f38",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-left-right-two-evidence.yml": {
+      "blob": "0c8cce33e0b554c4ce2a68d20f1f0c308559661f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-left-right-two-topologies.yml": {
+      "blob": "238a6565313a91f3e753a4b7dcd38c71548520d7",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-left-right-two.yml": {
+      "blob": "a1f68c086f4cb4bebd2772ae4510735988039111",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-live-evidence-audit.yml": {
+      "blob": "1b91c0854e5f0d841a74586bf5eef0e4f86d5618",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-live-programme-scheduler.yml": {
+      "blob": "f836237f711933f3404e609aefc8a1dbb3fa0fde",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-living-connectivity.yml": {
+      "blob": "aedf379f0e08e29ba23a3e4a317d55fe4af78e5a",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-living-endpoints.yml": {
+      "blob": "a5a60d7a0ddca6820cd60b813f811399b61d398d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-living-existing-comparison.yml": {
+      "blob": "428d07aea4be459b564205371657e12173245789",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-local-seating.yml": {
+      "blob": "575d619fb3bf1196c2a120d6a4be0446bd7df041",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-mechanics.yml": {
+      "blob": "284e430304e84005c54a8b6c88bc94f7275ebcfa",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-observation-audit.yml": {
+      "blob": "7657b9f5560e484feea79322347e27525d34157f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-open-evaluator.yml": {
+      "blob": "ecf61b79235c155d2648fd9d086a0514f057675d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-open-kitchen.yml": {
+      "blob": "d551a294a1afd68ca054dba31c87ae3dbb412e86",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-open-world-matrix.yml": {
+      "blob": "380bc962f1fa60e34343cfb0a11e614b521c40bf",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-open-world.yml": {
+      "blob": "9c6af12df7a04bc32800abbaa9fb0f8fb82abb41",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-ordered-guest-group.yml": {
+      "blob": "4800caf1a0cbb6762993e8152201a93cde3d4f30",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-pair-http.yml": {
+      "blob": "1e8b536d15649d8272cb68773dc50cc3e1116423",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-pair-operator.yml": {
+      "blob": "489205811c975a6104d884bc9dee47b0df08871d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-preserve-evidence.yml": {
+      "blob": "03a369a08f1d907e694d44064b63f6205046f1cb",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-program-registry.yml": {
+      "blob": "8fa9a8aaed2e9ff4099a9da83827d345ad2a349f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-programme-evidence-comparison.yml": {
+      "blob": "3464a29376336bd28d9f297044cae6ce4d99cda6",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-programme-order.yml": {
+      "blob": "291540f411af4eb94a8c4c4446406e8556594426",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-protected-repair-contract.yml": {
+      "blob": "7b708bdc474f29f9320d8166323080491c6330b1",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-public-delivery-negative.yml": {
+      "blob": "e0bbb206f23c49fbc515cd63f66c215fb321598e",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-public-ui-screenshot-readback.yml": {
+      "blob": "ceb025318f1c7297c2a5087b49e9e0d125ebab9b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-public-wln-ui.yml": {
+      "blob": "5b7265dea6a58c9d4e77954cf14158b1c262bc83",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-public-wln.yml": {
+      "blob": "a7abfca1084cdb00a87e2f815739dfd84a2ee615",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-real-browser.yml": {
+      "blob": "f9a14b95460a93bff2454eb1df69ba63dcb92e0e",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-rejection-operator-selection.yml": {
+      "blob": "4b4b66560eb582b196975ab998fda6f668805d55",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-repair-attempt-control.yml": {
+      "blob": "2da74d40904cbcedcbc6ea2a31d53725f78a7490",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-repair-history-audit.yml": {
+      "blob": "a480d567281e784f5add2ef2b6c04c03ab7aec66",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-rule-mapping.yml": {
+      "blob": "4a3916003b3dbd0edc1b5e23200531303ec127d5",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-rule-trace.yml": {
+      "blob": "90f32333caa392655ead2a5e0eaf14ff6e17c4f9",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-runtime-adversarial.yml": {
+      "blob": "b58ac4051d01d8ac56b891a889ec838030ecb6ab",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-runtime-evidence-readback.yml": {
+      "blob": "0c6942de49c99f3446c0e747dfe47c052dd64503",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-runtime-wiring.yml": {
+      "blob": "c8acdc5fa3215dab82a6c838218a6417952c99fd",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-same-version-contract.yml": {
+      "blob": "fbdd3760434ea9b9443061f64e4f1cde6b2dfe62",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-single-bed-receipt-readback.yml": {
+      "blob": "c7596a21ce2e28b8e43928f2d968ef1649926e37",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-single-bed-wall-extension.yml": {
+      "blob": "ec5e61bb23f4c82c1b7dabf66ce76201e4612194",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-source-guest-routes.yml": {
+      "blob": "3f3f0c47bbaca41ce14948220bcecc52c8b8c6fa",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-source-living.yml": {
+      "blob": "97bec8936a1b817819ff71aa10e5c92d759b881d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-source-wall-function.yml": {
+      "blob": "82794905fc86d0aff4ac464f2f36e7459161eb9f",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-source-walls.yml": {
+      "blob": "34ad4a3f07db5745cf3d9b13501f3fb780a24415",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-timeout-endurance.yml": {
+      "blob": "aacab21e7302a4239c83a52388e4dbe30e12a557",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-two-bedroom-redesign.yml": {
+      "blob": "58e9131d80863e8de9944e7fe7c43538ef721256",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-unit-domain-correction.yml": {
+      "blob": "c4576ce1c55f65105d53394b4a974995b4940b21",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-wall-alternative.yml": {
+      "blob": "9d08742dc713dc1e82791052187b2358eea66e2d",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-wall-counterfactual.yml": {
+      "blob": "2e81f34b1b5941ec55a5fb500356ab426138de23",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-wln-http-matrix.yml": {
+      "blob": "9b760113ad7c4d492f58b2b00ba431319713c785",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    ".github/workflows/v25-wln-preregistration.yml": {
+      "blob": "6dc24f483bc5c4c260bbb6941e5d7ba028bc7c1b",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    },
+    "app/local_integration/audit_public_delivery_surface.py": {
+      "blob": "d98cf384278e14f5314d961f7094033643e8af63",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/automatic_program_search.py": {
+      "blob": "686e29e65384a8b6990cbb65b63050ca6aef4208",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/bounded_repair_chain.py": {
+      "blob": "263906fb6b187c3ba9d65abce6a70d5805531c4c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/cause_directed_candidate108.py": {
+      "blob": "5851a0e98162776ca292b40a5707d0ef8f477c8b",
+      "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
+    },
+    "app/local_integration/cause_directed_chain108.py": {
+      "blob": "aaad1985f1d4418743c9165340f7ad28de909bc1",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/cause_directed_contract108.py": {
+      "blob": "f07e20e250199a51fce9a9042ea854258345310f",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/compare_left_right_two_topologies.py": {
+      "blob": "78c182040a1e70e7f0c84d470cddbc6c8cf63f48",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/controlled_repair_entrypoint.py": {
+      "blob": "dbccdaf09809bbebc58339a481d35b3b0615d915",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/core_choice_pair_study.py": {
+      "blob": "4ed751238583d63ec2d9bb570bccbb9b0802cd3c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/current_four_decision.py": {
+      "blob": "55e503d1459fb8005607997f3e09df983bc6d041",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/current_programme_evaluator.py": {
+      "blob": "99ada55f405e0c205d1a431469d1faae55a149dd",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/current_report_adapter111.py": {
+      "blob": "72b0704544febbddc83021058a5ce0789baeed0f",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/declared_geometry_projection_study.py": {
+      "blob": "4ebb9ed8ddaf3c8bacc643334ca4c4e1f1e077fc",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/diagnose_left_right_two.py": {
+      "blob": "a6108274f450f1ed2b58a150e7f327ee63ad97dc",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/dimension_contract.py": {
+      "blob": "058502cd97b5131908b82fdbdba34c62d3376ea3",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/dimension_contract_historical.py": {
+      "blob": "36660f1dc09fb3c2a07df8bf193553af28cccba3",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/dining_arrival_episode_study.py": {
+      "blob": "a1caae3e4496a59b778b061de6144f85b4f62ff0",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/diversity_review.py": {
+      "blob": "b28a2b5c9657d9a908b130ee77827c392087e7f3",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/explicit_pair_redirection.py": {
+      "blob": "5cf177f58609ba97c41ed77170d65b0ae187690c",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/explicit_pair_saved_run.py": {
+      "blob": "1af919a12b67a1c906c4628b1ee39b4ffbe5181d",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/explicit_pair_saved_worker.py": {
+      "blob": "c6e20e17fc999cb3a0b4b637b7fddbf718a3bcba",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/explicit_two_bedroom_worker.py": {
+      "blob": "d519ae888f29edb66398f55c9dda1cb931990522",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/fixed_route_clearance_diagnostic.py": {
+      "blob": "463999cf077f42194bdba3c1b331176aedb8aabb",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/frame125_two_source_binding.py": {
+      "blob": "46ed08ff1fe9df752bdda671ec7109b735ca6efb",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/front_rear_runtime_adapter.py": {
+      "blob": "92ce916b71bb05f0087e2527a51dd8de4d40a676",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/functional_review.py": {
+      "blob": "b4da45728949de78bd085692ba7eebf7bb4e4a71",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/generation_gateway.py": {
+      "blob": "099a6afcd261deac2d34162b033438d0377ed199",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/guest_contact_clearance_extension.py": {
+      "blob": "cf50fbe35e658fcdad013a858da4a4d4743828cf",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/guest_four_route_diagnostic.py": {
+      "blob": "6814519f90f3a5c15ddb1275af268542112c9878",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/guest_route_certificate_study.py": {
+      "blob": "72be0c598f8a6d195ef7b66a68709b28487d433c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/history_status_taxonomy.py": {
+      "blob": "17f9aa4070d765129042a80f51d42151c4418f65",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/kitchen_guest_review.py": {
+      "blob": "27e021ca5eec451dd40a8f8e203763dd2500a052",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/left_right_two_evidence_bundle.py": {
+      "blob": "428578714cb46ef78ce154ee964bbcb32280c860",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/left_right_two_source_binding.py": {
+      "blob": "9b4c6fa08ba53051cb4f7ffda683d7561a509514",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/live_program_scheduler.py": {
+      "blob": "1b671b6632d01c1012fcb39b2c33e731fb619fbc",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/living_connectivity_diagnostic.py": {
+      "blob": "afe01e361a72f1436d589dd499c82f5b41c6b0c2",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/living_endpoint_attribution.py": {
+      "blob": "743f6e98979da9cac48dff224c7167ef5292790c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/local_seating_group_diagnostic.py": {
+      "blob": "f513a4409071fe527383b08a1b26c559c29200ab",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/obligation_admission111.py": {
+      "blob": "7290f4aa0d4ad0c27c4250e3e5e1d1a071f00f94",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/one_bed_pair_source_study.py": {
+      "blob": "84316ef823c2e1ec9c4a775430ea67db3c2c2959",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_boundary_comparison.py": {
+      "blob": "9d2b8b3063f18c5a1696570097d7909ad1f9633f",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_circulation_frame.py": {
+      "blob": "a28b029b6e7ddf9dc11ac19da570fcc03a9e239b",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_circulation_integrity.py": {
+      "blob": "a2fe1d9c3be6c0d7b753f6b9b400414e774fbd4c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_circulation_scope.py": {
+      "blob": "f67d709ba58fe7d6079f6f3cfa565b3f0fb8d4cf",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_evaluator.py": {
+      "blob": "34c74dae1584774c4f9be6ed2907b048d9bdd058",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_kitchen_check.py": {
+      "blob": "872ba0e37d45ea99ead7aabc123d7cc2f9349a77",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_kitchen_place.py": {
+      "blob": "8517e3583a2018ed5f9002e8dcb5608442009e58",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_kitchen_study.py": {
+      "blob": "2203e52d505212b54faaefa274331bb98929010d",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_named_checks.py": {
+      "blob": "8b6164c80353dc10f1bffaf1426265c37519ade4",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_operation_check.py": {
+      "blob": "41b5b3014ddb5983860a58d08e35a3b4a5c45081",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_placement_check.py": {
+      "blob": "d523b35e39bf29ca533a60c05300fe4512d97bbc",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_q11_pending.py": {
+      "blob": "0069ec8eee4627744bb387dcf03f0370d92cea63",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_raw_physical.py": {
+      "blob": "fc2adda49403a50fefcf64e6514e9b810c3a57c2",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_rule_contract.py": {
+      "blob": "48f41686a4af1ca23b8389b57e16c2bd80cf7b93",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_typed_public.py": {
+      "blob": "3ea9a65584390b711834a23db0e7ebbf28671346",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_wall_alternative.py": {
+      "blob": "3d71760704bd237bf9097daad6658489e52024f5",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_world_assembly.py": {
+      "blob": "54f44e8746b3e6bf85ba8e48d0e0baa53e634ece",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/open_front_world_origin.py": {
+      "blob": "6821a9a2221b6ab2a07989647f1043c5414d44f9",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/ordered_guest_group_diagnostic.py": {
+      "blob": "8d2cd24fbfae5da3203d98eb03bfe8e201200a20",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/parametric_repair.py": {
+      "blob": "f75631b9c1162b3fea385cab6ba52d4aea64cdee",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/parametric_repair_flow.py": {
+      "blob": "6bb8c775b62fa2ce8e1512eb150f0b702fae2aca",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/parametric_route_repair.py": {
+      "blob": "b52d542a0b78bf30fbccc4c20eb1eb902f44debf",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/parametric_worker.py": {
+      "blob": "8ebb7a46b31770fa80d28236a0bd767661e40d2a",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/precision_boundary208.py": {
+      "blob": "e1ece20ad40d7d17e268fc9e1c2fe701ca383548",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/precision_pair_study208.py": {
+      "blob": "dd51a170b482af2b3e51c201d7c5daafe33f1849",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/producer_provenance.py": {
+      "blob": "a9ad19e2edfc587a02e038f59962462e1983eb36",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/program_profile_registry.py": {
+      "blob": "af549f86f39e2e57554cd48e0ffdea54d5444262",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/program_search_order.py": {
+      "blob": "6a6667cc30df2ec9db10992487153548d38ae89b",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/programme_evidence_comparison.py": {
+      "blob": "4c4671bd08f3fc765880a26adb524f19864aa207",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/protected_repair_contract.py": {
+      "blob": "b6f14137155089c90d4847d8990b67cce7aa91b0",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/public_wln_contract.py": {
+      "blob": "80fd2b2710342735dc35e484c9b0da790995d830",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/public_wln_server.py": {
+      "blob": "e92c711e37ef2fec46bf03e76cd1f4b59f61c5be",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/r4_baseline_audit.py": {
+      "blob": "7019bd4625e33a6c4c16c2a541dc40d413c084a1",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/real_timeout_endurance.py": {
+      "blob": "dab6423b993f71cd7a282dbe901547e6611a7fd7",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/rejection_operator_selection.py": {
+      "blob": "64e37c2f6a2abcdd85884f1cd5eb736c3dcc9e8c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/repair_attempt_control.py": {
+      "blob": "8a7f7b2f647e17edd0930ac8fdcca8f7b2887980",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/repair_history_audit.py": {
+      "blob": "00e9513979e85d57039f6cb07f4248932979aea5",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/repair_saved_run.py": {
+      "blob": "da1729664c27fb2863be91f693538c8a85552367",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/repair_saved_worker.py": {
+      "blob": "cb13bdd7ae16d7ff805d98ddbe658b120474763d",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/report_lifecycle112.py": {
+      "blob": "7ddf65a27e30ae88ccc515fb0c4de3ca0bcedf28",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/request_budget110.py": {
+      "blob": "64cbc905de70359b91d42be39e5f637a6bfa3751",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/request_trace109.py": {
+      "blob": "2605c382a413134b24e953d9f55dd10a38b321ee",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/request_trace_server109.py": {
+      "blob": "a1574a1a4b15878f882530912a42ccfe341e6ffa",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/review_cycle.py": {
+      "blob": "54d6ea35e23227a845380907448df50fc3c39bf0",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/run_front_rear_bounded_experiment.py": {
+      "blob": "cb8bafa687a5fc4729394d70b85aed270be4bc69",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/run_history.py": {
+      "blob": "afcd09d98637937c17445283df4d06e6899bb676",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/run_wln_http_matrix.py": {
+      "blob": "22d97632cf471b20cf9a69b70414e2ddfeeeae37",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/same_version_front_rear_contract.py": {
+      "blob": "0c182a3e26ba48ef6a42df2bf40c2a2ab67c055c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/service_gate/range25_wrapper.py": {
+      "blob": "4e26f541cab558a563ac6e66ed4a3a64b9be9553",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/single_bed_wall_separator_extension.py": {
+      "blob": "fc985f41bf960795b9bf1fb36b93115ff75dab2c",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_activity_target_reference_study.py": {
+      "blob": "a6a3f84323fca68bd47d886169c41fa730afd737",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_finish_profile_reference_study.py": {
+      "blob": "643410743f76f705a3b48b35b3b31fecd2412558",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_fit_candidate207.py": {
+      "blob": "be98c37a0827f23b34d6110182c582177532217c",
+      "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
+    },
+    "app/local_integration/source_fit_pair_study207.py": {
+      "blob": "d4ba410a4c38a16211a1986c733366eca36f0233",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_fit_profile207.py": {
+      "blob": "8454b4a0a1e99cc49055fd6a7f375f048d9520f0",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_guest_route_evaluator.py": {
+      "blob": "17fb50e08d153aee4aa2ecd4fa4d13928f522a4e",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/source_living_evaluator.py": {
+      "blob": "2f368ae2a1d5db32d7163076f90eb5a7e991f76f",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/source_module_floor_reference_study.py": {
+      "blob": "1e17fe401d0aad1d19395acc7d1b94f8d7621e93",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_module_instance_reference_study.py": {
+      "blob": "f143b68e7cd90b21c8e498104f39d6c73d10e83a",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_wall_counterfactual.py": {
+      "blob": "2cf702e94564197fc3229da715f4939bac1f51ed",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/source_wall_function_evaluator.py": {
+      "blob": "84233b6bba2c4835af5e59c203ecf51a6765b8e0",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/source_wall_record_contract_study.py": {
+      "blob": "2570ec800a70fb2f603c932360ee6a4d47f95bf3",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/study_frame125_two_nonsquare.py": {
+      "blob": "aeb2d85893dd960f36be2102b60c7058a56ffb47",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/validate_request.py": {
+      "blob": "873b67c32718f1e80e3d961d6b33553b15088f95",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/validate_wln_preregistration.py": {
+      "blob": "fd56f41202b885b190a3f0cf7927d2a742ba62e4",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    "app/local_integration/validation_server.py": {
+      "blob": "2f1143fb55a19c8862792bdc6a87ae12e6afcc95",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/candidate/four_seat_group_candidate.py": {
+      "blob": "107fdee7f63cbab76e6344df8e42c790120b86d5",
+      "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
+    },
+    "app/local_integration/candidate/bundle25/coarse_kitchen305_candidate.py": {
+      "blob": "b6c09e1827e74e8ea534c4762a8042e528da4c1e",
+      "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
+    },
+    "app/local_integration/candidate/bundle25/private_kitchen305_candidate.py": {
+      "blob": "39a76e1ea9260fb24a970abbdd8799da275244e4",
+      "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
+    },
+    "app/local_integration/current_entry_boundary_x03.py": {
+      "blob": "8383c54d4f6bfd3d94580ede2ab20276b917f414",
+      "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
+    },
+    "app/local_integration/current_entry_inventory_x03.py": {
+      "blob": "4eecd8f9238a89afe3b7b253bbf308fac73c5b0a",
+      "classification": "STUDY_OR_HELPER_NOT_GENERIC_CURRENT_DISPATCH"
+    },
+    ".github/workflows/r4-current-entry-boundary-x03.yml": {
+      "blob": "b0040c9b77b7a629c494f1b6e9504e88c1e15bb3",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
+    }
+  },
+  "top_level_paths": [
+    ".github/workflows/contract-checks.yml",
+    ".github/workflows/r4-baseline-audit.yml",
+    ".github/workflows/r4-cause-directed108.yml",
+    ".github/workflows/r4-core-choice-pair-study.yml",
+    ".github/workflows/r4-current-entry-boundary-x03.yml",
+    ".github/workflows/r4-current-v3-coverage.yml",
+    ".github/workflows/r4-dining-arrival.yml",
+    ".github/workflows/r4-exact-geometry-units.yml",
+    ".github/workflows/r4-guest-certificate-units.yml",
+    ".github/workflows/r4-isolated-drafts.yml",
+    ".github/workflows/r4-obligation-admission111.yml",
+    ".github/workflows/r4-one-bed-pair-study.yml",
+    ".github/workflows/r4-precision-boundary208.yml",
+    ".github/workflows/r4-report-lifecycle112.yml",
+    ".github/workflows/r4-request-budget110.yml",
+    ".github/workflows/r4-request-trace109-ui.yml",
+    ".github/workflows/r4-request-trace109.yml",
+    ".github/workflows/r4-source-fit-pair-study207.yml",
+    ".github/workflows/r4-v3-current-integration.yml",
+    ".github/workflows/r4-wall-record-units.yml",
+    ".github/workflows/v25-automatic-scheduler.yml",
+    ".github/workflows/v25-boundary-cycle.yml",
+    ".github/workflows/v25-bounded-original-runtime.yml",
+    ".github/workflows/v25-bounded-repair-chain.yml",
+    ".github/workflows/v25-browser-environment-audit.yml",
+    ".github/workflows/v25-circulation-comparison.yml",
+    ".github/workflows/v25-controlled-repair-entrypoint.yml",
+    ".github/workflows/v25-controlled-repair-live.yml",
+    ".github/workflows/v25-criteria-catalog.yml",
+    ".github/workflows/v25-current-four-decision.yml",
+    ".github/workflows/v25-current-programme-evaluator.yml",
+    ".github/workflows/v25-evidence-preflight.yml",
+    ".github/workflows/v25-existing-alternative-compatibility.yml",
+    ".github/workflows/v25-explicit-program-api.yml",
+    ".github/workflows/v25-explicit-two-bedroom.yml",
+    ".github/workflows/v25-explicit-ui-replay.yml",
+    ".github/workflows/v25-explicit-ui.yml",
+    ".github/workflows/v25-fit-diagnosis.yml",
+    ".github/workflows/v25-fixed-clearance.yml",
+    ".github/workflows/v25-four-seat-master.yml",
+    ".github/workflows/v25-frame125-two-binding.yml",
+    ".github/workflows/v25-frame125-two-nonsquare.yml",
+    ".github/workflows/v25-generation-matrix.yml",
+    ".github/workflows/v25-grouped-rejection.yml",
+    ".github/workflows/v25-guard-diagnostic.yml",
+    ".github/workflows/v25-guest-contact-clearance.yml",
+    ".github/workflows/v25-guest-routes.yml",
+    ".github/workflows/v25-history-status.yml",
+    ".github/workflows/v25-http-disconnect.yml",
+    ".github/workflows/v25-input-audit.yml",
+    ".github/workflows/v25-kitchen305-experiment.yml",
+    ".github/workflows/v25-kitchen305-matrix.yml",
+    ".github/workflows/v25-left-right-two-binding.yml",
+    ".github/workflows/v25-left-right-two-evidence.yml",
+    ".github/workflows/v25-left-right-two-topologies.yml",
+    ".github/workflows/v25-left-right-two.yml",
+    ".github/workflows/v25-live-evidence-audit.yml",
+    ".github/workflows/v25-live-programme-scheduler.yml",
+    ".github/workflows/v25-living-connectivity.yml",
+    ".github/workflows/v25-living-endpoints.yml",
+    ".github/workflows/v25-living-existing-comparison.yml",
+    ".github/workflows/v25-local-seating.yml",
+    ".github/workflows/v25-mechanics.yml",
+    ".github/workflows/v25-observation-audit.yml",
+    ".github/workflows/v25-open-evaluator.yml",
+    ".github/workflows/v25-open-kitchen.yml",
+    ".github/workflows/v25-open-world-matrix.yml",
+    ".github/workflows/v25-open-world.yml",
+    ".github/workflows/v25-ordered-guest-group.yml",
+    ".github/workflows/v25-pair-http.yml",
+    ".github/workflows/v25-pair-operator.yml",
+    ".github/workflows/v25-preserve-evidence.yml",
+    ".github/workflows/v25-program-registry.yml",
+    ".github/workflows/v25-programme-evidence-comparison.yml",
+    ".github/workflows/v25-programme-order.yml",
+    ".github/workflows/v25-protected-repair-contract.yml",
+    ".github/workflows/v25-public-delivery-negative.yml",
+    ".github/workflows/v25-public-ui-screenshot-readback.yml",
+    ".github/workflows/v25-public-wln-ui.yml",
+    ".github/workflows/v25-public-wln.yml",
+    ".github/workflows/v25-real-browser.yml",
+    ".github/workflows/v25-rejection-operator-selection.yml",
+    ".github/workflows/v25-repair-attempt-control.yml",
+    ".github/workflows/v25-repair-history-audit.yml",
+    ".github/workflows/v25-rule-mapping.yml",
+    ".github/workflows/v25-rule-trace.yml",
+    ".github/workflows/v25-runtime-adversarial.yml",
+    ".github/workflows/v25-runtime-evidence-readback.yml",
+    ".github/workflows/v25-runtime-wiring.yml",
+    ".github/workflows/v25-same-version-contract.yml",
+    ".github/workflows/v25-single-bed-receipt-readback.yml",
+    ".github/workflows/v25-single-bed-wall-extension.yml",
+    ".github/workflows/v25-source-guest-routes.yml",
+    ".github/workflows/v25-source-living.yml",
+    ".github/workflows/v25-source-wall-function.yml",
+    ".github/workflows/v25-source-walls.yml",
+    ".github/workflows/v25-timeout-endurance.yml",
+    ".github/workflows/v25-two-bedroom-redesign.yml",
+    ".github/workflows/v25-unit-domain-correction.yml",
+    ".github/workflows/v25-wall-alternative.yml",
+    ".github/workflows/v25-wall-counterfactual.yml",
+    ".github/workflows/v25-wln-http-matrix.yml",
+    ".github/workflows/v25-wln-preregistration.yml",
+    "app/local_integration/audit_public_delivery_surface.py",
+    "app/local_integration/automatic_program_search.py",
+    "app/local_integration/bounded_repair_chain.py",
+    "app/local_integration/cause_directed_candidate108.py",
+    "app/local_integration/cause_directed_chain108.py",
+    "app/local_integration/cause_directed_contract108.py",
+    "app/local_integration/compare_left_right_two_topologies.py",
+    "app/local_integration/controlled_repair_entrypoint.py",
+    "app/local_integration/core_choice_pair_study.py",
+    "app/local_integration/current_entry_boundary_x03.py",
+    "app/local_integration/current_entry_inventory_x03.py",
+    "app/local_integration/current_four_decision.py",
+    "app/local_integration/current_programme_evaluator.py",
+    "app/local_integration/current_report_adapter111.py",
+    "app/local_integration/declared_geometry_projection_study.py",
+    "app/local_integration/diagnose_left_right_two.py",
+    "app/local_integration/dimension_contract.py",
+    "app/local_integration/dimension_contract_historical.py",
+    "app/local_integration/dining_arrival_episode_study.py",
+    "app/local_integration/diversity_review.py",
+    "app/local_integration/explicit_pair_redirection.py",
+    "app/local_integration/explicit_pair_saved_run.py",
+    "app/local_integration/explicit_pair_saved_worker.py",
+    "app/local_integration/explicit_two_bedroom_worker.py",
+    "app/local_integration/fixed_route_clearance_diagnostic.py",
+    "app/local_integration/frame125_two_source_binding.py",
+    "app/local_integration/front_rear_runtime_adapter.py",
+    "app/local_integration/functional_review.py",
+    "app/local_integration/generation_gateway.py",
+    "app/local_integration/guest_contact_clearance_extension.py",
+    "app/local_integration/guest_four_route_diagnostic.py",
+    "app/local_integration/guest_route_certificate_study.py",
+    "app/local_integration/history_status_taxonomy.py",
+    "app/local_integration/kitchen_guest_review.py",
+    "app/local_integration/left_right_two_evidence_bundle.py",
+    "app/local_integration/left_right_two_source_binding.py",
+    "app/local_integration/live_program_scheduler.py",
+    "app/local_integration/living_connectivity_diagnostic.py",
+    "app/local_integration/living_endpoint_attribution.py",
+    "app/local_integration/local_seating_group_diagnostic.py",
+    "app/local_integration/obligation_admission111.py",
+    "app/local_integration/one_bed_pair_source_study.py",
+    "app/local_integration/open_front_boundary_comparison.py",
+    "app/local_integration/open_front_circulation_frame.py",
+    "app/local_integration/open_front_circulation_integrity.py",
+    "app/local_integration/open_front_circulation_scope.py",
+    "app/local_integration/open_front_evaluator.py",
+    "app/local_integration/open_front_kitchen_check.py",
+    "app/local_integration/open_front_kitchen_place.py",
+    "app/local_integration/open_front_kitchen_study.py",
+    "app/local_integration/open_front_named_checks.py",
+    "app/local_integration/open_front_operation_check.py",
+    "app/local_integration/open_front_placement_check.py",
+    "app/local_integration/open_front_q11_pending.py",
+    "app/local_integration/open_front_raw_physical.py",
+    "app/local_integration/open_front_rule_contract.py",
+    "app/local_integration/open_front_typed_public.py",
+    "app/local_integration/open_front_wall_alternative.py",
+    "app/local_integration/open_front_world_assembly.py",
+    "app/local_integration/open_front_world_origin.py",
+    "app/local_integration/ordered_guest_group_diagnostic.py",
+    "app/local_integration/parametric_repair.py",
+    "app/local_integration/parametric_repair_flow.py",
+    "app/local_integration/parametric_route_repair.py",
+    "app/local_integration/parametric_worker.py",
+    "app/local_integration/precision_boundary208.py",
+    "app/local_integration/precision_pair_study208.py",
+    "app/local_integration/producer_provenance.py",
+    "app/local_integration/program_profile_registry.py",
+    "app/local_integration/program_search_order.py",
+    "app/local_integration/programme_evidence_comparison.py",
+    "app/local_integration/protected_repair_contract.py",
+    "app/local_integration/public_wln_contract.py",
+    "app/local_integration/public_wln_server.py",
+    "app/local_integration/r4_baseline_audit.py",
+    "app/local_integration/real_timeout_endurance.py",
+    "app/local_integration/rejection_operator_selection.py",
+    "app/local_integration/repair_attempt_control.py",
+    "app/local_integration/repair_history_audit.py",
+    "app/local_integration/repair_saved_run.py",
+    "app/local_integration/repair_saved_worker.py",
+    "app/local_integration/report_lifecycle112.py",
+    "app/local_integration/request_budget110.py",
+    "app/local_integration/request_trace109.py",
+    "app/local_integration/request_trace_server109.py",
+    "app/local_integration/review_cycle.py",
+    "app/local_integration/run_front_rear_bounded_experiment.py",
+    "app/local_integration/run_history.py",
+    "app/local_integration/run_wln_http_matrix.py",
+    "app/local_integration/same_version_front_rear_contract.py",
+    "app/local_integration/single_bed_wall_separator_extension.py",
+    "app/local_integration/source_activity_target_reference_study.py",
+    "app/local_integration/source_finish_profile_reference_study.py",
+    "app/local_integration/source_fit_candidate207.py",
+    "app/local_integration/source_fit_pair_study207.py",
+    "app/local_integration/source_fit_profile207.py",
+    "app/local_integration/source_guest_route_evaluator.py",
+    "app/local_integration/source_living_evaluator.py",
+    "app/local_integration/source_module_floor_reference_study.py",
+    "app/local_integration/source_module_instance_reference_study.py",
+    "app/local_integration/source_wall_counterfactual.py",
+    "app/local_integration/source_wall_function_evaluator.py",
+    "app/local_integration/source_wall_record_contract_study.py",
+    "app/local_integration/study_frame125_two_nonsquare.py",
+    "app/local_integration/test_automatic_program_search.py",
+    "app/local_integration/test_bounded_repair_chain.py",
+    "app/local_integration/test_cancellation.py",
+    "app/local_integration/test_controlled_repair_entrypoint.py",
+    "app/local_integration/test_current_four_decision.py",
+    "app/local_integration/test_current_programme_evaluator.py",
+    "app/local_integration/test_dimension_contract.py",
+    "app/local_integration/test_dining_arrival_episode_study.py",
+    "app/local_integration/test_diversity_review.py",
+    "app/local_integration/test_explicit_pair_review.py",
+    "app/local_integration/test_failure_recovery.py",
+    "app/local_integration/test_frame125_two_source_binding.py",
+    "app/local_integration/test_front_rear_numeric_transport.py",
+    "app/local_integration/test_front_rear_runtime_adversarial.py",
+    "app/local_integration/test_front_rear_runtime_wiring.py",
+    "app/local_integration/test_functional_review.py",
+    "app/local_integration/test_guest_four_route_diagnostic.py",
+    "app/local_integration/test_guest_route_certificate_study.py",
+    "app/local_integration/test_history_status_archive.py",
+    "app/local_integration/test_history_status_browser.py",
+    "app/local_integration/test_history_status_taxonomy.py",
+    "app/local_integration/test_http_disconnect.py",
+    "app/local_integration/test_kitchen_guest_review.py",
+    "app/local_integration/test_left_right_two_evidence_bundle.py",
+    "app/local_integration/test_left_right_two_source_binding.py",
+    "app/local_integration/test_live_program_scheduler.py",
+    "app/local_integration/test_parametric_contract.py",
+    "app/local_integration/test_parametric_repair.py",
+    "app/local_integration/test_producer_provenance.py",
+    "app/local_integration/test_program_profile_registry.py",
+    "app/local_integration/test_program_search_order.py",
+    "app/local_integration/test_programme_evidence_comparison.py",
+    "app/local_integration/test_protected_repair_contract.py",
+    "app/local_integration/test_public_wln_browser.py",
+    "app/local_integration/test_public_wln_contract.py",
+    "app/local_integration/test_public_wln_server.py",
+    "app/local_integration/test_range25.py",
+    "app/local_integration/test_rejection_operator_selection.py",
+    "app/local_integration/test_repair_attempt_control.py",
+    "app/local_integration/test_repair_gateway.py",
+    "app/local_integration/test_repair_receipt.py",
+    "app/local_integration/test_review_cycle.py",
+    "app/local_integration/test_route_repair.py",
+    "app/local_integration/test_run_history.py",
+    "app/local_integration/test_same_version_front_rear_contract.py",
+    "app/local_integration/test_source_guest_route_evaluator.py",
+    "app/local_integration/test_source_living_evaluator.py",
+    "app/local_integration/test_source_wall_function_evaluator.py",
+    "app/local_integration/test_v25_active_entrypoints.py",
+    "app/local_integration/test_v25_input_audit.py",
+    "app/local_integration/test_validation_server.py",
+    "app/local_integration/validate_request.py",
+    "app/local_integration/validate_wln_preregistration.py",
+    "app/local_integration/validation_server.py"
+  ],
+  "inventory_self_paths": [],
+  "python_names": [
+    "audit_public_delivery_surface.py",
+    "automatic_program_search.py",
+    "bounded_repair_chain.py",
+    "cause_directed_candidate108.py",
+    "cause_directed_chain108.py",
+    "cause_directed_contract108.py",
+    "coarse_kitchen305_candidate.py",
+    "compare_left_right_two_topologies.py",
+    "controlled_repair_entrypoint.py",
+    "core_choice_pair_study.py",
+    "current_entry_boundary_x03.py",
+    "current_entry_inventory_x03.py",
+    "current_four_decision.py",
+    "current_programme_evaluator.py",
+    "current_report_adapter111.py",
+    "declared_geometry_projection_study.py",
+    "diagnose_left_right_two.py",
+    "dimension_contract.py",
+    "dimension_contract_historical.py",
+    "dining_arrival_episode_study.py",
+    "diversity_review.py",
+    "explicit_pair_redirection.py",
+    "explicit_pair_saved_run.py",
+    "explicit_pair_saved_worker.py",
+    "explicit_two_bedroom_worker.py",
+    "fixed_route_clearance_diagnostic.py",
+    "four_seat_group_candidate.py",
+    "frame125_two_source_binding.py",
+    "front_rear_runtime_adapter.py",
+    "functional_review.py",
+    "generation_gateway.py",
+    "guest_contact_clearance_extension.py",
+    "guest_four_route_diagnostic.py",
+    "guest_route_certificate_study.py",
+    "history_status_taxonomy.py",
+    "kitchen_guest_review.py",
+    "left_right_two_evidence_bundle.py",
+    "left_right_two_source_binding.py",
+    "live_program_scheduler.py",
+    "living_connectivity_diagnostic.py",
+    "living_endpoint_attribution.py",
+    "local_seating_group_diagnostic.py",
+    "obligation_admission111.py",
+    "one_bed_pair_source_study.py",
+    "open_front_boundary_comparison.py",
+    "open_front_circulation_frame.py",
+    "open_front_circulation_integrity.py",
+    "open_front_circulation_scope.py",
+    "open_front_evaluator.py",
+    "open_front_kitchen_check.py",
+    "open_front_kitchen_place.py",
+    "open_front_kitchen_study.py",
+    "open_front_named_checks.py",
+    "open_front_operation_check.py",
+    "open_front_placement_check.py",
+    "open_front_q11_pending.py",
+    "open_front_raw_physical.py",
+    "open_front_rule_contract.py",
+    "open_front_typed_public.py",
+    "open_front_wall_alternative.py",
+    "open_front_world_assembly.py",
+    "open_front_world_origin.py",
+    "ordered_guest_group_diagnostic.py",
+    "parametric_repair.py",
+    "parametric_repair_flow.py",
+    "parametric_route_repair.py",
+    "parametric_worker.py",
+    "precision_boundary208.py",
+    "precision_pair_study208.py",
+    "private_kitchen305_candidate.py",
+    "producer_provenance.py",
+    "program_profile_registry.py",
+    "program_search_order.py",
+    "programme_evidence_comparison.py",
+    "protected_repair_contract.py",
+    "public_wln_contract.py",
+    "public_wln_server.py",
+    "r4_baseline_audit.py",
+    "range25_wrapper.py",
+    "real_timeout_endurance.py",
+    "rejection_operator_selection.py",
+    "repair_attempt_control.py",
+    "repair_history_audit.py",
+    "repair_saved_run.py",
+    "repair_saved_worker.py",
+    "report_lifecycle112.py",
+    "request_budget110.py",
+    "request_trace109.py",
+    "request_trace_server109.py",
+    "review_cycle.py",
+    "run_front_rear_bounded_experiment.py",
+    "run_history.py",
+    "run_wln_http_matrix.py",
+    "same_version_front_rear_contract.py",
+    "single_bed_wall_separator_extension.py",
+    "source_activity_target_reference_study.py",
+    "source_finish_profile_reference_study.py",
+    "source_fit_candidate207.py",
+    "source_fit_pair_study207.py",
+    "source_fit_profile207.py",
+    "source_guest_route_evaluator.py",
+    "source_living_evaluator.py",
+    "source_module_floor_reference_study.py",
+    "source_module_instance_reference_study.py",
+    "source_wall_counterfactual.py",
+    "source_wall_function_evaluator.py",
+    "source_wall_record_contract_study.py",
+    "study_frame125_two_nonsquare.py",
+    "validate_request.py",
+    "validate_wln_preregistration.py",
+    "validation_server.py"
+  ],
+  "explicit_current_registry_methods": [
+    "current_entry_boundary_x03.propose_current",
+    "current_entry_boundary_x03.construct_current"
+  ],
+  "current_evidence_guards": [
+    "current_programme_evaluator.assess",
+    "source_guest_route_evaluator.assess",
+    "source_living_evaluator.assess",
+    "source_wall_function_evaluator.assess",
+    "current_four_decision.assemble"
+  ],
+  "blockers": [
+    "DYNAMIC_IMPORT_TARGETS_NOT_PROVEN",
+    "FROZEN_DIRECT_PYTHON_CALLS_NOT_DISABLED",
+    "NOT_A_COMPLETE_REPOSITORY_CALLGRAPH",
+    "DOMAIN_VALIDITY_IS_NOT_GENERATOR_READINESS_OR_QUALIFICATION"
+  ]
+}

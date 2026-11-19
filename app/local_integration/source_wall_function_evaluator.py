@@ -8,6 +8,8 @@ from source_wall_counterfactual import bound_source,exact_closure_change
 from current_programme_evaluator import placed
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 def assess(bundle):
+ from current_entry_boundary_x03 import check_model_domain
+ check_model_domain(bundle['packet']['world_model'])
  bundle,_=transport(bundle);pin=digest(bundle);m=bundle['packet']['world_model'];mh=digest(m)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
  ensure(m['physical_wall_network']['source_wall_hash']==digest(m['walls']),'WALL_NETWORK_BINDING')
@@ -15,7 +17,7 @@ def assess(bundle):
  for k,r in bundle['reports'].items():ensure(digest(r)==bundle['report_digests'][k],'REPORT_DIGEST')
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration')]
  from producer_provenance import snapshot,require_unchanged
- snap=snapshot(ROOT,['app/local_integration/source_wall_function_evaluator.py','app/local_integration/source_wall_counterfactual.py','app/local_integration/current_programme_evaluator.py'])
+ snap=snapshot(ROOT,['app/local_integration/current_entry_boundary_x03.py','app/local_integration/source_wall_function_evaluator.py','app/local_integration/source_wall_counterfactual.py','app/local_integration/current_programme_evaluator.py'])
  audit=source_audit()
  import construction_replay127
  from geometry114 import cells
@@ -23,7 +25,7 @@ def assess(bundle):
  ensure(Path(inspect.getsourcefile(cells)).resolve()==(ENGINE/'fast_cells120.py').resolve(),'CELLS_SOURCE')
  replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  ensure(digest(bundle)==pin,'REPLAY_MUTATION')
- out={'schema':'SOURCE_WALL_FUNCTION_EVIDENCE_V1','criterion':'NONFUNCTIONAL_WALL_EXCLUSION','state':'UNKNOWN','model_digest':mh,
+ out={'current_domain_policy':'CURRENT_ENTRY_DOMAIN_X03_V1','schema':'SOURCE_WALL_FUNCTION_EVIDENCE_V1','criterion':'NONFUNCTIONAL_WALL_EXCLUSION','state':'UNKNOWN','model_digest':mh,
  'original_physical_digest':bundle['report_digests']['physical'],'original_physical_report':copy.deepcopy(bundle['reports']['physical']),
  'replay':replay,'walls':[],'scope':'Detached source-removal material and fixed-region boundary/limited separator consequences only; not a model, necessity proof, alternative placement, or deletion authorization.',
  'remaining':['Alternative placement/shorter organisation per wall not proven','Useful-area benefit and full furnishing/use consequences not proven','Fresh rerouted access and full privacy scenarios not evaluated by this probe','Core/shell non-module walls inventoried only, no removal authorization'],**{k:False for k in AUTH}}
