@@ -5,7 +5,7 @@ import argparse,hashlib,importlib,inspect,json
 from pathlib import Path
 from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
- 'PUBLIC_WLN_18X20':('public_wln_server','b3cb9e9ad0ef34349d3c6740f6285f95b865371a'),
+ 'PUBLIC_WLN_18X20':('public_wln_server','3063058f102a96d67deedee270a119a5fa6b898c'),
  'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
 DIAGNOSTICS_BLOB='4dba239c1484c6eda7985cde0b590680ec9ed3f3'
 def diagnostics_guard():

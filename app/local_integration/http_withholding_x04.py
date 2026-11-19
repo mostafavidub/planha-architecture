@@ -34,6 +34,9 @@ class Boundary:
    lock.release();return reject('DEADLINE_EXCEEDED_BEFORE_DISPATCH')
   def worker():
    try:
+    if time.monotonic()>=deadline:
+     with self._mutex:record['worker_state']='NOT_STARTED_DEADLINE'
+     return
     with self._mutex:record.update(worker_state='RUNNING',generation_started=True)
     raw=run(body)
     # Retain only bounded public projection in this in-memory boundary, not raw model.
