@@ -1,0 +1,24 @@
+name: R4 source wall record synthetic contract
+on:
+  push:
+    paths:
+      - 'app/local_integration/source_wall_record_contract_study.py'
+      - 'tests/r4/test_source_wall_record_contract.py'
+      - '.github/workflows/r4-wall-record-units.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  units:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -B -m unittest discover -s tests/r4 -p test_source_wall_record_contract.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_declared_geometry_projection.py -v
+      - run: git diff --exit-code
