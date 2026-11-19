@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 ENGINE=ROOT/'app/reconstruction357/planha_general150_runtime_work'
 sys.path[:0]=[str(ROOT/'app/local_integration'),str(ROOT/'frontend'),str(ENGINE)]
 from diagnose_left_right_two import prepare,frame,build,context,verify,examine,evaluate_pair,propose,FREEZE,SCHEMA_PIN
-from left_right_two_source_binding import digest,source_state,exact,check_transport,ENGINE_PIN
+from left_right_two_source_binding import digest,source_state,exact,check_transport,canonical_json,ENGINE_PIN
 from frame125_two_source_binding import verify as source_binding
 from left_right_two_evidence_bundle import require_reports_unchanged,CURRENT_UNKNOWN,LOCAL_FILES
 from producer_provenance import snapshot,require_unchanged
@@ -13,6 +13,20 @@ from functional_review import assess
 from guard400 import guard
 CASES=[(w,l,'FRAME125_SERVICE_SIDE') for w,l in [('18','20'),('20','18'),('20','25'),('25','20')]]
 SETTINGS={'bedrooms':2,'sleep_roles':['double','twin'],'time_limit':3,'variant':0,'ordered_macro':False,'organization_profile':'UNRESTRICTED'}
+def transport_boundary(packet,ctx):
+    findings=[]
+    def walk(v,path):
+        if type(v)not in(dict,list,str,int,float,bool,type(None)):
+            findings.append({'path':path,'type':type(v).__name__})
+        if type(v)is dict:
+            for k,z in v.items():walk(z,path+'.'+k)
+        elif type(v)in(list,tuple):
+            for i,z in enumerate(v):walk(z,path+'['+str(i)+']')
+    walk(packet,'packet');walk(ctx,'context')
+    assert all(r['type']=='tuple' for r in findings),'UNEXPECTED_LIVE_NONJSON_TYPE:'+str(findings)
+    before=digest([packet,ctx]);p,c=canonical_json([packet,ctx]);after=digest([p,c])
+    assert before==after,'JSON_TRANSPORT_VALUE_CHANGE'
+    return p,c,{'scope':'Explicit same JSON serialization boundary as prior artifact-fed FRAME tests; tuples become arrays only, no numeric/string coercion. Not origin or geometry repair.','live_non_json_paths':findings,'digest_before':before,'digest_after':after}
 def run():
     paths=['app/local_integration/'+n for n in set(LOCAL_FILES+['diagnose_left_right_two.py','study_frame125_two_nonsquare.py','parametric_worker.py','dimension_contract.py','frame125_two_source_binding.py'])]
     paths+=['.github/workflows/v25-frame125-two-nonsquare.yml']
@@ -45,6 +59,7 @@ def run():
                 row['result']='NO_FRESH_MODEL'
             else:
                 row['stage']='constructor';packet=build(raw,'LEFT_RIGHT',proposal,proposal);ctx=context(raw,packet,{'A':proposal,'B':proposal})
+                packet,ctx,boundary=transport_boundary(packet,ctx);row['json_transport_boundary']=boundary
                 bundle=[raw,proposal,packet,ctx];row['input_bundle_digest']=digest(bundle)
                 row.update(local_model_digest=digest(packet['local_model']),world_model_digest=digest(packet['world_model']),context_digest=digest(ctx))
                 assert exact(packet['local_model']['inputs'],[L,W,2]) and exact(packet['world_model']['inputs'],[W,L,2])
@@ -103,6 +118,6 @@ def run():
         h=row.get('historical_report',{});freq={}
         for e in h.get('errors',[]):
             k=e.split(':')[0] if isinstance(e,str) else e.get('code','UNKNOWN');freq[k]=freq.get(k,0)+1
-        summaries.append({'input':row['input'],'topology':row['topology'],'result':row['result'],'proposal_status':row.get('proposal_status'),'model_digest':row.get('world_model_digest'),'replay':row.get('replay',{}).get('verified'),'binding':row.get('source_binding',{}).get('status'),'historical_status':h.get('status'),'error_count':len(h.get('errors',[])),'error_codes':freq,'pending':h.get('pending',[]),'current_requirements':row.get('current_report',{}).get('requirements',[]),'exception':row.get('exception'),'historical_exception':row.get('historical_exception'),'current_exception':row.get('current_exception'),'axis_evidence':row.get('axis_evidence'),'axis_negative':row.get('axis_negative')})
+        summaries.append({'input':row['input'],'topology':row['topology'],'result':row['result'],'proposal_status':row.get('proposal_status'),'model_digest':row.get('world_model_digest'),'replay':row.get('replay',{}).get('verified'),'binding':row.get('source_binding',{}).get('status'),'historical_status':h.get('status'),'error_count':len(h.get('errors',[])),'error_codes':freq,'pending':h.get('pending',[]),'current_requirements':row.get('current_report',{}).get('requirements',[]),'exception':row.get('exception'),'historical_exception':row.get('historical_exception'),'current_exception':row.get('current_exception'),'axis_evidence':row.get('axis_evidence'),'axis_negative':row.get('axis_negative'),'json_transport_boundary':row.get('json_transport_boundary')})
     print('FRAME125_NONSQUARE '+json.dumps({'cases':summaries,'guard_before':12991,'guard_after':12991,'accepted':False,'delivery_allowed':False,'completed':True},ensure_ascii=False),flush=True)
 if __name__=='__main__':run()
