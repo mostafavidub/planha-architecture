@@ -17,6 +17,11 @@ LOCAL_FILES=['left_right_two_evidence_bundle.py','left_right_two_source_binding.
 def ensure(ok,reason):
     if not ok:raise ValueError(reason)
 
+def require_reports_unchanged(result,report_digests):
+    """Check frozen completed reports; also exercised by synthetic mutation tests."""
+    for section,value in report_digests.items():
+        ensure(digest(result[section])==value,'COMPLETED_REPORT_MUTATION:'+section)
+
 def evaluate(packet,ctx):
     result={'schema':'V25_LEFT_RIGHT_TWO_EVIDENCE_BUNDLE_V1','status':'EVIDENCE_BUNDLE_ONLY','accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,'whole_physical_verified':False,'whole_functional_verified':False,'production_supported':False,'historical_compatibility':'NOT_EVALUATED','errors':[],'pending_obligations':[],
       'scope':'Independent orchestration of original physical/named and current diagnostics. Source-derived shape/D4 only, not independent declarative semantic schema, not a replacement admission contract; historical incompatibility and all pending retained.',
@@ -27,7 +32,7 @@ def evaluate(packet,ctx):
         report_digests[section]=digest(result[section])
     def unchanged():
         ensure(digest([packet,ctx])==immutable,'BUNDLE_INPUT_MUTATION')
-        for section,value in report_digests.items():ensure(digest(result[section])==value,'COMPLETED_REPORT_MUTATION:'+section)
+        require_reports_unchanged(result,report_digests)
         require_unchanged(ROOT,sources);ensure(source_state()==engine_before,'BUNDLE_ENGINE_CHANGED')
         ensure(guard(FREEZE)==12991,'FROZEN_GUARD_CHANGED')
     def record_pending(section,report):
@@ -88,5 +93,5 @@ def evaluate(packet,ctx):
         except Exception as ex:
             result.update(status='EVIDENCE_BUNDLE_FAILED_CLOSED',completed=False)
             result['errors'].append({'section':'final_immutability','type':type(ex).__name__,'detail':str(ex)})
-        result.update(completed_report_digests=copy.deepcopy(report_digests),source_snapshot=sources,engine_revision=ENGINE_PIN,input_bundle_digest=immutable,output_bundle_digest=digest([packet,ctx]),guard_expected=12991)
+        result.update(completed_report_digests=copy.deepcopy(report_digests),source_snapshot=sources,engine_revision=ENGINE_PIN,input_bundle_digest=immutable,input_bundle_digest_after=digest([packet,ctx]),guard_expected=12991)
     return result
