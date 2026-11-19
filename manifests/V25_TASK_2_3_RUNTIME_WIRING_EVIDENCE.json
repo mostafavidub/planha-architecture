@@ -1,0 +1,49 @@
+{
+  "task": "2.3",
+  "status": "SCOPED_RUNTIME_WIRING_TESTED_NO_LIVE_EXECUTION",
+  "started_at": "2026-11-19T03:39:07Z",
+  "deadline": "2026-11-19T06:39:07Z",
+  "tested_commit": "8b6a33e36c89fc8cf2baeaf73501d73f5078dcf2",
+  "run_id": 44453562388,
+  "job_id": 135323076908,
+  "ci_completed_at": "2026-11-19T03:45:10Z",
+  "tests": {
+    "wiring_smoke": 7,
+    "previous": 92,
+    "total": 99,
+    "status": "PASS"
+  },
+  "source_audit": "Actual module/callable paths, original pair replay alias, prior API signatures and engine_state/frozen guard checked; no solver or model invocation.",
+  "scope": "Original FRONT_REAR18x20/n2/program2 pipeline wired from original bytes and registry through search114, constructor127/context, replay127, full evaluate_pair127 and same-report functional_review. No merge/filter of historical errors/pending; original report copies and live-object integrity pins separate.",
+  "limitations": [
+    "Fresh generation and end-to-end compatibility not run; deferred2.5.",
+    "Deep adversarial tests pending2.4.",
+    "Transport allows tuples to arrays only with unchanged JSON digest/scalar types; numpy scalars rejected rather than broadly coerced.",
+    "Solver_seconds is internal bounded limit, not external process deadline. Hard process kill/wait must be supplied by2.5.",
+    "Four current requirements remain UNKNOWN; partial diagnostic work cannot authorize display/delivery."
+  ],
+  "review_findings_resolved": [
+    "Original reports preserved even if downstream live report changes",
+    "Original packet/context/proposal output copies separate from live mutations",
+    "Noncanonical mutation forensic marker avoids repr and invalid serialized outputs",
+    "Known producer statuses whitelisted; unknown fails closed",
+    "Source snapshot precedes audit",
+    "Invalid initial report rejected before storing original"
+  ],
+  "artifact": {
+    "id": 14496147602,
+    "name": "runtime-wiring-task-2-3",
+    "zip_sha256": "8717c7b834c5f94718553daeab503bc66358255a579647278b4cf191cb17072a",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44453562388/artifacts/14496147602",
+    "retention_days": 30,
+    "expected_expiry": "2026-12-19T03:45:07Z"
+  },
+  "reproduce": {
+    "workflow": ".github/workflows/v25-runtime-wiring.yml",
+    "commit": "8b6a33e36c89fc8cf2baeaf73501d73f5078dcf2"
+  },
+  "fresh_models": 0,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
