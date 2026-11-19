@@ -13,13 +13,13 @@ from same_version_front_rear_contract import digest,ENGINE_REVISION,FREEZE
 from one_bed_pair_source_study import code_counts,stop_process
 from core_choice_pair_study import selected_core,bind_profile,bind_program
 from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives,door_side_negative
-CASES={'20x18':('20','18'),'18x22':('18','22')}
+CASES={'20x18':('20','18'),'18x22':('18','22'),'base20x18':('20','18'),'22x18':('22','18')}
 def need(ok,code):
  if not ok:raise ValueError(code)
 def child(folder,case,nonce):
  from program_profile_registry import lookup
  from producer_provenance import snapshot,require_unchanged
- import engine114,guard400,source_fit_candidate207,contract114,constructor127,construction_replay127,evaluate_pair127
+ import engine114,guard400,source_fit_candidate207,search114,contract114,constructor127,construction_replay127,evaluate_pair127
  import source_fit_profile207
  folder=Path(folder);folder.mkdir(exist_ok=False)
  out={'run_nonce':nonce,'schema':'SOURCE_FIT_PAIR_STUDY207_V1','case':case,'state':'STARTED','completed':False,'construction_observed':False,
@@ -38,10 +38,10 @@ def child(folder,case,nonce):
  def retain(k,r):preserve_report(originals,live,pins,k,r);check();save()
  try:
   paths=['app/local_integration/'+n for n in ('source_fit_pair_study207.py','source_fit_candidate207.py','source_fit_profile207.py','core_choice_pair_study.py','one_bed_pair_source_study.py','program_profile_registry.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py')]
-  paths+=['app/reconstruction357/planha_general150_runtime_work/'+m.__name__+'.py'for m in (contract114,constructor127,construction_replay127,evaluate_pair127)]+['app/reconstruction357/planha_general150_runtime_work/entry117.py']
+  paths+=['app/reconstruction357/planha_general150_runtime_work/'+m.__name__+'.py'for m in (contract114,search114,constructor127,construction_replay127,evaluate_pair127)]+['app/reconstruction357/planha_general150_runtime_work/entry117.py']
   snap=snapshot(ROOT,paths)
   need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'ENGINE_GUARD')
-  for mod,names in ((contract114,('core_first',)),(constructor127,('frame','build','context')),(construction_replay127,('verify',)),(evaluate_pair127,('evaluate',))):
+  for mod,names in ((search114,('propose',)),(contract114,('core_first',)),(constructor127,('frame','build','context')),(construction_replay127,('verify',)),(evaluate_pair127,('evaluate',))):
    for name in names:need(Path(inspect.getsourcefile(getattr(mod,name))).resolve()==ENGINE/(mod.__name__+'.py'),'ACTUAL_IMPORT_PATH')
   for mod,name in ((source_fit_candidate207,'propose'),(source_fit_profile207,'source_fit')):
    need(Path(inspect.getsourcefile(getattr(mod,name))).resolve()==ROOT/'app/local_integration'/(mod.__name__+'.py'),'STUDY_IMPORT_PATH')
@@ -49,9 +49,15 @@ def child(folder,case,nonce):
   audited=True;need(case in CASES,'STUDY_CASE');w,l=CASES[case];raw={'W':w,'L':l,'n':2,'requested_count':1};profile=lookup('PROGRAM_2BED_V1');bind_profile(profile)
   pin('raw',raw);pin('profile',profile);core,(W,L)=selected_core(raw,'FRONT_REAR_COMPACT118');pin('core',core)
   out.update(stage='PROPOSE',raw_digest=digest(raw),profile_digest=digest(profile),core_digest=digest(core),source_digest=digest(snap),solver_limit_seconds=30);save()
-  p=source_fit_candidate207.propose(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES');check()
+  producer=search114.propose if case=='base20x18'else source_fit_candidate207.propose
+  out['producer_scope']='FROZEN_BASELINE_DIAGNOSTIC_ONLY'if case=='base20x18'else'ADDITIVE_SOURCE_FIT_STUDY';save()
+  p=producer(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES');check()
   state=proposal_disposition(p);out['producer_status']=state
-  if state!='PROPOSAL_ONLY':out.update(state='NO_PROPOSAL_NO_INFEASIBILITY_CLAIM',completed=True);return
+  out.update(solver_status=p.get('solver_status'),emitted_constraint_count=p.get('constraints'),solver_seconds=p.get('solver_seconds'))
+  if state!='PROPOSAL_ONLY':
+   retain('producer_no_witness',p);out.update(state='NO_PROPOSAL_NO_INFEASIBILITY_CLAIM',completed=True);return
+  if case=='base20x18':
+   p,tr=proposal_transport(p);retain('baseline_proposal',p);out.update(state='BASELINE_PROPOSAL_FOUND_NOT_CONSTRUCTED',completed=True);return
   p,tr=proposal_transport(p)
   need(type(p.get('bedrooms'))is int and p['bedrooms']==2 and digest(p.get('sleep_roles'))==digest(['double','twin']),'PROPOSAL_PROGRAM')
   proposals={'A':p,'B':copy.deepcopy(p)};pin('proposals',proposals)
@@ -101,7 +107,9 @@ def child(folder,case,nonce):
 def main():
  if len(sys.argv)==5 and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3],sys.argv[4]);return
  results=[]
- for case in CASES:
+ selected=['base20x18','22x18']if sys.argv[1:]==['--wide-study']else['20x18','18x22']
+ need(sys.argv[1:]in ([],['--wide-study']),'STUDY_MODE')
+ for case in selected:
   remaining=(datetime(2026,11,19,14,35,44,tzinfo=timezone.utc)-datetime.now(timezone.utc)).total_seconds()
   budget=min(240,remaining-5);need(budget>0,'TASK_TIMEBOX_EXPIRED')
   with tempfile.TemporaryDirectory(prefix='source-fit-')as tmp:

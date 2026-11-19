@@ -30,4 +30,6 @@ jobs:
       - run: python -B -m unittest discover -s tests/r4 -p test_source_fit_pair_study207.py -v
       - if: (github.event_name == 'workflow_dispatch' && inputs.live_study) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[fit-live]'))
         run: python -B app/local_integration/source_fit_pair_study207.py
+      - if: github.event_name == 'push' && contains(github.event.head_commit.message, '[fit-wide]')
+        run: python -B app/local_integration/source_fit_pair_study207.py --wide-study
       - run: git diff --exit-code

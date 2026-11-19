@@ -18,8 +18,8 @@ def source_check():
   data=(ENGINE/name).read_bytes()
   actual=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
   need(actual==expected,'SOURCE_BLOB_MISMATCH')
- import bathroom_module117,kitchen_module117
- for m in (bathroom_module117,kitchen_module117):
+ import bathroom_module117,kitchen_module117,bedroom_module116,twin_module118
+ for m in (bathroom_module117,kitchen_module117,bedroom_module116,twin_module118):
   need(Path(inspect.getsourcefile(m.build)).resolve()==ENGINE/(m.__name__+'.py'),'ACTUAL_MODULE_PATH')
 def motion_rectangles(module):
  need(module['schema']=='KITCHEN_MODULE117','KITCHEN_SCHEMA')
