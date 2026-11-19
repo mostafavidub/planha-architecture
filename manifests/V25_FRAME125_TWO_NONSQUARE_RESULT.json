@@ -1,0 +1,940 @@
+{
+  "schema": "V25_FRAME125_TWO_NONSQUARE_RESULT_V1",
+  "operation_deadline_utc": "2026-11-19T04:49:30Z",
+  "status": "SCOPED_NONSQUARE_SOURCE_BINDING_COMPLETE_NOT_ADMISSION",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "production_supported": false,
+  "whole_physical_verified": false,
+  "whole_functional_verified": false,
+  "historical_schema_replaced": false,
+  "guard_expected": 12991,
+  "runs": [
+    {
+      "run_id": 44446376966,
+      "job_id": 135299414064,
+      "commit": "a9a5fc289b4f7187f37429b0b252535594ed25a2",
+      "workflow_conclusion": "success",
+      "diagnostic_outcome": "TWO_TRANSPORT_FAILURES_TWO_NO_PROPOSAL",
+      "artifact": {
+        "id": 14493890706,
+        "digest": "sha256:8647a1275b7da17cc9bf9c9b2230ed197f8c548d033c7b44289540ac313b30fc",
+        "expires_at": "2026-12-19T02:44:19Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493890706"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "18",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "18",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "18",
+                2
+              ],
+              "world_core": [
+                "18",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "18",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "18",
+                2
+              ],
+              "local_solver": [
+                "18",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "18",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "DIAGNOSTIC_STAGE_EXCEPTION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "49bb486ee0fa308f05737b9bfa72e7f08f03277075aea7ced98b49b93f975e8f",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": {
+              "type": "AssertionError",
+              "message": "['NONCANONICAL_JSON_TYPE']"
+            },
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "25",
+                2
+              ],
+              "local_solver": [
+                "25",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "25",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "DIAGNOSTIC_STAGE_EXCEPTION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "54ecfc2454f36d97a2975601291b8e7d8b2b2ed75cf794b593e44ceac778e24d",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": {
+              "type": "AssertionError",
+              "message": "['NONCANONICAL_JSON_TYPE']"
+            },
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "25",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "25",
+                2
+              ],
+              "world_core": [
+                "25",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      }
+    },
+    {
+      "run_id": 44446746506,
+      "job_id": 135300622545,
+      "commit": "6e55459376e4652717f8dbe17e84248216c08faf",
+      "workflow_conclusion": "success",
+      "diagnostic_outcome": "TWO_TRANSPORT_FAILURES_TWO_NO_PROPOSAL",
+      "artifact": {
+        "id": 14493442250,
+        "digest": "sha256:39dfa295306128aa90f335ed48fb60c2cd7e8ee4881232d1cd550dd0e2c2d51b",
+        "expires_at": "2026-12-19T02:47:15Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493442250"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "18",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "18",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "18",
+                2
+              ],
+              "world_core": [
+                "18",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "18",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "18",
+                2
+              ],
+              "local_solver": [
+                "18",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "18",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "DIAGNOSTIC_STAGE_EXCEPTION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": {
+              "type": "AssertionError",
+              "message": "UNEXPECTED_LIVE_NONJSON_TYPE:[{'path': 'packet.local_model.proposal_network_paths.bed1[1][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[2][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[2][1]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[3][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[3][1]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[4][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[4]["
+            },
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "25",
+                2
+              ],
+              "local_solver": [
+                "25",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "25",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "DIAGNOSTIC_STAGE_EXCEPTION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": {
+              "type": "AssertionError",
+              "message": "UNEXPECTED_LIVE_NONJSON_TYPE:[{'path': 'packet.local_model.proposal_network_paths.bed1[1][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[2][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[2][1]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[3][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[3][1]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[4][0]', 'type': 'float64'}, {'path': 'packet.local_model.proposal_network_paths.bed1[4]["
+            },
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "25",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "25",
+                2
+              ],
+              "world_core": [
+                "25",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      }
+    },
+    {
+      "run_id": 44447123050,
+      "job_id": 135301861464,
+      "commit": "4366044dc241d8862475334696c38948344b4526",
+      "workflow_conclusion": "success",
+      "diagnostic_outcome": "TWO_BOUND_WITNESSES_TWO_NO_PROPOSAL",
+      "artifact": {
+        "id": 14493099680,
+        "digest": "sha256:b261c86040dbc1ead4032b74998d5cd71a4327a86daf75751f2a53c6af0ed72a",
+        "expires_at": "2026-12-19T02:51:59Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493099680"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "18",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "18",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "18",
+                2
+              ],
+              "world_core": [
+                "18",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "18",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "NO_PROPOSAL_IN_THIS_TOPOLOGY",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "18",
+                2
+              ],
+              "local_solver": [
+                "18",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "18",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": null,
+            "json_transport_boundary": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "49bb486ee0fa308f05737b9bfa72e7f08f03277075aea7ced98b49b93f975e8f",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "20",
+                "25",
+                2
+              ],
+              "local_solver": [
+                "25",
+                "20",
+                2
+              ],
+              "world_core": [
+                "20",
+                "25",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": [
+              {
+                "name": "swapped_raw",
+                "errors": [
+                  "FRAME_BATH_RIGHT_SOURCE_SIDE"
+                ]
+              },
+              {
+                "name": "square_core_assumption",
+                "errors": [
+                  "FRAME_SOURCE_CORE_TYPED_MISMATCH"
+                ]
+              },
+              {
+                "name": "direct_square_world_input",
+                "errors": [
+                  "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+                ],
+                "scope": "DIRECT_D4_NOT_REPLAY"
+              }
+            ],
+            "json_transport_boundary": {
+              "scope": "Explicit artifact-equivalent JSON boundary. Only exact numpy.float64 in enumerated source proposal rectangle/path coordinate roles becomes builtin float with identical binary ratio and JSON numeric value. No geometry/origin repair; all other non-JSON types rejected.",
+              "converted_count": 332,
+              "digest_before": "a21aa8768e353834f39b2502d7e74f02e5f0e9becc58460934940114249d9215",
+              "digest_after": "a21aa8768e353834f39b2502d7e74f02e5f0e9becc58460934940114249d9215"
+            }
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "54ecfc2454f36d97a2975601291b8e7d8b2b2ed75cf794b593e44ceac778e24d",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null,
+            "axis_evidence": {
+              "raw": [
+                "25",
+                "20",
+                2
+              ],
+              "local_solver": [
+                "20",
+                "25",
+                2
+              ],
+              "world_core": [
+                "25",
+                "20",
+                2
+              ],
+              "matrix": {
+                "matrix": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "translation": [
+                  "0",
+                  "0"
+                ]
+              }
+            },
+            "axis_negative": [
+              {
+                "name": "swapped_raw",
+                "errors": [
+                  "FRAME_BATH_RIGHT_SOURCE_SIDE"
+                ]
+              },
+              {
+                "name": "square_core_assumption",
+                "errors": [
+                  "FRAME_SOURCE_CORE_TYPED_MISMATCH"
+                ]
+              },
+              {
+                "name": "direct_square_world_input",
+                "errors": [
+                  "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+                ],
+                "scope": "DIRECT_D4_NOT_REPLAY"
+              }
+            ],
+            "json_transport_boundary": {
+              "scope": "Explicit artifact-equivalent JSON boundary. Only exact numpy.float64 in enumerated source proposal rectangle/path coordinate roles becomes builtin float with identical binary ratio and JSON numeric value. No geometry/origin repair; all other non-JSON types rejected.",
+              "converted_count": 332,
+              "digest_before": "d5290b8a6a1675e1ace6dedc6ee67bcb151116a290733093fae53501c9f3dfbe",
+              "digest_after": "d5290b8a6a1675e1ace6dedc6ee67bcb151116a290733093fae53501c9f3dfbe"
+            }
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      }
+    }
+  ],
+  "final_transport_policy": "Exact numpy.float64 only at enumerated source proposal coordinate roles. Finite and equal binary ratios before/after builtin float plus JSON numeric roundtrip. JSON digest equal before/after. All other non-JSON types rejected. Strict binding clean_json unchanged.",
+  "final_tests": {
+    "fresh_bound_models": 2,
+    "axis_negatives_per_model": 3,
+    "synthetic_transport_negatives": 3,
+    "source_guard_before": 12991,
+    "source_guard_after": 12991
+  },
+  "limitations": [
+    "Initial Actions success meant diagnostic execution completed, not source binding success. Two fresh models were blocked before original/current gates in both initial runs. Those failures are not retroactively passed.",
+    "First failed boundary hypothesis was tuples; actual recorded type was numpy.float64 in local proposal paths and trace proposal rectangles/paths. Final correction is narrowly role/type-bound, not broad numeric coercion.",
+    "Final 18x20 and 20x18 have no proposal in this bounded topology/search; zero error count means no evaluation, not feasibility or PASS.",
+    "Final 20x25 and 25x20 have source-derived shape/D4 binding and six axis-mutation rejections, but original historical FAIL40 and two pending obligations remain. All four current functional UNKNOWNs remain.",
+    "No schema/production/SIDE/FRAME contract modification. No new semantic grammar or V25-22 closure.",
+    "Full path/type ledgers and original reports remain in the expiring Actions artifacts. Short manifest exception messages point there for full detail.",
+    "Final synthetic wrong-type/nonfinite failures may occur at JSON serialization before role conversion; only wrong-role float64 directly exercises role authorization. No broader numeric semantic validation claim."
+  ],
+  "checkpoint": "Stop additional diagnostic/schema expansion here; parent prioritizes critical generation/evaluation/repair path."
+}
