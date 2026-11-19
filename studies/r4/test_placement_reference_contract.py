@@ -42,7 +42,7 @@ class References(unittest.TestCase):
         m=fixture();m["module_placements"][0]["id_map"]["invented"]="absent"
         r=check(m);self.assertTrue(r["reference_verified"]);self.assertIn("invented",r["unvalidated_id_map_keys"][0]["unvalidated_id_map_keys"]);self.assertFalse(r["qualified"])
     def test_surrogate_is_structured_error(self):
-        m=fixture();m["module_placements"][0]["geometry_scope"]="\\ud800"
+        m=fixture();m["module_placements"][0]["geometry_scope"]=chr(0xD800)
         r=check(m);self.assertFalse(r["reference_verified"]);self.assertTrue(r["errors"])
     def test_json_identity_not_python_equality(self):
         self.assertNotEqual(digest(1),digest(1.0));self.assertNotEqual(digest(False),digest(0))
