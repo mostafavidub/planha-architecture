@@ -71,8 +71,11 @@ def core_geometry(model,core):
  entries=[]
  for uid in ('A','B'):
   os_=[o for o in model['openings']if o.get('id')==uid+'.entry']
-  if len(os_)!=1 or digest(os_[0].get('connects'))!=digest(['lobby',uid+'.entry_circulation']):errors.append('INDEPENDENT_LOBBY_ENTRY_REQUIRED')
-  else:entries.append(os_[0]['id'])
+  if len(os_)!=1 or digest(os_[0].get('connects'))!=digest(['lobby',uid+'.public_access']):errors.append('INDEPENDENT_LOBBY_ENTRY_REQUIRED')
+  else:
+   role=model.get('logical_regions',{}).get(uid+'.public_access')
+   if digest(role)!=digest({'unit':uid,'source_roles':['living','entry_circulation']}):errors.append('PUBLIC_ACCESS_SOURCE_ROLE_BINDING')
+   else:entries.append(os_[0]['id'])
  return {'status':'FAIL'if errors else'PASS_SOURCE_CORE_PARTITION_ONLY','errors':sorted(set(errors)),'pending':[],
  'independent_entry_count':len(entries),'scope':'Source core/ownership/entry relations only; body routes independently assessed; no technical or quality approval'}
 def child(folder,choice,nonce):
@@ -96,11 +99,12 @@ def child(folder,choice,nonce):
  def retain(k,r):preserve_report(originals,live,pins,k,r);check();save()
  try:
   paths=['app/local_integration/'+n for n in ('core_choice_pair_study.py','one_bed_pair_source_study.py','program_profile_registry.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py')]
-  paths+=['app/reconstruction357/planha_general150_runtime_work/'+m.__name__+'.py'for m in (contract114,assemble114,search114,constructor127,construction_replay127,evaluate_pair127,core_wall_audit118)]
+  paths+=['app/reconstruction357/planha_general150_runtime_work/'+m.__name__+'.py'for m in (contract114,assemble114,search114,constructor127,construction_replay127,evaluate_pair127,core_wall_audit118)]+['app/reconstruction357/planha_general150_runtime_work/entry117.py']
   snap=snapshot(ROOT,paths)
   need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'ENGINE_GUARD')
   for mod,names in ((contract114,('core_first','full_band_core_first')),(assemble114,('assemble',)),(search114,('propose',)),(constructor127,('context',)),(construction_replay127,('verify',)),(evaluate_pair127,('evaluate',)),(core_wall_audit118,('core_concept','opening_hosts'))):
    for name in names:need(Path(inspect.getsourcefile(getattr(mod,name))).resolve()==ENGINE/(mod.__name__+'.py'),'ACTUAL_IMPORT_PATH')
+  need(Path(inspect.getsourcefile(lookup)).resolve()==ROOT/'app/local_integration/program_profile_registry.py','REGISTRY_IMPORT_PATH')
   audited=True;raw={'W':'18','L':'20','n':2,'requested_count':1};profile=lookup('PROGRAM_2BED_V1');bind_profile(profile)
   pin('raw',raw);pin('profile',profile);core,(W,L)=selected_core(raw,choice);pin('core',core)
   out.update(stage='PROPOSE',raw_digest=digest(raw),profile_digest=digest(profile),core_digest=digest(core),source_digest=digest(snap),solver_limit_seconds=30);save()
@@ -112,7 +116,7 @@ def child(folder,choice,nonce):
   proposals={'A':p,'B':copy.deepcopy(p)};pin('proposals',proposals)
   out.update(stage='ASSEMBLE',proposal_digest=digest(proposals),coordinate_conversion_count=len(tr['coordinate_conversions']));save()
   model=assemble114.assemble(W,L,core,proposals['A'],unit_proposals=proposals);out['construction_observed']=True;check()
-  model,_=transport(model);bind_program(model,profile)
+  model,_=transport(model);bind_program(model,profile);pin('assembled_model',model)
   packet={'family':'FRONT_REAR','local_model':model,'world_model':model,'core':core,'unit_proposal_hashes':{k:digest(v)for k,v in proposals.items()},'admission_claim':False}
   # This original trace is deliberately NOT a claim that legacy127 supports corechoice.
   ctx=constructor127.context(raw,packet,proposals);check()

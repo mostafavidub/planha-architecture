@@ -10,7 +10,10 @@ class CoreStudyTests(unittest.TestCase):
   core,_=s.selected_core(RAW,choice)
   m={'common_spaces':{k:copy.deepcopy(core[k])for k in('stair','lift','lobby')},'inputs':['18','20',2],
    'units':[{'id':u,'ownership':copy.deepcopy(core.get('unit_ownership',{}).get(u,[core['units'][u]]))}for u in('A','B')],
-   'openings':[{'id':u+'.entry','connects':['lobby',u+'.entry_circulation']}for u in('A','B')]}
+   'logical_regions':{u+'.public_access':{'unit':u,'source_roles':['living','entry_circulation']}for u in('A','B')},
+   'openings':[{'id':u+'.entry','rect':[str(s.F(core['entry_centers'][u][0])-s.F('.65')),str(s.F(core['entry_centers'][u][1])-s.F('.075')),str(s.F(core['entry_centers'][u][0])+s.F('.65')),str(s.F(core['entry_centers'][u][1])+s.F('.075'))],'host_wall_id':u+'.unit_boundary','connects':['lobby',u+'.entry_circulation']}for u in('A','B')]}
+  from entry117 import install
+  install(m)
   return core,m
  def test_both_source_components(self):
   for choice in s.CHOICES:
@@ -42,6 +45,9 @@ class CoreStudyTests(unittest.TestCase):
   self.assertIn('INDEPENDENT_LOBBY_ENTRY_REQUIRED',s.core_geometry(m,core)['errors'])
   m['openings']=[]
   self.assertIn('INDEPENDENT_LOBBY_ENTRY_REQUIRED',s.core_geometry(m,core)['errors'])
+ def test_public_access_rename_is_not_source_binding(self):
+  core,m=self.model('FRONT_REAR_FULL_BAND114');m['logical_regions']['A.public_access']['source_roles']=['stair']
+  self.assertIn('PUBLIC_ACCESS_SOURCE_ROLE_BINDING',s.core_geometry(m,core)['errors'])
  def test_ownership_overlap(self):
   core,m=self.model('FRONT_REAR_FULL_BAND114');m['units'][1]['ownership']=copy.deepcopy(m['units'][0]['ownership'])
   self.assertIn('UNIT_OWNERSHIP_OVERLAP',s.core_geometry(m,core)['errors'])
