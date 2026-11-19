@@ -93,12 +93,16 @@
       "description_verbatim": "۱.۳. ساخت جست‌وجوی خودکارِ گزینه‌های برنامه با ثبت علت، بودجه و ترتیب بررسی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "1.1",
         "1.2",
         "2.1"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:31:39Z",
+      "carried_operation_start_utc": "2026-11-19T02:51:01Z",
+      "deadline_utc": "2026-11-19T05:51:01Z",
+      "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5."
     },
     {
       "id": "1.4",
@@ -164,14 +168,18 @@
       "description_verbatim": "۲.۲. نگاشت هر قاعده ضروری به داده، بررسی‌کننده، شاهد و اثر آن بر تصمیم. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_RULE_DATA_CHECKER_EVIDENCE_MAP",
       "dependencies": [
         "2.1",
         "3.1"
       ],
       "start_utc": "2026-11-19T03:27:58Z",
       "deadline_utc": "2026-11-19T06:27:58Z",
-      "scope": "Necessary rule/data/checker/evidence/decision mapping for first slice; explicit unmapped and excluded scope."
+      "scope": "Necessary rule/data/checker/evidence/decision mapping for first slice; explicit unmapped and excluded scope.",
+      "completed_utc": "2026-11-19T03:31:08Z",
+      "commit": "744f809a4d108f200f5f3bef2e6116b5ccc57e59",
+      "run": 44451972996,
+      "remaining": "Mapping only, not runtime rule satisfaction or complete PRD; 4 current static UNKNOWN and product gaps remain."
     },
     {
       "id": "2.3",
