@@ -19,7 +19,7 @@ def transport(value):
   if type(x) in (list,tuple):
    if type(x) is tuple:changes.append(path)
    return [visit(v,path+[i]) for i,v in enumerate(x)]
-  ensure(type(x) in (str,int,float,bool,type(None)),'TRANSPORT_TYPE')
+  ensure(type(x) in (str,int,float,bool,type(None)),'TRANSPORT_TYPE:'+json.dumps(path)+':'+type(x).__module__+'.'+type(x).__name__)
   ensure(type(x) is not float or math.isfinite(x),'TRANSPORT_NONFINITE')
   return x
  out=visit(value,[])
