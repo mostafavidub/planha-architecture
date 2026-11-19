@@ -1,0 +1,1962 @@
+{
+  "schema": "V25_FRAME125_TWO_SOURCE_BINDING_RESULT_V1",
+  "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+  "operation_deadline_utc": "2026-11-19T04:49:30Z",
+  "final_test_commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "production_supported": false,
+  "whole_physical_verified": false,
+  "whole_functional_verified": false,
+  "historical_schema_replaced": false,
+  "guard_expected": 12991,
+  "runs": [
+    {
+      "run_id": 44445553070,
+      "job_id": 135296690629,
+      "commit": "6550548d9e0363d609c4aec352581f9a8b043fe5",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14493750015,
+        "digest": "sha256:92b75cc58b7689a0545a7245bc944752f631568ea33db6ccd8f24ebcfd283274",
+        "expires_at": "2026-12-19T02:39:10Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493750015"
+      },
+      "matrix": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "9ac3a335cfc80225b07c5ecca0d7fc2e223d157465324890a1016385afd9e020",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 75,
+            "error_codes": {
+              "ACTOR_NOT_ON_DECLARED_DOOR_SIDE": 2,
+              "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR": 4,
+              "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR": 4,
+              "MISSING_REQUIRED_ACTIVITY_ROUTES": 1,
+              "ROUTE_TARGET_BINDING": 2,
+              "RULE_FAILED": 14,
+              "UNKNOWN_RECORD_FIELDS": 48
+            },
+            "pending": [
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+              "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "FAIL",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "4012d01e73dd57321a13047b1d56aaf8214e677d715c7fc5663e75e93092e5d8",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "binding": {
+        "passed": true,
+        "positive": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "2840c64f9a5692ffb1ab5c9be630d9cc008155c6085c58b45838ead5f3ed3c60",
+              "model_hash": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+              "context_hash": "11e54899ffb960f17c386e7fe6042be16cfffef0df485a9a8a52fbfbc525a5a3",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "02a643c1beae6b7e8cb0cbe11990c6727e827cdb90a299fe053c9621f6459bcd",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "7eb253520efe8643c31314c772988d6795c80778d2a36d6849f62176ec341855",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "568d52dcaa0981a0b92e8962cc83f946a2de8f05f743523c98ececeba2aa07b1",
+              "model_hash": "4012d01e73dd57321a13047b1d56aaf8214e677d715c7fc5663e75e93092e5d8",
+              "context_hash": "86aedba851697343c70457c73083a4e474e8e577d2a4e0c5e9d085bca3a65873",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "d8db0f7c57dd6a6d0679afadbe6b706e00443cb2b90d9ca6d1c1ede25a4700b9",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "ce0b6efec4758a8f1020aa994ae9f8b2726b45392a2dce35e99d1c49dc34f10b",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          }
+        ],
+        "negative_count": 14,
+        "direct_negative": [
+          {
+            "name": "bath_source_side",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "shared_wall",
+            "errors": [
+              "FRAME_KITCHEN_BATH_SHARED_WALL"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "top_alignment",
+            "errors": [
+              "FRAME_SERVICE_TOP_ALIGNMENT"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "actual_side_relabel_20",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "773584e28df28c0aab4e3e1db895ad9abb8df5c7fa47807a30d62a31fed98db2"
+          },
+          {
+            "name": "actual_side_relabel_25",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "bf1af2701f387cf9d0657628dcb704a0516e03b5f9a6c9821974da5fee3e925c"
+          },
+          {
+            "name": "canonical",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "operation_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "route_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "rotation",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "module_source",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "placement",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "numeric_type",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "unknown_numeric_role",
+            "errors": [
+              "UNKNOWN_NUMERIC_FIELD:test.unknown"
+            ]
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "run_id": 44445613819,
+      "job_id": 135296890940,
+      "commit": "00a7130f771b414069a5082f4a8136bbb749c62f",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14493346431,
+        "digest": "sha256:d4fff0db6acc0a95d789262375bf72dc5e07392e22b6fc978f6222a31e6bd5a9",
+        "expires_at": "2026-12-19T02:40:11Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493346431"
+      },
+      "matrix": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "dbb799e1bb7af7d3e4bb05e668e6b7db07fdab7e7142dd3e41488903bb4ae55c",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 65,
+            "error_codes": {
+              "PANEL_CONTINUOUS_WALL_COLLISION": 4,
+              "ACTOR_NOT_ON_DECLARED_DOOR_SIDE": 2,
+              "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR": 4,
+              "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR": 4,
+              "RULE_FAILED": 11,
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+              "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "28a9ee02349b94e7cb0c2648068133dc31d5df4648caae5fa3197a6a33220050",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "binding": {
+        "passed": true,
+        "positive": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "2840c64f9a5692ffb1ab5c9be630d9cc008155c6085c58b45838ead5f3ed3c60",
+              "model_hash": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+              "context_hash": "345f793c29250511e5f3eca04ed31944c16537adf0c4c4da0b589215f34176ec",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "df683ae1e399fb132b5d5e813d66518b31244fab4e39e720ec98e596a5294272",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "602cbd4ff00b3b2bda234185de7774066699f726a3883bb4968953a1368085ae",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "7958790297b270ce33d6b962c254251182575a86ad6f5668495da4810f5da4fa",
+              "model_hash": "28a9ee02349b94e7cb0c2648068133dc31d5df4648caae5fa3197a6a33220050",
+              "context_hash": "50a86f769e7c9c8e41e01610c647094f6d3e220ff1ddc8616a004e16e6a623c8",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "7393b5423f2554320222325bdd7325ef174b4c7b41e8194440a0d9a65e67ae29",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "f5e10104512c743304653cc210dd6cc539bb2833357b3206c6d0dd8ea21f9e29",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          }
+        ],
+        "negative_count": 16,
+        "direct_negative": [
+          {
+            "name": "bath_source_side",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "shared_wall",
+            "errors": [
+              "FRAME_KITCHEN_BATH_SHARED_WALL"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "top_alignment",
+            "errors": [
+              "FRAME_SERVICE_TOP_ALIGNMENT"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "actual_side_relabel_20",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "924939a9b58f1de9d2c39dcd7bd07b4d7563e04fd3c68227f7b4d8d6c05300b5"
+          },
+          {
+            "name": "actual_side_relabel_25",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "31bc5b17947584b6b14a61e274e2052c2d5c95d85d2cc4efd1321c867da9bf40"
+          },
+          {
+            "name": "canonical",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "operation_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "route_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "rotation",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "module_source",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "placement",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "numeric_type",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "unknown_numeric_role",
+            "errors": [
+              "UNKNOWN_NUMERIC_FIELD:test.unknown"
+            ]
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false
+      }
+    },
+    {
+      "run_id": 44445639710,
+      "job_id": 135296970948,
+      "commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14492579651,
+        "digest": "sha256:b2e0621007f77d6e51b8cd901b00955e0d2a1c0cf97e022548997c5344f2ea82",
+        "expires_at": "2026-12-19T02:39:59Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14492579651"
+      },
+      "matrix": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6a03c32ac5fcf29e80fe446b15b20d8fda7b0cd83feaf498fd3af3edb2a2f42a",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 59,
+            "error_codes": {
+              "ACTOR_NOT_ON_DECLARED_DOOR_SIDE": 2,
+              "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR": 4,
+              "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR": 4,
+              "RULE_FAILED": 9,
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+              "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "4012d01e73dd57321a13047b1d56aaf8214e677d715c7fc5663e75e93092e5d8",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "binding": {
+        "passed": true,
+        "positive": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "79/4",
+                  "unit_right": "79/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "303/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "2840c64f9a5692ffb1ab5c9be630d9cc008155c6085c58b45838ead5f3ed3c60",
+              "model_hash": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+              "context_hash": "222d1c54969046bfd5bedcabe74a926d5b46a9c14b6d3726bda5a9a0b0d92257",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "cf1e3eca8ee6813e1810fdf45166243c2f6919f0271d7a8fdda08ab5e33e79e1",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "05dcc02b14449bcbe047a1c98779a2d5ebdc6da33990428d6f83f4cc3078edb0",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "binding": {
+              "contract_id": "FRAME125_SERVICE_SIDE_EXPLICIT_TWO_SOURCE_D4_STUDY_V1",
+              "status": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+              "scoped_verified": true,
+              "accepted": false,
+              "qualified": false,
+              "display_allowed": false,
+              "delivery_allowed": false,
+              "whole_physical_verified": false,
+              "whole_functional_verified": false,
+              "historical_schema_replaced": false,
+              "production_supported": false,
+              "errors": [],
+              "pending": [
+                "WHOLE_FUNCTIONAL_UNKNOWN",
+                "HISTORICAL_WORLD_RECORD_SCHEMA_UNSUPPORTED_REMAINS"
+              ],
+              "source_dependency": "Pinned original constructor/frame/assemble/modules and ledger functions; shared explicit-field D4 helper. Not independent declarative semantic grammar; not production admission.",
+              "topology_evidence": {
+                "A": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                },
+                "B": {
+                  "bath_right": "99/4",
+                  "unit_right": "99/4",
+                  "shared_wall_gap": "3/20",
+                  "service_top": "403/40",
+                  "source_lines": {
+                    "search114.py": [
+                      54,
+                      55,
+                      56,
+                      57,
+                      104,
+                      105,
+                      106,
+                      107,
+                      108,
+                      109
+                    ]
+                  },
+                  "scope": "Three exact source topology constraints only; no floor, operation or capacity approval."
+                }
+              },
+              "independent_d4": {
+                "verified": true,
+                "errors": [],
+                "accepted": false,
+                "scope": "Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only."
+              },
+              "source_files": {
+                "assemble114.py": "b12cf81eb0acdfd5c696445fe7821235012f589cac9477b865da89093c0b095e",
+                "bathroom_module117.py": "15bf1f24281af54d68f2b0ce0e92c366dff2600b014c606e7fa7b2bc44077be8",
+                "bedroom_module116.py": "21bcadf03beb91b9b78a85d2b87520b594c19dce28b932860d871744e4815789",
+                "common_core125.py": "ed1ae2c1050775b4bdbebbc78e4cb5327fd6acae5cbcbfa811b8342dd2028c9b",
+                "constructor127.py": "ab4817b2768411fb87c0214a47293868807f3ace8f82f9dd3f65bc86b24b3998",
+                "dining_module118.py": "ec4ee12434adc5517c0407549374b138ea88d1e475ff13823e4c91a8a66ed7d7",
+                "engine114.py": "cbd9681033fa38e2157622006815d71bb7abc0fd05554f698ae3056e5696ac76",
+                "fast_cells120.py": "91944b7636031079fdeb316b131dfdfaebe4d4f2b70eea9ccab2f8f335e0ca7a",
+                "frame_contract125.py": "244d75584b30b170addcb58a4f66084d454d05ed94b0a12d1f26df53fde15208",
+                "geometry114.py": "bcbec24dc27a8dfc31ff1063311cb3d50612338ff449c0de3505db1444dd0238",
+                "kitchen_module117.py": "d22cc81eee216181eedede9bb45ae4d6630da71a7e77681ab47ea0af8c295b19",
+                "space_accounting118.py": "50b0ad9a30f3bf0686e765dfd6d2e3b42e1294b7939abf2b2303c95b7f96be44",
+                "spatial_roles118.py": "962cc7b2b23c2f34a4d3fda074ca3b199fdd6897fc229b12045c8d0bfb5bc958",
+                "twin_module118.py": "074c6f39f613977e0d7417a99f0d9682343d433713774faa7a18c85283e93260",
+                "wall_union118.py": "cf5a97f0e8ee1647acce1b2ba9d4cde4aa589796fc72f98c55b3885a6da00c92",
+                "world_record_schema129.json": "59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea",
+                "world_transform125.py": "fa301aadbf7cf006bc030464cf6ad8ed34d13f7347a20ccad69a7838e6f40b55"
+              },
+              "own_source_files": {
+                "app/local_integration/frame125_two_source_binding.py": "f9be19fe07569b009d542445ffadc0c3aa797e6afa40ca6c88ce96e2582d3199",
+                "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048"
+              },
+              "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+              "local_model_hash": "568d52dcaa0981a0b92e8962cc83f946a2de8f05f743523c98ececeba2aa07b1",
+              "model_hash": "4012d01e73dd57321a13047b1d56aaf8214e677d715c7fc5663e75e93092e5d8",
+              "context_hash": "1490cf4556a0d14a530c54aa0ff5c0c3e5fb0cfec4aeebc534a9aa11bc4c8cae",
+              "canonical_type_policy": "Exact JSON types; source decimal-rational topology equality without tolerance."
+            },
+            "historical_report_digest": "f32bd310158594b4615076669b92cda6e2b1e93269441e15f4d0574087169290",
+            "historical_error_count": 40,
+            "historical_pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_report_digest": "26ecfe296b111351bbcbf745e7c2692a52ef20defe795d12a92131fc654cb3d0",
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ]
+          }
+        ],
+        "negative_count": 16,
+        "direct_negative": [
+          {
+            "name": "bath_source_side",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "shared_wall",
+            "errors": [
+              "FRAME_KITCHEN_BATH_SHARED_WALL"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "top_alignment",
+            "errors": [
+              "FRAME_SERVICE_TOP_ALIGNMENT"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY"
+          },
+          {
+            "name": "actual_side_relabel_20",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "c8f52e9eb0c7c8d8e31e999d5d46a80b9f95a1e8cc8b5c17d9eebb2a393df835"
+          },
+          {
+            "name": "actual_side_relabel_25",
+            "errors": [
+              "FRAME_BATH_RIGHT_SOURCE_SIDE"
+            ],
+            "scope": "DIRECT_TOPOLOGY_NOT_REPLAY",
+            "original_proposal_digest": "7c87f3f31dbf937750f5b8fcddd92b4bce0ca7dbafb76bdf76bfe8efc201a368"
+          },
+          {
+            "name": "canonical",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "operation_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "route_point",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "rotation",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "module_source",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "placement",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "numeric_type",
+            "errors": [
+              "INDEPENDENT_D4_TYPED_WORLD_MISMATCH"
+            ],
+            "scope": "DIRECT_D4_NOT_REPLAY"
+          },
+          {
+            "name": "unknown_numeric_role",
+            "errors": [
+              "UNKNOWN_NUMERIC_FIELD:test.unknown"
+            ]
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false
+      }
+    }
+  ],
+  "related_prior_topology_manifest": "manifests/V25_LEFT_RIGHT_TOPOLOGY_COMPARISON_RESULT.json",
+  "change_history": [
+    {
+      "commit": "6550548d9e0363d609c4aec352581f9a8b043fe5",
+      "reason": "Initial separate FRAME contract/tests/workflow"
+    },
+    {
+      "commit": "00a7130f771b414069a5082f4a8136bbb749c62f",
+      "reason": "Exact assignment negatives and unchanged SIDE rejection of FRAME"
+    },
+    {
+      "commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2",
+      "reason": "Reciprocal FRAME rejection of SIDE and numeric coordinate type-only mutation"
+    }
+  ],
+  "limitations": [
+    "All three executions retained separately. Reruns followed test hardening, not candidate selection; source solver remains time-bounded and nondeterministic.",
+    "Strict SIDE contract unchanged. FRAME has a separate contract identity and exact source topology constraints; this is not a new production-supported family.",
+    "Full local/module/operations/roles binding depends on original executable constructor/assemble sources; alias union and spatial ledgers depend on pinned original rebuild helpers. No independent declarative semantic inventory or grammar is claimed.",
+    "D4 is the existing shared explicit-field independent swapXY helper applied to fresh FRAME models; it is not an independently authored second D4 implementation.",
+    "Actual SIDE relabel negatives cover the concrete generated witnesses only. Geometric intersection of topology families is not universally disproven.",
+    "Every tested FRAME original historical evaluator still FAILS with 40 schema errors and pending circulation_functional_integrity/private_grouping. Four current functional UNKNOWNs remain.",
+    "Capacity PASS_SCOPED is not whole-model acceptance; no schema errors are filtered or waived.",
+    "Complete matrix packets/reports and binding tests are retained in expiring Actions artifacts. No archive ingestion or permanent geometry transfer performed."
+  ]
+}
