@@ -1,0 +1,41 @@
+name: V25 existing alternative compatibility read
+on:
+  push:
+    paths: ['.github/workflows/v25-existing-alternative-compatibility.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read already-authorized archive without extraction or geometry generation
+        run: |
+          python -B - <<'PY'
+          import tarfile,json,hashlib
+          from pathlib import Path
+          p=Path('evidence/archive/V25_run_44417514104.tar.gz')
+          rows=[]
+          with tarfile.open(p,'r:gz') as t:
+           for f in t.getmembers():
+            if not f.isfile() or not f.name.endswith('.json') or f.size>20000000:continue
+            raw=t.extractfile(f).read()
+            try:o=json.loads(raw)
+            except Exception:continue
+            rows.append({'name':f.name,'bytes':f.size,'sha256':hashlib.sha256(raw).hexdigest(),'keys':list(o)[:35] if isinstance(o,dict) else 'array'})
+          out={'archive_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'files':rows,'scope':'Existing artifact compatibility inventory only; no model generated or modified'}
+          Path('alternative-compatibility-inventory.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: existing-alternative-compatibility-inventory
+          path: alternative-compatibility-inventory.json
+          retention-days: 30
