@@ -37,8 +37,16 @@ def _consume(folder, request, expected_request, process, reserved, expected_rese
     # Fixed internal names only; no caller-selected file or public locator.
     paths={k:folder/(k+'.json') for k in ('summary','reports')}
     require(all(p.is_file() and not p.is_symlink() for p in paths.values()), 'FULL_REPORT_FILES_REQUIRED')
-    data={k:p.read_bytes() for k,p in paths.items()}
-    hashes={k:hashlib.sha256(v).hexdigest() for k,v in data.items()}
+    # Private, process-local observation only. Never a verified receipt or public payload.
+    data={}; hashes={}
+    observed.update(raw_file_bytes=data, file_sha256=hashes, file_byte_count={},
+                    raw_preservation='PARTIAL_FILE_BYTES_OBSERVED_UNVERIFIED',
+                    observation_verified=False)
+    for k,p in paths.items():
+        data[k]=p.read_bytes()
+        hashes[k]=hashlib.sha256(data[k]).hexdigest()
+        observed['file_byte_count'][k]=len(data[k])
+    observed['raw_preservation']='FILE_BYTES_OBSERVED_UNVERIFIED'
     def unique(pairs):
         result={}
         for k,v in pairs:
@@ -47,10 +55,18 @@ def _consume(folder, request, expected_request, process, reserved, expected_rese
         return result
     def invalid_number(value):
         raise ValueError('NONFINITE_JSON')
-    parsed={k:json.loads(v, object_pairs_hook=unique, parse_constant=invalid_number) for k,v in data.items()}
+    parsed={}; parse_errors={}
+    for k,v in data.items():
+        try:
+            parsed[k]=json.loads(v, object_pairs_hook=unique, parse_constant=invalid_number)
+            observed['original_'+k]=copy.deepcopy(parsed[k])
+        except (ValueError,TypeError,UnicodeError,RecursionError) as exc:
+            parse_errors[k]=type(exc).__name__
+    observed['file_parse_errors']=parse_errors
+    if parse_errors:
+        raise ValueError('FILE_JSON_PARSE_FAILED')
     out,reports=parsed['summary'],parsed['reports']
-    observed.update(original_summary=copy.deepcopy(out),original_reports=copy.deepcopy(reports),
-                    file_sha256=hashes,raw_reports_digest=digest(reports))
+    observed['raw_reports_digest']=digest(reports)
     trace.bind_result(request,expected_request,out,reports,process)
     evidence={'schema':'EPHEMERAL_EVIDENCE112_V1','original_summary':copy.deepcopy(out),
               'original_reports':copy.deepcopy(reports),'file_sha256':hashes,
@@ -99,6 +115,6 @@ def consume(folder, request, expected_request, process, reserved, expected_reser
     try:
         result=_consume(folder,request,expected_request,process,reserved,expected_reserved,observed)
         return result
-    except (ValueError,KeyError,TypeError,OSError,UnicodeError) as exc:
+    except (ValueError,KeyError,TypeError,OSError,UnicodeError,RecursionError) as exc:
         if 'original_reports' in observed:observed['raw_preservation']='PARSED_JSON_COPY'
         raise EvidenceFailure(observed,type(exc).__name__) from None

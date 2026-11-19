@@ -135,4 +135,61 @@ class LifecycleTests(unittest.TestCase):
         t.invalidate(base)
         self.assertNotIn('lifecycle_admission',base)
         self.assertIn('lifecycle_admission',base['observed_unverified_evidence'])
+
+    def test_408_historical_parse_gap_is_reproduced(self):
+        import hashlib
+        raw=(Path(__file__).parent/'fixtures/lifecycle112_pre408.py.txt').read_bytes()
+        self.assertEqual(hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest(),'7ddf65a27e30ae88ccc515fb0c4de3ca0bcedf28')
+        ns=dict(l.__dict__);exec(compile(raw,'historical_lifecycle112.py','exec'),ns)
+        r,h,o,reports,account=fixture()
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);write(root,o,reports);(root/'reports.json').write_bytes(b'{')
+            with self.assertRaises(ns['EvidenceFailure']) as caught:
+                ns['consume'](root,r,h,{'returncode':0,'wait_completed':True,'timed_out':False},account,t.digest(account))
+            self.assertNotIn('file_sha256',caught.exception.private_evidence)
+    def test_408_corrupt_files_keep_exact_unverified_bytes(self):
+        import hashlib
+        for bad in (b'{',b'{"x":1,"x":2}',b'{"x":NaN}',bytes([255]),b'['*2000+b']'*2000):
+            for key in ('summary','reports'):
+                r,h,o,reports,account=fixture()
+                with tempfile.TemporaryDirectory() as d:
+                    root=Path(d);write(root,o,reports);(root/(key+'.json')).write_bytes(bad)
+                    expected={k:(root/(k+'.json')).read_bytes() for k in ('summary','reports')}
+                    with self.assertRaises(l.EvidenceFailure) as caught:consume(root,r,h,account)
+                    e=caught.exception.private_evidence
+                    self.assertEqual(e['raw_file_bytes'],expected)
+                    self.assertEqual(e['file_sha256'],{k:hashlib.sha256(v).hexdigest() for k,v in expected.items()})
+                    self.assertEqual(e['file_byte_count'],{k:len(v) for k,v in expected.items()})
+                    self.assertEqual(set(e['file_parse_errors']),{key})
+                    self.assertFalse(e['observation_verified'])
+                    self.assertTrue(all(e[k] is False for k in t.AUTH))
+                    self.assertEqual(str(caught.exception),'LIFECYCLE_EVIDENCE_FAILED_CLOSED')
+                    if key=='summary':
+                        self.assertEqual(e['original_reports'],reports)
+                        self.assertEqual(e['original_reports']['parent_physical']['status'],'FAIL')
+                    else:self.assertEqual(e['original_summary'],o)
+                self.assertFalse(root.exists())
+
+
+    def test_408_scalar_report_error_survives_direct_wrapper(self):
+        import hashlib
+        import inspect
+        real_sourcefile=inspect.getsourcefile
+        for scalar in (None,0):
+            r,h,o,reports,account=fixture()
+            with tempfile.TemporaryDirectory() as d:
+                root=Path(d);write(root,o,scalar)
+                with self.assertRaises(l.EvidenceFailure) as caught:consume(root,r,h,account)
+                e=caught.exception
+                self.assertIn('original_reports',e.private_evidence)
+                self.assertIs(e.private_evidence['original_reports'],scalar)
+                self.assertEqual(e.private_evidence['file_sha256']['reports'],hashlib.sha256((root/'reports.json').read_bytes()).hexdigest())
+            controlled={'timed_out':False,'kill_sent':False,'wait_completed':True,'returncode':0,'elapsed_seconds':0.01,'allocated_seconds':1}
+            import repair_attempt_control
+            with patch.object(repair_attempt_control,'run_bounded',return_value=controlled), patch.object(l,'consume',side_effect=e), patch.object(inspect,'getsourcefile',side_effect=lambda obj: str(t.ROOT/'app/local_integration/report_lifecycle112.py') if obj is l.consume else str(t.ROOT/'app/local_integration/repair_attempt_control.py') if obj is repair_attempt_control.run_bounded else real_sourcefile(obj)):
+                result=t.run(b'{"W":"18","L":"22","n":2}')
+            self.assertEqual(result['lifecycle_error_observation']['raw_report_count'],0)
+            self.assertFalse(result['receipt_verified'])
+            self.assertNotIn('raw_file_bytes',result['lifecycle_error_observation'])
+
 if __name__=='__main__':unittest.main()

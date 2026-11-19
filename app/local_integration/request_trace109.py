@@ -175,7 +175,7 @@ def run(body):
   if type(observed)is dict:
    failed_adapter=observed.get('adapter',{})
    base['lifecycle_error_observation']={'state':'OBSERVED_UNVERIFIED','durable':False,
-    'raw_report_count':len(observed.get('original_reports',{})),
+    'raw_report_count':len(observed['original_reports']) if type(observed.get('original_reports')) in (dict,list) else 0,
     'raw_reports_digest':observed.get('raw_reports_digest'),
     'adapter_error_count':len(failed_adapter.get('errors',[]))}
   base.update(state='FAILED_CLOSED',receipt_verified=False,error_type=type(ex).__name__,error_code=str(ex)if re.fullmatch('[A-Z0-9_:]+',str(ex))else'NONPUBLIC_DETAIL_RETAINED_ONLY')
