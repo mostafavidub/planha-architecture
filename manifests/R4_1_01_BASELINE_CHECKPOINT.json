@@ -1,0 +1,36 @@
+{
+  "schema": "R4_1_01_BLOCKED_CHECKPOINT_V1",
+  "task": "R4-1.01",
+  "status": "BLOCKED_CI_BEFORE_FIRST_STEP",
+  "start_utc": "2026-11-19T07:03:34Z",
+  "deadline_utc": "2026-11-19T10:03:34Z",
+  "checkpoint_utc": "2026-11-19T07:12:00Z",
+  "commit": "b2258979bf7ac8eb343bcde52103ac9991f87131",
+  "run": 44477652094,
+  "job": 135401982637,
+  "observed": {
+    "job_conclusion": "failure",
+    "steps": [],
+    "new_tests_executed": 0,
+    "new_artifact_created": false,
+    "logs": "404 BlobNotFound",
+    "annotations": "Connector endpoint unsupported; cause unconfirmed",
+    "other_jobs_same_commit_failed_before_steps": 4
+  },
+  "review": "Independent read-only review completed; exact-int and final file-set reenumeration hardening applied. Not runtime proof.",
+  "historical_baseline": {
+    "run": 44474177603,
+    "artifact": 14506041574,
+    "artifact_sha256": "a6b5156df6d7930ecf5607b50de81bbe85756362591d37c5e50596cc012ee1e3",
+    "commit": "a1dcf7827ff59f49b7daa205368fcd2a29c26c27",
+    "child": "dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a",
+    "expires_at": "2026-12-19T06:45:55Z",
+    "basis": "Previously verified task4.4 only, not new R4 audit."
+  },
+  "next": "Inspect GitHub failure annotation/billing availability through authorized UI. Do not change spending or permissions. After infrastructure restored rerun only audit job135401982637 on this exact commit; complete manifest from actual result. Dependent tasks remain blocked for execution; read-only source preparation may continue.",
+  "fresh_geometry_executed": false,
+  "qualified": false,
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

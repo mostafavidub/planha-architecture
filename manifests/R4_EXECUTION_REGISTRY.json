@@ -60,9 +60,13 @@
       "dependencies": [],
       "estimate_minutes": 45,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "BLOCKED_CI_BEFORE_FIRST_STEP",
       "start_utc": "2026-11-19T07:03:34Z",
-      "deadline_utc": "2026-11-19T10:03:34Z"
+      "deadline_utc": "2026-11-19T10:03:34Z",
+      "checkpoint_utc": "2026-11-19T07:12:00Z",
+      "commit": "b2258979bf7ac8eb343bcde52103ac9991f87131",
+      "run": 44477652094,
+      "remaining": "Actual retained-bundle audit not executed: job failed before first step; do not treat baseline code review as successful artifact readback."
     },
     {
       "id": "R4-1.02",
