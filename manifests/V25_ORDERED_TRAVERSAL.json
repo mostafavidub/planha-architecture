@@ -143,8 +143,8 @@
     },
     {
       "id": "V25-22",
-      "status": "PARTIAL_INDEPENDENT_EVALUATOR_VERIFIED_CURRENT_QUALITY_UNKNOWN",
-      "evidence": "Evaluator۱۸×۲۰ وmatrixevaluator۱۵×۲۵/۲۰×۲۰/۲۴×۱۸ مستقل صفرخطا ولی۷pending وچهارUNKNOWN دارند. جایگزینsource-built دوwallآشپزخانه با۸guestpath ثابت و۷negative تأیید؛۰٫۲۲۶۵m²مصالح کمتر،نه usefularea.۸۹wallباقی؛livingresidual همچنان درdiagnostic بدونشاهداتصال.qualification/تحویل/۳۰۳ممنوع. endpoint attribution در44433258552:هرstandingbody۰٫۴۹m²کاملدرگردش/public،صفرresidual وبدونمانعفیزیکی؛blockedبودنresidual یک محدودیتdomainاست،نهاثباتناممکنیliving.",
+      "status": "TIMEBOX_STOPPED_PARTIAL_CURRENT_FUNCTIONAL_CLOSURE_OPEN",
+      "evidence": "Evaluator۱۸×۲۰ وmatrixevaluator۱۵×۲۵/۲۰×۲۰/۲۴×۱۸ مستقل صفرخطا ولی۷pending وچهارUNKNOWN دارند. جایگزینsource-built دوwallآشپزخانه با۸guestpath ثابت و۷negative تأیید؛۰٫۲۲۶۵m²مصالح کمتر،نه usefularea.۸۹wallباقی؛livingresidual همچنان درdiagnostic بدونشاهداتصال.qualification/تحویل/۳۰۳ممنوع. endpoint attribution در44433258552:هرstandingbody۰٫۴۹m²کاملدرگردش/public،صفرresidual وبدونمانعفیزیکی؛blockedبودنresidual یک محدودیتdomainاست،نهاثباتناممکنیliving. سقف01:07:31رسید؛کلگامباچهارUNKNOWNبهپایاننزدیکنیست،متوقف/ناقصثبتشد؛هیچrunفعالیندارد.",
       "evidence_runs": [
         44416886004,
         44418924830,
@@ -164,15 +164,16 @@
     },
     {
       "id": "V25-23",
-      "status": "BLOCKED",
-      "evidence": "diversity_review همه جفت‌ها را می‌سنجد ولی مدل واجدشرایط تازه نداریم؛ نام خانواده/کپی/آینه تنوع اثبات‌شده نیست."
+      "status": "BLOCKED_VERIFIED_NO_QUALIFIED_CURRENT_CANDIDATE",
+      "evidence": "preflight44434365012چهارمدل۱۸×۲۰/۱۵×۲۵/۲۰×۲۰/۲۴×۱۸راUNKNOWNوqualified0تأییدکرد؛تنوعگزینهواجدشرایطاثباتنشد."
     },
     {
       "id": "V25-24",
-      "status": "PARTIAL_DURABLE_ARCHIVE_APPROVAL_PENDING",
-      "evidence": "۳۳آرشیو/۲۷۱عضو/۲۲۹۰۷۸۹۱بایت تأیید remote. سه بسته جدید UIضروری/clearance/ruletrace تا تأیید مشخص workflow فقطartifact۳۰روزه‌اند.۳۰۳آغازنشده.",
+      "status": "PARTIAL_READ_ONLY_PREFLIGHT_COMPLETE_ARCHIVE_APPROVAL_PENDING",
+      "evidence": "44434365012:۳۳آرشیو/۲۷۱عضو/۲۲۹۰۷۸۹۱بایتhash/sizeصحیح؛workflowدرcommitدقیقوinputarchive۴مطالعهجدیدموجود. نهبازاجرایهمهآزمایش‌ها؛۴artifactجدیدموقت،archiveworkflowمجازنشده؛بدونتغییرpermissionیاarchive.",
       "evidence_runs": [
-        44420287604
+        44420287604,
+        44434365012
       ]
     }
   ],
@@ -244,12 +245,12 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T01:00:14Z",
+  "last_evidence_update_utc": "2026-11-19T01:07:44Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "ENDPOINT_ATTRIBUTION_SCOPED_CHECKPOINT_COMPLETE_CURRENT_FUNCTIONAL_CLOSURE_OPEN",
+    "state": "STOPPED_TIMEBOX_PARTIAL",
     "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage",
     "latest_subtask": {
       "id": "V25-22-OPEN-KITCHEN",
@@ -263,12 +264,23 @@
       "integrated_matrix_run": 44430765347,
       "wall_alternative_manifest": "manifests/V25_WALL_ALTERNATIVE_RESULT.json",
       "endpoint_manifest": "manifests/V25_LIVING_ENDPOINT_ATTRIBUTION_RESULT.json"
-    }
+    },
+    "stopped_at_utc": "2026-11-19T01:07:31Z",
+    "stop_verified_at_utc": "2026-11-19T01:07:44Z",
+    "stop_reason": "Full current functional closure not near completion; all scoped sub-runs completed and no running V25-22 jobs"
   },
   "live_cycle_operation": {
     "start_utc": "2026-11-18T21:27:35Z",
     "deadline_utc": "2026-11-19T00:27:35Z",
     "state": "COMPLETED_LIVE_EXPLORATORY_SCOPE_ONLY",
     "completed_utc": "2026-11-18T23:06:25Z"
+  },
+  "next_independent_operation": {
+    "id": "V25-24-EVIDENCE-PREFLIGHT",
+    "start_utc": "2026-11-19T01:05:00Z",
+    "deadline_utc": "2026-11-19T04:05:00Z",
+    "completed_utc": "2026-11-19T01:06:52Z",
+    "state": "COMPLETED_READ_ONLY_PREFLIGHT_SCOPE_ONLY",
+    "run": 44434365012
   }
 }
