@@ -71,8 +71,13 @@ def assess(bundle):
      if path:
       route_check(path,endpoints[0]['point'],target['point'],body,floor,obs)
       clearance=fixed_polyline_capacity(path,domain,obs)
-      ensure(F(clearance['maximum_uniform_axis_aligned_square_width_m'])>=body,'CLEARANCE_CONTRADICTION')
-      row.update(state='PASS_ACCESS_WITNESS_ONLY',length_m=str(sum(abs(F(a[0])-F(b[0]))+abs(F(a[1])-F(b[1])) for a,b in zip(path,path[1:]))),turns=direction_changes(path),fixed_path_clearance=clearance)
+      capacity=F(clearance['maximum_uniform_axis_aligned_square_width_m']);ensure(capacity>=body,'CLEARANCE_CONTRADICTION')
+      route_check(path,endpoints[0]['point'],target['point'],capacity,floor,obs)
+      epsilon=F(1,1000000)
+      try:route_check(path,endpoints[0]['point'],target['point'],capacity+epsilon,floor,obs)
+      except ValueError:clearance['sweep_certificate']={'at_capacity_clear':True,'capacity_plus_test_epsilon_rejected':True,'test_epsilon_not_design_threshold':str(epsilon)}
+      else:raise ValueError('CLEARANCE_NEGATIVE_CERTIFICATE')
+      row.update(state='PASS_ACCESS_WITNESS_ONLY',length_m=str(sum(abs(F(a[0])-F(b[0]))+abs(F(a[1])-F(b[1])) for a,b in zip(path,path[1:]))),direction_changes_including_reversal=direction_changes(path),fixed_path_clearance=clearance)
      rows.append(row)
     studies.append({'domain':name,'floor_digest':digest(floor),'obstacle_digest':digest(obs),'anchor_fixture_id':anchor,'target_fixture_ids':[e['fixture_id'] for e in endpoints[1:]],
      'floor_area_m2':str(union_area(floor)),'routes':rows,'all_targets_connected':bool(rows) and all(r['path'] for r in rows),
