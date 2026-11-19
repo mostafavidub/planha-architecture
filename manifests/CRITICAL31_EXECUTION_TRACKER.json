@@ -614,11 +614,14 @@
       "description_verbatim": "۵.۴. تست نمایش و خروجی DXF برای طرح تأییدشده و جلوگیری از خروجی طرح ردشده یا نامعلوم. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "5.3",
         "3.6"
-      ]
+      ],
+      "start_utc": "2026-11-19T06:12:40Z",
+      "deadline_utc": "2026-11-19T09:12:40Z",
+      "scope": "Negative forged public authority fields and static current form plus pinned existing real browser no-delivery. Positive display/DXF blocked, no exporter-success claim."
     },
     {
       "id": "5.5",
