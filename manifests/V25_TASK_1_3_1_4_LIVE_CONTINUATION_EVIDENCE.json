@@ -1,0 +1,182 @@
+{
+  "tasks": [
+    "1.3",
+    "1.4"
+  ],
+  "continuation_start": "2026-11-19T04:43:45Z",
+  "carryover_deadline": "2026-11-19T05:51:01Z",
+  "status": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_AND_ORDER_LEDGER_TESTED_BROADER_SEARCH_OPEN",
+  "tested_commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+  "run": 44460753648,
+  "job": 135346654843,
+  "tests": 49,
+  "case": {
+    "W": "18",
+    "L": "20",
+    "n": 2,
+    "programme": "PROGRAM_2BED_V1",
+    "solver_seconds": 30,
+    "shared_child_seconds": 180
+  },
+  "budget_ledger": {
+    "account_id": "56a79da1b6414fb993561193d21728cd",
+    "limit_attempts": 1,
+    "limit_seconds": 180,
+    "used_attempts": 1,
+    "used_seconds": 71.118026406
+  },
+  "decision": {
+    "accepted": false,
+    "all_PRD_requirements_verified": false,
+    "blockers": [
+      "PHYSICAL_FAIL",
+      "CURRENT_UNKNOWN",
+      "PHYSICAL_PENDING",
+      "HISTORICAL_UNRESOLVED_RETAINED"
+    ],
+    "current_four_conditions_complete": false,
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "qualified": false,
+    "state": "BLOCKED"
+  },
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "ordered_stage_dispositions": [
+    {
+      "attempt_ids": [],
+      "reason": "Alternative core search not implemented; fixed selected core/split use is not an alternative comparison.",
+      "stage": "CORE",
+      "state": "NOT_IMPLEMENTED"
+    },
+    {
+      "attempt_ids": [],
+      "reason": "Alternative split search not implemented; fixed selected core/split use is not an alternative comparison.",
+      "stage": "SPLIT",
+      "state": "NOT_IMPLEMENTED"
+    },
+    {
+      "attempt_ids": [
+        "PROGRAM_2BED_V1:56a79da1b6414fb993561193d21728cd"
+      ],
+      "reason": "One source-bound geometric candidate; physical rejection/UNKNOWN retained, not a quality winner.",
+      "stage": "PLACEMENT",
+      "state": "ATTEMPTED_WITH_WITNESS"
+    },
+    {
+      "attempt_ids": [],
+      "reason": "Alternative optional_nonbed_merge search not implemented; fixed selected core/split use is not an alternative comparison.",
+      "stage": "OPTIONAL_NONBED_MERGE",
+      "state": "NOT_IMPLEMENTED"
+    }
+  ],
+  "scheduler_digest": "231390b6de38fcfed5ccff24fd7c4c84ff72dabf64cfe7307df0bc14a3ee9f15",
+  "attempt": {
+    "allocated_child_seconds": 180,
+    "attempt_id": "PROGRAM_2BED_V1:56a79da1b6414fb993561193d21728cd",
+    "attempted": true,
+    "budget_account_id": "56a79da1b6414fb993561193d21728cd",
+    "constructor_called_observed": true,
+    "contract_digest": "a2a762aeae1af3e2222344260031ff6eb198af9788f1396a4b38cac59559864f",
+    "decision_digest": "3aecbc8dfb4aee44e16aec0c522d0d410f083d88d855328b34e240b50daa938c",
+    "elapsed_seconds": 71.118026406,
+    "kill_sent": false,
+    "model_binding_verified": true,
+    "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "nonce": "56a79da1b6414fb993561193d21728cd",
+    "programme_digest": "7ae9e4c16a881f6f4feb9d68ca59b25785c09f0f1a4d48b49fd256e50a0bf561",
+    "programme_id": "PROGRAM_2BED_V1",
+    "receipt_verified": true,
+    "returncode": 0,
+    "runtime_digest": "ce47b8433c94aaf216c6fd0d67c8ca9bcc563466f85ba17d3bfdb1fa05d89234",
+    "state": "LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED",
+    "timed_out": false,
+    "wait_completed": true
+  },
+  "source_integrity_verified": true,
+  "fresh_model_executed": true,
+  "lower_program_transition": {
+    "accepted": false,
+    "adapter_status": "ONE_BED_ADAPTER_NOT_AUDITED",
+    "attempt_receipts_verified": false,
+    "authorization_scope": "Study-policy record only; adapter readiness and same-version execution contract still required.",
+    "budget_ledger": {
+      "account_id": "56a79da1b6414fb993561193d21728cd",
+      "limit_attempts": 1,
+      "limit_seconds": 180,
+      "used_attempts": 1,
+      "used_seconds": 71.118026406
+    },
+    "budget_ledger_digest": "dfc01fd0defb953111afce45ba9e824c54dab896a204dbacfedf23cdb4fb9ef3",
+    "budget_remaining_for_study": false,
+    "budget_reset": false,
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "evidence_status": "DISPOSITIONS_ONLY_ACTUAL_COMPARISON_MISSING",
+    "execute_lower_program": false,
+    "execution_ready": false,
+    "from_program": "PROGRAM_2BED_V1",
+    "from_registry_digest": "7ae9e4c16a881f6f4feb9d68ca59b25785c09f0f1a4d48b49fd256e50a0bf561",
+    "new_programme_alternative": true,
+    "preceding_search_verified": false,
+    "prior_programme_infeasible": false,
+    "programme_repair": false,
+    "qualified": false,
+    "quality_winner": false,
+    "reason": "Bounded preceding-stage dispositions are explicit; unenumerated or unimplemented branches are not an exhaustive-search demand.",
+    "schema": "AP07_NEW_PROGRAM_TRANSITION_V1",
+    "stage_dispositions": [
+      {
+        "attempt_ids": [],
+        "reason": "Alternative core search not implemented; fixed selected core/split use is not an alternative comparison.",
+        "stage": "CORE",
+        "state": "NOT_IMPLEMENTED"
+      },
+      {
+        "attempt_ids": [],
+        "reason": "Alternative split search not implemented; fixed selected core/split use is not an alternative comparison.",
+        "stage": "SPLIT",
+        "state": "NOT_IMPLEMENTED"
+      },
+      {
+        "attempt_ids": [
+          "PROGRAM_2BED_V1:56a79da1b6414fb993561193d21728cd"
+        ],
+        "reason": "One source-bound geometric candidate; physical rejection/UNKNOWN retained, not a quality winner.",
+        "stage": "PLACEMENT",
+        "state": "ATTEMPTED_WITH_WITNESS"
+      },
+      {
+        "attempt_ids": [],
+        "reason": "Alternative optional_nonbed_merge search not implemented; fixed selected core/split use is not an alternative comparison.",
+        "stage": "OPTIONAL_NONBED_MERGE",
+        "state": "NOT_IMPLEMENTED"
+      }
+    ],
+    "state": "NEW_ALTERNATIVE_RECORDED_ADAPTER_NOT_READY",
+    "to_program": "PROGRAM_1BED_V1",
+    "to_registry_digest": "cff33157955616c2106d8af4b7e07b81ebb0c53c15451fd6ce12d2a998375503",
+    "unique_attempt_ids": [
+      "PROGRAM_2BED_V1:56a79da1b6414fb993561193d21728cd"
+    ],
+    "unit_count": 2
+  },
+  "artifact": {
+    "id": 14499897736,
+    "digest": "sha256:42064703211b46128068b3ece2e28c73c0b4b92692b53bba8d28d134ecffc696",
+    "expires_at": "2026-12-19T04:49:22Z"
+  },
+  "limits": [
+    "Exactly one actual attempt per bounded run, not one attempt over the entire development history; intermediate CI executions may also have run.",
+    "Current final run connects public bytes to registry/selected contract, source original generation/replay/full physical/functional, all four fresh current assessments and blocked decision.",
+    "Fixed core and split were used but alternative core/split/optional nonbed merge searches not implemented.",
+    "One-bedroom approved registry entry remains adapter not ready; no lower-program execution, no hidden fallback and no shared budget reset.",
+    "No variable-dimension automatic programme search or AP07 completion claimed.",
+    "Timeout mechanism implemented but did not trigger in this final run; no claim that kill branch was tested.",
+    "Parent setup/source audits excluded from shared child180s engineering cap, not from operation carryover deadline."
+  ],
+  "reproduce": "Checkout tested commit and run .github/workflows/v25-live-programme-scheduler.yml. No old model artifact input required: original frozen source pipeline produces and evaluates a new same-case model with new nonce. Verify actual output digests rather than assuming deterministic identity. Detailed artifact expires as above; compact receipt remains here.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
