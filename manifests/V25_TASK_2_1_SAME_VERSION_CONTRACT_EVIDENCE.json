@@ -1,0 +1,62 @@
+{
+  "task": "2.1",
+  "status": "COMPLETED_CONTRACT_SELECTION_ONLY",
+  "started_at": "2026-11-19T03:13:24Z",
+  "deadline": "2026-11-19T06:13:24Z",
+  "verified_completed_at": "2026-11-19T03:16:49Z",
+  "tested_commit": "7b5212b95cde64adc865b0db9ea7730183e7ccf2",
+  "run_id": 44450274916,
+  "job_id": 135312214375,
+  "tests": {
+    "selected_contract": 9,
+    "registry": 11,
+    "public_input": 20,
+    "dimensions": 18,
+    "input_audit": 5,
+    "total": 63,
+    "status": "PASS"
+  },
+  "source_audit": {
+    "status": "API_SOURCE_AUDITED_ONLY",
+    "guard_before": 12991,
+    "guard_after": 12991,
+    "imports": "Module and callable file paths",
+    "signatures": "Seven selected API parameter inventories and recorded signatures",
+    "enums": "Constructor families and selected search defaults; return literals source-read",
+    "limits": "Not semantic return compatibility or runtime global callable binding; no solver, constructor, replay, physical evaluator or functional evaluator invoked"
+  },
+  "artifact": {
+    "id": 14494933473,
+    "name": "same-version-contract-task-2-1",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44450274916/artifacts/14494933473",
+    "zip_sha256": "37dc58be8a0d316cc2379aa6a2e469e6892e72c207a1a3a74297ead150f4343c",
+    "retention_days": 30,
+    "expected_expiry": "2026-12-19T03:16:48Z",
+    "may_be_deleted_earlier": true
+  },
+  "reproduce": {
+    "commit": "7b5212b95cde64adc865b0db9ea7730183e7ccf2",
+    "workflow": ".github/workflows/v25-same-version-contract.yml",
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "case": {
+    "W": 18,
+    "L": 20,
+    "n": 2,
+    "family": "FRONT_REAR",
+    "program": "PROGRAM_2BED_V1",
+    "roles": [
+      "double",
+      "twin"
+    ]
+  },
+  "scope": "Versioned request/program/source/API/lineage/report-preservation contract. Requested count 1 is internal budget only. Future original solver time limit not selected. Historical producer and evaluator unchanged; complete execution belongs to later integration tasks.",
+  "fresh_model_executed": false,
+  "qualified": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "automatic_program_search_modified": false,
+  "quality": "PROFILE_NOT_READY"
+}
