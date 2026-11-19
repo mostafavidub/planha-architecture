@@ -17,8 +17,11 @@
     },
     {
       "id": "V25-03",
-      "status": "IN_PROGRESS_HISTORY_STATUS_LOSS_FIX",
-      "evidence": "ممیزی مستقل01:25UTC: attemptهای علت‌دار درخروجی زنده حفظ ولی ازخلاصهhistory حذف می‌شوند؛ صفرمدل‌های متفاوت همگیEXPERIMENT_COMPLETED دیده می‌شوند. اصلاحadditive باحفظoutcome/admission و آزمون جدا درجریان؛تکمیل ادعا نمی‌شود."
+      "status": "PASS_HISTORY_TAXONOMY_SCOPED_NINE_LEGACY_TESTS_BLOCKED",
+      "evidence": "علت‌های دقیق و چندگانه درhistory حفظ شد؛run44438109457 درcommit5e2574ca:۱۹تست،۳رکورد واقعی آرشیوشده و۴حالتChromium DOM موفق؛guard12991. ۹تست قدیمی به‌علتfixture غایب مسدود،نهPASS. عدم بازیابی مدل وexport403 محفوظ؛نه هندسه تازه/QAبصری/QUALIFIEDمثبت/کل قراردادمحصول.",
+      "evidence_runs": [
+        44438109457
+      ]
     },
     {
       "id": "V25-04",
@@ -146,7 +149,8 @@
         44435153299,
         44435888115,
         44421177419
-      ]
+      ],
+      "later_change_note": "history_ui.js برایtaxonomyدرV25-03تغییرکرد؛برابری۶blob باrunقدیمی صرفاًدرcheckpoint01:18بود،نهHEADکنونی. run44438109457 چهارDOMhistorycaseراجدیدتستکرد،نهتکرارهمه۱۴سناریویUI."
     },
     {
       "id": "V25-22",
@@ -252,7 +256,7 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T01:18:43Z",
+  "last_evidence_update_utc": "2026-11-19T01:45:54Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
@@ -305,7 +309,9 @@
     "id": "V25-03-HISTORY-TAXONOMY",
     "start_utc": "2026-11-19T01:25:01Z",
     "deadline_utc": "2026-11-19T04:25:01Z",
-    "state": "IN_PROGRESS",
-    "scope": "Preserve distinct observed outcome causes in historical summaries; no geometry or qualification change"
+    "state": "COMPLETED_SCOPED_FIX_LEGACY_NINE_BLOCKED",
+    "scope": "Preserve distinct observed outcome causes in historical summaries; no geometry or qualification change",
+    "completed_utc": "2026-11-19T01:45:54Z",
+    "run": 44438109457
   }
 }
