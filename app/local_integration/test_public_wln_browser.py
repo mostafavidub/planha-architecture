@@ -40,6 +40,10 @@ def main():
    assert page.locator('svg,canvas,img,a[download]').count()==0
    page.screenshot(path=str(evidence/'mobile-blocked-result.png'),full_page=True)
    assert not page.locator('#submit').is_disabled()
+   page.route('**/api/public/plan',lambda route:route.fulfill(status=500,content_type='application/json',body='{"code":"STUDY_FAILED_CLOSED"}'))
+   page.locator('#submit').click()
+   page.wait_for_function("document.querySelector('#result').textContent.includes('ممکن است شروع شده باشد')")
+   page.unroute('**/api/public/plan')
    page.route('**/api/public/plan',lambda route:route.abort())
    page.locator('#submit').click()
    page.wait_for_function("document.querySelector('#result').dataset.state==='error'")
@@ -47,7 +51,7 @@ def main():
    assert not page.locator('#submit').is_disabled()
    receipt={'schema':'PUBLIC_THREE_FIELD_BROWSER_EVIDENCE_V1','actual_request':requests[0],'actual_response':data,'live_start_through_network_abort_ui_journey_seconds':time.monotonic()-started,'playwright_version':importlib.metadata.version('playwright'),'screenshots_captured_not_human_visual_review':True,
     'viewports':[[1280,900],[390,844]],'horizontal_overflow_mobile':False,'http_invalid_and_unsupported_before_live':True,
-    'one_live_request_only':True,'network_abort_after_live_was_intercepted_no_server_execution':True,
+    'one_live_request_only':True,'network_abort_after_live_was_intercepted_no_server_execution':True,'synthetic_http500_intercept_preserves_execution_uncertainty':True,
     'diagnostic_api_unchanged':True,'public_deployed':False,'plan_rendered':False,'download_available':False}
    (evidence/'browser-receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,sort_keys=True,indent=2));print(json.dumps(receipt,ensure_ascii=False,sort_keys=True))
    browser.close()
