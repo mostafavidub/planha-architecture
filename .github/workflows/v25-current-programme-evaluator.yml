@@ -59,7 +59,13 @@ jobs:
           out['same_model_inventory_negative_tests']={'count':len(cases),'cases':rejected,'scope':'Detached mutated copies only; not accepted models or replay tests'}
           pathlib.Path('programme-assessment.json').write_text(json.dumps(out,ensure_ascii=False,sort_keys=True,indent=2))
           print(json.dumps({'state':out['state'],'decision':out['decision'],'findings':out['findings'],'model_digest':out['model_digest'],'report_digests':out['report_digests'],'inventory':out.get('inventory'),'source_capacity_state':out.get('source_capacity_state')},sort_keys=True))
-          assert not any(x['kind']=='EVALUATOR_OR_SOURCE_BINDING_ERROR' for x in out['findings'])
+          assert not any(x['kind'] in ('EVALUATOR_OR_SOURCE_BINDING_ERROR','INTEGRITY_ERROR') for x in out['findings'])
+          assert out['integrity_verified'] is True and out['report_mutations']==[]
+          assert out['historical_physical_digest']=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
+          from same_version_front_rear_contract import digest
+          assert digest(out['historical_physical_report'])==out['historical_physical_digest']
+          assert out['reports']['replay']['verified'] is True
+          print(json.dumps({'integrity_verified':out['integrity_verified'],'report_mutations':len(out['report_mutations']),'detached_negative_tests':out['same_model_inventory_negative_tests'],'physical_digest':out['historical_physical_digest']},sort_keys=True))
           assert out['state']=='UNKNOWN' and all(out[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
           PY
       - run: git diff --exit-code
