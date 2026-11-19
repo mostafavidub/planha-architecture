@@ -116,7 +116,7 @@ def child(folder,nonce):
   out['stage']='ACTUAL_PARENT_CAUSE';save()
   cause=diagnose(pp['world_model'],ps,raw['L'],pr,pc);retain('parent_cause',cause)
   out['selected_causes']=cause['selected_causes']
-  out['parent_cause_rows']=[{k:r[k]for k in('unit','cause','established','state','original_target_error_count','direct_target_error_count','rejection_code','original_missing_route_count','original_profile_exclusive_motion_verified')if k in r}for r in cause['rows']];save()
+  out['parent_cause_rows']=[{k:r[k]for k in('unit','cause','established','state','original_target_error_count','direct_target_error_count','rejection_code','original_missing_route_count','original_profile_compound_obstacles_verified')if k in r}for r in cause['rows']];save()
   if 'PLANNED_ENTRY_PANEL_AND_KITCHEN_MOTION' not in cause['selected_causes']:out.update(state='BLOCKED_NO_SUPPORTED_CAUSE',completed=True);return
   if request is not None:out.update(state='BLOCKED_REPAIR_CONTROLLER_ADAPTER',completed=True);return
   contract=freeze(raw,pp,pc,ps,pr,cause,snap,nonce);pin('parent_contract',contract);retain('parent_contract',contract)

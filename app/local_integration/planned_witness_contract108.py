@@ -133,7 +133,7 @@ def diagnose(model,proposals,L,physical,context):
  bind_context(model,proposals,L,context)
  out=original(model,proposals,L,physical)
  out.update(schema='SOURCE_COMPOUND_PLANNED_CAUSE108_V3',context_digest=digest(context),proposal_digest=digest(proposals),
-  scope='Stored-path causes unchanged. Missing guest_dining plus source planned witness exclusive motion collision is a planner-witness defect, not the unique cause of route search failure or global infeasibility.')
+  scope='Stored-path causes unchanged. Missing guest_dining plus source planned witness compound source entry-panel and kitchen-motion collision is a planner-witness defect, not the unique cause of route search failure or global infeasibility.')
  for u in model['units']:
   uid=u['id'];row={'unit':uid,'cause':'PLANNED_ENTRY_PANEL_AND_KITCHEN_MOTION','route':'guest_dining','established':False,'state':'NOT_ESTABLISHED'}
   out['rows'].append(row)
@@ -160,7 +160,7 @@ def diagnose(model,proposals,L,physical,context):
    indices=[i for i,o in enumerate(model['operations']['doors'])if o['opening_id']==uid+'.entry']
    need(len(indices)==1,'ENTRY_OPERATION_SET')
    labels=compound_motion(path,u['entry_point'],end,s,'open_panel:'+str(indices[0]))
-   row['original_profile_exclusive_motion_verified']=True
+   row['original_profile_compound_obstacles_verified']=True
    row.update(established=True,state='DIRECT_PLANNED_COMPOUND_PANEL_MOTION_COLLISION',collision_labels=labels)
   except ValueError as ex:
    allowed={'ROUTE_ENDPOINT','ROUTE_DOMAIN_COVERAGE','ROUTE_OBSTACLE_COLLISION','PLANNED_OWNER','PLANNED_NOT_EXCLUSIVE_MOTION','PLANNED_COLLISION_NOT_REJECTED','NON_ORTHOGONAL_SEGMENT','EMPTY_SWEEPS','COMPOUND_CAUSE_SET','ENTRY_ROOT_BODY_COLLISION'}
@@ -188,7 +188,7 @@ def freeze(raw,packet,context,proposals,physical,diagnostic,sources,nonce):
  validate_parent_contract(out,out['enabled_causes'])
  return out
 def validate_parent_contract(contract,enabled):
- need(type(contract)is dict and contract.get('schema')=='PLANNED_WITNESS_FIXED_SIZE_CONTRACT108_V2','PARENT_CONTRACT_SCHEMA')
+ need(type(contract)is dict and contract.get('schema')=='COMPOUND_PLANNED_FIXED_SIZE_CONTRACT108_V3','PARENT_CONTRACT_SCHEMA')
  need(type(enabled)is list and enabled==sorted(set(enabled))and bool(enabled)and set(enabled)<=CAUSES,'SUPPORTED_CAUSE_REQUIRED')
  need(digest(contract['enabled_causes'])==digest(enabled),'ENABLED_CAUSE_BINDING')
  need(set(contract['rectangle_dimensions'])==ROLES,'PARENT_DIMENSION_ROLE_SET')

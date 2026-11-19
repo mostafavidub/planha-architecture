@@ -63,8 +63,9 @@ class PlannedTests(unittest.TestCase):
   self.assertEqual(op['enabled_causes'],['KITCHEN_GUEST_MOTION'])
   self.assertEqual(op['operator_adapter']['source_contract_digest'],before);self.assertEqual(digest(x),before)
  def test_old_stored_contract_not_silently_accepted(self):
-  v=self.contract();v['schema']='CAUSE_DIRECTED_FIXED_SIZE_CONTRACT108_V1'
-  with self.assertRaisesRegex(ValueError,'PARENT_CONTRACT_SCHEMA'):c.candidate_contract(v)
+  for schema in('CAUSE_DIRECTED_FIXED_SIZE_CONTRACT108_V1','PLANNED_WITNESS_FIXED_SIZE_CONTRACT108_V2'):
+   v=self.contract();v['schema']=schema
+   with self.assertRaisesRegex(ValueError,'PARENT_CONTRACT_SCHEMA'):c.candidate_contract(v)
  def test_actual_operator_constraints_capture_without_solver(self):
   v=c.candidate_contract(self.contract())
   core,_=selected_core({'W':'18','L':'20','n':2,'requested_count':1},'FRONT_REAR_COMPACT118')
@@ -192,5 +193,22 @@ class PlannedTests(unittest.TestCase):
   self.assertTrue(feasible(panel[0]-F('.35')))
   self.assertFalse(feasible(panel[0]-F('.35')+grid))
   self.assertFalse(feasible(panel[2]))
+ def test_real_freeze_schema_with_explicit_diagnostic_seam(self):
+  # No geometry acceptance: only diagnose is stubbed; freeze/protected/entry source rebuild are real.
+  core,m,ps,v=self.compound_fixture()
+  m.update(inputs=['18','20',2],program={'units':2},profile={'body_m':'.7'},accepted=False,release_allowed=False,
+   units=[{'id':u,'fixtures':{'bed':['0','0','2','2']},'fixture_metadata':{'bed':{'kind':'bed','source_size_m':['2','2']}}}for u in('A','B')])
+  for p in ps.values():
+   p['rectangles']={k:['0','0',d['width'],d['height']]for k,d in v['rectangle_dimensions'].items()}
+   p['bed_door_sides']=v['bed_door_sides']
+  raw={'W':'18','L':'20','n':2,'requested_count':1};packet={'core':core,'world_model':m}
+  context={'construction_trace':{'model_hash':digest(m),'raw':raw,'proposals':ps}}
+  physical={'model_hash':digest(m),'errors':[]}
+  diagnostic={'model_digest':digest(m),'physical_digest':digest(physical),'selected_causes':['PLANNED_ENTRY_PANEL_AND_KITCHEN_MOTION']}
+  with patch.object(c,'diagnose',return_value=diagnostic):
+   value=c.freeze(raw,packet,context,ps,physical,diagnostic,{},'0'*32)
+  self.assertEqual(value['schema'],'COMPOUND_PLANNED_FIXED_SIZE_CONTRACT108_V3')
+  c.validate_parent_contract(value,value['enabled_causes'])
+  self.assertEqual(c.candidate_contract(value)['entry_panel_reservation'],value['entry_source_binding'])
 if __name__=='__main__':unittest.main()
 
