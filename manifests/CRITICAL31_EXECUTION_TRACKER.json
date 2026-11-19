@@ -44,14 +44,24 @@
       "description_verbatim": "۱.۱. تکمیل و تست قرارداد ورودی فقط عرض، طول و تعداد واحد؛ رد ابعاد خارج ۵ تا ۲۵ و ورودی اضافی. ۶۰ دقیقه",
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_PUBLIC_INPUT_CONTRACT",
       "dependencies": [
         "0.3"
       ],
       "start_utc": "2026-11-19T03:04:22Z",
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
-      "scope": "Dedicated public WLN parser tests; no automatic orchestrator or UI release yet"
+      "scope": "Dedicated public WLN parser tests; no automatic orchestrator or UI release yet",
+      "completed_utc": "2026-11-19T03:07:13Z",
+      "commit": "8128cd34b5599d01072519f2ec80b91c281e607b",
+      "run": 44449120537,
+      "tests": {
+        "public": 20,
+        "dimension_regression": 18,
+        "input_audit": 5,
+        "total": 43
+      },
+      "remaining": "No public UI/API hookup or automatic generation; verify_public(original bytes,envelope) required at integration"
     },
     {
       "id": "1.2",
