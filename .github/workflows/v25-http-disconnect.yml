@@ -1,0 +1,49 @@
+name: V25 real HTTP generation disconnect
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-http-disconnect.yml'
+      - 'app/local_integration/test_http_disconnect.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  disconnect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Real TCP disconnect and production cancellation
+        run: |
+          timeout 120s python -B - <<'PY'
+          import sys,json,inspect
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from test_http_disconnect import run
+          from validation_server import Handler
+          from generation_gateway import generate
+          for fn,name in [(run,'test_http_disconnect.py'),(Handler.request_disconnected,'validation_server.py'),(generate,'generation_gateway.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'app/local_integration'/name).resolve()
+          sources=snapshot(root,['.github/workflows/v25-http-disconnect.yml','app/local_integration/test_http_disconnect.py','app/local_integration/validation_server.py','app/local_integration/generation_gateway.py','app/local_integration/dimension_contract.py','app/local_integration/parametric_worker.py'])
+          assert guard(FREEZE)==12991
+          report=run()
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          report.update(source_snapshot=sources,guard_before=12991,guard_after=12991,operation_start='2026-11-19T01:09:46Z',operation_deadline='2026-11-19T04:09:46Z')
+          Path('http-disconnect.json').write_text(json.dumps(report,indent=2))
+          print('HTTP_DISCONNECT '+json.dumps(report),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-http-disconnect
+          path: http-disconnect.json
+          retention-days: 30
