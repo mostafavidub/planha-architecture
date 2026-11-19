@@ -32,7 +32,7 @@ jobs:
           from producer_provenance import snapshot,require_unchanged
           from constructor127 import build as old_build,context
           from open_front_world_origin import build
-          from open_front_wall_alternative import assess,compare_routes
+          from open_front_wall_alternative import assess,compare_routes,compare_living
           sources=snapshot(root,['.github/workflows/v25-wall-alternative.yml','app/local_integration/open_front_wall_alternative.py'])
           assert guard(FREEZE)==12991
           index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text())
@@ -61,10 +61,18 @@ jobs:
               try:compare_routes(a,b)
               except ValueError:negatives.append(case)
               else:raise AssertionError('WALL_COMPARISON_MUTATION_ACCEPTED:'+case)
+          for case in ('missing_living','living_target'):
+              a=deepcopy(report['before_living_connectivity']);b=deepcopy(report['after_living_connectivity'])
+              if case=='missing_living':b['units'].pop()
+              else:b['units'][0]['studies'][0]['anchor_fixture_id']='fake'
+              try:compare_living(a,b)
+              except ValueError:negatives.append(case)
+              else:raise AssertionError('LIVING_COMPARISON_MUTATION_ACCEPTED:'+case)
+          assert len(report['living_comparisons'])==4
           require_unchanged(root,sources);assert guard(FREEZE)==12991
           report.update(workflow_snapshot=sources,negative_tests=negatives,operation_start='2026-11-19T00:48:26Z',operation_deadline='2026-11-19T01:07:31Z')
           Path('wall-alternative.json').write_text(json.dumps(report,ensure_ascii=False))
-          print('WALL_ALTERNATIVE '+json.dumps({k:report[k]for k in ('status','model_digest','baseline_model_digest','removed_source_wall_ids','remaining_source_wall_count','released_physical_material_m2','route_comparisons','negative_tests','NONFUNCTIONAL_WALL_EXCLUSION','whole_physical_verified')}),flush=True)
+          print('WALL_ALTERNATIVE '+json.dumps({k:report[k]for k in ('status','model_digest','baseline_model_digest','removed_source_wall_ids','remaining_source_wall_count','released_physical_material_m2','route_comparisons','living_comparisons','negative_tests','NONFUNCTIONAL_WALL_EXCLUSION','whole_physical_verified')}),flush=True)
           print('LIVING_COMPARISON '+json.dumps({'before':report['before_living_connectivity'],'after':report['after_living_connectivity']}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
