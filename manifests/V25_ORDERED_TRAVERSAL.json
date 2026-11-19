@@ -65,11 +65,12 @@
     {
       "id": "V25-11",
       "status": "PARTIAL_SOURCE_DERIVED_D4_STUDY_PASS_HISTORICAL_GATE_FAIL",
-      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ.",
+      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده.",
       "evidence_runs": [
         44440172082,
         44440388271,
-        44441849585
+        44441849585,
+        44443156785
       ]
     },
     {
@@ -257,7 +258,7 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T02:08:38Z",
+  "last_evidence_update_utc": "2026-11-19T02:19:06Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
@@ -319,12 +320,12 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "MAPPING_INDEPENDENT_EVALUATOR_DEPENDENCIES_READ_ONLY",
+    "state": "READ_ONLY_PHYSICAL_BLOCKER_AND_EXISTING_TOPOLOGY_DIAGNOSIS",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
       44440388271
     ],
-    "latest_scoped_run": 44441849585
+    "latest_scoped_run": 44443156785
   }
 }
