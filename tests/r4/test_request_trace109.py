@@ -84,7 +84,7 @@ class HTTP(unittest.TestCase):
     status,out=self.post(payload);self.assertEqual(status,422);self.assertFalse(out['accepted'])
    run.assert_not_called()
  def test_valid_unsupported_real_no_process(self):
-  with patch('repair_attempt_control.run_bounded',side_effect=AssertionError('NO_PROCESS'))as launch:
+  with patch('subprocess.Popen',side_effect=AssertionError('NO_PROCESS'))as launch:
    status,out=self.post(b'{"W":"18","L":"20","n":2}')
    self.assertEqual(status,409);r=out['study_result'];self.assertEqual(r['state'],'UNSUPPORTED_TRACE_STUDY_CONTRACT');self.assertEqual(r['attempt_count'],0);self.assertFalse(r['receipt_verified']);launch.assert_not_called()
  def test_static_api_has_no_product_surface(self):
