@@ -1,5 +1,6 @@
 """Same 50 lots through unchanged historical engine114, never public admission.
 Raw models/reports remain process memory only; safe checkpoints are not replay archives.
+Enum strings use a shape filter from pinned source, not a semantic allowlist of every code.
 """
 import contextlib,hashlib,json,math,os,random,re,signal,subprocess,sys,tempfile,time
 from pathlib import Path
@@ -150,10 +151,10 @@ def self_test():
  class Digest:
   @staticmethod
   def digest(value):return sha(packed(value))
- raw={'status':'NO_ADMITTED_LAYOUT','reason':'SECRET_FREE_TEXT','search_evidence':{},
+ raw={'status':'NO_ADMITTED_LAYOUT','reason':'private free text must not be emitted','search_evidence':{},
  'internal_proposals':[{'model':{'PRIVATE_COORDINATES':'PRIVATE_SENTINEL'},'gate':{'status':'FAIL','errors':[{'code':'TEST_FAILURE','private':'PRIVATE_SENTINEL'}],'pending':[]}}]}
  result=project(raw,Digest)
- assert 'PRIVATE_SENTINEL'not in str(result)and'SECRET_FREE_TEXT'not in str(result)
+ assert 'PRIVATE_SENTINEL'not in str(result)and'private free text must not be emitted'not in str(result)
  assert result['models'][0]['physical']['error_codes']==['TEST_FAILURE']
  assert result['current_qualified_count']is None and result['current_four']=='NOT_RUN'
  assert enum('arbitrary private text')is None and count(True)is None and number(float('nan'))is None
