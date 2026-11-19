@@ -1,0 +1,25 @@
+name: R4 one-bedroom pair bounded source study
+on:
+  push:
+    paths:
+      - 'app/local_integration/one_bed_pair_source_study.py'
+      - 'tests/r4/test_one_bed_pair_source_study.py'
+      - '.github/workflows/r4-one-bed-pair-study.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B -m unittest discover -s tests/r4 -p test_one_bed_pair_source_study.py -v
+      - run: python -B app/local_integration/one_bed_pair_source_study.py
+      - run: git diff --exit-code
