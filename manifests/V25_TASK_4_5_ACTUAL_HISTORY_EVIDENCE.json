@@ -1,0 +1,136 @@
+{
+  "task": "4.5",
+  "status": "DONE_SCOPED_ACTUAL_HISTORY_AND_TAMPER_AUDIT_DELIVERY_BLOCKED",
+  "start_utc": "2026-11-19T05:49:38Z",
+  "deadline_utc": "2026-11-19T08:49:38Z",
+  "tested_commit": "094f298d066e5e04c169549ee84b85a1ae8bf495",
+  "run": 44468288358,
+  "job": 135371272401,
+  "evidence": {
+    "accepted": false,
+    "budget_classification": {
+      "budget_reset": false,
+      "delivery_allowed": false,
+      "limit_seconds": 240,
+      "scope": "Classification of verified retained task4.3 parent receipt, not a re-execution or proof of quality",
+      "state": "REPAIR_CANDIDATE_OBTAINED_BUT_DELIVERY_BLOCKED",
+      "used_seconds": 80.06103528700001
+    },
+    "child_decision_digest": "afabc26974d97f27a9ed60caa2259f7fb6b24f47def17a0c1b47332bcf3fd0ba",
+    "child_full_physical_digest": "a6d3e620ca49df2ef06ed57db676d8e79628fc0f15acb30979c4db1f8de70799",
+    "child_model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_execution_nonce": "8596dc8242fe49b194a29fd058bf4465",
+    "integrity_verified": true,
+    "nodes": [
+      {
+        "kind": "ORIGINAL_REJECTED",
+        "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181"
+      },
+      {
+        "id": "SOURCE_BOUND_GROUPED_GUEST_MOTION_V1",
+        "kind": "EXISTING_OPERATOR_SELECTED"
+      },
+      {
+        "kind": "FRESH_DISTINCT_CHILD_CONSTRUCTED",
+        "model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44"
+      },
+      {
+        "decision_digest": "afabc26974d97f27a9ed60caa2259f7fb6b24f47def17a0c1b47332bcf3fd0ba",
+        "kind": "ALL_FRESH_GATES_RECORDED"
+      },
+      {
+        "kind": "DELIVERY_BLOCKED",
+        "reasons": [
+          "CURRENT_UNKNOWN",
+          "HISTORICAL_UNRESOLVED_RETAINED"
+        ]
+      }
+    ],
+    "original_parent_physical_digest": "44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322",
+    "parent_attempt_id": "PROGRAM_2BED_V1:56a79da1b6414fb993561193d21728cd",
+    "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "protected_preservation": {
+      "accepted": false,
+      "child_model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+      "contract_digest": "64d7700851e02fb72cc9debe115783222b19671f9b37c24fa137ac9e97ee09b0",
+      "current_requirements_verified": false,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "fresh_origin_verified": false,
+      "model_changed": true,
+      "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "physical_verified": false,
+      "protected_state_verified": true,
+      "qualified": false,
+      "schema": "TYPED_REPAIR_PRESERVATION_RESULT_V1",
+      "scope": "Preservation only. No permission to skip fresh original provenance, evaluator or current four checks."
+    },
+    "qualified": false,
+    "rejection_matches_same_operator_scope": false,
+    "repeat_execution_authorized_by_this_audit": false,
+    "schema": "ACTUAL_REJECTION_FRESH_CHILD_HISTORY_V1",
+    "scope": "Read-only binding of actual task4.3 execution evidence and pure decision replay, not another fresh generation, runtime budget-controller replacement, or full product acceptance.",
+    "selected_operator_id": "SOURCE_BOUND_GROUPED_GUEST_MOTION_V1",
+    "source_snapshot": {
+      "app/local_integration/bounded_repair_chain.py": "e7136bfbf6aedee32a38adbbdc40dd00dfdf79533286e8828d188dcca6888ef9",
+      "app/local_integration/current_four_decision.py": "8929ffaf179b0c69296f2d6104ba4cf50119df8e4f2957a22640178ae0eca7f8",
+      "app/local_integration/explicit_pair_redirection.py": "bfc0b5c40828e67f01efe7214a4054907bd94cfcd0e7c8534e42963d65643505",
+      "app/local_integration/protected_repair_contract.py": "132cf53e5af2f2e05ff7d8bfe279b177d6fdd432fcfe878e170a57c88e944ccf",
+      "app/local_integration/repair_attempt_control.py": "b95470a22abb51a67ae18ecbb7b185a0849363e327847c88c2fda18701eba2b2",
+      "app/local_integration/repair_history_audit.py": "958c2f2a80488d0844681211888bcc7a7b99ec51e140af7f65e73f6a7697794b"
+    },
+    "state": "HISTORY_VERIFIED_DELIVERY_BLOCKED",
+    "tests": {
+      "fresh_geometry_executed": false,
+      "pinned_artifact_mutations": [
+        "parent_model",
+        "parent_pending",
+        "programme_type",
+        "programme_lower",
+        "fixture_dimension",
+        "core_type",
+        "lineage",
+        "child_reused_parent",
+        "receipt_delivery",
+        "receipt_timeout",
+        "receipt_budget",
+        "decision_pass",
+        "decision_integrity",
+        "source_pin"
+      ],
+      "rehashed_structural_mutations": [
+        "receipt_authority",
+        "parent_model",
+        "decision_authority",
+        "receipt_returncode",
+        "receipt_count_type"
+      ],
+      "scope": "Pinned artifact identities are trust anchors, not cryptographic signatures proving arbitrary uploaded histories"
+    }
+  },
+  "artifact": {
+    "id": 14502997075,
+    "sha256": "902c184fc18b2c1508337fa98df57361f399d9689edc09c36eeee1c08b085b46",
+    "expires_at": "2026-12-19T05:55:17Z"
+  },
+  "fresh_execution_reference": {
+    "task": "4.3",
+    "run": 44466696183,
+    "commit": "54b001d2e3b128b3dc0ecb45dae172291a37eb65"
+  },
+  "scope": "Audit of actual retained generation/rejection/reconstruction/re-evaluation history, not another generation. Trusted pinned artifacts are consistency trust anchors, not cryptographic authentication of arbitrary uploads.",
+  "limitations": [
+    "Final current decision remains BLOCKED",
+    "No automatic public-UI repair integration added",
+    "Task4.4 new controller remains separately tested, not retroactively used by4.3",
+    "Same rejection matcher false for child is not a general readiness/authority decision",
+    "Four current criteria are not all PRD requirements"
+  ],
+  "reproduction": "Run .github/workflows/v25-repair-history-audit.yml at tested commit; downloads pinned4.1/4.2/4.3 and parent live evidence. No solver.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

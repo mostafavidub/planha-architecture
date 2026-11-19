@@ -536,14 +536,19 @@
       "description_verbatim": "۴.۵. آزمون واقعی از تاریخچه: طرح ردشده → طرح تازه → بررسی مجدد، همراه تست دستکاری و عدم تحویل طرح ناقص. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_ACTUAL_HISTORY_AND_TAMPER_AUDIT_DELIVERY_BLOCKED",
       "dependencies": [
         "4.4",
         "3.6"
       ],
       "start_utc": "2026-11-19T05:49:38Z",
       "deadline_utc": "2026-11-19T08:49:38Z",
-      "scope": "Bind retained actual4.3 rejection→new child→all-gates history with tamper/no-delivery tests; no repeated solver or live-controller adoption claim."
+      "scope": "Bind retained actual4.3 rejection→new child→all-gates history with tamper/no-delivery tests; no repeated solver or live-controller adoption claim.",
+      "completed_utc": "2026-11-19T05:55:17Z",
+      "tested_commit": "094f298d066e5e04c169549ee84b85a1ae8bf495",
+      "run": 44468288358,
+      "tests": "14 pinned artifact mutations plus5 rehashed structural mutations",
+      "remaining": "No product qualification or publicUI auto-repair integration claimed; current UNKNOWN and historical unresolved preserved."
     },
     {
       "id": "5.1",
@@ -551,10 +556,13 @@
       "description_verbatim": "۵.۱. پیش‌ثبت زمین‌های کوچک، متوسط، بزرگ، غیرمربع، اعشاری و مرزی و انتظار هر آزمون. ۶۰ دقیقه",
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "0.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:55:57Z",
+      "deadline_utc": "2026-11-19T08:55:57Z",
+      "scope": "Preregister input strata and expected valid/unsupported/invalid outcomes before matrix run; no expansion of timeboxed automatic search."
     },
     {
       "id": "5.2",
