@@ -93,7 +93,7 @@
       "description_verbatim": "۱.۳. ساخت جست‌وجوی خودکارِ گزینه‌های برنامه با ثبت علت، بودجه و ترتیب بررسی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PARTIAL_FRAMEWORK_TESTED_LIVE_SEARCH_PENDING",
+      "status": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_VERIFIED_NOT_FULL_SEARCH",
       "dependencies": [
         "1.1",
         "1.2",
@@ -103,15 +103,14 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5.",
-      "checkpoint_utc": "2026-11-19T03:35:04Z",
-      "commit": "b7d0bdfd775cc614a540fcbfaf1a377077241065",
-      "run": 44452389525,
+      "checkpoint_utc": "2026-11-19T04:49:23Z",
+      "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+      "run": 44460753648,
       "tests": {
-        "scheduler": 17,
-        "previous": 63,
-        "total": 80
+        "combined_live_scheduler_order": 49
       },
-      "remaining": "Single 18x20/n2 synthetic scheduler only; no live adapter or model; detailed ordering task1.4 and runtime task2.5 remain. Wall budget is accounting, not callback termination."
+      "remaining": "Live18x20/n2 single-contract attempt only; multi-programme/dimension search, quality and publicAPI not complete.",
+      "live_continuation_start_utc": "2026-11-19T04:43:45Z"
     },
     {
       "id": "1.4",
@@ -119,7 +118,7 @@
       "description_verbatim": "۱.۴. بررسی تغییر هسته، تقسیم و جانمایی پیش از بررسی برنامه با خواب کمتر؛ بدون تغییر پنهانی برنامه. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "PARTIAL_POLICY_TESTED_RUNTIME_ORDER_PENDING",
+      "status": "PARTIAL_LIVE_ORDER_DISPOSITIONS_ALTERNATIVE_SEARCH_PENDING",
       "dependencies": [
         "1.3"
       ],
@@ -127,15 +126,14 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset.",
-      "checkpoint_utc": "2026-11-19T03:38:29Z",
-      "commit": "b25ee08c25abf3b2f994bd4221ba31a3bbc4603c",
-      "run": 44452804936,
+      "checkpoint_utc": "2026-11-19T04:49:23Z",
+      "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+      "run": 44460753648,
       "tests": {
-        "policy": 12,
-        "previous": 80,
-        "total": 92
+        "combined_live_scheduler_order": 49
       },
-      "remaining": "Disposition records and budget policy only, not actual preceding comparative search; receipt labels unverified until live runtime."
+      "remaining": "Only placement actual; alternative core/split/optional merge NOT_IMPLEMENTED; one-bed adapter not ready; AP07 incomplete. No budget reset.",
+      "live_continuation_start_utc": "2026-11-19T04:43:45Z"
     },
     {
       "id": "1.5",
