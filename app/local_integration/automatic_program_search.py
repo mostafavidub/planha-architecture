@@ -98,5 +98,9 @@ def run(body,*,test_adapter=None,clock=None,budget=None):
         if digest([binding,alts,limits])!=initial:raise ValueError('SCHEDULER_INPUT_CHANGED')
     end=_clock_value(clock,last)
     out['elapsed_seconds']=end-started
-    out['transition_policy_status']='DEFERRED_TASK_1_4_NOT_EXHAUSTIVENESS_REQUIREMENT'
+    from program_search_order import policy,stage_record,STAGES
+    out['order_policy']=policy()
+    out['ordered_stage_dispositions']=[stage_record(stage,'NOT_IMPLEMENTED',
+      'No live '+stage.lower()+' adapter in this framework; synthetic unit-test callbacks are not geometric attempts.') for stage in STAGES]
+    out['transition_policy_status']='BOUNDED_POLICY_RECORDED_NOT_EXHAUSTIVENESS_REQUIREMENT'
     return out
