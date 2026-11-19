@@ -79,9 +79,9 @@ def worker(index,path):
    safe=project(out,engine)
   after=guard()
   if before!=after:raise ValueError('SOURCE_CHANGED')
-  result.update(safe,collection_state='ENGINE_RETURNED',source_before=before,source_after=after,source_unchanged=True)
+  result.update(safe,collection_state='ENGINE_RETURNED',source_before=before,source_after=after,source_unchanged=True,source_integrity='VERIFIED_UNCHANGED')
  except Exception as exc:
-  result.update(collection_state='WORKER_ERROR',exception_type=type(exc).__name__,error_code=str(exc)if str(exc)in {'MATRIX_MISMATCH','SOURCE_SET_CHANGED','SOURCE_SYMLINK','SOURCE_BLOB_CHANGED','IMPORT_PATH_MISMATCH','SOURCE_CHANGED'}else'UNCLASSIFIED_INTERNAL_ERROR',source_unchanged=False)
+  result.update(collection_state='WORKER_ERROR',exception_type=type(exc).__name__,error_code=str(exc)if str(exc)in {'MATRIX_MISMATCH','SOURCE_SET_CHANGED','SOURCE_SYMLINK','SOURCE_BLOB_CHANGED','IMPORT_PATH_MISMATCH','SOURCE_CHANGED'}else'UNCLASSIFIED_INTERNAL_ERROR',source_unchanged=None,source_integrity='NOT_VERIFIED')
  result['worker_seconds']=time.monotonic()-start
  p=Path(path);p.with_suffix('.tmp').write_bytes(packed(result));p.with_suffix('.tmp').replace(p)
 def strict(data):
@@ -92,6 +92,12 @@ def strict(data):
    r[k]=v
   return r
  return json.loads(data,object_pairs_hook=obj,parse_constant=lambda x:(_ for _ in()).throw(ValueError('NONFINITE_JSON')))
+def reap(proc):
+ try:
+  if proc.poll()is None:
+   try:os.killpg(proc.pid,signal.SIGKILL)
+   except ProcessLookupError:pass
+ finally:proc.wait()
 def batch(batch_index):
  start=time.monotonic();before=guard();allpairs=pairs();rows=[]
  emit({'scope':SCOPE,'event':'BATCH_PREREGISTERED','batch':batch_index,'indices':list(range(batch_index*10+1,batch_index*10+11)),'matrix_digest':PAIR_SHA,
@@ -105,8 +111,9 @@ def batch(batch_index):
    cap=min(200,remaining);t=time.monotonic()
    with tempfile.TemporaryDirectory(prefix='legacy50-')as td:
     path=Path(td)/'safe.json'
-    proc=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'--worker',str(index),str(path)],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True)
+    proc=None
     try:
+     proc=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'--worker',str(index),str(path)],cwd=ROOT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True)
      proc.wait(timeout=cap)
      row.update(process_returncode=proc.returncode,process_reaped=True,watchdog_triggered=False)
      if proc.returncode!=0 or not path.is_file():row.update(collection_state='WORKER_EXIT_NO_SAFE_RECEIPT',engine_status=None)
@@ -117,11 +124,11 @@ def batch(batch_index):
       if result.get('case_index')!=index+1 or result.get('input')!=row['input']or result.get('matrix_digest')!=PAIR_SHA or result.get('scope')!=SCOPE:raise ValueError('SAFE_RECEIPT_BINDING')
       row.update(result,safe_receipt_digest=sha(data))
     except subprocess.TimeoutExpired:
-     os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+     reap(proc)
      row.update(collection_state='EXTERNAL_WATCHDOG_TIMEOUT',engine_status=None,watchdog_triggered=True,process_reaped=True,process_returncode=proc.returncode,not_global_infeasibility=True)
     except Exception as exc:
-     if proc.poll()is None:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
-     row.update(collection_state='SAFE_RECEIPT_ERROR',exception_type=type(exc).__name__,engine_status=None,process_reaped=proc.poll()is not None)
+     if proc is not None:reap(proc)
+     row.update(collection_state='WORKER_START_FAILED'if proc is None else'SAFE_RECEIPT_ERROR',exception_type=type(exc).__name__,engine_status=None,process_reaped=proc.poll()is not None if proc is not None else None)
    row['outer_seconds']=time.monotonic()-t
   rows.append(row);emit({'event':'CASE_CHECKPOINT','row':row})
  after=guard();unchanged=before==after
