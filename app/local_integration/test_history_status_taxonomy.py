@@ -13,7 +13,7 @@ def write_record(base,result,body=BODY):
     rid=str(uuid.uuid4());folder=base/rid;folder.mkdir()
     result=deepcopy(result);result['run_id']=rid
     (folder/'request.json').write_bytes(body);(folder/'result.json').write_text(json.dumps(result))
-    (folder/'lifecycle.json').write_text(json.dumps({'wait_completed':True,'http_status':200 if result['outcome']=='EXPERIMENT_COMPLETED'else504,'returncode':0}))
+    (folder/'lifecycle.json').write_text(json.dumps({'wait_completed':True,'http_status':200 if result['outcome']=='EXPERIMENT_COMPLETED' else 504,'returncode':0}))
     return rid
 class StatusTests(unittest.TestCase):
     def test_exact_attempt_categories(self):
