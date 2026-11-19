@@ -917,6 +917,10 @@
     ".github/workflows/r4-dxf-codec307.yml": {
       "blob": "2a3168c33e69c7cc0e3ab46bc4f75550c350a6b2",
       "classification": "SYNTHETIC_DXF_CODEC_STUDY_NO_SOLVER_NO_UPLOAD"
+    },
+    ".github/workflows/r4-preview-codec306.yml": {
+      "blob": "3842a99c63ad019443bcc4d308dcde08d6afd8d2",
+      "classification": "SYNTHETIC_PREVIEW_BROWSER_STUDY_NO_SOLVER_NO_UPLOAD"
     }
   },
   "top_level_paths": [
@@ -1184,7 +1188,8 @@
     "app/local_integration/validate_request.py",
     "app/local_integration/validate_wln_preregistration.py",
     "app/local_integration/validation_server.py",
-    ".github/workflows/r4-dxf-codec307.yml"
+    ".github/workflows/r4-dxf-codec307.yml",
+    ".github/workflows/r4-preview-codec306.yml"
   ],
   "inventory_self_paths": [],
   "python_names": [

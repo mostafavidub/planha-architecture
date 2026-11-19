@@ -1,0 +1,29 @@
+name: R4 synthetic preview codec study
+on:
+  push:
+    paths:
+      - 'studies/r4/preview_codec_study306.py'
+      - 'studies/r4/test_preview_codec_study306.py'
+      - 'studies/r4/run_preview_codec306_browser.py'
+      - '.github/workflows/r4-preview-codec306.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ezdxf==1.4.3 playwright==1.58.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python -B -m unittest discover -s studies/r4 -p test_preview_codec_study306.py -v
+      - run: python -B studies/r4/run_preview_codec306_browser.py
+      - run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
