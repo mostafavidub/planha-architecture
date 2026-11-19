@@ -20,14 +20,16 @@ def run():
         before=digest(obj);result=evaluate(obj['packet'],obj['context'])
         (ROOT/('left-right-two-bundle-'+w+'x'+l+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2))
         assert result['completed'],result['errors']
-        assert result['status']=='HISTORICAL_COMPATIBILITY_BLOCKED'
+        assert result['status']=='FAIL' and result['historical_compatibility']=='BLOCKED'
+        assert result['historical_report_digest_before_current']==result['historical_report_digest_after_current']
+        assert result['current_functional_report']['physical_review_digest']==result['historical_report_digest_before_current']
         assert result['historical_full_report']['errors']==row['original_full_evaluation']['errors']
         assert result['historical_full_report']['pending']==row['original_full_evaluation']['pending']
         assert result['historical_full_report']['status']=='FAIL'
         assert all(result[k]is False for k in ('accepted','qualified','display_allowed','delivery_allowed','whole_physical_verified','whole_functional_verified','production_supported'))
         assert result['input_bundle_digest']==result['output_bundle_digest'] and digest(obj)==before
         raw='VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED'
-        physical=result['physical_and_named_original_checker']
+        physical=result['historical_full_report']
         assert raw in physical['original_pending'] and raw in physical['not_evaluated']
         assert any(r.get('code')==raw for r in physical['out_of_scope'])
         assert any(r['value']==raw for r in result['pending_obligations'])
@@ -42,7 +44,7 @@ def run():
     ]:
         p,c=copy.deepcopy(obj['packet']),copy.deepcopy(obj['context']);mutate(p,c);r=evaluate(p,c)
         assert not r['completed'] and r['status']=='EVIDENCE_BUNDLE_FAILED_CLOSED'
-        assert 'original_checker114_with_original_named_checks'not in r['stages']
+        assert 'original_evaluate_pair127_with_original_physical_named'not in r['stages']
         negative.append({'name':name,'errors':r['errors'],'binding_errors':r['source_derived_shape_d4']['errors'],'stages':r['stages']})
     require_unchanged(ROOT,sources);assert guard(FREEZE)==12991
     report={'schema':'V25_LEFT_RIGHT_TWO_EVIDENCE_BUNDLE_TEST_V1','passed':True,'positive':positives,'negative':negative,'source_snapshot':sources,'guard_before':12991,'guard_after':12991,'accepted':False,'delivery_allowed':False,'scope':'Integration evidence only; every original report and current UNKNOWN retained. No production support or historical schema replacement.'}
