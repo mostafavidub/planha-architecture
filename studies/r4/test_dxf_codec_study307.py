@@ -52,6 +52,11 @@ class CodecStudy(unittest.TestCase):
   def change(d):
    for e in d.modelspace().query('TEXT'):e.dxf.text='CORRUPT'
   with self.assertRaisesRegex(ValueError,'NAME_OR_LOCATION_PARITY'):parity(self.s,modified(self.b,change))
+ def test_corrupt_unicode_escape_is_not_repaired(self):
+  for replacement in (b'\\U+0628',b'\\U+ZZZZ'):
+   bad=self.b.replace(b'\\U+0627',replacement,1)
+   self.assertNotEqual(bad,self.b)
+   with self.assertRaisesRegex(ValueError,'NAME_OR_LOCATION_PARITY'):parity(self.s,bad)
  def test_wrong_layer(self):
   def change(d):
    for e in d.modelspace():

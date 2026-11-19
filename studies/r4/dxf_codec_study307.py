@@ -79,6 +79,7 @@ def encode(s):
  return data
 def observe(data):
  import ezdxf
+ from ezdxf.lldxf.encoding import decode_dxf_unicode
  require(ezdxf.__version__=='1.4.3','READER_VERSION')
  require(type(data)is bytes,'BYTES_REQUIRED')
  doc=ezdxf.read(io.StringIO(data.decode('ascii'),newline=None))
@@ -93,7 +94,7 @@ def observe(data):
   elif e.dxftype()=='TEXT':
    require(layer.startswith('N__') and layer not in names,'TEXT_LAYER')
    p=e.dxf.insert;require(p.z==0,'NONPLANAR')
-   names[layer]=(e.plain_text(),(F(str(p.x)),F(str(p.y))))
+   names[layer]=(decode_dxf_unicode(e.plain_text()),(F(str(p.x)),F(str(p.y))))
   else:raise ValueError('UNSUPPORTED_ENTITY')
  boxes={}
  for layer,segs in lines.items():
