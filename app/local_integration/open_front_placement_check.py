@@ -38,7 +38,7 @@ def check_module_placements(model):
    same([rect(q)for q in u['rooms'][rid]],[tr(q)for q in module['unit']['rooms']['kitchen'if module.get('schema')in('KITCHEN_MODULE117','KITCHEN_OPEN_FRONT_STUDY_V1')else'bath'if module.get('schema')=='BATHROOM_MODULE117'else'bed1']],'component_floor')
    apron=model.get('module_aprons',{}).get(uid+'.'+rid,[])
    same([rect(q)for q in apron],[tr(q)for q in module['unit']['rooms']['public_access']],'public_apron')
-   from typed_public_access120 import parts as typed_public_parts
+   from open_front_typed_public import parts as typed_public_parts
    private_module=module.get('schema')in('PRIVATE_ROOM_MODULE116','PRIVATE_TWIN_ROOM_MODULE118')
    public_role=mapping.get('K.public_access')if module.get('schema')in('KITCHEN_MODULE117','KITCHEN_OPEN_FRONT_STUDY_V1')else mapping.get('M.public_access',uid+'.public_access')if private_module else uid+'.public_access'
    allowed_roles={uid+'.public_access'}|({uid+'.kitchen_public_access'}if module.get('schema')in('KITCHEN_MODULE117','KITCHEN_OPEN_FRONT_STUDY_V1')else{uid+'.private_access',uid+'.bedroom_public_access'}if private_module else set())
