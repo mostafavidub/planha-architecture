@@ -17,7 +17,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
     origin=verify(packet,trace);m=packet['world_model'];old=baseline_packet['world_model']
     bt=baseline_context['construction_trace']
     if bt.get('schema')!='CONSTRUCTION_TRACE127_PAIR_V1' or digest(bt['raw'])!=digest(trace['raw']) or digest(bt['proposals'])!=digest(trace['proposals']):raise ValueError('ACTUAL_PREDECESSOR_INPUT_PROPOSAL_BINDING')
-    if digest(m['inputs'])!=digest(old['inputs']) or digest(m['program'])!=digest(old['program']):raise ValueError('BEFORE_AFTER_PROGRAM_BINDING')
+    if digest(m['inputs'])!=digest(old['inputs']) or digest(m['program'])!=digest(old['program']) or digest(m['profile'])!=digest(old['profile']):raise ValueError('BEFORE_AFTER_PROGRAM_BINDING')
     before=digest([packet,trace,baseline_packet,baseline_context])
     baseline=baseline_evaluate(baseline_packet,baseline_context)
     if baseline.get('status')!='PASS_CONCEPT_SCOPED_REVIEW' or baseline.get('errors') or baseline.get('pending') or not baseline.get('multiproposal_provenance127',{}).get('verified'):raise ValueError('BASELINE_NOT_FRESH_VERIFIED')
