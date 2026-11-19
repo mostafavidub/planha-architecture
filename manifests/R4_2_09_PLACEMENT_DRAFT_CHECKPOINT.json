@@ -1,0 +1,39 @@
+{
+  "schema": "R4_2_09_PLACEMENT_DRAFT_CHECKPOINT_V1",
+  "task": "R4-2.09",
+  "started_at": "2026-11-19T07:34:33Z",
+  "deadline": "2026-11-19T10:34:33Z",
+  "status": "PARTIAL_DRAFT_CONTRACT_AND_SYNTHETIC_FIXTURES_NOT_RUN",
+  "draft_commit": "faf8309624283b57a36a0768949388685e604b77",
+  "draft_branch": "r4-placement-reference-draft",
+  "files": [
+    "studies/r4/placement_reference_contract.py",
+    "studies/r4/test_placement_reference_contract.py",
+    "specs/R4_MODULE_PLACEMENT_REFERENCE_CONTRACT_DRAFT.json"
+  ],
+  "source_files_inspected": 5,
+  "tests_prepared": 19,
+  "tests_executed": 0,
+  "model_executed": false,
+  "main_active_code_changed": false,
+  "scope": "Placement record structure, supplied content digest, signed permutation and typed namespace reference binding only. Dining fixture-only mapping separate from generic modules and source activity aliases.",
+  "review_corrections": [
+    "Whole absent module placement list rejected; partial module and source inventory completeness remains NOT_CHECKED",
+    "Extra generic id_map keys explicitly listed as unvalidated; valid opening/role/port aliases are not blindly rejected",
+    "Structured Unicode failure fixture prepared; no observed runtime claim",
+    "Exact JSON types distinguish int/float/bool; unit-local A/B identities remain distinct"
+  ],
+  "not_proven": [
+    "Authenticity of embedded source module",
+    "Geometric equality to transformed source",
+    "Completeness of programme placements",
+    "Opening/port/role/operation or dining activity references",
+    "Whole14recordpath or40error closure",
+    "Physical or current criterion approval"
+  ],
+  "remaining": "Run prepared negatives after Actions restoration; add independently source-bound completeness/geometry/semantic contracts only within family/version prerequisites. No retry/payment change.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
