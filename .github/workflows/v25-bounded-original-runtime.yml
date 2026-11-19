@@ -2,6 +2,7 @@ name: V25 bounded original runtime task 2.5
 on:
   push:
     paths:
+      - 'app/local_integration/front_rear_runtime_adapter.py'
       - 'app/local_integration/run_front_rear_bounded_experiment.py'
       - '.github/workflows/v25-bounded-original-runtime.yml'
   workflow_dispatch:
