@@ -70,7 +70,8 @@
     "Privacy probe only strict single-wall source-bed separators; absent certificate is not proven sight.",
     "Routes are fixed existing paths against wall material only, not fresh access improvement.",
     "Core/shell walls not removed or authorized for removal.",
-    "No constructed model or historical gate modification."
+    "No constructed model or historical gate modification.",
+    "Final independent review: separator target selection kind=bed covers double beds only; twin single_bed targets are NOT_EVALUATED. No privacy-completeness claim; material/boundary scope unaffected."
   ],
   "reproduce": "Checkout tested commit and run .github/workflows/v25-source-wall-function.yml while input artifact14497880207 remains available (expires2026-12-19T04:01:05Z). It verifies original bundle SHA fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720. After expiration reconstruct original task2.5 at9bf9ada0a9c71b413d07573e97aed0cdce6a71cd; exact new model identity must be reverified, not assumed.",
   "accepted": false,
