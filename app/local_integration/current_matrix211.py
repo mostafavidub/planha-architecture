@@ -174,7 +174,7 @@ def child(folder,case,nonce):
    result=mod.assess(evidence)
    # Preserve returned report before validation, including errors or malformed JSON-shaped evidence.
    captured,json_ok=capture_returned(result)
-   originals['current_'+name]=captured;pins['current_'+name]=digest(captured);live['current_'+name]=copy.deepcopy(captured);save()
+   originals['current_'+name]=captured;pins['current_'+name]=digest(captured);live['current_'+name]=result if json_ok else copy.deepcopy(captured);save()
    need(json_ok,'NONJSON_CURRENT_RETURNED_REPORT')
    current_report_binding(name,result,evidence);check()
    out['current_assessments'][name]={'state':result['state'],'integrity_verified':result['integrity_verified'],'report_digest':digest(result)}
