@@ -200,7 +200,7 @@ def child(folder,case,nonce):
    need(audited and snap is not None,'INITIAL_AUDIT_NOT_ESTABLISHED');check()
    need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'FINAL_ENGINE_GUARD');out['integrity_verified']=True
   except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,origin_observed_at_checkpoint=out.get('independent_origin_verified',False),independent_origin_verified=False,roundtrip_verified=False,integrity_error_type=type(ex).__name__)
-  out.update(report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False,evidence_usable=out.get('completed')is True and out.get('integrity_verified')is True);save()
+  out.update(current_assessment_completed_count=len(out.get('current_assessments',{})),report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False,evidence_usable=out.get('completed')is True and out.get('integrity_verified')is True);save()
 
 def read_summary(path,case,nonce):
  need(path.stat().st_size<=1048576,'SUMMARY_SIZE')
