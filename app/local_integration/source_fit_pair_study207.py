@@ -8,11 +8,11 @@ from datetime import datetime,timezone
 ROOT=Path(__file__).resolve().parents[2]
 ENGINE=ROOT/'app/reconstruction357/planha_general150_runtime_work'
 sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration'),str(ROOT/'frontend')]
-from front_rear_runtime_adapter import transport,proposal_transport,proposal_disposition,preserve_report,verify_reports
+from front_rear_runtime_adapter import transport,proposal_transport,proposal_disposition,preserve_report,verify_reports,packet_binding
 from same_version_front_rear_contract import digest,ENGINE_REVISION,FREEZE
 from one_bed_pair_source_study import code_counts,stop_process
 from core_choice_pair_study import selected_core,bind_profile,bind_program
-from source_fit_profile207 import source_fit,profiles
+from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives
 CASES={'20x18':('20','18'),'18x22':('18','22')}
 def need(ok,code):
  if not ok:raise ValueError(code)
@@ -67,11 +67,19 @@ def child(folder,case,nonce):
   ctx=constructor127.context(raw,packet,proposals);check()
   bundle,_=transport({'packet':packet,'context':ctx});bp=digest(bundle);packet=bundle['packet'];ctx=bundle['context'];model=packet['world_model']
   need(digest(ctx['construction_trace']['raw'])==digest(raw)and digest(ctx['construction_trace']['proposals'])==digest(proposals),'CONTEXT_ASSIGNMENTS')
+  packet_binding(packet,ctx,raw,p);check()
   out.update(model_digest=digest(model),program_digest=digest(model['program']),fit_state=originals['preconstruction_fit']['state']);save()
   out['stage']='ORIGINAL_REPLAY_AND_FULL_PHYSICAL';save()
   retain('original_replay',construction_replay127.verify(model,ctx))
   retain('physical',evaluate_pair127.evaluate(packet,ctx))
   need(originals['physical']['model_hash']==digest(model),'PHYSICAL_MODEL_BINDING')
+  out['stage']='INSTALLED_SUBSET_CHECK';save()
+  expected=installation_expectations(proposals,L);pin('expected_installation',expected);check()
+  retain('installed_source_subset',verify_installed_subset(model,expected))
+  retain('actual_source_negatives',installation_negatives(model,expected))
+  out.update(installed_subset_state=originals['installed_source_subset']['state'],installed_record_count=originals['installed_source_subset']['checked_record_count'],
+   actual_negative_count=len(originals['actual_source_negatives']['rows']),actual_negatives_detected=originals['actual_source_negatives']['all_detected'])
+  need(out['installed_subset_state']=='PASS_SOURCE_SUBSET_ONLY'and out['actual_negatives_detected']is True,'INSTALLATION_STUDY_NOT_VERIFIED')
   out.update(state='FULL_REPORTS_RETAINED_NOT_QUALIFIED',completed=True,independent_origin_verified=originals['original_replay'].get('verified')is True,
    legacy_replay_verified=originals['original_replay'].get('verified')is True,
    physical_status=originals['physical'].get('status'),physical_error_counts=code_counts(originals['physical'].get('errors',[])),

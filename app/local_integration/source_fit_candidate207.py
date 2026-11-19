@@ -9,6 +9,7 @@ import numpy as np
 from scipy.optimize import milp,Bounds,LinearConstraint
 from scipy.sparse import lil_matrix
 from contract114 import GRID
+from source_fit_profile207 import profiles
 
 def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED"):
  if bedrooms!=2 or sleep_roles!=['double','twin']or ordered_macro or topology!='SIDE_ROOTED_SERVICES' or organization_profile!='UNRESTRICTED':raise ValueError('SOURCE_FIT207_SCOPE')

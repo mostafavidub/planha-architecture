@@ -10,7 +10,7 @@ ENGINE=ROOT/'app/reconstruction357/planha_general150_runtime_work'
 sys.path.insert(0,str(ENGINE))
 from contract114 import S,digest
 from core_wall_audit118 import q,hit,covered,sweep
-PINS={"search114.py":"65e0f278c9f9ef480388d3ea8056161c0a938a36","bathroom_module117.py":"db08bc7558db9be37ec8ac10839b1173d56555e6","kitchen_module117.py":"8ec837d51e724076d8b479763b132756137de61b","public_witness118.py":"36f49057da712f29953bbc940a0dd8e9285ee64b","typed_public_access120.py":"7c1272549e8036ba642d46f52a50810bcb33951b","final_public_floor120.py":"e91c70d8c308240e2cb7e7784634cecfb036240b","bedroom_module116.py":"289b23f25bafaa05281015b521affad5ab5a415d","twin_module118.py":"0da5c7b24a614d22f7ab9f9a4d2d68bcdb6ede15"}
+PINS={"search114.py":"65e0f278c9f9ef480388d3ea8056161c0a938a36","bathroom_module117.py":"db08bc7558db9be37ec8ac10839b1173d56555e6","kitchen_module117.py":"8ec837d51e724076d8b479763b132756137de61b","public_witness118.py":"36f49057da712f29953bbc940a0dd8e9285ee64b","typed_public_access120.py":"7c1272549e8036ba642d46f52a50810bcb33951b","final_public_floor120.py":"e91c70d8c308240e2cb7e7784634cecfb036240b","bedroom_module116.py":"289b23f25bafaa05281015b521affad5ab5a415d","twin_module118.py":"0da5c7b24a614d22f7ab9f9a4d2d68bcdb6ede15","place_bathroom117.py":"982bbb6dc584641b1a4894751e0f13e252da10ea","place_kitchen117.py":"8d4048d922f8c1052028e0c2e3172f2b8e75c3ce"}
 def need(ok,code):
  if not ok:raise ValueError(code)
 def source_check():
@@ -96,3 +96,51 @@ def source_fit(proposal,core):
  'necessary_errors':sorted(set(necessary)),'conservative_errors':sorted(set(conservative)),'source_module_hashes':{k:digest(v)for k,v in modules.items()},
  'remaining':['ACTUAL_TYPED_PUBLIC_FLOOR_AFTER_INSTALLATION','WHOLE_NEIGHBOR_OPERATIONS','ALL_REQUIRED_ROUTES','QUALITY_AND_HUMAN_PROFILE'],
  'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
+
+def installation_expectations(proposals,L):
+ """Rebuild only wet/kitchen installed subsets with actual source installers."""
+ import bathroom_module117,kitchen_module117,place_bathroom117,place_kitchen117
+ expected={'module_aprons':{},'operations':{},'units':[],'walls':{},'wall_hosts':{},'source_wall_hosts':{},'openings':[]}
+ for uid in ('A','B'):
+  u={'id':uid,'rooms':{},'fixtures':{},'fixture_metadata':{},'activities':{}};expected['units'].append(u)
+  for role,builder,installer in (('bath',bathroom_module117.build,place_bathroom117.install),('kitchen',kitchen_module117.build,place_kitchen117.install)):
+   need(Path(inspect.getsourcefile(installer)).resolve()==ENGINE/('place_bathroom117.py'if role=='bath'else'place_kitchen117.py'),'INSTALLER_PATH')
+   rect=proposals[uid]['rectangles'][role];a,b,c,d=q(rect)
+   module=builder(S(c-a),S(d-b))
+   installer(module,expected,u,uid,rect,L)
+ return expected
+def verify_installed_subset(model,expected):
+ errors=[];checks=0
+ for key,value in expected['module_aprons'].items():
+  checks+=1
+  if digest(model.get('module_aprons',{}).get(key))!=digest(value):errors.append('INSTALLED_APRON_SOURCE_MISMATCH')
+ for kind in ('kitchen','doors'):
+  for op in expected['operations'][kind]:
+   identity=('unit',op['unit'])if kind=='kitchen'else('opening_id',op['opening_id'])
+   actual=[v for v in model.get('operations',{}).get(kind,[])if v.get(identity[0])==identity[1]]
+   checks+=1
+   if len(actual)!=1 or digest(actual[0])!=digest(op):errors.append('INSTALLED_OPERATION_SOURCE_MISMATCH')
+ for eu in expected['units']:
+  us=[u for u in model['units']if u['id']==eu['id']];need(len(us)==1,'INSTALLED_UNIT_NAMESPACE')
+  for field in ('fixtures','activities','fixture_metadata'):
+   for key,value in eu[field].items():
+    checks+=1
+    if digest(us[0].get(field,{}).get(key))!=digest(value):errors.append('INSTALLED_SOURCE_RECORD_MISMATCH')
+ return {'schema':'WET_KITCHEN_INSTALLATION207_V1','state':'FAIL_SOURCE_BINDING'if errors else'PASS_SOURCE_SUBSET_ONLY',
+ 'errors':sorted(set(errors)),'pending':[],'checked_record_count':checks,'model_digest':digest(model),'expected_subset_digest':digest(expected),
+ 'remaining':['OTHER_MODULES','WHOLE_FLOOR_ACCESS','WHOLE_NEIGHBOR_PHYSICS','HUMAN_PROFILE_QUALITY'],'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
+def installation_negatives(model,expected):
+ pin=digest(model);rows=[]
+ for name in ('REMOVE_APRON','MOVE_DRAWER_ACTOR','CHANGE_FRIDGE_RADIUS','CHANGE_FIXTURE_DIMENSION'):
+  mutated=copy.deepcopy(model)
+  if name=='REMOVE_APRON':mutated['module_aprons']['A.bath']=[]
+  elif name=='MOVE_DRAWER_ACTOR':
+   op=next(v for v in mutated['operations']['kitchen']if v['unit']=='A');op['drawers']['sink']['open_actor'][0]=S(F(op['drawers']['sink']['open_actor'][0])+1)
+  elif name=='CHANGE_FRIDGE_RADIUS':
+   op=next(v for v in mutated['operations']['kitchen']if v['unit']=='A');op['fridge']['leaf_radius_m']='.1'
+  else:
+   u=next(u for u in mutated['units']if u['id']=='A');u['fixtures']['fridge'][2]=S(F(u['fixtures']['fridge'][2])+F('.1'))
+  r=verify_installed_subset(mutated,expected);rows.append({'mutation':name,'detected':r['state']=='FAIL_SOURCE_BINDING','error_codes':r['errors'],'mutated_model_digest':digest(mutated)})
+ need(digest(model)==pin,'NEGATIVE_MUTATED_ORIGINAL')
+ return {'schema':'INSTALLATION_DETACHED_NEGATIVES207_V1','original_model_digest':pin,'original_unchanged':True,'all_detected':all(r['detected']for r in rows),'rows':rows,
+ 'scope':'Direct source-subset correspondence failures, not complete neighbor physics or architectural infeasibility','accepted':False}
