@@ -108,7 +108,8 @@
         "Core fit failure belongs to selected topology, not global infeasibility",
         "No automatic different core/split/program search proven",
         "Current version runtime remains untested after public contract change"
-      ]
+      ],
+      "study_preflight_ready_predicate": "Exact normalized18x20/n2 only; coded capability, no currentV2 fresh runtime claim"
     },
     {
       "id": "LEFT_RIGHT",
@@ -127,7 +128,8 @@
         "World transform requires exact geometry/metadata/source/evaluator compatibility",
         "Historical family studies do not extend selected public contract",
         "No source branch presence interpreted as current acceptance"
-      ]
+      ],
+      "study_preflight_ready_predicate": false
     },
     {
       "id": "SINGLE_UNIT",
@@ -137,7 +139,8 @@
       "active_public_case": null,
       "readiness": "VALID_PUBLIC_INPUT_UNSUPPORTED_SELECTED_ENGINE",
       "production_supported": false,
-      "required_task": "R4-2.04"
+      "required_task": "R4-2.04",
+      "study_preflight_ready_predicate": false
     }
   ],
   "programmes": [
@@ -151,7 +154,8 @@
       "source_inventory": "Modules/assembly branch identified, not wholebundle adequacy",
       "execution": "ONE_BED_ADAPTER_NOT_AUDITED",
       "target_task": "R4-2.05",
-      "public_execution_supported": false
+      "public_execution_supported": false,
+      "extra_source_bundle": "Four dining places/four living furniture items exist in source despite sleepdesign2; existence neither optimization nor functionalapproval. Do not increase sleepingcapacity."
     },
     {
       "id": "PROGRAM_2BED_V1",
@@ -350,5 +354,11 @@
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "study_budget": {
+    "max_attempts": 1,
+    "solver_seconds": 30,
+    "shared_child_seconds": 180,
+    "meaning": "Existing selected-study engineering limits only; not complete FR-LOOP-BOUNDS policy for candidates/familychanges/retries/no-progress/resources. Setup/sourceaudits excluded from childwall cap."
+  }
 }
