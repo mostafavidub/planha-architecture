@@ -33,14 +33,14 @@ class PublicWLNTests(unittest.TestCase):
             self.reject(body(**{k:2}),'UNEXPECTED_PUBLIC_FIELD',422)
     def test_missing(self):
         for k in ('W','L','n'):
-            x=json.loads(body());del x[k];self.reject(json.dumps(x).encode(),'FIELD_REQUIRED')
+            x=json.loads(body());del x[k];self.reject(json.dumps(x).encode(),'INPUT_REQUIRED' if k=='n' else 'FIELD_REQUIRED')
     def test_duplicates(self):
         for b in (b'{"W":5,"W":25,"L":20,"n":2}',b'{"W":5,"\\u0057":25,"L":20,"n":2}',
                   b'{"W":5,"L":20,"n":2,"program":{"x":1,"x":2}}'):
             self.reject(b,'DUPLICATE_FIELD')
     def test_invalid_types(self):
         for k in ('W','L','n'):
-            for v in (True,False,None,[],{}):self.reject(body(**{k:v}),'INVALID_FIELD_TYPE')
+            for v in (True,False,None,[],{}):self.reject(body(**{k:v}),('INPUT_REQUIRED' if v is None else 'INVALID_BRIEF') if k=='n' else 'INVALID_FIELD_TYPE')
     def test_invalid_unit_count(self):
         for v in (0,-1,'0','-1','1.5','01',' 2'):
             self.reject(body(n=v),status=422)
@@ -54,7 +54,7 @@ class PublicWLNTests(unittest.TestCase):
     def test_mvp_unit_domain(self):
         for n in (3,4,'3','4','۳','٤',100):
             self.reject(body(n=n),'INVALID_BRIEF',422)
-        self.assertEqual(parse_public(body())['schema'],'V25_PUBLIC_WLN_CONTRACT_V2')
+        self.assertEqual(parse_public(body())['schema'],'V25_PUBLIC_WLN_CONTRACT_V3')
     def test_v1_envelope_not_silently_relabelled(self):
         e=parse_public(body());e['schema']='V25_PUBLIC_WLN_CONTRACT_V1'
         with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):engine_raw(e)

@@ -1,0 +1,32 @@
+{
+  "schema": "R4_UNIT_ERROR_SEMANTICS_DRAFT_V3",
+  "task": "R4-1.02",
+  "state": "CODE_AND_TESTS_PREPARED_NOT_RUN",
+  "source_document": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+  "tab": "t.0",
+  "source_interval": [
+    129744,
+    130181
+  ],
+  "rules": {
+    "n_missing_null_blank": "INPUT_REQUIRED",
+    "n_other_invalid": "INVALID_BRIEF",
+    "n_valid": [
+      1,
+      2
+    ],
+    "dimensions": [
+      5,
+      25
+    ],
+    "public_fields": [
+      "W",
+      "L",
+      "n"
+    ]
+  },
+  "transport_limits": "Existing volume/depth/duplicate/nonfinite/oversized numeric limits remain independent failures; only top-level n JsonDecimal is classified INVALID_BRIEF. Integer token syntax preserved; no rounding of decimal/exponent n tokens. W/L decimal JSON token policy unchanged.",
+  "scope": "Draft only; main V2 untouched. CI infrastructure blocked. No browser/solver execution. INPUT_REQUIRED missing/null/whitespace interpretation is explicit; no default.",
+  "dependency": "R4-1.01 remains blocked; preparation independent, completion not claimed",
+  "authority": false
+}

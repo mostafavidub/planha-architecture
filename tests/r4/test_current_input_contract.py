@@ -1,4 +1,4 @@
-"""R4-1.02 focused current V2 HTTP contract tests, no geometry dispatch."""
+"""R4-1.02 focused current V3 HTTP contract tests, no geometry dispatch."""
 import hashlib,http.client,json,pathlib,threading,unittest
 from unittest.mock import patch
 import public_wln_server as server
@@ -45,10 +45,19 @@ class Boundaries(unittest.TestCase):
   for n in (3,4,'3','4'):
    self.rejected({'W':'18','L':'20','n':n},422,'INVALID_BRIEF','n')
  def test_fraction_string_and_empty_unit(self):
-  self.rejected({'W':'18','L':'20','n':'1.5'},422,'POSITIVE_INTEGER_REQUIRED','n')
-  self.rejected({'W':'18','L':'20','n':''},422,'EXACT_DECIMAL_REQUIRED','n')
- def test_decimal_json_wire_unsupported_not_geometry_infeasible(self):
-  self.rejected({'W':'18','L':'20','n':1.5},409,'UNSUPPORTED_JSON_DECIMAL_REPRESENTATION')
+  self.rejected({'W':'18','L':'20','n':'1.5'},422,'INVALID_BRIEF','n')
+  self.rejected({'W':'18','L':'20','n':''},422,'INPUT_REQUIRED','n')
+ def test_unit_decimal_token_is_invalid_brief_no_rounding(self):
+  self.rejected({'W':'18','L':'20','n':1.5},422,'INVALID_BRIEF','n')
+ def test_missing_null_blank_unit_required(self):
+  for value in (None,'',' ','\t'):
+   self.rejected({'W':'18','L':'20','n':value},422,'INPUT_REQUIRED','n')
+  self.rejected({'W':'18','L':'20'},422,'INPUT_REQUIRED','n')
+ def test_other_invalid_unit_values(self):
+  for n in (0,-1,True,False,'abc',[],{},'2.0','2e0'):
+   self.rejected({'W':'18','L':'20','n':n},422,'INVALID_BRIEF','n')
+ def test_dimension_wire_policy_unmodified(self):
+  self.rejected({'W':18.5,'L':'20','n':2},409,'UNSUPPORTED_JSON_DECIMAL_REPRESENTATION')
  def test_hidden_fields(self):
   for name,value in (('bedrooms',2),('requested_count',6),('program',{'bedrooms_per_unit':2})):
    self.rejected({'W':'18','L':'20','n':2,name:value},422,'UNEXPECTED_PUBLIC_FIELD',name)
