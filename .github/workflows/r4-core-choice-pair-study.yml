@@ -1,0 +1,31 @@
+name: R4 source core-choice pair study
+on:
+  push:
+    paths:
+      - 'app/local_integration/core_choice_pair_study.py'
+      - 'tests/r4/test_core_choice_pair_study.py'
+      - '.github/workflows/r4-core-choice-pair-study.yml'
+  workflow_dispatch:
+    inputs:
+      live_study:
+        type: boolean
+        description: 'Two bounded nonpersonal source core choices; no artifact upload'
+        default: false
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B -m unittest discover -s tests/r4 -p test_core_choice_pair_study.py -v
+      - if: github.event_name == 'workflow_dispatch' && inputs.live_study
+        run: python -B app/local_integration/core_choice_pair_study.py
+      - run: git diff --exit-code
