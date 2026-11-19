@@ -1,7 +1,7 @@
 """Navigation QA: real Chromium/HTTP and controlled nongeometry subprocess.
 No solver, model, runtime receipt, cancel, recovery or pixel-quality claim.
 """
-import hashlib,json,subprocess,sys,threading,time
+import hashlib,json,subprocess,sys,threading,time,platform,importlib.metadata
 from pathlib import Path
 from unittest.mock import patch
 from playwright.sync_api import sync_playwright,expect
@@ -18,7 +18,7 @@ def until(predicate):
 def main():
  before=pins();rows=[]
  with sync_playwright() as p:
-  browser=p.chromium.launch()
+  browser=p.chromium.launch();browser_version=browser.version
   try:
    for width,height in [(390,844),(768,1024),(1280,900)]:
     for mode in ('reload','back_forward_then_reload'):
@@ -88,7 +88,7 @@ def main():
   finally:browser.close()
  assert pins()==before
  print(json.dumps({'schema':'PUBLIC_NAVIGATION310_CONTROLLED_V1','rows':rows,'source_hashes':before,
-  'actual_http_browser':True,'worker':'CONTROLLED_SUBPROCESS_NOT_GEOMETRY','solver_count':0,
+  'actual_http_browser':True,'chromium_version':browser_version,'playwright_version':importlib.metadata.version('playwright'),'python_version':platform.python_version(),'os_release':platform.freedesktop_os_release(),'worker':'CONTROLLED_SUBPROCESS_NOT_GEOMETRY','solver_count':0,
   'production_geometry':False,'cancel_verified':False,'persistence_recovery_verified':False,
   'screenshots_created':False,'pixel_review':'NOT_VERIFIED','artifact_upload':False,
   'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False},sort_keys=True))
