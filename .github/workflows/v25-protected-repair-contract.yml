@@ -69,13 +69,18 @@ jobs:
            elif case=='fixture_remove':del u['fixtures'][fid];del u['fixture_metadata'][fid]
            elif case=='fixture_alias':u['fixtures'][fid+'.alias']=copy.deepcopy(u['fixtures'][fid]);u['fixture_metadata'][fid+'.alias']=copy.deepcopy(u['fixture_metadata'][fid])
            elif case=='duplicate_unit':m['units'][1]['id']=m['units'][0]['id']
-           elif case=='input_type':m['inputs']['n']=2.0
+           elif case=='input_type':m['inputs']={'changed_container_type':m['inputs']}
            elif case=='authority':m['accepted']=True
            c['construction_trace']['model_hash']=digest(m)
            if case=='context_hash':c['construction_trace']['model_hash']='0'*64
            try:verify_child(contract,'0'*64 if case=='contract_digest' else digest(contract),p,c)
            except (ValueError,KeyError):negatives.append(case)
           assert negatives==cases
+          bad_selection=copy.deepcopy(selection);bad_selection['source_snapshot']['app/local_integration/explicit_pair_redirection.py']='0'*64
+          try:freeze_parent(bad_selection,runtime,expected_selection_digest=digest(bad_selection),expected_runtime_digest=digest(runtime))
+          except ValueError:pass
+          else:raise AssertionError('Changed operator source was accepted')
+          negatives.append('selection_operator_source_hash')
           assert digest(runtime)==original and source_audit()==before
           pathlib.Path('typed-repair-contract.json').write_text(json.dumps(contract,sort_keys=True,indent=2))
           out={'schema':'TASK4_2_PROTECTION_EVIDENCE_V1','contract_digest':digest(contract),'parent_model_digest':runtime['model_digest'],'positive_same_parent_only':positive,'negative_count':len(negatives),'negative_cases':negatives,'original_physical_digest':selection['full_physical_digest'],'original_physical_status':selection['full_physical_report']['status'],'pending_count':len(selection['full_physical_report']['pending']),'source_integrity_verified':True,'fresh_child_generated':False,'solver_executed':False,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
