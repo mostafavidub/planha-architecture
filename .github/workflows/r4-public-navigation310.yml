@@ -1,0 +1,24 @@
+name: Public navigation310 controlled browser study
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tests/r4/run_public_navigation310.py
+      - .github/workflows/r4-public-navigation310.yml
+permissions:
+  contents: read
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 playwright==1.58.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python -B tests/r4/run_public_navigation310.py
