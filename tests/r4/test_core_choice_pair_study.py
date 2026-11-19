@@ -99,8 +99,10 @@ class AssessmentOnlyTests(unittest.TestCase):
   for key in ('errors','pending'):
    bad=copy.deepcopy(rows);bad['opening_hosts']['witness'][key]=['SYNTHETIC_BLOCKER'];self.assertFalse(s.predicates_verified(bad))
   bad=copy.deepcopy(rows);del bad['opening_hosts'];self.assertFalse(s.predicates_verified(bad))
-  for malformed in (None,False,()):
-   bad=copy.deepcopy(rows);bad['core_concept']['witness']['errors']=malformed;self.assertFalse(s.predicates_verified(bad))
+  for field in ('errors','pending'):
+   bad=copy.deepcopy(rows);del bad['core_concept']['witness'][field];self.assertFalse(s.predicates_verified(bad))
+   for malformed in (None,False,(),'',{}):
+    bad=copy.deepcopy(rows);bad['core_concept']['witness'][field]=malformed;self.assertFalse(s.predicates_verified(bad))
  def test_core_adapter_fixed_scope_before_model_access(self):
   raw={**RAW,'W':'19'}
   with self.assertRaisesRegex(ValueError,'CORE_ASSESSMENT_DIMENSION_SCOPE'):
