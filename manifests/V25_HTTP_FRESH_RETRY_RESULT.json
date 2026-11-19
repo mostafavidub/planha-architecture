@@ -1,0 +1,97 @@
+{
+  "schema": "V25_REAL_HTTP_GENERATION_DISCONNECT_RETRY_V2",
+  "status": "PASS_CONTROLLED_GENERATION_HTTP_DISCONNECT_AND_FRESH_RETRY_ONLY",
+  "attempts": [
+    {
+      "attempt": 1,
+      "run_id": "1b226032-2d41-4928-ad8f-5dcec58c18cb",
+      "worker_pid": 2310,
+      "connected_idle_seconds": 1.2531608769999991,
+      "disconnect_to_persisted_seconds": 0.2414404649999824,
+      "actual_worker_ready": true,
+      "cancelled_while_connected": false,
+      "persisted_http_status": 499,
+      "worker_returncode": -9,
+      "wait_completed": true,
+      "owned_process_group_absent": true,
+      "post_disconnect_health_status": 200,
+      "request_result_lifecycle_persisted": true,
+      "accepted": false,
+      "delivery_allowed": false
+    },
+    {
+      "attempt": 2,
+      "run_id": "65839164-884a-46d6-bc01-b534f0bed8af",
+      "worker_pid": 2311,
+      "connected_idle_seconds": 1.2570879909999917,
+      "disconnect_to_persisted_seconds": 0.2214174309999919,
+      "actual_worker_ready": true,
+      "cancelled_while_connected": false,
+      "persisted_http_status": 499,
+      "worker_returncode": -9,
+      "wait_completed": true,
+      "owned_process_group_absent": true,
+      "post_disconnect_health_status": 200,
+      "request_result_lifecycle_persisted": true,
+      "accepted": false,
+      "delivery_allowed": false
+    }
+  ],
+  "distinct_run_ids": true,
+  "distinct_owned_workers": true,
+  "prior_record_unchanged_during_and_after_retry": true,
+  "out_of_domain_status": 422,
+  "out_of_domain_result": {
+    "schema": "PLANHA_MAC_PARAMETRIC_EXPERIMENT_V1",
+    "outcome": "INVALID_INPUT",
+    "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+    "field": "W",
+    "accepted": false,
+    "delivery_allowed": false
+  },
+  "worker_launch_count": 2,
+  "dispatch": [
+    {
+      "interpreter_is_active": true,
+      "requested_new_session": true,
+      "requested_worker": "parametric_worker.py"
+    },
+    {
+      "interpreter_is_active": true,
+      "requested_new_session": true,
+      "requested_worker": "parametric_worker.py"
+    }
+  ],
+  "clock_accelerated": false,
+  "disconnect_mocked": false,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "scope": "Two sequential real TCP valid generation requests, each cancelled after a connected idle period, using controlled owned sleeping workers and temporary storage. First record remains byte-identical through fresh retry. 499 is persisted, not received by disconnected clients. No geometry or repair HTTP proof; UI double-click/late-response races are separate evidence.",
+  "server_stopped_after_test": true,
+  "source_snapshot": {
+    ".github/workflows/v25-http-disconnect.yml": "847249a8fe18d1becd83482c1e8d1c592d4cd76a753d1e9e379a3f9794b26118",
+    "app/local_integration/test_http_disconnect.py": "5edf1a1d6bbd19edbc8942be81f69cf0a06593562fb10fa194888368a3ca6ec0",
+    "app/local_integration/validation_server.py": "13bbbc00b8cab81cf5c8ec218e2d5e284e7969a75ff3484c00ff507cb74ac883",
+    "app/local_integration/generation_gateway.py": "4ca67273e3e23f564985f219c98b53d3115cb8c9b465cb23ddda4f645ba04911",
+    "app/local_integration/dimension_contract.py": "3a600826b9aad926241057f4dfcbe5ff56bfbf6ee5605f6fdf382e92b0df3818",
+    "app/local_integration/parametric_worker.py": "fdecfc8fd1d448231d23cb537280487ec63ac86b0802f275d7974d3683087f6d"
+  },
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "operation_start": "2026-11-19T01:09:46Z",
+  "operation_deadline": "2026-11-19T04:09:46Z",
+  "commit": "3a34f66487f5300486d97e02f27bd32927a2ba07",
+  "run_id": 44435888115,
+  "job_id": 135264522773,
+  "artifact": {
+    "id": 14489366243,
+    "name": "v25-http-disconnect",
+    "size_bytes": 1584,
+    "sha256": "84e6b20d83d08de28adeb7e5b24ee0a2427e6ad731f37fb11d5b8a89d0c334af",
+    "expires_at": "2026-12-19T01:18:43Z",
+    "durably_archived": false
+  },
+  "whole_cycle_verified": false,
+  "stage303_execution_started": false
+}
