@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'app/local_integration'),str(ROOT/'frontend'),str(ROOT/'app/reconstruction357/planha_general150_runtime_work')]
 from frame125_two_source_binding import verify,topology_check,proposal_check,STATUS,TOPOLOGY
-from left_right_two_source_binding import digest,check_transport,transport
+from left_right_two_source_binding import digest,check_transport,transport,verify as side_verify
 from producer_provenance import snapshot,require_unchanged
 from guard400 import guard
 from diagnose_left_right_two import FREEZE
@@ -17,12 +17,15 @@ def run():
     positives=[];negative=[];direct=[]
     for row in models:
         r=verify(row['packet'],row['context']);assert r['scoped_verified'],r
+        side=side_verify(row['packet'],row['context']);assert not side['scoped_verified'] and 'PROPOSAL_organization_topology'in side['errors']
         assert r['status']==STATUS and all(r[k]is False for k in ('accepted','qualified','display_allowed','delivery_allowed','whole_physical_verified','whole_functional_verified','historical_schema_replaced','production_supported'))
         assert row['historical_report']['status']=='FAIL' and row['historical_report']['errors']
         positives.append({'input':row['input'],'binding':r,'historical_report_digest':row['completed_report_digests']['historical_report'],'historical_error_count':len(row['historical_report']['errors']),'historical_pending':row['historical_report']['pending'],'current_report_digest':row['completed_report_digests']['current_report'],'current_requirements':row['current_report']['requirements']})
     packet,ctx=models[0]['packet'],models[0]['context']
     def neg(name,fn):
         p,c=copy.deepcopy(packet),copy.deepcopy(ctx);fn(p,c);r=verify(p,c);assert not r['scoped_verified'],name;negative.append({'name':name,'errors':r['errors']})
+    neg('proposal_assignment_missing',lambda p,c:c['construction_trace']['proposals'].pop('B'))
+    neg('proposal_assignment_extra',lambda p,c:c['construction_trace']['proposals'].__setitem__('C',copy.deepcopy(c['construction_trace']['proposals']['A'])))
     neg('wrong_topology',lambda p,c:c['construction_trace']['proposals']['A'].__setitem__('organization_topology','SIDE_ROOTED_SERVICES'))
     neg('proposal_extra',lambda p,c:c['construction_trace']['proposals']['A'].__setitem__('extra',1))
     neg('bed3',lambda p,c:c['construction_trace']['proposals']['A'].__setitem__('bedrooms',3))
