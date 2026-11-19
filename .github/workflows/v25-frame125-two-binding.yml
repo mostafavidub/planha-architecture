@@ -1,0 +1,34 @@
+name: V25 FRAME125 explicit two source binding study
+on:
+  push:
+    paths:
+      - 'app/local_integration/frame125_two_source_binding.py'
+      - 'app/local_integration/test_frame125_two_source_binding.py'
+      - '.github/workflows/v25-frame125-two-binding.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-binding:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Original four-case matrix, unchanged historical and current gates
+        run: timeout 780s python -B app/local_integration/compare_left_right_two_topologies.py
+      - name: Separate FRAME source-derived shape and independent D4 tests
+        run: timeout 240s python -B app/local_integration/test_frame125_two_source_binding.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-frame125-two-source-binding
+          path: |
+            topology-comparison.json
+            frame125-two-binding-tests.json
+          retention-days: 30
