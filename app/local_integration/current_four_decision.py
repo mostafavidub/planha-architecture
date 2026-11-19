@@ -43,6 +43,8 @@ def decide(physical,states):
   'blockers':blockers,'current_four_conditions_complete':all(s=='PASS' for s in states.values()),
   'all_PRD_requirements_verified':False,**{k:False for k in AUTH}}
 def assemble(bundle,assessments,expected_digests):
+ producer_path=ROOT/'app/local_integration/current_four_decision.py'
+ producer_hash=hashlib.sha256(producer_path.read_bytes()).hexdigest()
  bundle,_=transport(bundle);assessments,_=transport(assessments);expected_digests,_=transport(expected_digests)
  pin=digest([bundle,assessments,expected_digests]);mh=digest(bundle['packet']['world_model'])
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
@@ -78,10 +80,12 @@ def assemble(bundle,assessments,expected_digests):
   'original_reports':copy.deepcopy(bundle['reports']),'original_report_digests':copy.deepcopy(bundle['report_digests']),
   'assessments':copy.deepcopy(assessments),'assessment_digests':copy.deepcopy(expected_digests),'criteria':rows,
   'decision':decide(physical,states),'source_snapshot':sourcepins,
+  'decision_source_snapshot':{'app/local_integration/current_four_decision.py':producer_hash},
   'scope':'Decision over four actual same-model current evidence reports plus retained original physical report. No error/pending suppression; no replacement of frozen gates; no claim of whole PRD or public delivery qualification.',
   **{k:False for k in AUTH}}
  if any(r['evaluator_errors'] for r in rows) and 'EVALUATOR_ERROR' not in out['decision']['blockers']:out['decision']['blockers'].append('EVALUATOR_ERROR')
  ensure(digest([bundle,assessments,expected_digests])==pin,'INPUT_MUTATION')
  for path,h in sourcepins.items():ensure(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,'SOURCE_CHANGED_DURING_DECISION')
+ ensure(hashlib.sha256(producer_path.read_bytes()).hexdigest()==producer_hash,'DECISION_SOURCE_CHANGED')
  out['integrity_verified']=True
  return out
