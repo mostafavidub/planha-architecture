@@ -20,6 +20,14 @@ LOCAL_MODULES=[
 CURRENT_REQUIRED={'CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION',
  'CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION'}
 
+def validate_current_requirements(requirements):
+    if type(requirements) is not list or any(type(r) is not dict or type(r.get('id')) is not str or r.get('state') not in ('PASS','PASS_SCOPED','FAIL','REJECTED_FUNCTIONAL','UNKNOWN') for r in requirements):
+        raise ValueError('CURRENT_REQUIRED_SCHEMA')
+    current={r['id']:r for r in requirements}
+    if len(current)!=len(requirements):raise ValueError('CURRENT_REQUIRED_DUPLICATE_ID')
+    if set(current)!=CURRENT_REQUIRED|{'INTERNAL_INSTANCE_CAPACITY'}:raise ValueError('CURRENT_REQUIRED_INVENTORY')
+    return current
+
 def bindings():
     from producer_provenance import snapshot
     for name in LOCAL_MODULES:
@@ -65,12 +73,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
     if boundary.get('model_digest')!=model_digest:raise ValueError('BOUNDARY_MODEL_BINDING')
     functional=functional_assess(m,raw,rev)
     if functional.get('model_digest')!=model_digest:raise ValueError('FUNCTIONAL_MODEL_BINDING')
-    requirements=functional['requirements']
-    if type(requirements) is not list or any(type(r) is not dict or type(r.get('id')) is not str or r.get('state') not in ('PASS','PASS_SCOPED','FAIL','REJECTED_FUNCTIONAL','UNKNOWN') for r in requirements):
-        raise ValueError('CURRENT_REQUIRED_SCHEMA')
-    current={r['id']:r for r in requirements}
-    if len(current)!=len(requirements):raise ValueError('CURRENT_REQUIRED_DUPLICATE_ID')
-    if not CURRENT_REQUIRED<=set(current):raise ValueError('CURRENT_REQUIRED_INVENTORY')
+    current=validate_current_requirements(functional['requirements'])
     scope_path=ENGINE/'references/CONCEPT_GATE_FA.md'
     scope_hash='8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e'
     scope_errors=[]
