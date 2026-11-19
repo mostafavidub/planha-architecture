@@ -1,0 +1,237 @@
+{
+  "task": "5.1",
+  "status": "DONE_SCOPED_28_CASE_PREREGISTRATION_VALIDATED_NO_GEOMETRY",
+  "start_utc": "2026-11-19T05:55:57Z",
+  "deadline_utc": "2026-11-19T08:55:57Z",
+  "tested_commit": "8d835ca89bd954aff2de7034f7a2aa15893d19b3",
+  "run": 44469114968,
+  "job": 135373970396,
+  "evidence": {
+    "accepted": false,
+    "actual_http_requests": 0,
+    "case_count": 28,
+    "cases": [
+      {
+        "body_sha256": "6b31691683ff3eb5458215a0818b35eda8dfa6d603a67869fb6f05ad146f601a",
+        "execution_ready": false,
+        "id": "SMALL_5_5",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "ea6d1b3736359a6c0c7cbc433ae181fdaca1363de26568a45fcaf25370c475dc",
+        "execution_ready": false,
+        "id": "MEDIUM_12_15",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "3ec13a1371b157dabbf9dc8b5652fa1362e4861e0edd94f9726a9261208c86f8",
+        "execution_ready": false,
+        "id": "LARGE_25_25",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "ccfa91795e4375ab05757df959f070b7f948d87c0fbc04a3e0985c21f615029f",
+        "execution_ready": false,
+        "id": "NONSQUARE_10_25",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "9cdf198e55d961f716a2a639e4750064069fdbb6fd82eaa10fb679f8526c5ddf",
+        "execution_ready": false,
+        "id": "DECIMAL_12_5_20",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "488e96cc521f4f0e4dfdb50888eba67a851a58af13570145c250a93231c994f5",
+        "execution_ready": false,
+        "id": "TRANSPOSE_20_18",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "24c162a7ffbd7a3d74b0579308c6728e62b23ac10fab0503ec81385c5d3224d2",
+        "execution_ready": false,
+        "id": "LOWER_BOUND_5_25",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "19ff073bf1bde902d0239eb8003c87d9d3879d183db59de517a5444ab87d8700",
+        "execution_ready": false,
+        "id": "UPPER_BOUND_25_5",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "6508607ba47a7a575e327d5882c27c52c20f7c7e4e6a03e66278b9f4cf91d3f8",
+        "execution_ready": false,
+        "id": "INSIDE_UPPER_24_999_20",
+        "input_valid": true,
+        "state": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE"
+      },
+      {
+        "body_sha256": "f86c365bbc3f418634d087c0655624e245950d01448d1e1bacd31ccca1338f27",
+        "execution_ready": true,
+        "id": "SUPPORTED_18_20",
+        "input_valid": true,
+        "state": "READY_SCOPED_CONTRACT_ONLY"
+      },
+      {
+        "body_sha256": "dcc2f6382fe944f9893c153732b67b230f0b63347dc520efb8dd3df60de3b770",
+        "execution_ready": true,
+        "id": "EQUIVALENT_DECIMAL_18_0_20_000",
+        "input_valid": true,
+        "state": "READY_SCOPED_CONTRACT_ONLY"
+      },
+      {
+        "body_sha256": "b83a64dcec2a89e73ef760f4377a4677f4319a5919b87973c097e6a75f085446",
+        "execution_ready": false,
+        "id": "VALID_N1",
+        "input_valid": true,
+        "state": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT"
+      },
+      {
+        "body_sha256": "7b48d44c661231303bef64c1e9c11ba867f9d4a88c8cd8ae2dc8e4226646b326",
+        "execution_ready": false,
+        "id": "VALID_N3",
+        "input_valid": true,
+        "state": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT"
+      },
+      {
+        "body_sha256": "484aebcbc9feb27bffafa1c2b8b23c1828a4a4e153cd8af4a83bc7fe55992977",
+        "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "id": "BELOW_MIN",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "855cf07509bc4e5a12818a36d09cd60d1fc122901d21b83ace7fbbed0a4736ab",
+        "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "id": "ABOVE_MAX",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "9d56820f0474fa4fd2ccb03423e2a56cada2aed69f76f15046e42328bba24055",
+        "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "id": "OLD_RANGE_26",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "2811804cc4e6d6713fec4e30adeb5c64d50dcf4b5cf849f41609f34d5a3137a2",
+        "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "id": "L_ZERO",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "e4933c0b550311350f492804d0c58a5b45dde43d068ebe717f04dac8afc0e8d4",
+        "code": "FIELD_REQUIRED",
+        "id": "MISSING_N",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "adfb532bc86968a854d234ccf655202cb72c5ca435c47a763493f8bb3e3ddbbd",
+        "code": "UNEXPECTED_PUBLIC_FIELD",
+        "id": "HIDDEN_BEDROOMS",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "b6fa2df124c2afe9e02ab887799abeefd85811fdc8a94b94b8fc8863b829f1b6",
+        "code": "UNEXPECTED_PUBLIC_FIELD",
+        "id": "HIDDEN_REQUESTED_COUNT",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "0bb049749190b5e2749cf5189f260fd5cfcb3c54d936117c310580c36e0385ba",
+        "code": "DUPLICATE_FIELD",
+        "id": "DUPLICATE_W",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "5afb2221a3352b95e1d05c2085f40b10ac724d3463d7181b5c75b8339e3f8a41",
+        "code": "NONFINITE_NUMBER",
+        "id": "NONFINITE_W",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "336d9765e5d31eea2bb8c9ddcf6bcae6846f5a0fb953ee80ce79971c92eb30d7",
+        "code": "INVALID_FIELD_TYPE",
+        "id": "BOOLEAN_W",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "b8d014ba2de450d5bca03007fe778fed3798ed3d6ac93163eeb8402cd261895a",
+        "code": "POSITIVE_INTEGER_REQUIRED",
+        "id": "ZERO_N",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "9411dd643354861007eb3862c86da90044ae10e18351829768cb99a086c07bb8",
+        "code": "UNSUPPORTED_JSON_DECIMAL_REPRESENTATION",
+        "id": "DECIMAL_JSON_TOKEN_W",
+        "input_valid": false,
+        "status": 409
+      },
+      {
+        "body_sha256": "c2d2c50576daf2c6ee672213a24a77618c412e66ba451bb37eb0e3f0d024ffef",
+        "code": "UNSUPPORTED_JSON_DECIMAL_REPRESENTATION",
+        "id": "DECIMAL_JSON_TOKEN_N",
+        "input_valid": false,
+        "status": 409
+      },
+      {
+        "body_sha256": "45e329b88b801c9c5e27888da29181834075f74677d2ea4cbb6e2c25b4890ec8",
+        "code": "POSITIVE_INTEGER_REQUIRED",
+        "id": "DECIMAL_STRING_N",
+        "input_valid": false,
+        "status": 422
+      },
+      {
+        "body_sha256": "639ce434db8aca3b2c7f0937750817dd7e4f517fada99719f013b1cb163fa536",
+        "code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "id": "L_ABOVE_MAX",
+        "input_valid": false,
+        "status": 422
+      }
+    ],
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry": false,
+    "qualified": false,
+    "schema": "TASK5_1_PREREGISTRATION_VALIDATION_V1",
+    "scope": "Parser/preflight expectation validation only; actual HTTP matrix is5.2",
+    "solver_calls": 0,
+    "spec_sha256": "48a618b9bfc0b1f2ab015a4845ce7899fbc48b1e601a266a5852c98d3ff0732d"
+  },
+  "artifact": {
+    "id": 14503381567,
+    "sha256": "bc33dec6394c9b86a210d16c7f762b8d17bbe540b9cd6961e0ce2b7d80a7536f",
+    "expires_at": "2026-12-19T06:01:20Z"
+  },
+  "counts": {
+    "wire_valid": 13,
+    "ready_same_selected_canonical_contract": 2,
+    "valid_unsupported": 11,
+    "wire_contract_not_accepted": 15
+  },
+  "scope": "Only preregistered expected current-input/preflight outcomes. No HTTP requests, solver, or proof of geometry generation across dimensions.",
+  "reproduction": "Run .github/workflows/v25-wln-preregistration.yml at tested commit; stdlib-only parser/preflight validation.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

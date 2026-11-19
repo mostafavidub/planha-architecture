@@ -556,13 +556,17 @@
       "description_verbatim": "۵.۱. پیش‌ثبت زمین‌های کوچک، متوسط، بزرگ، غیرمربع، اعشاری و مرزی و انتظار هر آزمون. ۶۰ دقیقه",
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_28_CASE_PREREGISTRATION_VALIDATED_NO_GEOMETRY",
       "dependencies": [
         "0.3"
       ],
       "start_utc": "2026-11-19T05:55:57Z",
       "deadline_utc": "2026-11-19T08:55:57Z",
-      "scope": "Preregister input strata and expected valid/unsupported/invalid outcomes before matrix run; no expansion of timeboxed automatic search."
+      "scope": "Preregister input strata and expected valid/unsupported/invalid outcomes before matrix run; no expansion of timeboxed automatic search.",
+      "completed_utc": "2026-11-19T06:01:20Z",
+      "tested_commit": "8d835ca89bd954aff2de7034f7a2aa15893d19b3",
+      "run": 44469114968,
+      "tests": "28 parser/preflight expectations,5 exact source blob pins; HTTP0/solver0"
     },
     {
       "id": "5.2",
@@ -570,11 +574,14 @@
       "description_verbatim": "۵.۲. اجرای مسیر واقعی از فرم سه‌فیلدی تا تولید و ارزیابی برای نمونه‌ها و ثبت جداگانه علت هر نتیجه. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "1.6",
         "2.5"
-      ]
+      ],
+      "start_utc": "2026-11-19T06:02:26Z",
+      "deadline_utc": "2026-11-19T09:02:26Z",
+      "scope": "26 real nonready HTTP POSTs; two ready canonical cases not posted again; actual1.6 supported evidence reused separately. No new solver or variable-dimension geometry coverage claim."
     },
     {
       "id": "5.3",
