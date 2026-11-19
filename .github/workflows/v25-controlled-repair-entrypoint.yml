@@ -1,0 +1,47 @@
+name: V25 controlled outer controller adoption task4.4
+on:
+  push:
+    paths:
+      - 'app/local_integration/controlled_repair_entrypoint.py'
+      - 'app/local_integration/test_controlled_repair_entrypoint.py'
+      - '.github/workflows/v25-controlled-repair-entrypoint.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controlled:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Controlled process tests only, no solver
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_repair_attempt_control test_controlled_repair_entrypoint
+      - name: Persist controlled timeout wiring evidence
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import json,pathlib,sys
+          import controlled_repair_entrypoint as e
+          from repair_attempt_control import new_account,digest
+          account=new_account('a'*64,seconds=.2)
+          out=e._execute(pathlib.Path('unused-controlled-input'),pathlib.Path('controller-test-evidence'),account,digest(account),controlled_worker=[sys.executable,'-u','-c','import time;print("controlled-start",flush=True);time.sleep(10)'])
+          assert out['outcome']=='TIMED_OUT' and out['process']['kill_sent'] and out['process']['wait_completed']
+          assert out['source_integrity_verified'] and not out['fresh_geometry_verified'] and not out['child_receipt_verified']
+          print(json.dumps(out,sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: controlled-outer-controller-task4-4
+          path: controller-test-evidence
+          retention-days: 30
