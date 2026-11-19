@@ -2720,7 +2720,7 @@
     {
       "id": "R4-X.01",
       "title": "قرارداد و adapter ذخیره‌سازی پروژه کاربر",
-      "status": "PLANNED",
+      "status": "PARTIAL_SOURCE_INTERFACE_AUDIT_AUTH_STORAGE_PRODUCT_ADAPTER_BLOCKED",
       "estimate_minutes": 120,
       "max_minutes": 180,
       "dependencies": [
@@ -2743,7 +2743,18 @@
           666528
         ],
         "readback": "CONFIRMED_BY_COORDINATING_PARENT"
-      }
+      },
+      "started_at": "2026-11-19T07:46:12Z",
+      "deadline": "2026-11-19T10:46:12Z",
+      "checkpoint_at": "2026-11-19T07:47:36Z",
+      "manifest": "manifests/R4_X_01_PERSISTENCE_OWNER_INTERFACE_AUDIT.json",
+      "remaining": [
+        "R4-3.05 dependency incomplete",
+        "Trusted authentication principal/owner model not identified in reviewed chain",
+        "Durable project storage provider and deployed adapter not selected",
+        "Qualified artifact issuer/positive plan absent",
+        "Actions start blocked by billing/spending-limit annotation"
+      ]
     },
     {
       "id": "R4-X.02",

@@ -1,0 +1,205 @@
+{
+  "schema": "R4_X_01_PERSISTENCE_OWNER_INTERFACE_AUDIT_V1",
+  "task_id": "R4-X.01",
+  "started_at": "2026-11-19T07:46:12Z",
+  "deadline": "2026-11-19T10:46:12Z",
+  "status": "PARTIAL_SOURCE_INTERFACE_AUDIT_AUTH_STORAGE_PRODUCT_ADAPTER_BLOCKED",
+  "scope": "Selected local integration servers and their historical file-store call chain; not a repository-wide or deployed-system security assessment",
+  "source_base_commit": "ef3b23ec0db6c2a0b796a0e42590c3f5789be7b1",
+  "source_files": [
+    {
+      "path": "app/local_integration/public_wln_server.py",
+      "blob_sha": "e92c711e37ef2fec46bf03e76cd1f4b59f61c5be"
+    },
+    {
+      "path": "app/local_integration/validation_server.py",
+      "blob_sha": "2f1143fb55a19c8862792bdc6a87ae12e6afcc95"
+    },
+    {
+      "path": "app/local_integration/run_history.py",
+      "blob_sha": "afcd09d98637937c17445283df4d06e6899bb676"
+    },
+    {
+      "path": "app/local_integration/generation_gateway.py",
+      "blob_sha": "099a6afcd261deac2d34162b033438d0377ed199"
+    },
+    {
+      "path": "app/local_integration/history_ui.js",
+      "blob_sha": "4564db624d821ac119aad2f4912e781c22b53db2"
+    },
+    {
+      "path": "app/local_integration/repair_saved_run.py",
+      "blob_sha": "da1729664c27fb2863be91f693538c8a85552367"
+    },
+    {
+      "path": "app/local_integration/explicit_pair_saved_run.py",
+      "blob_sha": "1af919a12b67a1c906c4628b1ee39b4ffbe5181d"
+    }
+  ],
+  "directory_name_scan": [
+    {
+      "name": "explicit_pair_saved_run.py",
+      "sha": "1af919a12b67a1c906c4628b1ee39b4ffbe5181d"
+    },
+    {
+      "name": "history_status_taxonomy.py",
+      "sha": "17f9aa4070d765129042a80f51d42151c4418f65"
+    },
+    {
+      "name": "history_ui.js",
+      "sha": "4564db624d821ac119aad2f4912e781c22b53db2"
+    },
+    {
+      "name": "repair_history_audit.py",
+      "sha": "00e9513979e85d57039f6cb07f4248932979aea5"
+    },
+    {
+      "name": "repair_saved_run.py",
+      "sha": "da1729664c27fb2863be91f693538c8a85552367"
+    },
+    {
+      "name": "run_history.py",
+      "sha": "afcd09d98637937c17445283df4d06e6899bb676"
+    },
+    {
+      "name": "test_history_status_archive.py",
+      "sha": "8f5172b95ce9bfb648eff53f288750d1200874ab"
+    },
+    {
+      "name": "test_history_status_browser.py",
+      "sha": "71cd4f7db00b0bb15772784ed95e2ab4bc6d4852"
+    },
+    {
+      "name": "test_history_status_taxonomy.py",
+      "sha": "d98542b33c9ea0da213654e6a61c442d784f0524"
+    },
+    {
+      "name": "test_run_history.py",
+      "sha": "dfdc5e60bd54abd0e122b576441419f7d8409e99"
+    }
+  ],
+  "observed_interfaces": [
+    {
+      "component": "public_wln_server",
+      "routes": [
+        "GET /",
+        "GET /public_wln.js",
+        "GET /health",
+        "POST /api/public/plan"
+      ],
+      "persistence": "No project/history/retrieve/download endpoint in this handler",
+      "delivery": "plan_payload null, plan_count_available0, download_availablefalse",
+      "identity": "LoopbackHost/Origin checks, not authenticated project-owner authorization"
+    },
+    {
+      "component": "validation_server",
+      "routes": [
+        "GET /history",
+        "GET /history/{run_id}",
+        "GET /export/{run_id}",
+        "GET /download/{run_id}"
+      ],
+      "persistence": "Calls run_history; diagnostic historical interface exists, contrary to any broad claim that no storage interface exists",
+      "delivery": "Export/download route invokes permanent-deny output_gate; not an artifact exporter",
+      "identity": "No authenticated principal/owner parameter in these handlers; loopback bound server only"
+    },
+    {
+      "component": "run_history",
+      "storage": "BASE points to local evidence/requests UUID directories containing request.json, result.json, lifecycle.json",
+      "validation": [
+        "Canonical UUID",
+        "Symlink and file-size guards",
+        "Matching run_id and wait_completed",
+        "Original request/decision consistency for completed historical records",
+        "False admission and zero qualification"
+      ],
+      "limitations": [
+        "No trusted principal/owner/project association in reviewed functions",
+        "Summary is historical-only; live_model_restoredfalse",
+        "UUID unguessability is not owner ACL",
+        "File consistency is not authenticity against an actor able to rewrite all files",
+        "No current-rule replay or qualified snapshot issuance",
+        "list_historylimit50 is a view limit, not retention policy"
+      ]
+    },
+    {
+      "component": "generation/repair gateways",
+      "storage": "Create a unique local UUID directory, write request/result/lifecycle and stderr",
+      "limitations": [
+        "No user/project identity association",
+        "Observed filesystem writes are not proof of durable cloud storage, crash-atomic commit, backup, or retention guarantees",
+        "Parent run/candidate bindings are lineage, not owner authorization"
+      ]
+    },
+    {
+      "component": "history_ui",
+      "behavior": "Reads historical summaries; explicit copy-request/repair action separate; no automatic live model or authority restoration"
+    }
+  ],
+  "minimum_contract_needed": [
+    {
+      "id": "TRUSTED_OWNER_BOUNDARY",
+      "interface": "Trusted authentication adapter yields principal. Server authorizes principal against owner/project before list/read/write/retrieve; never trust owner_id in raw W/L/n or a UUID."
+    },
+    {
+      "id": "IMMUTABLE_PROJECT_SNAPSHOT",
+      "interface": "Project stores immutable snapshot ID and owner association, original input/version, derived programme and capacity profile, model/rule/source/report/decision digests, provenance, status and artifact metadata. New revision is a new snapshot, not overwrite of approved content."
+    },
+    {
+      "id": "STORE_COMMIT_AND_READ",
+      "interface": "Provider-neutral put-if-absent/commit and owner-scoped metadata/blob retrieval with byte digests and bounded sizes; atomic commit or incomplete-state semantics, integrity failures explicit. Backend not selected or provisioned."
+    },
+    {
+      "id": "RETRIEVE_WITHOUT_REGENERATION",
+      "interface": "Retrieve exact saved artifact bytes under the same snapshot; no solver invocation. Diagnostic evidence and qualified deliverables must remain distinct. Positive qualified issuance depends on actual qualification."
+    },
+    {
+      "id": "RETENTION_AND_DELETE",
+      "interface": "Explicit retention policy and authorized recoverable/permanent deletion semantics, artifact expiry visibility and no fabricated durability promise. No deletion or settings changed in this task."
+    },
+    {
+      "id": "NEGATIVE_PROOF",
+      "interface": "Cross-owner access, forged project/snapshot, stale/tampered hashes, incomplete commit, changed rule/input identity, unknown authority and accidental regeneration tests; not executed."
+    },
+    {
+      "id": "IDEMPOTENCY_AND_ENUMERATION",
+      "interface": "Owner-scoped idempotency tokens and retry semantics cannot overwrite a snapshot or leak another owner's metadata; list/project lookup have the same authorization boundary as blob retrieval."
+    }
+  ],
+  "reusable_without_claiming_product": [
+    "Historical request/model/review digest conventions",
+    "UUID format/path guards and historical status taxonomy",
+    "Default-deny export boundary and distinction between history and current authority"
+  ],
+  "blockers": [
+    "R4-3.05 dependency incomplete",
+    "Trusted authentication principal/owner model not identified in reviewed chain",
+    "Durable project storage provider and deployed adapter not selected",
+    "Qualified artifact issuer/positive plan absent",
+    "Actions start blocked by billing/spending-limit annotation"
+  ],
+  "tests_executed": 0,
+  "server_executed": false,
+  "provisioning": false,
+  "permission_changes": false,
+  "payment_changes": false,
+  "active_code_changes": [],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "next_action": "Choose and bind actual auth/storage interfaces under separately authorized scope before implementation; do not expose diagnostic local history as product persistence or reuse loopback/UUID as owner ACL.",
+  "checkpoint_at": "2026-11-19T07:47:36Z",
+  "legacy_migration_boundary": {
+    "state": "UNOWNED_HISTORICAL_EVIDENCE_NOT_PRODUCT_PROJECT",
+    "rules": [
+      "Never assign an old UUID directory to an arbitrary authenticated user or infer ownership from loopback/Host",
+      "Historical-only records remain historical; no silent conversion to current-source acceptance",
+      "Existing acceptedtrue records are rejected by history checker; preserve this default-deny boundary",
+      "Evidence storage namespace remains separate from user project snapshots",
+      "Owner/principal/project identifiers are outside rawW/L/n; backend locator is server-resolved, never an arbitrary caller filesystem path",
+      "Rejected/UNKNOWN/evaluator-error/partial snapshot statuses must be persisted without turning them into downloadable designs"
+    ]
+  },
+  "review": "Independent conceptual review plus parent source readback confirmed historical consistency vs product ownership distinction; no runtime security test or deployment inspection performed."
+}
