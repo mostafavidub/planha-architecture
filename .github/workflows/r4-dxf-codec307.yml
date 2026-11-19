@@ -1,0 +1,28 @@
+name: R4 synthetic DXF codec study
+on:
+  push:
+    paths:
+      - 'studies/r4/dxf_codec_study307.py'
+      - 'studies/r4/test_dxf_codec_study307.py'
+      - '.github/workflows/r4-dxf-codec307.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  codec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ezdxf==1.4.3
+      - name: Synthetic codec only, no solver or artifact upload
+        run: |
+          python -B -m unittest discover -s studies/r4 -p test_dxf_codec_study307.py -v
+          PYTHONPATH=studies/r4 python -B -c "import json; from test_dxf_codec_study307 import fixture; from dxf_codec_study307 import encode,parity; s=fixture(); print(json.dumps(parity(s,encode(s)),sort_keys=True))"
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
