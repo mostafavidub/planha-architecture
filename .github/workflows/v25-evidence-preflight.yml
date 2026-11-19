@@ -1,0 +1,76 @@
+name: V25 evidence reproducibility preflight
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-evidence-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Read-only evidence integrity and reproduction inputs
+        run: |
+          python -B - <<'PY'
+          import json,hashlib,tarfile,subprocess,datetime
+          from pathlib import Path,PurePosixPath
+          root=Path.cwd()
+          def sha(b):return hashlib.sha256(b).hexdigest()
+          index_path=Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json')
+          index=json.loads(index_path.read_text())
+          archives=[]
+          for a in index['archives']:
+              path=Path('evidence/archive')/a['path'];data=path.read_bytes()
+              assert len(data)==a['size'] and sha(data)==a['sha256'],a['run_id']
+              expected={m['path']:m for m in a['members']}
+              assert len(expected)==len(a['members'])
+              with tarfile.open(path,'r:gz')as tar:
+                  members=tar.getmembers()
+                  assert all(m.isfile() and not PurePosixPath(m.name).is_absolute() and '..'not in PurePosixPath(m.name).parts for m in members)
+                  assert len(members)==len(expected)and{m.name for m in members}==set(expected)
+                  for m in members:
+                      b=tar.extractfile(m).read();e=expected[m.name]
+                      assert len(b)==e['size']and sha(b)==e['sha256'],(a['run_id'],m.name)
+              archives.append({'run_id':a['run_id'],'sha256':a['sha256'],'bytes':len(data),'members':len(expected)})
+          specs=[
+              ('manifests/V25_OPEN_FRONT_EVALUATOR_RESULT.json','010ee0308cede378ddbb4b0ce8cd3d020cfd8233','.github/workflows/v25-open-evaluator.yml',44417514104),
+              ('evidence/V25_OPEN_WORLD_INTEGRATED_MATRIX_MANIFEST.json','568e8249713ea28b61985bd1c070d03be91935f3','.github/workflows/v25-open-world-matrix.yml',44416886004),
+              ('manifests/V25_WALL_ALTERNATIVE_RESULT.json','12107b140bb491b1ec65b35553e761cab6d52f66','.github/workflows/v25-wall-alternative.yml',44417514104),
+              ('manifests/V25_LIVING_ENDPOINT_ATTRIBUTION_RESULT.json','5a5fda3f74808ebeef311faf8949911b6bb4effd','.github/workflows/v25-living-endpoints.yml',44417514104)]
+          rows=[];known={a['run_id']for a in archives}
+          for path,commit,workflow,input_run in specs:
+              data=Path(path).read_bytes();m=json.loads(data)
+              assert (m.get('commit')or m.get('github_sha'))==commit
+              wf=subprocess.check_output(['git','show',commit+':'+workflow])
+              assert b'contents: read'in wf and b'contents: write'not in wf
+              assert input_run in known
+              artifact=m['artifact'];assert artifact['durably_archived']is False
+              assert artifact.get('expires_at')and(artifact.get('sha256')or artifact.get('digest'))
+              rows.append({'manifest':path,'manifest_sha256':sha(data),'test_commit':commit,'workflow':workflow,'workflow_sha256':sha(wf),'input_archive_run':input_run,
+                  'artifact_id':artifact['id'],'expires_at':artifact['expires_at'],'artifact_durably_archived':False,
+                  'source_and_recorded_input_available':True,'actual_full_reexecution_performed':False})
+          main=json.loads(Path(specs[0][0]).read_text())
+          matrix=json.loads(Path(specs[1][0]).read_text())
+          assert main['qualified']is False and main['result']['status']=='UNKNOWN_REQUIRED_STUDY'
+          assert len(matrix['cases'])==3 and all(c['integrated']['status']=='UNKNOWN_REQUIRED_STUDY'for c in matrix['cases'])
+          out={'schema':'V25_EVIDENCE_PREFLIGHT_V1','start_utc':'2026-11-19T01:05:00Z','deadline_utc':'2026-11-19T04:05:00Z','finished_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'archive_index_sha256':sha(index_path.read_bytes()),'existing_archives':archives,'archive_count':len(archives),'member_count':sum(a['members']for a in archives),'archive_bytes':sum(a['bytes']for a in archives),
+              'recent_reproduction_inputs':rows,'V25_23_state':'BLOCKED_NO_QUALIFIED_CURRENT_CANDIDATE','audited_current_model_count':4,'qualified_count':0,
+              'V25_24_state':'PASS_READ_ONLY_PREFLIGHT_NOT_COMPLETE_DURABLE_ARCHIVE','archive_additions_performed':False,'permissions_changed':False,
+              'remaining':['Four recent detailed Actions artifacts are still temporary, not durably archived','This verifies source workflow and saved input availability, not fresh reexecution of every experiment','New artifact archival workflow permissions remain separately awaiting explicit approval'],
+              'stage303_execution_started':False,'whole_cycle_verified':False}
+          Path('evidence-preflight.json').write_text(json.dumps(out,indent=2))
+          print('EVIDENCE_PREFLIGHT '+json.dumps(out),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-evidence-preflight
+          path: evidence-preflight.json
+          retention-days: 30
