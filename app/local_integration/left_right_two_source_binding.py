@@ -98,13 +98,16 @@ def S(v):
         ctx.prec=max(60,len(str(v.numerator))+len(str(v.denominator))+5)
         return format(Decimal(v.numerator)/Decimal(v.denominator),'f')
 
-def scalar(v):
-    ensure(type(v)is str,'GEOMETRY_COORDINATE_TYPE')
+def scalar(v,role='source_geometry_string'):
+    if role=='proposal_network_coordinate':
+        ensure(type(v)in(int,float) and (type(v)is not float or math.isfinite(v)),'PROPOSAL_NETWORK_COORDINATE_TYPE:'+type(v).__name__)
+        return F(str(v))
+    ensure(type(v)is str,'GEOMETRY_COORDINATE_TYPE:'+role+':'+type(v).__name__)
     return F(v)
 
-def swap_point(q):
-    ensure(type(q)is list and len(q)==2,'POINT_SHAPE')
-    return [S(scalar(q[1])),S(scalar(q[0]))]
+def swap_point(q,role='source_geometry_string'):
+    ensure(type(q)is list and len(q)==2,'POINT_SHAPE:'+role)
+    return [S(scalar(q[1],role)),S(scalar(q[0],role))]
 
 def swap_rect(q):
     ensure(type(q)is list and len(q)==4,'RECT_SHAPE')
@@ -150,7 +153,11 @@ def expected_world(local,core):
     e=copy.deepcopy(local);e['inputs']=[S(F(v)) for v in core['physical_core_model']['inputs'][:2]]+[2];e['schema']='GENERAL125_WORLD_FRAME_STUDY'
     for key in ('walls','wall_hosts','source_wall_hosts'):e[key]={n:swap_rect(q) for n,q in local[key].items()}
     e['common_spaces']={k:([swap_rect(q) for q in v] if type(v[0])is list else swap_rect(v)) for k,v in local['common_spaces'].items()}
-    for key in ('common_routes','proposal_network_paths'):e[key]={n:[swap_point(q) for q in path] for n,path in local[key].items()}
+    e['common_routes']={n:[swap_point(q,'common_route') for q in path] for n,path in local['common_routes'].items()}
+    # search114 emits JSON numeric local proposal network coordinates only.
+    # Their known physical point role transports to canonical world strings;
+    # all other source coordinates stay strictly string-typed.
+    e['proposal_network_paths']={n:[swap_point(q,'proposal_network_coordinate') for q in path] for n,path in local['proposal_network_paths'].items()}
     for key in ('openings','concept_windows','operations','module_ports','logical_regions','wall_finish_profile','threshold_ownership'):e[key]=transport(local[key],key,key)
     for w in e['concept_windows']:
         if 'destination'in w:w['destination']['edge']={'bottom':'left','top':'right','left':'bottom','right':'top'}[w['destination']['edge']]
