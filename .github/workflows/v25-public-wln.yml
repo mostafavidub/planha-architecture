@@ -1,0 +1,44 @@
+name: V25 public WLN task 1.1
+on:
+  push:
+    paths:
+      - 'app/local_integration/public_wln_contract.py'
+      - 'app/local_integration/test_public_wln_contract.py'
+      - '.github/workflows/v25-public-wln.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Frozen guard before
+        env:
+          PYTHONPATH: frontend
+        run: python -B -c "from guard400 import guard; assert guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0') == 12991"
+      - name: Public and unchanged diagnostic input regressions
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          set -o pipefail
+          python -B -m unittest -v test_public_wln_contract test_dimension_contract test_v25_input_audit 2>&1 | tee public-wln-tests.txt
+      - name: Frozen guard after and unchanged checkout
+        env:
+          PYTHONPATH: frontend
+        run: |
+          python -B -c "from guard400 import guard; assert guard('530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0') == 12991"
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-wln-task-1-1-tests
+          path: public-wln-tests.txt
+          retention-days: 30
