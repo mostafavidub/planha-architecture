@@ -5,6 +5,8 @@ on:
       - 'app/local_integration/source_wall_record_contract_study.py'
       - 'tests/r4/test_source_wall_record_contract.py'
       - '.github/workflows/r4-wall-record-units.yml'
+      - 'app/local_integration/source_module_floor_reference_study.py'
+      - 'tests/r4/test_source_module_floor_reference.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,6 +21,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
       - run: python -B -m unittest discover -s tests/r4 -p test_source_wall_record_contract.py -v
       - run: python -B -m unittest discover -s tests/r4 -p test_declared_geometry_projection.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_source_module_floor_reference.py -v
       - run: git diff --exit-code
