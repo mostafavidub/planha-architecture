@@ -19,7 +19,7 @@ class PlannedTests(unittest.TestCase):
  def contract(self):
   dims={'bed1':('5.45','3.6'),'bed2':('5.45','4.5'),'bath':('3.15','2.25'),'kitchen':('2.35','3.05'),'dining':('3.1','3.5'),
    'sofa1_use':('2.2','1.6'),'sofa2_use':('2.2','1.6'),'chair1_use':('.8','1.5'),'chair2_use':('.8','1.5'),'entry_apron':('2.65','.9')}
-  return {'schema':'PLANNED_WITNESS_FIXED_SIZE_CONTRACT108_V2','enabled_causes':['PLANNED_GUEST_DINING_MOTION'],
+  return {'schema':'COMPOUND_PLANNED_FIXED_SIZE_CONTRACT108_V3','enabled_causes':['PLANNED_GUEST_DINING_MOTION'],
    'rectangle_dimensions':{k:{'width':v[0],'height':v[1]}for k,v in dims.items()},'bed_door_sides':{'bed1':'right','bed2':'left'},
    'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
  def test_source_pins(self):self.assertTrue(support.source_guard())
@@ -124,5 +124,73 @@ class PlannedTests(unittest.TestCase):
   bad=dict(p);bad['solver_status']=2
   with self.assertRaisesRegex(ValueError,'PRE_SOLVER_OBSERVATION_CONFLICT'):support.solver_observation(bad)
   with self.assertRaisesRegex(ValueError,'SOLVER_OBSERVATION_TYPE'):support.solver_observation({'status':'NO_PROPOSAL_IN_THIS_TOPOLOGY'})
+ def compound_fixture(self):
+  from entry117 import install
+  core,_=selected_core({'W':'18','L':'20','n':2,'requested_count':1},'FRONT_REAR_COMPACT118')
+  ex=F(core['entry_centers']['A'][0]);y,yt=F(core['band'][1]),F(core['band'][3])
+  m={'openings':[{'id':uid+'.entry','rect':list(map(str,[ex-F('.65'),lo,ex+F('.65'),hi])),'host_wall_id':uid+'.unit_boundary'}for uid,lo,hi in(('A',y-F('.15'),y),('B',yt,yt+F('.15')))],'operations':{}}
+  install(m)
+  root=[str(ex),str(F(core['units']['A'][3])-F('.4'))]
+  p={'network_paths':{'dining_east':[root,[str(ex+1),root[1]]]}}
+  proposals={'A':copy.deepcopy(p),'B':copy.deepcopy(p)}
+  v=self.contract();v['enabled_causes']=['PLANNED_ENTRY_PANEL_AND_KITCHEN_MOTION'];v['core_digest']=digest(core)
+  v['entry_source_binding']=c.entry_binding(m,proposals,'20')
+  return core,m,proposals,v
+ def test_actual_entry_source_both_roots_and_mirror(self):
+  core,m,ps,v=self.compound_fixture()
+  binding=v['entry_source_binding']
+  self.assertTrue(all(x['root_body_clear']for x in binding['units']))
+  self.assertEqual(len(binding['local_panel']),4)
+  bad=copy.deepcopy(m);bad['operations']['doors'][0]['open_panel'][0]='0'
+  with self.assertRaisesRegex(ValueError,'ENTRY_OPERATION_SOURCE_REBUILD'):c.entry_binding(bad,ps,'20')
+  badps=copy.deepcopy(ps);badps['A']['network_paths']['dining_east'][0][0]=binding['local_panel'][0]
+  with self.assertRaisesRegex(ValueError,'ENTRY_ROOT_BODY_COLLISION'):c.entry_binding(m,badps,'20')
+ def test_compound_requires_both_and_no_other_obstacle(self):
+  p=[['1','2'],['5','2']];s=self.scene()
+  s['obstacles']=[['2','1.8','2.5','2.2'],['4','1.8','4.5','2.2']];s['labels']=['open_panel:A.entry','kitchen_motion:4']
+  self.assertEqual(c.compound_motion(p,p[0],p[-1],s,'open_panel:A.entry'),['kitchen_motion:4','open_panel:A.entry'])
+  for index in(0,1):
+   bad=copy.deepcopy(s);bad['obstacles'].pop(index);bad['labels'].pop(index)
+   with self.assertRaisesRegex(ValueError,'COMPOUND_CAUSE_SET'):c.compound_motion(p,p[0],p[-1],bad,'open_panel:A.entry')
+  s['obstacles'].append(['3','1','3.5','3']);s['labels'].append('wall:synthetic')
+  with self.assertRaisesRegex(ValueError,'ROUTE_OBSTACLE_COLLISION'):c.compound_motion(p,p[0],p[-1],s,'open_panel:A.entry')
+ def test_actual_matrix_old_prefix_exact_new_panel_rows(self):
+  import compound_panel_candidate108 as new
+  core,m,ps,v=self.compound_fixture();op=c.candidate_contract(v)
+  opts={'sleep_roles':['double','twin'],'parent_contract':op,'enabled_causes':op['enabled_causes'],'diagnostic_capture':lambda d:d}
+  with patch.object(candidate,'milp',side_effect=AssertionError('NO_SOLVER'))as oldsolver,patch.object(new,'milp',side_effect=AssertionError('NO_SOLVER'))as newsolver:
+   a=candidate.propose(core,2,**opts);b=new.propose(core,2,**opts)
+  oldsolver.assert_not_called();newsolver.assert_not_called()
+  result=support.compare_panel_capture(a,b);self.assertTrue(result['verified']);self.assertGreater(result['reserved_body_segments'],1)
+  bad=copy.deepcopy(b);bad['matrix'].data[0]+=1
+  with self.assertRaisesRegex(ValueError,'PANEL_OLD_CSR_CHANGED'):support.compare_panel_capture(a,bad)
+  bad=copy.deepcopy(b);bad['objective'][0]+=1
+  with self.assertRaisesRegex(ValueError,'PANEL_OLD_VECTOR_CHANGED'):support.compare_panel_capture(a,bad)
+ def test_reservation_wrong_core_or_rootproof_rejected(self):
+  core,m,ps,v=self.compound_fixture();op=c.candidate_contract(v)
+  self.assertEqual(c.panel_reservation(op,core),v['entry_source_binding']['local_panel'])
+  bad=copy.deepcopy(core);bad['extra']='not_same'
+  with self.assertRaisesRegex(ValueError,'ENTRY_RESERVATION_CORE'):c.panel_reservation(op,bad)
+  op['entry_panel_reservation']['units'][0]['root_body_clear']=False
+  with self.assertRaisesRegex(ValueError,'ENTRY_RESERVATION_ROOTS'):c.panel_reservation(op,core)
+ def test_actual_appended_sharedroot_rows_reject_panel_overlap_allow_contact(self):
+  import itertools,numpy as np
+  import compound_panel_candidate108 as new
+  core,m,ps,v=self.compound_fixture();op=c.candidate_contract(v)
+  opts={'sleep_roles':['double','twin'],'parent_contract':op,'enabled_causes':op['enabled_causes'],'diagnostic_capture':lambda d:d}
+  a=candidate.propose(core,2,**opts);b=new.propose(core,2,**opts);m0,n=a['matrix'].shape
+  rows=b['matrix'][m0:m0+5].toarray();lo=b['lower'][m0:m0+5];hi=b['upper'][m0:m0+5]
+  jhi=np.flatnonzero(rows[1,:n])[0];jlo=np.flatnonzero(rows[2,:n])[0]
+  grid=F('.005');root=F(ps['A']['network_paths']['dining_east'][0][0]);panel=list(map(F,v['entry_source_binding']['local_panel']))
+  def feasible(end):
+   x=np.zeros(b['matrix'].shape[1]);x[jlo]=float(min(root,end)/grid);x[jhi]=float(max(root,end)/grid)
+   for bits in itertools.product((0,1),repeat=4):
+    x[n:n+4]=bits;value=rows@x
+    if np.all(value>=lo-1e-8)and np.all(value<=hi+1e-8):return True
+   return False
+  self.assertTrue(feasible(root))
+  self.assertTrue(feasible(panel[0]-F('.35')))
+  self.assertFalse(feasible(panel[0]-F('.35')+grid))
+  self.assertFalse(feasible(panel[2]))
 if __name__=='__main__':unittest.main()
 

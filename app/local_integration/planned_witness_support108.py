@@ -13,16 +13,17 @@ PINS={'app/reconstruction357/planha_general150_runtime_work/search114.py':'65e0f
  'app/local_integration/cause_directed_contract108.py':'f07e20e250199a51fce9a9042ea854258345310f',
  'studies/r4/actual_descriptor301.py':'02c3126479b9fee410d985afb7e58205bb55c0b3',
  'studies/r4/semantic_descriptor301.py':'8bdcf838386ea798405b8bc3d43b355fe0957777'}
-PINS.update({"app/reconstruction357/planha_general150_runtime_work/assemble114.py":"6e19b12c62820e015055765e0fe56d6339cd4312","app/reconstruction357/planha_general150_runtime_work/public_witness118.py":"36f49057da712f29953bbc940a0dd8e9285ee64b","app/local_integration/cause_regression_support108.py":"343758e578800ee3aa26c61629e9e80a79705af1"})
+PINS.update({'app/reconstruction357/planha_general150_runtime_work/entry117.py':'56483ecd624dee7fddca5097ba284f8689bcfd9c',"app/reconstruction357/planha_general150_runtime_work/assemble114.py":"6e19b12c62820e015055765e0fe56d6339cd4312","app/reconstruction357/planha_general150_runtime_work/public_witness118.py":"36f49057da712f29953bbc940a0dd8e9285ee64b","app/local_integration/cause_regression_support108.py":"343758e578800ee3aa26c61629e9e80a79705af1"})
 def need(ok,code):
  if not ok:raise ValueError(code)
 def source_guard():
  for name,pin in PINS.items():
   b=(ROOT/name).read_bytes()
   need(hashlib.sha1(b'blob '+str(len(b)).encode()+bytes([0])+b).hexdigest()==pin,'PLANNED_SOURCE_PIN')
- import search114,planned_witness_contract108 as c
- for fn,path in ((search114.propose,ENGINE/'search114.py'),(c.diagnose,ROOT/'app/local_integration/planned_witness_contract108.py')):
+ import search114,planned_witness_contract108 as c,compound_panel_candidate108 as panel
+ for fn,path in ((search114.propose,ENGINE/'search114.py'),(c.diagnose,ROOT/'app/local_integration/planned_witness_contract108.py'),(panel.propose,ROOT/'app/local_integration/compound_panel_candidate108.py')):
   need(Path(inspect.getsourcefile(fn)).resolve()==path,'PLANNED_SOURCE_PATH')
+ need(strip_panel_source((ROOT/'app/local_integration/compound_panel_candidate108.py').read_text())[0]==(ROOT/'app/local_integration/cause_directed_candidate108.py').read_text(),'PANEL_ORIGINAL_SOURCE_CHANGED')
  source_check()
  return True
 
@@ -61,7 +62,7 @@ def readback(folder,result):
   else:need(label+'_bundle_digest'not in result and label+'_model_digest'not in result,'READBACK_UNEXPECTED_MODEL')
  if not parent:expected.add('parent_no_witness')
  if attempts==2:
-  expected.add('parent_contract')
+  expected.update({'parent_contract','child_constraint_retention'})
   need(result.get('actual_parent_contract_negative_rejections')==4 and type(result.get('actual_parent_contract_negative_rejections'))is int,'READBACK_CONTRACT_NEGATIVES')
  if attempts==2 and not child:expected.add('child_no_witness')
  if child:expected.update({'child_preservation','cause_resolution'})
@@ -99,6 +100,8 @@ def readback(folder,result):
     report=reports[key];bind_current(name,report,evidence)
     expected={'state':report['state'],'integrity_verified':True,'missing_count':0,'evaluator_error_count':0}
     need(digest(result[label+'_current'][name])==digest(expected),'READBACK_CURRENT_SUMMARY')
+ if 'child_constraint_retention'in reports:
+  need(reports['child_constraint_retention'].get('verified')is True and digest(reports['child_constraint_retention'])==digest(result.get('constraint_retention')),'READBACK_CONSTRAINT_RETENTION')
  if 'parent_cause'in reports:need(digest(result.get('selected_causes'))==digest(reports['parent_cause']['selected_causes']),'READBACK_SELECTED_CAUSES')
 
  if 'cause_resolution'in reports:
@@ -129,3 +132,39 @@ def solver_observation(proposal):
   need(type(value)is int if key=='solver_status'else type(value)in(int,float)and math.isfinite(value)and value>=0,'SOLVER_OBSERVATION_TYPE')
   out[key]=value
  return out
+
+def strip_panel_source(text):
+ lines=text.splitlines(keepends=True);kept=[];mapping={};active=None;seen=[]
+ pairs={' # R4_COMPOUND_CAPTURE_ROOT\n':' # R4_COMPOUND_CAPTURE_ROOT_END\n','  # R4_COMPOUND_CAPTURE_BRANCH\n':'  # R4_COMPOUND_CAPTURE_BRANCH_END\n',' # R4_COMPOUND_APPEND_PANEL\n':' # R4_COMPOUND_APPEND_PANEL_END\n'}
+ for number,line in enumerate(lines,1):
+  if active is not None:
+   if line==active:active=None
+   continue
+  if line in pairs:seen.append(line);active=pairs[line];continue
+  kept.append(line);mapping[number]=len(kept)
+ need(active is None and len(seen)==3 and set(seen)==set(pairs),'PANEL_SOURCE_MARKERS')
+ return ''.join(kept),mapping
+
+def panel_capture(core,operator):
+ import cause_directed_candidate108 as old,compound_panel_candidate108 as new
+ opts={'sleep_roles':['double','twin'],'variant':0,'topology':'SIDE_ROOTED_SERVICES','parent_contract':operator,'enabled_causes':operator['enabled_causes'],'diagnostic_capture':lambda d:d}
+ a=old.propose(core,2,**opts);b=new.propose(core,2,**opts)
+ need('matrix'in a and 'matrix'in b,'PANEL_CAPTURE_NO_MASTER')
+ return compare_panel_capture(a,b)
+
+def compare_panel_capture(a,b):
+ A=a['matrix'];B=b['matrix'];m,n=A.shape;C=B[:m,:n].tocsr()
+ for key in('data','indices','indptr'):need(np.array_equal(getattr(A,key),getattr(C,key)),'PANEL_OLD_CSR_CHANGED')
+ need(B[:m,n:].nnz==0,'PANEL_OLD_ROWS_NEW_COLUMNS')
+ for key in('objective','integrality'):need(np.array_equal(a[key],b[key][:n]),'PANEL_OLD_VECTOR_CHANGED')
+ for key in('lb','ub'):need(np.array_equal(getattr(a['bounds'],key),getattr(b['bounds'],key)[:n]),'PANEL_OLD_BOUNDS_CHANGED')
+ for key in('lower','upper'):need(np.array_equal(a[key],b[key][:m]),'PANEL_OLD_ROW_BOUNDS_CHANGED')
+ _,mapping=strip_panel_source((ROOT/'app/local_integration/compound_panel_candidate108.py').read_text())
+ meta=[dict(r,source_line=mapping[r['source_line']])for r in b['row_metadata'][:m]]
+ need(a['row_metadata']==meta and a['specs']==b['specs'],'PANEL_OLD_METADATA_CHANGED')
+ k=(B.shape[0]-m)//5
+ need(k>0 and B.shape==(m+5*k,n+4*k),'PANEL_APPENDED_SHAPE')
+ need(np.all(b['objective'][n:]==0)and np.all(b['integrality'][n:]==1)and np.all(b['bounds'].lb[n:]==0)and np.all(b['bounds'].ub[n:]==1),'PANEL_APPENDED_VARIABLES')
+ need(all(r['group']=='source_entry_open_panel_all_network_reservation'for r in b['row_metadata'][m:]),'PANEL_APPENDED_GROUP')
+ return {'verified':True,'original_rows':m,'original_columns':n,'added_rows':5*k,'added_binary_columns':4*k,'reserved_body_segments':k,
+  'scope':'All existing constraints/objective exact; source-line offsets mapped to byte-identical original. Appended source-panel reservation for this conservative network family.'}

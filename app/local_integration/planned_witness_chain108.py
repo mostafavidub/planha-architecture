@@ -22,10 +22,10 @@ def child(folder,nonce):
  from producer_provenance import snapshot,require_unchanged
  from program_profile_registry import lookup
  import engine114,guard400,search114,constructor127,construction_replay127,evaluate_pair127,cause_directed_candidate108
- import cause_directed_contract108,source_fit_profile207
+ import cause_directed_contract108,source_fit_profile207,compound_panel_candidate108
  import current_programme_evaluator,source_guest_route_evaluator,source_living_evaluator,source_wall_function_evaluator
  folder=Path(folder);folder.mkdir(exist_ok=False)
- out={'schema':'PLANNED_WITNESS_REPAIR108_V1','parent_origin':'UNMODIFIED_SEARCH114_VARIANT0_FRESH_NOT_HISTORICAL_HASH_REPLAY','selector_product_enabled':False,'run_nonce':nonce,'state':'STARTED','completed':False,'integrity_verified':False,
+ out={'schema':'COMPOUND_PLANNED_REPAIR108_V2','parent_origin':'UNMODIFIED_SEARCH114_VARIANT0_FRESH_NOT_HISTORICAL_HASH_REPLAY','selector_product_enabled':False,'run_nonce':nonce,'state':'STARTED','completed':False,'integrity_verified':False,
   'parent_observed':False,'child_observed':False,'cause_repair_verified':False,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,
   'solver_limit_per_attempt':30,'maximum_attempts':2,'attempt_count':0,'whole_dependencies':'PRIOR_FUNCTIONAL_STUDIES_PARTIAL',
   'scope':'Fresh unmodified parent recipe; planned-witness defect in original public118 guest profile, not unique cause of missing route. Fixed-size cause-directed resynthesis, not minimal repair'}
@@ -90,7 +90,7 @@ def child(folder,nonce):
   need(all(r['integrity_verified']and r['state']in('PASS','FAIL','UNKNOWN','NOT_EVALUATED')and not r['missing_count']and not r['evaluator_error_count']for r in out[label+'_current'].values()),'CURRENT_EVALUATION_BLOCKED')
   return packet,ctx,proposals,physical
  try:
-  local=['planned_witness_chain108.py','planned_witness_support108.py','planned_witness_contract108.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','source_fit_candidate207.py','source_fit_profile207.py','precision_boundary208.py','public_wln_contract.py','dimension_contract.py','core_choice_pair_study.py','protected_repair_contract.py','explicit_pair_redirection.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py','program_profile_registry.py','guest_route_certificate_study.py','current_programme_evaluator.py','source_guest_route_evaluator.py','source_living_evaluator.py','source_wall_function_evaluator.py']
+  local=['planned_witness_chain108.py','planned_witness_support108.py','planned_witness_contract108.py','compound_panel_candidate108.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','source_fit_candidate207.py','source_fit_profile207.py','precision_boundary208.py','public_wln_contract.py','dimension_contract.py','core_choice_pair_study.py','protected_repair_contract.py','explicit_pair_redirection.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py','program_profile_registry.py','guest_route_certificate_study.py','current_programme_evaluator.py','source_guest_route_evaluator.py','source_living_evaluator.py','source_wall_function_evaluator.py']
   paths=['app/local_integration/'+n for n in local]+['app/reconstruction357/planha_general150_runtime_work/'+n for n in('search114.py','constructor127.py','construction_replay127.py','evaluate_pair127.py','checker114.py','typed_public_access120.py','public_program_audit118.py')]
   if request is not None:
    from request_trace109 import validate_request
@@ -117,7 +117,7 @@ def child(folder,nonce):
   cause=diagnose(pp['world_model'],ps,raw['L'],pr,pc);retain('parent_cause',cause)
   out['selected_causes']=cause['selected_causes']
   out['parent_cause_rows']=[{k:r[k]for k in('unit','cause','established','state','original_target_error_count','direct_target_error_count','rejection_code','original_missing_route_count','original_profile_exclusive_motion_verified')if k in r}for r in cause['rows']];save()
-  if 'PLANNED_GUEST_DINING_MOTION' not in cause['selected_causes']:out.update(state='BLOCKED_NO_SUPPORTED_CAUSE',completed=True);return
+  if 'PLANNED_ENTRY_PANEL_AND_KITCHEN_MOTION' not in cause['selected_causes']:out.update(state='BLOCKED_NO_SUPPORTED_CAUSE',completed=True);return
   if request is not None:out.update(state='BLOCKED_REPAIR_CONTROLLER_ADAPTER',completed=True);return
   contract=freeze(raw,pp,pc,ps,pr,cause,snap,nonce);pin('parent_contract',contract);retain('parent_contract',contract)
   rejected=0
@@ -133,8 +133,9 @@ def child(folder,nonce):
   bind_parent(contract,raw,pp,pc,ps,pr,cause,snap,nonce);check()
   out.update(stage='CAUSE_SELECTED_CHILD_PROPOSAL',attempt_count=2);save()
   operator_contract=candidate_contract(contract);pin('operator_contract',operator_contract)
-  out['operator_adapter']=operator_contract['operator_adapter'];save()
-  p=cause_directed_candidate108.propose(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',parent_contract=operator_contract,enabled_causes=operator_contract['enabled_causes']);check()
+  out['operator_adapter']=operator_contract['operator_adapter']
+  out['constraint_retention']=support.panel_capture(core,operator_contract);retain('child_constraint_retention',out['constraint_retention']);check();save()
+  p=compound_panel_candidate108.propose(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',parent_contract=operator_contract,enabled_causes=operator_contract['enabled_causes']);check()
   out['child_producer_status']=proposal_disposition(p);out['child_solver']=support.solver_observation(p);save()
   if out['child_producer_status']!='PROPOSAL_ONLY':retain('child_no_witness',p);out.update(state='BLOCKED_BOUNDED_CHILD_NO_WITNESS',completed=True);return
   cp,cc,cs,cr=collect('child',p,raw,profile,core)
