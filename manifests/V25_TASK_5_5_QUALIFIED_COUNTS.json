@@ -1,0 +1,50 @@
+{
+  "task": "5.5",
+  "status": "DONE_SCOPED_QUALIFIED_COUNT_ZERO_DEFICIT_SIX_RECORDED",
+  "start_utc": "2026-11-19T06:17:57Z",
+  "deadline_utc": "2026-11-19T09:17:57Z",
+  "completed_utc": "2026-11-19T06:19:28Z",
+  "scope": "Only exact actual rejection/redesign lineage audited in4.3/4.5. Not all historical candidates, repositories, search variants or uninspected UI runtime model hashes.",
+  "requested_qualified_plan_count": 6,
+  "inspected_distinct_lineage_candidate_count": 2,
+  "candidates": [
+    {
+      "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "role": "PARENT",
+      "physical_status": "FAIL",
+      "physical_digest": "44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322",
+      "qualified": false,
+      "delivery_allowed": false
+    },
+    {
+      "model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+      "role": "FRESH_DISTINCT_CHILD",
+      "physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+      "physical_digest": "a6d3e620ca49df2ef06ed57db676d8e79628fc0f15acb30979c4db1f8de70799",
+      "current_decision_digest": "afabc26974d97f27a9ed60caa2259f7fb6b24f47def17a0c1b47332bcf3fd0ba",
+      "current_decision": "BLOCKED",
+      "qualified": false,
+      "delivery_allowed": false
+    }
+  ],
+  "qualified_plan_count": 0,
+  "shortfall": 6,
+  "qualified_diversity": {
+    "state": "NOT_MEASURABLE_EMPTY_QUALIFIED_SET",
+    "score": null,
+    "distinct_candidate_hashes_are_not_architectural_diversity": true
+  },
+  "repeated_execution_policy": "Same model hash across regeneration/archive is deduplicated; distinct hash alone is not proof of meaningful geometric or qualified diversity.",
+  "evidence": {
+    "actual_run": 44466696183,
+    "history_audit_run": 44468288358,
+    "public_ui_run": 44462498782,
+    "no_new_solver_or_CI_for_this_assessment": true
+  },
+  "delivery_response_scope": "Public UI witness and current negative API have plan_count_available0, no plan payload/download. No synthetic qualified positive substituted.",
+  "remaining": "Six qualified diverse plans have not been produced; capacity of arbitrary dimensions remains unsupported/unproven.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

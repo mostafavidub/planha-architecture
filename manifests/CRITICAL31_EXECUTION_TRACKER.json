@@ -614,14 +614,19 @@
       "description_verbatim": "۵.۴. تست نمایش و خروجی DXF برای طرح تأییدشده و جلوگیری از خروجی طرح ردشده یا نامعلوم. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_NEGATIVE_NO_DELIVERY_VERIFIED_POSITIVE_DISPLAY_DXF_BLOCKED",
       "dependencies": [
         "5.3",
         "3.6"
       ],
       "start_utc": "2026-11-19T06:12:40Z",
       "deadline_utc": "2026-11-19T09:12:40Z",
-      "scope": "Negative forged public authority fields and static current form plus pinned existing real browser no-delivery. Positive display/DXF blocked, no exporter-success claim."
+      "scope": "Negative forged public authority fields and static current form plus pinned existing real browser no-delivery. Positive display/DXF blocked, no exporter-success claim.",
+      "completed_scoped_tests_utc": "2026-11-19T06:16:10Z",
+      "tested_commit": "8c7c09e764ac869cefc1d2e8a6a49f13faa76e82",
+      "run": 44470895702,
+      "tests": "4 actual forged-authority field HTTP422 plus current static GET and separately reused actual browser DOM evidence",
+      "remaining": "No qualified current candidate; no active public plan-render/DXF export route in this study server. Positive display/DXF test not executed."
     },
     {
       "id": "5.5",
@@ -629,10 +634,14 @@
       "description_verbatim": "۵.۵. سنجش تعداد و تنوع واقعی طرح‌های تأییدشده و اعلام صریح کسری نسبت به شش طرح. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "DONE_SCOPED_QUALIFIED_COUNT_ZERO_DEFICIT_SIX_RECORDED",
       "dependencies": [
         "5.4"
-      ]
+      ],
+      "start_utc": "2026-11-19T06:17:57Z",
+      "deadline_utc": "2026-11-19T09:17:57Z",
+      "completed_utc": "2026-11-19T06:19:28Z",
+      "scope": "Exact two-hash actual inspected lineage only; zero qualified plans, deficit6, approved-set diversity not measurable. Not a global repository inventory."
     },
     {
       "id": "5.6",
@@ -640,10 +649,13 @@
       "description_verbatim": "۵.۶. تطبیق نسخه GitHub، قواعد سند، نتایج، محدودیت‌ها و شواهد ماندگار؛ ثبت موارد باقی‌مانده. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "5.5"
-      ]
+      ],
+      "start_utc": "2026-11-19T06:19:28Z",
+      "deadline_utc": "2026-11-19T09:19:28Z",
+      "scope": "Reconcile31 statuses, later evidence vs historical checkpoints, source/document scope, durable manifests and expiring artifacts; assess remaining independent authorized work."
     }
   ],
   "prior_v25": [

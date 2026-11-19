@@ -1,0 +1,152 @@
+{
+  "task": "5.4",
+  "status": "PARTIAL_NEGATIVE_NO_DELIVERY_VERIFIED_POSITIVE_DISPLAY_DXF_BLOCKED",
+  "start_utc": "2026-11-19T06:12:40Z",
+  "deadline_utc": "2026-11-19T09:12:40Z",
+  "tested_commit": "8c7c09e764ac869cefc1d2e8a6a49f13faa76e82",
+  "run": 44470895702,
+  "job": 135379808827,
+  "evidence": {
+    "accepted": false,
+    "actual_current_get_form": {
+      "download_elements": [],
+      "inputs": [
+        "W",
+        "L",
+        "n"
+      ],
+      "renderer_elements": []
+    },
+    "actual_http_forged_authority_tests": [
+      {
+        "actual_http_status": 422,
+        "flag": "accepted",
+        "response": {
+          "accepted": false,
+          "code": "UNEXPECTED_PUBLIC_FIELD",
+          "delivery_allowed": false,
+          "display_allowed": false,
+          "field": "accepted",
+          "qualified": false,
+          "schema": "PUBLIC_WLN_INPUT_ERROR_V1"
+        }
+      },
+      {
+        "actual_http_status": 422,
+        "flag": "qualified",
+        "response": {
+          "accepted": false,
+          "code": "UNEXPECTED_PUBLIC_FIELD",
+          "delivery_allowed": false,
+          "display_allowed": false,
+          "field": "qualified",
+          "qualified": false,
+          "schema": "PUBLIC_WLN_INPUT_ERROR_V1"
+        }
+      },
+      {
+        "actual_http_status": 422,
+        "flag": "display_allowed",
+        "response": {
+          "accepted": false,
+          "code": "UNEXPECTED_PUBLIC_FIELD",
+          "delivery_allowed": false,
+          "display_allowed": false,
+          "field": "display_allowed",
+          "qualified": false,
+          "schema": "PUBLIC_WLN_INPUT_ERROR_V1"
+        }
+      },
+      {
+        "actual_http_status": 422,
+        "flag": "delivery_allowed",
+        "response": {
+          "accepted": false,
+          "code": "UNEXPECTED_PUBLIC_FIELD",
+          "delivery_allowed": false,
+          "display_allowed": false,
+          "field": "delivery_allowed",
+          "qualified": false,
+          "schema": "PUBLIC_WLN_INPUT_ERROR_V1"
+        }
+      }
+    ],
+    "current_ui_matches_old_tested_commit_blob_pins": {
+      "public_wln.html": "74523800b75b4642cd33e01f4ce56ee7dcb3f17f",
+      "public_wln.js": "babc068abc3f3be571cc09b4db37351f4462c039",
+      "public_wln_server.py": "e92c711e37ef2fec46bf03e76cd1f4b59f61c5be"
+    },
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry_executed": false,
+    "new_browser_journey": false,
+    "new_solver_calls": 0,
+    "old_browser_tested_commit": "d2b063dcce0f5071ea359f4b402850df8e8ef6ca",
+    "positive_test": {
+      "dxf_exporter_test_executed": false,
+      "reasons": [
+        "No qualified model in inspected current runtime/history evidence",
+        "No active plan rendering or DXF export route implemented in this public_wln_server study surface"
+      ],
+      "state": "BLOCKED",
+      "synthetic_positive_used": false
+    },
+    "qualified": false,
+    "reused_actual_browser_evidence": {
+      "artifact": 14500313851,
+      "download_available": false,
+      "plan_rendered": false,
+      "receipt_digest": "3cd9b535285152178c299c3dc78d71dd06b7d5b1696b9c42e004111a6e3d02a1",
+      "run": 44462498782,
+      "scope": "Existing actual DOM/browser test, not a new browser journey",
+      "sha256": "fcbfe269bf8189882145b85570625c7f3f40491cc1296d19ecf53c357fbcb02b"
+    },
+    "schema": "TASK5_4_PUBLIC_DELIVERY_NEGATIVE_EVIDENCE_V1",
+    "scope": "Real negative HTTP and current static HTML plus separately reused real browser evidence. Not a successful DXF exporter test and not a statement about unrelated historical/diagnostic exporters.",
+    "source_compatibility": {
+      "engine_files_hashed": 377,
+      "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+      "integration_source_hashes": {
+        "app/local_integration/automatic_program_search.py": "9314667f2c455f3123a8b73fcb1864b3b61faef10f7b1eff4f1cabefea1dd67b",
+        "app/local_integration/current_four_decision.py": "8929ffaf179b0c69296f2d6104ba4cf50119df8e4f2957a22640178ae0eca7f8",
+        "app/local_integration/current_programme_evaluator.py": "c30ae83d0f9b3105c90dbd7c0c845cadcdd72c7401d110f53cfba80640ebb358",
+        "app/local_integration/front_rear_runtime_adapter.py": "bdeca58613e45f35fa951f25dc96315939f75e3c1f5464e356be1511c19d5126",
+        "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+        "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+        "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+        "app/local_integration/left_right_two_source_binding.py": "4d20595e3bae960603b7460b8469c898931bb73e76df0dcecc13eebe663f3048",
+        "app/local_integration/live_program_scheduler.py": "79d9ee49a90d82ff18a842e83a458274982d1a922cf31e4af985074502966944",
+        "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+        "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+        "app/local_integration/program_profile_registry.py": "ea958ce04e5c4c577387350892c2b36bc8a96fa29a50288470de89748bda52c6",
+        "app/local_integration/program_search_order.py": "7441654d20ff1e6524637e3416f1d96c964ea3fe9d83fa519ecdc8caf78208f9",
+        "app/local_integration/public_wln_contract.py": "1806f0eaf588f0681e6bbce0ef1a2c9c5dacd617e3c704c99330763803f05c6e",
+        "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b",
+        "app/local_integration/same_version_front_rear_contract.py": "43edad16cc9a7356c150af84b158d4ef7394f4a7f39999a1a4a1a609eff123a6",
+        "app/local_integration/source_guest_route_evaluator.py": "fbeb74ab006df108e7181dc6e1eba715368b2622d1432fc12ca31d76b771f952",
+        "app/local_integration/source_living_evaluator.py": "69f935c47c196bddc57929eaed2caacc101fb750f8553f7cdc6248035d3336df",
+        "app/local_integration/source_wall_function_evaluator.py": "c3f1f76f2e12338c018c7042585c015180c54565d98cf2a837f2f4d751540ef3"
+      },
+      "scope": "Read-only current byte compatibility with retained runtime; no new replay, geometry or solver execution"
+    },
+    "source_snapshot": {
+      "audit_public_delivery_surface.py": "7706805ada2eea8e18040e352b8fcdde2a6642c182d728586db5219fe3cef0b3",
+      "public_wln.html": "29da1881ba40dc3fe15046483dbccf4cb2ebc2421fb512c8ea2e1b81b1bca65a",
+      "public_wln.js": "fcf368ac98ecf16966ffd151f47ca93f3d69ac634e445d8d8cccc35b6d012be0",
+      "public_wln_server.py": "68ab01a0e3f41febbf8b38eccff71c5ccf0481859f3894ca4700293f699c529b"
+    },
+    "state": "NEGATIVE_NO_DELIVERY_VERIFIED_POSITIVE_DISPLAY_DXF_BLOCKED",
+    "subprocess_attempts": []
+  },
+  "artifact": {
+    "id": 14503808412,
+    "sha256": "de4472497c690b9141dfb286c65417c36a97c74fc5b6dc76248ceba5ecd07004",
+    "expires_at": "2026-12-19T06:16:10Z"
+  },
+  "scope": "Four forged authority fields rejected by public input contract, not a test of a nonexistent export authorization endpoint. Static current GET and old actual browser evidence are distinct; current HTML/JS/server match old tested commit blob pins.",
+  "reproduction": "Run .github/workflows/v25-public-delivery-negative.yml at tested commit; pinned1.6 artifact required. No new solver or browser journey.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
