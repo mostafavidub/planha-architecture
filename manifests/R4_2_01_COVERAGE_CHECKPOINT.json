@@ -1,0 +1,33 @@
+{
+  "task_id": "R4-2.01",
+  "status": "PARTIAL_SOURCE_INSPECTION_DRAFT_TESTS_NOT_RUN",
+  "started_at": "2026-11-19T07:25:38Z",
+  "deadline": "2026-11-19T10:25:38Z",
+  "checkpoint_at": "2026-11-19T07:31:12Z",
+  "draft_commit": "8b420f31d74aa830b55903a51e62c90440191a86",
+  "draft_branch": "r4-coverage-source-draft",
+  "source_base_commit": "1a70ef20b39fb6764fc2113f8f96569e13da7478",
+  "files": [
+    "specs/R4_CURRENT_TARGET_COVERAGE_V1.json",
+    "tests/r4/test_coverage_preflight.py"
+  ],
+  "scope": "SOURCE_INSPECTION_NOT_EXECUTED",
+  "source_files_read": 9,
+  "prepared_preflight_cases": 11,
+  "tests_executed": 0,
+  "solver_executed": false,
+  "qualification": false,
+  "findings": [
+    "Public V2 accepts W/L 5..25 and n 1/2, distinct from selected runtime capability",
+    "Selected live preflight is exactly 18x20/n2/2-bedroom/one internal attempt; other valid inputs unsupported",
+    "Product execution readiness is false; experimental preflight readiness is a distinct column",
+    "One-bedroom source branch is not audited runtime readiness; three-bedroom capacity profile is unapproved",
+    "Frozen legacy contract114 retains 5..45; public guard is not proof of every historical entrypoint",
+    "1 attempt/30 solver seconds/180 child seconds is selected study scope, not every FR-LOOP-BOUNDS category"
+  ],
+  "review": "Independent read-only review found no new semantic blocker. V2 pins must not be silently updated to V3; any later revision needs fresh source readback and expected-case versioning.",
+  "remaining": [
+    "Preflight tests NOT_RUN: GitHub Actions account billing/spending-limit block",
+    "Dependencies R4-1.02 and R4-1.03 not completed; no new family/runtime qualification"
+  ]
+}

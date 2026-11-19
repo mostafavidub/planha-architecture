@@ -740,7 +740,16 @@
       ],
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PARTIAL_SOURCE_INSPECTION_DRAFT_TESTS_NOT_RUN",
+      "started_at": "2026-11-19T07:25:38Z",
+      "deadline": "2026-11-19T10:25:38Z",
+      "checkpoint_at": "2026-11-19T07:31:12Z",
+      "draft_commit": "8b420f31d74aa830b55903a51e62c90440191a86",
+      "remaining": [
+        "Preflight tests NOT_RUN: GitHub Actions account billing/spending-limit block",
+        "Dependencies R4-1.02 and R4-1.03 not completed; no new family/runtime qualification"
+      ],
+      "manifest": "manifests/R4_2_01_COVERAGE_CHECKPOINT.json"
     },
     {
       "id": "R4-2.02",
