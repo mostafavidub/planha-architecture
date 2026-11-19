@@ -1,0 +1,25 @@
+name: Reviewed source inventory X05
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - app/local_integration/current_entry_inventory_x05.py
+      - specs/current_entry_inventory_x05.json
+      - tests/r4/test_current_entry_inventory_x05.py
+      - .github/workflows/r4-source-inventory-x05.yml
+permissions:
+  contents: read
+jobs:
+  static:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - run: python -B -m unittest discover -s tests/r4 -p test_current_entry_inventory_x05.py -v
+      - run: python -B app/local_integration/current_entry_inventory_x05.py
