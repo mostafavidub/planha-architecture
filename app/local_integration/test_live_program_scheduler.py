@@ -4,8 +4,8 @@ from live_program_scheduler import *
 BODY=b'{"W":"18","L":"20","n":2}'
 def fixture():
  pf=preflight(BODY);q={'schema':'LIVE_PROGRAM_ATTEMPT_V1','nonce':'test','body_hex':BODY.hex(),'preflight_digest':digest(pf),'budget':budgets()}
- runtime={'binding':pf['binding'],'model_digest':'synthetic-model-only'}
- decision={'model_digest':'synthetic-model-only','decision':{'state':'BLOCKED'}}
+ runtime={'binding':pf['binding'],'model_digest':'synthetic-model-only','completed':True,'model_binding_verified':True,**{k:False for k in AUTH}}
+ decision={'model_digest':'synthetic-model-only','decision':{'state':'BLOCKED'},'integrity_verified':True,**{k:False for k in AUTH}}
  r={'nonce':'test','request_digest':digest(q),'preflight_digest':digest(pf),'programme_digest':pf['binding']['program_registry_digest'],'contract_digest':pf['binding']['contract_digest'],
  'runtime_digest':digest(runtime),'model_digest':'synthetic-model-only','state':'LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED','decision':decision['decision'],'decision_digest':digest(decision),**{k:False for k in AUTH}}
  return r,q,runtime,decision
@@ -48,4 +48,16 @@ class LiveTests(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'LIVE_AUTHORITY'):bind_completed(r,q,b,d)
  def test_no_budget_reset_policy(self):
   self.assertFalse(policy()['budget_reset_on_transition'])
+ def test_unknown_child_state(self):
+  r,q,b,d=fixture();r['state']='UNKNOWN_MAGIC'
+  with self.assertRaisesRegex(ValueError,'LIVE_STATE_ENUM'):bind_completed(r,q,b,d)
+ def test_completed_requires_runtime_binding(self):
+  r,q,b,d=fixture();b['model_binding_verified']=False;r['runtime_digest']=digest(b)
+  with self.assertRaisesRegex(ValueError,'LIVE_COMPLETED_RUNTIME_REQUIRED'):bind_completed(r,q,b,d)
+ def test_completed_requires_decision_integrity(self):
+  r,q,b,d=fixture();d['integrity_verified']=False;r['decision_digest']=digest(d)
+  with self.assertRaisesRegex(ValueError,'LIVE_DECISION_INTEGRITY_AUTHORITY'):bind_completed(r,q,b,d)
+ def test_runtime_authority(self):
+  r,q,b,d=fixture();b['qualified']=True;r['runtime_digest']=digest(b)
+  with self.assertRaisesRegex(ValueError,'LIVE_RUNTIME_AUTHORITY'):bind_completed(r,q,b,d)
 if __name__=='__main__':unittest.main()
