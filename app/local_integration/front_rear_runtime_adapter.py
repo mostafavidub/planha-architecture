@@ -26,7 +26,9 @@ def transport(value):
  ensure(digest(out)==digest(value),'TRANSPORT_DIGEST_CHANGE')
  return out,{'tuple_paths':changes,'before_digest':digest(value),'after_digest':digest(out),'scope':'JSON tuple-to-array only; exact scalar types retained'}
 def verify_reports(reports,pins):
- for key,h in pins.items():ensure(digest(reports[key])==h,'COMPLETED_REPORT_MUTATION:'+key)
+ for key,h in pins.items():
+  normalized,_=transport(reports[key])
+  ensure(digest(normalized)==h,'COMPLETED_REPORT_MUTATION:'+key)
 def observed_digest(value):
  try:return digest(value)
  except Exception as ex:return 'UNHASHABLE_INTEGRITY_ERROR:'+type(ex).__name__
@@ -36,10 +38,12 @@ def observed_copy(value):
   return out
  except Exception as ex:return {'unserializable_observation':type(ex).__name__}
 def preserve_report(originals,live,pins,key,value):
- h=digest(value) # Reject noncanonical new report before admitting it into serializable originals.
+ normalized,receipt=transport(value)
+ h=digest(normalized)
  live[key]=value
- originals[key]=copy.deepcopy(value)
+ originals[key]=copy.deepcopy(normalized)
  pins[key]=h
+ return receipt
 def proposal_disposition(proposal):
  ensure(type(proposal) is dict,'PROPOSAL_OBJECT')
  status=proposal.get('status')
@@ -93,6 +97,7 @@ def run(body,*,solver_seconds):
  binding_pin=digest(binding);raw=copy.deepcopy(binding['raw'])
  out={'schema':'FRONT_REAR_ORIGINAL_RUNTIME_BUNDLE_V1','status':'NOT_COMPLETED',
   'binding':binding,'stages':[],'reports':{},'errors':[],
+  'construction_returned':False,'model_binding_verified':False,'report_transports':{},
   'fresh_model_executed':False,'completed':False,'production_supported':False,
   'solver_budget_seconds':solver_seconds,'outer_hard_timeout_required':True,
   **{k:False for k in AUTHORITY}}
@@ -100,7 +105,7 @@ def run(body,*,solver_seconds):
  def freeze_object(k,v):
   objects[k]=v;object_pins[k]=digest(v)
  def freeze_report(k,v):
-  preserve_report(out['reports'],live_reports,report_pins,k,v)
+  out['report_transports'][k]=preserve_report(out['reports'],live_reports,report_pins,k,v)
  def unchanged():
   ensure(digest(binding)==binding_pin,'BINDING_MUTATION')
   for k,h in object_pins.items():ensure(digest(objects[k])==h,'OBJECT_MUTATION:'+k)
@@ -136,6 +141,7 @@ def run(body,*,solver_seconds):
    proposal_check(proposal)
    stage='constructor'
    packet=constructor127.build(raw,'FRONT_REAR',proposal,proposal)
+   out.update(construction_returned=True,fresh_model_executed=True)
    ctx=constructor127.context(raw,packet,{'A':proposal,'B':proposal})
    (packet,ctx),receipt=transport([packet,ctx])
    freeze_object('packet',packet);freeze_object('context',ctx);freeze_report('model_transport',receipt)
@@ -143,7 +149,7 @@ def run(body,*,solver_seconds):
    ensure(digest(ctx['construction_trace']['raw'])==digest(raw),'TRACE_RAW')
    ensure(digest(ctx['construction_trace']['proposals'])==digest({'A':proposal,'B':proposal}),'TRACE_PROPOSALS')
    ensure(packet['family']=='FRONT_REAR' and packet['admission_claim'] is False,'PACKET_AUTHORITY')
-   out.update(packet=copy.deepcopy(packet),context=copy.deepcopy(ctx),model_digest=mh,fresh_model_executed=True)
+   out.update(packet=copy.deepcopy(packet),context=copy.deepcopy(ctx),model_digest=mh,model_binding_verified=True)
    out['stages'].append(stage);unchanged()
    stage='replay';replay=construction_replay127.verify(model,ctx);freeze_report('replay',replay);out['stages'].append(stage);unchanged()
    ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY_FAILED')
