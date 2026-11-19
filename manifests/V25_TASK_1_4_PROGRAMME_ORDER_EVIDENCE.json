@@ -1,0 +1,54 @@
+{
+  "task": "1.4",
+  "status": "PARTIAL_POLICY_TESTED_RUNTIME_ORDER_PENDING",
+  "carryover_deadline": "2026-11-19T05:51:01Z",
+  "ci_completed_at": "2026-11-19T03:38:29Z",
+  "tested_commit": "b25ee08c25abf3b2f994bd4221ba31a3bbc4603c",
+  "run_id": 44452804936,
+  "job_id": 135320583058,
+  "tests": {
+    "policy": 12,
+    "previous": 80,
+    "total": 92,
+    "status": "PASS"
+  },
+  "scope": "Pure bounded AP07 ordering/disposition policy plus scheduler trace. No live stage comparison or lower-programme execution. Unenumerated branches do not require exhaustive search. Approved two-to-one programme transition is a new alternative record, never repair or infeasibility/quality proof.",
+  "review": {
+    "reviewer": "geometry_review",
+    "parent": "migration_continue",
+    "resolved": [
+      "Dispositions-only and preceding_search_verified=false",
+      "Attempt IDs not runtime receipts",
+      "Shared attempt may support multiple stages; unique IDs counted once",
+      "Caller must preserve rejected budget ledger and error"
+    ]
+  },
+  "limitations": [
+    "All live framework stage dispositions remain NOT_IMPLEMENTED.",
+    "One-bedroom full-bundle adapter not ready; execute_lower_program=false.",
+    "Fixed n2, no reduction below one bedroom or unapproved three-bedroom capacity.",
+    "Budget account copied unchanged; no reset on programme transition.",
+    "No guarantee of hard callback timeout; no geometric witness or final quality judgement."
+  ],
+  "artifact": {
+    "id": 14496032257,
+    "name": "programme-order-task-1-4",
+    "zip_sha256": "1b955c2acc450578d84ec3a208d8b2d2db9da5987898eb4b4fa92f8093af5398",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44452804936/artifacts/14496032257",
+    "retention_days": 30,
+    "expected_expiry": "2026-12-19T03:38:27Z",
+    "may_be_deleted_earlier": true
+  },
+  "reproduce": {
+    "workflow": ".github/workflows/v25-programme-order.yml",
+    "commit": "b25ee08c25abf3b2f994bd4221ba31a3bbc4603c",
+    "python": "3.11",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "source_api_audit": "Existing2.1 source/import/signature/guard audit succeeded; no source API invoked to generate or evaluate geometry.",
+  "fresh_models": 0,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
