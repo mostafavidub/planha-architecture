@@ -7,7 +7,7 @@ from front_rear_runtime_adapter import ROOT,source_audit,transport,ensure
 from same_version_front_rear_contract import digest,ENGINE_REVISION
 from live_program_scheduler import preflight,bind_completed
 from current_four_decision import assemble
-from explicit_pair_redirection import require_rejection,inventory
+from explicit_pair_redirection import require_rejection,inventory,redirect
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 def select(request,runtime,child,scheduler,decision,expected):
  values=[request,runtime,child,scheduler,decision];values=[transport(x)[0] for x in values]
@@ -19,6 +19,9 @@ def select(request,runtime,child,scheduler,decision,expected):
  snap=snapshot(ROOT,paths);audit=source_audit()
  for fn,name in ((require_rejection,'explicit_pair_redirection.py'),(inventory,'explicit_pair_redirection.py'),(assemble,'current_four_decision.py'),(bind_completed,'live_program_scheduler.py')):
   ensure(Path(inspect.getsourcefile(fn)).resolve()==(ROOT/'app/local_integration'/name).resolve(),'SELECTION_IMPORT_PATH')
+ ensure(list(inspect.signature(redirect).parameters)==['body','parent_model','parent_context'],'OPERATOR_API')
+ operator_source=inspect.getsource(redirect)
+ for token in ('for variant in (0,1,2):','time_limit=12','time.monotonic()-started>100'):ensure(token in operator_source,'OPERATOR_BUDGET_SOURCE_TOKENS')
  bind_completed(child,request,runtime,decision)
  pf=preflight(bytes.fromhex(request['body_hex']));ensure(pf['execution_ready'] is True,'SELECTED_CASE')
  ensure(digest(scheduler['preflight'])==digest(pf),'SCHEDULER_PUBLIC_BINDING')
