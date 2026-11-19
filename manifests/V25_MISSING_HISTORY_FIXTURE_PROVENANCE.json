@@ -1,0 +1,30 @@
+{
+  "schema": "V25_MISSING_HISTORY_FIXTURE_PROVENANCE_V1",
+  "task": "V25-03",
+  "status": "BLOCKED_MISSING_HISTORICAL_FIXTURE",
+  "search_scope": "Read-only accessible GitHub history, not all historical computers or dangling objects",
+  "paths": [
+    "app/local_integration/evidence/review_cycle/integrated_http_result.json",
+    "app/local_integration/evidence/parametric_repair/flow/repair_ui_response.json"
+  ],
+  "path_commit_results": [
+    [],
+    []
+  ],
+  "branches": [
+    "main"
+  ],
+  "original_test": {
+    "commit": "4d6665e8e676578bc9b547d2beda051c5672efae",
+    "blob": "dfdc5e60bd54abd0e122b576441419f7d8409e99",
+    "path": "app/local_integration/test_run_history.py",
+    "required_input": "25 x 27 historical request",
+    "readme_note": "Original import explicitly recorded incomplete migration of some test data dependencies"
+  },
+  "exact_fixture_blob_recovered": false,
+  "legacy_test_count": 9,
+  "tests_modified": false,
+  "remaining_action": "Obtain original fixture bytes with verifiable provenance from an authorized surviving source; do not substitute new fixture under old test identity",
+  "independent_alternative_run": 44438109457,
+  "independent_alternative_is_original_fixture_recovery": false
+}
