@@ -164,11 +164,14 @@
       "description_verbatim": "۲.۲. نگاشت هر قاعده ضروری به داده، بررسی‌کننده، شاهد و اثر آن بر تصمیم. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "2.1",
         "3.1"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:27:58Z",
+      "deadline_utc": "2026-11-19T06:27:58Z",
+      "scope": "Necessary rule/data/checker/evidence/decision mapping for first slice; explicit unmapped and excluded scope."
     },
     {
       "id": "2.3",
@@ -209,13 +212,17 @@
       "description_verbatim": "۳.۱. استخراج معیار و داده لازم برای هر چهار بررسی از اسناد؛ مشخص‌کردن مواردی که معیار معتبرشان هنوز وجود ندارد. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SOURCE_CRITERIA_CATALOG_ONLY",
       "dependencies": [
         "0.3"
       ],
       "start_utc": "2026-11-19T03:18:16Z",
       "deadline_utc": "2026-11-19T06:18:16Z",
-      "scope": "Extract source-backed four-current-requirement criteria/data; separate missing rule/profile from missing witness; not V25-22 geometry restart"
+      "scope": "Extract source-backed four-current-requirement criteria/data; separate missing rule/profile from missing witness; not V25-22 geometry restart",
+      "completed_utc": "2026-11-19T03:24:46Z",
+      "commit": "0c385d434d1655898218ecd20eb52b902b88ec15",
+      "run": 44451216527,
+      "remaining": "All four current criteria remain UNKNOWN; 20 proposed cases are definitions, not executed architectural tests."
     },
     {
       "id": "3.2",
