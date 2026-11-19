@@ -36,11 +36,27 @@ jobs:
           PYTHONPATH: app/local_integration
         run: |
           timeout --kill-after=5s 180s python -B - <<'PY'
-          import pathlib,json,hashlib
-          from current_programme_evaluator import assess
+          import pathlib,json,hashlib,copy
+          from current_programme_evaluator import assess,inventory,ENGINE
+          from program_profile_registry import lookup
           files=list(pathlib.Path('programme-input').rglob('runtime-bundle.json'));assert len(files)==1
           raw=files[0].read_bytes();assert hashlib.sha256(raw).hexdigest()=='fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720'
-          out=assess(json.loads(raw))
+          bundle=json.loads(raw);out=assess(bundle)
+          base=bundle['packet']['world_model'];profile=lookup('PROGRAM_2BED_V1');cat=json.loads((ENGINE/'fixture_catalog114.json').read_text())
+          cases=['typed_program','module_hash','actual_fixture_size','actual_activity_position','living_size','missing_required_activity']
+          rejected=[]
+          for name in cases:
+           m=copy.deepcopy(base);u=m['units'][0]
+           if name=='typed_program':m['program']['units']=2.0
+           elif name=='module_hash':m['module_placements'][0]['module_hash']='0'*64
+           elif name=='actual_fixture_size':u['fixtures']['bed1.bed'][2]='999'
+           elif name=='actual_activity_position':u['activities']['bed1.bed_front'][2]='999'
+           elif name=='living_size':u['fixtures']['sofa1'][2]='999'
+           elif name=='missing_required_activity':del u['activities']['bed1.bed_front']
+           try:inventory(m,profile,cat)
+           except (ValueError,KeyError):rejected.append(name)
+          assert rejected==cases
+          out['same_model_inventory_negative_tests']={'count':len(cases),'cases':rejected,'scope':'Detached mutated copies only; not accepted models or replay tests'}
           pathlib.Path('programme-assessment.json').write_text(json.dumps(out,ensure_ascii=False,sort_keys=True,indent=2))
           print(json.dumps({'state':out['state'],'decision':out['decision'],'findings':out['findings'],'model_digest':out['model_digest'],'report_digests':out['report_digests'],'inventory':out.get('inventory'),'source_capacity_state':out.get('source_capacity_state')},sort_keys=True))
           assert not any(x['kind']=='EVALUATOR_OR_SOURCE_BINDING_ERROR' for x in out['findings'])
