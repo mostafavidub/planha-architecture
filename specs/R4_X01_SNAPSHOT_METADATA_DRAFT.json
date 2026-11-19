@@ -31,5 +31,6 @@
   "qualified": false,
   "delivery_allowed": false,
   "record_stage_scope": "Only metadata with model/report/profile and referenced contents already produced. PARTIAL/EVALUATOR_ERROR refers to a later-stage partial evaluation, not preconstruction failure. Preconstruction lifecycle records require a separate future schema; never fabricate digests.",
-  "source_identity": "source_snapshot_digest is SHA256 of source manifest/bundle, NOT Git commit SHA. No Git revision field or code-version authentication is implemented."
+  "source_identity": "source_snapshot_digest is SHA256 of source manifest/bundle, NOT Git commit SHA. No Git revision field or code-version authentication is implemented.",
+  "parent_lineage_scope": "parent_metadata_digest refers to the previous record canonical metadata digest, NOT content digest; only syntax checked here, parent existence/ownership/monotone revision verification requires store/lineage adapter."
 }

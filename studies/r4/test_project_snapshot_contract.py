@@ -2,14 +2,14 @@
 import copy,unittest
 from project_snapshot_contract import validate,digest,read_intent,compare_retry
 def record():
-    return {"schema":"R4_PROJECT_SNAPSHOT_METADATA_DRAFT_V1","project_id":"p1","snapshot_id":"s1","owner_subject":"ownerA","revision":1,"parent_snapshot_digest":None,"snapshot_content_digest":"d"*64,"profile_digest":"e"*64,"source_snapshot_digest":"f"*64,"units_digest":"1"*64,"geometry_mapping_digest":"2"*64,"request_digest":"a"*64,"model_digest":"b"*64,"rule_version":"rules_v1","report_digest":"c"*64,"state":"UNKNOWN","artifact":None,"legacy_run_id":None}
+    return {"schema":"R4_PROJECT_SNAPSHOT_METADATA_DRAFT_V1","project_id":"p1","snapshot_id":"s1","owner_subject":"ownerA","revision":1,"parent_metadata_digest":None,"snapshot_content_digest":"d"*64,"profile_digest":"e"*64,"source_snapshot_digest":"f"*64,"units_digest":"1"*64,"geometry_mapping_digest":"2"*64,"request_digest":"a"*64,"model_digest":"b"*64,"rule_version":"rules_v1","report_digest":"c"*64,"state":"UNKNOWN","artifact":None,"legacy_run_id":None}
 class Contract(unittest.TestCase):
     def test_metadata_match_never_authenticates(self):
         r=validate(record());self.assertTrue(r["metadata_valid"]);self.assertFalse(r["owner_authenticated"]);self.assertFalse(r["storage_committed"])
     def test_read_never_authorizes_or_regenerates(self):
         m=record();r=read_intent("ownerA",m,digest(m),"download_same_snapshot")
         self.assertFalse(r["operation_allowed"]);self.assertFalse(r["regeneration_allowed"]);self.assertEqual(r["artifact_bytes"],0)
-    def test_cross_owner_denied(self):
+    def test_contract_owner_reference_mismatch(self):
         m=record()
         with self.assertRaisesRegex(ValueError,"OWNER_MISMATCH"):read_intent("ownerB",m,digest(m),"read_metadata")
     def test_stale_digest_denied(self):

@@ -3,7 +3,7 @@ Preconstruction failures require a separate lifecycle record, not fake digests.
 Inputs to read_intent are untrusted comparison values, never authenticated users.
 """
 import hashlib,json,re
-FIELDS={"schema","project_id","snapshot_id","owner_subject","revision","parent_snapshot_digest","snapshot_content_digest","profile_digest","source_snapshot_digest","units_digest","geometry_mapping_digest","request_digest","model_digest","rule_version","report_digest","state","artifact","legacy_run_id"}
+FIELDS={"schema","project_id","snapshot_id","owner_subject","revision","parent_metadata_digest","snapshot_content_digest","profile_digest","source_snapshot_digest","units_digest","geometry_mapping_digest","request_digest","model_digest","rule_version","report_digest","state","artifact","legacy_run_id"}
 STATES={"REJECTED","UNKNOWN","EVALUATOR_ERROR","PARTIAL"}
 def need(ok,code):
     if not ok:raise ValueError(code)
@@ -27,7 +27,7 @@ def validate(record):
     need(record["schema"]=="R4_PROJECT_SNAPSHOT_METADATA_DRAFT_V1","SCHEMA")
     for k in ("project_id","snapshot_id","owner_subject"):need(identifier(record[k]),"IDENTIFIER:"+k)
     need(type(record["revision"])is int and record["revision"]>=1,"REVISION")
-    need(record["parent_snapshot_digest"] is None if record["revision"]==1 else hash_ok(record["parent_snapshot_digest"]),"PARENT_LINEAGE")
+    need(record["parent_metadata_digest"] is None if record["revision"]==1 else hash_ok(record["parent_metadata_digest"]),"PARENT_LINEAGE")
     for k in ("snapshot_content_digest","profile_digest","source_snapshot_digest","units_digest","geometry_mapping_digest","request_digest","model_digest","report_digest"):need(hash_ok(record[k]),"DIGEST:"+k)
     need(identifier(record["rule_version"]),"RULE_VERSION")
     need(type(record["state"])is str and record["state"]in STATES,"STATE_NOT_SUPPORTED")
