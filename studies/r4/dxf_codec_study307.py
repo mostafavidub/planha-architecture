@@ -81,7 +81,7 @@ def observe(data):
  import ezdxf
  require(ezdxf.__version__=='1.4.3','READER_VERSION')
  require(type(data)is bytes,'BYTES_REQUIRED')
- doc=ezdxf.read(io.StringIO(data.decode('ascii')))
+ doc=ezdxf.read(io.StringIO(data.decode('ascii'),newline=None))
  require(doc.dxfversion=='AC1015' and doc.header.get('$INSUNITS')==6 and doc.header.get('$MEASUREMENT')==1,'DXF_UNITS_OR_VERSION')
  lines={};names={};declared=set(x.dxf.name for x in doc.layers)
  for e in doc.modelspace():

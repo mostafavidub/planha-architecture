@@ -8,7 +8,7 @@ def fixture():
   'openings':[{'id':'door1','host':'wall1','rect':['4','1','5','1.5']}],
   'rooms':[{'id':'room1','name':'اتاق خواب','rect':['1','2','4','6']},{'id':'room2','name':'نشیمن','rect':['5','2','9','6']}]}
 def modified(data,fn):
- doc=ezdxf.read(io.StringIO(data.decode('ascii')));fn(doc)
+ doc=ezdxf.read(io.StringIO(data.decode('ascii'),newline=None));fn(doc)
  out=io.StringIO();doc.write(out);return out.getvalue().encode('ascii','backslashreplace')
 class CodecStudy(unittest.TestCase):
  def setUp(self):self.s=fixture();self.b=encode(self.s)
@@ -20,6 +20,9 @@ class CodecStudy(unittest.TestCase):
   self.assertEqual(boxes['W__wall1__0'],tuple(map(F,['1','1','4','1.5'])))
   self.assertEqual(boxes['W__wall1__1'],tuple(map(F,['5','1','9','1.5'])))
   self.assertEqual(names['N__room1'][0],'اتاق خواب')
+ def test_crlf_and_lf_streams_have_same_semantics(self):
+  self.assertIn(b'\r\n',self.b)
+  self.assertEqual(observe(self.b),observe(self.b.replace(b'\r\n',b'\n')))
  def test_deterministic_source_and_input_unchanged(self):
   old=copy.deepcopy(self.s);pin=source_guard()
   self.assertEqual(self.b,encode(self.s));parity(self.s,self.b)
