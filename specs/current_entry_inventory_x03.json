@@ -937,6 +937,10 @@
     ".github/workflows/r4-input-errors403.yml": {
       "blob": "a0eaba1c4b105c351acc55c0af9b509bff0453ed",
       "classification": "CURRENT_V3_ACCEPTANCE_VERSIONED_FIELD_ERROR_DIAGNOSTICS_NO_SOLVER"
+    },
+    ".github/workflows/r4-http-lifecycle407.yml": {
+      "blob": "c8d767e4c72e57c6ed973381b23f4013378f8413",
+      "classification": "WORKFLOW_STATIC_DECLARATION_NOT_DISPATCH_AUTHORITY"
     }
   },
   "top_level_paths": [
@@ -1209,7 +1213,8 @@
     ".github/workflows/r4-paired-codec308.yml",
     ".github/workflows/r4-codec-environment402.yml",
     "app/local_integration/public_input_errors403.py",
-    ".github/workflows/r4-input-errors403.yml"
+    ".github/workflows/r4-input-errors403.yml",
+    ".github/workflows/r4-http-lifecycle407.yml"
   ],
   "inventory_self_paths": [],
   "python_names": [

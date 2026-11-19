@@ -1,0 +1,25 @@
+name: R4 real HTTP controlled lifecycle
+on:
+  push:
+    paths:
+      - 'tests/r4/test_http_lifecycle407.py'
+      - '.github/workflows/r4-http-lifecycle407.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controlled:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.18'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B tests/r4/test_http_lifecycle407.py
+      - run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
