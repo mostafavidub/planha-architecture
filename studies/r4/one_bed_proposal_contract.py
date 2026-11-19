@@ -38,7 +38,7 @@ def check(p):
             need(type(path)is list and len(path)==5,"PATH_LENGTH")
             for point in path:need(type(point)is list and len(point)==2 and all(number(v)for v in point),"PATH_POINT")
         need(digest(p)==before,"INPUT_MUTATION")
-        r.update(proposal_shape_verified=True,rectangle_count=len(ROLES),terminal_count=len(TERMINALS),design_persons_reference=2,unit_count_reference=2)
+        r.update(proposal_shape_verified=True,proposal_digest=before,rectangle_count=len(ROLES),terminal_count=len(TERMINALS),design_persons_reference=2,unit_count_reference=2)
     except(ValueError,TypeError,KeyError,IndexError,OverflowError,RecursionError)as e:r["errors"].append(type(e).__name__+":"+str(e))
-    r["not_checked"]=["SOURCE_MARKER_SEMANTICS_NOT_CHECKED","ROLE_LIMITED_NUMERIC_TRANSPORT_NOT_PERFORMED","SOURCE_PIN_RUNTIME_VERIFICATION","SOLVER_ORIGIN","RECTANGLE_CLEARANCE_OR_CONSTRAINTS","SOURCE_MODULE_INSTANCE_GEOMETRY","WHOLE_MODEL_AND_CURRENT_CRITERIA","AUTOMATIC_SELECTION_OR_FALLBACK","QUALITY_AND_ERGONOMICS"]
+    r["not_checked"]=["SOLVER_STATUS_COUNT_SEMANTICS_NOT_CHECKED","SOURCE_MARKER_SEMANTICS_NOT_CHECKED","ROLE_LIMITED_NUMERIC_TRANSPORT_NOT_PERFORMED","SOURCE_PIN_RUNTIME_VERIFICATION","SOLVER_ORIGIN","RECTANGLE_CLEARANCE_OR_CONSTRAINTS","SOURCE_MODULE_INSTANCE_GEOMETRY","WHOLE_MODEL_AND_CURRENT_CRITERIA","AUTOMATIC_SELECTION_OR_FALLBACK","QUALITY_AND_ERGONOMICS"]
     return r
