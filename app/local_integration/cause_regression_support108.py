@@ -105,6 +105,18 @@ def readback(folder,result):
     'not_evaluated_count':len(physical.get('not_evaluated',[])),'out_of_scope_count':len(physical.get('out_of_scope',[]))}
    need(digest(result[label+'_physical'])==digest(expected),'READBACK_PHYSICAL_SUMMARY')
   if label+'_replay'in reports:need(reports[label+'_replay']['model_hash']==mh,'READBACK_REPLAY_MODEL')
+  if label+'_physical'in reports and label+'_replay'in reports:
+   evidence={'model_digest':mh,'reports':{'physical':reports[label+'_physical'],'original_replay':reports[label+'_replay']},
+    'report_digests':{'physical':result['report_digests'][label+'_physical'],'original_replay':result['report_digests'][label+'_replay']}}
+   modules=('current_programme_evaluator','source_guest_route_evaluator','source_living_evaluator','source_wall_function_evaluator')
+   for name in modules:
+    key=label+'_current_'+name
+    if key not in reports:continue
+    report=reports[key];bind_current(name,report,evidence)
+    expected={'state':report['state'],'integrity_verified':True,'missing_count':0,'evaluator_error_count':0}
+    need(digest(result[label+'_current'][name])==digest(expected),'READBACK_CURRENT_SUMMARY')
+ if 'parent_cause'in reports:need(digest(result.get('selected_causes'))==digest(reports['parent_cause']['selected_causes']),'READBACK_SELECTED_CAUSES')
+
  if 'cause_resolution'in reports:
   resolution=reports['cause_resolution']
   need(digest(result.get('resolution_rows'))==digest(resolution['rows']),'READBACK_RESOLUTION_ROWS')
