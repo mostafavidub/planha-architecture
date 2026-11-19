@@ -44,6 +44,13 @@ def scene(m,u,name):
   outside=cells([box],domain);obstacles+=outside;labels+=[label+':'+str(i) for i in range(len(outside))]
  ensure(len(obstacles)==len(labels),'OBSTACLE_LABEL_COUNT')
  return {'parts':parts,'owner':owner,'box':box,'obstacles':obstacles,'labels':labels,'roles':roles,'body':str(body),'kitchen_operation_digest':digest(ko)}
+def disposition(row):
+ state=row.get('state')
+ if state=='PASS_SOURCE_PROFILE_ROUTE_ONLY':return 'CERTIFY'
+ if state=='NO_WITNESS_IN_THIS_CONSERVATIVE_SCENARIO':return 'NO_SOURCE_WITNESS_CERTIFICATE_NOT_EVALUATED'
+ return 'SOURCE_EVALUATOR_OR_BINDING_ERROR'
+def verify_report(report,pin):
+ ensure(report is not None and digest(report)==pin,'SOURCE_REPORT_MUTATION_OR_NOT_ESTABLISHED')
 def certify(row,s,path_digest):
  from public_program_audit118 import covered
  ensure(digest(row['path'])==path_digest,'PATH_DIGEST')
@@ -64,6 +71,7 @@ def certify(row,s,path_digest):
  for c in cap['limiting_constraints']:
   if c['kind']=='obstacle':c['source_label']=s['labels'][c['obstacle_index']]
  cap['independent_certificate']={'at_capacity_clear':True,'above_capacity_rejection':cause,'test_epsilon_m':'1/1000000','epsilon_is_design_threshold':False}
+ cap['target_exception_scope']='For entry_WC, the own-fixture target mask remains the source .7-body mask at every tested width; not general WC usability capacity.'
  cap['domain_scope']='Fixed orthogonal path in exact typed-floor and ownership union via complement obstacles plus independent coverage checks; not globally best route, bottleneck doorway width, ergonomics or state-complete operation proof.'
  return {'path_digest':path_digest,'source_body_sweeps':[list(map(str,b)) for b in sweeps(row['path'],body)],'capacity':cap,'scene_digest':digest(s)}
 def overlay(uid,row,s,certificate,mh):
@@ -100,7 +108,7 @@ def assess(bundle,directory):
  out={'schema':'EIGHT_GUEST_FIXED_PATH_CERTIFICATES_V1','state':'UNKNOWN','model_digest':mh,'historical_physical_digest':bundle['report_digests']['physical'],'source_snapshot':snap,'rows':[],'integrity_verified':False,'completed':False,'scope':'Fresh construction of existing four-route study profile; new fixed-path certificates/diagnostic overlays only. Historical model, not current input generation. No global clearance, ergonomic or architectural approval.',**{k:False for k in AUTH}}
  def save():
   tmp=directory/'report.tmp';tmp.write_text(json.dumps(out,sort_keys=True,indent=2));tmp.replace(directory/'guest-certificates.json')
- save()
+ save();guest=None;gp=None
  try:
   guest=guest_assess(bundle);gp=digest(guest)
   ensure(guest.get('integrity_verified') is True and not guest.get('missing'),'FRESH_ROUTE_EVALUATOR')
@@ -112,10 +120,12 @@ def assess(bundle,directory):
    for r in g['routes']:
     row={'unit':u['id'],'route_id':r['id'],'route_state':r['state'],'usable_evidence':False};out['rows'].append(row);save()
     try:
-     if r['state']!='PASS_SOURCE_PROFILE_ROUTE_ONLY':row['state']='NO_SOURCE_WITNESS_CERTIFICATE_NOT_EVALUATED';continue
+     dis=disposition(r)
+     if dis!='CERTIFY':
+      row.update(state=dis,original_source_state=r.get('state'),original_source_error=r.get('error'));continue
      s=scene(m,u,r['id']);ensure(s['kitchen_operation_digest']==g['kitchen_operation_digest'],'OPERATION_BINDING')
      cert=certify(r,s,digest(r['path']))
-     row.update(state='CERTIFIED_FIXED_PATH_ONLY',route=copy.deepcopy(r),certificate=cert,scenario=g['scenario'],operation_digest=g['kitchen_operation_digest'])
+     row.update(state='CERTIFIED_FIXED_PATH_ONLY',route=copy.deepcopy(r),certificate=cert,scenario=g['scenario'],destination_bindings=copy.deepcopy(g['destination_bindings']),source_profile=copy.deepcopy(m['profile']),operation_digest=g['kitchen_operation_digest'])
      svg=overlay(u['id'],r,s,cert,mh);filename=u['id']+'_'+r['id']+'.svg';(directory/filename).write_text(svg)
      import hashlib
      row['overlay']={'file':filename,'sha256':hashlib.sha256(svg.encode()).hexdigest(),'model_digest':mh,'path_digest':cert['path_digest'],'scene_digest':cert['scene_digest'],'diagnostic_only':True}
@@ -126,7 +136,7 @@ def assess(bundle,directory):
  except Exception as ex:out.update(error_type=type(ex).__name__,error_code=str(ex)[:120])
  finally:
   try:
-   ensure(digest(bundle)==strict_pin,'INPUT_MUTATION');require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED');out['integrity_verified']=True
+   ensure(digest(bundle)==strict_pin,'INPUT_MUTATION');verify_report(guest,gp);require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED');out['integrity_verified']=True
    for r in out['rows']:r['usable_evidence']=r.get('state')=='CERTIFIED_FIXED_PATH_ONLY'
   except Exception as ex:
    out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,integrity_error=type(ex).__name__)

@@ -1,0 +1,28 @@
+name: R4 guest certificate synthetic units
+on:
+  push:
+    paths:
+      - 'app/local_integration/guest_route_certificate_study.py'
+      - 'app/local_integration/test_guest_route_certificate_study.py'
+      - '.github/workflows/r4-guest-certificate-units.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Synthetic helper checks only
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B -m unittest discover -s app/local_integration -p test_guest_route_certificate_study.py -v
+      - name: Source unchanged
+        run: git diff --exit-code
