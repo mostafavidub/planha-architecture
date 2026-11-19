@@ -32,6 +32,16 @@
       "current_state": "UNKNOWN",
       "sources": [
         {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab_id": "t.0",
+          "start_index": 118745,
+          "end_index": 119064,
+          "label": "PRD FR-BEDROOM",
+          "readback": "VERIFIED",
+          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+        },
+        {
           "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
           "tab_id": "t.jgj9urck6sd",
           "start_index": 38709,
@@ -128,6 +138,26 @@
       "current_state": "UNKNOWN",
       "sources": [
         {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab_id": "t.0",
+          "start_index": 140252,
+          "end_index": 142667,
+          "label": "PRD four routes",
+          "readback": "VERIFIED",
+          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+        },
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab_id": "t.0",
+          "start_index": 137783,
+          "end_index": 138163,
+          "label": "PRD first living",
+          "readback": "VERIFIED",
+          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+        },
+        {
           "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
           "tab_id": "t.j4w0y56xvj8u",
           "start_index": 71731,
@@ -212,6 +242,16 @@
       "id": "CONTINUOUS_USEFUL_LIVING",
       "current_state": "UNKNOWN",
       "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab_id": "t.0",
+          "start_index": 144137,
+          "end_index": 144556,
+          "label": "PRD useful living",
+          "readback": "VERIFIED",
+          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+        },
         {
           "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
           "tab_id": "t.j4w0y56xvj8u",
@@ -307,6 +347,16 @@
       "current_state": "UNKNOWN",
       "sources": [
         {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab_id": "t.0",
+          "start_index": 138164,
+          "end_index": 139535,
+          "label": "PRD wall function",
+          "readback": "VERIFIED",
+          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+        },
+        {
           "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
           "tab_id": "t.j4w0y56xvj8u",
           "start_index": 18695,
@@ -391,5 +441,6 @@
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "source_locator_correction": "PRD t.0 ranges above 118000 belong to 1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8, not Blueprint17X. Both documents read back; Blueprint t.0 ends62343 in observed revision."
 }
