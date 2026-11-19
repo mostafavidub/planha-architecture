@@ -1,0 +1,36 @@
+{
+  "task": "2.5",
+  "status": "INTERMEDIATE_TRANSPORT_DIAGNOSIS_AND_ADAPTER_DEFECT",
+  "observations": [
+    {
+      "commit": "00d3e70b87b11fc2d934e87074a9465c9e457765",
+      "run": 44454741449,
+      "job": 135326907663,
+      "error": "TRANSPORT_TYPE:[\"rectangles\",\"bed1\",0]:numpy.float64",
+      "artifact": 14496973395,
+      "artifact_sha256": "add9b804c5cd3667b46cfedfcb76e818c950e0d00c69719732742b1a72489c01",
+      "constructor_called": false
+    },
+    {
+      "commit": "18643141b0b11383358d265670d9e6320c5b65d4",
+      "run": 44455018805,
+      "job": 135327833607,
+      "error": "PROPOSAL_NETWORK_KEYS",
+      "cause": "New adapter incorrectly reused rectangle names for route terminal allowlist; not architectural infeasibility or producer failure",
+      "artifact": 14497461153,
+      "artifact_sha256": "8dcb41dc236b713d4666e81d3629c81a24fd7395ef37a6d1a275a6cd100e7768",
+      "tests": 32,
+      "constructor_called": false
+    }
+  ],
+  "correction": {
+    "commit": "9bf9ada0a9c71b413d07573e97aed0cdce6a71cd",
+    "scope": "Exact twelve route terminals as emitted by pinned search114; geometry coordinate conversion only; full-source scalar value/hash preserved",
+    "ci_pending": 44455198301
+  },
+  "retention_days": 30,
+  "artifacts_expire": "2026-12-19; retain commit/workflow instructions, re-execution is fresh evidence not old run recovery",
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
