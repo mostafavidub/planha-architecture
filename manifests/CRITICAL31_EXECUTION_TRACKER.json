@@ -93,7 +93,7 @@
       "description_verbatim": "۱.۳. ساخت جست‌وجوی خودکارِ گزینه‌های برنامه با ثبت علت، بودجه و ترتیب بررسی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_FRAMEWORK_TESTED_LIVE_SEARCH_PENDING",
       "dependencies": [
         "1.1",
         "1.2",
@@ -102,7 +102,16 @@
       "start_utc": "2026-11-19T03:31:39Z",
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
-      "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5."
+      "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5.",
+      "checkpoint_utc": "2026-11-19T03:35:04Z",
+      "commit": "b7d0bdfd775cc614a540fcbfaf1a377077241065",
+      "run": 44452389525,
+      "tests": {
+        "scheduler": 17,
+        "previous": 63,
+        "total": 80
+      },
+      "remaining": "Single 18x20/n2 synthetic scheduler only; no live adapter or model; detailed ordering task1.4 and runtime task2.5 remain. Wall budget is accounting, not callback termination."
     },
     {
       "id": "1.4",
@@ -110,10 +119,14 @@
       "description_verbatim": "۱.۴. بررسی تغییر هسته، تقسیم و جانمایی پیش از بررسی برنامه با خواب کمتر؛ بدون تغییر پنهانی برنامه. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "1.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:35:29Z",
+      "carried_operation_start_utc": "2026-11-19T02:51:01Z",
+      "deadline_utc": "2026-11-19T05:51:01Z",
+      "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset."
     },
     {
       "id": "1.5",
