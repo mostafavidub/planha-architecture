@@ -1,0 +1,42 @@
+name: V25 program registry task 1.2
+on:
+  push:
+    paths:
+      - 'app/local_integration/program_profile_registry.py'
+      - 'app/local_integration/test_program_profile_registry.py'
+      - '.github/workflows/v25-program-registry.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  registry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Registry and public-contract tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          set -o pipefail
+          python -B -m unittest -v test_program_profile_registry test_public_wln_contract test_dimension_contract test_v25_input_audit 2>&1 | tee program-registry-tests.txt
+      - name: Read-only source module inventory audit
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B -c "import json; from program_profile_registry import audit_sources; print(json.dumps(audit_sources(),ensure_ascii=False,indent=2))" > program-registry-source-audit.json
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: program-registry-task-1-2
+          path: |
+            program-registry-tests.txt
+            program-registry-source-audit.json
+          retention-days: 30
