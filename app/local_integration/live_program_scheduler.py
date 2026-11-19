@@ -66,6 +66,8 @@ def bind_completed(result,request,runtime,decision):
  if digest(runtime['binding'])!=digest(pf['binding']):raise ValueError('LIVE_RUNTIME_REQUEST_BINDING')
  if result['runtime_digest']!=digest(runtime):raise ValueError('LIVE_RUNTIME_DIGEST')
  if result['model_digest']!=runtime.get('model_digest'):raise ValueError('LIVE_MODEL_DIGEST')
+ if any(runtime.get(k) is not False for k in AUTH):raise ValueError('LIVE_RUNTIME_AUTHORITY')
+ if result['state']=='ORIGINAL_RUNTIME_INCOMPLETE_NO_FOUR_REPORT_DECISION' and runtime.get('completed') is True and runtime.get('model_binding_verified') is True:raise ValueError('LIVE_INCOMPLETE_STATE_CONTRADICTION')
  if result['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED':
   if runtime.get('completed') is not True or runtime.get('model_binding_verified') is not True:raise ValueError('LIVE_COMPLETED_RUNTIME_REQUIRED')
   if decision is None or decision.get('integrity_verified') is not True or any(decision.get(k) is not False for k in AUTH):raise ValueError('LIVE_DECISION_INTEGRITY_AUTHORITY')
@@ -92,7 +94,7 @@ def run_live(body,*,budget=None):
  row={'attempt_id':attempt_id,'programme_id':'PROGRAM_2BED_V1','programme_digest':pf['binding']['program_registry_digest'],'contract_digest':pf['binding']['contract_digest'],
   'attempted':True,'state':'RUNNING','budget_account_id':nonce,'allocated_child_seconds':limits['shared_child_seconds'],'nonce':nonce}
  out['attempts'].append(row);out['source_snapshot']=snap
- out['budget_scope']='Single shared child wall limit includes original runtime and four current assessments/decision; solver limit30 is internal. Parent pre/post source audits and setup excluded and timed separately. No reset for lower programme.'
+ out['budget_scope']='Single shared child wall limit includes original runtime and four current assessments/decision; solver limit30 is internal. Parent pre/post source audits and setup excluded from child cap. No reset for lower programme.'
  out['head_sha']=os.environ.get('GITHUB_SHA');out['policy']=policy()
  start=time.monotonic();proc=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'--child',str(directory)],cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,start_new_session=True)
  timed=False;killed=False
@@ -123,7 +125,9 @@ def run_live(body,*,budget=None):
    out['construction_observation_verified']=row.get('receipt_verified') is True
    out['fresh_model_executed']=row.get('receipt_verified') is True and runtime.get('construction_returned') is True and runtime.get('model_binding_verified') is True
    row['constructor_called_observed']=runtime['constructor_called'];row['model_binding_verified']=row.get('receipt_verified') is True and runtime['model_binding_verified'] is True
-  if decision:out['current_decision']=copy.deepcopy(decision['decision'])
+  if decision:
+   if row.get('receipt_verified') is True and row['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED':out['current_decision']=copy.deepcopy(decision['decision'])
+   else:out['observed_unverified_decision']={'digest':digest(decision),'reason':'No verified complete live receipt; not a current decision'}
  except Exception as ex:row.update(state='RECEIPT_FAILED_CLOSED',error=type(ex).__name__+':'+str(ex))
  # One fixed source core/split was used; no alternatives falsely recorded as searched.
  records=[]
