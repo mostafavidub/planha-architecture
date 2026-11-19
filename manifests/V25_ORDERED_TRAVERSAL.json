@@ -322,7 +322,7 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "FRAME_SOURCE_D4_SCOPED_COMPLETE_HISTORICAL_FAIL",
+    "state": "RUNNING_PREREGISTERED_NONSQUARE_FRAME_MATRIX",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
@@ -350,6 +350,32 @@
       ]
     },
     "frame_contract_run": 44445639710,
-    "frame_contract_commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2"
+    "frame_contract_commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2",
+    "nonsquare": {
+      "start_utc": "2026-11-19T02:42:40Z",
+      "deadline_utc": "2026-11-19T04:49:30Z",
+      "cases": [
+        [
+          18,
+          20
+        ],
+        [
+          20,
+          18
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          25,
+          20
+        ]
+      ],
+      "seconds": 3,
+      "topology": "FRAME125_SERVICE_SIDE",
+      "program": "explicit2 double+twin",
+      "variant": 0
+    }
   }
 }
