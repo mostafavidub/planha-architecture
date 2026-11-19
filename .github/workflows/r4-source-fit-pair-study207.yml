@@ -1,0 +1,33 @@
+name: R4 source fit pair study
+on:
+  push:
+    paths:
+      - 'app/local_integration/source_fit_pair_study207.py'
+      - 'tests/r4/test_source_fit_pair_study207.py'
+      - 'app/local_integration/source_fit_candidate207.py'
+      - 'app/local_integration/source_fit_profile207.py'
+      - '.github/workflows/r4-source-fit-pair-study207.yml'
+  workflow_dispatch:
+    inputs:
+      live_study:
+        type: boolean
+        description: 'Two bounded nonpersonal dimensions; no artifact upload'
+        default: false
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B -m unittest discover -s tests/r4 -p test_source_fit_pair_study207.py -v
+      - if: (github.event_name == 'workflow_dispatch' && inputs.live_study) || (github.event_name == 'push' && contains(github.event.head_commit.message, '[fit-live]'))
+        run: python -B app/local_integration/source_fit_pair_study207.py
+      - run: git diff --exit-code
