@@ -1,7 +1,7 @@
 import copy,pathlib,sys,unittest
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'app/local_integration'))
-from one_bed_pair_source_study import normalize_proposal,program_bind,RECTS,TERMINALS,digest
+from one_bed_pair_source_study import normalize_proposal,program_bind,code_counts,RECTS,TERMINALS,digest
 def proposal():
  return {'bedrooms':1,'sleep_roles':['double'],'rectangles':{k:[0.,0.,1.,1.]for k in RECTS},'network_paths':{k:[[0.,0.]for _ in range(5)]for k in TERMINALS},'bed_door_sides':{'bed1':'left'}}
 class OneBed(unittest.TestCase):
@@ -36,6 +36,9 @@ class OneBed(unittest.TestCase):
   m={'program':{'units':2,'bedrooms_per_unit':1,'sleep_roles':['double'],'design_occupants_per_unit':2,'capacity_profile':'LEGACY_SOURCE_PROGRAM','provisional':True},'units':[{'id':'A'},{'id':'B'}],'accepted':False,'release_allowed':False}
   program_bind(m,p);m['program']['design_occupants_per_unit']=4
   with self.assertRaises(ValueError):program_bind(m,p)
+ def test_error_code_counts_do_not_publish_details(self):
+  self.assertEqual(code_counts([{'code':'MISSING_ROUTE','detail':'private text'},'RULE_NOT_EVALUATED:private identifier','bad secret'] ),
+   {'MISSING_ROUTE':1,'RULE_NOT_EVALUATED':1,'UNCLASSIFIED':1})
  def test_side_keys_and_type(self):
   p=proposal();p['bed_door_sides']['bed2']='left'
   with self.assertRaises(ValueError):normalize_proposal(p)
