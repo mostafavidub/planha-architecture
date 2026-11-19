@@ -1,0 +1,956 @@
+{
+  "task": "3.4",
+  "start": "2026-11-19T04:18:41Z",
+  "deadline": "2026-11-19T07:18:41Z",
+  "status": "PARTIAL_LIVING_SOURCE_WITNESSES_TESTED_USEFUL_QUALITY_OPEN",
+  "commit": "73a465453505f3d7acec86a8171427f22d91d8f8",
+  "run": 44457926185,
+  "job": 135337402168,
+  "tests": {
+    "helpers": 15,
+    "wrong_model_report_negative": 1
+  },
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "criterion_state": "UNKNOWN",
+  "integrity_verified": true,
+  "original_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+  "profile": {
+    "body_m": ".7"
+  },
+  "units": [
+    {
+      "activity_phase_coverage": {
+        "approach": "Independent width sweep per recorded route",
+        "exit_and_simultaneous_group_use": "NOT_FULLY_VERIFIED",
+        "use": "Original source seat activities and occupied bodies; fresh approach is not seated transfer proof"
+      },
+      "actual_seat_endpoints": [
+        {
+          "activity_id": "sofa1_front",
+          "binding": {
+            "activity_id": "sofa1_front",
+            "fixture_id": "sofa1",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "sofa1",
+          "point": [
+            "393/40",
+            "361/50"
+          ]
+        },
+        {
+          "activity_id": "armchair1_front",
+          "binding": {
+            "activity_id": "armchair1_front",
+            "fixture_id": "armchair1",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "armchair1",
+          "point": [
+            "333/40",
+            "293/40"
+          ]
+        },
+        {
+          "activity_id": "armchair2_front",
+          "binding": {
+            "activity_id": "armchair2_front",
+            "fixture_id": "armchair2",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "armchair2",
+          "point": [
+            "333/40",
+            "233/40"
+          ]
+        },
+        {
+          "activity_id": "sofa2_front",
+          "binding": {
+            "activity_id": "sofa2_front",
+            "fixture_id": "sofa2",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "sofa2",
+          "point": [
+            "481/40",
+            "361/50"
+          ]
+        }
+      ],
+      "area_accounting": {
+        "area_ratios_are_geometric_not_quality_scores": true,
+        "declared_fixture_activity_union_m2": "236/25",
+        "declared_residual_living_union_m2": "2193267/40000",
+        "gross_unit_ownership_union_m2": "15561/100",
+        "net_unit_ownership_minus_actual_wall_solids_m2": "597487/4000",
+        "residual_over_gross_ownership": "731089/2074800",
+        "residual_over_net_nonwall_floor": "2193267/5974870",
+        "verified_useful_living_area_m2": null
+      },
+      "group_bbox": [
+        "317/40",
+        "219/40",
+        "105/8",
+        "339/40"
+      ],
+      "group_bbox_is_only_probe_domain": true,
+      "shorter_organisation_comparison": {
+        "reason": "No alternative physical organisation supplied under the same locked programme; domain comparisons on same geometry are not organisation alternatives",
+        "state": "NOT_RUN"
+      },
+      "studies": [
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "DECLARED_RESIDUAL_LIVING",
+          "floor_area_m2": "2193267/40000",
+          "floor_digest": "71eff5fce95d647db77b73eb87cdd0d4520726e8432f7f322838df7559a1fdbc",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "d406ad5060c45c9ddef7f6c6e531b685b4b88ace2460299bc003b29e1a05c250",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        },
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+          "floor_area_m2": "3216549/40000",
+          "floor_digest": "fcd24bb4403191c6953a203e6574d318e438f0f08c99ea8240f600689cd062e7",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "4b2c3df44511e4749d757154edbd363b006576f8a7ab209d7261f04817efe952",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 1,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "597/100",
+                      "437/40",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": false
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 104,
+                    "rect": [
+                      "317/40",
+                      "307/40",
+                      "349/40",
+                      "339/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 105,
+                    "rect": [
+                      "317/40",
+                      "247/40",
+                      "349/40",
+                      "279/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "1/4",
+                  "71/4",
+                  "397/40"
+                ],
+                "route_domain_box_digest": "661635e39958f8e29bf8e6b5607101322a07ff172408fd4dcf53ef302157e373",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "321/200",
+              "path": [
+                [
+                  "9.825",
+                  "7.22"
+                ],
+                [
+                  "9.825",
+                  "7.325"
+                ],
+                [
+                  "8.325",
+                  "7.325"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 0,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "597/100",
+                      "437/40",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 123,
+                    "rect": [
+                      "437/40",
+                      "597/100",
+                      "105/8",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "1/4",
+                  "71/4",
+                  "397/40"
+                ],
+                "route_domain_box_digest": "661635e39958f8e29bf8e6b5607101322a07ff172408fd4dcf53ef302157e373",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "11/5",
+              "path": [
+                [
+                  "9.825",
+                  "7.22"
+                ],
+                [
+                  "12.025",
+                  "7.22"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        },
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+          "floor_area_m2": "78/5",
+          "floor_digest": "9582ced5887075b8c7a4e3ea56bed6fba3449303a908b3d66e0271ef56042ab7",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "66827bf0171a25a7974fb66c94ad59ccc9b5073f2a7ef131d9386493c097f646",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 1,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "597/100",
+                      "437/40",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": false
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 104,
+                    "rect": [
+                      "317/40",
+                      "307/40",
+                      "349/40",
+                      "339/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 105,
+                    "rect": [
+                      "317/40",
+                      "247/40",
+                      "349/40",
+                      "279/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "1/4",
+                  "71/4",
+                  "397/40"
+                ],
+                "route_domain_box_digest": "661635e39958f8e29bf8e6b5607101322a07ff172408fd4dcf53ef302157e373",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "321/200",
+              "path": [
+                [
+                  "9.825",
+                  "7.22"
+                ],
+                [
+                  "9.825",
+                  "7.325"
+                ],
+                [
+                  "8.325",
+                  "7.325"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 0,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "597/100",
+                      "437/40",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 123,
+                    "rect": [
+                      "437/40",
+                      "597/100",
+                      "105/8",
+                      "687/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "1/4",
+                  "71/4",
+                  "397/40"
+                ],
+                "route_domain_box_digest": "661635e39958f8e29bf8e6b5607101322a07ff172408fd4dcf53ef302157e373",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "11/5",
+              "path": [
+                [
+                  "9.825",
+                  "7.22"
+                ],
+                [
+                  "12.025",
+                  "7.22"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        }
+      ],
+      "unit": "A"
+    },
+    {
+      "activity_phase_coverage": {
+        "approach": "Independent width sweep per recorded route",
+        "exit_and_simultaneous_group_use": "NOT_FULLY_VERIFIED",
+        "use": "Original source seat activities and occupied bodies; fresh approach is not seated transfer proof"
+      },
+      "actual_seat_endpoints": [
+        {
+          "activity_id": "sofa1_front",
+          "binding": {
+            "activity_id": "sofa1_front",
+            "fixture_id": "sofa1",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "sofa1",
+          "point": [
+            "393/40",
+            "639/50"
+          ]
+        },
+        {
+          "activity_id": "armchair1_front",
+          "binding": {
+            "activity_id": "armchair1_front",
+            "fixture_id": "armchair1",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "armchair1",
+          "point": [
+            "333/40",
+            "507/40"
+          ]
+        },
+        {
+          "activity_id": "armchair2_front",
+          "binding": {
+            "activity_id": "armchair2_front",
+            "fixture_id": "armchair2",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "armchair2",
+          "point": [
+            "333/40",
+            "567/40"
+          ]
+        },
+        {
+          "activity_id": "sofa2_front",
+          "binding": {
+            "activity_id": "sofa2_front",
+            "fixture_id": "sofa2",
+            "source": "Actual capacity instance/access binding plus original whole-model replay"
+          },
+          "fixture_id": "sofa2",
+          "point": [
+            "481/40",
+            "639/50"
+          ]
+        }
+      ],
+      "area_accounting": {
+        "area_ratios_are_geometric_not_quality_scores": true,
+        "declared_fixture_activity_union_m2": "236/25",
+        "declared_residual_living_union_m2": "2193267/40000",
+        "gross_unit_ownership_union_m2": "15561/100",
+        "net_unit_ownership_minus_actual_wall_solids_m2": "597487/4000",
+        "residual_over_gross_ownership": "731089/2074800",
+        "residual_over_net_nonwall_floor": "2193267/5974870",
+        "verified_useful_living_area_m2": null
+      },
+      "group_bbox": [
+        "317/40",
+        "461/40",
+        "105/8",
+        "581/40"
+      ],
+      "group_bbox_is_only_probe_domain": true,
+      "shorter_organisation_comparison": {
+        "reason": "No alternative physical organisation supplied under the same locked programme; domain comparisons on same geometry are not organisation alternatives",
+        "state": "NOT_RUN"
+      },
+      "studies": [
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "DECLARED_RESIDUAL_LIVING",
+          "floor_area_m2": "2193267/40000",
+          "floor_digest": "944d7769a7499d7377b274f4d42c842a47e3be7a04d6a6d75320603835f1f21b",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "2c12db60a5bc15ae00b0aaa375f718e982caa16b6cc971c0a45319f50bc72b2a",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "ROUTE_ENDPOINT_BLOCKED",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        },
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+          "floor_area_m2": "3216549/40000",
+          "floor_digest": "c80da30597efa86d2fd3eeaed5c7afe57ebb78dc206e1cd2bfe3211c505b0595",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "cb2d72d1faceb56e5dc7cf06a5fd86fdbdc141abd54fe84d031f24f995364880",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 1,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "1313/100",
+                      "437/40",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": false
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 104,
+                    "rect": [
+                      "317/40",
+                      "461/40",
+                      "349/40",
+                      "493/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 105,
+                    "rect": [
+                      "317/40",
+                      "521/40",
+                      "349/40",
+                      "553/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "403/40",
+                  "71/4",
+                  "79/4"
+                ],
+                "route_domain_box_digest": "e181addbc99cdac0d9b98eced95236fe2bfdf89da4d92dd4493346d45a1e3070",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "321/200",
+              "path": [
+                [
+                  "9.825",
+                  "12.78"
+                ],
+                [
+                  "9.825",
+                  "12.675"
+                ],
+                [
+                  "8.325",
+                  "12.675"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 0,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "1313/100",
+                      "437/40",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 123,
+                    "rect": [
+                      "437/40",
+                      "1313/100",
+                      "105/8",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "403/40",
+                  "71/4",
+                  "79/4"
+                ],
+                "route_domain_box_digest": "e181addbc99cdac0d9b98eced95236fe2bfdf89da4d92dd4493346d45a1e3070",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "11/5",
+              "path": [
+                [
+                  "9.825",
+                  "12.78"
+                ],
+                [
+                  "12.025",
+                  "12.78"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        },
+        {
+          "all_targets_connected": false,
+          "anchor_fixture_id": "sofa1",
+          "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+          "floor_area_m2": "78/5",
+          "floor_digest": "e3bb3b0cbd1783710a4dd15c2d6d9ff7cab00d1add1385d3b15224c4f766f48d",
+          "not_a_useful_area_or_coherent_group_claim": true,
+          "obstacle_digest": "4b969283aa903edb0d9a75c93b12425edc4953d50c2b744e3c759d8a5f6b46f7",
+          "routes": [
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 1,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "1313/100",
+                      "437/40",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": false
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 104,
+                    "rect": [
+                      "317/40",
+                      "461/40",
+                      "349/40",
+                      "493/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 105,
+                    "rect": [
+                      "317/40",
+                      "521/40",
+                      "349/40",
+                      "553/40"
+                    ],
+                    "segment": 1,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "403/40",
+                  "71/4",
+                  "79/4"
+                ],
+                "route_domain_box_digest": "e181addbc99cdac0d9b98eced95236fe2bfdf89da4d92dd4493346d45a1e3070",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "321/200",
+              "path": [
+                [
+                  "9.825",
+                  "12.78"
+                ],
+                [
+                  "9.825",
+                  "12.675"
+                ],
+                [
+                  "8.325",
+                  "12.675"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "armchair1"
+            },
+            {
+              "body_m": "7/10",
+              "path": null,
+              "reason": "NO_CONNECTED_BODY_ROUTE",
+              "state": "NO_WITNESS_THIS_DOMAIN",
+              "target_fixture": "armchair2"
+            },
+            {
+              "body_m": "7/10",
+              "direction_changes_including_reversal": 0,
+              "fixed_path_clearance": {
+                "accepted": false,
+                "limiting_constraints": [
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 122,
+                    "rect": [
+                      "349/40",
+                      "1313/100",
+                      "437/40",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  },
+                  {
+                    "endpoint_attains_limit": true,
+                    "kind": "obstacle",
+                    "obstacle_index": 123,
+                    "rect": [
+                      "437/40",
+                      "1313/100",
+                      "105/8",
+                      "1403/100"
+                    ],
+                    "segment": 0,
+                    "segment_interior_attains_limit": true
+                  }
+                ],
+                "maximum_uniform_axis_aligned_square_width_m": "7/10",
+                "route_domain_box": [
+                  "1/4",
+                  "403/40",
+                  "71/4",
+                  "79/4"
+                ],
+                "route_domain_box_digest": "e181addbc99cdac0d9b98eced95236fe2bfdf89da4d92dd4493346d45a1e3070",
+                "schema": "FIXED_POLYLINE_LINF_CLEARANCE_V1",
+                "scope": "Exact fixed-path capacity inside the supplied guest route domain box only, not complete ownership/floor union; endpoint clearance may dominate. Not corridor/door width, best rerouted path, human turning/comfort, door-state completeness or regulatory minimum",
+                "sweep_certificate": {
+                  "at_capacity_clear": true,
+                  "capacity_plus_test_epsilon_rejected": true,
+                  "test_epsilon_not_design_threshold": "1/1000000"
+                }
+              },
+              "length_m": "11/5",
+              "path": [
+                [
+                  "9.825",
+                  "12.78"
+                ],
+                [
+                  "12.025",
+                  "12.78"
+                ]
+              ],
+              "reason": null,
+              "state": "PASS_ACCESS_WITNESS_ONLY",
+              "target_fixture": "sofa2"
+            }
+          ],
+          "target_fixture_ids": [
+            "armchair1",
+            "armchair2",
+            "sofa2"
+          ]
+        }
+      ],
+      "unit": "B"
+    }
+  ],
+  "remaining": [
+    "Calibrated activity/ergonomic/quality profiles unavailable",
+    "Coherent furnishing and all simultaneous use/exit scenarios unproved",
+    "No same-programme shorter physical organisation constructed or compared",
+    "Geometric residual and declared used footprint are not verified useful area"
+  ],
+  "artifact": {
+    "id": 14497434331,
+    "zip_sha256": "7a8e7836d7fb3072a0a18f3a91b765ce72b8e18649d94c198f6502fe66d8b344",
+    "expiry": "2026-12-19T04:23:22Z",
+    "input_run": 44455198301,
+    "input_artifact": 14497880207
+  },
+  "existing_alternative_comparison": "COMPATIBILITY_INSPECTION_IN_PROGRESS; no alternative geometry generated",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
