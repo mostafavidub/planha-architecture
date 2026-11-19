@@ -1,0 +1,40 @@
+name: V25 criteria catalog task 3.1
+on:
+  push:
+    paths:
+      - 'specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json'
+      - '.github/workflows/v25-criteria-catalog.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  catalog:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Structural catalog validation only
+        run: |
+          python -B - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json')
+          d=json.loads(p.read_text())
+          ids={'CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION'}
+          assert len(d['criteria'])==4 and {r['id'] for r in d['criteria']}==ids
+          for k in ('accepted','qualified','display_allowed','delivery_allowed'):assert d[k] is False
+          for r in d['criteria']:
+              assert r['current_state']=='UNKNOWN'
+              for k in ('sources','paraphrase','required_data','conditional_pass','fail_examples','missing_rule','missing_profile','missing_evidence','existing_checker','proposed_tests'):assert r[k]
+              assert len(r['proposed_tests'])==5
+              for s in r['sources']:
+                  assert s['readback']=='VERIFIED' and s['revision_id']
+                  assert type(s['start_index']) is int and type(s['end_index']) is int and 0<s['start_index']<s['end_index']
+                  assert s['document_id'] in ('17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s','1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8')
+                  if s['start_index']>118000:assert s['document_id'].startswith('1S1Rv6')
+          print('PASS: four catalog records, locators, required fields, twenty proposed cases, false authority.')
+          print('STRUCTURE_ONLY: no plan tests, no source re-fetch in CI, no model or evaluator executed.')
+          PY
+          git diff --exit-code
