@@ -1,0 +1,23 @@
+name: R4 exact geometry synthetic units
+on:
+  push:
+    paths:
+      - 'tests/r4/test_exact_geometry_transport.py'
+      - '.github/workflows/r4-exact-geometry-units.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  units:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B -m unittest discover -s tests/r4 -p test_exact_geometry_transport.py -v
+      - run: git diff --exit-code
