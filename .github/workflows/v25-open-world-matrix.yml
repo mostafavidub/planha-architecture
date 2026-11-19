@@ -1,0 +1,121 @@
+name: V25 new-origin variable dimension diagnostic
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-open-world-matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  matrix-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Replay three archive-bound baselines and new schema scoped studies
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          timeout 1000s python -B - <<'PY'
+          import sys,json,tarfile,hashlib,inspect,os,traceback
+          from pathlib import Path
+          from datetime import datetime,timezone
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from engine114 import revision
+          from review_cycle import digest
+          from constructor127 import build as baseline_build,context as baseline_context
+          from evaluate_pair127 import evaluate as baseline_evaluate
+          from open_front_world_origin import build,verify
+          from open_front_placement_check import check_module_placements
+          from open_front_operation_check import check_operations
+          from open_front_boundary_comparison import assess as boundary_assess
+          from open_front_raw_physical import assess as raw_assess
+          from checker114 import evaluate as historical_evaluate,rect
+          started=datetime.now(timezone.utc).isoformat()
+          assert started<'2026-11-19T01:07:31'
+          assert FREEZE=='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
+          sources=snapshot(root,['.github/workflows/v25-open-world-matrix.yml']+[str(p.relative_to(root))for p in sorted((root/'app/local_integration').glob('open_front_*.py'))])
+          before_revision=revision();before_guard=guard(FREEZE);assert before_guard==12991
+          for fn,name in [(baseline_build,'constructor127.py'),(baseline_context,'constructor127.py'),(baseline_evaluate,'evaluate_pair127.py'),(historical_evaluate,'checker114.py')]:
+              assert Path(inspect.getsourcefile(fn)).resolve()==(root/'engine'/name).resolve()
+          index=json.loads((root/'evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text())
+          a=next(x for x in index['archives']if x['run_id']==44416886004)
+          archive=root/'evidence/archive'/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz')as tar:data=tar.extractfile('four-seat-master.json').read()
+          member=next(m for m in a['members']if m['path']=='four-seat-master.json')
+          assert hashlib.sha256(data).hexdigest()==member['sha256']
+          saved=json.loads(data)
+          cases=[('15','25',0),('20','20',0),('24','18',0)]
+          out={'schema':'V25_OPEN_WORLD_VARIABLE_DIMENSION_DIAGNOSTIC_V1','started_at':started,'deadline':'2026-11-19T01:07:31Z','github_sha':os.environ['GITHUB_SHA'],'github_run_id':os.environ['GITHUB_RUN_ID'],'source_archive':a,'source_member':member,'source_snapshot':sources,'frozen_revision':before_revision,'guard_before':before_guard,'preregistered_cases':cases,'rows':[],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'display_allowed':False,'delivery_allowed':False,'scope':'Three pre-existing proven same-program proposals, no search. New-origin and scoped physical diagnostics only, not qualification. Historical checker disagreement retained in full. Current Q11 and functional unknowns remain.'}
+          def save():
+              Path('open-world-matrix.json').write_text(json.dumps(out,ensure_ascii=False))
+          save()
+          for W,L,variant in cases:
+              row={'inputs':[W,L,2],'variant':variant,'whole_physical_verified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
+              out['rows'].append(row)
+              try:
+                  s=next(r for r in saved['rows']if r['raw']['W']==W and r['raw']['L']==L and r['variant']==variant)
+                  t=s['context']['construction_trace'];raw=t['raw'];proposals=t['proposals']
+                  assert raw==s['raw'] and proposals=={'A':s['proposal'],'B':s['proposal']}
+                  assert s['review']['status']=='PASS_CONCEPT_SCOPED_REVIEW' and not s['review']['errors'] and not s['review']['pending']
+                  bp=baseline_build(raw,'FRONT_REAR',proposals['A'],proposals['B']);bc=baseline_context(raw,bp,proposals);br=baseline_evaluate(bp,bc)
+                  assert digest(bp['world_model'])==s['model_digest']==s['local_producer_receipt']['model_digest']
+                  assert digest(bc)==digest(s['context'])==s['local_producer_receipt']['context_digest']
+                  assert digest(proposals)==s['local_producer_receipt']['proposal_digest']
+                  assert br['status']=='PASS_CONCEPT_SCOPED_REVIEW' and not br['errors'] and not br['pending'],br
+                  assert br['multiproposal_provenance127']['verified'] is True and br['multiproposal_provenance127']['model_hash']==digest(bp['world_model'])
+                  row.update(raw=raw,proposal_digest=digest(proposals),baseline_model_digest=digest(bp['world_model']),baseline_context_digest=digest(bc),baseline_packet=bp,baseline_context=bc,baseline_fresh_review=br,baseline_fresh_verified=True)
+                  packet,trace=build(raw,proposals);origin=verify(packet,trace);m=packet['world_model'];mh=digest(m)
+                  assert origin['origin_verified'] is True and mh!=row['baseline_model_digest']
+                  assert m['inputs']==[W,L,2] and m['program']==bp['world_model']['program'] and m['program']['bedrooms_per_unit']==2
+                  assert m['accepted'] is False
+                  placement=check_module_placements(m)
+                  owners={u['id']:[rect(q)for q in u['ownership']]for u in m['units']};owners['COMMON']=[rect(q)for q in m['common_spaces']['lobby']]
+                  walls={k:rect(q)for k,q in m['walls'].items()};fixtures=[(u['id'],k,rect(q))for u in m['units']for k,q in u['fixtures'].items()]
+                  oe,op=check_operations(m,owners,walls,fixtures)
+                  boundary=boundary_assess(packet,trace,bp,bc)
+                  physical=raw_assess(m)
+                  try:historical=historical_evaluate(m)
+                  except Exception as e:historical={'status':'CHECKER_EXCEPTION_NOT_APPROVAL','exception':type(e).__name__,'detail':str(e)}
+                  assert historical.get('status')not in ('PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED')
+                  assert physical['whole_physical_verified']is False and physical['eligible_for_draft_export']is False
+                  assert 'VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED'in physical['pending']
+                  for k in ('whole_physical_verified','accepted','display_allowed','delivery_allowed'):assert boundary[k]is False
+                  assert digest(m)==mh
+                  scoped_clean=not placement['errors']and not placement['pending']and not oe and not op and not boundary['errors']and not boundary['pending']and not physical['errors']
+                  if scoped_clean:
+                      assert placement['status']=='PASS_PLACEMENT_SCOPED'
+                      assert boundary['status']=='PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED'
+                      assert physical['status']=='NOT_EVALUATED'
+                      assert physical['pending']==['VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED']
+                  row.update(packet=packet,trace=trace,origin=origin,model_digest=mh,placement=placement,operations={'errors':oe,'pending':op},boundary_comparison=boundary,raw_physical_core=physical,historical_checker_unfiltered=historical,scoped_clean=scoped_clean,study_executed=True)
+              except Exception as e:
+                  row.update(study_executed=False,exception=type(e).__name__,detail=str(e),traceback=traceback.format_exc())
+              save()
+              print('MATRIX_CASE '+json.dumps({k:row[k]for k in ('inputs','variant','baseline_model_digest','baseline_context_digest','proposal_digest','baseline_fresh_verified','model_digest','scoped_clean','study_executed','exception','detail')if k in row}),flush=True)
+              for name in ('placement','operations','boundary_comparison','raw_physical_core','historical_checker_unfiltered'):
+                  if name in row:print('MATRIX_SCOPE '+json.dumps({'inputs':row['inputs'],'scope':name,**{k:v for k,v in row[name].items()if k in ('status','errors','pending','released_physical_material_m2')}}),flush=True)
+          require_unchanged(root,sources);assert revision()==before_revision
+          out['guard_after']=guard(FREEZE);assert out['guard_after']==12991
+          out['finished_at']=datetime.now(timezone.utc).isoformat()
+          out['completed_study_cases']=sum(r.get('study_executed',False)for r in out['rows'])
+          out['scoped_clean_cases']=sum(r.get('scoped_clean',False)for r in out['rows'])
+          save()
+          assert out['completed_study_cases']>=2,'FEWER_THAN_TWO_COMPLETE_NEW_DIMENSION_DIAGNOSTICS'
+          print('MATRIX_FINISHED '+json.dumps({k:out[k]for k in ('started_at','finished_at','github_sha','github_run_id','guard_before','guard_after','completed_study_cases','scoped_clean_cases','whole_physical_verified')}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-open-world-matrix
+          path: open-world-matrix.json
+          retention-days: 30
