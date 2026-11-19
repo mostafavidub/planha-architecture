@@ -1,0 +1,54 @@
+{
+  "task": "4.1",
+  "status": "DONE_SCOPED_OPERATOR_SELECTION_NOT_EXECUTED",
+  "start_utc": "2026-11-19T05:09:49Z",
+  "deadline_utc": "2026-11-19T08:09:49Z",
+  "tested_commit": "20a86d096203c5a5c90ef185b4730f71806dadd5",
+  "run": 44464386479,
+  "job": 135358531691,
+  "tests": {
+    "classification": 8,
+    "detached_artifact_negative": 9
+  },
+  "source_artifact_run": 44460753648,
+  "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "physical_digest": "44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322",
+  "pending_count": 6,
+  "original_physical_status": "FAIL",
+  "current_decision": "BLOCKED",
+  "operator": "SOURCE_BOUND_GROUPED_GUEST_MOTION_V1",
+  "execution_started": false,
+  "child_generated": false,
+  "integrity_verified": true,
+  "artifact": {
+    "id": 14501377495,
+    "sha256": "4051f5335352181fe368bf2443e0c71533f4d3d6448b4f564c1a8e7861785e3e",
+    "expires_at": "2026-12-19T05:20:32Z"
+  },
+  "intermediate_failures": [
+    {
+      "run": 44463530404,
+      "reason": "CURRENT_DECISION_REBUILD; sorted JSON object keys changed iteration order used to rebuild criteria list"
+    },
+    {
+      "run": 44464086700,
+      "reason": "Diagnostic confirmed only criteria differed; fixed by replaying unique exact retained criterion order, full output digest equality still required"
+    },
+    {
+      "run": 44464240077,
+      "reason": "All selection and nine negative tests passed; final test incorrectly used earlier independent2.5 physical report hash instead of retained live scheduler report hash. Test constant corrected; reports unchanged."
+    }
+  ],
+  "reproduce": "Run .github/workflows/v25-rejection-operator-selection.yml at tested commit; downloads pinned existing live evidence, no generation.",
+  "limitations": [
+    "Selection does not guarantee operator will fix rejection",
+    "No current UNKNOWN resolved",
+    "Task4.2 must enforce typed protected programme/core/profile/inventory; old Python equality alone insufficient",
+    "Task4.3 must bind outer timeout and freshly run all child gates",
+    "No new model, solver or repair executed here"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
