@@ -21,9 +21,10 @@ class OrderTests(unittest.TestCase):
   with self.assertRaises(ValueError):p.stage_record('CORE','TIMED_OUT','time')
   r=rows();r[0]=p.stage_record('CORE','TIMED_OUT','time',['a'])
   out=transition(r);self.assertFalse(out['prior_programme_infeasible'])
- def test_duplicate_attempts(self):
+ def test_shared_attempt_counted_once(self):
   r=rows();r[0]=p.stage_record('CORE','ATTEMPTED_NO_WITNESS','x',['a']);r[1]=p.stage_record('SPLIT','TIMED_OUT','y',['a'])
-  with self.assertRaises(ValueError):transition(r)
+  out=transition(r);self.assertEqual(out['unique_attempt_ids'],['a'])
+  self.assertFalse(out['attempt_receipts_verified']);self.assertFalse(out['preceding_search_verified'])
  def test_budget_not_reset(self):
   b=ledger();b['used_attempts']=2;b['used_seconds']=90
   out=transition(b=b)
