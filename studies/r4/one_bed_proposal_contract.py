@@ -1,5 +1,6 @@
 """Draft one-bedroom proposal syntax contract only. Never a feasibility/admission gate.
-Caller must separately verify pinned sources, origin, whole model and all criteria.
+Input is already-normalized builtin JSON, NOT raw numpy-bearing solver output.
+Caller must separately verify lossless role-limited transport, sources and origin.
 """
 import json,hashlib,math
 KEYS=set(["organization_profile","organization_topology","objective_profile","capacity_profile","sleep_roles","status","solver_status","solver_message","solver_seconds","budget_seconds","bedrooms","variant","variables","binary_separation_variables","constraints","no_global_infeasibility_claim","rectangles","roles","network_paths","bed_door_sides","private_module_contract","network_scope"])
@@ -39,5 +40,5 @@ def check(p):
         need(digest(p)==before,"INPUT_MUTATION")
         r.update(proposal_shape_verified=True,rectangle_count=len(ROLES),terminal_count=len(TERMINALS),design_persons_reference=2,unit_count_reference=2)
     except(ValueError,TypeError,KeyError,IndexError,OverflowError,RecursionError)as e:r["errors"].append(type(e).__name__+":"+str(e))
-    r["not_checked"]=["SOURCE_PIN_RUNTIME_VERIFICATION","SOLVER_ORIGIN","RECTANGLE_CLEARANCE_OR_CONSTRAINTS","SOURCE_MODULE_INSTANCE_GEOMETRY","WHOLE_MODEL_AND_CURRENT_CRITERIA","AUTOMATIC_SELECTION_OR_FALLBACK","QUALITY_AND_ERGONOMICS"]
+    r["not_checked"]=["SOURCE_MARKER_SEMANTICS_NOT_CHECKED","ROLE_LIMITED_NUMERIC_TRANSPORT_NOT_PERFORMED","SOURCE_PIN_RUNTIME_VERIFICATION","SOLVER_ORIGIN","RECTANGLE_CLEARANCE_OR_CONSTRAINTS","SOURCE_MODULE_INSTANCE_GEOMETRY","WHOLE_MODEL_AND_CURRENT_CRITERIA","AUTOMATIC_SELECTION_OR_FALLBACK","QUALITY_AND_ERGONOMICS"]
     return r
