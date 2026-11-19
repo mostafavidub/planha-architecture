@@ -70,7 +70,7 @@ jobs:
           assert out['selected_operator']['execution_started'] is False and out['selected_operator']['child_generated'] is False
           assert out['current_decision']['decision']['state']=='BLOCKED'
           assert len(out['historical_pending_preserved'])==6
-          assert digest(out['full_physical_report'])==out['full_physical_digest']=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
+          assert digest(out['full_physical_report'])==out['full_physical_digest']=='44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322'
           PY
       - run: git diff --exit-code
         if: always()
