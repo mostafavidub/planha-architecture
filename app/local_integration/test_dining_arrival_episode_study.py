@@ -1,7 +1,7 @@
 import copy,sys,unittest
 from pathlib import Path
 sys.path[:0]=[str(Path(__file__).resolve().parent),str(Path(__file__).resolve().parents[1]/'reconstruction357/planha_general150_runtime_work')]
-from dining_arrival_episode_study import seat_binding,scenario_fixture_obstacles,strict_json,check_units
+from dining_arrival_episode_study import seat_binding,scenario_fixture_obstacles,strict_json,check_units,invalidate
 from same_version_front_rear_contract import digest
 from dining_module118 import build
 def fixture():
@@ -39,6 +39,9 @@ class Episode(unittest.TestCase):
   with self.assertRaisesRegex(ValueError,'NON_JSON_TYPE'):strict_json({'point':(0,1)})
  def test_duplicate_unit_ids(self):
   with self.assertRaisesRegex(ValueError,'UNIT_IDENTITY'):check_units({'units':[{'id':'A'},{'id':'A'}],'profile':{'body_m':'.7'}})
+ def test_integrity_failure_invalidates_partial_positive(self):
+  out={'rows':[{'state':'PASS_PLANAR_ARRIVAL_ONLY','usable_evidence':True}],'state':'UNKNOWN','completed':True}
+  invalidate(out);self.assertEqual(out['state'],'INTEGRITY_ERROR');self.assertIs(out['rows'][0]['usable_evidence'],False);self.assertIs(out['completed'],False)
  def test_fake_width(self):
   with self.assertRaisesRegex(ValueError,'BODY_PROFILE'):check_units({'units':[{'id':'A'},{'id':'B'}],'profile':{'body_m':'.6'}})
 if __name__=='__main__':unittest.main()

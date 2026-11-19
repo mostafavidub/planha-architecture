@@ -50,6 +50,10 @@ def scenario_fixture_obstacles(u,ops,fid):
  own=next(o for o in ops if o['fixture_id']==fid)
  others=[o['occupied_body'] for o in ops if o['fixture_id']!=fid]
  return fx+[own['open_rect']]+others
+def invalidate(out):
+ out.update(state='INTEGRITY_ERROR',integrity_verified=False,completed=False)
+ for row in out['rows']:row['usable_evidence']=False
+ return out
 def assess(bundle,save=lambda out:None):
  strict_json(bundle);pin=digest(bundle);m=bundle['packet']['world_model'];mh=digest(m)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST');check_units(m)
@@ -66,7 +70,7 @@ def assess(bundle,save=lambda out:None):
   ensure(pathlib.Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve(),'IMPORT_SOURCE')
  replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  cat=json.loads((ENGINE/'fixture_catalog114.json').read_text());ensure(digest(cat)==m['fixture_catalog_hash'],'CATALOG_HASH')
- for fn,name in [(placed,'current_programme_evaluator.py'),(inventory,'current_programme_evaluator.py'),(route_check,'source_guest_route_evaluator.py')]:
+ for fn,name in [(placed,'current_programme_evaluator.py'),(inventory,'current_programme_evaluator.py'),(route_check,'source_guest_route_evaluator.py'),(sweeps,'kitchen_guest_review.py')]:
   ensure(pathlib.Path(inspect.getsourcefile(fn)).resolve()==(ROOT/'app/local_integration'/name).resolve(),'INTEGRATION_IMPORT_SOURCE')
  inventory(m,lookup('PROGRAM_2BED_V1'),cat)
  ensure(digest(bundle)==pin,'INPUT_MUTATION')
@@ -96,13 +100,13 @@ def assess(bundle,save=lambda out:None):
    common += [s['occupied_body'] for s in u['public_program']['capacity']['living_seats']]
    common += [q for role,qs in u['rooms'].items() if role.startswith('bed') or role=='private_circulation' for q in qs]
    for seat in seats:
-    row={'unit':uid,'seat_id':seat['id'],'state':'STARTED','body_m':'7/10','other_occupied_seats':3,'human_transfer_validated':False}
+    row={'unit':uid,'seat_id':seat['id'],'state':'STARTED','body_m':'7/10','other_occupied_seats':3,'human_transfer_validated':False,'usable_evidence':False}
     out['rows'].append(row);save(out)
     try:
      fid,aid,end,op=bindings[seat['id']];obs=common+scenario_fixture_obstacles(u,ops,fid)
      row.update(fixture_id=fid,activity_id=aid,module_digest=p['module_hash'],operation_digest=digest(op),floor_digest=digest(parts),ownership_digest=digest(owner),obstacle_digest=digest(obs),endpoint_digest=digest(end))
      path,reason=route(u['entry_point'],end,box,obs,body='.7')
-     row.update(state='NO_WITNESS_IN_THIS_SCENARIO',router_reason=reason,path_digest=digest(path))
+     row.update(state='NO_WITNESS_IN_THIS_SCENARIO',router_reason=reason,path_digest=digest(path),path=path)
      if path:
       count=route_check(path,u['entry_point'],end,F('.7'),parts,obs)
       for band in sweeps(path,F('.7')):ensure(covered(band,list(map(rect,owner))),'OWNER_COVERAGE')
@@ -114,8 +118,10 @@ def assess(bundle,save=lambda out:None):
   out['completed']=out['visited_all_rows'] and all(r['state'] in ('PASS_PLANAR_ARRIVAL_ONLY','NO_WITNESS_IN_THIS_SCENARIO') for r in out['rows'])
  except Exception as ex:out.update(error_type=type(ex).__name__,error_code=str(ex)[:120])
  finally:
-  try:ensure(digest(bundle)==pin,'INPUT_MUTATION');require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED');out['integrity_verified']=True
-  except Exception as ex:out.update(integrity_verified=False,integrity_error=type(ex).__name__)
+  try:
+   ensure(digest(bundle)==pin,'INPUT_MUTATION');require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED');out['integrity_verified']=True
+   for row in out['rows']:row['usable_evidence']=row['state'] in ('PASS_PLANAR_ARRIVAL_ONLY','NO_WITNESS_IN_THIS_SCENARIO')
+  except Exception as ex:invalidate(out);out['integrity_error']=type(ex).__name__
   out['counts']={s:sum(r['state']==s for r in out['rows']) for s in sorted({r['state'] for r in out['rows']})};save(out)
  return out
 if __name__=='__main__':
