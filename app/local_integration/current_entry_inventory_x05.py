@@ -2,7 +2,7 @@
 Manifest and four explicit self paths are a reviewed trust root, not self-hash closure.
 Unknown selected surfaces require review, never automatic registration.
 """
-import ast, hashlib, json
+import ast, hashlib, json, re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 SPEC='specs/current_entry_inventory_x05.json'
@@ -13,6 +13,7 @@ REVIEWED='017c47c806da39174daa03ce71a8fbc576b5d316'
 SELF={'app/local_integration/current_entry_inventory_x05.py',
  'tests/r4/test_current_entry_inventory_x05.py',SPEC,
  '.github/workflows/r4-source-inventory-x05.yml'}
+PROVENANCE={"app/local_integration/report_lifecycle112.py":{"task":"R4-4.08","commit":"c930f72f5b354892df0adf86b60b9820250df324"},"app/local_integration/request_trace109.py":{"task":"R4-4.08","commit":"c930f72f5b354892df0adf86b60b9820250df324"},"app/local_integration/public_wln_server.py":{"task":"R4-X.04","commit":"194b765edd44aa2eb0b48482a0177d61ef9de262"},"app/local_integration/current_entry_launch_x03.py":{"task":"R4-X.04","commit":"194b765edd44aa2eb0b48482a0177d61ef9de262"},".github/workflows/r4-current-matrix211.yml":{"task":"R4-2.11","commit":"4ae9b597e33b4f2b65c5a5aa5a8215a0ff272b86"},".github/workflows/r4-disclosure311.yml":{"task":"R4-3.11","commit":"8061ece6f2d57314aad55bfa4b97f15a6d65e05d"},".github/workflows/r4-public-navigation310.yml":{"task":"R4-3.10","commit":"7af2c91aa789ab364208979f875a383b6d8bf38d"},".github/workflows/r4-semantic-descriptor301.yml":{"task":"R4-3.01","commit":"d7ef1537702e50f918d187ab40b7ddfdf6d2064e"},".github/workflows/r4-structural-pair302.yml":{"task":"R4-3.02","commit":"8f4dc80417512a167acd16feef13ace38d51561d"},"app/local_integration/current_matrix211.py":{"task":"R4-2.11","commit":"24adb4f8e1dec32107155d9e88e2c0742c62ffc5"},"app/local_integration/structural_pair302.py":{"task":"R4-3.02","commit":"fcf6f6ea0bb7625536c35ee5351daab18d49491e"},".github/workflows/r4-http-withholding-x04.yml":{"task":"R4-X.04","commit":"017c47c806da39174daa03ce71a8fbc576b5d316"},"app/local_integration/http_withholding_x04.py":{"task":"R4-X.04","commit":"194b765edd44aa2eb0b48482a0177d61ef9de262"}}
 def require(ok,code):
  if not ok:raise ValueError(code)
 def blob(data):
@@ -60,11 +61,13 @@ def reconcile(m,old):
   r=rm[row['path']]
   expected='REVIEWED_WORKFLOW_DECLARATION_NO_NEW_DISPATCH' if row['path'].endswith('.yml') else 'REVIEWED_STUDY_SOURCE_NO_NEW_DISPATCH'
   require(r['blob']==row['blob'] and r['new_dispatch'] is False and r['classification']==expected,'ADDITION_CLASSIFICATION')
-  require(r['task'] in {'R4-2.11','R4-3.11','R4-3.10','R4-3.01','R4-3.02','R4-X.04'} and len(r['source_change_commit'])==40,'ADDITION_PROVENANCE')
+  require(r['task'] in {'R4-2.11','R4-3.11','R4-3.10','R4-3.01','R4-3.02','R4-X.04'} and type(r['source_change_commit']) is str and re.fullmatch('[0-9a-f]{40}',r['source_change_commit']) is not None,'ADDITION_PROVENANCE')
+  require({'task':r['task'],'commit':r['source_change_commit']}==PROVENANCE[row['path']],'ADDITION_PROVENANCE_MISMATCH')
   files[row['path']]['classification']=expected
  require(files==m['files'] and len(files)==243,'SNAPSHOT_RECONCILIATION_FAILED')
  require(tops==set(m['top_level_paths']) and len(tops)==len(m['top_level_paths']),'TOP_LEVEL_SCOPE_CHANGED')
  require(set(changes)==set(m['changed_source_tasks']),'CHANGED_PROVENANCE_REQUIRED')
+ require(m['changed_source_tasks']=={p:PROVENANCE[p] for p in changes},'CHANGED_PROVENANCE_MISMATCH')
  return files,tops
 def scan(root=ROOT):
  root=Path(root)
