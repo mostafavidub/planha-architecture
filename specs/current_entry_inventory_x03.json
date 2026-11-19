@@ -905,10 +905,19 @@
     "app/local_integration/current_entry_launch_x03.py": {
       "blob": "f8ec421d7ccce9268e489af7bd43592cb2873590",
       "classification": "SERVER_OWNED_CURRENT_LAUNCHER"
+    },
+    "app/local_integration/ap07_core_scheduler206.py": {
+      "blob": "a91841dabaf37e04195c29c95e75eeaa86ee9ad9",
+      "classification": "EXPLICIT_TWO_CORE_STUDY_NOT_PRODUCT_PROGRAMME_SELECTION"
+    },
+    ".github/workflows/r4-ap07-core-scheduler206.yml": {
+      "blob": "32e9b2b825ec53a575624929e643fa9f8567674d",
+      "classification": "NONPERSONAL_OPT_IN_STUDY_NO_ARTIFACT_UPLOAD"
     }
   },
   "top_level_paths": [
     ".github/workflows/contract-checks.yml",
+    ".github/workflows/r4-ap07-core-scheduler206.yml",
     ".github/workflows/r4-baseline-audit.yml",
     ".github/workflows/r4-cause-directed108.yml",
     ".github/workflows/r4-core-choice-pair-study.yml",
@@ -1011,6 +1020,7 @@
     ".github/workflows/v25-wall-counterfactual.yml",
     ".github/workflows/v25-wln-http-matrix.yml",
     ".github/workflows/v25-wln-preregistration.yml",
+    "app/local_integration/ap07_core_scheduler206.py",
     "app/local_integration/audit_public_delivery_surface.py",
     "app/local_integration/automatic_program_search.py",
     "app/local_integration/bounded_repair_chain.py",
@@ -1173,6 +1183,7 @@
   ],
   "inventory_self_paths": [],
   "python_names": [
+    "ap07_core_scheduler206.py",
     "audit_public_delivery_surface.py",
     "automatic_program_search.py",
     "bounded_repair_chain.py",
