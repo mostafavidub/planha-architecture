@@ -55,21 +55,30 @@ def run():
                     historical=row['historical_report'];assert historical['model_hash']==row['world_model_digest']
                     row['stage']='current'
                     try:
-                        current=assess(packet['world_model'],historical,ENGINE_PIN);check()
+                        current=assess(packet['world_model'],historical,ENGINE_PIN)
+                        capture('current_report',current)
+                        row['current_validation']='PENDING';check()
                         assert current['physical_review_digest']==frozen['historical_report']
                         assert current['model_digest']==row['world_model_digest'] and current['source_revision']==ENGINE_PIN
                         assert all(current[k]is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
                         assert {r['id'] for r in current['requirements'] if r['state']=='UNKNOWN'}>=CURRENT_UNKNOWN
-                        capture('current_report',current)
+                        row['current_validation']='BOUND_AND_FAIL_CLOSED'
                     except Exception as ex:
+                        row['current_validation']='FAILED_CLOSED'
                         row['current_exception']={'type':type(ex).__name__,'message':str(ex),'traceback':traceback.format_exc()};check()
                 row['result']='FRESH_EVIDENCE_RECORDED_NO_ADMISSION'
         except Exception as ex:
             row.update(result='DIAGNOSTIC_STAGE_EXCEPTION',exception={'type':type(ex).__name__,'message':str(ex),'traceback':traceback.format_exc()})
         finally:
-            check();row['completed_report_digests']=copy.deepcopy(frozen);row['elapsed_seconds']=time.monotonic()-started
+            checkpoint_failure=None
+            try:check()
+            except Exception as ex:
+                checkpoint_failure=ex
+                row.update(result='CHECKPOINT_INTEGRITY_FAILED_CLOSED',checkpoint_exception={'type':type(ex).__name__,'message':str(ex),'traceback':traceback.format_exc()})
+            row['completed_report_digests']=copy.deepcopy(frozen);row['elapsed_seconds']=time.monotonic()-started
             if bundle is not None:row['input_bundle_digest_after']=digest(bundle)
             save()
+            if checkpoint_failure is not None:raise checkpoint_failure
     report.update(completed=True,guard_after=12991,source_unchanged=True);save()
     summaries=[]
     for row in report['cases']:
