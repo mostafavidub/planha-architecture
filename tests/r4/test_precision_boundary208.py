@@ -2,7 +2,7 @@
 import copy,json,sys,unittest
 from pathlib import Path
 from fractions import Fraction as F
-from unittest.mock import Mock
+from unittest.mock import Mock,patch
 import numpy as np
 ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'app/local_integration'),str(ROOT/'app/reconstruction357/planha_general150_runtime_work')]
@@ -42,6 +42,14 @@ class PrecisionTests(unittest.TestCase):
   producer=Mock();p,c,result=gated_propose(self.body('5'),producer)
   self.assertEqual(p['ratios']['W'],['5','1']);self.assertIsNone(c)
   self.assertEqual(result['status'],'STUDY_CORE_NO_FIT_NOT_INFEASIBLE');producer.assert_not_called()
+ def test_valid_lower_length_actual_bound_conflict_without_milp(self):
+  import source_fit_candidate207 as candidate
+  with patch.object(candidate,'milp',side_effect=AssertionError('MILP_MUST_NOT_RUN'))as solver:
+   p,c,result=gated_propose(self.body('18','5'),candidate.propose)
+  self.assertEqual(p['ratios']['L'],['5','1']);self.assertIsNotNone(c)
+  self.assertEqual(result['status'],'NO_PROPOSAL_IN_THIS_PROGRAM')
+  self.assertEqual(result['reason'],'ROOM_OR_CORE_BOUND_CONFLICT')
+  solver.assert_not_called()
  def test_valid_decimal_dispatch_exact_raw_core(self):
   producer=Mock(return_value={'status':'NO_PROPOSAL_IN_THIS_TOPOLOGY'})
   p,c,result=gated_propose(self.body(),producer)
