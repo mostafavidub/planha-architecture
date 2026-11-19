@@ -64,6 +64,8 @@ def _consume(folder, request, expected_request, process, reserved, expected_rese
           'reserved_account_digest':expected_reserved,'source_digest':digest(request['source_snapshot']),
           'programme_digest':request['programme_digest'],'durable_full_reports':False,
           'live_execution_authenticated':False,**{k:False for k in AUTH}}
+    if out['state']=='BLOCKED_NO_PARENT_PROPOSAL':
+        require(out.get('parent_model_digest') is None, 'NO_PARENT_MODEL_CONFLICT')
     if out['state']!='BLOCKED_NO_PARENT_PROPOSAL':
         raw={'physical':reports['parent_physical'],'replay':reports['parent_replay'],
              'current':{cid:reports['parent_current_'+mod] for mod,cid in MODS.items()}}

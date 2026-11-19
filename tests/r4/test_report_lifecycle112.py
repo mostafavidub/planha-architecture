@@ -98,6 +98,7 @@ class LifecycleTests(unittest.TestCase):
     def test_no_parent_skips_adapter_not_fabricated(self):
         r,h,o,reports,account=fixture()
         o.update(state='BLOCKED_NO_PARENT_PROPOSAL',parent_observed=False)
+        o.pop('parent_model_digest')
         reports={'parent_no_witness':{'state':'NO_PROPOSAL'}}
         o['report_digests']={k:t.digest(v)for k,v in reports.items()}
         with tempfile.TemporaryDirectory() as d:
@@ -105,6 +106,8 @@ class LifecycleTests(unittest.TestCase):
             _,_,e=consume(root,r,h,account)
             self.assertFalse(e['safe_summary']['adapter_executed'])
             self.assertEqual(e['safe_summary']['state'],'SKIPPED_NO_PARENT')
+            o['parent_model_digest']='a'*64;write(root,o,reports)
+            with self.assertRaises(l.EvidenceFailure):consume(root,r,h,account)
     def test_preflight_scope_no_go_and_no_process(self):
         with patch('subprocess.Popen',side_effect=AssertionError('NO_PROCESS')):
             for w,length in (('18','20'),('18','22')):
