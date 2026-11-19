@@ -1,0 +1,79 @@
+name: V25 rejection operator selection task4.1
+on:
+  push:
+    paths:
+      - 'app/local_integration/rejection_operator_selection.py'
+      - 'app/local_integration/test_rejection_operator_selection.py'
+      - '.github/workflows/v25-rejection-operator-selection.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: live-programme-scheduler-1-3-1-4
+          run-id: 44460753648
+          github-token: ${{ github.token }}
+          path: selection-input
+      - name: Exact rejection classification tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_rejection_operator_selection
+      - name: Select only from pinned actual live evidence without generation
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,copy
+          from rejection_operator_selection import select,digest
+          names=['request.json','runtime-bundle.json','child-complete.json','scheduler.json','decision.json']
+          values=[]
+          for name in names:
+           fs=list(pathlib.Path('selection-input').rglob(name));assert len(fs)==1;values.append(json.loads(fs[0].read_text()))
+          request,runtime,child,scheduler,decision=values
+          assert digest(runtime)=='ce47b8433c94aaf216c6fd0d67c8ca9bcc563466f85ba17d3bfdb1fa05d89234'
+          assert digest(scheduler)=='231390b6de38fcfed5ccff24fd7c4c84ff72dabf64cfe7307df0bc14a3ee9f15'
+          assert digest(decision)=='3aecbc8dfb4aee44e16aec0c522d0d410f083d88d855328b34e240b50daa938c'
+          keys=['request','runtime','child','scheduler','decision'];pins={k:digest(v) for k,v in zip(keys,values)}
+          out=select(*values,pins)
+          negatives=[]
+          for case in ('request','model','pending','current','ledger','authority'):
+           v=copy.deepcopy(values)
+           if case=='request':v[0]['body_hex']=b'{"W":18,"L":20,"n":2,"bedrooms":2}'.hex()
+           elif case=='model':v[1]['model_digest']='0'*64
+           elif case=='pending':v[1]['reports']['physical']['pending']=[]
+           elif case=='current':v[4]['decision']['state']='PASS'
+           elif case=='ledger':v[3]['attempts'][0]['receipt_verified']=False
+           else:v[3]['accepted']=True
+           try:select(*v,{k:digest(z) for k,z in zip(keys,v)})
+           except (ValueError,KeyError):negatives.append(case)
+          assert len(negatives)==6
+          out['actual_artifact_negative_tests']={'count':6,'cases':negatives,'scope':'Detached evidence mutations, no model generation'}
+          pathlib.Path('rejection-operator-selection.json').write_text(json.dumps(out,sort_keys=True,ensure_ascii=False,indent=2))
+          print(json.dumps({k:v for k,v in out.items() if k not in ('full_physical_report','current_decision','protected')},sort_keys=True))
+          assert out['integrity_verified'] is True
+          assert out['selected_operator']['execution_started'] is False and out['selected_operator']['child_generated'] is False
+          assert out['current_decision']['decision']['state']=='BLOCKED'
+          assert len(out['historical_pending_preserved'])==6
+          assert digest(out['full_physical_report'])==out['full_physical_digest']=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rejection-operator-selection-task4-1
+          path: rejection-operator-selection.json
+          retention-days: 30
