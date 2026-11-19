@@ -54,7 +54,7 @@ class PublicWLNTests(unittest.TestCase):
     def test_nonfinite_and_decimal_token_policy(self):
         for tok in ('NaN','Infinity','-Infinity'):
             self.reject(('{"W":'+tok+',"L":20,"n":2}').encode(),'NONFINITE_NUMBER',422)
-        for tok in ('12.5','1e400','1e-4000'):
+        for tok in ('12.5','2.0','2e0','1e400','1e-4000'):
             self.reject(('{"W":'+tok+',"L":20,"n":2}').encode(),'UNSUPPORTED_JSON_DECIMAL_REPRESENTATION',409)
     def test_body_depth_numeric_limits(self):
         self.reject(b' '*16385,'UNSUPPORTED_BODY_LIMIT',409)
