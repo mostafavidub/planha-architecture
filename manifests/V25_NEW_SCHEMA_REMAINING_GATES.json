@@ -2,7 +2,7 @@
   "schema": "V25_NEW_SCHEMA_REMAINING_GATES_V1",
   "operation_start_utc": "2026-11-18T22:07:31Z",
   "operation_deadline_utc": "2026-11-19T01:07:31Z",
-  "scope": "Planning checkpoint, not implemented whole-gate approval",
+  "scope": "Verified independent study evaluator integration; current full functional and product closure remain unresolved",
   "implemented_independent_layers": [
     "Exact new module and threshold floor",
     "Rigid A/B installation",
@@ -10,27 +10,16 @@
     "Whole-model placement adapter",
     "Operation and typed-public adapters",
     "Real source-verified before-after boundary comparison",
-    "Raw physical core retaining capacity/quality pending"
+    "Raw physical core retaining capacity/quality pending",
+    "Named/circulation/frame adapters with real-origin immutable bundle binding",
+    "Independent rule evaluator with all historical registry requirements, current5..25 domain and no historical identity",
+    "Explicit historical concept-source pin and actual nonleaf disclosures",
+    "Current functional schema exact five rows; four unknown requirements retained"
   ],
   "unimplemented": [
     {
-      "id": "NEW_SCHEMA_NAMED_RULE_ADAPTERS",
-      "source_dependencies": [
-        "named_checks118.py imports old placement in bath_service_operation/privacy_scenarios/fixture_inventory_use",
-        "circulation_integrity119.py imports old placement",
-        "core_circulation_scope118.py supported module schemas",
-        "named_checks118.adapters_for_workflow recognizes historical trace schemas"
-      ],
-      "required": "Explicit independent adapters preserving every check; no filtering old report errors"
-    },
-    {
-      "id": "NEW_SCHEMA_WHOLE_EVALUATOR",
-      "source_dependencies": [
-        "checker114 post-report scope-document binding and nonleaf metadata",
-        "rule_contract118.attach_rule_contract historical checker-version binding",
-        "q11_boundary118 recognized workflow context"
-      ],
-      "required": "Integrate current fresh source-bound results with independent new checker identity, retain all pending and source claims; do not fake historical checker marker or constructor127 origin"
+      "id": "CURRENT_Q11_AND_CIRCULATION_COMPARATIVE_CLOSURE",
+      "required": "Scoped actual closet/baseline comparison is not all-wall functional necessity or useful residual-space proof. Q04 internal layout necessity remains NOT_EVALUATED in review."
     },
     {
       "id": "CURRENT_FUNCTIONAL_CLOSURE",
@@ -52,5 +41,29 @@
   "accepted": false,
   "display_allowed": false,
   "delivery_allowed": false,
-  "stage303_execution_started": false
+  "stage303_execution_started": false,
+  "completed_subtasks": [
+    {
+      "id": "NEW_SCHEMA_NAMED_RULE_ADAPTERS",
+      "run": 44430645378,
+      "status": "PASS_INTEGRATION_SCOPE_ONLY"
+    },
+    {
+      "id": "NEW_SCHEMA_WHOLE_EVALUATOR",
+      "run": 44430645378,
+      "status": "UNKNOWN_REQUIRED_STUDY",
+      "errors": 0,
+      "pending": [
+        "CURRENT_FUNCTIONAL_UNKNOWN:CONTINUOUS_USEFUL_LIVING",
+        "CURRENT_FUNCTIONAL_UNKNOWN:CURRENT_PROGRAM_SUITABILITY",
+        "CURRENT_FUNCTIONAL_UNKNOWN:KITCHEN_GUEST_PATH_SEPARATION",
+        "CURRENT_FUNCTIONAL_UNKNOWN:NONFUNCTIONAL_WALL_EXCLUSION",
+        "CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED",
+        "RULE_NOT_EVALUATED:q11_functional_boundary",
+        "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+      ]
+    }
+  ],
+  "latest_evidence_manifest": "manifests/V25_OPEN_FRONT_EVALUATOR_RESULT.json",
+  "updated_at_utc": "2026-11-19T00:41:20Z"
 }
