@@ -27,7 +27,9 @@ jobs:
           for k in ('accepted','qualified','display_allowed','delivery_allowed'):assert d[k] is False
           for r in d['criteria']:
               assert r['current_state']=='UNKNOWN'
-              for k in ('sources','paraphrase','required_data','conditional_pass','fail_examples','missing_rule','missing_profile','missing_evidence','existing_checker','proposed_tests'):assert r[k]
+              for k in ('sources','paraphrase','required_data','conditional_pass','fail_examples','missing_profile','missing_evidence','existing_checker','proposed_tests'):assert r[k]
+              assert type(r['missing_rule']) is list and r['missing_rule_status']
+              assert r['known_rule_scope']
               assert len(r['proposed_tests'])==5
               for s in r['sources']:
                   assert s['readback']=='VERIFIED' and s['revision_id']
