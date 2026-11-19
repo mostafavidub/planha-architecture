@@ -1,0 +1,28 @@
+{
+  "task": "2.5",
+  "start": "2026-11-19T03:49:50Z",
+  "deadline": "2026-11-19T06:49:50Z",
+  "status": "IN_PROGRESS_OBSERVED_PROPOSAL_TRANSPORT_BLOCKER",
+  "commit": "bebb51102900f0bfe5d72d65e5a0e3af4a196a3f",
+  "run": 44454564133,
+  "job": 135326327828,
+  "ci": "SUCCESS_COLLECTION_ONLY",
+  "runtime": "RUNTIME_FAILED_CLOSED",
+  "error": "proposal/TRANSPORT_TYPE",
+  "constructor_called": false,
+  "model_digest": null,
+  "elapsed_seconds": 34.76709467200001,
+  "source_unchanged": true,
+  "hard_timeout_triggered": false,
+  "artifact": {
+    "id": 14496577975,
+    "sha256": "7e71a99e50f78558d08857cbb80a2f176b2c1581c50cb528dffd2a2809a350f2",
+    "retention_days": 30,
+    "expected_expiry": "2026-12-19T03:54:44Z"
+  },
+  "reproduce": ".github/workflows/v25-bounded-original-runtime.yml at pinned commit; original evidence expires; new run solver timing may differ",
+  "next": "Identify qualified scalar type and path before any role-limited value-preserving boundary change",
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
