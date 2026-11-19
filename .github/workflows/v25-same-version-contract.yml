@@ -1,0 +1,42 @@
+name: V25 same-version contract task 2.1
+on:
+  push:
+    paths:
+      - 'app/local_integration/same_version_front_rear_contract.py'
+      - 'app/local_integration/test_same_version_front_rear_contract.py'
+      - '.github/workflows/v25-same-version-contract.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Contract regression tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          set -o pipefail
+          python -B -m unittest -v test_same_version_front_rear_contract test_program_profile_registry test_public_wln_contract test_dimension_contract test_v25_input_audit 2>&1 | tee same-version-tests.txt
+      - name: Source API audit without model execution
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B -c "import json; from same_version_front_rear_contract import audit_sources; print(json.dumps(audit_sources(),ensure_ascii=False,indent=2))" > same-version-source-audit.json
+          git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: same-version-contract-task-2-1
+          path: |
+            same-version-tests.txt
+            same-version-source-audit.json
+          retention-days: 30
