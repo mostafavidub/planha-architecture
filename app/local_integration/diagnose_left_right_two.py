@@ -37,11 +37,7 @@ def run():
                 except (ValueError,TypeError):continue
                 if isinstance(value,dict) and value.get('family')=='LEFT_RIGHT':constant_attempts.append({'line':node.lineno,'value':value})
     assert len(constant_attempts)==1 and constant_attempts[0]['value']['state']=='UNSUPPORTED_CURRENT_SOURCE_RECORD_SCHEMA'
-    # Explicitly synthetic shape witness, never an assembled model/proposal.
-    shape=sorted(['A.bed1','A.bed2','A.dining','A.living','B.bed1','B.bed2','B.dining','B.living'])
-    assert shape not in schema['records']['root.room_metadata']
     report={'schema':'V25_LEFT_RIGHT_EXPLICIT_TWO_DIAGNOSTIC_V1','preregistered_inputs':CASES,'settings':SETTINGS,'source_snapshot':sources,'engine_revision_before':rev,'schema_pin':SCHEMA_PIN,'schema_scope':schema['scope'],'worker_constant_policy':constant_attempts,
-        'synthetic_shape_probe':{'scope':'Hand-enumerated two-bedroom room_metadata keyset only, not generation or geometry evidence','path':'root.room_metadata','keys':shape,'permitted_keysets':schema['records']['root.room_metadata'],'listed':False},
         'cases':[],'accepted':False,'delivery_allowed':False,'qualified':False,'global_infeasibility_proven':False,'guard_before':12991,
         'scope':'Independent fresh LEFT_RIGHT proposals, original construction/replay and inventory only. Original production worker remains unchanged and unsupported. No whole physical/functional checker, qualification, repair, or schema extension.'}
     def save():out.write_text(json.dumps(report,ensure_ascii=False,indent=2))
