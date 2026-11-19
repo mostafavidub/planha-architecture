@@ -405,7 +405,7 @@
       "description_verbatim": "۳.۶. اتصال نتیجه هر بررسی به تصمیم نهایی و تست موارد نامعلوم و شکست. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_FOUR_REPORT_DECISION_BINDING",
       "dependencies": [
         "3.2",
         "3.3",
@@ -414,7 +414,16 @@
       ],
       "start_utc": "2026-11-19T04:37:04Z",
       "deadline_utc": "2026-11-19T07:37:04Z",
-      "scope": "Bind actual same-model four criteria and complete original physical report to fail-closed decision; preserve missing profile and no authority."
+      "scope": "Bind actual same-model four criteria and complete original physical report to fail-closed decision; preserve missing profile and no authority.",
+      "completed_utc": "2026-11-19T04:42:48Z",
+      "commit": "6c47196f7bde9285256f14f0f7b4472cf5837954",
+      "run": 44460110976,
+      "tests": {
+        "synthetic_decision_and_binding": 19,
+        "actual_bound_assessments": 4
+      },
+      "actual_decision": "BLOCKED",
+      "remaining": "Four UNKNOWN and original physical FAIL/pending retained. No fresh generation, product qualification or automatic/public integration in this task."
     },
     {
       "id": "4.1",
