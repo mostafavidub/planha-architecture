@@ -85,12 +85,15 @@ class LifecycleTests(unittest.TestCase):
             with patch.object(t,'sources',return_value={}):
                 with self.assertRaises(l.EvidenceFailure):consume(root,r,h,account)
     def test_report_file_changed_during_adapter_rejected(self):
-        r,h,o,reports,account=fixture();real=a.adapt
+        r,h,o,reports,account=fixture();real=Path.read_bytes; reads={}
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);write(root,o,reports)
-            def mutate(*args):
-                result=real(*args);(root/'reports.json').write_text('{}');return result
-            with patch.object(a,'adapt',side_effect=mutate):
+            def altered(path):
+                if path==root/'reports.json':
+                    reads[str(path)]=reads.get(str(path),0)+1
+                    if reads[str(path)]==2:path.write_text('{}')
+                return real(path)
+            with patch.object(Path,'read_bytes',altered):
                 with self.assertRaises(l.EvidenceFailure):consume(root,r,h,account)
     def test_no_parent_skips_adapter_not_fabricated(self):
         r,h,o,reports,account=fixture()
@@ -99,8 +102,8 @@ class LifecycleTests(unittest.TestCase):
         o['report_digests']={k:t.digest(v)for k,v in reports.items()}
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);write(root,o,reports)
-            with patch.object(a,'adapt',side_effect=AssertionError('NO_ADAPTER'))as fn:
-                _,_,e=consume(root,r,h,account);fn.assert_not_called()
+            _,_,e=consume(root,r,h,account)
+            self.assertFalse(e['safe_summary']['adapter_executed'])
             self.assertEqual(e['safe_summary']['state'],'SKIPPED_NO_PARENT')
     def test_preflight_scope_no_go_and_no_process(self):
         with patch('subprocess.Popen',side_effect=AssertionError('NO_PROCESS')):
@@ -108,6 +111,15 @@ class LifecycleTests(unittest.TestCase):
                 result=l.cycle_preflight(json.dumps({'W':w,'L':length,'n':2}).encode())
                 self.assertEqual(result['state'],'NO_GO_COMPLETE_CYCLE')
                 self.assertFalse(result['qualified'])
+    def test_adapter_error_report_preserved_in_exception(self):
+        r,h,o,reports,account=fixture()
+        reports['parent_replay']['source_revision']='SYNTHETIC_STALE'
+        o['report_digests']={k:t.digest(v)for k,v in reports.items()}
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);write(root,o,reports)
+            with self.assertRaises(l.EvidenceFailure) as caught:consume(root,r,h,account)
+            self.assertEqual(caught.exception.private_evidence['adapter']['state'],'EVIDENCE_ERROR')
+            self.assertEqual(caught.exception.private_evidence['original_reports'],reports)
     def test_final_invalidation_demotes_lifecycle(self):
         base={'receipt_verified':True,'lifecycle_admission':{'consistency_verified':True}}
         t.invalidate(base)

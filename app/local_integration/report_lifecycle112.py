@@ -5,6 +5,7 @@ Controlled tempfile tests are NOT a fresh generation or authenticated execution.
 import copy
 import hashlib
 import json
+import inspect
 from pathlib import Path
 from obligation_admission111 import digest, require, coverage_contract, AUTH
 import current_report_adapter111 as adapter
@@ -26,6 +27,8 @@ def cycle_preflight(body):
 def _consume(folder, request, expected_request, process, reserved, expected_reserved, observed):
     import request_trace109 as trace
     import request_budget110 as ledger
+    require(Path(inspect.getsourcefile(adapter.adapt)).resolve() == trace.ROOT/'app/local_integration/current_report_adapter111.py', 'ADAPTER_IMPORT')
+    require(Path(inspect.getsourcefile(ledger.check)).resolve() == trace.ROOT/'app/local_integration/request_budget110.py', 'LEDGER_IMPORT')
     trace.validate_request(request, expected_request)
     anchor = ledger.anchor(request, expected_request)
     ledger.check(reserved, expected_reserved, anchor)
@@ -71,6 +74,7 @@ def _consume(folder, request, expected_request, process, reserved, expected_rese
                  'rule_digest':c['source_map_digest'],'coverage_digest':digest(c)}
         converted=adapter.adapt(raw,digest(raw),binding,digest(binding))
         evidence['adapter']=converted
+        observed['adapter']=copy.deepcopy(converted)
         require(converted['consistency_verified'] is True,'RAW_ADAPTER_NOT_VERIFIED')
         safe.update(state=converted['state'],adapter_executed=True,
                     model_digest=out['parent_model_digest'],adapter_digest=digest(converted),

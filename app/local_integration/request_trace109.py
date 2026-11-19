@@ -158,6 +158,7 @@ def run(body):
    trace.append({'stage':'PROCESS_WAIT_COMPLETED','utc':stamp()})
    base['process']={k:process[k]for k in ('timed_out','kill_sent','wait_completed','returncode','elapsed_seconds','allocated_seconds')}
    from report_lifecycle112 import consume
+   need(Path(inspect.getsourcefile(consume)).resolve()==ROOT/'app/local_integration/report_lifecycle112.py','LIFECYCLE_IMPORT')
    # Private evidence is consumed inside this live request's temporary lifecycle,
    # never returned in HTTP or uploaded. Full reports remain nondurable.
    out,reports,lifecycle=consume(dest,request,expected,process,account,base['account_reserved_digest'])
@@ -169,6 +170,14 @@ def run(body):
    trace.append({'stage':'REAL_REPORT_BINDING_VERIFIED','utc':stamp()})
    trace.append({'stage':'REPAIR_CONTROLLER_NOT_EXECUTED','utc':stamp(),'reason':'SKIPPED_NO_SUPPORTED_CAUSE'if out['state']=='BLOCKED_NO_SUPPORTED_CAUSE'else'SKIPPED_DEPENDENCY'})
  except Exception as ex:
+  # Private evidence remains handler-local; only non-content observations escape.
+  observed=getattr(ex,'private_evidence',None)
+  if type(observed)is dict:
+   failed_adapter=observed.get('adapter',{})
+   base['lifecycle_error_observation']={'state':'OBSERVED_UNVERIFIED','durable':False,
+    'raw_report_count':len(observed.get('original_reports',{})),
+    'raw_reports_digest':observed.get('raw_reports_digest'),
+    'adapter_error_count':len(failed_adapter.get('errors',[]))}
   base.update(state='FAILED_CLOSED',receipt_verified=False,error_type=type(ex).__name__,error_code=str(ex)if re.fullmatch('[A-Z0-9_:]+',str(ex))else'NONPUBLIC_DETAIL_RETAINED_ONLY')
  finally:
   finalize_result(base,request,expected,time.monotonic()-started,process is not None)
