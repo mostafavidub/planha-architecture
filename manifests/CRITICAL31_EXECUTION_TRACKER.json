@@ -209,13 +209,22 @@
       "description_verbatim": "۲.۳. اتصال بررسی‌های هندسی، عملکردی و قواعد به همان مدل ساخته‌شده. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_RUNTIME_WIRING_SMOKE_TESTED_LIVE_BINDING_PENDING",
       "dependencies": [
         "2.2"
       ],
       "start_utc": "2026-11-19T03:39:07Z",
       "deadline_utc": "2026-11-19T06:39:07Z",
-      "scope": "Connect same-version packet/context/replay/full physical/current report with immutable exact bindings; negative fixtures2.4 then fresh execution2.5."
+      "scope": "Connect same-version packet/context/replay/full physical/current report with immutable exact bindings; negative fixtures2.4 then fresh execution2.5.",
+      "checkpoint_utc": "2026-11-19T03:44:39Z",
+      "commit": "b8b88403d9e568d52c839ce5165b8f11a7e8de3b",
+      "run": 44453512887,
+      "tests": {
+        "wiring_smoke": 7,
+        "previous": 92,
+        "total": 99
+      },
+      "remaining": "No solver/model/replay/evaluator execution; adversarial runtime2.4 and real execution2.5 remain. np.float64 explicitly unsupported at current transport."
     },
     {
       "id": "2.4",
@@ -223,10 +232,13 @@
       "description_verbatim": "۲.۴. تست دستکاری مدل، ورودی، برنامه و منشأ؛ خطا و موارد نامعلوم باید حفظ شوند. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "2.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:45:00Z",
+      "deadline_utc": "2026-11-19T06:45:00Z",
+      "scope": "Adversarial exact input/programme/model/origin/report mutation; original evidence retention and fail-closed serialization; no geometric qualification."
     },
     {
       "id": "2.5",
