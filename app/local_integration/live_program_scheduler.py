@@ -62,6 +62,7 @@ def bind_completed(result,request,runtime,decision):
  for key,value in [('preflight_digest',digest(pf)),('programme_digest',pf['binding']['program_registry_digest']),('contract_digest',pf['binding']['contract_digest'])]:
   if digest(result[key])!=digest(value):raise ValueError('LIVE_RECEIPT_BINDING:'+key)
  if any(result.get(k) is not False for k in AUTH):raise ValueError('LIVE_AUTHORITY')
+ if digest(runtime['binding'])!=digest(pf['binding']):raise ValueError('LIVE_RUNTIME_REQUEST_BINDING')
  if result['runtime_digest']!=digest(runtime):raise ValueError('LIVE_RUNTIME_DIGEST')
  if result['model_digest']!=runtime.get('model_digest'):raise ValueError('LIVE_MODEL_DIGEST')
  if result['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED':
