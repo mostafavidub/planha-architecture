@@ -12,6 +12,7 @@ def compare(a,b,left,right,expected):
  initial=digest([a,b,left,right,expected]);reasons=[];rows=[]
  producer=ROOT/'app/local_integration/programme_evidence_comparison.py';producer_hash=hashlib.sha256(producer.read_bytes()).hexdigest()
  out={'schema':'PROGRAMME_ALTERNATIVE_EVIDENCE_COMPARISON_V1','status':'NOT_COMPARABLE','quality_comparison':'UNRESOLVED_PROFILE',
+  'observed_physical_reports':[copy.deepcopy(r.get('original_physical_report')) if type(r) is dict else None for r in (left,right)],'physical_report_model_digest_bindings':[False,False],
   'winner':None,'pareto_front':None,'quality_scores':None,'models':[digest(a),digest(b)],'reasons':reasons,'comparisons':rows,
   'comparison_source_snapshot':{'app/local_integration/programme_evidence_comparison.py':producer_hash},
   'scope':'Two existing same-request/programme models with equal source evaluator/scenario definitions; evidence deltas only, not programme suitability, ranking or all-PRD qualification.',
@@ -32,7 +33,7 @@ def compare(a,b,left,right,expected):
   for path,h in left['source_snapshot'].items():
    need(path in required,'EVALUATOR_SOURCE_PATH')
    if path in required:need(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==h,'EVALUATOR_SOURCE_CHANGED:'+path)
-  for m,r in ((a,left),(b,right)):
+  for report_index,(m,r) in enumerate(((a,left),(b,right))):
    need(r['model_digest']==digest(m),'REPORT_MODEL')
    need(r['integrity_verified'] is True and not r.get('missing'),'REPORT_INTEGRITY')
    need(r['state']=='UNKNOWN','EXPECTED_SCOPED_UNKNOWN_EVALUATOR')
@@ -40,7 +41,8 @@ def compare(a,b,left,right,expected):
    need(digest(r['profile'])==digest(m['profile']),'REPORT_PROFILE')
    need(all(r.get(k) is False for k in AUTH),'REPORT_AUTHORITY')
    p=r['original_physical_report']
-   need(p['model_hash']==digest(m) and digest(p)==r['original_physical_digest'],'PHYSICAL_REPORT_BINDING')
+   bound=p['model_hash']==digest(m) and digest(p)==r['original_physical_digest']
+   need(bound,'PHYSICAL_REPORT_BINDING');out['physical_report_model_digest_bindings'][report_index]=bound
    need(len(r['units'])==len(m['units']) and {u['unit'] for u in r['units']}=={u['id'] for u in m['units']},'UNIT_SET')
    for u in r['units']:
     for k in DENOMINATORS:need(k in u['area_accounting'] and F(u['area_accounting'][k])>0,'DENOMINATOR_DEFINITION_OR_VALUE')
@@ -74,7 +76,7 @@ def compare(a,b,left,right,expected):
   out['source_snapshot']=copy.deepcopy(left['source_snapshot'])
   out['quality_gaps']=['No calibrated per-room/unit quality floors and acceptance anchors','No approved quality dimensions/directions/weights for Pareto','Route counts/lengths cannot turn physical FAIL or profile UNKNOWN into acceptance']
  except Exception as ex:
-  reasons.append('COMPARISON_INPUT_OR_EVALUATOR_ERROR:'+type(ex).__name__+':'+str(ex));out['comparisons']=[]
+  reasons.append('COMPARISON_INPUT_OR_EVALUATOR_ERROR:'+type(ex).__name__+':'+str(ex));out['comparisons']=[];out['status']='NOT_COMPARABLE'
  finally:
   if digest([a,b,left,right,expected])!=initial:raise ValueError('COMPARISON_INPUT_MUTATION')
   if hashlib.sha256(producer.read_bytes()).hexdigest()!=producer_hash:raise ValueError('COMPARISON_PRODUCER_CHANGED')
