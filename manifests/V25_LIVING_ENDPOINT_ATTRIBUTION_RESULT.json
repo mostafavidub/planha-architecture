@@ -1,0 +1,634 @@
+{
+  "schema": "V25_LIVING_ENDPOINT_ATTRIBUTION_RESULT_V1",
+  "operation": "V25-22-LIVING-WITNESS",
+  "operation_start_utc": "2026-11-18T22:07:31Z",
+  "subtask_start_utc": "2026-11-19T00:57:11Z",
+  "operation_deadline_utc": "2026-11-19T01:07:31Z",
+  "completed_at_utc": "2026-11-19T01:00:14Z",
+  "commit": "5a5fda3f74808ebeef311faf8949911b6bb4effd",
+  "run_id": 44433258552,
+  "job_id": 135255674733,
+  "workflow": ".github/workflows/v25-living-endpoints.yml",
+  "result": {
+    "before": {
+      "schema": "V25_LIVING_ENDPOINT_FLOOR_ATTRIBUTION_V1",
+      "model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+      "rows": [
+        {
+          "unit": "A",
+          "fixture_id": "sofa1",
+          "activity_id": "sofa1_front",
+          "endpoint": [
+            "379/40",
+            "361/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "73/8",
+            "687/100",
+            "393/40",
+            "757/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "9.125",
+              "6.87",
+              "9.825",
+              "7.57"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "aad71cab40a91e02512ec24956e59fdc9a29e3af3caeef51c67524536f7e6090"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "sofa2",
+          "activity_id": "sofa2_front",
+          "endpoint": [
+            "467/40",
+            "361/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "453/40",
+            "687/100",
+            "481/40",
+            "757/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "11.325",
+              "6.87",
+              "12.025",
+              "7.57"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "aad71cab40a91e02512ec24956e59fdc9a29e3af3caeef51c67524536f7e6090"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "armchair1",
+          "activity_id": "armchair1_front",
+          "endpoint": [
+            "319/40",
+            "281/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "61/8",
+            "527/100",
+            "333/40",
+            "597/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "7.625",
+              "5.27",
+              "8.325",
+              "5.97"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "aad71cab40a91e02512ec24956e59fdc9a29e3af3caeef51c67524536f7e6090"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "armchair2",
+          "activity_id": "armchair2_front",
+          "endpoint": [
+            "111/8",
+            "321/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "541/40",
+            "607/100",
+            "569/40",
+            "677/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "13.525",
+              "6.07",
+              "14.225",
+              "6.77"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "aad71cab40a91e02512ec24956e59fdc9a29e3af3caeef51c67524536f7e6090"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "sofa1",
+          "activity_id": "sofa1_front",
+          "endpoint": [
+            "379/40",
+            "639/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "73/8",
+            "1243/100",
+            "393/40",
+            "1313/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "9.125",
+              "12.43",
+              "9.825",
+              "13.13"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "9e42fa4946fbbed4dc7d3d4d0db25e61f653342a8cd7241b5cbcfe4a59dd9f1e"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "sofa2",
+          "activity_id": "sofa2_front",
+          "endpoint": [
+            "467/40",
+            "639/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "453/40",
+            "1243/100",
+            "481/40",
+            "1313/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "11.325",
+              "12.43",
+              "12.025",
+              "13.13"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "9e42fa4946fbbed4dc7d3d4d0db25e61f653342a8cd7241b5cbcfe4a59dd9f1e"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "armchair1",
+          "activity_id": "armchair1_front",
+          "endpoint": [
+            "319/40",
+            "719/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "61/8",
+            "1403/100",
+            "333/40",
+            "1473/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "7.625",
+              "14.03",
+              "8.325",
+              "14.73"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "9e42fa4946fbbed4dc7d3d4d0db25e61f653342a8cd7241b5cbcfe4a59dd9f1e"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "armchair2",
+          "activity_id": "armchair2_front",
+          "endpoint": [
+            "111/8",
+            "679/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "541/40",
+            "1323/100",
+            "569/40",
+            "1393/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "13.525",
+              "13.23",
+              "14.225",
+              "13.93"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "9e42fa4946fbbed4dc7d3d4d0db25e61f653342a8cd7241b5cbcfe4a59dd9f1e"
+        }
+      ],
+      "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+      "accepted": false,
+      "qualified": false,
+      "display_allowed": false,
+      "delivery_allowed": false,
+      "scope": "Exact source standing-body floor attribution and actual conservative state collisions. Attribution to circulation is not approval to relabel it living, useful-area proof, or all-route connectivity."
+    },
+    "after": {
+      "schema": "V25_LIVING_ENDPOINT_FLOOR_ATTRIBUTION_V1",
+      "model_digest": "b8050a31571367941748a3bcc47112ca809f811bc46268ea7653becdd333d880",
+      "rows": [
+        {
+          "unit": "A",
+          "fixture_id": "sofa1",
+          "activity_id": "sofa1_front",
+          "endpoint": [
+            "379/40",
+            "361/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "73/8",
+            "687/100",
+            "393/40",
+            "757/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "9.125",
+              "6.87",
+              "9.825",
+              "7.57"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "2ad8225dbe663527dfd49484d19320db9e69ab07c524c2fa09292873e19fbf55"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "sofa2",
+          "activity_id": "sofa2_front",
+          "endpoint": [
+            "467/40",
+            "361/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "453/40",
+            "687/100",
+            "481/40",
+            "757/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "11.325",
+              "6.87",
+              "12.025",
+              "7.57"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "2ad8225dbe663527dfd49484d19320db9e69ab07c524c2fa09292873e19fbf55"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "armchair1",
+          "activity_id": "armchair1_front",
+          "endpoint": [
+            "319/40",
+            "281/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "61/8",
+            "527/100",
+            "333/40",
+            "597/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "7.625",
+              "5.27",
+              "8.325",
+              "5.97"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "2ad8225dbe663527dfd49484d19320db9e69ab07c524c2fa09292873e19fbf55"
+        },
+        {
+          "unit": "A",
+          "fixture_id": "armchair2",
+          "activity_id": "armchair2_front",
+          "endpoint": [
+            "111/8",
+            "321/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "541/40",
+            "607/100",
+            "569/40",
+            "677/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "13.525",
+              "6.07",
+              "14.225",
+              "6.77"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "2ad8225dbe663527dfd49484d19320db9e69ab07c524c2fa09292873e19fbf55"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "sofa1",
+          "activity_id": "sofa1_front",
+          "endpoint": [
+            "379/40",
+            "639/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "73/8",
+            "1243/100",
+            "393/40",
+            "1313/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "9.125",
+              "12.43",
+              "9.825",
+              "13.13"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "107c20c50dcaced7fd272bd7a28449f0d7fe3e43ab0729cb850248fc56e50c09"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "sofa2",
+          "activity_id": "sofa2_front",
+          "endpoint": [
+            "467/40",
+            "639/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "453/40",
+            "1243/100",
+            "481/40",
+            "1313/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "11.325",
+              "12.43",
+              "12.025",
+              "13.13"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "107c20c50dcaced7fd272bd7a28449f0d7fe3e43ab0729cb850248fc56e50c09"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "armchair1",
+          "activity_id": "armchair1_front",
+          "endpoint": [
+            "319/40",
+            "719/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "61/8",
+            "1403/100",
+            "333/40",
+            "1473/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "7.625",
+              "14.03",
+              "8.325",
+              "14.73"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "107c20c50dcaced7fd272bd7a28449f0d7fe3e43ab0729cb850248fc56e50c09"
+        },
+        {
+          "unit": "B",
+          "fixture_id": "armchair2",
+          "activity_id": "armchair2_front",
+          "endpoint": [
+            "111/8",
+            "679/50"
+          ],
+          "body_m": "7/10",
+          "body_rect": [
+            "541/40",
+            "1323/100",
+            "569/40",
+            "1393/100"
+          ],
+          "body_area_m2": "49/100",
+          "in_declared_living_m2": "0",
+          "in_declared_circulation_m2": "49/100",
+          "in_public_union_m2": "49/100",
+          "outside_declared_living_parts": [
+            [
+              "13.525",
+              "13.23",
+              "14.225",
+              "13.93"
+            ]
+          ],
+          "outside_public_union_parts": [],
+          "body_fully_in_living": false,
+          "body_fully_in_public_union": true,
+          "physical_state_blockers": {},
+          "floor_digest": "107c20c50dcaced7fd272bd7a28449f0d7fe3e43ab0729cb850248fc56e50c09"
+        }
+      ],
+      "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+      "accepted": false,
+      "qualified": false,
+      "display_allowed": false,
+      "delivery_allowed": false,
+      "scope": "Exact source standing-body floor attribution and actual conservative state collisions. Attribution to circulation is not approval to relabel it living, useful-area proof, or all-route connectivity."
+    },
+    "fresh_evaluator_digest": "a9d79f8603ee0651c6a21694582f2c0ae7906ce0a611d365987482ce3679c10d",
+    "fresh_evaluator_source_snapshot": {
+      "app/local_integration/open_front_evaluator.py": "09da55726a01137e179b6993c79cc4ed3a8d6deba988a5ddaccf1f1884f74dfe",
+      "app/local_integration/open_front_world_origin.py": "2e0296980e9e0c1cf781b779077fa8ebae6669b0cbad9cefce128d037b8b6847",
+      "app/local_integration/open_front_world_assembly.py": "bae6ee2e5838c6b52156d761ee1fa7495795bd8154e50c22c7f7b3efc21e0c06",
+      "app/local_integration/open_front_kitchen_study.py": "20380b9b85fd5ecf2217182097a3c16a8272d808bc1788b01d17ffde6be21891",
+      "app/local_integration/open_front_kitchen_check.py": "2db4984fcd79eedda92c1da7d855c68231905f5ed150d7f8fea0461c372d1a85",
+      "app/local_integration/open_front_kitchen_place.py": "6596d540ee2e32d881b0b3d68a93b203b4e4be59fefdad0dff62565c0fb6c641",
+      "app/local_integration/open_front_placement_check.py": "840cbf4982eb7bd8ed3b5fafbf50cbbbe1e89dd30c4a0adfe58a9101dbb8707c",
+      "app/local_integration/open_front_typed_public.py": "88ac54809f43051f9671615c4967e9ae84a89cd334b63d9fedbe5f8fc2414ffc",
+      "app/local_integration/open_front_operation_check.py": "b77d96a026978b37ef02b17ccf90ccd86858d601f040d0d6c0eda8e6de497910",
+      "app/local_integration/open_front_raw_physical.py": "59163197c88d4a223d573cf4350a35323dfa3a1a0bb01a00ff6b84335b3e260a",
+      "app/local_integration/open_front_rule_contract.py": "6c98b0cbe3cadfb162eded9015d746eeb316a2cf15a18c598d678d5ec22c4c78",
+      "app/local_integration/open_front_named_checks.py": "fe894eb5893f9394b97b91209ade0fd8d71f9dd412e7cd970f246cb641bb8fa8",
+      "app/local_integration/open_front_circulation_scope.py": "6b475810ede0e56ede5437de5454f53c56deb9ad428f774eca477dc61243d547",
+      "app/local_integration/open_front_circulation_integrity.py": "e5edb50c85244f566aaa12835a88b67a72724e320b4d2e9b5449722b2e1ca81c",
+      "app/local_integration/open_front_circulation_frame.py": "eabd9a2b64e7f1af20cc5a7f30afe35fed4a7e169bc79bfdbeacf171df1314a9",
+      "app/local_integration/open_front_q11_pending.py": "d3591e7e1fd683b38294f616a1c3fc5da7b8f9fd9e35a0677189edadcc655862",
+      "app/local_integration/open_front_boundary_comparison.py": "15bdb91dc5ce393a7c493388afef02602ff632af2c7ff0ebae9efb0dc8f7659e",
+      "app/local_integration/functional_review.py": "69e7531bacffe60080a5c5335cad85f764fc195232b6148843913197c55729ad",
+      "app/local_integration/guest_four_route_diagnostic.py": "647cc4b0c3e65a4fff3bb91e336e28fb234a4bea232e44ce2e3bf85da3187a08",
+      "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+      "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+      "app/local_integration/producer_provenance.py": "852863c7cfc1690e50cce50b204723ab91506ea9d27ed09ccec285c98114eeef",
+      "app/local_integration/review_cycle.py": "1f2d20d04036563e67086c841b26463425541e5499d0378f7a7d8073e367791b"
+    },
+    "workflow_snapshot": {
+      ".github/workflows/v25-living-endpoints.yml": "57bf1488a8ef51e283698d1508b6a741a9f5acb02bc9b8edade5fc8f24eaea37",
+      "app/local_integration/living_endpoint_attribution.py": "c19a32f5fd53828d692f1f6274cc7edb17852a6a01e92fbfa6d9728bf3fdb13e"
+    },
+    "negative_tests": [
+      "endpoint",
+      "seat_inventory",
+      "profile"
+    ],
+    "operation_start": "2026-11-19T00:57:11Z",
+    "operation_deadline": "2026-11-19T01:07:31Z",
+    "CONTINUOUS_USEFUL_LIVING": "UNKNOWN",
+    "accepted": false,
+    "delivery_allowed": false
+  },
+  "findings": {
+    "cases": "8 actual seat standing bodies in each of baseline and new-source model, 16 observations",
+    "each_body_area_m2": "49/100",
+    "each_in_residual_living_m2": "0",
+    "each_in_circulation_m2": "49/100",
+    "each_in_public_union_m2": "49/100",
+    "physical_state_blockers": "none in evaluated conservative obstacle groups",
+    "interpretation": "Residual-only route diagnostic excludes each actual standing-body endpoint by floor-domain classification. Not evidence of physical impossibility in public union.",
+    "independent_coverage_scope": "covered independently checks full living/public coverage; partial area values come from exact Fraction cell unions, not a second independent area algorithm"
+  },
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "artifact": {
+    "id": 14486484920,
+    "name": "v25-living-endpoints",
+    "size_bytes": 2745,
+    "sha256": "2c8b1914e588d9dc933eb000ef6ca3b54a6032e66a3198b3db417d3193bcbb7c",
+    "expires_at": "2026-12-19T01:00:09Z",
+    "durably_archived": false
+  },
+  "reproduction": "Run exact workflow; archived input44417514104 pair-http.json hashes verified, baseline127 and independent origin rebuilt and full study evaluator rerun.",
+  "current_functional_state": "UNKNOWN",
+  "whole_cycle_verified": false,
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "qualified": false,
+  "stage303_execution_started": false
+}
