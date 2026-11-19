@@ -46,7 +46,7 @@ def assess(bundle):
   'model_digest':mh,'original_physical_digest':bundle['report_digests']['physical'],
   'original_physical_report':copy.deepcopy(bundle['reports']['physical']),'replay':copy.deepcopy(replay),'units':[],
   'profile':copy.deepcopy(m['profile']),'profile_scope':'Hypothetical source body width, not ergonomic approval',
-  'remaining':['First-living/principal organisation unproved','Complete door/chair simultaneous scenario coverage unproved','Opening/bottleneck classification unproved','Conservative no-witness is not global infeasibility'],
+  'remaining':['First-living/principal organisation unproved','Complete door/chair simultaneous scenario coverage unproved','Opening/bottleneck classification unproved','Conservative no-witness is not global infeasibility','This actual-work-area profile differs from historical whole-kitchen-floor exclusion; it does not overwrite that FAIL'],
   **{k:False for k in AUTH}}
  try:
   for u in m['units']:
@@ -83,12 +83,15 @@ def assess(bundle):
      outside=cells([box],parts)+cells([box],owner)
      private=[q for key,qs in u['rooms'].items() if key.startswith('bed') or key=='private_circulation' for q in qs]
      fx=[q for k,q in u['fixtures'].items() if not u['fixture_metadata'][k].get('walkable') and not(name=='entry_WC' and k=='WC_iranian')]
+     if name=='entry_WC':
+      x,y=map(F,wc);target_body=list(map(str,[x-body/2,y-body/2,x+body/2,y+body/2]))
+      fx+=cells([u['fixtures']['WC_iranian']],[target_body])
      occupied=[s['occupied_body'] for s in seats]
      obstacles=walls+fx+chair+private+zones+occupied+outside
      path,reason=route(start,end,box,obstacles,body=str(body))
      row={'id':name,'start':start,'end':end,'floor_roles':roles,'floor_digest':digest(parts),'ownership_digest':digest(owner),'domain_box':box,'obstacle_digest':digest(obstacles),
       'obstacle_count':len(obstacles),'path':path,'reason':reason,'state':'NO_WITNESS_IN_THIS_CONSERVATIVE_SCENARIO',
-      'wc_exception':'Only own WC fixture, only entry_WC destination; no other fixture exemption' if name=='entry_WC' else None}
+      'wc_exception':'Only target body intersection with own WC fixture; all remaining WC fixture material stays obstacle' if name=='entry_WC' else None}
      if path:
       count=route_check(path,start,end,body,parts,obstacles)
       for band in sweeps(path,body):ensure(covered(band,list(map(rect,owner))),'OWNER_COVERAGE')
