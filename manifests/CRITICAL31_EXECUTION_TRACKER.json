@@ -491,10 +491,14 @@
       "description_verbatim": "۴.۳. ساخت طرح تازه و اجرای دوباره همه بررسی‌های لازم، نه فقط تست خطای قبلی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "4.2"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:28:33Z",
+      "deadline_utc": "2026-11-19T08:28:33Z",
+      "shared_child_budget_seconds": 240,
+      "scope": "One existing exploratory operator plus fresh protected binding, original replay/fullphysical and four current gates; no quality approval or matrix."
     },
     {
       "id": "4.4",
