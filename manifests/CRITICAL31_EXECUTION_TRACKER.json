@@ -119,14 +119,23 @@
       "description_verbatim": "۱.۴. بررسی تغییر هسته، تقسیم و جانمایی پیش از بررسی برنامه با خواب کمتر؛ بدون تغییر پنهانی برنامه. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_POLICY_TESTED_RUNTIME_ORDER_PENDING",
       "dependencies": [
         "1.3"
       ],
       "start_utc": "2026-11-19T03:35:29Z",
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
-      "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset."
+      "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset.",
+      "checkpoint_utc": "2026-11-19T03:38:29Z",
+      "commit": "b25ee08c25abf3b2f994bd4221ba31a3bbc4603c",
+      "run": 44452804936,
+      "tests": {
+        "policy": 12,
+        "previous": 80,
+        "total": 92
+      },
+      "remaining": "Disposition records and budget policy only, not actual preceding comparative search; receipt labels unverified until live runtime."
     },
     {
       "id": "1.5",
@@ -200,10 +209,13 @@
       "description_verbatim": "۲.۳. اتصال بررسی‌های هندسی، عملکردی و قواعد به همان مدل ساخته‌شده. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "2.2"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:39:07Z",
+      "deadline_utc": "2026-11-19T06:39:07Z",
+      "scope": "Connect same-version packet/context/replay/full physical/current report with immutable exact bindings; negative fixtures2.4 then fresh execution2.5."
     },
     {
       "id": "2.4",
