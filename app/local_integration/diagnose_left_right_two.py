@@ -12,6 +12,7 @@ from contract114 import digest
 from constructor127 import frame,build,context
 from construction_replay127 import verify
 from world_inventory125 import examine
+from evaluate_pair127 import evaluate as evaluate_pair
 from search114 import propose
 FREEZE='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
 SCHEMA_PIN='59aac9a1e8b17caa40d16aca71a59c4281507b55abf56bb7efc48c5dea0d11ea'
@@ -21,9 +22,9 @@ SETTINGS={'bedrooms':2,'sleep_roles':['double','twin'],'time_limit':3,'variant':
 def run():
     out=ROOT/'left-right-two-diagnostic.json'
     paths=['app/local_integration/'+n for n in ('diagnose_left_right_two.py','explicit_two_bedroom_worker.py','parametric_worker.py','producer_provenance.py','dimension_contract.py')]+['.github/workflows/v25-left-right-two.yml']
-    paths+=['app/reconstruction357/planha_general150_runtime_work/'+n for n in ('search114.py','constructor127.py','construction_replay127.py','world_inventory125.py','world_transform125.py','frame_contract125.py','common_core125.py','assemble114.py','world_record_schema129.json')]
+    paths+=['app/reconstruction357/planha_general150_runtime_work/'+n for n in ('search114.py','constructor127.py','construction_replay127.py','world_inventory125.py','evaluate_pair127.py','evaluate_world125.py','checker114.py','world_transform125.py','frame_contract125.py','common_core125.py','assemble114.py','world_record_schema129.json')]
     sources=snapshot(ROOT,paths);rev=revision();assert guard(FREEZE)==12991
-    for fn,name in ((propose,'search114.py'),(build,'constructor127.py'),(verify,'construction_replay127.py'),(examine,'world_inventory125.py')):
+    for fn,name in ((propose,'search114.py'),(build,'constructor127.py'),(verify,'construction_replay127.py'),(examine,'world_inventory125.py'),(evaluate_pair,'evaluate_pair127.py')):
         assert Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve()
     schema_bytes=(ENGINE/'world_record_schema129.json').read_bytes()
     assert hashlib.sha256(schema_bytes).hexdigest()==SCHEMA_PIN
@@ -39,7 +40,7 @@ def run():
     assert len(constant_attempts)==1 and constant_attempts[0]['value']['state']=='UNSUPPORTED_CURRENT_SOURCE_RECORD_SCHEMA'
     report={'schema':'V25_LEFT_RIGHT_EXPLICIT_TWO_DIAGNOSTIC_V1','preregistered_inputs':CASES,'settings':SETTINGS,'source_snapshot':sources,'engine_revision_before':rev,'schema_pin':SCHEMA_PIN,'schema_scope':schema['scope'],'worker_constant_policy':constant_attempts,
         'cases':[],'accepted':False,'delivery_allowed':False,'qualified':False,'global_infeasibility_proven':False,'guard_before':12991,
-        'scope':'Independent fresh LEFT_RIGHT proposals, original construction/replay and inventory only. Original production worker remains unchanged and unsupported. No whole physical/functional checker, qualification, repair, or schema extension.'}
+        'scope':'Independent fresh LEFT_RIGHT proposals, original construction/replay/inventory and original unfiltered evaluate_pair127. Original production worker remains unchanged and unsupported. Physical errors and pending retained; no qualification, repair, or schema extension.'}
     def save():out.write_text(json.dumps(report,ensure_ascii=False,indent=2))
     save()
     for W,L in CASES:
@@ -77,6 +78,17 @@ def run():
                         for z in v:walk(z,path+'[]','',frame_name)
                 walk(packet['local_model'],frame_name='local');walk(packet['world_model'],frame_name='world')
                 row.update(mismatch_paths=mismatch_paths,mismatch_evidence=evidence,schema_failure_observed_on_fresh_model=bool(mismatch_paths),result='FRESH_MODEL_DIAGNOSTIC_RECORDED')
+                row['stage']='original_evaluate_pair127'
+                row['evaluator_input_bundle_digest']=immutable
+                evaluation_started=time.monotonic()
+                try:
+                    row['original_full_evaluation']=evaluate_pair(packet,ctx)
+                except Exception as ex:
+                    row['original_full_evaluation_exception']={'type':type(ex).__name__,'message':str(ex),'traceback':traceback.format_exc()}
+                finally:
+                    row['evaluation_seconds']=time.monotonic()-evaluation_started
+                    row['evaluator_output_bundle_digest']=digest([raw,proposal,packet,ctx])
+                    assert immutable==row['evaluator_output_bundle_digest']
                 # Preserve full fresh evidence separately, not as production history.
                 (ROOT/('left-right-two-'+W+'x'+L+'-packet.json')).write_text(json.dumps({'packet':packet,'context':ctx},ensure_ascii=False))
         except Exception as ex:
