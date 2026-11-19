@@ -1,0 +1,56 @@
+{
+  "schema": "V25_NEW_SCHEMA_REMAINING_GATES_V1",
+  "operation_start_utc": "2026-11-18T22:07:31Z",
+  "operation_deadline_utc": "2026-11-19T01:07:31Z",
+  "scope": "Planning checkpoint, not implemented whole-gate approval",
+  "implemented_independent_layers": [
+    "Exact new module and threshold floor",
+    "Rigid A/B installation",
+    "Type-safe deterministic new-origin replay",
+    "Whole-model placement adapter",
+    "Operation and typed-public adapters",
+    "Real source-verified before-after boundary comparison",
+    "Raw physical core retaining capacity/quality pending"
+  ],
+  "unimplemented": [
+    {
+      "id": "NEW_SCHEMA_NAMED_RULE_ADAPTERS",
+      "source_dependencies": [
+        "named_checks118.py imports old placement in bath_service_operation/privacy_scenarios/fixture_inventory_use",
+        "circulation_integrity119.py imports old placement",
+        "core_circulation_scope118.py supported module schemas",
+        "named_checks118.adapters_for_workflow recognizes historical trace schemas"
+      ],
+      "required": "Explicit independent adapters preserving every check; no filtering old report errors"
+    },
+    {
+      "id": "NEW_SCHEMA_WHOLE_EVALUATOR",
+      "source_dependencies": [
+        "checker114 post-report scope-document binding and nonleaf metadata",
+        "rule_contract118.attach_rule_contract historical checker-version binding",
+        "q11_boundary118 recognized workflow context"
+      ],
+      "required": "Integrate current fresh source-bound results with independent new checker identity, retain all pending and source claims; do not fake historical checker marker or constructor127 origin"
+    },
+    {
+      "id": "CURRENT_FUNCTIONAL_CLOSURE",
+      "requirements": [
+        "CURRENT_PROGRAM_SUITABILITY",
+        "KITCHEN_GUEST_PATH_SEPARATION",
+        "CONTINUOUS_USEFUL_LIVING",
+        "NONFUNCTIONAL_WALL_EXCLUSION"
+      ],
+      "required": "Current document evidence and same-program alternatives; positive source-profile diagnostics are not complete acceptance"
+    },
+    {
+      "id": "PRESERVE_NEW_EVIDENCE",
+      "required": "Archive additions require separately scoped approval; existing artifacts expire after30days"
+    }
+  ],
+  "whole_cycle_verified": false,
+  "whole_physical_verified": false,
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "stage303_execution_started": false
+}
