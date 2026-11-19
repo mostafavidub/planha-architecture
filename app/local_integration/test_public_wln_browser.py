@@ -1,6 +1,6 @@
 """GitHub Actions browser test: actual live backend, no mocked generation."""
 import json,subprocess,sys,pathlib,time,importlib.metadata
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright,expect
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 def main():
  proc=subprocess.Popen([sys.executable,'-B',str(pathlib.Path(__file__).with_name('public_wln_server.py')),'--port','0'],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,cwd=ROOT)
@@ -17,9 +17,9 @@ def main():
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
    page.screenshot(path=str(evidence/'mobile-empty.png'),full_page=True)
    page.locator('#W').fill('26');page.locator('#submit').click()
-   page.wait_for_function("document.querySelector('#result').dataset.state==='error'")
+   expect(page.locator('#result')).to_have_attribute('data-state','error')
    page.locator('#W').fill('20');page.locator('#submit').click()
-   page.wait_for_function("document.querySelector('#result').textContent.includes('ورودی معتبر است')")
+   expect(page.locator('#result')).to_contain_text('ورودی معتبر است')
    requests=[]
    def on_request(r):
     if r.url.endswith('/api/public/plan'):requests.append(json.loads(r.post_data))
@@ -31,7 +31,7 @@ def main():
     assert page.locator('#submit').is_disabled()
     assert page.locator('#W').is_disabled()
    response=info.value;data=response.json()
-   page.wait_for_function("document.querySelector('#result').dataset.state==='blocked'")
+   expect(page.locator('#result')).to_have_attribute('data-state','blocked')
    assert response.status==200 and data['source_integrity_verified'] is True
    assert data['fresh_model_executed'] is True and data['decision']['state']=='BLOCKED'
    assert len(requests)==1 and set(requests[0])=={'W','L','n'}
@@ -42,11 +42,11 @@ def main():
    assert not page.locator('#submit').is_disabled()
    page.route('**/api/public/plan',lambda route:route.fulfill(status=500,content_type='application/json',body='{"code":"STUDY_FAILED_CLOSED"}'))
    page.locator('#submit').click()
-   page.wait_for_function("document.querySelector('#result').textContent.includes('ممکن است شروع شده باشد')")
+   expect(page.locator('#result')).to_contain_text('ممکن است شروع شده باشد')
    page.unroute('**/api/public/plan')
    page.route('**/api/public/plan',lambda route:route.abort())
    page.locator('#submit').click()
-   page.wait_for_function("document.querySelector('#result').dataset.state==='error'")
+   expect(page.locator('#result')).to_have_attribute('data-state','error')
    assert 'تلاش دوباره خودکار' in page.locator('#result').inner_text()
    assert not page.locator('#submit').is_disabled()
    receipt={'schema':'PUBLIC_THREE_FIELD_BROWSER_EVIDENCE_V1','actual_request':requests[0],'actual_response':data,'live_start_through_network_abort_ui_journey_seconds':time.monotonic()-started,'playwright_version':importlib.metadata.version('playwright'),'screenshots_captured_not_human_visual_review':True,
