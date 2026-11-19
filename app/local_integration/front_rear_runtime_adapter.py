@@ -36,9 +36,10 @@ def observed_copy(value):
   return out
  except Exception as ex:return {'unserializable_observation':type(ex).__name__}
 def preserve_report(originals,live,pins,key,value):
+ h=digest(value) # Reject noncanonical new report before admitting it into serializable originals.
  live[key]=value
  originals[key]=copy.deepcopy(value)
- pins[key]=digest(value)
+ pins[key]=h
 def proposal_disposition(proposal):
  ensure(type(proposal) is dict,'PROPOSAL_OBJECT')
  status=proposal.get('status')
@@ -74,9 +75,9 @@ def run(body,*,solver_seconds):
   'fresh_model_executed':False,'completed':False,'production_supported':False,
   'solver_budget_seconds':solver_seconds,'outer_hard_timeout_required':True,
   **{k:False for k in AUTHORITY}}
- report_pins={};live_reports={};objects={};original_objects={};object_pins={};sources=None;state=None
+ report_pins={};live_reports={};objects={};object_pins={};sources=None;state=None
  def freeze_object(k,v):
-  objects[k]=v;object_pins[k]=digest(v);original_objects[k]=copy.deepcopy(v)
+  objects[k]=v;object_pins[k]=digest(v)
  def freeze_report(k,v):
   preserve_report(out['reports'],live_reports,report_pins,k,v)
  def unchanged():
