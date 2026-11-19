@@ -95,7 +95,7 @@ def check_operations(model,owners,solidwalls,fixtures,components=None):
        parts=[rect(q)for q in logical['parts']]
        if any(not covered(q,[rect(r)for r in unit['rooms'].get('bath',[])])for q in parts):err('SERVICE_REGION_OUTSIDE_ACTUAL_BATH',opening=oid,role=role)
       else:
-       from typed_public_access120 import parts as typed_public_parts
+       from open_front_typed_public import parts as typed_public_parts
        try:parts=typed_public_parts(model,unit,role,opening_id=oid)
        except ValueError as ex:err('UNAUTHORIZED_LOGICAL_ROLE_UNION',opening=oid,role=role,detail=str(ex))
      else:parts=[rect(q)for q in unit['rooms'].get(rid,[])]
@@ -397,7 +397,7 @@ def source_nonleaf117(model,p):
    public_role=mapping.get('K.public_access')
    if public_role not in(uid+'.public_access',uid+'.kitchen_public_access')or links!={uid+'.kitchen',public_role}:continue
    try:
-    from typed_public_access120 import parts as typed_public_parts
+    from open_front_typed_public import parts as typed_public_parts
     unit=next(u for u in model['units']if u['id']==uid)
     typed_public_parts(model,unit,public_role,opening_id=oid)
    except (KeyError,ValueError,TypeError,StopIteration):continue
