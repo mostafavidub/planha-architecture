@@ -1,0 +1,457 @@
+{
+  "schema": "TASK5_1_PREREGISTERED_WLN_MATRIX_V1",
+  "preregistered_before_matrix_execution": true,
+  "source_ref": "094f298d066e5e04c169549ee84b85a1ae8bf495",
+  "source_paths": [
+    "app/local_integration/public_wln_contract.py",
+    "app/local_integration/dimension_contract.py",
+    "app/local_integration/live_program_scheduler.py",
+    "app/local_integration/same_version_front_rear_contract.py",
+    "app/local_integration/public_wln_server.py"
+  ],
+  "owner_range": {
+    "min": 5,
+    "max": 25,
+    "inclusive": true,
+    "no_clamping": true
+  },
+  "public_fields": [
+    "W",
+    "L",
+    "n"
+  ],
+  "selected_runtime_contract": {
+    "W": "18",
+    "L": "20",
+    "n": 2,
+    "programme": "PROGRAM_2BED_V1"
+  },
+  "scope": "Preregister current implemented contract outcomes, not architectural feasibility or a promise all dimensions can generate plans.",
+  "classification_rules": [
+    "Valid dimensions outside selected18x20 contract are unsupported, not invalid or infeasible",
+    "Positive integer n other than2 is valid input but current engine unsupported",
+    "Decimal dimensions as exact strings are valid; JSON decimal/exponent tokens currently unsupported transport409, not geometric infeasibility",
+    "No qualified positive expectation because current functional/profile criteria remain unresolved"
+  ],
+  "supported_evidence_reuse": {
+    "run": 44462498782,
+    "artifact": 14500313851,
+    "request_case": "SUPPORTED_18_20",
+    "scope": "Actual browser/public POST→fresh runtime previously verified. No new solver planned for matrix5.2.",
+    "equivalent_case": "Canonical equivalence only, not a new real browser/generation witness"
+  },
+  "execution_plan_5_2": {
+    "new_solver_calls": 0,
+    "ready_cases": "Do not POST live again; separate preflight validation from explicitly reused actual selected-case evidence",
+    "other_cases": "Issue real loopback HTTP requests against current server and verify exact status/code/no-plan/falseauthority",
+    "no_fallback": true
+  },
+  "cases": [
+    {
+      "id": "SMALL_5_5",
+      "stratum": "small",
+      "body": "{\"W\":\"5\",\"L\":\"5\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "MEDIUM_12_15",
+      "stratum": "medium",
+      "body": "{\"W\":\"12\",\"L\":\"15\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "LARGE_25_25",
+      "stratum": "large",
+      "body": "{\"W\":\"25\",\"L\":\"25\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "NONSQUARE_10_25",
+      "stratum": "non_square",
+      "body": "{\"W\":\"10\",\"L\":\"25\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "DECIMAL_12_5_20",
+      "stratum": "decimal",
+      "body": "{\"W\":\"12.5\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "TRANSPOSE_20_18",
+      "stratum": "non_square_transpose",
+      "body": "{\"W\":\"20\",\"L\":\"18\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "LOWER_BOUND_5_25",
+      "stratum": "boundary_inclusive",
+      "body": "{\"W\":\"5\",\"L\":\"25\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "UPPER_BOUND_25_5",
+      "stratum": "boundary_inclusive",
+      "body": "{\"W\":\"25\",\"L\":\"5\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "INSIDE_UPPER_24_999_20",
+      "stratum": "near_boundary",
+      "body": "{\"W\":\"24.999\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "SUPPORTED_18_20",
+      "stratum": "selected_supported",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": true,
+        "http_status": null,
+        "state_or_code": "READY_SCOPED_CONTRACT_ONLY",
+        "execution_ready": true,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "http_post_policy": "NOT_ISSUED_NEW_SOLVER_FORBIDDEN_REUSE_EVIDENCE_SEPARATELY",
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "EQUIVALENT_DECIMAL_18_0_20_000",
+      "stratum": "exact_canonical_equivalence",
+      "body": "{\"W\":\"18.0\",\"L\":\"20.000\",\"n\":\"2\"}",
+      "expected": {
+        "input_valid": true,
+        "http_status": null,
+        "state_or_code": "READY_SCOPED_CONTRACT_ONLY",
+        "execution_ready": true,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "http_post_policy": "NOT_ISSUED_NEW_SOLVER_FORBIDDEN_REUSE_EVIDENCE_SEPARATELY",
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "VALID_N1",
+      "stratum": "unsupported_unit_count",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":1}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "VALID_N3",
+      "stratum": "unsupported_unit_count",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":3}",
+      "expected": {
+        "input_valid": true,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": true
+      }
+    },
+    {
+      "id": "BELOW_MIN",
+      "stratum": "invalid_range",
+      "body": "{\"W\":\"4.999\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "ABOVE_MAX",
+      "stratum": "invalid_range",
+      "body": "{\"W\":\"25.001\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "OLD_RANGE_26",
+      "stratum": "invalid_range",
+      "body": "{\"W\":\"26\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "L_ZERO",
+      "stratum": "invalid_range",
+      "body": "{\"W\":\"18\",\"L\":\"0\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "MISSING_N",
+      "stratum": "missing_field",
+      "body": "{\"W\":\"18\",\"L\":\"20\"}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "FIELD_REQUIRED",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "HIDDEN_BEDROOMS",
+      "stratum": "extra_field",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":2,\"bedrooms\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "UNEXPECTED_PUBLIC_FIELD",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "HIDDEN_REQUESTED_COUNT",
+      "stratum": "extra_field",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":2,\"requested_count\":1}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "UNEXPECTED_PUBLIC_FIELD",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "DUPLICATE_W",
+      "stratum": "duplicate_field",
+      "body": "{\"W\":\"18\",\"W\":\"19\",\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DUPLICATE_FIELD",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "NONFINITE_W",
+      "stratum": "nonfinite",
+      "body": "{\"W\":NaN,\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "NONFINITE_NUMBER",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "BOOLEAN_W",
+      "stratum": "type",
+      "body": "{\"W\":true,\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "INVALID_FIELD_TYPE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "ZERO_N",
+      "stratum": "invalid_count",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":0}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "POSITIVE_INTEGER_REQUIRED",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "DECIMAL_JSON_TOKEN_W",
+      "stratum": "unsupported_wire_representation",
+      "body": "{\"W\":12.5,\"L\":\"20\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_JSON_DECIMAL_REPRESENTATION",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "DECIMAL_JSON_TOKEN_N",
+      "stratum": "unsupported_wire_representation",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":2.0}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 409,
+        "state_or_code": "UNSUPPORTED_JSON_DECIMAL_REPRESENTATION",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "DECIMAL_STRING_N",
+      "stratum": "invalid_count",
+      "body": "{\"W\":\"18\",\"L\":\"20\",\"n\":\"2.0\"}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "POSITIVE_INTEGER_REQUIRED",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    },
+    {
+      "id": "L_ABOVE_MAX",
+      "stratum": "invalid_range_each_axis",
+      "body": "{\"W\":\"18\",\"L\":\"25.001\",\"n\":2}",
+      "expected": {
+        "input_valid": false,
+        "http_status": 422,
+        "state_or_code": "DIMENSION_OUT_OF_OWNER_RANGE",
+        "execution_ready": false,
+        "geometric_feasibility": "NOT_INFERRED",
+        "delivery_allowed": false,
+        "wire_contract_accepted": false
+      }
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "source_blob_shas": {
+    "app/local_integration/public_wln_contract.py": "3e37e6314d2f03d42a9379f65792182626fccd5f",
+    "app/local_integration/dimension_contract.py": "058502cd97b5131908b82fdbdba34c62d3376ea3",
+    "app/local_integration/live_program_scheduler.py": "1b671b6632d01c1012fcb39b2c33e731fb619fbc",
+    "app/local_integration/same_version_front_rear_contract.py": "0c182a3e26ba48ef6a42df2bf40c2a2ab67c055c",
+    "app/local_integration/public_wln_server.py": "e92c711e37ef2fec46bf03e76cd1f4b59f61c5be"
+  },
+  "input_valid_semantics": "Here input_valid means accepted by current public wire contract. JSON decimal-token409 is unsupported representation, not a claim that its numerical geometric dimensions are invalid. Exact decimal strings remain valid."
+}

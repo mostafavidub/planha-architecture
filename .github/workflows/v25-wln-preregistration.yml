@@ -1,0 +1,33 @@
+name: V25 input matrix preregistration task5.1
+on:
+  push:
+    paths:
+      - 'specs/V25_TASK_5_1_WLN_MATRIX_PREREGISTRATION.json'
+      - 'app/local_integration/validate_wln_preregistration.py'
+      - '.github/workflows/v25-wln-preregistration.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate frozen expectations without HTTP or solver
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B app/local_integration/validate_wln_preregistration.py
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wln-matrix-preregistration-task5-1
+          path: preregistration-validation.json
+          retention-days: 30
