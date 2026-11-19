@@ -29,7 +29,7 @@ def verify_reports(reports,pins):
  for key,h in pins.items():ensure(digest(reports[key])==h,'COMPLETED_REPORT_MUTATION:'+key)
 def observed_digest(value):
  try:return digest(value)
- except Exception as ex:return 'NONCANONICAL:'+type(ex).__name__
+ except Exception as ex:return 'UNHASHABLE_INTEGRITY_ERROR:'+type(ex).__name__
 def observed_copy(value):
  try:
   out,_=transport(value)
@@ -74,9 +74,9 @@ def run(body,*,solver_seconds):
   'fresh_model_executed':False,'completed':False,'production_supported':False,
   'solver_budget_seconds':solver_seconds,'outer_hard_timeout_required':True,
   **{k:False for k in AUTHORITY}}
- report_pins={};live_reports={};objects={};object_pins={};sources=None;state=None
+ report_pins={};live_reports={};objects={};original_objects={};object_pins={};sources=None;state=None
  def freeze_object(k,v):
-  objects[k]=v;object_pins[k]=digest(v)
+  objects[k]=v;object_pins[k]=digest(v);original_objects[k]=copy.deepcopy(v)
  def freeze_report(k,v):
   preserve_report(out['reports'],live_reports,report_pins,k,v)
  def unchanged():
@@ -106,7 +106,7 @@ def run(body,*,solver_seconds):
   proposal=search114.propose(core,2,time_limit=solver_seconds,variant=0,fixed_witness=None,diagnostic_capture=None,
    sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',organization_profile='UNRESTRICTED')
   proposal,receipt=transport(proposal);freeze_object('proposal',proposal);freeze_report('proposal_transport',receipt)
-  out['proposal']=proposal;out['stages'].append(stage);unchanged()
+  out['proposal']=copy.deepcopy(proposal);out['stages'].append(stage);unchanged()
   if proposal_disposition(proposal)!='PROPOSAL_ONLY':
    out.update(status='NO_PROPOSAL_IN_BOUNDED_ATTEMPT',completed=True,global_infeasibility_proven=False)
   else:
@@ -121,7 +121,7 @@ def run(body,*,solver_seconds):
    ensure(digest(ctx['construction_trace']['raw'])==digest(raw),'TRACE_RAW')
    ensure(digest(ctx['construction_trace']['proposals'])==digest({'A':proposal,'B':proposal}),'TRACE_PROPOSALS')
    ensure(packet['family']=='FRONT_REAR' and packet['admission_claim'] is False,'PACKET_AUTHORITY')
-   out.update(packet=packet,context=ctx,model_digest=mh,fresh_model_executed=True)
+   out.update(packet=copy.deepcopy(packet),context=copy.deepcopy(ctx),model_digest=mh,fresh_model_executed=True)
    out['stages'].append(stage);unchanged()
    stage='replay';replay=construction_replay127.verify(model,ctx);freeze_report('replay',replay);out['stages'].append(stage);unchanged()
    ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY_FAILED')
@@ -148,7 +148,8 @@ def run(body,*,solver_seconds):
    out['errors'].append({'stage':'final_integrity','kind':'INTEGRITY_ERROR','type':type(ex).__name__,'detail':str(ex)})
   out['report_mutations']=[{'section':k,'original_digest':h,'observed_digest':observed_digest(live_reports[k]),'observed_report':observed_copy(live_reports[k])} for k,h in report_pins.items() if observed_digest(live_reports[k])!=h]
   out['object_integrity_verified']=all(observed_digest(objects[k])==h for k,h in object_pins.items())
-  out['forensic_notice']='On integrity failure, returned mutable objects are forensic observations, not originals or valid model evidence; original reports are separately preserved.'
+  out['object_mutations']=[{'section':k,'original_digest':h,'observed_digest':observed_digest(objects[k]),'observed_object':observed_copy(objects[k])} for k,h in object_pins.items() if observed_digest(objects[k])!=h]
+  out['forensic_notice']='Original packet/context/proposal/report copies are preserved; observed mutations are separate forensic diagnostics and never valid model evidence.'
   out.update(report_digests=copy.deepcopy(report_pins),object_digests=copy.deepcopy(object_pins),
    source_snapshot=sources,engine_revision=ENGINE_REVISION)
  return out
