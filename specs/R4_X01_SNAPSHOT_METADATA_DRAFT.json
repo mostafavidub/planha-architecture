@@ -1,0 +1,32 @@
+{
+  "schema": "R4_X01_PURE_SNAPSHOT_METADATA_CONTRACT_DRAFT_V1",
+  "task": "R4-X.01",
+  "status": "DRAFT_NOT_RUN",
+  "deadline": "2026-11-19T10:46:12Z",
+  "base_commit": "290c50d2a96c541f0a88df6aeb0fb41fbd3c6c6f",
+  "source_audit_manifest": "manifests/R4_X_01_PERSISTENCE_OWNER_INTERFACE_AUDIT.json",
+  "scope": "Pure metadata and opaque snapshot-reference validation only, not complete3.05snapshot format, authentication, storage, admission, server API or exporter.",
+  "proof_boundaries": [
+    "metadata_digest covers this metadata record only; snapshot_content_digest references a separate immutable3.05object not read or verified here",
+    "Model/report/rules/profile/source/units/geometry-ID mapping digests are references, not proof content exists or matches",
+    "read_intent principal is an untrusted comparison value; successful equality never authenticates/authorizes",
+    "All read/download operations remain blocked AUTH_STORAGE_ADAPTER_REQUIRED; no bytes, paths or solver calls",
+    "Same retry metadata is not a real idempotent backend transaction",
+    "LegacyUUIDs cannot be auto-adopted into product projects",
+    "Public summary with plan_payloadnull cannot populate a complete snapshot",
+    "Positive QUALIFIED artifact issuance intentionally unimplemented; rejected/UNKNOWN/error/partial metadata preserved"
+  ],
+  "external_dependencies": [
+    "R4-3.05 verified immutable full snapshot and geometry mapping",
+    "R4-3.09 current server admission/stale checks for positive download",
+    "Trusted owner/principal authentication and authorization adapter",
+    "Actual durable storage adapter with atomic commit/idempotency/retention/expiry"
+  ],
+  "tests_prepared": 13,
+  "tests_executed": 0,
+  "source_content_verified": false,
+  "owner_authenticated": false,
+  "storage_committed": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
