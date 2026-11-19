@@ -125,7 +125,7 @@ def batch(batch_index):
       row.update(result,safe_receipt_digest=sha(data))
     except subprocess.TimeoutExpired:
      reap(proc)
-     row.update(collection_state='EXTERNAL_WATCHDOG_TIMEOUT',engine_status=None,watchdog_triggered=True,process_reaped=True,process_returncode=proc.returncode,not_global_infeasibility=True)
+     row.update(collection_state='EXTERNAL_WATCHDOG_TIMEOUT',engine_status=None,watchdog_triggered=True,process_reaped=True,process_returncode=proc.returncode,not_global_infeasibility=True,progress_evidence='NODETAIL_PROGRESS_UNAVAILABLE')
     except Exception as exc:
      if proc is not None:reap(proc)
      row.update(collection_state='WORKER_START_FAILED'if proc is None else'SAFE_RECEIPT_ERROR',exception_type=type(exc).__name__,engine_status=None,process_reaped=proc.poll()is not None if proc is not None else None)
