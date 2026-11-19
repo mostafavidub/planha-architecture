@@ -78,7 +78,7 @@ def assess(bundle):
      parts=[q for role in roles for q in u['rooms'].get(role,[])]
      # Source module approach/threshold floor is actual reserved floor, not an invented corridor.
      for p in m['module_placements']:
-      if p['unit_id']==uid and p['room_id'] in (['kitchen','bath'] if name=='entry_WC' else ['kitchen']):
+      if p['unit_id']==uid and p['room_id'] in ('kitchen','bath'):
        parts += m['module_aprons'][uid+'.'+p['room_id']]
      parts=cells(parts,[]) # exact union, retains current role allocation
      outside=cells([box],parts)+cells([box],owner)
@@ -90,7 +90,7 @@ def assess(bundle):
      occupied=[s['occupied_body'] for s in seats]
      obstacles=walls+fx+chair+private+zones+occupied+outside
      path,reason=route(start,end,box,obstacles,body=str(body))
-     row={'id':name,'start':start,'end':end,'floor_roles':roles,'floor_digest':digest(parts),'ownership_digest':digest(owner),'domain_box':box,'obstacle_digest':digest(obstacles),
+     row={'id':name,'body_m':str(body),'start':start,'end':end,'floor_roles':roles,'floor_digest':digest(parts),'ownership_digest':digest(owner),'domain_box':box,'obstacle_digest':digest(obstacles),
       'obstacle_count':len(obstacles),'path':path,'reason':reason,'state':'NO_WITNESS_IN_THIS_CONSERVATIVE_SCENARIO',
       'wc_exception':'Only target body intersection with own WC fixture; all remaining WC fixture material stays obstacle' if name=='entry_WC' else None}
      if path:
