@@ -1,7 +1,7 @@
 """Nonpersonal precision study; full reports are temporary, no uploads.
 Public V3 input validation reused, not a claim of public runtime readiness.
 """
-import copy,inspect,json,os,signal,re,subprocess,sys,tempfile,time,uuid,hashlib
+import copy,inspect,json,math,os,signal,re,subprocess,sys,tempfile,time,uuid,hashlib
 from fractions import Fraction as F
 from pathlib import Path
 from datetime import datetime,timezone
@@ -16,6 +16,7 @@ from source_fit_profile207 import source_fit
 from precision_boundary208 import prepare,gated_propose,roundtrip,coordinate_receipt
 CASES={'D':('18.1','22.2'),'B':('25','25')}
 CURRENT=('current_programme_evaluator','source_guest_route_evaluator','source_living_evaluator','source_wall_function_evaluator')
+SOURCES={"current_programme_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/current_programme_evaluator.py","app/local_integration/program_profile_registry.py","specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json"],"source_guest_route_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_guest_route_evaluator.py","app/local_integration/current_programme_evaluator.py","app/local_integration/kitchen_guest_review.py","app/local_integration/guest_four_route_diagnostic.py"],"source_living_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_living_evaluator.py","app/local_integration/source_guest_route_evaluator.py","app/local_integration/living_connectivity_diagnostic.py","app/local_integration/fixed_route_clearance_diagnostic.py","app/local_integration/kitchen_guest_review.py"],"source_wall_function_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_wall_function_evaluator.py","app/local_integration/source_wall_counterfactual.py","app/local_integration/current_programme_evaluator.py"]}
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 DEADLINE=datetime(2026,11,19,20,46,39,tzinfo=timezone.utc)
 def eligibility(body):
@@ -32,6 +33,8 @@ def slot(remaining):
 def need(ok,code):
  if not ok:raise ValueError(code)
 def current_report_binding(name,r,bundle):
+ from producer_provenance import snapshot
+ need(type(r)is dict and digest(r.get('source_snapshot'))==digest(snapshot(ROOT,SOURCES[name])),'CURRENT_SOURCE_SNAPSHOT')
  mh=bundle['model_digest'];physical=bundle['reports']['physical'];ph=bundle['report_digests']['physical']
  need(r.get('integrity_verified')is True and all(r.get(k)is False for k in('accepted','qualified','display_allowed','delivery_allowed')),'CURRENT_INTEGRITY_AUTHORITY')
  need(r.get('model_digest')==mh and r.get('state')in('PASS','FAIL','UNKNOWN','NOT_EVALUATED'),'CURRENT_MODEL_STATE')
@@ -50,6 +53,36 @@ def current_report_binding(name,r,bundle):
   return any(error_states(x)for x in v)if type(v)is list else False
  need(not error_states(r.get('units',[]))and not error_states(r.get('walls',[])),'CURRENT_SUBREPORT_ERROR')
  need(replay['verified']is True and replay['model_hash']==mh,'CURRENT_REPLAY_BINDING')
+
+
+def json_types(v):
+ if v is None or type(v)in(str,bool,int):return
+ if type(v)is float:
+  need(math.isfinite(v),'NONFINITE_REPORT');return
+ if type(v)is list:
+  for x in v:json_types(x)
+  return
+ if type(v)is dict:
+  need(all(type(k)is str for k in v),'REPORT_KEY_TYPE')
+  for x in v.values():json_types(x)
+  return
+ raise ValueError('NONJSON_REPORT')
+def capture_returned(result):
+ try:json_types(result)
+ except (ValueError,RecursionError):
+  return {'schema':'NONJSON_REPORT_OBSERVATION211_V1','state':'EVALUATOR_ERROR','raw_value_type':type(result).__name__ if type(result)in(dict,list,tuple,str,int,float,bool,type(None))else'OTHER','raw_preserved_as_json':False},False
+ return copy.deepcopy(result),True
+def recheck_reports(r,reports):
+ need(type(reports)is dict,'REPORT_TYPE')
+ need(all(k in reports and digest(reports[k])==v for k,v in r.get('report_digests',{}).items()),'REPORT_FILE_DIGEST')
+ if r.get('state')!='FULL_REPORTS_RETAINED_NOT_QUALIFIED'or r.get('completed')is not True:return
+ physical=reports['physical'];replay=reports['original_replay'];mh=r['model_digest']
+ need(physical['model_hash']==mh and replay['verified']is True and replay['model_hash']==mh,'RETAINED_MODEL_REPLAY')
+ need(r['physical_status']==physical['status']and digest(r['physical_error_counts'])==digest(code_counts(physical.get('errors',[])))and digest(r['physical_pending_counts'])==digest(code_counts(physical.get('pending',[]))),'PHYSICAL_SUMMARY')
+ binding={'model_digest':mh,'reports':{'physical':physical},'report_digests':{'physical':r['report_digests']['physical']}}
+ for name in CURRENT:
+  raw=reports['current_'+name];current_report_binding(name,raw,binding)
+  need(r['current_assessments'][name]['state']==raw['state']and r['current_assessments'][name]['integrity_verified']is raw['integrity_verified'],'CURRENT_SUMMARY')
 
 def child(folder,case,nonce):
  from program_profile_registry import lookup
@@ -140,7 +173,9 @@ def child(folder,case,nonce):
    need(Path(mod.__file__).resolve()==path and Path(inspect.getsourcefile(mod.assess)).resolve()==path,'CURRENT_IMPORT_PATH')
    result=mod.assess(evidence)
    # Preserve returned report before validation, including errors or malformed JSON-shaped evidence.
-   originals['current_'+name]=copy.deepcopy(result);pins['current_'+name]=digest(result);live['current_'+name]=result;save()
+   captured,json_ok=capture_returned(result)
+   originals['current_'+name]=captured;pins['current_'+name]=digest(captured);live['current_'+name]=copy.deepcopy(captured);save()
+   need(json_ok,'NONJSON_CURRENT_RETURNED_REPORT')
    current_report_binding(name,result,evidence);check()
    out['current_assessments'][name]={'state':result['state'],'integrity_verified':result['integrity_verified'],'report_digest':digest(result)}
   out['current_assessment_attempted']=True;out['current_four']='FOUR_CURRENT_RETAINED_NOT_QUALIFIED'
@@ -209,11 +244,7 @@ def run():
    # File consistency only; raw reports remain private until temporary cleanup.
    try:
     rp=dest/'reports.json';need(rp.stat().st_size<=33554432,'REPORT_FILE_SIZE')
-    reports=json.loads(rp.read_text());need(type(reports)is dict,'REPORT_TYPE')
-    need(all(k in reports and digest(reports[k])==v for k,v in r.get('report_digests',{}).items()),'REPORT_FILE_DIGEST')
-    if r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True:
-     binding={'model_digest':r['model_digest'],'reports':{'physical':reports['physical']},'report_digests':{'physical':r['report_digests']['physical']}}
-     for name in CURRENT:current_report_binding(name,reports['current_'+name],binding)
+    reports=json.loads(rp.read_text());recheck_reports(r,reports)
     r['report_file_hash']=hashlib.sha256(rp.read_bytes()).hexdigest()
    except (OSError,ValueError,TypeError,RecursionError,KeyError):r=invalidate(r,'REPORT_READBACK_FAILED')
    finished=time.monotonic()-start
@@ -223,7 +254,7 @@ def run():
   valid_source=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()==selfpin
   if not valid_source or remaining()<=0:
    results=[invalidate(r,'GLOBAL_SOURCE_OR_BUDGET_ERROR')for r in results]
-  out={'schema':'CURRENT_MATRIX211_BATCH_V1','rows':results,'elapsed_seconds':time.monotonic()-start,'allocation_seconds':allocation,'source_integrity_verified':valid_source,'seed':'NOT_EXPOSED_SOURCE_DEFAULT','variant':0,'retry_count':0,'durable_raw_archive_created':False,'budget_scope':'Shared600 including setup and measured parent verification; each supervised child240 includes current evaluators. Encoding/network outside cutoff.','qualified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
+  out={'schema':'CURRENT_MATRIX211_BATCH_V1','rows':results,'elapsed_seconds':time.monotonic()-start,'allocation_seconds':allocation,'source_integrity_verified':valid_source,'seed':'NOT_EXPOSED_SOURCE_DEFAULT','variant':0,'retry_count':0,'fresh_four_current_case_count':sum(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('D','B')),'subcriterion_fresh_four_current_complete':all(r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True for r in results if r['case']in('D','B')),'durable_raw_archive_created':False,'budget_scope':'Batch600 starts before source/runtime setup, after CI dependency installation; job13min also bounded separately. Each child240 includes current evaluators; parent verification measured not preempted. Encoding/network outside cutoff; absolute taskcap retained.','qualified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
   print(json.dumps(out,sort_keys=True,allow_nan=False),flush=True)
   need(valid_source and remaining()>0,'GLOBAL_INTEGRITY')
   need(all((r.get('completed')is True and r.get('integrity_verified')is True)or r.get('state')=='NOT_RUN_INSUFFICIENT_SHARED_BUDGET'for r in results if r['case']in('D','B')),'BATCH_COLLECTION_ERROR')

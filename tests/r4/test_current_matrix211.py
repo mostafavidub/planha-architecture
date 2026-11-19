@@ -9,6 +9,8 @@ class Matrix(unittest.TestCase):
   p={'model_hash':'a'*64,'status':'FAIL','errors':[{'code':'ORIGINAL_FAIL'}]}
   b={'model_digest':'a'*64,'reports':{'physical':p},'report_digests':{'physical':m.digest(p)}}
   r={'integrity_verified':True,'model_digest':'a'*64,'state':'UNKNOWN','original_physical_report':copy.deepcopy(p),'original_physical_digest':m.digest(p),'replay':{'verified':True,'model_hash':'a'*64},'units':[],**{k:False for k in m.AUTH}}
+  from producer_provenance import snapshot
+  r['source_snapshot']=snapshot(m.ROOT,m.SOURCES['source_guest_route_evaluator'])
   return b,r
  def test_n1_valid_unsupported_no_core(self):
   with patch('core_choice_pair_study.selected_core',side_effect=AssertionError('NO_CORE')),patch.object(m,'prepare',side_effect=AssertionError('NO_PREPARE')):
@@ -48,4 +50,27 @@ class Matrix(unittest.TestCase):
  def test_unknown_cli_no_batch(self):
   with patch.object(sys,'argv',['current_matrix211.py','--unknown']),patch.object(m,'run',side_effect=AssertionError('NO_RUN')):
    with self.assertRaises(ValueError):m.main()
+
+ def test_nonjson_preserves_prior_reports(self):
+  prior={'physical':{'status':'FAIL'}};before=m.digest(prior)
+  for value in ({'units':()}, {'number':float('nan')}):
+   capture,ok=m.capture_returned(value);self.assertFalse(ok);self.assertEqual(capture['state'],'EVALUATOR_ERROR')
+  self.assertEqual(m.digest(prior),before)
+ def test_returned_json_exact_types(self):
+  for value in ({'n':2.0},{'n':2},{'n':True}):
+   captured,ok=m.capture_returned(value);self.assertTrue(ok);self.assertEqual(type(captured['n']),type(value['n']))
+ def test_summary_recomputed_from_full_reports(self):
+  b,rr=self.report()
+  reports={'physical':b['reports']['physical'],'original_replay':rr['replay']}
+  reports.update({'current_'+k:copy.deepcopy(rr)for k in m.CURRENT})
+  # Programme has its distinct nested report schema.
+  pr=reports['current_current_programme_evaluator'];pr['findings']=[];pr['historical_physical_report']=copy.deepcopy(reports['physical']);pr['historical_physical_digest']=m.digest(reports['physical']);pr['reports']={'replay':copy.deepcopy(rr['replay'])};pr['report_digests']={'replay':m.digest(rr['replay'])}
+  r={'state':'FULL_REPORTS_RETAINED_NOT_QUALIFIED','completed':True,'model_digest':b['model_digest'],'physical_status':'FAIL','physical_error_counts':m.code_counts(reports['physical']['errors']),'physical_pending_counts':{},'report_digests':{k:m.digest(v)for k,v in reports.items()},'current_assessments':{k:{'state':'UNKNOWN','integrity_verified':True}for k in m.CURRENT}}
+  from producer_provenance import snapshot
+  for name in m.CURRENT:reports['current_'+name]['source_snapshot']=snapshot(m.ROOT,m.SOURCES[name])
+  r['report_digests']={k:m.digest(v)for k,v in reports.items()}
+  m.recheck_reports(r,reports)
+  r['current_assessments'][m.CURRENT[0]]['state']='PASS'
+  with self.assertRaises(ValueError):m.recheck_reports(r,reports)
+
 if __name__=='__main__':unittest.main()
