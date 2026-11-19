@@ -1,0 +1,13 @@
+{
+  "schema": "R4_INPUT_DRAFT_SCOPE_ADDENDUM",
+  "draft": "e89309233418a90932837011a528fe311e3878c3",
+  "state": "NOT_RUN",
+  "notes": [
+    "Only exact integer-token unit syntax accepted; n1.0/1e0/2.0/2e0 rejected INVALID_BRIEF, even when mathematically integral. No claim that all integer numeric representations are supported.",
+    "Top-level n JsonDecimal including long exponent tokens now receives422INVALID_BRIEF instead of generic409. Token is not expanded/coerced; MAX_BODY remains bounded. Therefore numeric error classifications are not wholly unchanged.",
+    "Other integer/string length and precision limits, duplicate/nonfinite and depth limits remain independent; W/L JSON decimal rejection unchanged."
+  ],
+  "test_command": "PYTHONPATH=app/local_integration python -B -m unittest discover -s tests/r4 -p test_current_input_contract.py -v",
+  "regression_command": "PYTHONPATH=app/local_integration python -B -m unittest -v test_public_wln_contract test_public_wln_server test_live_program_scheduler",
+  "no_main_product_change": true
+}

@@ -58,6 +58,13 @@ class Boundaries(unittest.TestCase):
    self.rejected({'W':'18','L':'20','n':n},422,'INVALID_BRIEF','n')
  def test_dimension_wire_policy_unmodified(self):
   self.rejected({'W':18.5,'L':'20','n':2},409,'UNSUPPORTED_JSON_DECIMAL_REPRESENTATION')
+ def test_unit_decimal_tokens_rejected_even_integral_value(self):
+  for token in ('1.0','1e0','2.0','2e0','1e'+'9'*70):
+   body=('{"W":"18","L":"20","n":'+token+'}').encode()
+   with self.assertRaises(InputError) as ex:parse_public(body)
+   self.assertEqual((ex.exception.code,ex.exception.status),('INVALID_BRIEF',422))
+   with patch('public_wln_server.run_live',side_effect=AssertionError('UNEXPECTED_DISPATCH')) as dispatch:
+    status,out=self.request(body);self.assertEqual((status,out['code']),(422,'INVALID_BRIEF'));dispatch.assert_not_called()
  def test_hidden_fields(self):
   for name,value in (('bedrooms',2),('requested_count',6),('program',{'bedrooms_per_unit':2})):
    self.rejected({'W':'18','L':'20','n':2,name:value},422,'UNEXPECTED_PUBLIC_FIELD',name)
