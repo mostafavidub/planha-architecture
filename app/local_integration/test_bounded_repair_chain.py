@@ -15,7 +15,22 @@ def withchild():
  op.pop('receipt_digest');op['child']={'model_digest':mh};op['receipt_digest']=digest(op)
  r.update(state='FRESH_CHILD_ALL_GATES_RECORDED_NOT_QUALIFIED',generated_count=1,verified_generated_count=1,child_observed=True,fresh_child_binding_verified=True,operator_result_digest=digest(op),child_model_digest=mh,child_runtime_digest=digest(b),reports=reports,report_digests=pins,current_decision_digest=digest(d),current_decision=d['decision'])
  return r,op,b,d
+def networkproposal():
+ p=proposal();names=['bed1','bed2','bath','kitchen','sofa1_use','sofa2_use','chair1_use','chair2_use','dining_front','dining_back','dining_west','dining_east']
+ p['network_paths']={n:[[np.float64(i),np.float64(i)] for i in range(5)] for n in names};return p
+def networkoperator():
+ p=networkproposal();m={'proposal_network_paths':copy.deepcopy(p['network_paths'])}
+ return {'attempts':[{'proposal':p}],'child':{'context':{'construction_trace':{'proposals':{'A':copy.deepcopy(p),'B':copy.deepcopy(p)}}},'packet':{'family':'FRONT_REAR','local_model':copy.deepcopy(m),'world_model':copy.deepcopy(m)}}}
 class Tests(unittest.TestCase):
+ def test_model_source_network_transport(self):
+  p=networkoperator();q,_=operator_transport(p);self.assertEqual(digest(p),digest(q));self.assertIs(type(q['child']['packet']['local_model']['proposal_network_paths']['bed1'][1][0]),float)
+ def test_model_source_network_mismatch(self):
+  p=networkoperator();p['child']['packet']['local_model']['proposal_network_paths']['bed1'][1][0]=99
+  with self.assertRaises(ValueError):operator_transport(p)
+ def test_model_nonrole_numpy_still_rejected(self):
+  p=networkoperator();p['child']['packet']['local_model']['metadata']=np.float64(2)
+  with self.assertRaises(ValueError):operator_transport(p)
+
  def test_synthetic_child_receipt_binding_only(self):
   r,o,b,d=withchild();self.assertTrue(bind_result(r,'nonce',o,b,d))
  def test_child_model_mutation(self):

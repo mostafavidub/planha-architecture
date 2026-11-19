@@ -44,6 +44,14 @@ def operator_transport(result):
   trace=r['child']['context']['construction_trace']
   for unit in ('A','B'):
    trace['proposals'][unit],rec=candidate_transport(trace['proposals'][unit]);receipts.append(rec)
+ if r.get('child'):
+  ensure(r['child']['packet']['family']=='FRONT_REAR','MODEL_NETWORK_TRANSPORT_FAMILY')
+  p=r['child']['context']['construction_trace']['proposals']['A']
+  for role in ('local_model','world_model'):
+   m=r['child']['packet'][role]
+   ensure(digest(m['proposal_network_paths'])==digest(p['network_paths']),'MODEL_PROPOSAL_NETWORK_SOURCE_BINDING')
+   m['proposal_network_paths']=copy.deepcopy(p['network_paths'])
+  receipts.append({'scope':'assemble114 root proposal_network_paths copied verbatim from proposalA, local/world only','source_binding':'exact digest equality to normalized source proposalA; no other model coordinate coercion'})
  r,_=transport(r);ensure(digest(r)==pin,'OPERATOR_TRANSPORT_DIGEST')
  return r,receipts
 def child(directory,input_root,nonce):
@@ -87,6 +95,15 @@ def child(directory,input_root,nonce):
   ensure(Path(inspect.getsourcefile(redirect)).resolve()==(ROOT/'app/local_integration/explicit_pair_redirection.py').resolve(),'REDIRECT_IMPORT')
   checkpoint('EXISTING_OPERATOR_STARTED')
   result=redirect(body,parent['packet']['world_model'],parent['context'])
+  out['operator_returned']=True;out['operator_returned_raw_digest']=digest(result)
+  out['child_observed']=result.get('child') is not None
+  out['generated_count']=1 if out['child_observed'] else 0
+  out['operator_attempts_constructed_models_observed']=sum(1 for a in result['attempts'] if a.get('model_digest'))
+  out['generated_count_scope']='Observed selected child count before transport; verified_generated_count remains zero until complete fresh gates.'
+  checkpoint('OPERATOR_RETURNED_TRANSPORT_NOT_VERIFIED')
+  # Forensic JSON observation only: standard JSON transport can erase numpy scalar types.
+  # This file is not an admitted typed model and may only be consumed after source-bound transport checks.
+  save(directory/'operator-returned-observation.json',result)
   result,receipts=operator_transport(result);unchanged()
   check=copy.deepcopy(result);declared=check.pop('receipt_digest');ensure(digest(check)==declared,'OPERATOR_RECEIPT')
   out['operator_result_digest']=digest(result);out['operator_transport']=receipts
