@@ -98,6 +98,7 @@ def child(folder,nonce):
    validate_request(request,digest(request));pin('http_request',request)
    paths+=['app/local_integration/'+n for n in ('request_trace109.py','request_trace_server109.py','repair_attempt_control.py')]
    out.update(request_digest=digest(request),request_account_id=request['account_id'],request_source_digest=digest(request['source_snapshot']),request_mode='PARENT_ONLY')
+  paths+=['studies/r4/actual_descriptor301.py','studies/r4/semantic_descriptor301.py']
   snap=snapshot(ROOT,paths)
   need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'ENGINE_GUARD')
   for mod,names in ((search114,('propose',)),(constructor127,('build','context')),(construction_replay127,('verify',)),(evaluate_pair127,('evaluate',))):
@@ -170,6 +171,12 @@ def main():
   except(ValueError,OSError):result={'state':'SUMMARY_PARSE_FAILED_CLOSED'}
   if type(result)is not dict:result={'state':'SUMMARY_TYPE_FAILED_CLOSED'}
   if result.get('run_nonce')!=nonce:result.update(state='NONCE_BINDING_FAILED',completed=False,cause_repair_verified=False)
+  try:
+   if result.get('completed')is True and result.get('integrity_verified')is True:
+    result['file_readback']=support.readback(dest,result);support.source_guard()
+  except Exception as ex:
+   result.update(state='READBACK_FAILED_CLOSED',completed=False,cause_repair_verified=False,protected_verified=False,
+    readback_error_code=str(ex)if re.fullmatch('[A-Z0-9_]+',str(ex))else'NONPUBLIC_DETAIL_NOT_PRINTED')
   elapsed=time.monotonic()-start
   result.update(outer_timeout=timed,wait_completed=proc.poll()is not None,returncode=proc.returncode,elapsed_seconds=elapsed,outer_budget_seconds=budget,full_model_uploaded=False,
    parent_origin='TARGETED_SOURCE_CONSTRAINT_COUNTEREXAMPLE_NOT_NATURAL',durable_archive_created=False,

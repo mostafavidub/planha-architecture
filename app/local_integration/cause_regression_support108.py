@@ -73,3 +73,43 @@ def bind_current(name,report,evidence):
  import actual_descriptor301 as a
  need(Path(inspect.getsourcefile(a.current_report_binding)).resolve()==ROOT/'studies/r4/actual_descriptor301.py','CURRENT_BINDER_PATH')
  a.current_report_binding(name,report,evidence)
+
+def readback(folder,result):
+ """Data consistency only, no replay/evaluator/solver execution."""
+ import json,math
+ def read(path):
+  with path.open('rb')as f:data=f.read(96*1024*1024+1)
+  need(len(data)<=96*1024*1024,'READBACK_BYTE_LIMIT')
+  def bad(value):raise ValueError('READBACK_NONFINITE')
+  def unique(rows):
+   out={}
+   for k,v in rows:need(k not in out,'READBACK_DUPLICATE_KEY');out[k]=v
+   return out
+  return json.loads(data,parse_constant=bad,object_pairs_hook=unique)
+ reports=read(folder/'reports.json')
+ need(type(reports)is dict and type(result.get('report_digests'))is dict,'READBACK_REPORT_FIELDS')
+ need(set(reports)==set(result['report_digests']),'READBACK_REPORT_SET')
+ for key,value in reports.items():need(digest(value)==result['report_digests'][key],'READBACK_REPORT_DIGEST')
+ bundles=0
+ for label in('parent','child'):
+  key=label+'_bundle_digest'
+  if key not in result:continue
+  bundle=read(folder/(label+'-bundle.json'));bundles+=1
+  need(digest(bundle)==result[key],'READBACK_BUNDLE_DIGEST')
+  mh=digest(bundle['packet']['world_model'])
+  need(mh==result[label+'_model_digest'],'READBACK_MODEL')
+  if label+'_physical'in reports:
+   physical=reports[label+'_physical'];need(physical['model_hash']==mh,'READBACK_PHYSICAL_MODEL')
+   from one_bed_pair_source_study import code_counts
+   expected={'status':physical.get('status'),'errors':code_counts(physical.get('errors',[])),'pending':code_counts(physical.get('pending',[])),
+    'not_evaluated_count':len(physical.get('not_evaluated',[])),'out_of_scope_count':len(physical.get('out_of_scope',[]))}
+   need(digest(result[label+'_physical'])==digest(expected),'READBACK_PHYSICAL_SUMMARY')
+  if label+'_replay'in reports:need(reports[label+'_replay']['model_hash']==mh,'READBACK_REPLAY_MODEL')
+ if 'cause_resolution'in reports:
+  resolution=reports['cause_resolution']
+  need(digest(result.get('resolution_rows'))==digest(resolution['rows']),'READBACK_RESOLUTION_ROWS')
+  expected=resolution['all_target_causes_resolved'] and not resolution['new_supported_causes']
+  need(result.get('cause_repair_verified')is expected,'READBACK_RESOLUTION_STATE')
+  need(result.get('protected_verified')is reports['child_preservation']['protected_verified'],'READBACK_PROTECTION_STATE')
+ return {'verified':True,'bundle_count':bundles,'full_report_count':len(reports),'reports_file_digest':hashlib.sha256((folder/'reports.json').read_bytes()).hexdigest(),
+  'scope':'Same-process file consistency readback, not independent engine replay or durable archive'}
