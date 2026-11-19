@@ -1,0 +1,89 @@
+{
+  "schema": "V25_REAL_TIMEOUT_ENDURANCE_V1",
+  "operation_start": "2026-11-19T01:09:46Z",
+  "operation_deadline": "2026-11-19T04:09:46Z",
+  "rows": [
+    {
+      "case": "generation",
+      "started_at": "2026-11-19T01:12:54.958988+00:00",
+      "finished_at": "2026-11-19T01:15:24.962322+00:00",
+      "elapsed_real_seconds": 150.002355752,
+      "nominal_deadline_seconds": 150,
+      "controlled_sleep_seconds": 300,
+      "clock_accelerated": false,
+      "dispatch": [
+        {
+          "interpreter_is_active": true,
+          "requested_new_session": true
+        }
+      ],
+      "status": 504,
+      "outcome": "EXECUTION_TIMEOUT",
+      "worker_returncode": -9,
+      "wait_completed": true,
+      "owned_process_group_absent": true,
+      "lifecycle_and_result_persisted": true,
+      "accepted": false,
+      "delivery_allowed": false,
+      "scope": "Real deadline branch with controlled single owned subprocess and temporary evidence. Production worker dispatch body replaced, no geometry or full HTTP/UI proof."
+    },
+    {
+      "case": "repair_execute",
+      "started_at": "2026-11-19T01:15:24.962920+00:00",
+      "finished_at": "2026-11-19T01:17:54.966050+00:00",
+      "elapsed_real_seconds": 150.00260762600004,
+      "nominal_deadline_seconds": 150,
+      "controlled_sleep_seconds": 300,
+      "clock_accelerated": false,
+      "dispatch": [
+        {
+          "interpreter_is_active": true,
+          "requested_new_session": true
+        }
+      ],
+      "status": 504,
+      "outcome": "EXECUTION_TIMEOUT",
+      "worker_returncode": -9,
+      "wait_completed": true,
+      "owned_process_group_absent": true,
+      "lifecycle_and_result_persisted": true,
+      "accepted": false,
+      "delivery_allowed": false,
+      "scope": "Real deadline branch with controlled single owned subprocess and temporary evidence. Production worker dispatch body replaced, no geometry or full HTTP/UI proof."
+    }
+  ],
+  "status": "PASS_TWO_REAL_TIMEOUT_PATHS_ONLY",
+  "whole_cycle_verified": false,
+  "qualified": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "remaining": [
+    "Actual successful geometry and redesign are separate evidence",
+    "Full HTTP disconnect/cancellation timing and every UI race are not covered",
+    "Controlled single-process groups do not prove arbitrary descendant process behavior"
+  ],
+  "source_snapshot": {
+    ".github/workflows/v25-timeout-endurance.yml": "cf753a273ba3211f71b2cf7f92faf52fcbeb2c99dccb908154347f936b69313c",
+    "app/local_integration/real_timeout_endurance.py": "3ee83e860494f9f1037f0830e4fc89dd10094da4230a71b9cb4489e493a9c9e2",
+    "app/local_integration/generation_gateway.py": "4ca67273e3e23f564985f219c98b53d3115cb8c9b465cb23ddda4f645ba04911",
+    "app/local_integration/repair_saved_run.py": "7529d12fbfb031b7bffd949ca75e6c9d788c88e78497d8c87c0fcd0d39317fe0",
+    "app/local_integration/dimension_contract.py": "3a600826b9aad926241057f4dfcbe5ff56bfbf6ee5605f6fdf382e92b0df3818",
+    "app/local_integration/parametric_worker.py": "fdecfc8fd1d448231d23cb537280487ec63ac86b0802f275d7974d3683087f6d",
+    "app/local_integration/repair_saved_worker.py": "35cd9d5de8801c16661563e1cefbf7ce135ad37a014eebe633cd870ad05d9197"
+  },
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "commit": "aca816cc427d4ed54b11d1af026797c1807e77a4",
+  "run_id": 44435153299,
+  "job_id": 135262040568,
+  "completed_at": "2026-11-19T01:17:58Z",
+  "artifact": {
+    "id": 14489016396,
+    "name": "v25-timeout-endurance",
+    "size_bytes": 1382,
+    "sha256": "c25205526301f656e6aa733158c47d1cf5ec5a3ea284dbb8efb133b4518bb19f",
+    "expires_at": "2026-12-19T01:17:55Z",
+    "durably_archived": false
+  },
+  "stage303_execution_started": false
+}
