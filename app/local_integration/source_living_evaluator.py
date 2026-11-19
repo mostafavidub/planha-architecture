@@ -28,7 +28,7 @@ def assess(bundle):
  from geometry114 import cells,route
  for fn,name in ((cells,'fast_cells120.py'),(route,'fast_route120.py')):
   ensure(Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve(),'ACTUAL_SOURCE')
- replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] and replay['model_hash']==mh,'REPLAY')
+ replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
  ensure(digest(bundle)==pin,'REPLAY_MUTATION')
  body=F(m['profile']['body_m']);ensure(body==F('.7'),'PROFILE')
  out={'schema':'CURRENT_LIVING_SOURCE_EVIDENCE_V1','criterion':'CONTINUOUS_USEFUL_LIVING','state':'UNKNOWN','model_digest':mh,
@@ -66,18 +66,22 @@ def assess(bundle):
    for name,floor in [('DECLARED_RESIDUAL_LIVING',living),('AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS',access),('LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY',group)]:
     outside=cells([domain],floor)+cells([domain],owner);obs=base+outside;rows=[]
     for target in endpoints[1:]:
-     path,reason=route(endpoints[0]['point'],target['point'],domain,obs,body=str(body))
-     row={'target_fixture':target['fixture_id'],'path':path,'reason':reason,'state':'NO_WITNESS_THIS_DOMAIN','body_m':str(body)}
-     if path:
-      route_check(path,endpoints[0]['point'],target['point'],body,floor,obs)
-      clearance=fixed_polyline_capacity(path,domain,obs)
-      capacity=F(clearance['maximum_uniform_axis_aligned_square_width_m']);ensure(capacity>=body,'CLEARANCE_CONTRADICTION')
-      route_check(path,endpoints[0]['point'],target['point'],capacity,floor,obs)
-      epsilon=F(1,1000000)
-      try:route_check(path,endpoints[0]['point'],target['point'],capacity+epsilon,floor,obs)
-      except ValueError:clearance['sweep_certificate']={'at_capacity_clear':True,'capacity_plus_test_epsilon_rejected':True,'test_epsilon_not_design_threshold':str(epsilon)}
-      else:raise ValueError('CLEARANCE_NEGATIVE_CERTIFICATE')
-      row.update(state='PASS_ACCESS_WITNESS_ONLY',length_m=str(sum(abs(F(a[0])-F(b[0]))+abs(F(a[1])-F(b[1])) for a,b in zip(path,path[1:]))),direction_changes_including_reversal=direction_changes(path),fixed_path_clearance=clearance)
+     try:
+      path,reason=route(endpoints[0]['point'],target['point'],domain,obs,body=str(body))
+      row={'target_fixture':target['fixture_id'],'path':path,'reason':reason,'state':'NO_WITNESS_THIS_DOMAIN','body_m':str(body)}
+      if path:
+       route_check(path,endpoints[0]['point'],target['point'],body,floor,obs)
+       clearance=fixed_polyline_capacity(path,domain,obs)
+       capacity=F(clearance['maximum_uniform_axis_aligned_square_width_m']);ensure(capacity>=body,'CLEARANCE_CONTRADICTION')
+       route_check(path,endpoints[0]['point'],target['point'],capacity,floor,obs)
+       epsilon=F(1,1000000)
+       try:route_check(path,endpoints[0]['point'],target['point'],capacity+epsilon,floor,obs)
+       except ValueError as ex:
+        ensure(str(ex) in ('ROUTE_DOMAIN_COVERAGE','ROUTE_OBSTACLE_COLLISION'),'NON_GEOMETRIC_CLEARANCE_REJECTION')
+        clearance['sweep_certificate']={'at_capacity_clear':True,'capacity_plus_test_epsilon_rejected':True,'test_epsilon_not_design_threshold':str(epsilon)}
+       else:raise ValueError('CLEARANCE_NEGATIVE_CERTIFICATE')
+       row.update(state='PASS_ACCESS_WITNESS_ONLY',length_m=str(sum(abs(F(a[0])-F(b[0]))+abs(F(a[1])-F(b[1])) for a,b in zip(path,path[1:]))),direction_changes_including_reversal=direction_changes(path),fixed_path_clearance=clearance)
+     except Exception as ex:row={'target_fixture':target['fixture_id'],'path':None,'state':'EVALUATOR_ERROR','error':type(ex).__name__+':'+str(ex)}
      rows.append(row)
     studies.append({'domain':name,'floor_digest':digest(floor),'obstacle_digest':digest(obs),'anchor_fixture_id':anchor,'target_fixture_ids':[e['fixture_id'] for e in endpoints[1:]],
      'floor_area_m2':str(union_area(floor)),'routes':rows,'all_targets_connected':bool(rows) and all(r['path'] for r in rows),
