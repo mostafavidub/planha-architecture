@@ -24,8 +24,6 @@ def run():
         assert digest(obj)==frozen
         assert row['original_full_evaluation']['status']=='FAIL'
         assert row['original_full_evaluation']['accepted']is False
-    packet,ctx=json.loads((ROOT/('left-right-two-'+models[0]['input']['W']+'x'+models[0]['input']['L']+'-packet.json')).read_text()).values()
-    # dictionary insertion is not an authority: bind by explicit names below.
     obj=json.loads((ROOT/('left-right-two-'+models[0]['input']['W']+'x'+models[0]['input']['L']+'-packet.json')).read_text())
     packet,ctx=obj['packet'],obj['context']
     def negate(name,fn):
@@ -63,6 +61,10 @@ def run():
         world=copy.deepcopy(packet['world_model']);mutate(world)
         r=check_transport(packet['local_model'],world,packet['core']);assert not r['verified'],name
         transport_negatives.append({'name':name,'errors':r['errors']})
+    local=copy.deepcopy(packet['local_model']);world=copy.deepcopy(packet['world_model'])
+    local['mystery']=[1,2];world['mystery']=[1,2]
+    r=check_transport(local,world,packet['core']);assert not r['verified']
+    transport_negatives.append({'name':'unknown_local_and_world_top_numeric','errors':r['errors']})
     try:transport({'unregistered_numeric':['1','2']},path='negative')
     except ValueError as ex:
         assert 'UNKNOWN_NUMERIC_FIELD'in str(ex);transport_negatives.append({'name':'unknown_numeric_role','errors':[str(ex)]})
