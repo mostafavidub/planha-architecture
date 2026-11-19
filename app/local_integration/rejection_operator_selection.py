@@ -17,7 +17,7 @@ def select(request,runtime,child,scheduler,decision,expected):
  from producer_provenance import snapshot,require_unchanged
  paths=['app/local_integration/'+p for p in ('rejection_operator_selection.py','explicit_pair_redirection.py','live_program_scheduler.py','current_four_decision.py','candidate/four_seat_group_candidate.py')]
  snap=snapshot(ROOT,paths);audit=source_audit()
- for fn,name in ((require_rejection,'explicit_pair_redirection.py'),(inventory,'explicit_pair_redirection.py'),(assemble,'current_four_decision.py'),(bind_completed,'live_program_scheduler.py')):
+ for fn,name in ((require_rejection,'explicit_pair_redirection.py'),(inventory,'explicit_pair_redirection.py'),(redirect,'explicit_pair_redirection.py'),(assemble,'current_four_decision.py'),(bind_completed,'live_program_scheduler.py')):
   ensure(Path(inspect.getsourcefile(fn)).resolve()==(ROOT/'app/local_integration'/name).resolve(),'SELECTION_IMPORT_PATH')
  ensure(list(inspect.signature(redirect).parameters)==['body','parent_model','parent_context'],'OPERATOR_API')
  operator_source=inspect.getsource(redirect)
@@ -28,11 +28,12 @@ def select(request,runtime,child,scheduler,decision,expected):
  ensure(scheduler['source_integrity_verified'] is True and len(scheduler['attempts'])==1,'VERIFIED_SINGLE_ATTEMPT')
  attempt=scheduler['attempts'][0]
  ensure(attempt['receipt_verified'] is True and attempt['nonce']==request['nonce'],'ATTEMPT_RECEIPT')
+ ensure(attempt['attempt_id']=='PROGRAM_2BED_V1:'+request['nonce'] and attempt['budget_account_id']==request['nonce'],'ATTEMPT_LINEAGE')
  ensure(attempt['runtime_digest']==digest(runtime) and attempt['decision_digest']==digest(decision),'ATTEMPT_OUTPUT_BINDING')
  ensure(digest(scheduler['current_decision'])==digest(decision['decision']),'SCHEDULER_DECISION')
  ensure(all(scheduler[k] is False for k in AUTH),'SCHEDULER_AUTHORITY')
  rebuilt=assemble(runtime,decision['assessments'],{k:digest(v) for k,v in decision['assessments'].items()})
- ensure(digest(rebuilt)==digest(decision),'CURRENT_DECISION_REBUILD')
+ ensure(digest(rebuilt)==digest(decision),'CURRENT_DECISION_REBUILD:'+','.join(sorted(k for k in set(rebuilt)|set(decision) if digest(rebuilt.get(k))!=digest(decision.get(k)))))
  report=runtime['reports']['physical'];model=runtime['packet']['world_model'];mh=digest(model)
  ensure(report['model_hash']==mh==runtime['model_digest']==decision['model_digest'],'SAME_PARENT_MODEL')
  ensure(digest(report)==runtime['report_digests']['physical']==decision['physical_digest'],'FULL_PHYSICAL_REPORT')
