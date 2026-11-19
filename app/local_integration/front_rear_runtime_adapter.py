@@ -46,6 +46,27 @@ def proposal_disposition(proposal):
  allowed={'PROPOSAL_ONLY','SEARCH_TIMEOUT_NO_WITNESS','NO_PROPOSAL_IN_THIS_TOPOLOGY','NO_PROPOSAL_IN_THIS_PROGRAM','ROUNDED_PROPOSAL_REJECTED'}
  ensure(type(status) is str and status in allowed,'UNKNOWN_PRODUCER_STATUS')
  return status
+def packet_binding(packet,ctx,raw,proposal):
+ """Identity/typed-data checks only; does not replace original replay or physics."""
+ ensure(type(packet) is dict and set(packet)=={'family','local_model','world_model','core','unit_proposal_hashes','admission_claim'},'PACKET_FIELDS')
+ ensure(packet['family']=='FRONT_REAR' and packet['admission_claim'] is False,'PACKET_AUTHORITY')
+ ensure(ctx.get('operation')=='generate_from_dimensions' and ctx.get('baseline_model_hash') is None and ctx.get('existing_plan_id') is None,'CONTEXT_OPERATION')
+ t=ctx['construction_trace'];m=packet['world_model']
+ ensure(t['schema']=='CONSTRUCTION_TRACE127_PAIR_V1' and t['family']=='FRONT_REAR','TRACE_SCHEMA_FAMILY')
+ ensure(digest(t['raw'])==digest(raw),'TRACE_RAW')
+ ensure(digest(t['proposals'])==digest({'A':proposal,'B':proposal}),'TRACE_PROPOSALS')
+ hashes={'A':digest(proposal),'B':digest(proposal)}
+ ensure(digest(packet['unit_proposal_hashes'])==digest(hashes) and digest(t['unit_proposal_hashes'])==digest(hashes),'PROPOSAL_ASSIGNMENT')
+ for key,field in [('world_model','model_hash'),('local_model','local_model_hash'),('core','core_hash')]:
+  ensure(t[field]==digest(packet[key]),'PACKET_DIGEST:'+key)
+ ensure(digest(packet['world_model'])==digest(packet['local_model']),'FRONT_REAR_LOCAL_WORLD')
+ ensure(t['source_revision']==ENGINE_REVISION,'TRACE_ENGINE')
+ ensure(digest(m['inputs'])==digest([raw['W'],raw['L'],2]) and digest(ctx['inputs'])==digest(m['inputs']),'MODEL_INPUT')
+ p=m['program']
+ for key,value in {'bedrooms_per_unit':2,'units':2,'sleep_roles':['double','twin'],'capacity_profile':'LEGACY_SOURCE_PROGRAM','design_occupants_per_unit':4,'provisional':True}.items():
+  ensure(digest(p[key])==digest(value),'MODEL_PROGRAM:'+key)
+ ensure(m['accepted'] is False and m['release_allowed'] is False,'MODEL_AUTHORITY')
+ return digest(m)
 def source_audit():
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration'),str(ROOT/'frontend')]
  from same_version_front_rear_contract import audit_sources
@@ -118,7 +139,7 @@ def run(body,*,solver_seconds):
    ctx=constructor127.context(raw,packet,{'A':proposal,'B':proposal})
    (packet,ctx),receipt=transport([packet,ctx])
    freeze_object('packet',packet);freeze_object('context',ctx);freeze_report('model_transport',receipt)
-   model=packet['world_model'];mh=digest(model)
+   model=packet['world_model'];mh=packet_binding(packet,ctx,raw,proposal)
    ensure(digest(ctx['construction_trace']['raw'])==digest(raw),'TRACE_RAW')
    ensure(digest(ctx['construction_trace']['proposals'])==digest({'A':proposal,'B':proposal}),'TRACE_PROPOSALS')
    ensure(packet['family']=='FRONT_REAR' and packet['admission_claim'] is False,'PACKET_AUTHORITY')
