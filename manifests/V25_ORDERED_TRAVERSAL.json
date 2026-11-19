@@ -32,11 +32,12 @@
     },
     {
       "id": "V25-06",
-      "status": "PARTIAL_EXPLICIT_PROGRAM_API_AND_UI",
+      "status": "PARTIAL_DIAGNOSTIC_PROGRAM_NOT_PUBLIC_D07",
       "evidence": "انتخاب صریح دو/سه‌خواب و پیش‌فرض سه‌خواب در UI واقعی تأیید شد؛ انتخاب خودکار برنامه، n1 و فرم۲ باز است.",
       "evidence_runs": [
         44421177419
-      ]
+      ],
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
     },
     {
       "id": "V25-07",
@@ -129,12 +130,13 @@
     },
     {
       "id": "V25-20",
-      "status": "PASS_EXPLICIT_UI_SCOPE_NOT_PRODUCT_CLOSURE",
+      "status": "PASS_DIAGNOSTIC_UI_ONLY_PUBLIC_D07_NONCONFORMANT",
       "evidence": "۱۴کنترل Chromium واقعی و۲۳تست پاسخ موفق؛ دو تصویر مشاهده شد. ادامه دوخوابه جدا، لغو، تاریخچه، رد۲۶ و ممنوعیت نمایش/تحویل محفوظ. نه پذیرش معماری.",
       "evidence_runs": [
         44421177419,
         44420400051
-      ]
+      ],
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
     },
     {
       "id": "V25-21",
