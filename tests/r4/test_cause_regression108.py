@@ -69,23 +69,32 @@ class Regression108(unittest.TestCase):
    good,values=assigned(c,c+1,False)
    self.assertFalse(good) # OR requires at least one chosen piece.
    self.assertTrue(np.all(values[:-1]>=lo[:-1]-1e-9)) # z=0 disables overlap only.
- def test_readback_keeps_report_and_rejects_digest_change(self):
+ def test_readback_no_model_is_explicit_and_rejects_digest_change(self):
   import tempfile,json
   with tempfile.TemporaryDirectory()as tmp:
-   folder=Path(tmp);report={'original_failure':{'status':'FAIL','errors':[{'code':'SYNTHETIC_FAILURE'}]}}
+   folder=Path(tmp);report={'parent_no_witness':{'status':'NO_PROPOSAL_IN_THIS_TOPOLOGY'}}
    (folder/'reports.json').write_text(json.dumps(report))
-   result={'report_digests':{k:s.digest(v)for k,v in report.items()}}
-   self.assertTrue(s.readback(folder,result)['verified'])
-   result['report_digests']['original_failure']='0'*64
+   result={'state':'BLOCKED_NO_PARENT_PROPOSAL','parent_observed':False,'child_observed':False,'attempt_count':1,'cause_repair_verified':False,
+    'report_digests':{k:s.digest(v)for k,v in report.items()}}
+   self.assertEqual(s.readback(folder,result)['state'],'NO_MODEL_COLLECTION_READBACK')
+   result['report_digests']['parent_no_witness']='0'*64
    with self.assertRaises(ValueError):s.readback(folder,result)
- def test_rehashed_resolution_summary_rejected(self):
+ def test_rehashed_fake_completed_missing_bundles_rejected(self):
   import tempfile,json
   with tempfile.TemporaryDirectory()as tmp:
-   folder=Path(tmp);report={'cause_resolution':{'rows':[{'resolved':False}],'all_target_causes_resolved':False,'new_supported_causes':[]},
-    'child_preservation':{'protected_verified':True}}
+   folder=Path(tmp);(folder/'reports.json').write_text('{}')
+   result={'state':'CAUSE_RESOLVED_NOT_QUALIFIED','parent_observed':True,'child_observed':True,'attempt_count':2,'cause_repair_verified':True,'report_digests':{}}
+   with self.assertRaisesRegex(ValueError,'READBACK_STATE_BUNDLE_REQUIRED'):s.readback(folder,result)
+ def test_rehashed_state_and_attempt_count_rejected(self):
+  import tempfile,json
+  with tempfile.TemporaryDirectory()as tmp:
+   folder=Path(tmp);report={'parent_no_witness':{'status':'NO_PROPOSAL_IN_THIS_TOPOLOGY'}}
    (folder/'reports.json').write_text(json.dumps(report))
-   result={'report_digests':{k:s.digest(v)for k,v in report.items()},'resolution_rows':report['cause_resolution']['rows'],'cause_repair_verified':True,'protected_verified':True}
-   with self.assertRaisesRegex(ValueError,'READBACK_RESOLUTION_STATE'):s.readback(folder,result)
+   base={'state':'BLOCKED_NO_PARENT_PROPOSAL','parent_observed':False,'child_observed':False,'attempt_count':1,'cause_repair_verified':False,
+    'report_digests':{k:s.digest(v)for k,v in report.items()}}
+   for key,value in(('state','CAUSE_RESOLVED_NOT_QUALIFIED'),('attempt_count',True),('attempt_count',2),('cause_repair_verified',True)):
+    bad=copy.deepcopy(base);bad[key]=value
+    with self.assertRaises(ValueError):s.readback(folder,bad)
  def test_removed_source_line_detected(self):
   original=(s.ENGINE/'search114.py').read_text()
   fork=(ROOT/'app/local_integration/cause_parent_witness108.py').read_text()
