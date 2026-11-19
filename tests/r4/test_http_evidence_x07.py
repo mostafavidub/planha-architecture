@@ -1,7 +1,7 @@
 """Synthetic file writer only; real HTTP, consumer, bind_completed and assemble.
 No solver, constructor, physical evaluator or geometry authenticity is exercised.
 """
-import copy,hashlib,http.client,json,shutil,sys,threading,unittest,uuid
+import copy,hashlib,http.client,json,shutil,sys,threading,time,unittest,uuid
 from pathlib import Path
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'app/local_integration'))
@@ -120,6 +120,33 @@ class HTTP(unittest.TestCase):
   with patch.object(x,'read_file',side_effect=changed):
    with self.assertRaises(x.EvidenceFailure) as caught:x.consume(BODY,raw,before,sources)
   self.assertEqual(caught.exception.reason_code,'X07_FILES_CHANGED')
+ def test_callable_swapped_after_writer_rejected_before_call(self):
+  original=dec.assemble;called=[]
+  def shadow(*a):called.append(True);raise AssertionError('MUST_NOT_CALL')
+  def writer(body):
+   raw=self.make(body);dec.assemble=shadow;return raw
+  try:
+   with patch.object(server,'run_live',side_effect=writer):self.assertEqual(self.request()[0],500)
+   self.assertEqual(called,[])
+  finally:dec.assemble=original
+ def test_consumer_late_result_withheld_and_lock_held(self):
+  import http_withholding_x04 as boundary
+  release=threading.Event();entered=threading.Event();real=x.read_file
+  def slow(path):
+   if path.name=='request.json':entered.set();release.wait(4)
+   return real(path)
+  try:
+   with patch.object(server,'run_live',side_effect=lambda b:self.make(b)),patch.object(x,'read_file',side_effect=slow),patch.object(boundary,'LIMIT_SECONDS',.15):
+    status,out=self.request();self.assertEqual(status,504);self.assertTrue(entered.is_set())
+    self.assertTrue(server.LOCK.locked());self.assertNotIn('decision',out)
+    release.set()
+    end=time.monotonic()+4
+    while server.LOCK.locked() and time.monotonic()<end:time.sleep(.005)
+    self.assertFalse(server.LOCK.locked())
+  finally:
+   release.set()
+   end=time.monotonic()+4
+   while server.LOCK.locked() and time.monotonic()<end:time.sleep(.005)
  def test_strict_types_duplicates_and_nonfinite(self):
   for value in (b'{"x":1,"x":2}',b'{"x":NaN}',b'{"x":Infinity}'):
    with self.assertRaises(ValueError):x.decode(value)

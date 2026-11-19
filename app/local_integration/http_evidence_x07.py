@@ -76,6 +76,7 @@ def consume(body,raw,before_nonces,source_before):
  import live_program_scheduler as live,current_four_decision as dec
  observed={'file_bytes':{},'file_hashes':{},'parsed':{},'verified':False}
  try:
+  need(guard()==source_before,'X07_SOURCE_CHANGED')
   rawpin=digest(raw);need(type(body)is bytes,'X07_BODY_BYTES')
   need(raw.get('source_integrity_verified')is True and all(raw.get(k)is False for k in AUTH),'X07_RAW_AUTHORITY_SOURCE')
   rows=raw['attempts'];need(type(rows)is list and len(rows)==1,'X07_ONE_ATTEMPT')
