@@ -13,7 +13,7 @@ LOCAL_MODULES=[
  'open_front_kitchen_study','open_front_kitchen_check','open_front_kitchen_place',
  'open_front_placement_check','open_front_typed_public','open_front_operation_check',
  'open_front_raw_physical','open_front_rule_contract','open_front_named_checks',
- 'open_front_circulation_scope','open_front_circulation_integrity','open_front_q11_pending',
+ 'open_front_circulation_scope','open_front_circulation_integrity','open_front_circulation_frame','open_front_q11_pending',
  'open_front_boundary_comparison','functional_review','guest_four_route_diagnostic',
  'living_connectivity_diagnostic','kitchen_guest_review','producer_provenance',
  'review_cycle']
@@ -36,7 +36,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
     from open_front_world_origin import verify
     from open_front_raw_physical import assess as raw_assess
     from open_front_rule_contract import evaluate_rule_contract
-    from open_front_named_checks import adapters_for_workflow,APPLICABILITY_ADAPTERS
+    from open_front_named_checks import adapters_for_study,APPLICABILITY_ADAPTERS
     from open_front_boundary_comparison import assess as boundary_assess
     from functional_review import assess as functional_assess
     if guard(FREEZE)!=12991:raise ValueError('FROZEN_GUARD')
@@ -49,7 +49,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
     # Context deliberately has no historical construction trace. New replay was
     # independently established above; no constructor127/frame148 identity fake.
     named=evaluate_rule_contract(m,
-        trusted_evaluators=adapters_for_workflow(),
+        trusted_evaluators=adapters_for_study(packet,trace,baseline_packet,baseline_context),
         context={'stage':'concept_internal','batch_models':[m]},
         applicability_evaluators=APPLICABILITY_ADAPTERS)
     if named.get('model_hash')!=model_digest:raise ValueError('NAMED_MODEL_BINDING')
