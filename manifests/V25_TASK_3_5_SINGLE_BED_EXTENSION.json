@@ -1,0 +1,147 @@
+{
+  "schema": "TASK3_5_SINGLE_BED_EXTENSION_EVIDENCE_V1",
+  "task": "3.5",
+  "original_start_utc": "2026-11-19T04:29:22Z",
+  "deadline_utc": "2026-11-19T07:29:22Z",
+  "continuation": {
+    "continuation_start_utc": "2026-11-19T06:34:34Z",
+    "checkpoint_utc": "2026-11-19T06:41:40Z",
+    "original_deadline_utc": "2026-11-19T07:29:22Z",
+    "tested_commit": "a34cb6c85dfa2057e94f1328260ced509c7bc7cc",
+    "run": 44473967351,
+    "counts": {
+      "changed_certificates": 0,
+      "module_wall_probes": 70,
+      "separator_pairs": 280,
+      "single_bed_targets": 4
+    },
+    "state": "UNKNOWN",
+    "scope": "Single-bed sufficient separator coverage added independently; not full privacy or necessity. Original evaluator unchanged."
+  },
+  "status": "PARTIAL_SINGLE_BED_SEPARATOR_COVERAGE_EXTENDED_CRITERION_UNKNOWN",
+  "evidence": {
+    "accepted": false,
+    "counts": {
+      "changed_certificates": 0,
+      "module_wall_probes": 70,
+      "separator_pairs": 280,
+      "single_bed_targets": 4
+    },
+    "criterion": "NONFUNCTIONAL_WALL_EXCLUSION",
+    "delivery_allowed": false,
+    "detached_binding_negatives": [
+      "geometry",
+      "metadata",
+      "module_hash",
+      "rigid_transform"
+    ],
+    "display_allowed": false,
+    "integrity_verified": true,
+    "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "original_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+    "qualified": false,
+    "replay": {
+      "accepted": false,
+      "errors": [],
+      "model_hash": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "pending": [],
+      "scope": "Ordered A/B same-program deterministic whole-construction provenance only. No geometry, operation, privacy, diversity or admission receipt transferred. Separate fresh whole gate remains required.",
+      "source_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+      "trace_hash": "1c33ad2847a9438be6e4ac6867ceb7a5b96f5947f395b7758b203ce97ac2bef8",
+      "verified": true
+    },
+    "schema": "SINGLE_BED_WALL_SEPARATOR_EXTENSION_V1",
+    "scope": "Single-bed targets only; sufficient single-wall separator before/after detached source removal. No ray proof, complete privacy, wall necessity or removal authorization.",
+    "source_snapshot": {
+      "app/local_integration/current_programme_evaluator.py": "c30ae83d0f9b3105c90dbd7c0c845cadcdd72c7401d110f53cfba80640ebb358",
+      "app/local_integration/single_bed_wall_separator_extension.py": "33acbcbc0825942982f55d7d9cc9ce7c9f292bd1299b2576bb2ed613bedddec3",
+      "app/local_integration/source_wall_function_evaluator.py": "c3f1f76f2e12338c018c7042585c015180c54565d98cf2a837f2f4d751540ef3"
+    },
+    "state": "UNKNOWN",
+    "targets": [
+      {
+        "fixture_id": "bed2.bedA",
+        "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+        "rect": [
+          "10.975",
+          "1.15",
+          "12.875",
+          "2.05"
+        ],
+        "room": "bed2",
+        "source_fixture_id": "bed1.bedA",
+        "unit": "A"
+      },
+      {
+        "fixture_id": "bed2.bedB",
+        "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+        "rect": [
+          "10.975",
+          "2.95",
+          "12.875",
+          "3.85"
+        ],
+        "room": "bed2",
+        "source_fixture_id": "bed1.bedB",
+        "unit": "A"
+      },
+      {
+        "fixture_id": "bed2.bedA",
+        "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+        "rect": [
+          "10.975",
+          "17.95",
+          "12.875",
+          "18.85"
+        ],
+        "room": "bed2",
+        "source_fixture_id": "bed1.bedA",
+        "unit": "B"
+      },
+      {
+        "fixture_id": "bed2.bedB",
+        "module_hash": "82e66b18d79b2b5ad3eb8aebff1ac3625ee4ac11279d44cec8950b712df901f8",
+        "rect": [
+          "10.975",
+          "16.15",
+          "12.875",
+          "17.05"
+        ],
+        "room": "bed2",
+        "source_fixture_id": "bed1.bedB",
+        "unit": "B"
+      }
+    ]
+  },
+  "artifact": {
+    "id": 14505044256,
+    "sha256": "da21ffb1aa2b1bddafe1cb160a55504dadec80f9b8b3032503a36c8963bfc57d",
+    "expires_at": "2026-12-19T06:41:40Z"
+  },
+  "failed_baseline": {
+    "run": 44473534991,
+    "commit": "3d0696aa285ed0a94adfcd46d2bf8beff2fac2d1",
+    "artifact_id": 14505861068,
+    "artifact_sha256": "69586d9421b0202569ced15c4ec38ec7a8a7a29a93fe5e80a2242826381dff49",
+    "diagnostic_run": 44473842133,
+    "cause": "Adapter lookup retained local fixture key while map used unit/fixture tuple; KeyError bed2.bedA. Integrity true and four binding negatives passed; not architectural failure."
+  },
+  "interpretation": [
+    "Four actual single-bed targets across A/B,70 module-source wall probes,280 sufficient separator pairs.",
+    "No changed sufficient separator certificates in this limited scenario. This does not establish unchanged visibility, full privacy, wall necessity or nonfunctionality.",
+    "Whole criterion remainsUNKNOWN; original physicalFAIL and digest retained.",
+    "No new model/solver; original pinned source-wall evaluator untouched; module/helper/replay imports/source bytes checked.",
+    "Source ID removal preserves other overlapping source material; no core removal authorization."
+  ],
+  "reproduction": {
+    "commit": "a34cb6c85dfa2057e94f1328260ced509c7bc7cc",
+    "workflow": ".github/workflows/v25-single-bed-wall-extension.yml",
+    "input_artifact": 14497880207,
+    "input_sha256": "fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720",
+    "expiry_limit": "Input/output artifacts temporary; authorized preservation or exact reverified regeneration required after expiration."
+  },
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

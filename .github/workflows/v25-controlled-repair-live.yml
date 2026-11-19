@@ -1,0 +1,91 @@
+name: V25 controlled outer controller actual integration task4.4
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-controlled-repair-live.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: live-programme-scheduler-1-3-1-4
+          run-id: 44460753648
+          github-token: ${{ github.token }}
+          path: repair-input/live
+      - uses: actions/download-artifact@v4
+        with:
+          name: rejection-operator-selection-task4-1
+          run-id: 44464386479
+          github-token: ${{ github.token }}
+          path: repair-input/selection
+      - uses: actions/download-artifact@v4
+        with:
+          name: typed-repair-protection-task4-2
+          run-id: 44465121269
+          github-token: ${{ github.token }}
+          path: repair-input/protection
+      - name: Dependency preflight and one actual new-entrypoint attempt
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,inspect
+          from bounded_repair_chain import one,digest,source_audit
+          from rejection_operator_selection import select
+          from protected_repair_contract import freeze_parent
+          from repair_attempt_control import new_account
+          from controlled_repair_entrypoint import execute
+          root=pathlib.Path('repair-input')
+          names=['request.json','runtime-bundle.json','child-complete.json','scheduler.json','decision.json']
+          values=[one(root,n) for n in names]
+          request,parent,oldchild,scheduler,decision=values
+          assert digest(parent)=='ce47b8433c94aaf216c6fd0d67c8ca9bcc563466f85ba17d3bfdb1fa05d89234'
+          selection=one(root,'rejection-operator-selection.json')
+          contract=one(root,'typed-repair-contract.json')
+          assert digest(contract)=='64d7700851e02fb72cc9debe115783222b19671f9b37c24fa137ac9e97ee09b0'
+          audit=source_audit()
+          fresh=select(*values,{k:digest(v) for k,v in zip(('request','runtime','child','scheduler','decision'),values)})
+          old=dict(selection);old.pop('actual_artifact_negative_tests',None)
+          assert digest(fresh)==digest(old)
+          assert digest(freeze_parent(selection,parent,expected_selection_digest=digest(selection),expected_runtime_digest=digest(parent)))==digest(contract)
+          assert source_audit()==audit
+          print('DEPENDENCY_PREFLIGHT_VERIFIED_NO_SOLVER_YET',flush=True)
+          account=new_account(parent['model_digest'],max_attempts=3,seconds=240)
+          result=execute(root,pathlib.Path('controller-live-evidence'),account,digest(account))
+          print(json.dumps(result,sort_keys=True))
+          assert result['account_finalization_verified'] is True and result['source_integrity_verified'] is True
+          assert result['child_receipt_verified'] is True and result['fresh_geometry_verified'] is True
+          assert result['outcome']=='CANDIDATE' and result['account']['used_attempts']==1
+          assert result['decision']['state']=='BLOCKED'
+          assert all(result[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
+          PY
+      - name: Read retained child gate summary
+        if: always()
+        run: |
+          python -B - <<'PY'
+          import json,pathlib
+          for p in pathlib.Path('controller-live-evidence').rglob('repair-complete.json'):
+           r=json.loads(p.read_text())
+           print(json.dumps({k:r.get(k) for k in ('state','completed','errors','child_model_digest','parent_model_digest','child_physical_status','child_pending_count','current_decision','report_digests','source_integrity_verified','generated_count','operator_attempts_constructed_models_observed')},sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: controlled-outer-controller-live-task4-4
+          path: controller-live-evidence/
+          retention-days: 30

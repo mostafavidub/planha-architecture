@@ -468,7 +468,22 @@
         "boundary_dependencies": 46
       },
       "criterion_state": "UNKNOWN",
-      "remaining": "Alternative placement/shorter organization, freshly rerouted access/full privacy and furnishing/useful-area consequences unproved. Material release is not useful area; boundary dependency is not necessity."
+      "remaining": "Alternative placement/shorter organization, freshly rerouted access/full privacy and furnishing/useful-area consequences unproved. Material release is not useful area; boundary dependency is not necessity.",
+      "single_bed_extension": {
+        "continuation_start_utc": "2026-11-19T06:34:34Z",
+        "checkpoint_utc": "2026-11-19T06:41:40Z",
+        "original_deadline_utc": "2026-11-19T07:29:22Z",
+        "tested_commit": "a34cb6c85dfa2057e94f1328260ced509c7bc7cc",
+        "run": 44473967351,
+        "counts": {
+          "changed_certificates": 0,
+          "module_wall_probes": 70,
+          "separator_pairs": 280,
+          "single_bed_targets": 4
+        },
+        "state": "UNKNOWN",
+        "scope": "Single-bed sufficient separator coverage added independently; not full privacy or necessity. Original evaluator unchanged."
+      }
     },
     {
       "id": "3.6",
@@ -604,7 +619,9 @@
       "continuation_start_utc": "2026-11-19T06:27:37Z",
       "continuation_checkpoint_utc": "2026-11-19T06:30:58Z",
       "continuation_tested_commit": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
-      "continuation_run": 44472702542
+      "continuation_run": 44472702542,
+      "live_entrypoint_continuation_start_utc": "2026-11-19T06:42:04Z",
+      "live_entrypoint_state": "IN_PROGRESS_DEPENDENCY_PREFLIGHT_THEN_ONE_240_SECOND_ATTEMPT"
     },
     {
       "id": "4.5",
