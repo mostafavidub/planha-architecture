@@ -53,6 +53,11 @@ class FitTests(unittest.TestCase):
   expected=fit.installation_expectations(props,F(18));pin=digest(expected)
   self.assertEqual(fit.verify_installed_subset(expected,expected)['state'],'PASS_SOURCE_SUBSET_ONLY')
   result=fit.installation_negatives(expected,expected);self.assertTrue(result['all_detected']);self.assertEqual(len(result['rows']),4);self.assertEqual(digest(expected),pin)
+ def test_missing_downstream_motion_enrichment_rejected(self):
+  props={uid:{'rectangles':{'bath':['6','5','9.15','7.25'],'kitchen':['1','1','3.35','4.05']}}for uid in ('A','B')}
+  expected=fit.installation_expectations(props,F(18));observed=copy.deepcopy(expected)
+  del observed['operations']['kitchen'][0]['motion_envelopes']
+  self.assertEqual(fit.verify_installed_subset(observed,expected)['state'],'FAIL_SOURCE_BINDING')
  def test_scope_no_one_bed_fallback(self):
   with self.assertRaisesRegex(ValueError,'SOURCE_FIT207_SCOPE'):candidate.propose(core_first(F(20),F(18)),1,sleep_roles=['double'])
  def test_profile_copy_isolation(self):

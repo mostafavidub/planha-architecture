@@ -108,6 +108,9 @@ def installation_expectations(proposals,L):
    rect=proposals[uid]['rectangles'][role];a,b,c,d=q(rect)
    module=builder(S(c-a),S(d-b))
    installer(module,expected,u,uid,rect,L)
+ for op in expected['operations']['kitchen']:
+  op['motion_envelopes']=motion_rectangles({'schema':'KITCHEN_MODULE117','operations':{'kitchen':[op]}})
+  op['motion_envelope_scope']='Conservative actual source motion bounds, including full leaf-radius box; not claimed minimal.'
  return expected
 def verify_installed_subset(model,expected):
  errors=[];checks=0
