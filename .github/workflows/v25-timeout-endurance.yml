@@ -1,0 +1,45 @@
+name: V25 real timeout endurance
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-timeout-endurance.yml'
+      - 'app/local_integration/real_timeout_endurance.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  endurance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Real clock generation and repair timeout paths
+        run: |
+          timeout 420s python -B - <<'PY'
+          import sys,json
+          from pathlib import Path
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from producer_provenance import snapshot,require_unchanged
+          from real_timeout_endurance import run
+          sources=snapshot(root,['.github/workflows/v25-timeout-endurance.yml','app/local_integration/real_timeout_endurance.py','app/local_integration/generation_gateway.py','app/local_integration/repair_saved_run.py','app/local_integration/dimension_contract.py','app/local_integration/parametric_worker.py','app/local_integration/repair_saved_worker.py'])
+          assert guard(FREEZE)==12991
+          report=run()
+          assert len(report['rows'])==2 and all(r['clock_accelerated']is False for r in report['rows'])
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          report.update(source_snapshot=sources,guard_before=12991,guard_after=12991)
+          Path('timeout-endurance.json').write_text(json.dumps(report,indent=2))
+          print('ENDURANCE_FINISHED '+json.dumps(report),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-timeout-endurance
+          path: timeout-endurance.json
+          retention-days: 30
