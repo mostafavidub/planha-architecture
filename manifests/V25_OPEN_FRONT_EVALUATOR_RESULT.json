@@ -1,0 +1,133 @@
+{
+  "schema": "V25_OPEN_FRONT_EVALUATOR_RESULT_V1",
+  "operation": "V25-22-LIVING-WITNESS",
+  "operation_start_utc": "2026-11-18T22:07:31Z",
+  "subtask_start_utc": "2026-11-19T00:29:27Z",
+  "operation_deadline_utc": "2026-11-19T01:07:31Z",
+  "verified_at_utc": "2026-11-19T00:41:20Z",
+  "commit": "010ee0308cede378ddbb4b0ce8cd3d020cfd8233",
+  "run_id": 44430645378,
+  "job_id": 135246843470,
+  "workflow": ".github/workflows/v25-open-evaluator.yml",
+  "input": {
+    "W": "18",
+    "L": "20",
+    "n": 2,
+    "bedrooms_per_unit": 2,
+    "family": "FRONT_REAR"
+  },
+  "result": {
+    "status": "UNKNOWN_REQUIRED_STUDY",
+    "errors": [],
+    "pending": [
+      "CURRENT_FUNCTIONAL_UNKNOWN:CONTINUOUS_USEFUL_LIVING",
+      "CURRENT_FUNCTIONAL_UNKNOWN:CURRENT_PROGRAM_SUITABILITY",
+      "CURRENT_FUNCTIONAL_UNKNOWN:KITCHEN_GUEST_PATH_SEPARATION",
+      "CURRENT_FUNCTIONAL_UNKNOWN:NONFUNCTIONAL_WALL_EXCLUSION",
+      "CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED",
+      "RULE_NOT_EVALUATED:q11_functional_boundary",
+      "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+    ],
+    "named_requirements": {
+      "input_exact_domain": "PASS_LIMITED",
+      "no_hidden_project_inputs": "PASS_LIMITED",
+      "containment_all_entities": "PASS_LIMITED",
+      "valid_exact_regions": "PASS_LIMITED",
+      "partition_ledger": "PASS_LIMITED",
+      "unit_independence": "PASS_LIMITED",
+      "bath_nonprivate_access": "PASS_LIMITED",
+      "body_route_sweeps": "PASS_LIMITED",
+      "wall_network": "PASS_LIMITED",
+      "opening_hosts": "PASS_LIMITED",
+      "door_operation": "PASS_LIMITED",
+      "fixture_inventory_use": "PASS_LIMITED",
+      "closet_operation": "PASS_LIMITED",
+      "program_functional_roles": "PASS_LIMITED",
+      "zero_laundry": "PASS_LIMITED",
+      "core_concept": "PASS_LIMITED",
+      "window_opportunities": "EXCLUDED_BY_OWNER_SCOPE",
+      "kitchen_essential_operation": "PASS_LIMITED",
+      "bath_service_operation": "PASS_LIMITED",
+      "privacy_scenarios": "PASS_LIMITED",
+      "guest_living_route": "PASS_LIMITED",
+      "guest_dining_route": "PASS_LIMITED",
+      "chair_capacity_movement": "PASS_LIMITED",
+      "serving_route": "PASS_LIMITED",
+      "long_corridor_necessity": "NOT_EVALUATED",
+      "private_grouping": "PASS_LIMITED",
+      "q11_functional_boundary": "NOT_EVALUATED",
+      "worst_unit_function": "PASS_LIMITED",
+      "geometric_diversity": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "export_parity": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "immutable_history": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "claim_boundary": "PASS_LIMITED",
+      "owner_access": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "llm_budget": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "per_option_rule_report": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "claim_boundary_display": "NOT_APPLICABLE_TO_STAGE_OR_MODEL",
+      "circulation_functional_integrity": "PASS_LIMITED",
+      "actual_opening_geometry": "PASS_LIMITED"
+    },
+    "contract_negative_tests": [
+      "domain_axis_0",
+      "domain_axis_1",
+      "untrusted_pass_receipt",
+      "missing_callbacks_remain_pending",
+      "mutating_callback_rejected"
+    ],
+    "evaluator_negative_tests": [
+      "model_type",
+      "origin_source"
+    ],
+    "current_schema_negative_tests": [
+      "missing_capacity",
+      "duplicate",
+      "invalid_state"
+    ],
+    "callback_bundle_negative_tests": [
+      "packet",
+      "trace",
+      "baseline_packet",
+      "baseline_context"
+    ],
+    "model_digest": "b8050a31571367941748a3bcc47112ca809f811bc46268ea7653becdd333d880",
+    "whole_physical_verified": false
+  },
+  "asserted_named_status_counts": {
+    "PASS_LIMITED": 28,
+    "NOT_EVALUATED": 2,
+    "NOT_APPLICABLE_TO_STAGE_OR_MODEL": 7,
+    "EXCLUDED_BY_OWNER_SCOPE": 1
+  },
+  "negative_tests": {
+    "prior_world_regressions": 25,
+    "new_contract": 5,
+    "new_evaluator_origin": 2,
+    "current_requirement_schema": 3,
+    "callback_bundle": 4,
+    "total": 39
+  },
+  "scope_source_binding_retained": true,
+  "nonleaf_disclosures_retained": true,
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "historical_report_retained_unfiltered": true,
+  "historical_status": "FAIL",
+  "artifact": {
+    "id": 14487166124,
+    "name": "v25-open-evaluator",
+    "size_bytes": 193137,
+    "sha256": "b52c0f0b5979dbdf3b436453cbb44141cc11e136d66b209b4161e0e33c475c0c",
+    "expires_at": "2026-12-19T00:41:17Z",
+    "durably_archived": false
+  },
+  "reproduction": "Run the named workflow at the exact test commit. It verifies archive run44417514104 and member SHA before rebuilding baseline and independent model; snapshots sources and guard before/after.",
+  "whole_cycle_verified": false,
+  "whole_physical_verified": false,
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "qualified": false,
+  "stage303_execution_started": false,
+  "scope": "Independent study evaluator integration with unchanged frozen physical obligations and retained current unknowns. Historical registry is not full current PRD; NOT a production acceptance route."
+}
