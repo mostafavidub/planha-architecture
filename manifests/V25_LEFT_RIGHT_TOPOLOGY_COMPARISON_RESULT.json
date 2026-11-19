@@ -1,0 +1,763 @@
+{
+  "schema": "V25_LEFT_RIGHT_TOPOLOGY_COMPARISON_RESULT_V1",
+  "operation_deadline_utc": "2026-11-19T04:49:30Z",
+  "status": "SCOPED_DIAGNOSTIC_COMPLETE_ALL_FRESH_HISTORICAL_EVALUATIONS_FAIL",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "production_supported": false,
+  "whole_physical_verified": false,
+  "whole_functional_verified": false,
+  "global_infeasibility_proven": false,
+  "scope": "Original unchanged source proposal/constructor/replay/inventory/evaluate_pair127 and current functional review for explicit two bedrooms double+twin, four-seat source program. No production attachment or schema extension.",
+  "settings": {
+    "bedrooms": 2,
+    "sleep_roles": [
+      "double",
+      "twin"
+    ],
+    "time_limit": 3,
+    "variant": 0,
+    "ordered_macro": false,
+    "organization_profile": "UNRESTRICTED"
+  },
+  "runs": [
+    {
+      "run_id": 44444209007,
+      "job_id": 135292251145,
+      "commit": "3a86734593a6642dc5abf9eebd4ae8b5e0ae6466",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14492896609,
+        "name": "v25-left-right-two-topology-comparison",
+        "digest": "sha256:d8df9853dc4baa462e1c727b7e09067e1248ecd0e35049cf929aa558008c82fb",
+        "expires_at": "2026-12-19T02:28:26Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14492896609"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "NO_FRESH_MODEL",
+            "proposal_status": "SEARCH_TIMEOUT_NO_WITNESS",
+            "model_digest": null,
+            "replay": null,
+            "binding": null,
+            "historical_status": null,
+            "error_count": 0,
+            "error_codes": {},
+            "pending": [],
+            "current_requirements": [],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "2cf27fb31d19b6e0c1fa7290aba723894c6d372435bf987e46fdfc88e6e036b7",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "602e3ffae9a87e1c5593d0aed845965478cf76322cb44ecf4d3ff39d4c77bdfe",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "changes": "Initial four-case study"
+    },
+    {
+      "run_id": 44444259272,
+      "job_id": 135292421891,
+      "commit": "5419bff4fa3507c1b434586a946ad272bb9ce8bd",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14492133443,
+        "name": "v25-left-right-two-topology-comparison",
+        "digest": "sha256:e59b0bd18b918a830b77dbde37b96247e830e228f9178e3a760fead2d7f03d86",
+        "expires_at": "2026-12-19T02:28:01Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14492133443"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "9ac3a335cfc80225b07c5ecca0d7fc2e223d157465324890a1016385afd9e020",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 75,
+            "error_codes": {
+              "ACTOR_NOT_ON_DECLARED_DOOR_SIDE": 2,
+              "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR": 4,
+              "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR": 4,
+              "MISSING_REQUIRED_ACTIVITY_ROUTES": 1,
+              "ROUTE_TARGET_BINDING": 2,
+              "RULE_FAILED": 14,
+              "UNKNOWN_RECORD_FIELDS": 48
+            },
+            "pending": [
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+              "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "FAIL",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "4012d01e73dd57321a13047b1d56aaf8214e677d715c7fc5663e75e93092e5d8",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "changes": "Deadline metadata only; identical solver settings"
+    },
+    {
+      "run_id": 44444599800,
+      "job_id": 135293575416,
+      "commit": "0920e5afa1087ce3dadb2ac345d4fb8b1480b92f",
+      "conclusion": "success",
+      "artifact": {
+        "id": 14492742405,
+        "name": "v25-left-right-two-topology-comparison",
+        "digest": "sha256:bedc40d73ba2a4f6419066ae8a1fe622738421febafa4414580c16042df96186",
+        "expires_at": "2026-12-19T02:31:18Z",
+        "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14492742405"
+      },
+      "summary": {
+        "cases": [
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c78ef8fadf108ea163d5e3f194761e564c47c8c6d20276619e2861ee37451c8",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 65,
+            "error_codes": {
+              "PANEL_CONTINUOUS_WALL_COLLISION": 4,
+              "ACTOR_NOT_ON_DECLARED_DOOR_SIDE": 2,
+              "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR": 4,
+              "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR": 4,
+              "RULE_FAILED": 11,
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+              "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+              "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "20",
+              "L": "20",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "6c406c8c7164035d31817c72e9118f10d957a48007fdbc6b7f0db21f26e26273",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "SIDE_ROOTED_SERVICES",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+            "replay": true,
+            "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          },
+          {
+            "input": {
+              "W": "25",
+              "L": "25",
+              "n": 2,
+              "requested_count": 1,
+              "program": {
+                "bedrooms_per_unit": 2
+              }
+            },
+            "topology": "FRAME125_SERVICE_SIDE",
+            "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+            "proposal_status": "PROPOSAL_ONLY",
+            "model_digest": "1292d5fd66ee983fd22f7fe2191716c9d8be0523e05a1b0667faf8e2a97b482e",
+            "replay": true,
+            "binding": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+            "historical_status": "FAIL",
+            "error_count": 40,
+            "error_codes": {
+              "UNKNOWN_RECORD_FIELDS": 40
+            },
+            "pending": [
+              "RULE_NOT_EVALUATED:circulation_functional_integrity",
+              "RULE_NOT_EVALUATED:private_grouping"
+            ],
+            "current_requirements": [
+              {
+                "id": "INTERNAL_INSTANCE_CAPACITY",
+                "state": "PASS_SCOPED",
+                "basis": "actual source-profile instances and limited planar access, not area or room labels"
+              },
+              {
+                "id": "CURRENT_PROGRAM_SUITABILITY",
+                "state": "UNKNOWN",
+                "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+              },
+              {
+                "id": "KITCHEN_GUEST_PATH_SEPARATION",
+                "state": "UNKNOWN",
+                "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+              },
+              {
+                "id": "CONTINUOUS_USEFUL_LIVING",
+                "state": "UNKNOWN",
+                "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+              },
+              {
+                "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+                "state": "UNKNOWN",
+                "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+              }
+            ],
+            "exception": null,
+            "historical_exception": null,
+            "current_exception": null
+          }
+        ],
+        "guard_before": 12991,
+        "guard_after": 12991,
+        "accepted": false,
+        "delivery_allowed": false,
+        "completed": true
+      },
+      "changes": "Preserve raw current before assertions and persist integrity failure before rethrow; identical solver settings"
+    }
+  ],
+  "limitations": [
+    "Three runs retained separately; no selective merging of candidates or error counts.",
+    "Time-bounded solver is nondeterministic: 20x20 SIDE_ROOTED was timeout, then 75-error witness, then 65-error witness. These are not feasibility proofs or a stable universal topology ranking.",
+    "Final run: 20x20 FRAME125 witness lacks the additional observed SIDE_ROOTED physical failures but still fails historical schema with 40 errors and two pending obligations.",
+    "FRAME125 source-derived shape/D4 binding remains NOT_APPLICABLE_CONTRACT_TOPOLOGY; original constructor/replay are not a substitute for an independently extended contract.",
+    "All four current functional UNKNOWNs remain for every fresh model. Capacity PASS_SCOPED is not whole-plan acceptance.",
+    "Full reports, packets, source snapshots and frozen digest ledgers are in expiring Actions artifacts, not ingested into repository.",
+    "Error count zero in no-witness summary means evaluation was not run, never PASS.",
+    "Error checkpoint branches reviewed in source; these matrix runs did not inject report mutation or a current assertion failure."
+  ],
+  "guard_expected": 12991
+}
