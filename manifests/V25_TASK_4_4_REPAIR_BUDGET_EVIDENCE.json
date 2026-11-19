@@ -1,0 +1,88 @@
+{
+  "task": "4.4",
+  "status": "PARTIAL_CONTROLLER_AND_CONTROLLED_TIMEOUT_TESTED_RUNTIME_ADOPTION_OPEN",
+  "start_utc": "2026-11-19T05:43:03Z",
+  "deadline_utc": "2026-11-19T08:43:03Z",
+  "tested_commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
+  "run": 44467634916,
+  "job": 135369139357,
+  "tests": 20,
+  "evidence": {
+    "accepted": false,
+    "audit_account": {
+      "accepted": false,
+      "account_id": "ebc7133a5ba84d2c8d20fa53e56801bc",
+      "active": null,
+      "budget_policy": "Engineering study cap, not an architectural rule; no budget reset for retries or lower programmes",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "history": [
+        {
+          "counts_as_quality_improvement": false,
+          "elapsed_seconds": 80.06103528700001,
+          "observed_model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+          "outcome": "CANDIDATE",
+          "token": "ebc7133a5ba84d2c8d20fa53e56801bc:1"
+        }
+      ],
+      "max_attempts": 3,
+      "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "qualified": false,
+      "schema": "BOUNDED_REPAIR_ACCOUNT_V1",
+      "seconds": 240,
+      "seen_model_digests": [
+        "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+        "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44"
+      ],
+      "stop_reason": null,
+      "used_attempts": 1,
+      "used_seconds": 80.06103528700001
+    },
+    "audit_account_scope": "Reconstruction from retained real receipt, not the original execution ledger or a new repair attempt",
+    "classification": {
+      "budget_reset": false,
+      "delivery_allowed": false,
+      "limit_seconds": 240,
+      "scope": "Classification of verified retained task4.3 parent receipt, not a re-execution or proof of quality",
+      "state": "REPAIR_CANDIDATE_OBTAINED_BUT_DELIVERY_BLOCKED",
+      "used_seconds": 80.06103528700001
+    },
+    "controlled_timeout": {
+      "accepted": false,
+      "allocated_seconds": 0.3,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "elapsed_seconds": 0.30223415400000064,
+      "kill_sent": true,
+      "qualified": false,
+      "returncode": -9,
+      "scope": "Dedicated process group; no guarantee for descendants that escape with a new session",
+      "stderr": "",
+      "stdout": "controlled-start\n",
+      "timed_out": true,
+      "wait_completed": true
+    },
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry_executed": false,
+    "integration_limit": "New control primitive tested independently; task4.3 original hard-timeout code not replaced by this commit. Original final run did not time out. End-to-end history consumption is task4.5.",
+    "original_nonce": "8596dc8242fe49b194a29fd058bf4465",
+    "original_parent_receipt_digest": "01cefd9e4a04289abfcb6842836f940daa0c082c9cd668bd1f7177d820b2b069",
+    "qualified": false,
+    "remaining_seconds": 159.938964713,
+    "schema": "TASK4_4_REPAIR_BUDGET_EVIDENCE_V1",
+    "source_sha256": "b95470a22abb51a67ae18ecbb7b185a0849363e327847c88c2fda18701eba2b2"
+  },
+  "artifact": {
+    "id": 14503186305,
+    "sha256": "3bddb165e438492bbfe7cd6c25484c3baf5d5f192095672921a1b294021b99f8",
+    "expires_at": "2026-12-19T05:48:14Z"
+  },
+  "scope": "Attempt reservation before work, shared elapsed budget, exact receipt and semantic history replay invariants, repeat/no-witness/time/error stops. Novel geometry is not quality progress.",
+  "independent_timeout": "Actual controlled Python child slept10s, killed at0.3s and waited; this tests new primitive, not retroactively the timeout branch of original4.3 run.",
+  "reproduction": "Run .github/workflows/v25-repair-attempt-control.yml at tested commit; stdlib helper tests plus read-only retained4.3 artifact, no numpy/scipy installation or solver invocation.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}

@@ -103,14 +103,17 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5.",
-      "checkpoint_utc": "2026-11-19T04:49:23Z",
+      "checkpoint_utc": "2026-11-19T05:48:29Z",
       "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
       "run": 44460753648,
       "tests": {
         "combined_live_scheduler_order": 49
       },
       "remaining": "Live18x20/n2 single-contract attempt only; multi-programme/dimension search, quality and publicAPI not complete.",
-      "live_continuation_start_utc": "2026-11-19T04:43:45Z"
+      "live_continuation_start_utc": "2026-11-19T04:43:45Z",
+      "checkpoint_state": "CHECKPOINT_PARTIAL_NO_ACTIVE_WORK",
+      "active_execution": false,
+      "checkpoint_note": "Original deadline05:51:01 not yet reached at this checkpoint; no reset or completion claimed."
     },
     {
       "id": "1.4",
@@ -126,14 +129,17 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset.",
-      "checkpoint_utc": "2026-11-19T04:49:23Z",
+      "checkpoint_utc": "2026-11-19T05:48:29Z",
       "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
       "run": 44460753648,
       "tests": {
         "combined_live_scheduler_order": 49
       },
       "remaining": "Only placement actual; alternative core/split/optional merge NOT_IMPLEMENTED; one-bed adapter not ready; AP07 incomplete. No budget reset.",
-      "live_continuation_start_utc": "2026-11-19T04:43:45Z"
+      "live_continuation_start_utc": "2026-11-19T04:43:45Z",
+      "checkpoint_state": "CHECKPOINT_PARTIAL_NO_ACTIVE_WORK",
+      "active_execution": false,
+      "checkpoint_note": "Original deadline05:51:01 not yet reached at this checkpoint; no reset or completion claimed."
     },
     {
       "id": "1.5",
@@ -511,13 +517,18 @@
       "description_verbatim": "۴.۴. مدیریت سقف تلاش، توقف بدون پیشرفت و اعلام روشنِ اصلاح ناموفق. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_CONTROLLER_AND_CONTROLLED_TIMEOUT_TESTED_RUNTIME_ADOPTION_OPEN",
       "dependencies": [
         "4.3"
       ],
       "start_utc": "2026-11-19T05:43:03Z",
       "deadline_utc": "2026-11-19T08:43:03Z",
-      "scope": "Shared attempt budget/no-progress control, controlled subprocess timeout and retained4.3 receipt classification; no new solver."
+      "scope": "Shared attempt budget/no-progress control, controlled subprocess timeout and retained4.3 receipt classification; no new solver.",
+      "completed_scoped_tests_utc": "2026-11-19T05:48:14Z",
+      "tested_commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
+      "run": 44467634916,
+      "tests": "20 tests and controlled subprocess hard timeout; no new geometry",
+      "remaining": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence."
     },
     {
       "id": "4.5",
