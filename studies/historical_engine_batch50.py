@@ -136,7 +136,33 @@ def batch(batch_index):
  'state_counts':{k:sum(r['collection_state']==k for r in rows)for k in sorted({r['collection_state']for r in rows})},'batch_seconds':time.monotonic()-start,
  'current_qualification_established':False,'raw_durable':False})
  if not unchanged:raise SystemExit('SOURCE_CHANGED')
+def self_test():
+ from unittest.mock import Mock,patch
+ proc=Mock();proc.pid=123;proc.poll.return_value=None
+ with patch.object(os,'killpg',side_effect=ProcessLookupError):reap(proc)
+ proc.wait.assert_called_once_with()
+ records=[]
+ with patch.object(subprocess,'Popen',side_effect=OSError('DO_NOT_LOG_THIS')),patch(__name__+'.emit',side_effect=records.append):
+  batch(0)
+ rows=[v['row']for v in records if v.get('event')=='CASE_CHECKPOINT']
+ assert len(rows)==10 and all(r['collection_state']=='WORKER_START_FAILED'for r in rows)
+ assert 'DO_NOT_LOG_THIS'not in str(records)
+ class Digest:
+  @staticmethod
+  def digest(value):return sha(packed(value))
+ raw={'status':'NO_ADMITTED_LAYOUT','reason':'SECRET_FREE_TEXT','search_evidence':{},
+ 'internal_proposals':[{'model':{'PRIVATE_COORDINATES':'PRIVATE_SENTINEL'},'gate':{'status':'FAIL','errors':[{'code':'TEST_FAILURE','private':'PRIVATE_SENTINEL'}],'pending':[]}}]}
+ result=project(raw,Digest)
+ assert 'PRIVATE_SENTINEL'not in str(result)and'SECRET_FREE_TEXT'not in str(result)
+ assert result['models'][0]['physical']['error_codes']==['TEST_FAILURE']
+ assert result['current_qualified_count']is None and result['current_four']=='NOT_RUN'
+ assert enum('arbitrary private text')is None and count(True)is None and number(float('nan'))is None
+ try:strict(b'{"a":1,"a":2}')
+ except ValueError:pass
+ else:raise AssertionError('DUPLICATE_ACCEPTED')
+ emit({'event':'HARNESS_SELF_TEST','scope':'SYNTHETIC_PRIVACY_AND_PROCESS_FAILURE_ONLY','checks':6,'engine_calls':0})
 if __name__=='__main__':
- if len(sys.argv)==4 and sys.argv[1]=='--worker'and sys.argv[2].isdigit()and 0<=int(sys.argv[2])<50:worker(int(sys.argv[2]),sys.argv[3])
+ if len(sys.argv)==2 and sys.argv[1]=='--self-test':self_test()
+ elif len(sys.argv)==4 and sys.argv[1]=='--worker'and sys.argv[2].isdigit()and 0<=int(sys.argv[2])<50:worker(int(sys.argv[2]),sys.argv[3])
  elif len(sys.argv)==3 and sys.argv[1]=='--batch'and sys.argv[2]in('0','1','2','3','4'):batch(int(sys.argv[2]))
  else:raise SystemExit('EXPLICIT_BATCH_OR_WORKER_REQUIRED')

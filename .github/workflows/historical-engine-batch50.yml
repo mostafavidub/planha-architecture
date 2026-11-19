@@ -9,7 +9,19 @@ on:
 permissions:
   contents: read
 jobs:
+  harness:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - run: python -B studies/historical_engine_batch50.py --self-test
   diagnostic:
+    needs: harness
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     strategy:
