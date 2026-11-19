@@ -21,7 +21,7 @@ def main():
   browser=p.chromium.launch()
   try:
    for width,height in [(390,844),(768,1024),(1280,900)]:
-    for mode in ('reload','back_forward'):
+    for mode in ('reload','back_forward_then_reload'):
      entered=threading.Event();release=threading.Event();finished=threading.Event()
      calls=[];processes=[];errors=[]
      def worker(body):
@@ -29,7 +29,7 @@ def main():
       child=subprocess.Popen([sys.executable,'-c','import sys; sys.stdin.readline()'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
       processes.append(child);entered.set()
       try:
-       if not release.wait(10):raise AssertionError('CONTROLLED_RELEASE_MISSING')
+       if not release.wait(60):raise AssertionError('CONTROLLED_RELEASE_MISSING')
        child.communicate('finish\n',timeout=5)
        assert child.returncode==0
        return {'preflight':{'input_valid':True},'state':'CONTROLLED_COMPLETED','attempts':[{'state':'CONTROLLED_NOT_GEOMETRY'}],
@@ -40,6 +40,8 @@ def main():
      server=m.server();server.handle_error=lambda *args:errors.append('HANDLER_EXCEPTION')
      thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
      page=browser.new_page(viewport={'width':width,'height':height})
+     page.set_default_timeout(5000);page.set_default_navigation_timeout(10000)
+     page.add_init_script("window.__pageshowPersisted=null;addEventListener('pageshow',e=>window.__pageshowPersisted=e.persisted)")
      posts=[];page.on('request',lambda r:posts.append(r.post_data) if r.method=='POST' else None)
      url='http://127.0.0.1:'+str(server.server_address[1])
      try:
@@ -49,8 +51,14 @@ def main():
        expect(page.locator('#submit')).to_be_disabled()
        page.evaluate("document.querySelector('#plan-form').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}))")
        page.wait_for_timeout(100);assert len(posts)==1 and len(calls)==1 and m.LOCK.locked()
-       if mode=='back_forward':
-        page.goto(url+'/health');page.go_back();page.go_forward();page.go_back()
+       history=[]
+       if mode=='back_forward_then_reload':
+        page.goto(url+'/health')
+        for navigate in (page.go_back,page.go_forward,page.go_back):
+         navigate();assert len(posts)==1 and len(calls)==1 and m.LOCK.locked()
+         history.append(page.evaluate("({url:location.pathname,persisted:window.__pageshowPersisted,type:performance.getEntriesByType('navigation')[0]?.type||null,state:document.querySelector('#result')?.dataset.state||null})"))
+        assert page.locator('svg,canvas,img,a[download]').count()==0
+        assert 'بررسی اجرا شد' not in page.locator('#result').inner_text()
        page.reload()
        expect(page.locator('#result')).to_contain_text('هنوز بررسی انجام نشده')
        assert len(posts)==1 and len(calls)==1 and m.LOCK.locked()
@@ -69,7 +77,7 @@ def main():
        assert all(x.poll()==0 for x in processes) and errors==[]
        assert page.locator('svg,canvas,img,a[download]').count()==0
        assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
-       rows.append({'viewport':[width,height],'navigation':mode,'post_count':len(posts),'worker_count':len(calls),
+       rows.append({'viewport':[width,height],'navigation':mode,'intermediate_history_observations':history,'post_count':len(posts),'worker_count':len(calls),
         'no_automatic_resubmit':True,'late_result_not_rendered_in_new_document':True,'lock_released_after_worker':True,
         'explicit_second_request_completed':True,'all_processes_waited':True,'handler_exception_count':len(errors)})
      finally:
