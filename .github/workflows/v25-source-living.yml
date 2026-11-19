@@ -51,6 +51,7 @@ jobs:
           print(json.dumps(out,ensure_ascii=False,sort_keys=True))
           assert out['integrity_verified'] is True and not out.get('missing')
           assert out['state']=='UNKNOWN' and len(out['units'])==2
+          assert not any(r['state']=='EVALUATOR_ERROR' for u in out['units'] for s in u['studies'] for r in s['routes'])
           assert all(out[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
           assert digest(out['original_physical_report'])=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
           assert all(u['area_accounting']['verified_useful_living_area_m2'] is None for u in out['units'])
