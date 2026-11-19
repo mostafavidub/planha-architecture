@@ -67,6 +67,22 @@ This is not the newer typed-floor scene: both profiles are tested separately.
    obstacles+=op['motion_envelopes'];labels+=['kitchen_motion:'+str(i)for i,_ in enumerate(op['motion_envelopes'])]
  return {'body':model['profile']['body_m'],'parts':[u['ownership'][0]],'owner':[u['ownership'][0]],'obstacles':obstacles,'labels':labels}
 
+def bind_context(model,proposals,L,context):
+ trace=context['construction_trace']
+ need(trace.get('schema')=='CONSTRUCTION_TRACE127_PAIR_V1'and trace.get('family')=='FRONT_REAR','PLANNED_TRACE_FAMILY')
+ need(type(trace['raw'].get('n'))is int and trace['raw']['n']==2,'PLANNED_UNIT_COUNT')
+ need([u['id']for u in model['units']]==['A','B']and set(proposals)=={'A','B'},'PLANNED_PAIR_UNITS')
+ need(trace['model_hash']==digest(model)and digest(trace['proposals'])==digest(proposals),'PLANNED_CONTEXT_BINDING')
+ need(F(trace['raw']['L'])==F(L)and digest(model['inputs'])==digest([trace['raw']['W'],trace['raw']['L'],2]),'PLANNED_INPUT_FRAME')
+
+def actual_destination(u):
+ from public_program_audit118 import bind_operation_destination
+ from guest_four_route_diagnostic import center
+ d=u['public_program']['destinations']['guest_dining']
+ need(d['activity_id']=='dining_east'and d['fixture_id']=='dining_chair_east','PLANNED_DESTINATION_SOURCE')
+ end=center(u['activities'][d['activity_id']]);bind_operation_destination(u,d,tuple(map(F,end)))
+ return end
+
 def diagnose(model,proposals,L,physical,context):
  from cause_directed_contract108 import diagnose as original
  from guest_route_certificate_study import scene
@@ -76,9 +92,7 @@ def diagnose(model,proposals,L,physical,context):
  for fn,path in ((original,ROOT/'app/local_integration/cause_directed_contract108.py'),(scene,ROOT/'app/local_integration/guest_route_certificate_study.py'),(route_check,ROOT/'app/local_integration/source_guest_route_evaluator.py'),(bind_operation_destination,ENGINE/'public_program_audit118.py')):
   need(Path(inspect.getsourcefile(fn)).resolve()==path,'PLANNED_IMPORT_PATH')
  pin=digest([model,proposals,physical,context])
- trace=context['construction_trace']
- need(trace['model_hash']==digest(model)and digest(trace['proposals'])==digest(proposals),'PLANNED_CONTEXT_BINDING')
- need(F(trace['raw']['L'])==F(L)and digest(model['inputs'])==digest([trace['raw']['W'],trace['raw']['L'],2]),'PLANNED_INPUT_FRAME')
+ bind_context(model,proposals,L,context)
  out=original(model,proposals,L,physical)
  out.update(schema='SOURCE_PLANNED_CAUSE_SELECTION108_V2',context_digest=digest(context),proposal_digest=digest(proposals),
   scope='Stored-path causes unchanged. Missing guest_dining plus source planned witness exclusive motion collision is a planner-witness defect, not the unique cause of route search failure or global infeasibility.')
@@ -87,13 +101,11 @@ def diagnose(model,proposals,L,physical,context):
   out['rows'].append(row)
   count=missing_count(physical.get('errors',[]),uid);row['original_missing_route_count']=count
   if u.get('scenario_routes',{}).get('guest_dining'):
-   if True:
-    from guest_four_route_diagnostic import center
-    end=center(u['activities'][u['public_program']['destinations']['guest_dining']['activity_id']])
-    os=original_guest_scene(model,u)
-    try:route_check(u['scenario_routes']['guest_dining'],u['entry_point'],end,F('.7'),os['parts'],os['obstacles'])
-    except ValueError:row['state']='ACTUAL_STORED_PATH_NOT_CLEAR_IN_ORIGINAL_PROFILE'
-    else:row['state']='ACTUAL_STORED_PATH_CLEAR_ORIGINAL_PROFILE'
+   end=actual_destination(u)
+   os=original_guest_scene(model,u)
+   try:route_check(u['scenario_routes']['guest_dining'],u['entry_point'],end,F('.7'),os['parts'],os['obstacles'])
+   except ValueError:row['state']='ACTUAL_STORED_PATH_NOT_CLEAR_IN_ORIGINAL_PROFILE'
+   else:row['state']='ACTUAL_STORED_PATH_CLEAR_ORIGINAL_PROFILE'
    continue
   row['cause']='PLANNED_GUEST_DINING_MOTION'
   row['planned_witness_scope']='SOURCE_PROPOSAL_NETWORK_NOT_STORED_ACTUAL_ROUTE'
@@ -101,9 +113,7 @@ def diagnose(model,proposals,L,physical,context):
   failures=[f for f in model.get('route_failures',[])if f.get('unit')==uid and f.get('route')=='guest_dining'and f.get('profile')=='public_all_seat_motion_occupied_and_kitchen_exclusion']
   if not failures:row['state']='NO_SOURCE_ROUTE_FAILURE_PROFILE';continue
   path=world_path(proposals[uid],uid,L);s=original_guest_scene(model,u)
-  d=u['public_program']['destinations']['guest_dining']
-  need(d['activity_id']=='dining_east'and d['fixture_id']=='dining_chair_east','PLANNED_DESTINATION_SOURCE')
-  end=center(u['activities'][d['activity_id']]);bind_operation_destination(u,d,tuple(map(F,end)))
+  end=actual_destination(u)
   row.update(path_digest=digest(path),scene_digest=digest(s),proposal_digest=digest(proposals[uid]),endpoint_digest=digest([u['entry_point'],end]),
    transform={'matrix':[[1,0],[0,1 if uid=='A'else-1]],'translation':['0','0'if uid=='A'else str(F(L))]})
   try:

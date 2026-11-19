@@ -117,3 +117,12 @@ def readback(folder,result):
  return {'verified':True,'bundle_count':bundles,'full_report_count':len(reports),'reports_file_digest':hashlib.sha256((folder/'reports.json').read_bytes()).hexdigest(),
   'state':'FULL_PARENT_CHILD_COLLECTION_READBACK'if child else'PARENT_ONLY_COLLECTION_READBACK'if parent else'NO_MODEL_COLLECTION_READBACK',
   'scope':'State-specific same-process file consistency readback, not independent engine replay or durable archive'}
+
+def solver_observation(proposal):
+ import math
+ out={}
+ for key in('solver_status','solver_seconds','budget_seconds'):
+  value=proposal.get(key)
+  need(type(value)is int if key=='solver_status'else type(value)in(int,float)and math.isfinite(value)and value>=0,'SOLVER_OBSERVATION_TYPE')
+  out[key]=value
+ return out

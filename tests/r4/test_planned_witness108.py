@@ -85,4 +85,37 @@ class PlannedTests(unittest.TestCase):
   expected=self.contract();bad=copy.deepcopy(expected);bad['bed_door_sides']['bed1']='left'
   with patch.object(c,'freeze',return_value=expected):
    with self.assertRaisesRegex(ValueError,'PARENT_CONTRACT_BINDING'):c.bind_parent(bad,None,None,None,None,None,None,None,None)
+ def test_context_wrong_family_schema_typed_count_and_units(self):
+  proposals={'A':{},'B':{}};m={'units':[{'id':'A'},{'id':'B'}],'inputs':['18','20',2]}
+  ctx={'construction_trace':{'schema':'CONSTRUCTION_TRACE127_PAIR_V1','family':'FRONT_REAR','raw':{'W':'18','L':'20','n':2},'model_hash':digest(m),'proposals':proposals}}
+  c.bind_context(m,proposals,'20',ctx)
+  for key,value in(('family','LEFT_RIGHT'),('schema','UNKNOWN')):
+   bad=copy.deepcopy(ctx);bad['construction_trace'][key]=value
+   with self.assertRaisesRegex(ValueError,'PLANNED_TRACE_FAMILY'):c.bind_context(m,proposals,'20',bad)
+  bad=copy.deepcopy(ctx);bad['construction_trace']['raw']['n']=True
+  with self.assertRaisesRegex(ValueError,'PLANNED_UNIT_COUNT'):c.bind_context(m,proposals,'20',bad)
+  badm=copy.deepcopy(m);badm['units'][1]['id']='A'
+  with self.assertRaisesRegex(ValueError,'PLANNED_PAIR_UNITS'):c.bind_context(badm,proposals,'20',ctx)
+ def test_actual_source_standing_binding_for_existing_route(self):
+  from dining_module118 import build
+  module=build('3.1','3.5')
+  idmap={k:'dining_'+k for k in module['fixtures']}
+  seat=next(s for s in module['seating']['instances']if s['fixture_id']=='chair_east')
+  u={'fixtures':{idmap[k]:v for k,v in module['fixtures'].items()},'activities':{'dining_east':seat['rise_transfer']['standing_body']},
+   'public_program':{'destinations':{'guest_dining':{'activity_id':'dining_east','fixture_id':'dining_chair_east'}}},
+   'scenario_routes':{'guest_dining':[['0','0'],['1','0']]},
+   'dining_module_placement':{'module':module,'module_hash':digest(module),'transform':{'matrix':[[1,0],[0,1]],'translation':['0','0']},'id_map':idmap}}
+  self.assertEqual(len(c.actual_destination(u)),2)
+  for field in('activity','fixture','id'):
+   bad=copy.deepcopy(u)
+   if field=='activity':bad['activities']['dining_east']=['0','0','1','1']
+   elif field=='fixture':bad['fixtures']['dining_chair_east']=['0','0','1','1']
+   else:bad['public_program']['destinations']['guest_dining']['fixture_id']='dining_chair_west'
+   with self.assertRaises(ValueError):c.actual_destination(bad)
+ def test_solver_metadata_exact_types_and_nonfinite(self):
+  p={'solver_status':2,'solver_seconds':.02,'budget_seconds':30}
+  self.assertEqual(support.solver_observation(p),p)
+  for key,value in(('solver_status',True),('solver_seconds',float('nan')),('budget_seconds',False)):
+   bad=dict(p);bad[key]=value
+   with self.assertRaisesRegex(ValueError,'SOLVER_OBSERVATION_TYPE'):support.solver_observation(bad)
 if __name__=='__main__':unittest.main()

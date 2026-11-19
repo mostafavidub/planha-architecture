@@ -110,7 +110,7 @@ def child(folder,nonce):
   for k,v in (('raw',raw),('profile',profile),('core',core)):pin(k,v)
   out.update(raw_digest=digest(raw),profile_digest=digest(profile),core_digest=digest(core),source_digest=digest(snap),stage='PARENT_PROPOSAL',attempt_count=1);save()
   p=search114.propose(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES');check()
-  out['parent_producer_status']=proposal_disposition(p);save()
+  out['parent_producer_status']=proposal_disposition(p);out['parent_solver']=support.solver_observation(p);save()
   if out['parent_producer_status']!='PROPOSAL_ONLY':retain('parent_no_witness',p);out.update(state='BLOCKED_NO_PARENT_PROPOSAL',completed=True);return
   pp,pc,ps,pr=collect('parent',p,raw,profile,core)
   out['stage']='ACTUAL_PARENT_CAUSE';save()
@@ -135,7 +135,7 @@ def child(folder,nonce):
   operator_contract=candidate_contract(contract);pin('operator_contract',operator_contract)
   out['operator_adapter']=operator_contract['operator_adapter'];save()
   p=cause_directed_candidate108.propose(core,2,time_limit=30,variant=0,sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',parent_contract=operator_contract,enabled_causes=operator_contract['enabled_causes']);check()
-  out['child_producer_status']=proposal_disposition(p);save()
+  out['child_producer_status']=proposal_disposition(p);out['child_solver']=support.solver_observation(p);save()
   if out['child_producer_status']!='PROPOSAL_ONLY':retain('child_no_witness',p);out.update(state='BLOCKED_BOUNDED_CHILD_NO_WITNESS',completed=True);return
   cp,cc,cs,cr=collect('child',p,raw,profile,core)
   preservation=check_child(contract,cp,cs);retain('child_preservation',preservation)
