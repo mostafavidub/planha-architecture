@@ -59,7 +59,9 @@ def inventory(model,profile,catalog):
     'target_state':'PRESENT' if a in u['route_targets'] else 'MISSING_TARGET_BINDING'} for a in sorted(aids)]
   rows.append({'unit':uid,'design_persons':4,'fixture_ids':sorted(fids),'required_source_activity_ids':sorted(aids),
    'additional_activity_ids':sorted(set(u['activities'])-aids),'activity_coverage':activity_rows,'module_bindings':bindings,
-   'dining_module_hash':dp['module_hash'],'living_location_binding':'Original whole-construction replay; source dimensions independently compared',
+   'dining_module_hash':dp['module_hash'],'dining_transfer_profile_validated':[s['rise_transfer']['human_transfer_and_support_profile_validated'] for s in seats],
+   'operation_state_coverage':[{'category':category,'records':len([z for z in records if z.get('unit')==uid]),'state':'PRESENT_SOURCE_RECORDS_NOT_INDEPENDENT_FUNCTIONAL_APPROVAL'} for category,records in model['operations'].items() if type(records) is list],
+   'activity_phase_coverage':{'arrival':'Source route presence recorded; actual clearance retained in original physical report','use':'Fresh limited capacity audit; other module operations only original physical evidence','exit':'NOT_INDEPENDENTLY_EVALUATED','simultaneous_states':'SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE'},'living_location_binding':'Original whole-construction replay; source dimensions independently compared',
    'operations_coverage':'Original physical report retained separately; this inventory checker does not re-prove operation collisions or simultaneous state completeness'})
  return rows
 def assess(bundle):
