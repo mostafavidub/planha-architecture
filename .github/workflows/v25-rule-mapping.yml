@@ -1,0 +1,45 @@
+name: V25 rule mapping task 2.2
+on:
+  push:
+    paths:
+      - 'specs/V25_TASK_2_2_FRONT_REAR_RULE_EVIDENCE_MAP.json'
+      - '.github/workflows/v25-rule-mapping.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mapping:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Structural mapping check, not model evaluation
+        run: |
+          python -B - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          d=json.loads(Path('specs/V25_TASK_2_2_FRONT_REAR_RULE_EVIDENCE_MAP.json').read_text())
+          p=Path('app/reconstruction357/planha_general150_runtime_work/rule_contract118.json')
+          r=json.loads(p.read_text())
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==d['historical_source']['pinned_sha256']
+          rows=d['layers']['named']
+          assert len(rows)==len(r['requirements'])==38
+          assert {x['id'] for x in rows}=={x['id'] for x in r['requirements']}
+          assert len(d['registry_crosswalk'])==89
+          assert {x['id'] for x in d['registry_crosswalk']}=={x['id'] for x in r['registry']}
+          for x,y in zip(rows,r['requirements']):
+              assert x['id']==y['id'] and x['source_rule_ids']==y['source_rule_ids']
+              assert x['data_required'] and x['evidence_required'] and x['decision_effect']
+              assert x['current_result']=='NOT_RUN_TASK_2_2'
+          for x in d['layers']['current']:
+              assert x['current_result']=='UNKNOWN'
+              assert x['implementation_status']=='STATIC_UNKNOWN_PLACEHOLDER_WITH_PARTIAL_DIAGNOSTICS'
+          assert len(d['layers']['current'])==4
+          assert all(d['decision_contract'][k] is False for k in ('accepted','qualified','delivery_allowed','display_allowed','all_rules_approved'))
+          assert set(d['unmapped']['product_stage_requirements'])=={x['id'] for x in r['requirements'] if x['condition']=='product_stage'}
+          print('PASS STRUCTURE ONLY: 89 historical rows, 38 requirements, four static UNKNOWNs, product gaps and pinned source.')
+          print('No fresh model, checker, named adapter, or product assessment was run.')
+          PY
+          git diff --exit-code
