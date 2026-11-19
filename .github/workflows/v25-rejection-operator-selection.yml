@@ -49,18 +49,21 @@ jobs:
           keys=['request','runtime','child','scheduler','decision'];pins={k:digest(v) for k,v in zip(keys,values)}
           out=select(*values,pins)
           negatives=[]
-          for case in ('request','model','pending','current','ledger','authority'):
+          for case in ('request','model','pending','current','ledger','lineage','account','criteria_duplicate','authority'):
            v=copy.deepcopy(values)
            if case=='request':v[0]['body_hex']=b'{"W":18,"L":20,"n":2,"bedrooms":2}'.hex()
            elif case=='model':v[1]['model_digest']='0'*64
            elif case=='pending':v[1]['reports']['physical']['pending']=[]
            elif case=='current':v[4]['decision']['state']='PASS'
            elif case=='ledger':v[3]['attempts'][0]['receipt_verified']=False
+           elif case=='lineage':v[3]['attempts'][0]['attempt_id']='PROGRAM_2BED_V1:wrong'
+           elif case=='account':v[3]['attempts'][0]['budget_account_id']='wrong'
+           elif case=='criteria_duplicate':v[4]['criteria'][0]=copy.deepcopy(v[4]['criteria'][1])
            else:v[3]['accepted']=True
            try:select(*v,{k:digest(z) for k,z in zip(keys,v)})
            except (ValueError,KeyError):negatives.append(case)
-          assert len(negatives)==6
-          out['actual_artifact_negative_tests']={'count':6,'cases':negatives,'scope':'Detached evidence mutations, no model generation'}
+          assert len(negatives)==9
+          out['actual_artifact_negative_tests']={'count':9,'cases':negatives,'scope':'Detached evidence mutations, no model generation'}
           pathlib.Path('rejection-operator-selection.json').write_text(json.dumps(out,sort_keys=True,ensure_ascii=False,indent=2))
           print(json.dumps({k:v for k,v in out.items() if k not in ('full_physical_report','current_decision','protected')},sort_keys=True))
           assert out['integrity_verified'] is True
