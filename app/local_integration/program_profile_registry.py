@@ -83,7 +83,10 @@ def audit_sources():
         assert size(twin['unit']['fixtures'][k])==[F('1.9'),F('.9')]
         assert twin['unit']['fixture_metadata'][k]['design_person_places']==1
     assert set(double['unit']['activities'])=={'bed1.bed_front','bed1.bed_back','bed1.closet_front','bed1.changing'}
-    assert len(twin['unit']['activities'])==6
+    assert set(twin['unit']['activities'])=={'bed1.closet_front','bed1.changing','bed1.bedA_front','bed1.bedA_back','bed1.bedB_front','bed1.bedB_back'}
+    assert set(dining['fixtures'])=={'table','chair_west','chair_east','chair_front','chair_back'}
+    assert {s['id'] for s in dining['seating']['instances']}=={'seat_west','seat_east','seat_front','seat_back'}
+    assert len({s['fixture_id'] for s in dining['seating']['instances']})==4
     assert size(dining['fixtures']['table'])==[F('.8'),F('1.2')]
     assert dining['seating']['requested_places']==4 and len(dining['seating']['instances'])==4
     for seat in dining['seating']['instances']:
