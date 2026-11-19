@@ -1,0 +1,56 @@
+name: V25 current MVP unit domain correction
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-unit-domain-correction.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Current contract and actual HTTP negatives, no solver
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_public_wln_contract test_public_wln_server test_live_program_scheduler
+      - name: Current JS input handler with fake DOM, not browser
+        run: node app/local_integration/test_public_wln_domain_v2.js
+      - name: Versioned rule readback
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import json,pathlib,hashlib
+          from public_wln_contract import parse_public,SCHEMA
+          from live_program_scheduler import preflight
+          from dimension_contract import InputError
+          cases=[]
+          for n in [1,2,3,4]:
+           b=json.dumps({'W':'18','L':'20','n':n}).encode()
+           try:
+            p=preflight(b);cases.append({'n':n,'state':p['state'],'execution_ready':p['execution_ready'],'schema':p['public_envelope']['schema']})
+           except InputError as e:cases.append({'n':n,'code':e.code,'status':e.status,'field':e.field})
+          assert cases[0]['state']=='UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT' and cases[1]['execution_ready'] is True
+          assert all(x['code']=='INVALID_BRIEF' and x['status']==422 for x in cases[2:])
+          html=pathlib.Path('app/local_integration/public_wln.html').read_text();assert 'min="1" max="2" step="1"' in html
+          spec=json.loads(pathlib.Path('specs/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2.json').read_text())
+          assert spec['rules']['valid_unit_counts']==[1,2] and spec['rules']['max_qualified_options']==6 and spec['rules']['minimum_forced_output_count'] is None
+          out={'schema':SCHEMA,'cases':cases,'solver_executed':False,'new_browser_journey_executed':False,'rule_spec':spec,'source_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in map(pathlib.Path,['app/local_integration/public_wln_contract.py','app/local_integration/public_wln.html','app/local_integration/public_wln.js'])},'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
+          pathlib.Path('unit-domain-correction.json').write_text(json.dumps(out,sort_keys=True,indent=2));print(json.dumps(out,sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-unit-domain-correction-v2
+          path: unit-domain-correction.json
+          retention-days: 30

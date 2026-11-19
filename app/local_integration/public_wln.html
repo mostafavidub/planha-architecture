@@ -8,8 +8,8 @@
 <form id="plan-form"><div class="fields">
 <label>عرض زمین (متر)<input name="W" id="W" inputmode="decimal" type="text" required value="18" aria-describedby="range"></label>
 <label>طول زمین (متر)<input name="L" id="L" inputmode="decimal" type="text" required value="20" aria-describedby="range"></label>
-<label>تعداد واحد<input name="n" id="n" inputmode="numeric" type="number" min="1" step="1" required value="2"></label>
-</div><p class="note" id="range">بازهٔ هر ضلع: ۵ تا ۲۵ متر. فقط حالت ۱۸×۲۰ متر و ۲ واحد فعلاً به اجرای محدود متصل است؛ ورودی معتبر دیگر به‌معنای آمادگی تولید نیست.</p>
+<label>تعداد واحد<input name="n" id="n" inputmode="numeric" type="number" min="1" max="2" step="1" required value="2"></label>
+</div><p class="note" id="range">بازهٔ هر ضلع: ۵ تا ۲۵ متر. تعداد واحد مجاز در MVP فقط ۱ یا ۲ است. فقط حالت ۱۸×۲۰ متر و ۲ واحد فعلاً به اجرای محدود متصل است؛ ورودی معتبر دیگر به‌معنای آمادگی تولید نیست.</p>
 <button id="submit" type="submit">اجرای بررسی محدود</button><p class="note">ممکن است تا ۳ دقیقه طول بکشد. بستن صفحه اجرای شروع‌شدهٔ سرور را متوقف نمی‌کند. تلاش دوباره خودکار نیست.</p></form>
 <section id="result" role="status" aria-live="polite">هنوز بررسی انجام نشده است. این نسخه محصول منتشرشده نیست.</section>
 <p class="note">طرح ردشده یا دارای معیار نامعلوم نمایش یا دانلود نمی‌شود. این ابزار جایگزین تأیید معماری و فنی نیست.</p>

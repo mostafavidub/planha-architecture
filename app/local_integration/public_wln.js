@@ -6,7 +6,7 @@
  form.addEventListener("submit",async function(event){
   event.preventDefault();if(busy)return;
   const n=Number(form.elements.n.value);
-  if(!Number.isSafeInteger(n)||n<1){show("تعداد واحد باید عدد صحیح مثبت باشد.","error");return;}
+  if(!Number.isSafeInteger(n)||(n!==1&&n!==2)){show("تعداد واحد مجاز فقط ۱ یا ۲ است.","error");return;}
   const body={W:form.elements.W.value,L:form.elements.L.value,n:n};
   busy=true;button.disabled=true;Array.from(form.elements).forEach(x=>x.disabled=true);
   show("بررسی محدود در حال اجراست. هنوز هیچ طرحی تأیید نشده است.","running");

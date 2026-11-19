@@ -24,6 +24,13 @@ class HTTP(unittest.TestCase):
  def test_valid_unsupported_no_worker(self):
   with patch('public_wln_server.run_live',side_effect=AssertionError('must not run')) as p:
    status,raw=self.request(b'{"W":20,"L":20,"n":2}');self.assertEqual(status,409);self.assertTrue(json.loads(raw)['input_valid']);p.assert_not_called()
+ def test_n3_n4_invalid_brief_no_dispatch(self):
+  with patch('public_wln_server.run_live',side_effect=AssertionError('must not run')) as p:
+   for n in (3,4,'3','4'):
+    status,raw=self.request(json.dumps({'W':'18','L':'20','n':n}).encode())
+    out=json.loads(raw);self.assertEqual(status,422);self.assertEqual(out['code'],'INVALID_BRIEF');self.assertEqual(out['field'],'n')
+    for key in S.AUTH:self.assertIs(out[key],False)
+   p.assert_not_called()
  def test_unit_one_unsupported(self):self.assertEqual(self.request(b'{"W":18,"L":20,"n":1}')[0],409)
  def test_foreign_origin(self):self.assertEqual(self.request(b'{}',headers={'Origin':'https://evil.invalid'})[0],403)
  def test_foreign_host(self):self.assertEqual(self.request(b'{}',headers={'Host':'evil.invalid'})[0],403)

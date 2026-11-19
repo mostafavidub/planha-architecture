@@ -45,12 +45,19 @@ class PublicWLNTests(unittest.TestCase):
         for v in (0,-1,'0','-1','1.5','01',' 2'):
             self.reject(body(n=v),status=422)
     def test_valid_unsupported_unit_count(self):
-        for n in (1,3,'4'):
+        for n in (1,'1'):
             e=parse_public(body(n=n))
             self.assertEqual(e['canonical_request']['unit_count'],int(n))
             self.assertEqual(e['capability_status'],'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT')
             with self.assertRaises(InputError) as ex:engine_raw(e)
             self.assertEqual((ex.exception.status,ex.exception.code),(409,'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT'))
+    def test_mvp_unit_domain(self):
+        for n in (3,4,'3','4','۳','٤',100):
+            self.reject(body(n=n),'INVALID_BRIEF',422)
+        self.assertEqual(parse_public(body())['schema'],'V25_PUBLIC_WLN_CONTRACT_V2')
+    def test_v1_envelope_not_silently_relabelled(self):
+        e=parse_public(body());e['schema']='V25_PUBLIC_WLN_CONTRACT_V1'
+        with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):engine_raw(e)
     def test_nonfinite_and_decimal_token_policy(self):
         for tok in ('NaN','Infinity','-Infinity'):
             self.reject(('{"W":'+tok+',"L":20,"n":2}').encode(),'NONFINITE_NUMBER',422)

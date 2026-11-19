@@ -4,7 +4,9 @@ from decimal import Decimal, localcontext
 from dimension_contract import (InputError, MAX_BODY, JsonDecimal, _pairs,
     _nonfinite, _integer, _bounded_tree, _number, digest)
 
-SCHEMA = 'V25_PUBLIC_WLN_CONTRACT_V1'
+SCHEMA = 'V25_PUBLIC_WLN_CONTRACT_V2'
+DOMAIN_POLICY_VERSION = 'MVP_UNIT_DOMAIN_PRD_V2'
+VALID_UNIT_COUNTS = (1, 2)
 def parse_public(body):
     if type(body) is not bytes: raise InputError('BODY_BYTES_REQUIRED')
     if len(body)>MAX_BODY: raise InputError('UNSUPPORTED_BODY_LIMIT',status=409)
@@ -20,6 +22,7 @@ def parse_public(body):
     if {'W','L','n'}-set(raw): raise InputError('FIELD_REQUIRED',sorted({'W','L','n'}-set(raw))[0])
     dimensions={a:_number(raw[a],a) for a in ('W','L')}
     n=_number(raw['n'],'n',count=True)
+    if n not in VALID_UNIT_COUNTS: raise InputError('INVALID_BRIEF','n',422)
     canonical={'dimensions_m':dimensions,'unit_count':n}
     return {'schema':SCHEMA,'received_input':copy.deepcopy(raw),
         'transport_body_sha256':hashlib.sha256(body).hexdigest(),

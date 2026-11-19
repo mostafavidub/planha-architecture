@@ -1,0 +1,64 @@
+{
+  "schema": "POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2",
+  "start_utc": "2026-11-19T06:46:34Z",
+  "deadline_utc": "2026-11-19T09:46:34Z",
+  "source": {
+    "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+    "tab": "t.0",
+    "unit_count_rule": "FR-UNIT-COUNT/AC-UNIT-COUNT",
+    "unit_count_indices": [
+      129744,
+      130181
+    ],
+    "options_indices": [
+      133051,
+      133647
+    ],
+    "verification": "Live readback by coordinating parent; explicit correction assigned."
+  },
+  "rules": {
+    "public_fields": [
+      "W",
+      "L",
+      "n"
+    ],
+    "dimensions_m_inclusive": [
+      5,
+      25
+    ],
+    "valid_unit_counts": [
+      1,
+      2
+    ],
+    "n1": "VALID_INPUT_UNSUPPORTED_CURRENT_ENGINE",
+    "n2": "VALID_INPUT_SELECTED18x20CASE_READY_ONLY",
+    "n3_n4": "INVALID_BRIEF_HTTP422_BEFORE_DISPATCH",
+    "max_qualified_options": 6,
+    "minimum_forced_output_count": null,
+    "quality_gates_never_relaxed_to_fill_options": true
+  },
+  "versioning": {
+    "active_envelope_schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+    "replaced_schema": "V25_PUBLIC_WLN_CONTRACT_V1",
+    "previous_n3_classification": "Incorrect valid-but-unsupported relative to current PRD; historical test expectations/results are preserved as historical, not silently corrected.",
+    "preserved_history": [
+      "specs/V25_TASK_5_1_WLN_MATRIX_PREREGISTRATION.json",
+      "manifests/V25_TASK_5_1_PREREGISTRATION_EVIDENCE.json",
+      "manifests/V25_TASK_5_2_HTTP_MATRIX_EVIDENCE.json",
+      "manifests/V25_TASK_5_5_QUALIFIED_COUNTS.json"
+    ],
+    "source_compatibility": "Old source snapshots and envelope digests do not authorize currentV2 execution; reproduce historic evidence at exact commit. No blind source-pin regeneration, no transferred old browser/current-source compatibility.",
+    "wire_change": "V2 schema changes valid envelope digest too; old envelope rejected explicitly. Geometry rules5..25 and3fields unchanged."
+  },
+  "scope": "Explicit new defect correction aftercompleted1.1, not restart of stopped1.3/1.4. No solver, no generation-domain expansion, no historical frozen engine change.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "workflow_trigger_audit": {
+    "files_inspected": 82,
+    "expensive_UI": "v25-public-wln-ui.yml changed to manual-only exact d2b063dcce0f5071ea359f4b402850df8e8ef6ca historical reproduction; no currentV2 browser claim.",
+    "unchanged": "Current public-contract guard/regression and broad bounded input/mechanics checks remain enabled; no historical expectation pins rewritten.",
+    "current_validation": "Targeted current contract/preflight/real HTTP negatives and fake-DOM JS handler; no solver/browser installation."
+  }
+}
