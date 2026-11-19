@@ -1,0 +1,59 @@
+{
+  "schema": "V25_PUBLIC_FORM_D07_GAP_V1",
+  "status": "OPEN_NOT_PUBLIC_PRODUCT_COMPLIANT",
+  "tasks": [
+    "V25-06",
+    "V25-20"
+  ],
+  "source": {
+    "kind": "independent_read_only_review",
+    "user_message": "Sentinel_0a2c04b89c08819187d06884e82811cc",
+    "user_timestamp_utc": "2026-11-11T12:57:00Z",
+    "user_text": "برای فاز MVP فقط روی تعداد واحد و ابعاد کار کنیم",
+    "prd_document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+    "tab": "t.0",
+    "sections": [
+      {
+        "name": "D07",
+        "start": 41519,
+        "end": 41881
+      },
+      {
+        "name": "form scope",
+        "start": 46958,
+        "end": 47378
+      },
+      {
+        "name": "FR-INPUT",
+        "start": 116435,
+        "end": 116669
+      }
+    ]
+  },
+  "required_public_input": [
+    "W",
+    "L",
+    "n"
+  ],
+  "observed_diagnostic_extra_inputs": [
+    "bedrooms_per_unit",
+    "requested_count"
+  ],
+  "observed_runtime": {
+    "host": "127.0.0.1",
+    "mode": "EXPERIMENTAL_PARAMETRIC",
+    "public_deployment_verified": false
+  },
+  "next_actions": [
+    "Separate diagnostic controls from public product form",
+    "Implement source-bound automatic programme selection with capacity rationale and inventory verification",
+    "Test public contract has only W/L/n; do not replace explicit dropdown with hidden fixed/default/fallback programme"
+  ],
+  "limits": [
+    "Existing Chromium tests validate diagnostic UI behavior only",
+    "No public product acceptance, automatic programme completion or architectural qualification",
+    "No V25-22 restart authorized by this record"
+  ],
+  "accepted": false,
+  "delivery_allowed": false
+}
