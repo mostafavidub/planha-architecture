@@ -1,0 +1,118 @@
+{
+  "schema": "R4_ONE_BED_PROPOSAL_SOURCE_CONTRACT_DRAFT_V1",
+  "task": "R4-2.05",
+  "deadline": "2026-11-19T10:52:35Z",
+  "status": "DRAFT_STRUCTURE_ONLY_NOT_RUN",
+  "base_commit": "593e0d3484d5bc6ec6d6d95f41934e0341ecb140",
+  "source_files": [
+    {
+      "path": "app/local_integration/program_profile_registry.py",
+      "blob_sha": "af549f86f39e2e57554cd48e0ffdea54d5444262"
+    },
+    {
+      "path": "app/local_integration/left_right_two_source_binding.py",
+      "blob_sha": "9b4c6fa08ba53051cb4f7ffda683d7561a509514"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/search114.py",
+      "blob_sha": "65e0f278c9f9ef480388d3ea8056161c0a938a36"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/assemble114.py",
+      "blob_sha": "6e19b12c62820e015055765e0fe56d6339cd4312"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/bedroom_module116.py",
+      "blob_sha": "289b23f25bafaa05281015b521affad5ab5a415d"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/public_witness118.py",
+      "blob_sha": "36f49057da712f29953bbc940a0dd8e9285ee64b"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/program_capacity_audit118.py",
+      "blob_sha": "50c394512b6a34c8d7b99af932fecbb1508bd1b4"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/dining_module118.py",
+      "blob_sha": "313b9673e8efcb48e9fa61d0ca24b6b33507310f"
+    }
+  ],
+  "source_derivation": {
+    "proposal_fields": "search114 output360–375, nonorderedmacro and nofixedwitness capture; oldtwo-bedPROPOSAL_KEYS structurally matches but its admission restrictions are not reused",
+    "rectangle_roles": "search11419–27:oneprivatebed1,bathservice,kitchen/diningopenroom,fourfurniture-use,entryapron",
+    "terminal_roles": "search114169–218 and372:bed1,bath,kitchen,fourliving,fourdiningseat terminalnames fromdining118 seat IDs;11total,each5points",
+    "door_sides": "search114373 includes actualprivatebed1 side left/right;no inventeddefault"
+  },
+  "approved_program_reference": {
+    "profile": "PROGRAM_1BED_V1",
+    "bedrooms_per_unit": 1,
+    "design_people_per_unit": 2,
+    "sleep_roles": [
+      "double"
+    ],
+    "unit_count": 2,
+    "unit_count_not_bedroom_count": true
+  },
+  "source_instance_facts": {
+    "sleep": {
+      "fixtures": [
+        "bed1.bed",
+        "bed1.closet"
+      ],
+      "activities": [
+        "bed1.bed_front",
+        "bed1.bed_back",
+        "bed1.closet_front",
+        "bed1.changing"
+      ],
+      "bed_size_m": [
+        "2",
+        "1.6"
+      ],
+      "sleep_design_places": 2
+    },
+    "dining": {
+      "fixtures": [
+        "table",
+        "chair_west",
+        "chair_east",
+        "chair_front",
+        "chair_back"
+      ],
+      "placed_fixture_mapping": "table→dining_table;others→dining_+sourcekey",
+      "standing_activities": [
+        "dining_west",
+        "dining_east",
+        "dining_front",
+        "dining_back"
+      ],
+      "aliases": {
+        "dining_left": "dining_west",
+        "dining_right": "dining_east"
+      },
+      "transfer_profile_validated": false
+    },
+    "living": {
+      "fixtures": [
+        "sofa1",
+        "sofa2",
+        "armchair1",
+        "armchair2"
+      ],
+      "one_body_studies_per_fixture": 1,
+      "additional_places_do_not_change_sleep_capacity": true
+    },
+    "instance_geometry_validated_by_this_draft": false,
+    "bath_kitchen_inventory_enumeration": "Not added here; requires actualmodule builders/placement andfreshsame-model audit"
+  },
+  "scope": "Exact JSON proposal field/type/role and terminal-reference shape only; supplied synthetic overlap can passshape but neverphysical/origin/quality. Runtime sourcepins not verified byhelper. No sourcebuiltonebedproposal captured.",
+  "tests_prepared": 14,
+  "tests_executed": 0,
+  "existing_two_bed_path_changed": false,
+  "hidden_four_helpers_changed": false,
+  "runtime_readiness": false,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
