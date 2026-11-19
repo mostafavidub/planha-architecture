@@ -1,0 +1,50 @@
+name: R4 paired codec environment
+on:
+  push:
+    paths:
+      - '.github/workflows/r4-codec-environment402.yml'
+      - 'studies/r4/codec_environment402.py'
+      - 'studies/r4/test_codec_environment402.py'
+      - 'studies/r4/codec_environment402.lock.json'
+      - 'studies/r4/codec_environment402.requirements.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  environment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11.18'
+      - name: Observe exact wheels from official PyPI, not a reproducibility PASS
+        run: |
+          export WHEEL_DIR=$(mktemp -d)
+          python -m pip download --index-url https://pypi.org/simple --only-binary=:all: --no-deps --dest "$WHEEL_DIR" ezdxf==1.4.3 numpy==2.4.6 fonttools==4.68.0 pyparsing==3.3.3 typing_extensions==4.16.0
+          python - <<'PY'
+          import pathlib,hashlib,json,zipfile,email,urllib.request,sys,platform,sysconfig,os
+          rows=[]
+          for p in sorted(pathlib.Path(os.environ['WHEEL_DIR']).glob('*.whl')):
+              with zipfile.ZipFile(p) as z:
+                  names=[n for n in z.namelist() if n.endswith('.dist-info/METADATA')]
+                  assert len(names)==1
+                  m=email.message_from_bytes(z.read(names[0]))
+              name,version=m['Name'],m['Version']
+              with urllib.request.urlopen('https://pypi.org/pypi/'+name+'/'+version+'/json',timeout=30) as r:
+                  official=json.load(r)
+              files=[x for x in official['urls'] if x['filename']==p.name]
+              assert len(files)==1 and files[0]['packagetype']=='bdist_wheel'
+              h=hashlib.sha256(p.read_bytes()).hexdigest()
+              assert files[0]['digests']['sha256']==h
+              rows.append({'name':name,'version':version,'filename':p.name,'sha256':h,'requires_dist':m.get_all('Requires-Dist',[])})
+          expected={'ezdxf':'1.4.3','numpy':'2.4.6','fonttools':'4.68.0','pyparsing':'3.3.3','typing_extensions':'4.16.0'}
+          assert len(rows)==5 and {x['name'].lower().replace('-','_'):x['version'] for x in rows}==expected
+          print(json.dumps({'state':'OFFICIAL_WHEEL_HASH_OBSERVATION_ONLY','python':platform.python_version(),'implementation':platform.python_implementation(),'machine':platform.machine(),'platform':sys.platform,'soabi':sysconfig.get_config_var('SOABI'),'packages':rows},sort_keys=True))
+          PY
+      - run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"

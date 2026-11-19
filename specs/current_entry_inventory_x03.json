@@ -925,6 +925,10 @@
     ".github/workflows/r4-paired-codec308.yml": {
       "blob": "cdb0d7580f3f4380e3c828d1d8ef3806ae568b16",
       "classification": "SYNTHETIC_PAIRED_CODEC_STUDY_NO_SOLVER_NO_UPLOAD"
+    },
+    ".github/workflows/r4-codec-environment402.yml": {
+      "blob": "80cdee797454fe96afbf69cad2b43d76481e9e84",
+      "classification": "OFFICIAL_PYPI_CODEC_ENVIRONMENT_STUDY_NO_SOLVER_NO_UPLOAD"
     }
   },
   "top_level_paths": [
@@ -1194,7 +1198,8 @@
     "app/local_integration/validation_server.py",
     ".github/workflows/r4-dxf-codec307.yml",
     ".github/workflows/r4-preview-codec306.yml",
-    ".github/workflows/r4-paired-codec308.yml"
+    ".github/workflows/r4-paired-codec308.yml",
+    ".github/workflows/r4-codec-environment402.yml"
   ],
   "inventory_self_paths": [],
   "python_names": [
