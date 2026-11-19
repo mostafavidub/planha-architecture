@@ -31,7 +31,9 @@ def assess(bundle):
   regions=[];source_ids=[]
   for p in m['module_placements']:
    ensure(digest(p['module'])==p['module_hash'],'MODULE_HASH')
-   module=p['module'];source_ids += [p['id_map'][k] for k in module['walls']]
+   module=p['module']
+   for localwall in module['walls'].values():placed(localwall,p['transform']) # exact typed signed-permutation check
+   source_ids += [p['id_map'][k] for k in module['walls']]
    u=next(u for u in m['units'] if u['id']==p['unit_id'])
    role=p['room_id'];local_role='bed1' if role.startswith('bed') else role
    ensure(local_role in module['unit']['rooms'],'SOURCE_ROOM_ROLE')
@@ -48,6 +50,14 @@ def assess(bundle):
       wid=p['id_map'][key];ensure(list(rect(u['fixtures'][wid]))==placed(q,p['transform']),'BED_TARGET_BINDING')
       targets.append({'id':wid,'rect':u['fixtures'][wid]})
    regions.append({'role':qualified,'floor':actual,'apertures':aps,'targets':targets,'module_hash':p['module_hash']})
+   for key,lr in module.get('logical_regions',{}).items():
+    if 'parts' not in lr:continue
+    qualified=p['id_map'][key];world=[list(map(str,placed(q,p['transform']))) for q in lr['parts']]
+    actual=m['logical_regions'][qualified]['parts']
+    ensure(not cells(world,actual) and not cells(actual,world),'SOURCE_LOGICAL_REGION_BINDING')
+    edges=boundary(list(map(rect,actual)))
+    aps=[o for o in m['openings'] if qualified in o.get('connects',[]) and any(crosses(rect(o['rect']),e) for e in edges)]
+    regions.append({'role':qualified,'floor':actual,'apertures':aps,'targets':[],'module_hash':p['module_hash']})
   ensure(len(source_ids)==len(set(source_ids)),'CROSS_MODULE_WALL_ALIAS')
   before=list(m['walls'].values());oldunion=list(map(rect,cells(before,[])))
   fixed=[(u['id'],name,path) for u in m['units'] for name,path in u.get('routes',{}).items() if path]
