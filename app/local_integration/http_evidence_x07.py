@@ -78,6 +78,7 @@ def consume(body,raw,before_nonces,source_before):
  try:
   need(guard()==source_before,'X07_SOURCE_CHANGED')
   rawpin=digest(raw);need(type(body)is bytes,'X07_BODY_BYTES')
+  need(raw.get('schema')=='AUTOMATIC_PROGRAM_LIVE_SINGLE_CASE_V1' and raw.get('state')=='LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED','X07_SCHEDULER_SCHEMA_STATE')
   need(raw.get('source_integrity_verified')is True and all(raw.get(k)is False for k in AUTH),'X07_RAW_AUTHORITY_SOURCE')
   rows=raw['attempts'];need(type(rows)is list and len(rows)==1,'X07_ONE_ATTEMPT')
   row=rows[0];nonce=row.get('nonce')
@@ -106,7 +107,9 @@ def consume(body,raw,before_nonces,source_before):
   need(digest(raw['preflight'])==digest(pf) and request['preflight_digest']==digest(pf),'X07_PREFLIGHT_BINDING')
   need(digest(request['budget'])==digest(raw['budget']) and digest(live.budgets(request['budget']))==digest(request['budget']),'X07_BUDGET_BINDING')
   live.bind_completed(child,request,bundle,decision)
-  need(child['state']==COMPLETE and child['nonce']==nonce,'X07_CHILD_COMPLETE')
+  need(child.get('schema')=='LIVE_SCHEDULER_CHILD_V1' and child['state']==COMPLETE and child['nonce']==nonce,'X07_CHILD_COMPLETE')
+  expected_fresh=row['receipt_verified'] is True and bundle.get('construction_returned') is True and bundle.get('model_binding_verified') is True
+  need(raw.get('fresh_model_executed') is expected_fresh,'X07_CONSTRUCTION_SUMMARY')
   for key in ('model_digest','runtime_digest','decision_digest'):
    need(type(row.get(key))is str and row[key]==child[key],'X07_ATTEMPT_BINDING')
   need(row.get('budget_account_id')==nonce and row.get('attempt_id')=='PROGRAM_2BED_V1:'+nonce,'X07_ACCOUNT_BINDING')

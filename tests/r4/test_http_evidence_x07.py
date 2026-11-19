@@ -81,6 +81,12 @@ class HTTP(unittest.TestCase):
    d['child-complete.json']['runtime_digest']=x.digest(d['runtime-bundle.json'])
    raw['attempts'][0]['runtime_digest']=d['child-complete.json']['runtime_digest'];d['scheduler.json']=copy.deepcopy(raw)
   self.assertEqual(self.http_case(change)[0],500)
+ def test_rehashed_construction_summary(self):
+  def change(raw,d):raw['fresh_model_executed']=False;d['scheduler.json']=copy.deepcopy(raw)
+  self.assertEqual(self.http_case(change)[0],500)
+ def test_rehashed_unknown_scheduler_state(self):
+  def change(raw,d):raw['state']='MADE_UP';d['scheduler.json']=copy.deepcopy(raw)
+  self.assertEqual(self.http_case(change)[0],500)
  def test_source_snapshot_mismatch(self):
   def change(raw,d):
    key='CONTINUOUS_USEFUL_LIVING';r=d[key+'.json'];r['source_snapshot'][next(iter(r['source_snapshot']))]='0'*64
@@ -131,12 +137,13 @@ class HTTP(unittest.TestCase):
   finally:dec.assemble=original
  def test_consumer_late_result_withheld_and_lock_held(self):
   import http_withholding_x04 as boundary
-  release=threading.Event();entered=threading.Event();real=x.read_file
+  release=threading.Event();entered=threading.Event();real=x.read_file;reads={}
   def slow(path):
-   if path.name=='request.json':entered.set();release.wait(4)
+   reads[path.name]=reads.get(path.name,0)+1
+   if path.name=='request.json' and reads[path.name]==2:entered.set();release.wait(4)
    return real(path)
   try:
-   with patch.object(server,'run_live',side_effect=lambda b:self.make(b)),patch.object(x,'read_file',side_effect=slow),patch.object(boundary,'LIMIT_SECONDS',.15):
+   with patch.object(server,'run_live',side_effect=lambda b:self.make(b)),patch.object(x,'read_file',side_effect=slow),patch.object(boundary,'LIMIT_SECONDS',.5):
     status,out=self.request();self.assertEqual(status,504);self.assertTrue(entered.is_set())
     self.assertTrue(server.LOCK.locked());self.assertNotIn('decision',out)
     release.set()
