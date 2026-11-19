@@ -1,0 +1,354 @@
+{
+  "schema": "R4_CURRENT_TARGET_COVERAGE_SOURCE_INSPECTION_V1",
+  "task": "R4-2.01",
+  "status": "SOURCE_INSPECTION_NOT_EXECUTED",
+  "start_utc": "2026-11-19T07:25:38Z",
+  "deadline_utc": "2026-11-19T10:25:38Z",
+  "source_commit": "1a70ef20b39fb6764fc2113f8f96569e13da7478",
+  "source_files": [
+    {
+      "path": "app/local_integration/public_wln_contract.py",
+      "blob": "b9b7fac4c41de72424f9cfb235c5086b233fe485"
+    },
+    {
+      "path": "app/local_integration/live_program_scheduler.py",
+      "blob": "1b671b6632d01c1012fcb39b2c33e731fb619fbc"
+    },
+    {
+      "path": "app/local_integration/program_profile_registry.py",
+      "blob": "af549f86f39e2e57554cd48e0ffdea54d5444262"
+    },
+    {
+      "path": "app/local_integration/same_version_front_rear_contract.py",
+      "blob": "0c182a3e26ba48ef6a42df2bf40c2a2ab67c055c"
+    },
+    {
+      "path": "app/local_integration/front_rear_runtime_adapter.py",
+      "blob": "92ce916b71bb05f0087e2527a51dd8de4d40a676"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/constructor127.py",
+      "blob": "beb67bf4b08a65242305519a678eef94fef3fad6"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/contract114.py",
+      "blob": "a2631c6a38a43b8d423edf82ad8d526ced1b8196"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/frame_contract125.py",
+      "blob": "de9d4b2daa8024e1feac526649dafb6ac301706a"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/search114.py",
+      "blob": "65e0f278c9f9ef480388d3ea8056161c0a938a36"
+    }
+  ],
+  "dependency_status": {
+    "R4-1.02": "V3_DRAFT_NOT_RUN_MAIN_V2",
+    "R4-1.03": "SOURCE_LEDGER_PREPARED_BASELINE_UNBOUND"
+  },
+  "scope": "Literal source inspection only. Expected preflight outcomes are not test observations. Existing historical V1 generation evidence not reattributed to currentV2/V3.",
+  "public_domain": {
+    "fields": [
+      "W",
+      "L",
+      "n"
+    ],
+    "dimensions_each": {
+      "minimum": 5,
+      "maximum": 25,
+      "inclusive": true
+    },
+    "unit_counts": [
+      1,
+      2
+    ],
+    "current_schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+    "wire_limits": "Exact decimal strings for W/L; raw JSON decimal tokens currently unsupported. n integer-token syntax; no rounding.",
+    "known_defect": "V2 unit error subcategories differ from currentPRD; targeted V3 draft is untested, not active."
+  },
+  "families": [
+    {
+      "id": "FRONT_REAR",
+      "source_exists": true,
+      "constructor": "constructor127.frame/build",
+      "core": "contract114.core_first / COMPACT_CONNECTED_CENTRAL_CORE118",
+      "split": "Central band with exact outside-band unit ownership wings",
+      "source_unit_counts": [
+        2
+      ],
+      "active_public_case": {
+        "W": "18",
+        "L": "20",
+        "n": 2
+      },
+      "active_program": "PROGRAM_2BED_V1",
+      "proposal": {
+        "topology": "SIDE_ROOTED_SERVICES",
+        "sleep_roles": [
+          "double",
+          "twin"
+        ],
+        "ordered_macro": false,
+        "organization_profile": "UNRESTRICTED",
+        "variant": 0
+      },
+      "same_version_chain": [
+        "constructor127",
+        "construction_replay127",
+        "evaluate_pair127",
+        "functional_review",
+        "four current independent reports"
+      ],
+      "readiness": "SELECTED_SINGLE_CASE_CODE_ROUTE_ONLY",
+      "current_runtime_verified": false,
+      "production_supported": false,
+      "limits": [
+        "Preflight strictly only18x20/n2; not range generation",
+        "Core fit failure belongs to selected topology, not global infeasibility",
+        "No automatic different core/split/program search proven",
+        "Current version runtime remains untested after public contract change"
+      ]
+    },
+    {
+      "id": "LEFT_RIGHT",
+      "source_exists": true,
+      "constructor": "constructor127.frame/build",
+      "core": "frame_contract125.local_core(common_core125.build)",
+      "split": "Distinct physical left/right common core; local solver W/L swapped with world_from_local XY isometry",
+      "source_unit_counts": [
+        2
+      ],
+      "active_public_case": null,
+      "active_program": null,
+      "readiness": "SOURCE_GRAMMAR_ONLY_NOT_CONNECTED_TO_PUBLIC_PREFLIGHT",
+      "production_supported": false,
+      "limits": [
+        "World transform requires exact geometry/metadata/source/evaluator compatibility",
+        "Historical family studies do not extend selected public contract",
+        "No source branch presence interpreted as current acceptance"
+      ]
+    },
+    {
+      "id": "SINGLE_UNIT",
+      "source_exists": false,
+      "source_presence_scope": "Selected constructor127 parse/frame rejects n!=2; not a whole-repository absence claim",
+      "source_unit_counts": [],
+      "active_public_case": null,
+      "readiness": "VALID_PUBLIC_INPUT_UNSUPPORTED_SELECTED_ENGINE",
+      "production_supported": false,
+      "required_task": "R4-2.04"
+    }
+  ],
+  "programmes": [
+    {
+      "id": "PROGRAM_1BED_V1",
+      "approval": "APPROVED_DESIGN_PROGRAM",
+      "sleep_roles": [
+        "double"
+      ],
+      "design_persons": 2,
+      "source_inventory": "Modules/assembly branch identified, not wholebundle adequacy",
+      "execution": "ONE_BED_ADAPTER_NOT_AUDITED",
+      "target_task": "R4-2.05",
+      "public_execution_supported": false
+    },
+    {
+      "id": "PROGRAM_2BED_V1",
+      "approval": "APPROVED_DESIGN_PROGRAM",
+      "sleep_roles": [
+        "double",
+        "twin"
+      ],
+      "design_persons": 4,
+      "source_inventory": "Modules identified; source sleeping/dining inventory not fullfunctionalprofile",
+      "execution": "EXPERIMENTAL_TWO_BED_ADAPTER_AVAILABLE_NOT_QUALIFIED",
+      "public_execution_supported": false
+    },
+    {
+      "id": "PROGRAM_3BED_V1",
+      "approval": "UNAPPROVED_CAPACITY_PROFILE",
+      "execution": "BLOCKED_UNAPPROVED_PROFILE",
+      "public_execution_supported": false
+    }
+  ],
+  "expected_preflight_cases": [
+    {
+      "id": "SELECTED",
+      "body": {
+        "W": "18",
+        "L": "20",
+        "n": 2
+      },
+      "expected": "READY_SCOPED_CONTRACT_ONLY",
+      "input_valid": true,
+      "execution_ready": true
+    },
+    {
+      "id": "N1_SELECTED_DIMENSIONS",
+      "body": {
+        "W": "18",
+        "L": "20",
+        "n": 1
+      },
+      "expected": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_0",
+      "body": {
+        "W": "5",
+        "L": "5",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_1",
+      "body": {
+        "W": "25",
+        "L": "25",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_2",
+      "body": {
+        "W": "5",
+        "L": "25",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_3",
+      "body": {
+        "W": "25",
+        "L": "5",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_4",
+      "body": {
+        "W": "20",
+        "L": "18",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_5",
+      "body": {
+        "W": "12.5",
+        "L": "20",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "VALID_OTHER_6",
+      "body": {
+        "W": "18",
+        "L": "18",
+        "n": 2
+      },
+      "expected": "UNSUPPORTED_SELECTED_SAME_VERSION_CASE",
+      "input_valid": true,
+      "execution_ready": false
+    },
+    {
+      "id": "INVALID_N3",
+      "body": {
+        "W": "18",
+        "L": "20",
+        "n": 3
+      },
+      "expected": "INVALID_BRIEF",
+      "input_valid": false,
+      "execution_ready": false
+    },
+    {
+      "id": "INVALID_N4",
+      "body": {
+        "W": "18",
+        "L": "20",
+        "n": 4
+      },
+      "expected": "INVALID_BRIEF",
+      "input_valid": false,
+      "execution_ready": false
+    }
+  ],
+  "historical_source_limit": {
+    "path": "contract114.py",
+    "source_domain": "5..45,n2",
+    "active_public_domain_overrides": true,
+    "untouched": true,
+    "claim": "Not all historical entrypoints have current domain. No direct frozen invocation is a supported public interface."
+  },
+  "target_matrix": [
+    {
+      "target": "Valid5..25variable dimensions,n2",
+      "state": "NOT_READY_BEYOND_SELECTED_CASE",
+      "requires": [
+        "R4-2.02",
+        "R4-2.03",
+        "R4-2.07",
+        "R4-2.08",
+        "R4-2.09"
+      ]
+    },
+    {
+      "target": "n1 family",
+      "state": "NOT_READY",
+      "requires": [
+        "R4-2.04",
+        "R4-2.09"
+      ]
+    },
+    {
+      "target": "automatic1/2bed selection",
+      "state": "NOT_READY",
+      "requires": [
+        "R4-2.05",
+        "R4-2.06"
+      ]
+    },
+    {
+      "target": "multiple qualified options",
+      "state": "NOT_READY",
+      "requires": [
+        "R4-2.10",
+        "R4-3.01",
+        "R4-3.04"
+      ]
+    }
+  ],
+  "no_fit_semantics": "NO_PROPOSAL_IN_THIS_PROGRAM/TOPOLOGY and SEARCH_TIMEOUT_NO_WITNESS are bounded local results, not global geometry infeasibility. Public validity alone promises no proposal.",
+  "tests": {
+    "prepared": "tests/r4/test_coverage_preflight.py",
+    "executed": false,
+    "solver_executed": false,
+    "model_generated": false
+  },
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
