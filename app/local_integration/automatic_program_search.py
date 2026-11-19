@@ -104,3 +104,9 @@ def run(body,*,test_adapter=None,clock=None,budget=None):
       'No live '+stage.lower()+' adapter in this framework; synthetic unit-test callbacks are not geometric attempts.') for stage in STAGES]
     out['transition_policy_status']='BOUNDED_POLICY_RECORDED_NOT_EXHAUSTIVENESS_REQUIREMENT'
     return out
+
+
+def run_live(body,*,budget=None):
+    """Explicit non-synthetic single-case runtime path; existing test API stays separate."""
+    from live_program_scheduler import run_live as execute
+    return execute(body,budget=budget)
