@@ -1,0 +1,35 @@
+{
+  "schema": "R4_1_02_DRAFT_CHECKPOINT_V1",
+  "task": "R4-1.02",
+  "status": "DRAFT_REVIEWED_NOT_RUN",
+  "start_utc": "2026-11-19T07:13:13Z",
+  "deadline_utc": "2026-11-19T10:13:13Z",
+  "draft_commit": "e89309233418a90932837011a528fe311e3878c3",
+  "source": {
+    "document": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+    "tab": "t.0",
+    "range": [
+      129744,
+      130181
+    ],
+    "readback": true
+  },
+  "actual_findings": [
+    "Current V2 enforces n1/2 but error classification differs from current PRD: blank n EXACT_DECIMAL_REQUIRED, fractional string POSITIVE_INTEGER_REQUIRED, fractional JSON numeric generic409.",
+    "Draft V3 provides INPUT_REQUIRED for missing/null/blank and INVALID_BRIEF for ordinary invalid n. Only top-level n JsonDecimal is semantically rejected; W/L generic decimal policy unchanged.",
+    "Resource/precision/depth/duplicate/nonfinite limits remain separate; do not claim every malformed resource request yields422. Only first error is returned."
+  ],
+  "independent_review": "Read-only geometry_review found no new effective blocker; not runtime proof.",
+  "tests": {
+    "path": "tests/r4/test_current_input_contract.py",
+    "prepared": true,
+    "executed": false,
+    "scope": "Real local HTTP server with mocked run_live dispatch counter; exact W/L 4.999/25.001, closed5/25, n3/4/fraction/empty/null/missing/types/extra, n1unsupported/n2preflight, static UI domain. No fresh geometry/browser."
+  },
+  "main_updated": false,
+  "dependency": "R4-1.01 remains blocked",
+  "infrastructure": "GitHub annotation observed by independent reviewer: recent account payments failed OR spending limit needs increase. No billing/permissions/retry performed.",
+  "next": "After authorized infrastructure resolution run draft-specific focused tests and regression before considering main update; reconcile downstream version pins explicitly, do not rewrite historicalV1/V2.",
+  "accepted": false,
+  "qualified": false
+}

@@ -120,7 +120,13 @@
       ],
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "DRAFT_REVIEWED_TESTS_NOT_RUN_DEPENDENCY_BLOCKED",
+      "start_utc": "2026-11-19T07:13:13Z",
+      "deadline_utc": "2026-11-19T10:13:13Z",
+      "checkpoint_utc": "2026-11-19T07:18:00Z",
+      "draft_commit": "e89309233418a90932837011a528fe311e3878c3",
+      "main_contract_unchanged": "V2",
+      "dependency_status": "R4-1.01 BLOCKED_CI_BEFORE_FIRST_STEP"
     },
     {
       "id": "R4-1.03",
