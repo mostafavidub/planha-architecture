@@ -65,12 +65,13 @@
     {
       "id": "V25-11",
       "status": "PARTIAL_SOURCE_DERIVED_D4_STUDY_PASS_HISTORICAL_GATE_FAIL",
-      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده.",
+      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده. مقایسه44444599800:چهارreplayمعتبرولیهمهFAIL؛۲۰SIDE۶۵error،۲۰FRAMEو۲۵هردو۴۰schemaerror؛۴UNKNOWNوFRAMEbindingNOT_APPLICABLEمحفوظ.",
       "evidence_runs": [
         44440172082,
         44440388271,
         44441849585,
-        44443156785
+        44443156785,
+        44444599800
       ]
     },
     {
@@ -320,13 +321,13 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "RUNNING_PREREGISTERED_TWO_TOPOLOGY_FOUR_CASE_DIAGNOSTIC",
+    "state": "TOPOLOGY_COMPARISON_COMPLETED_SCOPED_FAMILY_NOT_ACCEPTED",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
       44440388271
     ],
-    "latest_scoped_run": 44443156785,
+    "latest_scoped_run": 44444599800,
     "topology_comparison": {
       "start_utc": "2026-11-19T02:24:31Z",
       "deadline_utc": "2026-11-19T04:49:30Z",
@@ -340,7 +341,12 @@
       "variant": 0,
       "program": "explicit2 double+twin",
       "strict_binding_new_topology": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
-      "hidden_selection": false
+      "hidden_selection": false,
+      "runs": [
+        44444209007,
+        44444259272,
+        44444599800
+      ]
     }
   }
 }
