@@ -16,6 +16,7 @@ from source_fit_profile207 import source_fit
 from precision_boundary208 import prepare,gated_propose,roundtrip,coordinate_receipt
 CASES={'D':('18.1','22.2'),'B':('25','25')}
 CURRENT=('current_programme_evaluator','source_guest_route_evaluator','source_living_evaluator','source_wall_function_evaluator')
+SCHEMAS={"current_programme_evaluator":"CURRENT_PROGRAMME_SOURCE_EVALUATION_V1","source_guest_route_evaluator":"SOURCE_BOUND_FOUR_GUEST_ROUTES_V1","source_living_evaluator":"CURRENT_LIVING_SOURCE_EVIDENCE_V1","source_wall_function_evaluator":"SOURCE_WALL_FUNCTION_EVIDENCE_V1"}
 SOURCES={"current_programme_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/current_programme_evaluator.py","app/local_integration/program_profile_registry.py","specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json"],"source_guest_route_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_guest_route_evaluator.py","app/local_integration/current_programme_evaluator.py","app/local_integration/kitchen_guest_review.py","app/local_integration/guest_four_route_diagnostic.py"],"source_living_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_living_evaluator.py","app/local_integration/source_guest_route_evaluator.py","app/local_integration/living_connectivity_diagnostic.py","app/local_integration/fixed_route_clearance_diagnostic.py","app/local_integration/kitchen_guest_review.py"],"source_wall_function_evaluator":["app/local_integration/current_entry_boundary_x03.py","app/local_integration/source_wall_function_evaluator.py","app/local_integration/source_wall_counterfactual.py","app/local_integration/current_programme_evaluator.py"]}
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 DEADLINE=datetime(2026,11,19,20,46,39,tzinfo=timezone.utc)
@@ -34,6 +35,7 @@ def need(ok,code):
  if not ok:raise ValueError(code)
 def current_report_binding(name,r,bundle):
  from producer_provenance import snapshot
+ need(type(r)is dict and r.get('schema')==SCHEMAS[name]and r.get('current_domain_policy')=='CURRENT_ENTRY_DOMAIN_X03_V1','CURRENT_SCHEMA_POLICY')
  need(type(r)is dict and digest(r.get('source_snapshot'))==digest(snapshot(ROOT,SOURCES[name])),'CURRENT_SOURCE_SNAPSHOT')
  mh=bundle['model_digest'];physical=bundle['reports']['physical'];ph=bundle['report_digests']['physical']
  need(r.get('integrity_verified')is True and all(r.get(k)is False for k in('accepted','qualified','display_allowed','delivery_allowed')),'CURRENT_INTEGRITY_AUTHORITY')

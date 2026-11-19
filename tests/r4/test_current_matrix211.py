@@ -10,6 +10,7 @@ class Matrix(unittest.TestCase):
   b={'model_digest':'a'*64,'reports':{'physical':p},'report_digests':{'physical':m.digest(p)}}
   r={'integrity_verified':True,'model_digest':'a'*64,'state':'UNKNOWN','original_physical_report':copy.deepcopy(p),'original_physical_digest':m.digest(p),'replay':{'verified':True,'model_hash':'a'*64},'units':[],**{k:False for k in m.AUTH}}
   from producer_provenance import snapshot
+  r['schema']=m.SCHEMAS['source_guest_route_evaluator'];r['current_domain_policy']='CURRENT_ENTRY_DOMAIN_X03_V1'
   r['source_snapshot']=snapshot(m.ROOT,m.SOURCES['source_guest_route_evaluator'])
   return b,r
  def test_n1_valid_unsupported_no_core(self):
@@ -67,7 +68,8 @@ class Matrix(unittest.TestCase):
   pr=reports['current_current_programme_evaluator'];pr['findings']=[];pr['historical_physical_report']=copy.deepcopy(reports['physical']);pr['historical_physical_digest']=m.digest(reports['physical']);pr['reports']={'replay':copy.deepcopy(rr['replay'])};pr['report_digests']={'replay':m.digest(rr['replay'])}
   r={'state':'FULL_REPORTS_RETAINED_NOT_QUALIFIED','completed':True,'model_digest':b['model_digest'],'physical_status':'FAIL','physical_error_counts':m.code_counts(reports['physical']['errors']),'physical_pending_counts':{},'report_digests':{k:m.digest(v)for k,v in reports.items()},'current_assessments':{k:{'state':'UNKNOWN','integrity_verified':True}for k in m.CURRENT}}
   from producer_provenance import snapshot
-  for name in m.CURRENT:reports['current_'+name]['source_snapshot']=snapshot(m.ROOT,m.SOURCES[name])
+  for name in m.CURRENT:
+   reports['current_'+name]['source_snapshot']=snapshot(m.ROOT,m.SOURCES[name]);reports['current_'+name]['schema']=m.SCHEMAS[name]
   r['report_digests']={k:m.digest(v)for k,v in reports.items()}
   m.recheck_reports(r,reports)
   r['current_assessments'][m.CURRENT[0]]['state']='PASS'
