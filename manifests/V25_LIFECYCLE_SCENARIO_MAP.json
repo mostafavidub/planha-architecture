@@ -1,0 +1,100 @@
+{
+  "schema": "V25_21_SCENARIO_EVIDENCE_MAP_V1",
+  "criterion_source": {
+    "document_id": "12YC7qIRtnQsTSXtRwtdZXusTRjfARz4L2ZHVt4VZ17w",
+    "tab": "t.0",
+    "start_index": 412621,
+    "end_index": 412728,
+    "text": "پایان واقعی فرایند، تلاش تازه، کلیک تکراری و رقابت پاسخ؛ آزمون مصنوعی از عملیاتی جدا."
+  },
+  "rows": [
+    {
+      "criterion": "real_process_end",
+      "runs": [
+        44435153299,
+        44435888115
+      ],
+      "scope": "150-second real-clock generation/repair.execute timeout and actual TCP generation cancellation; controlled single workers"
+    },
+    {
+      "criterion": "fresh_attempt",
+      "runs": [
+        44435888115
+      ],
+      "scope": "Two real valid generation HTTP attempts, distinct workers/run IDs; cancelled first record unchanged"
+    },
+    {
+      "criterion": "duplicate_click",
+      "runs": [
+        44421177419
+      ],
+      "checks": [
+        "double_generate_one_request",
+        "double_continue_one_request"
+      ],
+      "scope": "Prior actual Chromium/loopback run, not rerun at current HEAD"
+    },
+    {
+      "criterion": "response_race",
+      "runs": [
+        44421177419
+      ],
+      "checks": [
+        "programme_change_cancels_and_invalidates_current_request",
+        "explicit_cancel_button_aborts_and_withholds_late_reply",
+        "history_reload_without_fresh_full_proof_exposes_no_pair_action"
+      ],
+      "scope": "Prior actual Chromium scenarios, not exhaustive scheduling proof"
+    }
+  ],
+  "prior_ui_commit": "d429013ba3d112492692ac3b2565e42bc4d0252e",
+  "ui_source_blob_recheck": [
+    {
+      "path": "app/local_integration/index.html",
+      "ui_test_blob": "c339188c76a42f7124067a1990fbb4f7053a32e3",
+      "current_blob": "c339188c76a42f7124067a1990fbb4f7053a32e3",
+      "equal": true
+    },
+    {
+      "path": "app/local_integration/ui.js",
+      "ui_test_blob": "056d086fcabd124245dfefe50557f3f4b336f414",
+      "current_blob": "056d086fcabd124245dfefe50557f3f4b336f414",
+      "equal": true
+    },
+    {
+      "path": "app/local_integration/generation_ui.js",
+      "ui_test_blob": "8cf46032ebcff397e8448bf32e9d7a7bfb780f59",
+      "current_blob": "8cf46032ebcff397e8448bf32e9d7a7bfb780f59",
+      "equal": true
+    },
+    {
+      "path": "app/local_integration/history_ui.js",
+      "ui_test_blob": "0810d89a2728529df0c2f8465b0890bc15c9fee6",
+      "current_blob": "0810d89a2728529df0c2f8465b0890bc15c9fee6",
+      "equal": true
+    },
+    {
+      "path": "app/local_integration/validation_server.py",
+      "ui_test_blob": "2f1143fb55a19c8862792bdc6a87ae12e6afcc95",
+      "current_blob": "2f1143fb55a19c8862792bdc6a87ae12e6afcc95",
+      "equal": true
+    },
+    {
+      "path": "app/local_integration/generation_gateway.py",
+      "ui_test_blob": "099a6afcd261deac2d34162b033438d0377ed199",
+      "current_blob": "099a6afcd261deac2d34162b033438d0377ed199",
+      "equal": true
+    }
+  ],
+  "scope_status": "LISTED_SCENARIOS_HAVE_SCOPED_EVIDENCE_NOT_EXHAUSTIVE_FAILURE_COVERAGE",
+  "remaining_scope_limits": [
+    "No repair HTTP source-validation/disconnect test in the new controlled HTTP fixture",
+    "No arbitrary descendant-process cancellation proof",
+    "No proof of all possible UI/network/OS races",
+    "Architecture and current functional closure remain separate"
+  ],
+  "whole_cycle_verified": false,
+  "accepted": false,
+  "delivery_allowed": false,
+  "stage303_execution_started": false
+}
