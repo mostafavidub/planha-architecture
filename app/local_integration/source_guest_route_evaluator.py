@@ -30,6 +30,7 @@ def assess(bundle):
  bundle,_=transport(bundle);pin=digest(bundle);m=bundle['packet']['world_model'];mh=digest(m)
  ensure(mh==bundle['model_digest'],'MODEL_DIGEST')
  for k,v in bundle['reports'].items():ensure(digest(v)==bundle['report_digests'][k],'ORIGINAL_REPORT_DIGEST')
+ ensure(bundle['reports']['physical']['model_hash']==mh,'ORIGINAL_PHYSICAL_MODEL_BINDING')
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration')]
  from producer_provenance import snapshot,require_unchanged
  snap=snapshot(ROOT,['app/local_integration/source_guest_route_evaluator.py','app/local_integration/current_programme_evaluator.py','app/local_integration/kitchen_guest_review.py','app/local_integration/guest_four_route_diagnostic.py'])
