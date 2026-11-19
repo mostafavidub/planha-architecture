@@ -10,6 +10,7 @@ def policy():
  return {'schema':'BOUNDED_AP07_ORDER_POLICY_V1','stage_order':list(STAGES),
   'source':{'document_id':'17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s','tab_id':'t.jgj9urck6sd','start_index':39358,'end_index':39692},
   'budget_source':{'tab_id':'t.jgj9urck6sd','start_index':38709,'end_index':39126},
+  'invalid_transition_handling':'Caller must retain original attempted ledger and failure, including budget overruns; rejection is not permission to erase history.',
   'exhaustive_required':False,'budget_reset_on_transition':False,
   'order_is_quality_ranking':False,'no_witness_is_infeasible':False,
   'stage_slots_are_engineering_coverage':True,'fixed_unit_count':2,
@@ -34,7 +35,7 @@ def lower_program_transition(from_id,to_id,records,*,unit_count,budget_ledger):
   if type(row) is not dict or set(row)!={'stage','state','reason','attempt_ids'} or row['stage']!=expected:raise ValueError('STAGE_ORDER')
   normalized.append(stage_record(row['stage'],row['state'],row['reason'],row['attempt_ids']))
  ids=[i for row in normalized for i in row['attempt_ids']]
- if len(ids)!=len(set(ids)):raise ValueError('ATTEMPT_DOUBLE_COUNT')
+ unique_ids=sorted(set(ids)) # One actual attempt may inform several stages; charge only once.
  # Budget account is caller-owned evidence, not new allocation or reset.
  if type(budget_ledger) is not dict or set(budget_ledger)!={'account_id','limit_attempts','used_attempts','limit_seconds','used_seconds'}:raise ValueError('BUDGET_LEDGER')
  if type(budget_ledger['account_id']) is not str or not budget_ledger['account_id']:raise ValueError('BUDGET_ACCOUNT')
@@ -44,11 +45,13 @@ def lower_program_transition(from_id,to_id,records,*,unit_count,budget_ledger):
  for k in ('limit_seconds','used_seconds'):
   if type(budget_ledger[k]) not in (int,float) or not math.isfinite(budget_ledger[k]) or budget_ledger[k]<0:raise ValueError('BUDGET_FINITE')
  if budget_ledger['used_attempts']>budget_ledger['limit_attempts'] or budget_ledger['used_seconds']>budget_ledger['limit_seconds']:raise ValueError('BUDGET_OVERRUN')
- if len(ids)>budget_ledger['used_attempts']:raise ValueError('ATTEMPT_BUDGET_MISMATCH')
+ if len(unique_ids)>budget_ledger['used_attempts']:raise ValueError('ATTEMPT_BUDGET_MISMATCH')
  available=budget_ledger['used_attempts']<budget_ledger['limit_attempts'] and budget_ledger['used_seconds']<budget_ledger['limit_seconds']
  return {'schema':'AP07_NEW_PROGRAM_TRANSITION_V1','from_program':from_id,'to_program':to_id,
   'from_registry_digest':digest(before),'to_registry_digest':digest(after),
   'unit_count':unit_count,'stage_dispositions':normalized,
+  'unique_attempt_ids':unique_ids,'attempt_receipts_verified':False,
+  'preceding_search_verified':False,'evidence_status':'DISPOSITIONS_ONLY_ACTUAL_COMPARISON_MISSING',
   'state':'NEW_ALTERNATIVE_RECORDED_ADAPTER_NOT_READY',
   'reason':'Bounded preceding-stage dispositions are explicit; unenumerated or unimplemented branches are not an exhaustive-search demand.',
   'programme_repair':False,'new_programme_alternative':True,
