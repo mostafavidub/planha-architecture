@@ -1119,7 +1119,9 @@
         ],
         "missing_evidence": [
           "Same-model full-bundle adequacy, AP07 comparative sequence, genuine net-capacity/prefilter and alternative-selection evidence."
-        ]
+        ],
+        "implementation_status": "STATIC_UNKNOWN_PLACEHOLDER_WITH_PARTIAL_DIAGNOSTICS",
+        "implementation_gap": "functional_review.assess hardcodes this current requirement UNKNOWN; only INTERNAL_INSTANCE_CAPACITY has a computed state. Full criterion implementation belongs to tasks3.2–3.6, not this mapping."
       },
       {
         "id": "KITCHEN_GUEST_PATH_SEPARATION",
@@ -1196,7 +1198,9 @@
         ],
         "missing_evidence": [
           "All four actual destination routes, bottlenecks/openings, first-living and effective-state coverage on same model."
-        ]
+        ],
+        "implementation_status": "STATIC_UNKNOWN_PLACEHOLDER_WITH_PARTIAL_DIAGNOSTICS",
+        "implementation_gap": "functional_review.assess hardcodes this current requirement UNKNOWN; only INTERNAL_INSTANCE_CAPACITY has a computed state. Full criterion implementation belongs to tasks3.2–3.6, not this mapping."
       },
       {
         "id": "CONTINUOUS_USEFUL_LIVING",
@@ -1273,7 +1277,9 @@
         ],
         "missing_evidence": [
           "Same-model coherent group use and continuous functional floor, true useful-area accounting and shorter valid organisation comparison."
-        ]
+        ],
+        "implementation_status": "STATIC_UNKNOWN_PLACEHOLDER_WITH_PARTIAL_DIAGNOSTICS",
+        "implementation_gap": "functional_review.assess hardcodes this current requirement UNKNOWN; only INTERNAL_INSTANCE_CAPACITY has a computed state. Full criterion implementation belongs to tasks3.2–3.6, not this mapping."
       },
       {
         "id": "NONFUNCTIONAL_WALL_EXCLUSION",
@@ -1341,7 +1347,9 @@
         ],
         "missing_evidence": [
           "Per-wall function/use and removal/alternative records; unchanged programme and exact alias-aware geometry; current dependent checks."
-        ]
+        ],
+        "implementation_status": "STATIC_UNKNOWN_PLACEHOLDER_WITH_PARTIAL_DIAGNOSTICS",
+        "implementation_gap": "functional_review.assess hardcodes this current requirement UNKNOWN; only INTERNAL_INSTANCE_CAPACITY has a computed state. Full criterion implementation belongs to tasks3.2–3.6, not this mapping."
       }
     ]
   },
