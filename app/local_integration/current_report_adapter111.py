@@ -64,6 +64,7 @@ def adapt(raw, expected_raw_digest, binding, expected_binding_digest):
         require(physical['model_hash'] == mh and replay['model_hash'] == mh, 'ORIGINAL_MODEL')
         require(replay['verified'] is True and replay['source_revision'] == ENGINE_REVISION, 'REPLAY_REVISION_OR_VERIFICATION')
         require(type(physical['errors']) is list and type(physical['pending']) is list, 'PHYSICAL_LISTS')
+        require(physical['status'] in ('FAIL', 'PASS_CONCEPT_SCOPED_REVIEW'), 'PHYSICAL_STATUS')
         source_pins = {}
         for cid, r in raw['current'].items():
             require(r['schema'] == SCHEMAS[cid] and r['criterion'] == cid, 'CURRENT_SCHEMA')

@@ -72,6 +72,12 @@ class AdapterTests(unittest.TestCase):
     def test_replay_wrong_revision_rehashed(self):
         raw,b=fixture();raw['replay']['source_revision']='stale'
         self.assertEqual(run(raw,b)['state'],'EVIDENCE_ERROR')
+    def test_physical_error_or_unknown_status_is_evidence_error(self):
+        for state in ('ERROR','EVALUATOR_ERROR','NEW_STATE',None):
+            raw,b=fixture();raw['physical'].update(status=state,errors=[])
+            out=run(raw,b)
+            self.assertEqual(out['state'],'EVIDENCE_ERROR')
+            self.assertEqual(out['raw_reports'],raw)
     def test_authority_and_unknown_state(self):
         for field,value in (('qualified',True),('state','NEW_STATE')):
             raw,b=fixture();raw['current'][next(iter(x.SCHEMAS))][field]=value
