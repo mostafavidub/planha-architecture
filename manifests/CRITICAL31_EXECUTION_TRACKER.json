@@ -597,7 +597,7 @@
       "description_verbatim": "۴.۴. مدیریت سقف تلاش، توقف بدون پیشرفت و اعلام روشنِ اصلاح ناموفق. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "PARTIAL_OUTER_CONTROLLER_WIRED_CONTROLLED_TESTED_LIVE_ADOPTION_NOT_EXECUTED",
+      "status": "PARTIAL_OUTER_CONTROLLER_LIVE_VERIFIED_INTERNAL_VARIANT_CONTROL_UNCHANGED",
       "dependencies": [
         "4.3"
       ],
@@ -608,7 +608,7 @@
       "tested_commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
       "run": 44467634916,
       "tests": "20 tests and controlled subprocess hard timeout; no new geometry",
-      "remaining": "Versioned outer controller wired to unchanged child/bind_result and controlled-worker tested; actual geometry through new entrypoint not executed. Existing operator internal variant-loop stop remains unchanged; no public repair adoption or qualification.",
+      "remaining": "Outer controller adopted and actually exercised once; internal existing-operator variant loop unchanged, no per-variant callback. Controlled no-progress/timeout tests distinct from live non-timeout. No product qualification or public automatic repair adoption.",
       "remaining_at_original_checkpoint": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
       "later_evidence": {
         "tasks": [
@@ -621,7 +621,10 @@
       "continuation_tested_commit": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
       "continuation_run": 44472702542,
       "live_entrypoint_continuation_start_utc": "2026-11-19T06:42:04Z",
-      "live_entrypoint_state": "IN_PROGRESS_DEPENDENCY_PREFLIGHT_THEN_ONE_240_SECOND_ATTEMPT"
+      "live_entrypoint_state": "VERIFIED_ACTUAL_CHILD_ACCOUNT_BOUND_QUALIFICATION_BLOCKED",
+      "live_entrypoint_run": 44474177603,
+      "live_entrypoint_tested_commit": "a1dcf7827ff59f49b7daa205368fcd2a29c26c27",
+      "live_entrypoint_checkpoint_utc": "2026-11-19T06:45:55Z"
     },
     {
       "id": "4.5",
@@ -1008,5 +1011,15 @@
     "5.4",
     "5.5",
     "5.6"
+  ],
+  "post_audit_corrections": [
+    {
+      "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+      "status": "IN_PROGRESS",
+      "start_utc": "2026-11-19T06:46:34Z",
+      "deadline_utc": "2026-11-19T09:46:34Z",
+      "source": "PRD FR-UNIT-COUNT/AC-UNIT-COUNT129744–130181; n only1,2. PRD133051–133647 up to6 qualifying alternatives, no forced fill.",
+      "scope": "New explicitly instructed defect correction, not resume/reset of stopped1.3/1.4. Historical5.1/5.2spec/results preserved."
+    }
   ]
 }

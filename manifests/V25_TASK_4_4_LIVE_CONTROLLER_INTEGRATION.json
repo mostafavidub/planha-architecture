@@ -1,0 +1,189 @@
+{
+  "task": "4.4",
+  "schema": "TASK4_4_ACTUAL_CONTROLLER_INTEGRATION_V1",
+  "original_start_utc": "2026-11-19T05:43:03Z",
+  "deadline_utc": "2026-11-19T08:43:03Z",
+  "continuation_start_utc": "2026-11-19T06:42:04Z",
+  "checkpoint_utc": "2026-11-19T06:45:55Z",
+  "tested_commit": "a1dcf7827ff59f49b7daa205368fcd2a29c26c27",
+  "run": 44474177603,
+  "job": 135390590290,
+  "status": "PARTIAL_OUTER_CONTROLLER_LIVE_VERIFIED_INTERNAL_VARIANT_CONTROL_UNCHANGED",
+  "controller": {
+    "accepted": false,
+    "account": {
+      "accepted": false,
+      "account_id": "55cd9c93a10f4f11896f92f25b6d5886",
+      "active": null,
+      "budget_policy": "Engineering study cap, not an architectural rule; no budget reset for retries or lower programmes",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "history": [
+        {
+          "counts_as_quality_improvement": false,
+          "elapsed_seconds": 146.58167382,
+          "observed_model_digest": "dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a",
+          "outcome": "CANDIDATE",
+          "token": "55cd9c93a10f4f11896f92f25b6d5886:1"
+        }
+      ],
+      "max_attempts": 3,
+      "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "qualified": false,
+      "schema": "BOUNDED_REPAIR_ACCOUNT_V1",
+      "seconds": 240,
+      "seen_model_digests": [
+        "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+        "dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a"
+      ],
+      "stop_reason": null,
+      "used_attempts": 1,
+      "used_seconds": 146.58167382
+    },
+    "account_after_reserve": {
+      "accepted": false,
+      "account_id": "55cd9c93a10f4f11896f92f25b6d5886",
+      "active": {
+        "allocated_seconds": 240,
+        "token": "55cd9c93a10f4f11896f92f25b6d5886:1"
+      },
+      "budget_policy": "Engineering study cap, not an architectural rule; no budget reset for retries or lower programmes",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "history": [],
+      "max_attempts": 3,
+      "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "qualified": false,
+      "schema": "BOUNDED_REPAIR_ACCOUNT_V1",
+      "seconds": 240,
+      "seen_model_digests": [
+        "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181"
+      ],
+      "stop_reason": null,
+      "used_attempts": 1,
+      "used_seconds": 0
+    },
+    "account_before_digest": "6f11a454a02fa0ea4aadbcfea62b9187ef3ba3f27b536f7d0d4d1ff14421722e",
+    "account_digest": "395e50104b0d3fde74c1159479414609034b5d65476735598a07c25980a0f310",
+    "account_finalization_verified": true,
+    "actual_geometry_execution_claim": "See verified receipt; errors/timeouts may have partial unverified construction.",
+    "child_receipt_verified": true,
+    "current_test_scope": "ORIGINAL_CHILD_ATTEMPT",
+    "decision": {
+      "accepted": false,
+      "all_PRD_requirements_verified": false,
+      "blockers": [
+        "CURRENT_UNKNOWN",
+        "HISTORICAL_UNRESOLVED_RETAINED"
+      ],
+      "current_four_conditions_complete": false,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "qualified": false,
+      "state": "BLOCKED"
+    },
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry_verified": true,
+    "fresh_geometry_verified_meaning": "Source-bound child/replay/full-report chain, not architectural qualification",
+    "head_sha": "a1dcf7827ff59f49b7daa205368fcd2a29c26c27",
+    "mode": "ORIGINAL_CHILD_WIRING",
+    "nonce": "cf00375e6a694cb4bce61a48bc41e63c",
+    "observed_result_digest": "5d41eb715a570420484bca662a99f6a2c4965fce39db770375b7e51839c273e4",
+    "outcome": "CANDIDATE",
+    "process": {
+      "accepted": false,
+      "allocated_seconds": 240,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "elapsed_seconds": 146.58167382,
+      "kill_sent": false,
+      "qualified": false,
+      "returncode": 0,
+      "scope": "Dedicated process group; no guarantee for descendants that escape with a new session",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false,
+      "wait_completed": true
+    },
+    "process_budget_scope": "Child process only; source audit and setup excluded, not measured separately.",
+    "qualified": false,
+    "schema": "CONTROLLED_REPAIR_ENTRYPOINT_V1",
+    "scope": "One outer attempt includes existing internal variants; no per-variant stop callback or quality claim.",
+    "source_integrity_verified": true,
+    "source_snapshot": {
+      "app/local_integration/bounded_repair_chain.py": "e7136bfbf6aedee32a38adbbdc40dd00dfdf79533286e8828d188dcca6888ef9",
+      "app/local_integration/controlled_repair_entrypoint.py": "4e6a4655a8a9b021cde3bfdc6319a55be17bc2abd9124bcae99e7772a542277a",
+      "app/local_integration/repair_attempt_control.py": "b95470a22abb51a67ae18ecbb7b185a0849363e327847c88c2fda18701eba2b2"
+    }
+  },
+  "child_summary": {
+    "child_model_digest": "dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a",
+    "child_pending_count": 0,
+    "child_physical_status": "PASS_CONCEPT_SCOPED_REVIEW",
+    "completed": true,
+    "current_decision": {
+      "accepted": false,
+      "all_PRD_requirements_verified": false,
+      "blockers": [
+        "CURRENT_UNKNOWN",
+        "HISTORICAL_UNRESOLVED_RETAINED"
+      ],
+      "current_four_conditions_complete": false,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "qualified": false,
+      "state": "BLOCKED"
+    },
+    "errors": [],
+    "generated_count": 1,
+    "operator_attempts_constructed_models_observed": 1,
+    "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "report_digests": {
+      "functional": "d9e3d12cf181b876a21b5066ab86005e4c40486cfd992c226ee2640eb697905e",
+      "physical": "f8d212d92e4641f01af6ffd51d09ad9652cc528950a168dffece0cb950854697",
+      "replay": "bdf91d1c6310f2cc9e8a7f26f1d11d5b91f52c00176cb2a55462419507c0ead7"
+    },
+    "source_integrity_verified": true,
+    "state": "FRESH_CHILD_ALL_GATES_RECORDED_NOT_QUALIFIED"
+  },
+  "artifact": {
+    "id": 14506041574,
+    "sha256": "a6b5156df6d7930ecf5607b50de81bbe85756362591d37c5e50596cc012ee1e3",
+    "expires_at": "2026-12-19T06:45:55Z"
+  },
+  "scope": [
+    "Necessary first real integration of new outer controller, not relabelled historical run.",
+    "Preflight rechecked original input/selection/protection and source before solver.",
+    "One outer account reserves240seconds for existing operator plus all fresh gates; used146.58167382 seconds, no timeout.",
+    "This is a new integration-test account, not restoration/reset of prior4.3 ledger or stopped1.3/1.4 tasks.",
+    "Child model differs from both parent67857 and prior073a; hash diversity is not architectural diversity or quality.",
+    "All four current gates fresh but unchanged historical implementations; independent single-bed extension on parent is not silently transferred to this child.",
+    "Full historical/current reports retained; BLOCKED, no admission. Inner variant-loop controller remains unchanged."
+  ],
+  "qualified_count_addendum": {
+    "inspected_distinct_candidate_hashes": [
+      "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+      "dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a"
+    ],
+    "qualified_count": 0,
+    "maximum_output_options": 6,
+    "policy": "Up to6 qualified options conditional on gates, not mandatory filling; historical two-hash5.5count remains its checkpoint scope.",
+    "qualified_diversity": "NOT_MEASURABLE_EMPTY_QUALIFIED_SET"
+  },
+  "reproduction": {
+    "workflow": ".github/workflows/v25-controlled-repair-live.yml",
+    "commit": "a1dcf7827ff59f49b7daa205368fcd2a29c26c27",
+    "dependency_runs": [
+      44460753648,
+      44464386479,
+      44465121269
+    ],
+    "caution": "Exact input/source pins required; artifacts expire. New search may yield a different candidate, so digest must be measured, never assumed."
+  },
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
