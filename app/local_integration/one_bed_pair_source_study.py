@@ -105,6 +105,10 @@ def child(folder):
   # Full originals remain job-private temporary evidence, never uploaded or printed.
   out['full_original_reports_retained_job_temporarily']=True
   out['durable_private_archive']='NOT_CREATED';save()
+def stop_process(proc):
+ try:os.killpg(proc.pid,signal.SIGKILL)
+ except ProcessLookupError:pass
+ finally:proc.wait()
 def main():
  if len(sys.argv)==3 and sys.argv[1]=='--child':child(sys.argv[2]);return
  with tempfile.TemporaryDirectory(prefix='one-bed-pair-')as tmp:
@@ -115,7 +119,7 @@ def main():
   timed=False;start=time.monotonic()
   try:proc.wait(timeout=budget)
   except subprocess.TimeoutExpired:
-   timed=True;os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+   timed=True;stop_process(proc)
   try:result=json.loads((dest/'summary.json').read_text())if(dest/'summary.json').exists()else{'state':'NO_SUMMARY'}
   except (ValueError,OSError):result={'state':'SUMMARY_PARSE_FAILED_CLOSED','completed':False,'fresh_model_verified':False}
   if type(result)is not dict:result={'state':'SUMMARY_TYPE_FAILED_CLOSED','completed':False,'fresh_model_verified':False}
