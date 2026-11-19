@@ -30,6 +30,33 @@ class FitTests(unittest.TestCase):
   a,d,m,p,o=self.fixture();a=[tuple(map(F,['-1','4','1','5']))];n,c=fit.reservation_errors(a,d,m,p,o);self.assertIn('BATH_APRON_OUTSIDE_OWNERSHIP',n)
  def test_motion_intrudes_guest_band(self):
   a,d,m,p,o=self.fixture();m=[tuple(map(F,['1','1','2','2']))];n,c=fit.reservation_errors(a,d,m,p,o);self.assertIn('GUEST_BODY_SOURCE_MOTION_INTRUSION',c);self.assertEqual(n,[])
+ def test_source_built_six_motion_route_predicate_without_solver(self):
+  # Source-built obstacles and synthetic paths/domain, not a whole-plan scene.
+  import inspect,kitchen_module117
+  from source_guest_route_evaluator import route_check
+  fit.source_check()
+  self.assertEqual(Path(inspect.getsourcefile(route_check)).resolve(),ROOT/'app/local_integration/source_guest_route_evaluator.py')
+  module=kitchen_module117.build('2.35','3.05');pin=digest(module)
+  motions=fit.motion_rectangles(module);self.assertEqual(len(motions),6)
+  body=F(module['operations']['kitchen'][0]['assumptions']['body_m'])
+  self.assertEqual(body,F('.7'))
+  rects=[tuple(map(F,r))for r in motions]
+  xmin=min(r[0]for r in rects);ymin=min(r[1]for r in rects)
+  xmax=max(r[2]for r in rects);ymax=max(r[3]for r in rects)
+  domain=[[str(xmin-3),str(ymin-3),str(xmax+3),str(ymax+3)]]
+  clear=[[str(xmin-1),str(ymin-1)],[str(xmax+1),str(ymin-1)]]
+  self.assertGreater(route_check(clear,clear[0],clear[-1],body,domain,motions),0)
+  for i,(x,y,xx,yy)in enumerate(rects):
+   with self.subTest(motion_index=i):
+    cy=(y+yy)/2
+    path=[[str(x-1),str(cy)],[str(xx+1),str(cy)]]
+    self.assertGreater(route_check(path,path[0],path[-1],body,domain,[]),0)
+    self.assertTrue(any(fit.hit(b,rects[i])for b in fit.sweep(path,body)))
+    # Isolate each source envelope so another obstacle cannot explain rejection.
+    with self.assertRaisesRegex(ValueError,'^ROUTE_OBSTACLE_COLLISION$'):
+     route_check(path,path[0],path[-1],body,domain,[motions[i]])
+  self.assertEqual(digest(module),pin)
+  fit.source_check()
  def test_wrong_actor_scope_rejected(self):
   a,d,m,p,o=self.fixture();p['kitchen']=p.pop('dining_east')
   with self.assertRaisesRegex(ValueError,'DECLARED_GUEST_TERMINALS'):fit.reservation_errors(a,d,m,p,o)
