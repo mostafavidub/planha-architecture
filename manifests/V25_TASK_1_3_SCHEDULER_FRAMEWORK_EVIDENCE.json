@@ -3,7 +3,7 @@
   "started_at": "2026-11-19T03:31:39Z",
   "carryover_deadline": "2026-11-19T05:51:01Z",
   "ci_completed_at": "2026-11-19T03:35:04Z",
-  "status": "SINGLE_CASE_SCHEDULER_FRAMEWORK_COMPLETED",
+  "status": "PARTIAL_FRAMEWORK_TESTED_LIVE_SEARCH_PENDING",
   "tested_commit": "b7d0bdfd775cc614a540fcbfaf1a377077241065",
   "run_id": 44452389525,
   "job_id": 135319225620,
