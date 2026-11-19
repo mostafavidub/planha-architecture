@@ -164,11 +164,14 @@
       "description_verbatim": "۱.۶. اتصال فرم نهایی سه‌فیلدی به API و جداکردن ابزار آزمایشی از فرم محصول. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "1.1",
         "1.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T04:56:25Z",
+      "deadline_utc": "2026-11-19T07:56:25Z",
+      "scope": "Separate loopback-only three-field WLN UI/API connected to limited live scheduler, no rejected model display/download or public deployment."
     },
     {
       "id": "2.1",
