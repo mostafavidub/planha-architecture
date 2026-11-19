@@ -13,6 +13,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 MAP_PATH = 'specs/V25_TASK_2_2_FRONT_REAR_RULE_EVIDENCE_MAP.json'
 MAP_BLOB = '0b8bb876cc675ed27f88b340b3c6ed4e41608eb4'
+UNRESOLVED_APPLICABILITY = frozenset(('llm_budget', 'geometric_diversity',
+    'window_opportunities', 'export_parity', 'immutable_history', 'owner_access',
+    'per_option_rule_report', 'claim_boundary_display'))
 CURRENT_IDS = ('CURRENT_PROGRAM_SUITABILITY', 'KITCHEN_GUEST_PATH_SEPARATION',
                'CONTINUOUS_USEFUL_LIVING', 'NONFUNCTIONAL_WALL_EXCLUSION')
 
@@ -58,7 +61,7 @@ def coverage_contract():
     no absent activity is silently treated as an exclusion.
     """
     data = (ROOT / MAP_PATH).read_bytes()
-    blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\\0' + data).hexdigest()
+    blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + bytes([0]) + data).hexdigest()
     require(blob == MAP_BLOB, 'PINNED_SOURCE_MAP_CHANGED')
     source = json.loads(data)
     named = source['layers']['named']
@@ -72,7 +75,7 @@ def coverage_contract():
     for oid in ('CURRENT_PUBLIC_WLN', 'PAIR127_ORIGIN', 'PHYSICAL_GEOMETRY_AND_OPERATIONS'):
         add(oid, 'GLOBAL')
     for row in named:
-        add(row['id'], 'GLOBAL', 'UNRESOLVED' if row['id'] in ('llm_budget', 'geometric_diversity') else 'REQUIRED')
+        add(row['id'], 'GLOBAL', 'UNRESOLVED' if row['id'] in UNRESOLVED_APPLICABILITY else 'REQUIRED')
     for unit in ('A', 'B'):
         for cid in CURRENT_IDS:
             add(cid, unit)
@@ -122,10 +125,14 @@ def result_base():
 def admission(contract, expected_contract_digest, binding, expected_binding_digest,
               reports, expected_report_digests):
     out = result_base()
-    # Preserve source evidence even on mismatch; no replacement of returned reports.
+    # Preserve valid JSON source evidence even on mismatch; non-JSON evidence has
+    # a non-content forensic marker only, never repr/raw secret leakage.
+    out['observed_report_preservation'] = 'NOT_ESTABLISHED'
+    out['observed_report_container_type'] = type(reports).__name__
     try:
         strict([contract, binding, reports, expected_report_digests])
         out['observed_reports'] = copy.deepcopy(reports)
+        out['observed_report_preservation'] = 'EXACT_VALID_JSON_COPY'
         out['observed_reports_digest'] = digest(reports)
         pin = digest([contract, binding, reports, expected_report_digests])
         obligations = validate_contract(contract, expected_contract_digest)
@@ -195,6 +202,7 @@ def admission(contract, expected_contract_digest, binding, expected_binding_dige
                 out['blockers'].append({'code': reason, 'obligation': k[0], 'subject': k[1]})
             out['rows'].append(entry)
         require(digest([contract, binding, reports, expected_report_digests]) == pin, 'INPUT_MUTATION')
+        require(digest(coverage_contract()) == expected_contract_digest, 'COVERAGE_SOURCE_CHANGED')
         out['consistency_verified'] = True
         out['declared_conditions_complete'] = not out['blockers']
         if not out['blockers']:
@@ -204,7 +212,7 @@ def admission(contract, expected_contract_digest, binding, expected_binding_dige
         out['binding_digest'] = expected_binding_digest
         out['report_digests'] = copy.deepcopy(expected_report_digests)
         return out
-    except (ValueError, KeyError, TypeError, UnicodeError, OverflowError) as exc:
+    except (ValueError, KeyError, TypeError, UnicodeError, OverflowError, OSError) as exc:
         out['state'] = 'EVIDENCE_ERROR'
         out['consistency_verified'] = False
         out['declared_conditions_complete'] = False

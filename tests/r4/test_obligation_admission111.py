@@ -100,6 +100,11 @@ class AdmissionTests(unittest.TestCase):
         r['synthetic']['rows'][0]['errors']=(1,)
         out=a.admission(c,a.digest(c),b,a.digest(b),r,{})
         self.assertEqual(out['state'],'EVIDENCE_ERROR')
+        self.assertEqual(out['observed_report_preservation'],'NOT_ESTABLISHED')
+        self.assertNotIn('observed_reports',out)
+    def test_conditional_and_stage_applicability_not_invented(self):
+        c,b,r=fixture()
+        self.assertEqual({x['obligation'] for x in c['obligations'] if x['applicability']=='UNRESOLVED'},a.UNRESOLVED_APPLICABILITY)
     def test_global_errors_not_hidden_by_pass_rows(self):
         c,b,r=fixture();r['synthetic']['errors']=['synthetic evaluator failure']
         self.assertIn('EVALUATOR_ERROR',codes(run(c,b,r)))
