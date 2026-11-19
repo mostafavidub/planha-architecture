@@ -1,0 +1,47 @@
+name: V25 public three-field local UI task1.6
+on:
+  push:
+    paths:
+      - 'app/local_integration/public_wln_server.py'
+      - 'app/local_integration/public_wln.html'
+      - 'app/local_integration/public_wln.js'
+      - 'app/local_integration/test_public_wln_server.py'
+      - 'app/local_integration/test_public_wln_browser.py'
+      - '.github/workflows/v25-public-wln-ui.yml'
+  workflow_dispatch:
+concurrency:
+  group: public-wln-ui-task16
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  ui:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1 playwright
+      - run: python -m playwright install --with-deps chromium
+      - name: Real HTTP input contract and synthetic wiring tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_public_wln_server test_public_wln_contract
+      - name: Browser desktop/mobile and one actual live backend attempt
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B app/local_integration/test_public_wln_browser.py
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-three-field-local-ui-task1-6
+          path: |
+            public-ui-evidence/
+            live-program-evidence/
+          retention-days: 30
