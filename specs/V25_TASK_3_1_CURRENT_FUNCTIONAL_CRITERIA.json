@@ -341,8 +341,8 @@
           "expected": "FAIL alternative, not improvement"
         },
         {
-          "case": "No seats or unknown target binding",
-          "expected": "UNKNOWN/invalid evidence, not vacuous PASS"
+          "case": "Missing required seating or unknown target binding",
+          "expected": "Proven absence of a required seat under a valid profile: FAIL that subcondition. Missing data or unbound target: UNKNOWN/invalid evidence, never vacuous PASS."
         }
       ],
       "known_rule_scope": [
