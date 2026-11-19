@@ -87,7 +87,7 @@
         "checker": "rule_contract118.BUILTINS['input_exact_domain']",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for input_exact_domain, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -112,11 +112,12 @@
         "checker": "project_input_audit118.no_hidden_project_inputs",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for no_hidden_project_inputs, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
-          "Current criteria catalog and public contract remain additional requirements."
+          "Current criteria catalog and public contract remain additional requirements.",
+          "External brief only W/L/n; an internally derived and traced programme is permitted, not forbidden hidden input."
         ]
       },
       {
@@ -138,7 +139,7 @@
         "checker": "named_checks118.containment_all_entities",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for containment_all_entities, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -163,7 +164,7 @@
         "checker": "rule_contract118.BUILTINS['valid_exact_regions']",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for valid_exact_regions, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -192,7 +193,7 @@
         "checker": "named_checks118.partition_ledger",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for partition_ledger, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -218,7 +219,7 @@
         "checker": "named_checks118.unit_independence",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for unit_independence, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -245,7 +246,7 @@
         "checker": "access_accounting118.bath_nonprivate_access",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for bath_nonprivate_access, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -271,7 +272,7 @@
         "checker": "named_checks118.body_route_sweeps",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for body_route_sweeps, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -295,7 +296,7 @@
         "checker": "core_wall_audit118.wall_network",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for wall_network, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -320,7 +321,7 @@
         "checker": "core_wall_audit118.opening_hosts",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for opening_hosts, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -346,7 +347,7 @@
         "checker": "named_checks118.door_operation",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for door_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -373,7 +374,7 @@
         "checker": "named_checks118.fixture_inventory_use",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for fixture_inventory_use, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -398,7 +399,7 @@
         "checker": "named_checks118.closet_operation",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for closet_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -428,7 +429,7 @@
         "checker": "named_checks118.program_functional_roles",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for program_functional_roles, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -452,7 +453,7 @@
         "checker": "rule_contract118.BUILTINS['zero_laundry']",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for zero_laundry, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -476,7 +477,7 @@
         "checker": "core_wall_audit118.core_concept",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for core_concept, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -527,7 +528,7 @@
         "checker": "named_checks118.kitchen_essential_operation",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for kitchen_essential_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -553,7 +554,7 @@
         "checker": "named_checks118.bath_service_operation",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for bath_service_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -579,7 +580,7 @@
         "checker": "named_checks118.privacy_scenarios",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for privacy_scenarios, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -607,7 +608,7 @@
         "checker": "named_checks118.public_named_scenarios",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for guest_living_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -634,7 +635,7 @@
         "checker": "named_checks118.public_named_scenarios",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for guest_dining_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -663,7 +664,7 @@
         "checker": "named_checks118.chair_capacity_movement",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for chair_capacity_movement, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -689,7 +690,7 @@
         "checker": "named_checks118.public_named_scenarios",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for serving_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -741,7 +742,7 @@
         "checker": "circulation_named_audit118.private_grouping",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for private_grouping, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -767,7 +768,7 @@
         "checker": "q11_boundary118.examine via workflow callback",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for q11_functional_boundary, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -792,7 +793,7 @@
         "checker": "fairness_audit118.worst_unit_function",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for worst_unit_function, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -817,7 +818,7 @@
         "checker": null,
         "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
         "evidence_required": "Full rule_contract_evidence.requirements row for geometric_diversity, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -887,7 +888,7 @@
         "checker": "claim_audit118.claim_boundary",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for claim_boundary, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -1008,7 +1009,7 @@
         "checker": "named_checks118.circulation_functional_integrity120 via workflow callback",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for circulation_functional_integrity, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -1034,7 +1035,7 @@
         "checker": "actual_opening_geometry121.evaluate",
         "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
         "evidence_required": "Full rule_contract_evidence.requirements row for actual_opening_geometry, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
-        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "decision_effect": "FAIL blocks selected gate; unresolved necessary applicability/profile/evidence or evaluator/source error blocks effective acceptance. Preserve exact original status plus distinct diagnostic reason, not a fabricated unified result.",
         "current_result": "NOT_RUN_TASK_2_2",
         "limitations": [
           "Historical mapped subconditions are not full source-rule approval.",
@@ -1363,7 +1364,8 @@
       ],
       "classification": "mandatory",
       "remaining_gap": "n=1 accepted input requirement but current whole checker requires n=2; hidden program/extra fields exceed three-field product contract.",
-      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE",
+      "current_interpretation": "Three-field restriction applies to external public brief/request. Explicit internally derived source-bound programme with lineage is required and permitted, not an illicit hidden user input; diagnostic API stays separate."
     },
     {
       "id": "H02",
@@ -2289,5 +2291,18 @@
     "no_unknown_suppression": true,
     "complete_reports_required": true
   },
-  "tests_scope": "Structural crosswalk completeness only; no geometry or rule satisfaction tests."
+  "tests_scope": "Structural crosswalk completeness only; no geometry or rule satisfaction tests.",
+  "diagnostic_reason_contract": {
+    "status_vs_reason": "Historical report statuses stay verbatim. The mapping does not collapse underlying causes.",
+    "reasons": [
+      "NOT_RUN",
+      "PROFILE_NOT_READY",
+      "INDETERMINATE",
+      "EVALUATOR_ERROR",
+      "SOURCE_CONFLICT",
+      "MISSING_EVIDENCE",
+      "APPLICABILITY_NOT_ESTABLISHED"
+    ],
+    "rule": "Preserve original errors/pending and reason details even if historical named adapter returns NOT_EVALUATED; evaluator error is not synonymous with never run."
+  }
 }
