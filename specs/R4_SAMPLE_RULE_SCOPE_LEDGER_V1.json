@@ -2625,10 +2625,214 @@
       "owner_task": "R4-1.03",
       "state": "MISSING_EVIDENCE",
       "action": "Review remaining source requirements and required applicability beyond89historical/fourcurrent; do not advertise this finite map as wholePRD."
+    },
+    {
+      "id": "R4-GAP-REPORT-DESIGN-SEPARATION",
+      "owner_task": "R4-1.11",
+      "state": "MISSING_EVIDENCE",
+      "action": "All89current/per-unit G_REPORT completeness separately from G_DESIGN; four reports insufficient."
+    },
+    {
+      "id": "R4-GAP-RETURN-ROUTING-ALL89",
+      "owner_task": "R4-1.09",
+      "state": "MISSING_EVIDENCE",
+      "action": "Explicit failure routing and comprehensive currentphase review; fresh four checks do not establish all89manual review."
+    },
+    {
+      "id": "R4-GAP-ALL-BOUND-CATEGORIES",
+      "owner_task": "R4-1.10",
+      "state": "MISSING_EVIDENCE",
+      "action": "Finite positive policy for allrequired bound categories plus semantic cycle; currentoutercontroller not fullinnerloopproof."
+    },
+    {
+      "id": "R4-GAP-USER-PERSISTENCE",
+      "owner_task": "R4-4.11",
+      "state": "MISSING_EVIDENCE",
+      "action": "User-linked durable sameoutput retrieval remains absent; temporaryActions artifact notproductstorage."
     }
   ],
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "current_process_product_requirements": [
+    {
+      "id": "FR-REPORT-GATE",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 69987,
+          "end_index": 70327,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "G_REPORT covers all89current IDs and applicable per-unit cases, with revision/witness or reasoned gap; report completeness does not mean design acceptance.",
+      "required_data": [
+        "current89IDset",
+        "per-unit applicability",
+        "criterion/subtest/finding distinct counts",
+        "model/image/report revision"
+      ],
+      "existing_checker_reference": "Historical rule_contract report plus current_four_decision covers partial scopes; not independent completeG_REPORT",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-1.11 and R4-3.05: build same-revision coverage and gaps ledger; preserve UNKNOWN/FAIL"
+    },
+    {
+      "id": "FR-DESIGN-GATE",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 70855,
+          "end_index": 71562,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "G_DESIGN independently requires necessary conditions and per-unit quality floors; hard failure, effective UNKNOWN/conflict/stale/error block. Product additionally requires H18/H19 snapshot parity. Independent nonprivate usable bathroom access is necessary.",
+      "required_data": [
+        "necessary predicates",
+        "quality profiles",
+        "bath route/door/privacy/use",
+        "full errors/pending",
+        "deliverysnapshot"
+      ],
+      "existing_checker_reference": "current_four_decision is four-condition scoped only; no wholePRD qualification",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-1.11: distinct gate outcomes, no quality masking by report completeness"
+    },
+    {
+      "id": "FR-DISPLAY-BOUNDARY",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 70328,
+          "end_index": 70854,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "Proposed/selectable/countable plan image requires G_DESIGN+G_REPORT. Text diagnostic permitted; explicit review mission may show defective image separately, never as design option.",
+      "required_data": [
+        "presentation purpose",
+        "bothgate receipts",
+        "revision",
+        "actualplaninventory"
+      ],
+      "existing_checker_reference": "Loopback study UI currently no planpayload/download; not exporter admission",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-3.09/3.11: test actual positive qualified path and reject UNKNOWN/stale/FAIL"
+    },
+    {
+      "id": "FR-RETURN-LOOP",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 71563,
+          "end_index": 72105,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "Route local issue toP07/P06, dimensionsP05, programmeP04, organizationP03, missinginputP01, missingprofileP02; fix evaluator on unchangedgeometry, file on samemodelP10. Every change revised, current phase all89/applicable cases reviewed; selective recheck only after validated dependencygraph.",
+      "required_data": [
+        "typed failure cause",
+        "repairtarget",
+        "parent/child revision",
+        "all89/unit review ledger",
+        "samegeometry evaluatorerror witness"
+      ],
+      "existing_checker_reference": "bounded_repair_chain existing one operator plus four fresh reports, not full causal routing/89manual coverage",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-1.09: explicit routing and comprehensive review; no random regeneration for missing data"
+    },
+    {
+      "id": "FR-LOOP-BOUNDS",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 72106,
+          "end_index": 72606,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "Before execution record dated positive finite cumulative bounds for attempts,candidates,familychanges,retries,no-progress,time,resources. Missing policy BUDGET_POLICY_REQUIRED. LLM only ifcalled:actual+reserved+newupperbound<=2USD. Semantic A→B→A stops; budget exhaustion not acceptance/globalinfeasibility.",
+      "required_data": [
+        "policy version",
+        "allbound categories",
+        "cumulative counters",
+        "semantic signatures",
+        "stopreason",
+        "LLMcall/reservation ledger ifapplicable"
+      ],
+      "existing_checker_reference": "repair_attempt_control and controlled_repair_entrypoint cover outerattempt/process budget only, not proof every innercategory/semanticcycle is integrated",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-1.10: close separate bound categories and runtime enforcement; retain partial original budgets"
+    },
+    {
+      "id": "FR-PERSISTENCE",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 118328,
+          "end_index": 118743,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "User-linked project/input/ruleversion/status/selectedoption/DXF persist; later authorized download retrieves sameoutput without regeneration.",
+      "required_data": [
+        "ownerbinding",
+        "durableobjects",
+        "metadatarevision",
+        "downloadaccess",
+        "sameartifacthash",
+        "retentionpolicy"
+      ],
+      "existing_checker_reference": "Temporary Actions artifacts and small manifests do not implement userpanel/durable product storage",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-4.11 and output/persistence work: authorized durable storage and replay/download evidence; no unapprovedarchive ingestion"
+    },
+    {
+      "id": "CURRENT_OPTION_POLICY",
+      "sources": [
+        {
+          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+          "tab": "t.0",
+          "start_index": 133051,
+          "end_index": 133647,
+          "readback": "LIVE_TEXT_READ_2026_11_19"
+        }
+      ],
+      "required_predicate": "Up to6qualified genuinelydifferent options ifpossible, not mandatorysix; everypair distinct, no transitivity shortcut or mirror/color/name duplicate count.",
+      "required_data": [
+        "qualifiedinventory",
+        "pairmatrix k(k-1)/2",
+        "request/program/comparability"
+      ],
+      "existing_checker_reference": "Historical task5.5 count only; no qualifiedset proof",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "next_action": "R4-3.01–3.04: exactinventory/allpairs; zero/less allowed withreason"
+    }
+  ],
+  "source_conflicts": [
+    {
+      "id": "D08_OLD_THREE_VS_CURRENT_UP_TO_SIX",
+      "old_source": {
+        "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+        "tab": "t.0",
+        "start_index": 135031,
+        "end_index": 135250
+      },
+      "current_source": {
+        "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+        "tab": "t.0",
+        "start_index": 133051,
+        "end_index": 133647
+      },
+      "resolution": "Current explicitly labelled policy up to6conditional takes precedence. Old D08 retained as history, not overwritten or enforced as max3.",
+      "state": "SOURCE_PRECEDENCE_RECORDED_NOT_RUNTIME_TESTED"
+    }
+  ]
 }
