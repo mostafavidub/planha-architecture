@@ -174,3 +174,64 @@ def door_side_negative(model):
  need(digest(model)==pin,'DOOR_NEGATIVE_MUTATED_ORIGINAL')
  return {'schema':'ACTUAL_DOOR_SIDE_NEGATIVE207_V1','model_digest':pin,'rows':rows,'original_unchanged':True,
  'scope':'Wrong physical actor sweep retained under original declared WC role; original check_operations, not receipt mismatch','accepted':False,'qualified':False}
+
+def actual_floor_motion_negatives(model,guest_report):
+ """Detached actual data: geometry error codes, not admission or source-hash rejection."""
+ from checker114 import check_module_placements
+ from source_guest_route_evaluator import route_check
+ from guest_route_certificate_study import scene
+ from geometry114 import route
+ need(Path(inspect.getsourcefile(scene)).resolve()==ROOT/'app/local_integration/guest_route_certificate_study.py','SCENE_IMPORT')
+ need(Path(inspect.getsourcefile(route)).resolve()==ENGINE/'fast_route120.py','ROUTER_IMPORT')
+ need(guest_report.get('model_digest')==digest(model)and guest_report.get('integrity_verified')is True,'GUEST_REPORT_BINDING')
+ guest_pin=digest(guest_report)
+ need(Path(inspect.getsourcefile(check_module_placements)).resolve()==ENGINE/'checker114.py','PLACEMENT_CHECK_IMPORT')
+ need(Path(inspect.getsourcefile(route_check)).resolve()==ROOT/'app/local_integration/source_guest_route_evaluator.py','ROUTE_CHECK_IMPORT')
+ pin=digest(model);baseline=check_module_placements(model);rows=[]
+ for uid in ('A','B'):
+  def target_count(report):
+   return sum(e.get('code')=='MODULE_APRON_NOT_REAL_PUBLIC_FLOOR'and e.get('unit')==uid and e.get('room')=='bath'for e in report['errors'])
+  changed=copy.deepcopy(model);changed['module_aprons'][uid+'.bath']=[['-10','-10','-9','-9']]
+  observed=check_module_placements(changed)
+  rows.append({'unit':uid,'mutation':'ACTUAL_APRON_OUTSIDE_TYPED_FLOOR','state':'DETECTED_DIRECT_GEOMETRY'if target_count(baseline)==0 and target_count(observed)>0 else'NOT_ESTABLISHED_BASELINE_OR_MUTATION',
+   'before_target_error_count':target_count(baseline),'after_target_error_count':target_count(observed),'mutated_model_digest':digest(changed),
+   'other_errors_preserved_in_report_digest':digest(observed)})
+  u=next(u for u in model['units']if u['id']==uid);op=next(o for o in model['operations']['kitchen']if o['unit']==uid)
+  gr=next((v for v in guest_report.get('units',[])if v['unit']==uid),{})
+  row=next((v for v in gr.get('routes',[])if v['id']=='entry_living'),{})
+  if row.get('state')!='PASS_SOURCE_PROFILE_ROUTE_ONLY':
+   rows.append({'unit':uid,'mutation':'ACTUAL_GUEST_THROUGH_KITCHEN_MOTION','state':'NOT_EVALUATED_NO_POSITIVE_SOURCE_SCENARIO'});continue
+  s=scene(model,u,'entry_living');path=row['path'];start,end=row['start'],row['end'];body=F('.7')
+  need(row['floor_digest']==digest(s['parts'])and row['obstacle_digest']==digest(s['obstacles'])and row['ownership_digest']==digest(s['owner']),'ACTUAL_SCENE_BINDING')
+  route_check(path,start,end,body,s['parts'],s['obstacles'])
+  other=[r for r,label in zip(s['obstacles'],s['labels'])if not label.startswith('kitchen_motion:')]
+  trials=0;found=None
+  for envelope in op['motion_envelopes']:
+   x,y,xx,yy=q(envelope);cx,cy=(x+xx)/2,(y+yy)/2
+   for tx,ty in ((xx,cy),(x,cy),(cx,yy),(cx,y),(cx,cy)):
+    box=(tx-body/2,ty-body/2,tx+body/2,ty+body/2)
+    if not covered(box,list(map(q,s['parts'])))or not covered(box,list(map(q,s['owner'])))or any(hit(box,q(v))for v in other):continue
+    if not any(hit(box,q(v))for v in op['motion_envelopes']):continue
+    target=[S(tx),S(ty)];trials+=1
+    first,_=route(start,target,s['box'],other,body='.7')
+    if not first:continue
+    second,_=route(target,end,s['box'],other,body='.7')
+    if not second:continue
+    bad=first+second[1:]
+    try:route_check(bad,start,end,body,s['parts'],other)
+    except ValueError:continue
+    bands=list(sweep(bad,body))
+    if any(not covered(z,list(map(q,s['owner'])))for z in bands):continue
+    labels=sorted({label for z in bands for obstacle,label in zip(s['obstacles'],s['labels'])if hit(z,q(obstacle))})
+    if not labels or any(not label.startswith('kitchen_motion:')for label in labels):continue
+    try:route_check(bad,start,end,body,s['parts'],s['obstacles'])
+    except ValueError as ex:
+     if str(ex)=='ROUTE_OBSTACLE_COLLISION':found={'mutated_path_digest':digest(bad),'collision_labels':labels}
+    if found:break
+   if found:break
+  rows.append({'unit':uid,'mutation':'ACTUAL_GUEST_THROUGH_KITCHEN_MOTION','state':'DETECTED_DIRECT_GEOMETRY'if found else'NOT_ESTABLISHED_NO_DETACHED_WITNESS',
+   'baseline_path_digest':digest(path),'scene_digest':digest(s),'candidate_point_trials':trials,
+   'scope':'Same typed floor, ownership, endpoints and all labelled obstacles; detached routing removes motion only to construct a negative, never a delivered route',**(found or {})})
+ need(digest(guest_report)==guest_pin,'GUEST_NEGATIVE_REPORT_MUTATION')
+ need(digest(model)==pin,'FLOOR_MOTION_NEGATIVE_MUTATED_ORIGINAL')
+ return {'schema':'ACTUAL_FLOOR_MOTION_NEGATIVES207_V1','model_digest':pin,'rows':rows,'original_unchanged':True,'accepted':False,'qualified':False}

@@ -12,7 +12,7 @@ from front_rear_runtime_adapter import transport,proposal_transport,proposal_dis
 from same_version_front_rear_contract import digest,ENGINE_REVISION,FREEZE
 from one_bed_pair_source_study import code_counts,stop_process
 from core_choice_pair_study import selected_core,bind_profile,bind_program
-from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives,door_side_negative
+from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives,door_side_negative,actual_floor_motion_negatives
 CASES={'20x18':('20','18'),'18x22':('18','22'),'base20x18':('20','18'),'22x18':('22','18'),'20x22':('20','22')}
 def need(ok,code):
  if not ok:raise ValueError(code)
@@ -38,6 +38,7 @@ def child(folder,case,nonce):
  def retain(k,r):preserve_report(originals,live,pins,k,r);check();save()
  try:
   paths=['app/local_integration/'+n for n in ('source_fit_pair_study207.py','source_fit_candidate207.py','source_fit_profile207.py','core_choice_pair_study.py','one_bed_pair_source_study.py','program_profile_registry.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py')]
+  paths+=['app/local_integration/'+n+'.py'for n in ('current_programme_evaluator','source_guest_route_evaluator','source_living_evaluator','source_wall_function_evaluator','guest_route_certificate_study')]
   paths+=['app/reconstruction357/planha_general150_runtime_work/'+m.__name__+'.py'for m in (contract114,search114,constructor127,construction_replay127,evaluate_pair127)]+['app/reconstruction357/planha_general150_runtime_work/entry117.py']
   snap=snapshot(ROOT,paths)
   need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'ENGINE_GUARD')
@@ -90,6 +91,32 @@ def child(folder,case,nonce):
   need(out['installed_subset_state']=='PASS_SOURCE_SUBSET_ONLY'and out['actual_negatives_detected']is True,'INSTALLATION_STUDY_NOT_VERIFIED')
   retain('door_side_negative',door_side_negative(model))
   out['door_side_negative_states']=[r['state']for r in originals['door_side_negative']['rows']]
+  if sys.argv[-1]=='WITH_CURRENT':
+   evidence={'packet':packet,'context':ctx,'model_digest':digest(model),'reports':{'physical':copy.deepcopy(originals['physical']),'original_replay':copy.deepcopy(originals['original_replay'])},
+    'report_digests':{k:pins[k]for k in ('physical','original_replay')}}
+   pin('current_evidence',evidence)
+   import current_programme_evaluator,source_guest_route_evaluator,source_living_evaluator,source_wall_function_evaluator
+   out['current_assessments']={}
+   for module in (current_programme_evaluator,source_guest_route_evaluator,source_living_evaluator,source_wall_function_evaluator):
+    need(Path(inspect.getsourcefile(module.assess)).resolve()==ROOT/'app/local_integration'/(module.__name__+'.py'),'CURRENT_IMPORT_PATH')
+    out['stage']='CURRENT_ASSESS_'+module.__name__;save()
+    try:
+     assessment=module.assess(evidence);check()
+    except Exception as ex:
+     assessment={'state':'EVALUATOR_ERROR','model_digest':digest(model),'integrity_verified':False,'exception_type':type(ex).__name__,'accepted':False,'qualified':False}
+    key='current_'+module.__name__;retain(key,assessment)
+    state=assessment.get('state');state=state if state in ('PASS','FAIL','UNKNOWN','NOT_EVALUATED','EVALUATOR_ERROR')else'UNRECOGNIZED_STATE'
+    error_count=sum(f.get('kind')in ('EVALUATOR_OR_SOURCE_BINDING_ERROR','INTEGRITY_ERROR')for f in assessment.get('findings',[]))
+    error_count+=sum(v.get('state')in ('UNKNOWN_EVALUATOR_OR_BINDING_ERROR','EVALUATOR_ERROR')for u in assessment.get('units',[])for v in u.get('routes',[]))
+    error_count+=sum(v.get('state')=='EVALUATOR_ERROR'for u in assessment.get('units',[])for st in u.get('studies',[])for v in st.get('routes',[]))
+    out['current_assessments'][module.__name__]={'state':state,'integrity_verified':assessment.get('integrity_verified')is True,
+     'missing_count':len(assessment.get('missing',[])),'evaluator_error_count':error_count,'report_digest':pins[key]}
+    save()
+   out['current_four']='FRESH_ASSESSED_NO_QUALIFICATION'
+   out['current_evaluation_integrity_verified']=all(v['integrity_verified']and v['state']not in ('EVALUATOR_ERROR','UNRECOGNIZED_STATE')and v['missing_count']==0 and v['evaluator_error_count']==0 for v in out['current_assessments'].values())
+   out['stage']='ACTUAL_FLOOR_MOTION_NEGATIVES';save()
+   retain('actual_floor_motion_negatives',actual_floor_motion_negatives(model,originals['current_source_guest_route_evaluator']))
+   out['actual_floor_motion_negative_states']=[r['state']for r in originals['actual_floor_motion_negatives']['rows']]
   out.update(state='FULL_REPORTS_RETAINED_NOT_QUALIFIED',completed=True,independent_origin_verified=originals['original_replay'].get('verified')is True,
    legacy_replay_verified=originals['original_replay'].get('verified')is True,
    physical_status=originals['physical'].get('status'),physical_error_counts=code_counts(originals['physical'].get('errors',[])),
@@ -105,16 +132,16 @@ def child(folder,case,nonce):
   except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,origin_observed_at_checkpoint=out.get('independent_origin_verified',False),independent_origin_verified=False,integrity_error_type=type(ex).__name__)
   out.update(report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False);save()
 def main():
- if len(sys.argv)==5 and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3],sys.argv[4]);return
+ if len(sys.argv)in (5,6)and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3],sys.argv[4]);return
  results=[]
- selected=['20x22']if sys.argv[1:]==['--deep-study']else['base20x18','22x18']if sys.argv[1:]==['--wide-study']else['20x18','18x22']
- need(sys.argv[1:]in ([],['--wide-study'],['--deep-study']),'STUDY_MODE')
+ selected=['18x22','20x22']if sys.argv[1:]==['--current-study']else['20x22']if sys.argv[1:]==['--deep-study']else['base20x18','22x18']if sys.argv[1:]==['--wide-study']else['20x18','18x22']
+ need(sys.argv[1:]in ([],['--wide-study'],['--deep-study'],['--current-study']),'STUDY_MODE')
  for case in selected:
   remaining=(datetime(2026,11,19,14,35,44,tzinfo=timezone.utc)-datetime.now(timezone.utc)).total_seconds()
   budget=min(240,remaining-5);need(budget>0,'TASK_TIMEBOX_EXPIRED')
   with tempfile.TemporaryDirectory(prefix='source-fit-')as tmp:
    dest=Path(tmp)/'run';start=time.monotonic();nonce=uuid.uuid4().hex
-   proc=subprocess.Popen([sys.executable,'-B',__file__,'--child',str(dest),case,nonce],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True);timed=False
+   proc=subprocess.Popen([sys.executable,'-B',__file__,'--child',str(dest),case,nonce]+(['WITH_CURRENT']if sys.argv[1:]==['--current-study']else[]),stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,start_new_session=True);timed=False
    try:proc.wait(timeout=budget)
    except subprocess.TimeoutExpired:timed=True;stop_process(proc)
    try:result=json.loads((dest/'summary.json').read_text())if(dest/'summary.json').exists()else{'state':'NO_SUMMARY'}
@@ -124,5 +151,6 @@ def main():
    result.update(case=case,outer_timeout=timed,wait_completed=proc.poll()is not None,returncode=proc.returncode,elapsed_seconds=time.monotonic()-start,outer_budget_seconds=budget,full_model_uploaded=False)
    if timed or proc.returncode!=0:result.update(completed=False,origin_observed_at_checkpoint=result.get('independent_origin_verified',False),independent_origin_verified=False,state='OUTER_TIMEOUT_PARTIAL_OBSERVATION'if timed else'PROCESS_FAILED_CLOSED')
    print(json.dumps(result,sort_keys=True,allow_nan=False),flush=True);results.append(result)
+ need(all(r.get('current_evaluation_integrity_verified',True)is True for r in results),'CURRENT_EVALUATION_ERROR_RETAINED')
  need(all(r.get('completed')is True and r.get('integrity_verified')is True and not r['outer_timeout']and r['returncode']==0 for r in results),'STUDY_NOT_COMPLETED')
 if __name__=='__main__':main()
