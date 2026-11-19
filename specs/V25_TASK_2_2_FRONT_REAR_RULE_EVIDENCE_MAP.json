@@ -1,0 +1,2285 @@
+{
+  "schema": "V25_FRONT_REAR_RULE_EVIDENCE_MAP_V1",
+  "task": "2.2",
+  "case": {
+    "W": 18,
+    "L": 20,
+    "n": 2,
+    "family": "FRONT_REAR",
+    "program": "PROGRAM_2BED_V1"
+  },
+  "scope": "Selected original127 pipeline obligation inventory, not all PRD coverage; no model generation or evaluator execution.",
+  "historical_source": {
+    "path": "app/reconstruction357/planha_general150_runtime_work/rule_contract118.json",
+    "blob_sha": "4fe2359fbbc40cddc0d1a1fb01b63bfb294cae49",
+    "pinned_sha256": "b286c31d09fd58b962e0af1a81ee0e5c79c43c17271c40580ff6ee5b7ce3a1ac",
+    "registry_rows": 89,
+    "requirement_rows": 38,
+    "warning": "Snapshot from historical source; precedence5..45 is outdated. Do not mutate frozen contract or import its domain as current approval."
+  },
+  "layers": {
+    "request_and_origin": [
+      {
+        "id": "CURRENT_PUBLIC_WLN",
+        "checker": "public_wln_contract.parse_public/verify_public/engine_raw",
+        "data": [
+          "original bytes",
+          "envelope",
+          "raw"
+        ],
+        "evidence": "Task1.1 and2.1 contracts; future same-request trace",
+        "effect": "Reject invalid/extra/over25; valid but selected-engine unsupported separated",
+        "state": "NOT_RUN_TASK_2_2"
+      },
+      {
+        "id": "PAIR127_ORIGIN",
+        "checker": "construction_replay127.verify; evaluate_pair127.evaluate bindings",
+        "data": [
+          "raw",
+          "ordered A/B proposals",
+          "packet",
+          "context",
+          "source revision"
+        ],
+        "evidence": "Complete replay and exact JSON digests of actual model/core/proposals/context",
+        "effect": "Any binding or source failure blocks; origin alone never admission",
+        "state": "NOT_RUN_TASK_2_2"
+      }
+    ],
+    "physical": [
+      {
+        "id": "PHYSICAL_GEOMETRY_AND_OPERATIONS",
+        "checker": "checker114._evaluate_impl via evaluate_pair127.evaluate FRONT_REAR",
+        "data": [
+          "exact frame/owner/room/wall/fixture geometry",
+          "opening hosts",
+          "routes/targets",
+          "operations",
+          "module placements",
+          "common access",
+          "privacy"
+        ],
+        "evidence": "Full errors/pending/counts/placement/privacy report plus original_pending/not_evaluated/out_of_scope",
+        "effect": "Errors or necessary pending block; preserve entire report; no downstream filtering",
+        "state": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Frozen .7 body/source fixtures are scoped studies, not ergonomic approval.",
+          "scope117 moves overall spatial-quality unknown to not_evaluated; functional current layer must not drop it."
+        ]
+      }
+    ],
+    "named": [
+      {
+        "id": "input_exact_domain",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H01"
+        ],
+        "historical_criterion": "Exact W/L 5..45 and n1/2; invalid input rejected before generation",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "original public bytes",
+          "envelope",
+          "raw W/L/n",
+          "model.inputs"
+        ],
+        "checker": "rule_contract118.BUILTINS['input_exact_domain']",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for input_exact_domain, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements.",
+          "Historical _input and checker114 retain5..45; current public parser5..25 must guard entry. Historical PASS does not prove rejection above25. n1/2 historical source; selected engine n2 only. Broader positive n parser acceptance is not product-scope approval."
+        ]
+      },
+      {
+        "id": "no_hidden_project_inputs",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H01"
+        ],
+        "historical_criterion": "Three-field project brief; no city/north/typology hidden defaults",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "raw exact keyset",
+          "construction trace",
+          "model input contract"
+        ],
+        "checker": "project_input_audit118.no_hidden_project_inputs",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for no_hidden_project_inputs, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "containment_all_entities",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H02"
+        ],
+        "historical_criterion": "All actual geometry incl walls/openings/core inside exact frame",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "inputs W/L",
+          "walls",
+          "units ownership/rooms/fixtures",
+          "common_spaces",
+          "openings"
+        ],
+        "checker": "named_checks118.containment_all_entities",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for containment_all_entities, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "valid_exact_regions",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H03"
+        ],
+        "historical_criterion": "Positive rectangle-union geometry, no bbox substitution for holes",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "walls",
+          "ownership",
+          "rooms",
+          "fixtures positive exact rectangle unions"
+        ],
+        "checker": "rule_contract118.BUILTINS['valid_exact_regions']",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for valid_exact_regions, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "partition_ledger",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H04",
+          "H06",
+          "Q03",
+          "IR-P12"
+        ],
+        "historical_criterion": "Full disjoint ownership/common/walls/open/unallocated ledger; net/gross/functional areas distinct",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "spatial_accounting",
+          "wall union",
+          "threshold_ownership",
+          "unit/common floor",
+          "physical_geometry_hash"
+        ],
+        "checker": "named_checks118.partition_ledger",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for partition_ledger, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "unit_independence",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H05",
+          "Q06"
+        ],
+        "historical_criterion": "Exactly requested independent units and entrances; no hidden merge",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "units IDs/ownership",
+          "entry openings",
+          "common_routes",
+          "public/private floor"
+        ],
+        "checker": "named_checks118.unit_independence",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for unit_independence, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "bath_nonprivate_access",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H07",
+          "H13",
+          "IR-P04"
+        ],
+        "historical_criterion": "Remove bedroom/private-vestibule nodes; usable common-resident bath remains reachable",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "bath doors/roles",
+          "logical_regions",
+          "private domains",
+          "body paths to actual wet use"
+        ],
+        "checker": "access_accounting118.bath_nonprivate_access",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for bath_nonprivate_access, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "body_route_sweeps",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H08",
+          "H12"
+        ],
+        "historical_criterion": "Every required target has source-bound body-width continuous collision-free route",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "profile.body_m",
+          "routes/scenario_routes",
+          "actual targets",
+          "walls/fixtures/operation obstacles"
+        ],
+        "checker": "named_checks118.body_route_sweeps",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for body_route_sweeps, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "wall_network",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H09"
+        ],
+        "historical_criterion": "Actual unique connected wall network, thickness and finished-face assumptions bound",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "walls/wall_hosts",
+          "physical_wall_network aliases/solids",
+          "wall_finish_profile"
+        ],
+        "checker": "core_wall_audit118.wall_network",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for wall_network, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "opening_hosts",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H10"
+        ],
+        "historical_criterion": "Actual cut host, correct two regions and free aperture",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "openings rect/host/connects",
+          "walls",
+          "actual logical region floors",
+          "body crossing"
+        ],
+        "checker": "core_wall_audit118.opening_hosts",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for opening_hosts, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "door_operation",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H11",
+          "IR-P09",
+          "IR-P15"
+        ],
+        "historical_criterion": "All applicable real leaves: panel/actor/approach/transfer and relevant simultaneous state collisions",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "operations.doors",
+          "leaf states/actor sweeps",
+          "owners/walls/fixtures"
+        ],
+        "checker": "named_checks118.door_operation",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for door_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "fixture_inventory_use",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H12",
+          "H13",
+          "Q01"
+        ],
+        "historical_criterion": "Immutable fixture count/dimensions and every required per-room use target; no scale",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "module_placements",
+          "fixture_metadata",
+          "actual dimensions/counts",
+          "capacity and activities"
+        ],
+        "checker": "named_checks118.fixture_inventory_use",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for fixture_inventory_use, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "closet_operation",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H12",
+          "IR-P15"
+        ],
+        "historical_criterion": "Each bedroom actual closet panels/body/use paths and storage boundary",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "operations.closets",
+          "panels/body/use paths",
+          "closet fixture/source placement"
+        ],
+        "checker": "named_checks118.closet_operation",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for closet_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "program_functional_roles",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H13",
+          "Q01",
+          "IR-P02",
+          "IR-P16",
+          "IR-P24",
+          "IR-P47"
+        ],
+        "historical_criterion": "Actual programmed usable spaces, no residual-floor living or unnamed storage substitution",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "program sleep roles",
+          "public_program",
+          "capacity instances",
+          "wet/nonprivate function"
+        ],
+        "checker": "named_checks118.program_functional_roles",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for program_functional_roles, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "zero_laundry",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H13",
+          "IR-P23"
+        ],
+        "historical_criterion": "Zero laundry room/equipment/reserve in geometry/report/export",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "rooms/fixtures/activities/metadata",
+          "reserved_spaces/reservations"
+        ],
+        "checker": "rule_contract118.BUILTINS['zero_laundry']",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for zero_laundry, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "core_concept",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H15"
+        ],
+        "historical_criterion": "One shared stair, lift, independent lobby and routes; no execution claim",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "common stair/lift/lobby",
+          "one shared core",
+          "common_routes and entry floors"
+        ],
+        "checker": "core_wall_audit118.core_concept",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for core_concept, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "window_opportunities",
+        "layer": "EXCLUDED_POST_MVP",
+        "source_rule_ids": [
+          "H16",
+          "Q08",
+          "IR-P30",
+          "IR-P39"
+        ],
+        "historical_criterion": "Every bedroom/main living actual host/contact/open-edge/height and equipment projection",
+        "historical_mandatory": false,
+        "applicability": "owner_excluded_light_vent121",
+        "data_required": [
+          "excluded light/ventilation inventory"
+        ],
+        "checker": null,
+        "checker_mapping_status": "EXCLUDED_WITH_AUTHORITY",
+        "evidence_required": "Scope authority, not PASS",
+        "decision_effect": "NOT_EVALUATED_POST_MVP_NONBLOCKING_FOR_THIS_SCOPE",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "kitchen_essential_operation",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H17",
+          "Q07",
+          "IR-P18"
+        ],
+        "historical_criterion": "Essential actual refrigerator/sink/prep/cooker/storage operations and task paths, not optional oven/full-MEP",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "operations.kitchen",
+          "source appliance dimensions",
+          "task paths and state envelopes"
+        ],
+        "checker": "named_checks118.kitchen_essential_operation",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for kitchen_essential_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "bath_service_operation",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H17",
+          "IR-P15",
+          "IR-P21"
+        ],
+        "historical_criterion": "WC/shower/basin entry-close-use-exit and actual use clearances",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "source bath placement",
+          "WC/shower/basin activities",
+          "entry-close-use-exit traces"
+        ],
+        "checker": "named_checks118.bath_service_operation",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for bath_service_operation, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "privacy_scenarios",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q05",
+          "IR-P03",
+          "IR-P21"
+        ],
+        "historical_criterion": "All relevant public/entry/guest sources to bed/changing/WC/shower; actual open/closed simultaneous states; conditional proofs labelled",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "actual private boundary/apertures",
+          "bed/changing/wet targets",
+          "opaque-wall assumptions"
+        ],
+        "checker": "named_checks118.privacy_scenarios",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for privacy_scenarios, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "guest_living_route",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H07",
+          "Q06",
+          "Q07",
+          "IR-P04"
+        ],
+        "historical_criterion": "Entry to living independent of bedrooms/kitchen work/open-equipment areas and dining occupied/pulled chairs",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "public_program destinations",
+          "entry",
+          "guest_living path",
+          "occupied/pulled chairs and kitchen operations"
+        ],
+        "checker": "named_checks118.public_named_scenarios",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for guest_living_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "guest_dining_route",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H07",
+          "Q07",
+          "IR-P04"
+        ],
+        "historical_criterion": "Separate entry-to-dining usable route independent of kitchen work/equipment use",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "actual dining standing destination",
+          "entry",
+          "guest_dining path",
+          "kitchen/seat scenario"
+        ],
+        "checker": "named_checks118.public_named_scenarios",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for guest_dining_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "chair_capacity_movement",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H12",
+          "Q01",
+          "Q07",
+          "IR-P15",
+          "IR-P16"
+        ],
+        "historical_criterion": "Required dining chairs pull/stand with other required seats occupied; living capacity access",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "dining module/transform",
+          "distinct seats",
+          "chair pull/actor sweeps",
+          "occupied neighbors"
+        ],
+        "checker": "named_checks118.chair_capacity_movement",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for chair_capacity_movement, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "serving_route",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q07",
+          "IR-P19",
+          "IR-P47"
+        ],
+        "historical_criterion": "Actual kitchen-to-dining serving path independent of occupied furniture/activity conflicts",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "kitchen and dining real destinations",
+          "serving path",
+          "occupied operation obstacles"
+        ],
+        "checker": "named_checks118.public_named_scenarios",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for serving_route, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "long_corridor_necessity",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q04",
+          "IR-P10",
+          "IR-P11"
+        ],
+        "historical_criterion": "Review actual alternative, lengths/area/bends and reasons/tradeoffs for relevant corridor issues; no dominance/global necessity requirement. Absence remains visible REVIEW_REQUIRED, not hard rejection.",
+        "historical_mandatory": false,
+        "applicability": "corridor_issue_requires_applicability",
+        "data_required": [
+          "applicability evidence",
+          "same-program alternatives",
+          "length/area/bends",
+          "comparison reasons"
+        ],
+        "checker": "core_circulation_scope118.evaluate via workflow callback",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for long_corridor_necessity, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "REVIEW_REQUIRED retained; historical callback is not hard global necessity proof",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements.",
+          "Current owner comparison requirement remains in criteria catalog; lack of historical hard-pending is not closure of living/wall requirement."
+        ]
+      },
+      {
+        "id": "private_grouping",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "IR-P13"
+        ],
+        "historical_criterion": "Multiple bedrooms grouped compactly or explicit functional route comparison for dispersion",
+        "historical_mandatory": true,
+        "applicability": "multi_bedroom",
+        "data_required": [
+          "bedroom domains",
+          "private routes",
+          "dispersion/function comparison"
+        ],
+        "checker": "circulation_named_audit118.private_grouping",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for private_grouping, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "q11_functional_boundary",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q11",
+          "IR-P11"
+        ],
+        "historical_criterion": "No sight-only baffle; actual useful room/bath/closet boundary and operation, before/after impacts, privacy preserved",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "actual boundary/module provenance",
+          "served function",
+          "current impact or predecessor comparison",
+          "privacy"
+        ],
+        "checker": "q11_boundary118.examine via workflow callback",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for q11_functional_boundary, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements.",
+          "Historical current-state/replay witness is not complete current per-wall removal/alternative proof."
+        ]
+      },
+      {
+        "id": "worst_unit_function",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q12",
+          "IR-P44"
+        ],
+        "historical_criterion": "All mandatory functional subconditions per unit; never average-away failure",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "all mandatory per-unit findings",
+          "per-unit evidence and failures"
+        ],
+        "checker": "fairness_audit118.worst_unit_function",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for worst_unit_function, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "geometric_diversity",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q14",
+          "IR-P45"
+        ],
+        "historical_criterion": "If multiple: all unordered pairs functional-geometric distinction; no mirror/id/seed/jitter duplication",
+        "historical_mandatory": true,
+        "applicability": "multiple_candidates",
+        "data_required": [
+          "complete batch model hashes",
+          "all unordered candidate pairs",
+          "functional geometry"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Full rule_contract_evidence.requirements row for geometric_diversity, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "export_parity",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H18"
+        ],
+        "historical_criterion": "Final served preview/DXF same canonical geometry/labels/scale/windows/fixed elements/warnings; no movable furniture/columns",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "served SVG/DXF",
+          "canonical model",
+          "scale/labels/fixed fixtures/warnings"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "immutable_history",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H19"
+        ],
+        "historical_criterion": "Inputs/model/profile/rules/evidence/final artifacts same revision; old final history preserved",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "request/model/profile/rules/evidence/artifact revision chain",
+          "prior final versions"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "claim_boundary",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H20"
+        ],
+        "historical_criterion": "Pre-render declaration in canonical model/report: explicit Concept scope, assumptions and no national/full-building/technical approval. This does not prove visible warnings.",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "model/report concept declaration",
+          "scope and assumptions"
+        ],
+        "checker": "claim_audit118.claim_boundary",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for claim_boundary, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "owner_access",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H21"
+        ],
+        "historical_criterion": "Owner authorization for history/download, no identifier-only access; scoped local mode explicit",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "authenticated owner",
+          "history/download permissions",
+          "authorization evidence"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "llm_budget",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H22"
+        ],
+        "historical_criterion": "If LLM used aggregate spend+reservations+next max<=2USD incl retries; otherwise verified no-call path",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "actual no-call proof or spend/reservations/max next call",
+          "cumulative retries"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "per_option_rule_report",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H19",
+          "H20"
+        ],
+        "historical_criterion": "G6/G15 complete row/subcondition findings bound to same option, evidence, source/date, limitations and remaining actions",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "option/model hash",
+          "all applicable rule findings",
+          "source/evidence/date/action"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "claim_boundary_display",
+        "layer": "PRODUCT_STAGE",
+        "source_rule_ids": [
+          "H20"
+        ],
+        "historical_criterion": "Post-export actual visible Concept warning and limitations in final preview/DXF/report, same canonical revision. Declaration alone is insufficient.",
+        "historical_mandatory": true,
+        "applicability": "product_stage",
+        "data_required": [
+          "rendered preview/DXF/report visible warnings",
+          "same canonical revision"
+        ],
+        "checker": null,
+        "checker_mapping_status": "UNMAPPED_IN_SELECTED_CONCEPT_CHAIN",
+        "evidence_required": "Fresh product-stage end-to-end evidence, not supplied by concept report",
+        "decision_effect": "NOT_APPLICABLE_TO_CONCEPT_STAGE; REQUIRED_BEFORE_PRODUCT_DELIVERY",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "circulation_functional_integrity",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "Q04",
+          "IR-P10",
+          "IR-P11"
+        ],
+        "historical_criterion": "Fresh actual route/body and functional destination checks; circulation measured without double counting, no nonfunctional dead end or relabeling residual floor as useful. No global-shortest/necessity proof.",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "final routes/destinations",
+          "final_route_ledger",
+          "actual classified floors"
+        ],
+        "checker": "named_checks118.circulation_functional_integrity120 via workflow callback",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for circulation_functional_integrity, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      },
+      {
+        "id": "actual_opening_geometry",
+        "layer": "NAMED_SOURCE_OBLIGATION",
+        "source_rule_ids": [
+          "H08",
+          "H18",
+          "IR-P39"
+        ],
+        "historical_criterion": "Only existing modeled opening geometry, actual host/aperture dimensions, physical collisions and artifact consistency; no required daylight/window inventory, light/air potential, sufficiency or rights assessment",
+        "historical_mandatory": true,
+        "applicability": "always",
+        "data_required": [
+          "existing openings/windows geometry/hosts",
+          "dimensions/collisions",
+          "no daylight sufficiency"
+        ],
+        "checker": "actual_opening_geometry121.evaluate",
+        "checker_mapping_status": "SOURCE_CODE_REFERENCE_ONLY_NOT_EXECUTED",
+        "evidence_required": "Full rule_contract_evidence.requirements row for actual_opening_geometry, including model_hash, method, contract_hash, witness, scope and all pending/errors; source reference alone is no witness.",
+        "decision_effect": "FAIL blocks selected gate; missing/unresolved applicability/evaluator/evidence remains NOT_EVALUATED and blocks, no receipt substitution",
+        "current_result": "NOT_RUN_TASK_2_2",
+        "limitations": [
+          "Historical mapped subconditions are not full source-rule approval.",
+          "Current criteria catalog and public contract remain additional requirements."
+        ]
+      }
+    ],
+    "current": [
+      {
+        "id": "CURRENT_PROGRAM_SUITABILITY",
+        "source_catalog": "specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json",
+        "source_refs": [
+          {
+            "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+            "tab_id": "t.0",
+            "start_index": 118745,
+            "end_index": 119064,
+            "label": "PRD FR-BEDROOM",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+            "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.jgj9urck6sd",
+            "start_index": 38709,
+            "end_index": 40105,
+            "label": "AP05–AP09",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.jgj9urck6sd",
+            "start_index": 40544,
+            "end_index": 40834,
+            "label": "A7 open calibration",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.jgj9urck6sd",
+            "start_index": 41570,
+            "end_index": 44545,
+            "label": "A9 approved study capacities and complete activities",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.z09xooqq00st",
+            "start_index": 17507,
+            "end_index": 19698,
+            "label": "Quality order and rubric",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          }
+        ],
+        "data_required": [
+          "Public request and exact n; per-unit net floor/wall/common/core accounting with conventions.",
+          "Programme ID/approval provenance, per-unit sleep roles and design capacity; actual fixture dimensions and distinct instances, clothes and activities.",
+          "Source-supported lower-bound/profile inventory; log absent prefilter bounds separately from impossible geometry.",
+          "AP07 attempted alternatives, unchanged programme constraints, budgets and explicit untried branches; reduction creates a new programme alternative, not fixed-programme repair.",
+          "Fresh placement/access/operation findings and calibrated room/unit quality-floor evidence; Pareto vectors with same references, no hidden weighted score."
+        ],
+        "checker": {
+          "path": "app/local_integration/functional_review.py",
+          "entry": "assess",
+          "limit": "INTERNAL_INSTANCE_CAPACITY is limited source-profile evidence; CURRENT_PROGRAM_SUITABILITY remains UNKNOWN. Registry approval is independent of readiness."
+        },
+        "evidence_required": "Fresh same-world-model current assessment and each criterion's required profile/witness; catalog is not executable proof.",
+        "effect": "FAIL or effective UNKNOWN blocks final design-option delivery; no whole-model implication from scoped PASS",
+        "current_result": "UNKNOWN",
+        "missing_rule_status": "OPERATIONAL_QUALITY_SPECIFICATION_OPEN",
+        "missing_profile": [
+          "Calibrated quality floors and reviewed scenario/equipment/activity profiles."
+        ],
+        "missing_evidence": [
+          "Same-model full-bundle adequacy, AP07 comparative sequence, genuine net-capacity/prefilter and alternative-selection evidence."
+        ]
+      },
+      {
+        "id": "KITCHEN_GUEST_PATH_SEPARATION",
+        "source_catalog": "specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json",
+        "source_refs": [
+          {
+            "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+            "tab_id": "t.0",
+            "start_index": 140252,
+            "end_index": 142667,
+            "label": "PRD four routes",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+            "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          },
+          {
+            "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+            "tab_id": "t.0",
+            "start_index": 137783,
+            "end_index": 138163,
+            "label": "PRD first living",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+            "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 71731,
+            "end_index": 74146,
+            "label": "Kitchen and four guest routes",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.jgj9urck6sd",
+            "start_index": 43222,
+            "end_index": 43551,
+            "label": "Guest entry and activity exclusion",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.jgj9urck6sd",
+            "start_index": 42686,
+            "end_index": 43221,
+            "label": "Targets versus qualified profiles",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          }
+        ],
+        "data_required": [
+          "Unit and real entry/threshold IDs; actual living/dining/WC activity destinations bound to fixtures and source modules.",
+          "Current floor/walls/openings, cabinet bodies, effective door/drawer/fridge motions and cooking/workstation activity envelopes.",
+          "Scenario of door/chair states and simultaneous necessary uses; qualified profile and width, connected swept body routes, actual openings and bottleneck evidence.",
+          "WC private-domain exclusion; first-living ordering witness, graphical and geometric evidence from identical model hash."
+        ],
+        "checker": {
+          "path": "app/local_integration/functional_review.py",
+          "entry": "guest_four_route_diagnostic via assess",
+          "limit": "Attached bounded source-profile route study does not close first-living/scenario/ergonomic requirements; legacy whole-kitchen-floor exclusion is conservative, not equivalent to work-area rule."
+        },
+        "evidence_required": "Fresh same-world-model current assessment and each criterion's required profile/witness; catalog is not executable proof.",
+        "effect": "FAIL or effective UNKNOWN blocks final design-option delivery; no whole-model implication from scoped PASS",
+        "current_result": "UNKNOWN",
+        "missing_rule_status": "NONE_IDENTIFIED",
+        "missing_profile": [
+          "Effective route/activity width, simultaneous-operation scenario and ergonomic support may be unqualified."
+        ],
+        "missing_evidence": [
+          "All four actual destination routes, bottlenecks/openings, first-living and effective-state coverage on same model."
+        ]
+      },
+      {
+        "id": "CONTINUOUS_USEFUL_LIVING",
+        "source_catalog": "specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json",
+        "source_refs": [
+          {
+            "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+            "tab_id": "t.0",
+            "start_index": 144137,
+            "end_index": 144556,
+            "label": "PRD useful living",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+            "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 75616,
+            "end_index": 76035,
+            "label": "Usable continuous public floor",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.z09xooqq00st",
+            "start_index": 12635,
+            "end_index": 13160,
+            "label": "Q02–Q04",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 5209,
+            "end_index": 5727,
+            "label": "Shorter organisation comparison",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.z09xooqq00st",
+            "start_index": 19227,
+            "end_index": 19698,
+            "label": "Quality-floor limits",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          }
+        ],
+        "data_required": [
+          "Exact non-overlapping actual living-floor union, excluded kitchen/dining/threshold/private circulation and accounting conventions.",
+          "Actual source-bound seating fixtures, activity targets, all required design persons, access/use and simultaneous-use scenarios. Access routes may traverse authorized circulation; circulation area does not thereby become useful living.",
+          "Separate witnesses: a claimed living-floor continuity path must remain in that explicitly defined floor scope; actual access paths use their valid floor/circulation domain. Record coherent furnishing/group use, route lengths/turns/bottlenecks and shorter alternative with rejection reasons.",
+          "Functional useful area distinguished from residual geometry, fixture footprints and released wall material; comparable denominators."
+        ],
+        "checker": {
+          "path": "app/local_integration/functional_review.py",
+          "entry": "living_connectivity_diagnostic via assess",
+          "limit": "Seat-access connectivity and route metrics are partial diagnostics, not continuous useful living or quality approval; overall ID remains UNKNOWN."
+        },
+        "evidence_required": "Fresh same-world-model current assessment and each criterion's required profile/witness; catalog is not executable proof.",
+        "effect": "FAIL or effective UNKNOWN blocks final design-option delivery; no whole-model implication from scoped PASS",
+        "current_result": "UNKNOWN",
+        "missing_rule_status": "NONE_IDENTIFIED",
+        "missing_profile": [
+          "Reviewed quality anchors and necessary activity/room-floor thresholds remain incomplete."
+        ],
+        "missing_evidence": [
+          "Same-model coherent group use and continuous functional floor, true useful-area accounting and shorter valid organisation comparison."
+        ]
+      },
+      {
+        "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+        "source_catalog": "specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json",
+        "source_refs": [
+          {
+            "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+            "tab_id": "t.0",
+            "start_index": 138164,
+            "end_index": 139535,
+            "label": "PRD wall function",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
+            "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 18695,
+            "end_index": 19896,
+            "label": "IR-P11 actual function and counterfactual",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 69601,
+            "end_index": 70707,
+            "label": "G15 per-wall proof",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          },
+          {
+            "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+            "tab_id": "t.j4w0y56xvj8u",
+            "start_index": 5209,
+            "end_index": 5727,
+            "label": "Circulation alternative",
+            "readback": "VERIFIED",
+            "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
+            "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          }
+        ],
+        "data_required": [
+          "Complete added-wall inventory and same-image IDs; exact source/placement/material aliases and geometry.",
+          "Real served space, usable fixture/activity evidence, clear widths and role beyond visibility masking.",
+          "Counterfactual removal or alternative positioning with unchanged programme and exact material-union differences (overlapping aliases preserved).",
+          "Fresh comparison of actual usable area, route length/access, furnishing and privacy; same-model provenance and dependent rechecks after changes.",
+          "Separate physical material released from proven functional useful-area gain; identify conceptual core scope and avoid blanket permission to remove structural/core walls."
+        ],
+        "checker": {
+          "path": "app/local_integration/functional_review.py",
+          "entry": "NONFUNCTIONAL_WALL_EXCLUSION requirement",
+          "limit": "No complete per-wall alternative proof is installed; provenance, closure dependency or detached probes alone do not imply necessity/quality. ID remains UNKNOWN."
+        },
+        "evidence_required": "Fresh same-world-model current assessment and each criterion's required profile/witness; catalog is not executable proof.",
+        "effect": "FAIL or effective UNKNOWN blocks final design-option delivery; no whole-model implication from scoped PASS",
+        "current_result": "UNKNOWN",
+        "missing_rule_status": "NONE_IDENTIFIED",
+        "missing_profile": [
+          "Specific use/privacy scenario may need qualification; do not generalize one body-width study."
+        ],
+        "missing_evidence": [
+          "Per-wall function/use and removal/alternative records; unchanged programme and exact alias-aware geometry; current dependent checks."
+        ]
+      }
+    ]
+  },
+  "registry_crosswalk": [
+    {
+      "id": "H01",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "input_exact_domain",
+        "no_hidden_project_inputs"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "n=1 accepted input requirement but current whole checker requires n=2; hidden program/extra fields exceed three-field product contract.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H02",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "containment_all_entities"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Only rectangle-union profile; no universal polygon-domain claim.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H03",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "valid_exact_regions"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Arbitrary polygon/hole representation unsupported; scope must be explicit.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H04",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Room-label coverage is not semantic functional coverage; whole envelope ledger must include every category.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H05",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "unit_independence"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Current implementation two units only; n=1 missing. Distinct entrances/functional independence need explicit role/path proof.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H06",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Net/gross/functional useful area three ledgers not equivalent; residual living is not useful-area proof.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H07",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "guest_living_route",
+        "guest_dining_route"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Named graph-deletion test excluding every bedroom/private vestibule for bath not identified as standalone whole gate.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H08",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "body_route_sweeps",
+        "actual_opening_geometry"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Guest/dining/serving forbidden work-zone traversal, occupied-chair scenarios need named tests; caller-supplied activity inventory not full source contract.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H09",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "wall_network"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Full wall-network uniqueness/connectivity/finished-face model not generally proven.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H10",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "opening_hosts"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Two-room relation and actual joint boundary must remain verified after placement, not merely host ID.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H11",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "door_operation"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Explicit motion state scope; all simultaneous relevant doors/approaches and transfer coverage must be enumerated.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H12",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "body_route_sweeps",
+        "fixture_inventory_use",
+        "closet_operation",
+        "chair_capacity_movement"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Fixed dimensions alone do not prove every required use scenario or living/dining capacity.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H13",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "fixture_inventory_use",
+        "program_functional_roles",
+        "zero_laundry"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Automatic area/55 and max4 are software policy, not owner program. Required named activity inventory, no laundry and useful living cannot be replaced by labels.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H14",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional_inactive",
+      "remaining_gap": "No source-qualified current national/legal applicability package; do not invent numeric minima or claim compliance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "H15",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "core_concept"
+      ],
+      "classification": "mandatory_limited",
+      "remaining_gap": "Physical stairs/lift installation beyond Concept; preserve independent lobby access, no forced traversal through stair enclosure.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H16",
+      "historical_mandatory": false,
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H17",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "kitchen_essential_operation",
+        "bath_service_operation"
+      ],
+      "classification": "mandatory_limited",
+      "remaining_gap": "Full MEP/ventilation not mandatory; required functional service use remains mandatory.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H18",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "export_parity",
+        "actual_opening_geometry"
+      ],
+      "classification": "mandatory_product",
+      "remaining_gap": "Audit every served final revision; check dimensions/fixed closets/lift/names and no movable furniture, not solely matching SVG/DXF hashes.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H19",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "immutable_history",
+        "per_option_rule_report"
+      ],
+      "classification": "mandatory_product",
+      "remaining_gap": "Complete provenance incl rules/catalogue/final artifact and immutable history must bind; source audit finds missing row-level criteria receipts.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H20",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "claim_boundary",
+        "per_option_rule_report",
+        "claim_boundary_display"
+      ],
+      "classification": "mandatory_product",
+      "remaining_gap": "A limitation label cannot excuse mandatory functionality/Q11 failure; same warning in all downloads required.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H21",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "owner_access"
+      ],
+      "classification": "mandatory_product",
+      "remaining_gap": "No evidence of production multi-owner authentication/authorization and support audit; local single-owner service scope only.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "H22",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "llm_budget"
+      ],
+      "classification": "conditional_product",
+      "remaining_gap": "LLM budget is inactive only if no call; future calls require aggregate reservation/cost<=2USD including retries. CPU cap not same contract.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q01",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "fixture_inventory_use",
+        "program_functional_roles",
+        "chair_capacity_movement"
+      ],
+      "classification": "mixed_required_and_preference",
+      "remaining_gap": "Required capacity access separate from optional alternate furnishing; living capacity not inferred from remaining area.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q02",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "quality_review",
+      "remaining_gap": "No arbitrary golden ratio; unprogrammed giant living remains named unresolved quality.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "Q03",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "classification": "quality_review",
+      "remaining_gap": "Functional efficiency denominators and useful-vs-unassigned classification missing; 45–55 universal threshold unjustified.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q04",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "circulation_functional_integrity"
+      ],
+      "classification": "mixed_required_and_preference",
+      "remaining_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q05",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "privacy_scenarios"
+      ],
+      "classification": "mandatory",
+      "remaining_gap": "Scoped all-aperture barriers proven only for declared targets/state assumptions. Full public source inventory and simultaneous scenario applicability must be documented.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q06",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "unit_independence",
+        "guest_living_route"
+      ],
+      "classification": "mixed_required_and_preference",
+      "remaining_gap": "Mandatory guest/dining/bath independence needs explicit forbidden-region scenario tests; depth/layering preference not numeric rule.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q07",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "kitchen_essential_operation",
+        "guest_living_route",
+        "guest_dining_route",
+        "chair_capacity_movement",
+        "serving_route"
+      ],
+      "classification": "mandatory_functional_subconditions",
+      "remaining_gap": "Guest-to-living, guest-to-dining, kitchen-to-dining serving and occupied-chair movement need separate all-unit witnesses.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q08",
+      "historical_mandatory": false,
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q09",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "Q10",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "mixed_required_and_preference",
+      "remaining_gap": "Arrival with shopping/standing and simultaneous circulation not proved merely by one door actor.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "Q11",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "q11_functional_boundary"
+      ],
+      "classification": "mandatory_named_subcondition",
+      "remaining_gap": "No view-only baffle; actual useful room/closet boundary and before/after functional impact proof missing. Residual labels do not cure.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q12",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "worst_unit_function"
+      ],
+      "classification": "mixed_required_and_preference",
+      "remaining_gap": "Worst-unit quality vector/functional minima comparison not implemented as full rubric.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "Q13",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "quality_review",
+      "remaining_gap": "No invented beauty score; reason for wall breaks/opening placement remains review.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "Q14",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "geometric_diversity"
+      ],
+      "classification": "mandatory_if_multiple",
+      "remaining_gap": "Need all-pairs functional geometric dedup; hash/seed/mirror/jitter not diversity. Up to6 conditional not promise.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P01",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "preference_or_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P02",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "program_functional_roles"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Independent unspecified storage forbidden without explicit owner need/equipment/usable access; do not fill residual with storage.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P03",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "privacy_scenarios"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P04",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "bath_nonprivate_access",
+        "guest_living_route",
+        "guest_dining_route"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P05",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_or_outside_active_scope",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P06",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P07",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "preference_or_review",
+      "remaining_gap": "Compare core placements when relevant; fixed-core layout is implementation not mandatory owner location.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P08",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P09",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "door_operation"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P10",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "circulation_functional_integrity"
+      ],
+      "classification": "preference_or_review",
+      "remaining_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P11",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "long_corridor_necessity",
+        "q11_functional_boundary",
+        "circulation_functional_integrity"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "119: actual functional circulation mandatory; comparative improvement/reasons remain separate visible review, not proof of absolute necessity.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P12",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "partition_ledger"
+      ],
+      "classification": "preference_or_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P13",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "private_grouping"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Compact private bedroom grouping default; dispersion needs actual route/functional comparison, not a new numeric cap.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P14",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P15",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "door_operation",
+        "closet_operation",
+        "bath_service_operation",
+        "chair_capacity_movement"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P16",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "program_functional_roles",
+        "chair_capacity_movement"
+      ],
+      "classification": "preference_or_review",
+      "remaining_gap": "Daily/guest capacity needs scenario, no mandatory percentage adopted.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P17",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Multigeneration/overnight guest scenarios not supplied; do not impose cultural program.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P18",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "kitchen_essential_operation"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Kitchen near living and at public-area edge; essential use plus independent guest route; fixed recipe alone not whole organization proof.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P19",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "serving_route"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P20",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "preference_or_review",
+      "remaining_gap": "Open/closed/linear kitchen can be internally searched without extra preference questions; disclose assumption.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P21",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "bath_service_operation",
+        "privacy_scenarios"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P22",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "preference_or_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P23",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "zero_laundry"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "ZERO laundry spaces/equipment/reserves; historical laundry requirements superseded, not pending laundry operation.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P24",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "program_functional_roles"
+      ],
+      "classification": "preference_or_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P25",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P26",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "preference_or_review",
+      "remaining_gap": "Two alternate layouts desirable if feasible, not universal mandatory pair.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P27",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P28",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P29",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P30",
+      "historical_mandatory": false,
+      "requirement_ids": [
+        "window_opportunities"
+      ],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P31",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P32",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P33",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P34",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "No forced courtyard; open void conditional real need and source scope; no assumed sky/rights.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P35",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P36",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P37",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P38",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P39",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "actual_opening_geometry"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P40",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P41",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_or_outside_active_scope",
+      "remaining_gap": "No columns/structure in MVP, not waiver of laws.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P42",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_or_outside_active_scope",
+      "remaining_gap": "Single-level scope, not vertical MEP certification.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P43",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_or_outside_active_scope",
+      "remaining_gap": "Rectangular inputs only; irregular parcel outside.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P44",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "worst_unit_function"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-P45",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "geometric_diversity"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-L01",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional_legal_not_activated",
+      "remaining_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-L02",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-L03",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional_legal_not_activated",
+      "remaining_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-L04",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_legal_scope",
+      "remaining_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-L05",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "deferred_legal_scope",
+      "remaining_gap": "Schematic geometry not legal compliance. Keep source-review/not-evaluated; no blanket legal gate or fabricated exemption.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P46",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "conditional",
+      "remaining_gap": "Full named scenario/row evidence not found in current whole report; related geometric checks are partial, not complete criterion acceptance.",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    },
+    {
+      "id": "IR-P47",
+      "historical_mandatory": true,
+      "requirement_ids": [
+        "program_functional_roles",
+        "serving_route"
+      ],
+      "classification": "mandatory_subcondition_plus_review",
+      "remaining_gap": "Actual living/dining/kitchen relationship and use, not residual-floor assignment.",
+      "coverage": "NAMED_SUBCONDITIONS_ONLY_NOT_FULL_RULE"
+    },
+    {
+      "id": "IR-L06",
+      "historical_mandatory": false,
+      "requirement_ids": [],
+      "classification": "excluded_by_latest_owner_scope",
+      "remaining_gap": "",
+      "coverage": "NO_NAMED_MAPPING_REVIEW_OR_EXCLUDED_NOT_APPROVED"
+    }
+  ],
+  "excluded_scope": {
+    "source_refs": [
+      {
+        "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+        "tab_id": "t.0",
+        "start_index": 2846,
+        "end_index": 3605,
+        "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w"
+      }
+    ],
+    "items": [
+      "Daylight/ventilation sufficiency",
+      "Stair/lift engineering execution",
+      "Geographical north and mandatory terrace"
+    ],
+    "preserved": [
+      "Conceptual shared stair/lift/core presence and independent access",
+      "Existing modeled opening geometry and door safety",
+      "Existing data/history; no invented north"
+    ],
+    "warning": "Exclusion is not PASS or permission to remove required core."
+  },
+  "unmapped": {
+    "product_stage_requirements": [
+      "export_parity",
+      "immutable_history",
+      "owner_access",
+      "llm_budget",
+      "per_option_rule_report",
+      "claim_boundary_display"
+    ],
+    "named_missing_in_selected_chain": [
+      "geometric_diversity"
+    ],
+    "registry_without_named_subconditions": [
+      "H14",
+      "Q02",
+      "Q09",
+      "Q10",
+      "Q13",
+      "IR-P01",
+      "IR-P05",
+      "IR-P06",
+      "IR-P07",
+      "IR-P08",
+      "IR-P14",
+      "IR-P17",
+      "IR-P20",
+      "IR-P22",
+      "IR-P25",
+      "IR-P26",
+      "IR-P27",
+      "IR-P28",
+      "IR-P29",
+      "IR-P31",
+      "IR-P32",
+      "IR-P33",
+      "IR-P34",
+      "IR-P35",
+      "IR-P36",
+      "IR-P37",
+      "IR-P38",
+      "IR-P40",
+      "IR-P41",
+      "IR-P42",
+      "IR-P43",
+      "IR-L01",
+      "IR-L02",
+      "IR-L03",
+      "IR-L04",
+      "IR-L05",
+      "IR-P46",
+      "IR-L06"
+    ],
+    "full_prd_coverage": "NOT_CLAIMED; 89 historical rows and four current IDs are not entire current PRD or verified product implementation.",
+    "artifact_and_product": "Owner access, persistence, rendered warnings, export parity, cumulative spending and all-pair diversity need separate end-to-end evidence."
+  },
+  "decision_contract": {
+    "accepted": false,
+    "qualified": false,
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "all_rules_approved": false,
+    "no_unknown_suppression": true,
+    "complete_reports_required": true
+  },
+  "tests_scope": "Structural crosswalk completeness only; no geometry or rule satisfaction tests."
+}
