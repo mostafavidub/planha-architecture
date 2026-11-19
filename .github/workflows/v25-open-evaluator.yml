@@ -144,9 +144,14 @@ jobs:
           from open_front_rule_contract import evaluate_rule_contract as study_rules, _input as study_domain
           comprehensive=study_assess(packet,trace,baseline_packet,baseline_context)
           assert comprehensive['model_digest']==digest(m)
-          assert comprehensive['status'] in ('UNKNOWN_REQUIRED_STUDY','FAIL_STUDY')
+          assert comprehensive['status']=='UNKNOWN_REQUIRED_STUDY' and not comprehensive['errors'],comprehensive['errors']
           assert all(comprehensive[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed','whole_physical_verified','eligible_for_draft_export'))
           assert len(comprehensive['named_contract']['rows'])==89 and len(comprehensive['named_contract']['requirements'])==38
+          from collections import Counter
+          assert Counter(r['status']for r in comprehensive['named_contract']['requirements'])=={'PASS_LIMITED':28,'NOT_EVALUATED':2,'NOT_APPLICABLE_TO_STAGE_OR_MODEL':7,'EXCLUDED_BY_OWNER_SCOPE':1}
+          expected_pending=['CURRENT_FUNCTIONAL_UNKNOWN:'+rid for rid in ('CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION')]
+          expected_pending+=['CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED','RULE_NOT_EVALUATED:q11_functional_boundary','VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED']
+          assert comprehensive['pending']==sorted(expected_pending),comprehensive['pending']
           assert all('CURRENT_FUNCTIONAL_UNKNOWN:'+rid in comprehensive['pending'] for rid in ('CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION'))
           contract_negatives=[]
           for axis in (0,1):
