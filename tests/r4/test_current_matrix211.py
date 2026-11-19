@@ -11,7 +11,7 @@ class Matrix(unittest.TestCase):
   r={'integrity_verified':True,'model_digest':'a'*64,'state':'UNKNOWN','original_physical_report':copy.deepcopy(p),'original_physical_digest':m.digest(p),'replay':{'verified':True,'model_hash':'a'*64},'units':[],**{k:False for k in m.AUTH}}
   return b,r
  def test_n1_valid_unsupported_no_core(self):
-  with patch('core_choice_pair_study.selected_core',side_effect=AssertionError('NO_CORE')):
+  with patch('core_choice_pair_study.selected_core',side_effect=AssertionError('NO_CORE')),patch.object(m,'prepare',side_effect=AssertionError('NO_PREPARE')):
    r=m.eligibility(b'{"W":"18.1","L":"22.2","n":1}')
   self.assertFalse(r['dispatch']);self.assertEqual(r['state'],'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT')
  def test_exact_three_registered_rows(self):

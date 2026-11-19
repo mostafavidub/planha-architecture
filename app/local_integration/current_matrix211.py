@@ -19,8 +19,12 @@ CURRENT=('current_programme_evaluator','source_guest_route_evaluator','source_li
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 DEADLINE=datetime(2026,11,19,20,46,39,tzinfo=timezone.utc)
 def eligibility(body):
+ from public_wln_contract import parse_public,verify_public
+ e=parse_public(body);verify_public(body,e)
+ if e['canonical_request']['unit_count']!=2:
+  return {'state':'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT','dispatch':False,'envelope_digest':digest(e)}
  p=prepare(body)
- return {'state':'SUPPORTED_STUDY_INPUT'if p['raw']['n']==2 else'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT','dispatch':p['raw']['n']==2,'prepared':p}
+ return {'state':'SUPPORTED_STUDY_INPUT','dispatch':True,'prepared':p}
 def slot(remaining):
  need(type(remaining)in(int,float) and remaining>=0,'REMAINING_TYPE')
  return 240 if remaining>=250 else 0
@@ -158,13 +162,14 @@ def child(folder,case,nonce):
    need(audited and snap is not None,'INITIAL_AUDIT_NOT_ESTABLISHED');check()
    need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'FINAL_ENGINE_GUARD');out['integrity_verified']=True
   except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,origin_observed_at_checkpoint=out.get('independent_origin_verified',False),independent_origin_verified=False,roundtrip_verified=False,integrity_error_type=type(ex).__name__)
-  out.update(report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False);save()
+  out.update(report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False,evidence_usable=out.get('completed')is True and out.get('integrity_verified')is True);save()
 
 def read_summary(path,case,nonce):
  need(path.stat().st_size<=1048576,'SUMMARY_SIZE')
  r=json.loads(path.read_text())
  need(type(r)is dict and r.get('case')==case and r.get('run_nonce')==nonce,'SUMMARY_BINDING')
  need(all(r.get(k)is False for k in AUTH),'SUMMARY_AUTHORITY')
+ need(r.get('state')in('FULL_REPORTS_RETAINED_NOT_QUALIFIED','NO_PROPOSAL_NO_INFEASIBILITY_CLAIM','EXACT_FIT_REJECTED_NO_GLOBAL_INFEASIBILITY','FAILED_CLOSED','INTEGRITY_ERROR'),'SUMMARY_STATE')
  if r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED' and r.get('completed')is True:
   need(r.get('independent_origin_verified')is True and r.get('integrity_verified')is True,'SUMMARY_ORIGIN')
   q=r.get('current_assessments')
@@ -206,8 +211,11 @@ def run():
     rp=dest/'reports.json';need(rp.stat().st_size<=33554432,'REPORT_FILE_SIZE')
     reports=json.loads(rp.read_text());need(type(reports)is dict,'REPORT_TYPE')
     need(all(k in reports and digest(reports[k])==v for k,v in r.get('report_digests',{}).items()),'REPORT_FILE_DIGEST')
+    if r.get('state')=='FULL_REPORTS_RETAINED_NOT_QUALIFIED'and r.get('completed')is True:
+     binding={'model_digest':r['model_digest'],'reports':{'physical':reports['physical']},'report_digests':{'physical':r['report_digests']['physical']}}
+     for name in CURRENT:current_report_binding(name,reports['current_'+name],binding)
     r['report_file_hash']=hashlib.sha256(rp.read_bytes()).hexdigest()
-   except (OSError,ValueError,TypeError,RecursionError):r=invalidate(r,'REPORT_READBACK_FAILED')
+   except (OSError,ValueError,TypeError,RecursionError,KeyError):r=invalidate(r,'REPORT_READBACK_FAILED')
    finished=time.monotonic()-start
    r.update(case=case,reserved_at=reserved,finished_at=finished,allocated_seconds=budget,outer_timeout=timed,wait_completed=proc.poll()is not None,returncode=proc.returncode)
    if timed or proc.returncode!=0 or finished-reserved>=budget:r=invalidate(r,'TIMEOUT_OR_PROCESS_ERROR_OBSERVED_ONLY')
@@ -218,7 +226,7 @@ def run():
   out={'schema':'CURRENT_MATRIX211_BATCH_V1','rows':results,'elapsed_seconds':time.monotonic()-start,'allocation_seconds':allocation,'source_integrity_verified':valid_source,'seed':'NOT_EXPOSED_SOURCE_DEFAULT','variant':0,'retry_count':0,'durable_raw_archive_created':False,'budget_scope':'Shared600 including setup and measured parent verification; each supervised child240 includes current evaluators. Encoding/network outside cutoff.','qualified':False,'accepted':False,'display_allowed':False,'delivery_allowed':False}
   print(json.dumps(out,sort_keys=True,allow_nan=False),flush=True)
   need(valid_source and remaining()>0,'GLOBAL_INTEGRITY')
-  need(all(r.get('completed')is True and r.get('integrity_verified')is True for r in results if r['case']in('D','B')),'BATCH_INCOMPLETE')
+  need(all((r.get('completed')is True and r.get('integrity_verified')is True)or r.get('state')=='NOT_RUN_INSUFFICIENT_SHARED_BUDGET'for r in results if r['case']in('D','B')),'BATCH_COLLECTION_ERROR')
 def main():
  if len(sys.argv)==5 and sys.argv[1]=='--child':
   need(sys.argv[3]in CASES,'UNKNOWN_CASE');child(sys.argv[2],sys.argv[3],sys.argv[4]);return
