@@ -1,0 +1,219 @@
+{
+  "schema": "R4_2_09_SAME_VERSION_DEPENDENCY_MAP_V1",
+  "task_id": "R4-2.09",
+  "started_at": "2026-11-19T07:34:33Z",
+  "deadline": "2026-11-19T10:34:33Z",
+  "status": "PARTIAL_SOURCE_DEPENDENCY_MAP_ONLY_RUNTIME_BLOCKED",
+  "scope": "SOURCE_INSPECTION_NOT_EXECUTED",
+  "source_files": [
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/evaluate_pair127.py",
+      "blob_sha": "122801591ddd68430f921f4f900203fd8f9653f9"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/evaluate_world125.py",
+      "blob_sha": "448f61452f0fd64af6301f93fde1b9bb4219a522"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/world_inventory125.py",
+      "blob_sha": "17ab7ea44e2cff32fa9a29c2f1c1b4fcb085ca5e"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/checker114.py",
+      "blob_sha": "4f25ae5b9444c077159af90e872a84f4fcb25f42"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/named_checks118.py",
+      "blob_sha": "bb8a4da75fa1059699618ae20486019deeae682a"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/frame_audit125.py",
+      "blob_sha": "fbc703d0227f3de45aa7b7820592d7f1eded75f1"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/q11_boundary118.py",
+      "blob_sha": "34935e1d8b378118ea22f63281f90dfb55d73004"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/construction_replay127.py",
+      "blob_sha": "16b44b228d8dce909b3f45181d0c0d722c1a188f"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/final_route_ledger120.py",
+      "blob_sha": "0c32fc5fd201005ce0c6b4b5f91a211c09b2d0c6"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/circulation_integrity119.py",
+      "blob_sha": "f1999e835c4e7541c8d4549f9591d6b632a61715"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/core_circulation_scope118.py",
+      "blob_sha": "53fdb23b59ae600586df9d23c2b22cd16602f7e6"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/frame_circulation125.py",
+      "blob_sha": "5b81dcc00152b2c05e030d74e88a08195f5602ce"
+    },
+    {
+      "path": "app/reconstruction357/planha_general150_runtime_work/circulation_frame148.py",
+      "blob_sha": "45b006f06be301e3dd04042af71d63e706315bc4"
+    }
+  ],
+  "dispatch_graph": [
+    {
+      "from": "evaluate_pair127.evaluate",
+      "to": [
+        "construction_replay127.verify",
+        "LEFT_RIGHT: evaluate_world125.evaluate_world",
+        "FRONT_REAR: checker114.evaluate"
+      ],
+      "obligation": "Ordered packet/context/source replay plus original full physical report; false admission."
+    },
+    {
+      "from": "evaluate_world125.evaluate_world",
+      "to": [
+        "world_inventory125.examine",
+        "frame_audit125.evaluate_core",
+        "checker114.evaluate"
+      ],
+      "obligation": "Adds frame_core125/frame_local129 context; preserves inventory/frame errors and pending."
+    },
+    {
+      "from": "checker114._evaluate_impl",
+      "to": [
+        "q11_boundary118.examine",
+        "scope117.reduce_scope117",
+        "rule_contract118.attach_rule_contract",
+        "named_checks118.adapters_for_workflow"
+      ],
+      "source_lines": [
+        199,
+        206,
+        209,
+        217,
+        220,
+        224
+      ],
+      "obligation": "All physical, placement, privacy, operations and named obligations remain. Comparison-only evaluator is not admission."
+    },
+    {
+      "from": "named_checks118.adapters_for_workflow",
+      "to": [
+        "q11_boundary118.examine",
+        "core_circulation_scope118.evaluate",
+        "circulation_integrity119.evaluate",
+        "final_route_ledger120.evaluate"
+      ],
+      "source_lines": [
+        136,
+        147,
+        209,
+        214
+      ],
+      "obligation": "Frame context must reach circulation; current floor ledger must be fresh."
+    },
+    {
+      "from": "core_circulation_scope118.grammar",
+      "to": [
+        "frame_circulation125.grammar",
+        "paired_private_zone118.examine"
+      ],
+      "source_lines": [
+        60,
+        78,
+        80,
+        86
+      ],
+      "obligation": "Schema compatibility does not settle private grouping or circulation function."
+    },
+    {
+      "from": "q11_boundary118.verify_new_workflow",
+      "to": [
+        "construction_replay127.verify"
+      ],
+      "source_lines": [
+        110,
+        122,
+        130,
+        131
+      ],
+      "obligation": "Existing127 trace may be reused only if producer remains127; new producer requires an explicit new trusted verifier, never a forged historical marker."
+    }
+  ],
+  "root_cause": {
+    "file": "world_inventory125.py",
+    "condition": "ordered_macro None selects pinned world_record_schema129.json; records() enumerates exact keysets for local and world dictionaries.",
+    "failure": "UNKNOWN_RECORD_FIELDS",
+    "distinct_record_paths": 14,
+    "observed_error_count": 40,
+    "explanation": "Repeated unit and local/world checks produce aggregate40. These are schema-keyset failures, not40 geometric collisions. Source-derived reconstruction proves origin but is not the missing declarative semantic contract."
+  },
+  "minimum_future_change_set": [
+    {
+      "step": 1,
+      "change": "New versioned independent explicit-two LEFT_RIGHT record/reference contract",
+      "requirements": [
+        "Separate program-dependent IDs from coordinate-dependent derived aliases",
+        "Exact typed fields, unique unit-local IDs, fixture/activity/route destination references and source module transforms",
+        "Alias-to-solid material coverage and ledgers validated semantically, not by copying one model keyset",
+        "Each new field declares required/optional status, exact type, semantic role, coordinate frame, source, reference cardinality and invariant; canonical operation angles are not world headings."
+      ],
+      "not_allowed": "No adding observed keys to frozen129 allowlist or weakening unknown-field rejection."
+    },
+    {
+      "step": 2,
+      "change": "Independent validator for that declared contract, composed with existing scoped D4 binding",
+      "reuse": [
+        "left_right_two_source_binding.check_transport",
+        "frame125_two_source_binding topology checks",
+        "Exact module provenance/placement primitives"
+      ],
+      "limits": "Existing source reconstruction and original derived-ledger helpers remain dependencies; do not claim independent semantic proof from replay alone."
+    },
+    {
+      "step": 3,
+      "change": "Separate same-version evaluator composition",
+      "requirements": [
+        "Run original evaluate_pair127 unfiltered as historical evidence",
+        "Run new contract/validator and same-model physical/named/current checks with correct frame context",
+        "Preserve every report/model/source digest, immutable originals and exact typed bindings",
+        "Expose new-contract result separately; never subtract40 errors from historical report to synthesize PASS"
+      ],
+      "limits": "Coverage of frozen checker/named callbacks must be explicitly mapped before claiming all required checks. Current four criteria and circulation/private grouping remain unresolved independently."
+    },
+    {
+      "step": 4,
+      "change": "Tests after prerequisite and execution capability return",
+      "requirements": [
+        "Existing pinned SIDE/FRAME nonsquare fixtures reused without solver when sufficient",
+        "Negative unknown field/numeric role, duplicate unit-local IDs and wrong references, alias material mismatch, typed mutation, source/import mismatch",
+        "Distinct current V2/V3 public input version and historical internal raw contracts",
+        "Fresh family/program-specific positive evidence for any newly supported input"
+      ],
+      "state": "NOT_RUN"
+    }
+  ],
+  "deferred_changes": [
+    "No constructor change justified solely by schema mismatch",
+    "No public dispatch expansion before verified family evaluator integration",
+    "No n1/decimal/program-family readiness inherited from historical n2 integer LR examples",
+    "No re-opening stopped1.3/1.4 or V25-22"
+  ],
+  "dependencies_open": [
+    "R4-2.04",
+    "R4-2.07",
+    "R4-2.08"
+  ],
+  "runtime_tests_executed": 0,
+  "solver_executed": false,
+  "code_changes": [],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "review": {
+    "kind": "CONCEPTUAL_READ_ONLY_REVIEW_NOT_RUNTIME_PROOF",
+    "findings": "Independent reviewer agreed with separate validator/composition scope; original full errors and independent circulation/private/frame/current obligations remain. Required-field and bad-reference negatives are mandatory."
+  },
+  "checkpoint_at": "2026-11-19T07:37:00Z"
+}

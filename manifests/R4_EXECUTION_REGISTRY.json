@@ -1199,7 +1199,16 @@
       ],
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PARTIAL_SOURCE_DEPENDENCY_MAP_ONLY_RUNTIME_BLOCKED",
+      "started_at": "2026-11-19T07:34:33Z",
+      "deadline": "2026-11-19T10:34:33Z",
+      "checkpoint_at": "2026-11-19T07:37:00Z",
+      "manifest": "manifests/R4_2_09_SAME_VERSION_DEPENDENCY_MAP.json",
+      "remaining": [
+        "Versioned independent semantic record/reference contract and validator",
+        "Family evaluator integration preserving all named/current obligations",
+        "Dependencies R4-2.04/2.07/2.08 and execution infrastructure remain open"
+      ]
     },
     {
       "id": "R4-2.10",
