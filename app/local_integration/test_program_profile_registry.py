@@ -13,6 +13,7 @@ class RegistryTests(unittest.TestCase):
         p=lookup('PROGRAM_3BED_V1')
         self.assertEqual(p['approval']['status'],'UNAPPROVED_CAPACITY_PROFILE')
         self.assertFalse(p['search_policy']['approved_search_eligible'])
+        self.assertIsNone(p['approval']['source'])
         self.assertEqual(p['execution_readiness']['status'],'BLOCKED_UNAPPROVED_PROFILE')
     def test_immutable_independent_lookup(self):
         p=lookup('PROGRAM_2BED_V1');p['sleep_roles'].append('fake')
@@ -43,6 +44,12 @@ class RegistryTests(unittest.TestCase):
         p=lookup('PROGRAM_2BED_V1')['source_inventory']
         self.assertEqual([x['source_id'] for x in p['twin_fixtures']],['bed1.bedA','bed1.bedB'])
         self.assertEqual([x['size_m'] for x in p['twin_fixtures']],[['1.9','.9']]*2)
+    def test_same_group_is_not_equal_item_counts(self):
+        p=lookup('PROGRAM_1BED_V1')
+        self.assertEqual(p['design_persons_per_unit'],2)
+        self.assertEqual(p['source_inventory']['dining_distinct_instances'],4)
+        self.assertIn('Counts of chairs and beds need not be equal',p['relation_semantics']['qualified_adequacy_for_same_design_group'])
+        self.assertEqual(p['relation_semantics']['verification_status'],'NOT_VERIFIED')
     def test_bundle_and_missing_quality(self):
         for p in approved_profiles():
             self.assertEqual(set(p['required_bundle']),{'sleep','living_seating','dining','clothes_storage','activities','access'})
