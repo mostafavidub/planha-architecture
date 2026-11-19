@@ -1,0 +1,26 @@
+{
+  "schema": "V25_HISTORY_STATUS_SCOPED_RESULT_V1",
+  "status": "PASS_SCOPED_NEW_TESTS_OLD_FIXTURE_REGRESSION_PENDING",
+  "task": "V25-03",
+  "commit": "26f3810f8fb3da87058e8a2bed55544a69b6b1f1",
+  "run": 44437356231,
+  "job": 135269463772,
+  "artifact": {
+    "id": 14489293827,
+    "size": 249200,
+    "sha256": "b34234b21145e7a0c85d2cee60e4f16806dbfa600fad3c14ad29c203b2e0f89a",
+    "expires": "2026-12-19T01:31:00Z",
+    "archived": false
+  },
+  "visual_review_performed": false,
+  "broader_regression": {
+    "run": 44437428845,
+    "status": "FAILED_MISSING_HISTORICAL_FIXTURE",
+    "tests": 28,
+    "errors": 9,
+    "path": "app/local_integration/evidence/review_cycle/integrated_http_result.json",
+    "resolution": "IN_PROGRESS; do not silently substitute fixture or mark nine tests passed"
+  },
+  "whole_cycle_verified": false,
+  "stage303_execution_started": false
+}
