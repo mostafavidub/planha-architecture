@@ -167,6 +167,19 @@ jobs:
               return {'status':'PASS_LIMITED','witness':{'fake':True},'scope':'negative mutation fixture'}
           assert _call(mutate,m)['status']=='FAIL' and m.get('accepted') is False
           contract_negatives.append('mutating_callback_rejected')
+          from open_front_evaluator import validate_current_requirements
+          current_schema_negatives=[]
+          for case in ('missing_capacity','duplicate','invalid_state'):
+              rows=deepcopy(comprehensive['current_functional']['requirements'])
+              if case=='missing_capacity':rows=[r for r in rows if r['id']!='INTERNAL_INSTANCE_CAPACITY']
+              elif case=='duplicate':rows.append(deepcopy(rows[0]))
+              else:rows[0]['state']='APPROVED'
+              try:validate_current_requirements(rows)
+              except ValueError:current_schema_negatives.append(case)
+              else:raise AssertionError('CURRENT_SCHEMA_BYPASS:'+case)
+          assert comprehensive['scope_source']['sha256']=='8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e'
+          expected_nonleaf=[o['id'] for o in m['openings'] if o.get('kind') in ('core_access_interface','permanent_open_arch')]
+          assert [o['opening_id']for o in comprehensive['nonleaf_interfaces']]==expected_nonleaf
           evaluator_negatives=[]
           for case in ('model_type','origin_source'):
               changed=deepcopy(packet);changed_trace=deepcopy(trace)
@@ -175,7 +188,7 @@ jobs:
               try:study_assess(changed,changed_trace,baseline_packet,baseline_context)
               except ValueError:evaluator_negatives.append(case)
               else:raise AssertionError('COMPOSITE_ORIGIN_BYPASS:'+case)
-          print('NEW_EVALUATOR '+json.dumps({'status':comprehensive['status'],'errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in comprehensive['errors']],'pending':comprehensive['pending'],'named_requirements':{r['requirement_id']:r['status']for r in comprehensive['named_contract']['requirements']},'contract_negative_tests':contract_negatives,'evaluator_negative_tests':evaluator_negatives,'model_digest':digest(m),'whole_physical_verified':False}),flush=True)
+          print('NEW_EVALUATOR '+json.dumps({'status':comprehensive['status'],'errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in comprehensive['errors']],'pending':comprehensive['pending'],'named_requirements':{r['requirement_id']:r['status']for r in comprehensive['named_contract']['requirements']},'contract_negative_tests':contract_negatives,'evaluator_negative_tests':evaluator_negatives,'current_schema_negative_tests':current_schema_negatives,'model_digest':digest(m),'whole_physical_verified':False}),flush=True)
           require_unchanged(root,sources);assert guard(FREEZE)==12991
           out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','independent_evaluator':comprehensive,'contract_negative_tests':contract_negatives,'evaluator_negative_tests':evaluator_negatives,'packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'new_schema_placement':placement,'placement_negatives':placement_negatives,'operation_study':operation_study,'arch_negative_tests':arch_negatives,'boundary_comparison':boundary,'legacy_adapter_equivalence':legacy_adapter_equivalence,'boundary_negative_tests':boundary_negative,'raw_physical_core':raw_physical,'raw_physical_negative_tests':raw_negatives,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
           Path('open-evaluator.json').write_text(json.dumps(out,ensure_ascii=False))
