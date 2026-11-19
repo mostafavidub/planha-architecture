@@ -45,7 +45,7 @@ def proposal_transport(value):
    ensure(type(q) is list and len(q)==4,'PROPOSAL_RECTANGLE_SHAPE')
    out['rectangles'][name]=[number(x,['rectangles',name,i]) for i,x in enumerate(q)]
  if 'network_paths' in out:
-  ensure(type(out['network_paths']) is dict and set(out['network_paths'])<=names-{'entry_apron'},'PROPOSAL_NETWORK_KEYS')
+  ensure(type(out['network_paths']) is dict and set(out['network_paths'])==(names-{'entry_apron','dining'})|{'dining_front','dining_back','dining_west','dining_east'},'PROPOSAL_NETWORK_KEYS')
   for name,path in out['network_paths'].items():
    ensure(type(path) is list and len(path)==5,'PROPOSAL_NETWORK_SHAPE')
    for i,p in enumerate(path):
