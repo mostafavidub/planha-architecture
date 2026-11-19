@@ -2,7 +2,7 @@
   "task": "3.2",
   "start": "2026-11-19T04:03:32Z",
   "deadline": "2026-11-19T07:03:32Z",
-  "status": "SCOPED_PROGRAMME_EVALUATOR_TESTED_OVERALL_SUITABILITY_UNKNOWN",
+  "status": "PARTIAL_SOURCE_CAPACITY_VERIFIED_QUALITY_PROFILE_OPEN",
   "commit": "19ff506ffe0a6db7dc261b992360301ccaa0cc44",
   "run": 44456479873,
   "job": 135332609844,
@@ -193,5 +193,6 @@
   "accepted": false,
   "qualified": false,
   "delivery_allowed": false,
-  "display_allowed": false
+  "display_allowed": false,
+  "completed_scoped_run_at": "2026-11-19T04:11:02Z"
 }
