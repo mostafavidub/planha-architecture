@@ -1,0 +1,38 @@
+{
+  "schema": "R4_2_05_ONE_BED_PROPOSAL_DRAFT_CHECKPOINT_V1",
+  "task": "R4-2.05",
+  "started_at": "2026-11-19T07:52:35Z",
+  "deadline": "2026-11-19T10:52:35Z",
+  "checkpoint_at": "2026-11-19T07:58:35Z",
+  "status": "PARTIAL_PROPOSAL_SHAPE_DRAFT_NOT_RUN",
+  "draft_commit": "8d73e754aeed6e06b03c33cf243c67fe3dd0e0dd",
+  "branch": "r4-one-bed-proposal-contract-draft",
+  "files": [
+    "studies/r4/one_bed_proposal_contract.py",
+    "studies/r4/test_one_bed_proposal_contract.py",
+    "specs/R4_ONE_BED_PROPOSAL_CONTRACT_DRAFT.json"
+  ],
+  "tests_prepared": 15,
+  "tests_executed": 0,
+  "scope": "One-bedroom/double/2designpeople per unit, stilln2; exactnormalizedJSONshape9roles11terminalnames5pointsyntax. No actualsolverproposal/instancegeometry/gateexecution.",
+  "review_applied": [
+    "Explicit source pins include reusedleft_right_two_source_binding",
+    "Normalized builtinJSON precondition; rawnumpyfloat64requiresseparaterolelimitedlosslesstransport",
+    "Source marker/status/count semantic validation notclaimed",
+    "Proposalterminalnames differ from worldfixture/activityids; noendpointbindingclaimed",
+    "Successfulshapeoutputbindsexactproposal_digest; detachedmutationfixtureprepared",
+    "Syntheticoverlap/placeholdermetadata/fivepointpathsare syntaxfixtures, notarchitecturalwitnesses"
+  ],
+  "remaining": [
+    "One-bed sourcebuilt fixture and exactwholebundle placement/inventory",
+    "Separate onebedruntime adapter andprogramme evaluator; currenttwo-bedhardcodes includingcapacity!=4remainuntouched",
+    "Fresh original/currentgates andquality/profilecoverage",
+    "Infrastructure/dependencyR4-2.01"
+  ],
+  "active_code_merged": false,
+  "solver_executed": false,
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
