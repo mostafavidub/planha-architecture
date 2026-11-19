@@ -1,0 +1,75 @@
+name: V25 same-program kitchen wall alternative
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-wall-alternative.yml'
+      - 'app/local_integration/open_front_wall_alternative.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Compare actual before and independently built alternative
+        run: |
+          timeout 600s python -B - <<'PY'
+          import sys,json,tarfile,hashlib
+          from pathlib import Path
+          from copy import deepcopy
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from contract114 import digest
+          from producer_provenance import snapshot,require_unchanged
+          from constructor127 import build as old_build,context
+          from open_front_world_origin import build
+          from open_front_wall_alternative import assess,compare_routes
+          sources=snapshot(root,['.github/workflows/v25-wall-alternative.yml','app/local_integration/open_front_wall_alternative.py'])
+          assert guard(FREEZE)==12991
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text())
+          archive=next(a for a in index['archives']if a['run_id']==44417514104)
+          path=Path('evidence/archive')/archive['path'];assert hashlib.sha256(path.read_bytes()).hexdigest()==archive['sha256']
+          with tarfile.open(path,'r:gz')as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(x['sha256']for x in archive['members']if x['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];tr=saved['generation_context']['construction_trace']
+          old=old_build(tr['raw'],'FRONT_REAR',tr['proposals']['A'],tr['proposals']['B'])
+          ctx=context(tr['raw'],old,tr['proposals'])
+          assert digest(old['world_model'])==saved['model_digest']
+          packet,trace=build(tr['raw'],tr['proposals'])
+          report=assess(packet,trace,old,ctx)
+          assert len(report['route_comparisons'])==8
+          assert all(r['both_have_width_witness']for r in report['route_comparisons']),report['route_comparisons']
+          assert report['NONFUNCTIONAL_WALL_EXCLUSION']=='UNKNOWN'
+          assert all(report[k]is False for k in ('accepted','qualified','display_allowed','delivery_allowed','whole_physical_verified'))
+          negatives=[]
+          for case in ('endpoint','body','missing_route','duplicate_unit','profile'):
+              a=deepcopy(report['before_guest_study']);b=deepcopy(report['after_guest_study'])
+              if case=='endpoint':b['units'][0]['routes'][0]['end'][0]='0'
+              elif case=='body':b['units'][0]['routes'][0]['body_m']='.6'
+              elif case=='missing_route':b['units'][0]['routes'].pop()
+              elif case=='duplicate_unit':b['units'][1]['unit']='A'
+              else:b['source_profile']['body_m']='.6'
+              try:compare_routes(a,b)
+              except ValueError:negatives.append(case)
+              else:raise AssertionError('WALL_COMPARISON_MUTATION_ACCEPTED:'+case)
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          report.update(workflow_snapshot=sources,negative_tests=negatives,operation_start='2026-11-19T00:48:26Z',operation_deadline='2026-11-19T01:07:31Z')
+          Path('wall-alternative.json').write_text(json.dumps(report,ensure_ascii=False))
+          print('WALL_ALTERNATIVE '+json.dumps({k:report[k]for k in ('status','model_digest','baseline_model_digest','removed_source_wall_ids','remaining_source_wall_count','released_physical_material_m2','route_comparisons','negative_tests','NONFUNCTIONAL_WALL_EXCLUSION','whole_physical_verified')}),flush=True)
+          print('LIVING_COMPARISON '+json.dumps({'before':report['before_living_connectivity'],'after':report['after_living_connectivity']}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-wall-alternative
+          path: wall-alternative.json
+          retention-days: 30
