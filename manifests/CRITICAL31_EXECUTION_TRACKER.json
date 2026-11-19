@@ -582,7 +582,7 @@
       "description_verbatim": "۴.۴. مدیریت سقف تلاش، توقف بدون پیشرفت و اعلام روشنِ اصلاح ناموفق. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "PARTIAL_CONTROLLER_AND_CONTROLLED_TIMEOUT_TESTED_RUNTIME_ADOPTION_OPEN",
+      "status": "PARTIAL_OUTER_CONTROLLER_WIRED_CONTROLLED_TESTED_LIVE_ADOPTION_NOT_EXECUTED",
       "dependencies": [
         "4.3"
       ],
@@ -593,14 +593,18 @@
       "tested_commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
       "run": 44467634916,
       "tests": "20 tests and controlled subprocess hard timeout; no new geometry",
-      "remaining": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
+      "remaining": "Versioned outer controller wired to unchanged child/bind_result and controlled-worker tested; actual geometry through new entrypoint not executed. Existing operator internal variant-loop stop remains unchanged; no public repair adoption or qualification.",
       "remaining_at_original_checkpoint": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
       "later_evidence": {
         "tasks": [
           "4.5"
         ],
         "interpretation": "History consumption completed; new controller runtime adoption remains open under original08:43:03 deadline."
-      }
+      },
+      "continuation_start_utc": "2026-11-19T06:27:37Z",
+      "continuation_checkpoint_utc": "2026-11-19T06:30:58Z",
+      "continuation_tested_commit": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
+      "continuation_run": 44472702542
     },
     {
       "id": "4.5",

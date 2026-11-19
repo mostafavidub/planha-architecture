@@ -1,0 +1,136 @@
+{
+  "schema": "TASK4_4_CONTROLLER_CONTINUATION_V1",
+  "task": "4.4",
+  "status": "PARTIAL_OUTER_CONTROLLER_WIRED_CONTROLLED_TESTED_LIVE_ADOPTION_NOT_EXECUTED",
+  "original_start_utc": "2026-11-19T05:43:03Z",
+  "deadline_utc": "2026-11-19T08:43:03Z",
+  "continuation_start_utc": "2026-11-19T06:27:37Z",
+  "checkpoint_utc": "2026-11-19T06:30:58Z",
+  "tested_commit": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
+  "run": 44472702542,
+  "job": 135385764174,
+  "tests": {
+    "existing_ledger": 20,
+    "new_controlled_entrypoint": 9,
+    "total": 29
+  },
+  "evidence": {
+    "accepted": false,
+    "account": {
+      "accepted": false,
+      "account_id": "61fba71a13354501bb7d38338a4d282c",
+      "active": null,
+      "budget_policy": "Engineering study cap, not an architectural rule; no budget reset for retries or lower programmes",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "history": [
+        {
+          "counts_as_quality_improvement": false,
+          "elapsed_seconds": 0.20199765999999997,
+          "observed_model_digest": null,
+          "outcome": "TIMED_OUT",
+          "token": "61fba71a13354501bb7d38338a4d282c:1"
+        }
+      ],
+      "max_attempts": 3,
+      "parent_model_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "qualified": false,
+      "schema": "BOUNDED_REPAIR_ACCOUNT_V1",
+      "seconds": 0.2,
+      "seen_model_digests": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "stop_reason": "TIME_BUDGET_EXHAUSTED_NOT_INFEASIBLE",
+      "used_attempts": 1,
+      "used_seconds": 0.20199765999999997
+    },
+    "account_after_reserve": {
+      "accepted": false,
+      "account_id": "61fba71a13354501bb7d38338a4d282c",
+      "active": {
+        "allocated_seconds": 0.2,
+        "token": "61fba71a13354501bb7d38338a4d282c:1"
+      },
+      "budget_policy": "Engineering study cap, not an architectural rule; no budget reset for retries or lower programmes",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "history": [],
+      "max_attempts": 3,
+      "parent_model_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "qualified": false,
+      "schema": "BOUNDED_REPAIR_ACCOUNT_V1",
+      "seconds": 0.2,
+      "seen_model_digests": [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      ],
+      "stop_reason": null,
+      "used_attempts": 1,
+      "used_seconds": 0
+    },
+    "account_before_digest": "281d3ae64319e288270a97565e38b163437ad35ee3820fb94b106b9973307d9a",
+    "account_digest": "cde9d78ec7de83079d8f0b8112ba56d0f7dec97e2ddb417a7aab5c5ae8f8667c",
+    "account_finalization_verified": true,
+    "actual_geometry_execution_claim": "NONE_CONTROLLED_TEST",
+    "child_receipt_verified": false,
+    "current_test_scope": "CONTROLLED_WORKER_NO_GEOMETRY",
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_geometry_verified": false,
+    "fresh_geometry_verified_meaning": "Source-bound child/replay/full-report chain, not architectural qualification",
+    "head_sha": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
+    "mode": "CONTROLLED_WORKER_TEST",
+    "nonce": "bbc2bbf59d4a4adba1f6e32a4118efb5",
+    "outcome": "TIMED_OUT",
+    "process": {
+      "accepted": false,
+      "allocated_seconds": 0.2,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "elapsed_seconds": 0.20199765999999997,
+      "kill_sent": true,
+      "qualified": false,
+      "returncode": -9,
+      "scope": "Dedicated process group; no guarantee for descendants that escape with a new session",
+      "stderr": "",
+      "stdout": "controlled-start\n",
+      "timed_out": true,
+      "wait_completed": true
+    },
+    "process_budget_scope": "Child process only; source audit and setup excluded, not measured separately.",
+    "qualified": false,
+    "schema": "CONTROLLED_REPAIR_ENTRYPOINT_V1",
+    "scope": "One outer attempt includes existing internal variants; no per-variant stop callback or quality claim.",
+    "source_integrity_verified": true,
+    "source_snapshot": {
+      "app/local_integration/bounded_repair_chain.py": "e7136bfbf6aedee32a38adbbdc40dd00dfdf79533286e8828d188dcca6888ef9",
+      "app/local_integration/controlled_repair_entrypoint.py": "4e6a4655a8a9b021cde3bfdc6319a55be17bc2abd9124bcae99e7772a542277a",
+      "app/local_integration/repair_attempt_control.py": "b95470a22abb51a67ae18ecbb7b185a0849363e327847c88c2fda18701eba2b2"
+    }
+  },
+  "artifact": {
+    "id": 14504587588,
+    "sha256": "b5502f964619b270d4c8a0e96973a806c58b0f21bfb955b0033198a33f7a5a34",
+    "expires_at": "2026-12-19T06:30:58Z"
+  },
+  "scope": [
+    "Same original task/cap, not reset.",
+    "New versioned entrypoint reserve→run_bounded→original child/bind_result→finish; historical child and guard unchanged.",
+    "Controlled-worker test seam never admits a model; no real solver or new geometry executed.",
+    "Actual process timeout .2s, kill/wait and finalized shared account observed. Dedicated process group only.",
+    "Account-finalization failure retains reserved account/process observations; does not reset budget.",
+    "Child source snapshots and evidence files rechecked in real wiring; original-geometry route not exercised in this test.",
+    "Historical4.3 real geometry run remains distinct and did not use this new controller.",
+    "Internal per-variant controller/no-progress callbacks unchanged, not claimed adopted."
+  ],
+  "reproduction": {
+    "commit": "9dad9f23eaee0a388ace0717dce32fc0183d7090",
+    "workflow": ".github/workflows/v25-controlled-repair-entrypoint.yml",
+    "inputs": "No old artifact dependency; controlled worker only",
+    "full_artifact": "Temporary until expires_at; compact result durable here."
+  },
+  "remaining": "Versioned outer controller wired to unchanged child/bind_result and controlled-worker tested; actual geometry through new entrypoint not executed. Existing operator internal variant-loop stop remains unchanged; no public repair adoption or qualification.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
