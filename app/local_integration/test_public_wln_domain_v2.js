@@ -2,9 +2,9 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 (async()=>{
  const W={value:'18'},L={value:'20'},n={value:'3'},elements=[W,L,n];Object.assign(elements,{W,L,n});
- let handler,calls=[];const result={dataset:{}},button={};
+ let handler,calls=[];const result={dataset:{}},button={},stageCounts={dataset:{}};
  const form={elements,addEventListener:(event,fn)=>{assert.equal(event,'submit');handler=fn;}};
- const context={document:{querySelector:s=>({'#plan-form':form,'#submit':button,'#result':result}[s])},fetch:async(url,options)=>{
+ const context={document:{querySelector:s=>({'#plan-form':form,'#submit':button,'#result':result,'#stage-counts':stageCounts}[s])},fetch:async(url,options)=>{
   calls.push({url,body:JSON.parse(options.body)});
   if(['3','4'].includes(JSON.parse(options.body).n))return {ok:false,status:422,json:async()=>({schema:'PUBLIC_WLN_ERROR_SET_V1',acceptance_contract:'V25_PUBLIC_WLN_CONTRACT_V3',generation_started:false,primary_status:422,code:'INVALID_BRIEF',field:'n',errors:[{field:'n',code:'INVALID_BRIEF',status:422}],accepted:false,qualified:false,display_allowed:false,delivery_allowed:false})};
   return {ok:false,status:409,json:async()=> ({schema:'PUBLIC_WLN_STUDY_SUMMARY_V1',status:'UNSUPPORTED_SYNTHETIC_HANDLER_TEST',accepted:false,qualified:false,display_allowed:false,delivery_allowed:false,plan_count_available:0,plan_payload:null,download_available:false})};
