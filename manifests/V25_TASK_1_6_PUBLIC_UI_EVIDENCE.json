@@ -1,0 +1,55 @@
+{
+  "task": "1.6",
+  "status": "PARTIAL_LOCAL_THREE_FIELD_UI_REAL_CHAIN_TESTED_NOT_PRODUCT_RELEASE",
+  "start_utc": "2026-11-19T04:56:25Z",
+  "deadline_utc": "2026-11-19T07:56:25Z",
+  "tested_commit": "d2b063dcce0f5071ea359f4b402850df8e8ef6ca",
+  "run": 44462498782,
+  "job": 135352391502,
+  "tests": 35,
+  "browser_journey_seconds": 89.420327368,
+  "real_posts": 1,
+  "real_request": {
+    "W": "18",
+    "L": "20",
+    "n": 2
+  },
+  "result": "BLOCKED",
+  "fresh_model_executed": true,
+  "source_integrity_verified": true,
+  "plan_display": false,
+  "downloads": false,
+  "publication": false,
+  "artifact": {
+    "id": 14500313851,
+    "sha256": "fcbfe269bf8189882145b85570625c7f3f40491cc1296d19ecf53c357fbcb02b",
+    "expires_at": "2026-12-19T05:11:45Z"
+  },
+  "visual_review": {
+    "reviewer": "parent agent independently viewed PNG pixels",
+    "readback_run": 44463596149,
+    "job": 135355956180,
+    "snapshots": [
+      "desktop-empty.png",
+      "mobile-blocked-result.png"
+    ],
+    "observed": "RTL three-field form, readable study/limited-scope/no-delivery notices, no obvious clipping, mobile button/result within frame; no plan/download",
+    "scope": "Only two captured snapshots; not all states or devices"
+  },
+  "prior_failed_run": {
+    "run": 44462277441,
+    "reason": "Test harness wait_for_function conflicted with strict CSP before generation; harness changed, CSP unchanged"
+  },
+  "reproduction": "Run .github/workflows/v25-public-wln-ui.yml at tested commit; install official pinned Playwright and browser; workflow runs HTTP/unit, browser DOM and one live scoped generation.",
+  "limitations": [
+    "Loopback study only, no product publication",
+    "Only selected18x20/n2 runtime; other valid inputs explicitly unsupported",
+    "Original physical rejection and four UNKNOWN criteria remain",
+    "UI journey includes post-generation error tests, not generation-only timing",
+    "Tested timeout mechanism was not triggered by this successful run"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
