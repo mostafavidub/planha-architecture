@@ -2,7 +2,7 @@
 import copy,inspect,json,sys
 from fractions import Fraction as F
 from pathlib import Path
-from front_rear_runtime_adapter import ROOT,ENGINE,ensure,transport,source_audit,preserve_report,verify_reports
+from front_rear_runtime_adapter import ROOT,ENGINE,ensure,transport,source_audit,preserve_report,verify_reports,observed_digest,observed_copy
 from same_version_front_rear_contract import digest,ENGINE_REVISION
 from program_profile_registry import lookup
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
@@ -100,13 +100,24 @@ def assess(bundle):
    {'kind':'MISSING_EVIDENCE','code':'CLOTHING_STORAGE_VOLUME_AND_FULL_SIMULTANEOUS_BUNDLE_ADEQUACY'},
    {'kind':'NOT_EVALUATED','code':'NET_CAPACITY_PREFILTER_SOURCE_BOUND_NOT_AVAILABLE'}]
   if cap['errors']:out['findings'].append({'kind':'SOURCE_PROFILE_VIOLATION','code':'SCOPED_CAPACITY_FAILURE','errors':cap['errors']})
+  out['capacity_error_mapping']=[{'original_error':e,'current_rule_effect':'UNKNOWN_SOURCE_PROFILE_OR_EVALUATOR_FINDING_NOT_AUTOMATIC_CURRENT_RULE_FAIL'} for e in cap['errors']]
   out['decision']='BLOCK_DELIVERY_UNKNOWN_PROGRAMME_AND_RETAIN_INDEPENDENT_PHYSICAL_RESULT'
+  # A proven same-model mismatch to approved sleeping capacity is a necessary programme violation.
+  if any(r['actual_places']['sleeping_places']!=4 for r in cap['evidence']['units']):
+   out.update(state='FAIL',decision='BLOCK_DELIVERY_PROVEN_SLEEP_PROGRAMME_MISMATCH')
+   out['findings'].append({'kind':'PROVEN_NECESSARY_VIOLATION','code':'ACTUAL_SLEEP_CAPACITY_NOT_APPROVED_FOUR'})
  except Exception as ex:
-  out.update(state='UNKNOWN',decision='BLOCK_DELIVERY_INVALID_OR_INCOMPLETE_EVIDENCE')
+  out.update(state='FAIL' if str(ex).startswith('PROGRAM_IDENTITY:') else 'UNKNOWN',decision='BLOCK_DELIVERY_INVALID_OR_INCOMPLETE_EVIDENCE')
   out['findings'].append({'kind':'EVALUATOR_OR_SOURCE_BINDING_ERROR','type':type(ex).__name__,'detail':str(ex)})
  finally:
-  verify_reports(reports,pins);verify_reports(live,pins)
-  ensure(digest(bundle)==baseline and digest(profile)==profilepin,'INPUT_MUTATION')
-  require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED')
+  try:
+   verify_reports(reports,pins);verify_reports(live,pins)
+   ensure(digest(bundle)==baseline and digest(profile)==profilepin,'INPUT_MUTATION')
+   require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED')
+   out['integrity_verified']=True
+  except Exception as ex:
+   out.update(state='UNKNOWN',integrity_verified=False,decision='BLOCK_DELIVERY_INTEGRITY_ERROR')
+   out['findings'].append({'kind':'INTEGRITY_ERROR','type':type(ex).__name__,'detail':str(ex)})
+  out['report_mutations']=[{'report':k,'expected_digest':h,'observed_digest':observed_digest(live[k]),'observed':observed_copy(live[k])} for k,h in pins.items() if observed_digest(live[k])!=h]
   out.update(report_digests=pins,source_snapshot=snap,input_bundle_digest=baseline)
  return out
