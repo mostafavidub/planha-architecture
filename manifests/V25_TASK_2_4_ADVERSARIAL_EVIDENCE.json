@@ -1,0 +1,48 @@
+{
+  "task": "2.4",
+  "started_at": "2026-11-19T03:45:00Z",
+  "deadline": "2026-11-19T06:45:00Z",
+  "status": "SYNTHETIC_ADVERSARIAL_BINDING_TESTED_FRESH_RUN_PENDING",
+  "tested_commit": "905472fbd5c584489f793dffe72d9a331c442af5",
+  "run_id": 44454050998,
+  "job_id": 135324661330,
+  "ci_completed_at": "2026-11-19T03:49:34Z",
+  "tests": {
+    "adversarial": 19,
+    "prior": 99,
+    "total": 118,
+    "status": "PASS"
+  },
+  "scope": "Synthetic packets and shared binding/preservation helpers; not source-built model, original replay, or full runtime invocation. Invalid budget/input run preflight only. No monkeypatch producer/evaluator.",
+  "covered": [
+    "Exact int/float/bool distinction in actual programme fields",
+    "Raw/trace/proposal assignments/source revision/family/packet hash mismatch",
+    "Original physical report survival after synthetic downstream mutation",
+    "Noncanonical observation serializable marker, no repr",
+    "Explicit report tuple boundary; integer keys and numpy scalars rejected",
+    "Unknown producer status fails closed",
+    "Invalid budgets and public inputs rejected"
+  ],
+  "review": "Independent read-only geometry review; fixes include limited test naming, report transport policy and constructor-called/returned/binding-verified flags.",
+  "artifact": {
+    "id": 14497132101,
+    "name": "runtime-adversarial-task-2-4",
+    "zip_sha256": "3cb3ac38aa7621f773874f239d5bb63f1feab7cd62ff0b3ddfd0ac73c9d03d6d",
+    "retention_days": 30,
+    "expected_expiry": "2026-12-19T03:49:31Z",
+    "url": "https://github.com/mostafavidub/planha-architecture/actions/runs/44454050998/artifacts/14497132101"
+  },
+  "reproduce": {
+    "workflow": ".github/workflows/v25-runtime-adversarial.yml",
+    "commit": "905472fbd5c584489f793dffe72d9a331c442af5"
+  },
+  "pending": [
+    "Fresh actual original pipeline2.5",
+    "Outer process hard deadline and durable real evidence",
+    "Observed numeric source transport compatibility, not broad coercion"
+  ],
+  "fresh_models": 0,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
