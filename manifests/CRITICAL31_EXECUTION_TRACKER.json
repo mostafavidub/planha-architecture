@@ -326,14 +326,24 @@
       "description_verbatim": "۳.۳. بررسی مسیرهای مهمان در کنار محدوده واقعی کار و حرکت آشپزخانه. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_EIGHT_SOURCE_PROFILE_ROUTES_VERIFIED_CURRENT_CLOSURE_UNKNOWN",
       "dependencies": [
         "3.1",
         "2.3"
       ],
       "start_utc": "2026-11-19T04:11:34Z",
       "deadline_utc": "2026-11-19T07:11:34Z",
-      "scope": "Source-bound real guest destinations and four routes per unit against actual work/motion zones; preserve original physical FAIL and unqualified scenarios."
+      "scope": "Source-bound real guest destinations and four routes per unit against actual work/motion zones; preserve original physical FAIL and unqualified scenarios.",
+      "checkpoint_utc": "2026-11-19T04:17:30Z",
+      "commit": "9201c3a3d6a54686fb5e82681619c4e7110125c0",
+      "run": 44457232839,
+      "tests": {
+        "helper": 8,
+        "wrong_model_report": 1,
+        "actual_routes": 8
+      },
+      "criterion_state": "UNKNOWN",
+      "remaining": "First-living/principal organization, full scenarios, bottleneck/opening and ergonomic profile unclosed. New work/motion zone scenario does not replace original whole-kitchen exclusion FAIL."
     },
     {
       "id": "3.4",
@@ -341,11 +351,14 @@
       "description_verbatim": "۳.۴. بررسی نشیمن پیوسته و قابل استفاده، شامل چیدمان و گردش، نه فقط مساحت. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "3.1",
         "2.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T04:18:41Z",
+      "deadline_utc": "2026-11-19T07:18:41Z",
+      "scope": "Source-bound continuous useful living/furnishing/circulation assessment; distinguish permitted access domain from living useful floor and area, preserve unproved group/quality."
     },
     {
       "id": "3.5",
