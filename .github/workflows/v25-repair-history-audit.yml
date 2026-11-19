@@ -1,0 +1,110 @@
+name: V25 actual repair history audit task4.5
+on:
+  push:
+    paths:
+      - 'app/local_integration/repair_history_audit.py'
+      - '.github/workflows/v25-repair-history-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  history:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: live-programme-scheduler-1-3-1-4
+          run-id: 44460753648
+          github-token: ${{ github.token }}
+          path: history-input/parent
+      - uses: actions/download-artifact@v4
+        with:
+          name: rejection-operator-selection-task4-1
+          run-id: 44464386479
+          github-token: ${{ github.token }}
+          path: history-input/selection
+      - uses: actions/download-artifact@v4
+        with:
+          name: typed-repair-protection-task4-2
+          run-id: 44465121269
+          github-token: ${{ github.token }}
+          path: history-input/protection
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-fresh-repair-chain-task4-3
+          run-id: 44466696183
+          github-token: ${{ github.token }}
+          path: history-input/repair
+      - name: Actual history binding and adversarial tampering without solver
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,copy
+          from repair_history_audit import audit_history,digest
+          names=['runtime-bundle.json','rejection-operator-selection.json','typed-repair-contract.json','parent-receipt.json','repair-complete.json','operator-result.json','child-runtime-bundle.json','child-current-decision.json']
+          values=[]
+          for name in names:
+           fs=list(pathlib.Path('history-input').rglob(name));assert len(fs)==1;values.append(json.loads(fs[0].read_text()))
+          keys=['parent','selection','contract','receipt','complete','operator','bundle','decision'];pins={k:digest(v) for k,v in zip(keys,values)}
+          pins.update(parent='ce47b8433c94aaf216c6fd0d67c8ca9bcc563466f85ba17d3bfdb1fa05d89234',contract='64d7700851e02fb72cc9debe115783222b19671f9b37c24fa137ac9e97ee09b0',receipt='01cefd9e4a04289abfcb6842836f940daa0c082c9cd668bd1f7177d820b2b069',complete='a801514a29ef2d1635768f0609f62d6214ea7f859380f7d83ff60a58dbf72616',decision='afabc26974d97f27a9ed60caa2259f7fb6b24f47def17a0c1b47332bcf3fd0ba')
+          pins['selection']=values[2]['selection_digest'];pins['bundle']=values[4]['child_runtime_digest'];pins['operator']=values[4]['operator_result_digest']
+          out=audit_history(*values,pins)
+          cases=['parent_model','parent_pending','programme_type','programme_lower','fixture_dimension','core_type','lineage','child_reused_parent','receipt_delivery','receipt_timeout','receipt_budget','decision_pass','decision_integrity','source_pin']
+          negatives=[]
+          for case in cases:
+           v=copy.deepcopy(values)
+           if case=='parent_model':v[0]['model_digest']='0'*64
+           elif case=='parent_pending':v[0]['reports']['physical']['pending']=[]
+           elif case=='programme_type':v[6]['packet']['world_model']['program']['units']=2.0
+           elif case=='programme_lower':v[6]['packet']['world_model']['program']['bedrooms_per_unit']=1
+           elif case=='fixture_dimension':
+            u=v[6]['packet']['world_model']['units'][0];k=next(iter(u['fixtures']));u['fixtures'][k][2]='999'
+           elif case=='core_type':v[6]['packet']['core']['unlisted']=False
+           elif case=='lineage':v[4]['parent_attempt_id']='other'
+           elif case=='child_reused_parent':v[4]['child_model_digest']=v[0]['model_digest']
+           elif case=='receipt_delivery':v[3]['delivery_allowed']=True
+           elif case=='receipt_timeout':v[3]['timed_out']=True
+           elif case=='receipt_budget':v[3]['elapsed_seconds']=0
+           elif case=='decision_pass':v[7]['decision']['state']='PASS'
+           elif case=='decision_integrity':v[7]['integrity_verified']=False
+           else:v[4]['source_snapshot']['app/local_integration/bounded_repair_chain.py']='0'*64
+           try:audit_history(*v,pins)
+           except (ValueError,KeyError):negatives.append(case)
+          assert negatives==cases
+          # These five mutations must fail even with rehashed top-level receipts.
+          structural=[]
+          for case in ('receipt_authority','parent_model','decision_authority','receipt_returncode','receipt_count_type'):
+           v=copy.deepcopy(values)
+           if case=='receipt_authority':v[3]['delivery_allowed']=True
+           elif case=='parent_model':v[0]['model_digest']='0'*64
+           elif case=='decision_authority':v[7]['qualified']=True
+           elif case=='receipt_returncode':v[3]['returncode']=7
+           else:v[3]['generated_count']=True
+           try:audit_history(*v,{k:digest(z) for k,z in zip(keys,v)})
+           except (ValueError,KeyError):structural.append(case)
+          assert len(structural)==5
+          assert out['integrity_verified'] is True and out['state']=='HISTORY_VERIFIED_DELIVERY_BLOCKED'
+          assert out['rejection_matches_same_operator_scope'] is False
+          assert all(out[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
+          out['tests']={'pinned_artifact_mutations':negatives,'rehashed_structural_mutations':structural,'fresh_geometry_executed':False,'scope':'Pinned artifact identities are trust anchors, not cryptographic signatures proving arbitrary uploaded histories'}
+          pathlib.Path('actual-repair-history.json').write_text(json.dumps(out,sort_keys=True,indent=2))
+          print(json.dumps({k:v for k,v in out.items() if k not in ('original_parent_physical','child_full_physical','child_full_decision')},sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-repair-history-task4-5
+          path: actual-repair-history.json
+          retention-days: 30

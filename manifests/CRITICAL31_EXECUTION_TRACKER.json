@@ -93,7 +93,7 @@
       "description_verbatim": "۱.۳. ساخت جست‌وجوی خودکارِ گزینه‌های برنامه با ثبت علت، بودجه و ترتیب بررسی. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_VERIFIED_NOT_FULL_SEARCH",
+      "status": "STOPPED_TIMEBOX_PARTIAL",
       "dependencies": [
         "1.1",
         "1.2",
@@ -103,7 +103,7 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5.",
-      "checkpoint_utc": "2026-11-19T05:48:29Z",
+      "checkpoint_utc": "2026-11-19T05:51:10Z",
       "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
       "run": 44460753648,
       "tests": {
@@ -111,9 +111,9 @@
       },
       "remaining": "Live18x20/n2 single-contract attempt only; multi-programme/dimension search, quality and publicAPI not complete.",
       "live_continuation_start_utc": "2026-11-19T04:43:45Z",
-      "checkpoint_state": "CHECKPOINT_PARTIAL_NO_ACTIVE_WORK",
+      "checkpoint_state": "STOPPED_TIMEBOX_PARTIAL",
       "active_execution": false,
-      "checkpoint_note": "Original deadline05:51:01 not yet reached at this checkpoint; no reset or completion claimed."
+      "checkpoint_note": "Original carried deadline05:51:01 elapsed; partial single-case evidence retained. No restart, renamed operation or deadline reset. Core/split/optional merge alternatives and multiple-programme/dimension coverage remain incomplete."
     },
     {
       "id": "1.4",
@@ -121,7 +121,7 @@
       "description_verbatim": "۱.۴. بررسی تغییر هسته، تقسیم و جانمایی پیش از بررسی برنامه با خواب کمتر؛ بدون تغییر پنهانی برنامه. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "PARTIAL_LIVE_ORDER_DISPOSITIONS_ALTERNATIVE_SEARCH_PENDING",
+      "status": "STOPPED_TIMEBOX_PARTIAL",
       "dependencies": [
         "1.3"
       ],
@@ -129,7 +129,7 @@
       "carried_operation_start_utc": "2026-11-19T02:51:01Z",
       "deadline_utc": "2026-11-19T05:51:01Z",
       "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset.",
-      "checkpoint_utc": "2026-11-19T05:48:29Z",
+      "checkpoint_utc": "2026-11-19T05:51:10Z",
       "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
       "run": 44460753648,
       "tests": {
@@ -137,9 +137,9 @@
       },
       "remaining": "Only placement actual; alternative core/split/optional merge NOT_IMPLEMENTED; one-bed adapter not ready; AP07 incomplete. No budget reset.",
       "live_continuation_start_utc": "2026-11-19T04:43:45Z",
-      "checkpoint_state": "CHECKPOINT_PARTIAL_NO_ACTIVE_WORK",
+      "checkpoint_state": "STOPPED_TIMEBOX_PARTIAL",
       "active_execution": false,
-      "checkpoint_note": "Original deadline05:51:01 not yet reached at this checkpoint; no reset or completion claimed."
+      "checkpoint_note": "Original carried deadline05:51:01 elapsed; partial single-case evidence retained. No restart, renamed operation or deadline reset. Core/split/optional merge alternatives and multiple-programme/dimension coverage remain incomplete."
     },
     {
       "id": "1.5",
@@ -536,11 +536,14 @@
       "description_verbatim": "۴.۵. آزمون واقعی از تاریخچه: طرح ردشده → طرح تازه → بررسی مجدد، همراه تست دستکاری و عدم تحویل طرح ناقص. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "4.4",
         "3.6"
-      ]
+      ],
+      "start_utc": "2026-11-19T05:49:38Z",
+      "deadline_utc": "2026-11-19T08:49:38Z",
+      "scope": "Bind retained actual4.3 rejection→new child→all-gates history with tamper/no-delivery tests; no repeated solver or live-controller adoption claim."
     },
     {
       "id": "5.1",
