@@ -5,6 +5,7 @@ import uuid
 from dimension_contract_historical import verify
 from dimension_contract import parse,InputError
 from review_cycle import decide
+from history_status_taxonomy import summarize as summarize_status
 from parametric_worker import ROOT
 BASE=ROOT/'app/local_integration/evidence/requests'
 
@@ -43,7 +44,8 @@ def summary(run_id,base=BASE):
             if (receipt['final_model_digest']!=receipt['parent_model_digest'])is not created:raise ValueError('EXPLORATORY_CHILD_IDENTITY')
             expected_generated=int(created)
         if result['generated_count']!=expected_generated or result.get('qualified_count')!=0:raise ValueError('COUNT_MISMATCH')
-    return {'schema':'MAC_HISTORICAL_SUMMARY_V1','run_id':run_id,'historical_only':True,'within_current_owner_range':current_range,'current_owner_range_m':[5,25],'live_model_restored':False,'request':json.loads(body),'outcome':result['outcome'],'candidates':rows,'generated_count':result.get('generated_count',len(rows)),'reviewed_candidate_count':len(rows),'qualified_count':0,'saved_at_ns':(folder/'result.json').stat().st_mtime_ns,'accepted':False,'delivery_allowed':False,'scope':'saved record consistency, not current-source reevaluation or architecture acceptance'}
+    status_taxonomy=summarize_status(result,rows)
+    return {'status_taxonomy':status_taxonomy,'schema':'MAC_HISTORICAL_SUMMARY_V1','run_id':run_id,'historical_only':True,'within_current_owner_range':current_range,'current_owner_range_m':[5,25],'live_model_restored':False,'request':json.loads(body),'outcome':result['outcome'],'candidates':rows,'generated_count':result.get('generated_count',len(rows)),'reviewed_candidate_count':len(rows),'qualified_count':0,'saved_at_ns':(folder/'result.json').stat().st_mtime_ns,'accepted':False,'delivery_allowed':False,'scope':'saved record consistency, not current-source reevaluation or architecture acceptance'}
 
 def list_history(base=BASE):
     folders=sorted((p for p in base.iterdir()if p.is_dir()and not p.is_symlink()and valid_id(p.name)),key=lambda p:p.stat().st_mtime_ns,reverse=True)[:50] if base.exists()else []
