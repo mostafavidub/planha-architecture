@@ -65,14 +65,16 @@ def assess(bundle,save=lambda out:None):
  for fn,name in [(route,'fast_route120.py'),(cells,'fast_cells120.py'),(covered,'public_program_audit118.py'),(construction_replay127.verify,'construction_replay127.py')]:
   ensure(pathlib.Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve(),'IMPORT_SOURCE')
  replay=construction_replay127.verify(m,bundle['context']);ensure(replay['verified'] is True and replay['model_hash']==mh,'REPLAY')
- cat=json.loads((ENGINE/'fixture_catalog114.json').read_text())
+ cat=json.loads((ENGINE/'fixture_catalog114.json').read_text());ensure(digest(cat)==m['fixture_catalog_hash'],'CATALOG_HASH')
+ for fn,name in [(placed,'current_programme_evaluator.py'),(inventory,'current_programme_evaluator.py'),(route_check,'source_guest_route_evaluator.py')]:
+  ensure(pathlib.Path(inspect.getsourcefile(fn)).resolve()==(ROOT/'app/local_integration'/name).resolve(),'INTEGRATION_IMPORT_SOURCE')
  inventory(m,lookup('PROGRAM_2BED_V1'),cat)
  ensure(digest(bundle)==pin,'INPUT_MUTATION')
  out={'schema':'DINING_EIGHT_ARRIVAL_EPISODE_STUDY_V1','state':'UNKNOWN','model_digest':mh,'input_digest':pin,
       'historical_physical_digest':bundle['report_digests']['physical'],'historical_physical_status':bundle['reports']['physical']['status'],
       'replay_digest':digest(replay),'source_snapshot':snap,'rows':[],'completed':False,'integrity_verified':False,
       'scenario':'Selected chair pulled and static; other three chairs closed and occupied; living occupied; actual kitchen work and six motions; open door panels. Not all simultaneous scenarios.',
-      'phase_coverage':{'arrival':'NEW_PER_INSTANCE_ROUTE_PROBE','seated_pull_side_exit':'REUSED_SOURCE_PLANAR_PHASES_NOT_RERUN_HERE','vertical_transfer':'MISSING_VALIDATED_PROFILE','end_to_end_episode':'NOT_VERIFIED'},
+      'phase_coverage':{'arrival':'NEW_PER_INSTANCE_ROUTE_PROBE','seated_pull_side_exit':'SOURCE_PHASE_DEFINITIONS_PRESENT_NOT_REEVALUATED_NO_NEW_PHASE_PASS','vertical_transfer':'MISSING_VALIDATED_PROFILE','end_to_end_episode':'NOT_VERIFIED'},
       'scope':'Historical model, not fresh current input execution. No geometry edits. No source profile approval or architectural admission.',
       **{k:False for k in AUTH}}
  save(out)
@@ -81,6 +83,8 @@ def assess(bundle,save=lambda out:None):
    uid=u['id'];p=u['dining_module_placement'];seats=p['module']['seating']['instances']
    ensure(len(seats)==4 and len({s['fixture_id'] for s in seats})==4,'SOURCE_SEATS')
    ops=[o for o in m['operations']['dining_chairs'] if o['unit']==uid]
+   bindings={s['id']:seat_binding(u,s,ops) for s in seats}
+   ensure(len(ops)==4 and len({o['fixture_id'] for o in ops})==4,'FOUR_UNIQUE_CHAIRS')
    ko=[o for o in m['operations']['kitchen'] if o['unit']==uid];ensure(len(ko)==1 and len(ko[0]['motion_envelopes'])==6,'KITCHEN_STATES');ko=ko[0]
    parts=[q for role in ('living','entry_circulation','dining','kitchen') for q in u['rooms'].get(role,[])]
    for role in ('bath','kitchen'):parts+=m['module_aprons'][uid+'.'+role]
@@ -95,7 +99,7 @@ def assess(bundle,save=lambda out:None):
     row={'unit':uid,'seat_id':seat['id'],'state':'STARTED','body_m':'7/10','other_occupied_seats':3,'human_transfer_validated':False}
     out['rows'].append(row);save(out)
     try:
-     fid,aid,end,op=seat_binding(u,seat,ops);obs=common+scenario_fixture_obstacles(u,ops,fid)
+     fid,aid,end,op=bindings[seat['id']];obs=common+scenario_fixture_obstacles(u,ops,fid)
      row.update(fixture_id=fid,activity_id=aid,module_digest=p['module_hash'],operation_digest=digest(op),floor_digest=digest(parts),ownership_digest=digest(owner),obstacle_digest=digest(obs),endpoint_digest=digest(end))
      path,reason=route(u['entry_point'],end,box,obs,body='.7')
      row.update(state='NO_WITNESS_IN_THIS_SCENARIO',router_reason=reason,path_digest=digest(path))
@@ -106,7 +110,8 @@ def assess(bundle,save=lambda out:None):
      ensure(digest(bundle)==pin,'INPUT_MUTATION');require_unchanged(ROOT,snap)
     except Exception as ex:row.update(state='EVALUATOR_OR_BINDING_ERROR',error_type=type(ex).__name__,error_code=str(ex)[:120])
     save(out)
-  out['completed']=len(out['rows'])==8
+  out['visited_all_rows']=len(out['rows'])==8
+  out['completed']=out['visited_all_rows'] and all(r['state'] in ('PASS_PLANAR_ARRIVAL_ONLY','NO_WITNESS_IN_THIS_SCENARIO') for r in out['rows'])
  except Exception as ex:out.update(error_type=type(ex).__name__,error_code=str(ex)[:120])
  finally:
   try:ensure(digest(bundle)==pin,'INPUT_MUTATION');require_unchanged(ROOT,snap);ensure(source_audit()==audit,'SOURCE_CHANGED');out['integrity_verified']=True

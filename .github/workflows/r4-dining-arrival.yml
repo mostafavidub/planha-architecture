@@ -1,0 +1,89 @@
+name: R4 per-seat dining arrival study
+on:
+  push:
+    paths: ['.github/workflows/r4-dining-arrival.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  arrival:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Source-module and adversarial helper tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_dining_arrival_episode_study
+      - name: Verify retained artifact identity without exposing model
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/mostafavidub/planha-architecture/actions/artifacts/14506041574 > source-artifact-metadata.json
+          python - <<'PY'
+          import json
+          m=json.load(open('source-artifact-metadata.json'))
+          assert m['id']==14506041574 and not m['expired']
+          assert m['workflow_run']['id']==44474177603
+          assert m['workflow_run']['head_sha']=='a1dcf7827ff59f49b7daa205368fcd2a29c26c27'
+          assert m['digest']=='sha256:a6b5156df6d7930ecf5607b50de81bbe85756362591d37c5e50596cc012ee1e3'
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: controlled-outer-controller-live-task4-4
+          run-id: 44474177603
+          github-token: ${{ github.token }}
+          path: retained-input
+      - name: Eight arrival attempts with shared 120 second process cap
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -B - <<'PY'
+          import hashlib,json,os,pathlib,signal,subprocess,sys,time
+          from same_version_front_rear_contract import digest
+          from front_rear_runtime_adapter import source_audit
+          root=pathlib.Path('retained-input')
+          paths=list(root.rglob('child-runtime-bundle.json'));assert len(paths)==1
+          p=paths[0];before=hashlib.sha256(p.read_bytes()).hexdigest();bundle=json.loads(p.read_bytes())
+          assert digest(bundle)=='fe117d0a341d81f25b03591c77cd6203bee80d771dd46925230ffca47acf251e'
+          assert bundle['model_digest']=='dd3b0a37e617005d69be77ba3f47cce624a827fdad528b4ba7377ffa8916f83a'
+          assert bundle['report_digests']['physical']=='f8d212d92e4641f01af6ffd51d09ad9652cc528950a168dffece0cb950854697'
+          initial=source_audit();start=time.monotonic()
+          proc=subprocess.Popen([sys.executable,'-B','app/local_integration/dining_arrival_episode_study.py',str(p),'dining-arrival-report.json'],start_new_session=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+          timed_out=False
+          try: stdout,stderr=proc.communicate(timeout=120)
+          except subprocess.TimeoutExpired:
+              timed_out=True;os.killpg(proc.pid,signal.SIGKILL);stdout,stderr=proc.communicate(timeout=15)
+          code=proc.wait(timeout=5)
+          receipt={'schema':'DINING_ARRIVAL_PROCESS_RECEIPT_V1','shared_process_seconds':120,'timeout':timed_out,'returncode':code,'wait_completed':proc.poll() is not None,'elapsed_seconds':time.monotonic()-start,'input_file_sha256':before,'input_unchanged':hashlib.sha256(p.read_bytes()).hexdigest()==before,'source_unchanged':source_audit()==initial,'stderr_sha256':hashlib.sha256(stderr).hexdigest(),'stdout_sha256':hashlib.sha256(stdout).hexdigest(),'qualified':False,'delivery_allowed':False,'scope':'No solver. Process cap excludes setup/source audits. Partial rows remain in report on timeout.'}
+          path=pathlib.Path('dining-arrival-report.json')
+          if path.exists():
+              report=json.loads(path.read_bytes());receipt['report_digest']=digest(report);receipt['observed_rows']=len(report['rows']);receipt['counts']=report.get('counts',{})
+          if path.exists(): print(json.dumps({'state':report['state'],'counts':report.get('counts',{}),'rows':report['rows']},sort_keys=True))
+          pathlib.Path('dining-arrival-receipt.json').write_text(json.dumps(receipt,sort_keys=True,indent=2))
+          print(json.dumps(receipt,sort_keys=True))
+          assert not timed_out and code==0 and receipt['input_unchanged'] and receipt['source_unchanged'], 'PROCESS_OR_INTEGRITY_FAILURE'
+          assert report['integrity_verified'] is True and report['completed'] is True
+          assert len(report['rows'])==8 and len({(r['unit'],r['seat_id']) for r in report['rows']})==8
+          assert all(r['state'] in ('PASS_PLANAR_ARRIVAL_ONLY','NO_WITNESS_IN_THIS_SCENARIO') for r in report['rows'])
+          assert report['state']=='UNKNOWN' and all(report[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
+          print(json.dumps({'state':report['state'],'counts':report['counts'],'rows':report['rows']},sort_keys=True))
+          PY
+      - if: always()
+        run: git diff --exit-code
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r4-dining-arrival-scoped-report
+          path: |
+            dining-arrival-report.json
+            dining-arrival-receipt.json
+          retention-days: 30
