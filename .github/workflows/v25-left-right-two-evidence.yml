@@ -1,0 +1,32 @@
+name: V25 LEFT_RIGHT evidence bundle only
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-left-right-two-evidence.yml'
+      - 'app/local_integration/left_right_two_evidence_bundle.py'
+      - 'app/local_integration/test_left_right_two_evidence_bundle.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Fresh source proposals and original diagnostic
+        run: timeout 360s python -B app/local_integration/diagnose_left_right_two.py
+      - name: Study-only independent orchestration with unchanged historical report
+        run: timeout 480s python -B app/local_integration/test_left_right_two_evidence_bundle.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-left-right-two-evidence-only
+          path: left-right-two-*.json
+          retention-days: 30
