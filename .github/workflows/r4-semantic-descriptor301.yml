@@ -1,0 +1,23 @@
+name: Source component semantic descriptor 301
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'studies/r4/semantic_descriptor301.py'
+      - 'studies/r4/test_semantic_descriptor301.py'
+      - '.github/workflows/r4-semantic-descriptor301.yml'
+permissions:
+  contents: read
+jobs:
+  synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Source-built component tests only
+        run: python -B -m unittest discover -s studies/r4 -p test_semantic_descriptor301.py -v
