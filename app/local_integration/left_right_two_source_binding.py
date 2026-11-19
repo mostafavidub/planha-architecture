@@ -3,7 +3,7 @@ NOT a declarative semantic schema, physical checker, or production registry.
 The entire current engine is pinned. Executable shape depends on unchanged
 constructor/frame/assemble/module sources; historical schema errors remain.
 """
-import copy,hashlib,inspect,json,math,re
+import copy,hashlib,inspect,json,math,re,types
 from fractions import Fraction as F
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
@@ -77,6 +77,14 @@ def proposal_check(p):
 
 def source_state():
     import engine114,constructor127,wall_union118,spatial_roles118
+    import assemble114,world_transform125,frame_contract125,common_core125,geometry114,space_accounting118
+    bindings=[(constructor127,'assemble',assemble114,'assemble'),(constructor127,'to_world',world_transform125,'to_world'),(constructor127,'local_core',frame_contract125,'local_core'),(frame_contract125,'build',common_core125,'build'),(spatial_roles118,'ledger',space_accounting118,'ledger'),(spatial_roles118,'cells',geometry114,'cells'),(wall_union118,'cells',geometry114,'cells')]
+    for owner,alias,module,name in bindings:
+        fn=getattr(owner,alias);ensure(fn is getattr(module,name),'IMPORTED_CALLABLE_IDENTITY:'+alias)
+        path=ENGINE/(module.__name__+'.py');ensure(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'DEPENDENCY_IMPORT:'+alias)
+        compiled=compile(path.read_text(),str(path),'exec',dont_inherit=True)
+        expected=next(x for x in compiled.co_consts if isinstance(x,types.CodeType) and x.co_name==name)
+        ensure(fn.__code__==expected,'DEPENDENCY_CODE_CHANGED:'+alias)
     functions=[(engine114.revision,'engine114.py'),(constructor127.frame,'constructor127.py'),(constructor127.build,'constructor127.py'),(constructor127.context,'constructor127.py'),(wall_union118.bind_physical_wall_union,'wall_union118.py'),(spatial_roles118.attach,'spatial_roles118.py')]
     for fn,name in functions:ensure(Path(inspect.getsourcefile(fn)).resolve()==(ENGINE/name).resolve(),'SOURCE_IMPORT:'+name)
     ensure(engine114.revision()==ENGINE_PIN,'ENGINE_PIN')
@@ -131,9 +139,12 @@ def transport(v,key='',path='root'):
         return [transport(x,'',path+'[]') for x in v]
     return copy.deepcopy(v)
 
+LOCAL_TOP=set('schema contract_version inputs scope_declaration ordered_macro status accepted release_allowed profile program walls wall_hosts source_wall_hosts common_spaces openings concept_windows units room_metadata common_routes fixture_catalog_hash fixture_catalog fixture_catalog_digest openedge_assumptions route_failures proposal_network_paths network_scope logical_regions operations pending module_ports module_aprons module_placements quality_unverified source_geometry_contract physical_wall_network wall_finish_profile threshold_ownership spatial_accounting'.split())
+
 def expected_world(local,core):
     from wall_union118 import bind_physical_wall_union
     from spatial_roles118 import attach
+    ensure(type(local)is dict and set(local)==LOCAL_TOP,'UNKNOWN_OR_MISSING_LOCAL_TOP_FIELD')
     ensure(local.get('ordered_macro')is None and 'private_domains'not in local,'OUTSIDE_EXPLICIT_TWO_TOPOLOGY')
     ensure(exact(core['world_from_local'],{'matrix':[[0,1],[1,0]],'translation':['0','0']}),'WORLD_FRAME')
     e=copy.deepcopy(local);e['inputs']=[S(F(v)) for v in core['physical_core_model']['inputs'][:2]]+[2];e['schema']='GENERAL125_WORLD_FRAME_STUDY'
@@ -166,7 +177,7 @@ def check_transport(local,world,core):
         before=source_state();clean_json([local,world,core]);expected=expected_world(local,core)
         ensure(exact(expected,world),'INDEPENDENT_D4_TYPED_WORLD_MISMATCH')
         ensure(source_state()==before,'SOURCE_CHANGED')
-        return {'verified':True,'errors':[],'accepted':False,'scope':'Independent explicit-field swapXY plus pinned source-derived ledger rebuild only; source origin/shape must separately verify.'}
+        return {'verified':True,'errors':[],'accepted':False,'scope':'Internal source-bound-only transport helper, not an origin or semantic schema verifier. Full verify must first reconstruct and exactly compare all source-local records. Explicit-field swapXY plus pinned source-derived ledger rebuild only.'}
     except (ValueError,TypeError,KeyError,IndexError) as ex:return {'verified':False,'errors':[str(ex)],'accepted':False}
 
 def inventory(local):
