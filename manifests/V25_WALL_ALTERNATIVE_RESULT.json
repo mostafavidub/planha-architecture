@@ -1,0 +1,365 @@
+{
+  "schema": "V25_SAME_PROGRAM_WALL_ALTERNATIVE_RESULT_V1",
+  "operation": "V25-22-LIVING-WITNESS",
+  "operation_start_utc": "2026-11-18T22:07:31Z",
+  "subtask_start_utc": "2026-11-19T00:48:26Z",
+  "operation_deadline_utc": "2026-11-19T01:07:31Z",
+  "completed_at_utc": "2026-11-19T00:53:48Z",
+  "commit": "12107b140bb491b1ec65b35553e761cab6d52f66",
+  "run_id": 44432473286,
+  "job_id": 135253025146,
+  "workflow": ".github/workflows/v25-wall-alternative.yml",
+  "result": {
+    "status": "COMPARISON_EXECUTED_CURRENT_WALL_RULE_UNKNOWN",
+    "model_digest": "b8050a31571367941748a3bcc47112ca809f811bc46268ea7653becdd333d880",
+    "baseline_model_digest": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "removed_source_wall_ids": [
+      "A.kitchen.front.right",
+      "B.kitchen.front.right"
+    ],
+    "remaining_source_wall_count": 89,
+    "released_physical_material_m2": "453/2000",
+    "route_comparisons": [
+      {
+        "unit": "A",
+        "route": "entry_WC",
+        "start": [
+          "9.825",
+          "8.075"
+        ],
+        "end": [
+          "277/40",
+          "269/40"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "419/25",
+        "after_length_m": "419/25",
+        "length_delta_m": "0",
+        "before_turns": 16,
+        "after_turns": 16
+      },
+      {
+        "unit": "A",
+        "route": "entry_dining",
+        "start": [
+          "9.825",
+          "8.075"
+        ],
+        "end": [
+          "637/40",
+          "63/25"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "2731/200",
+        "after_length_m": "2731/200",
+        "length_delta_m": "0",
+        "before_turns": 12,
+        "after_turns": 12
+      },
+      {
+        "unit": "A",
+        "route": "entry_living",
+        "start": [
+          "9.825",
+          "8.075"
+        ],
+        "end": [
+          "379/40",
+          "361/50"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "241/200",
+        "after_length_m": "241/200",
+        "length_delta_m": "0",
+        "before_turns": 2,
+        "after_turns": 2
+      },
+      {
+        "unit": "A",
+        "route": "living_dining",
+        "start": [
+          "379/40",
+          "361/50"
+        ],
+        "end": [
+          "637/40",
+          "63/25"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "263/20",
+        "after_length_m": "263/20",
+        "length_delta_m": "0",
+        "before_turns": 9,
+        "after_turns": 9
+      },
+      {
+        "unit": "B",
+        "route": "entry_WC",
+        "start": [
+          "9.825",
+          "11.925"
+        ],
+        "end": [
+          "277/40",
+          "531/40"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "419/25",
+        "after_length_m": "419/25",
+        "length_delta_m": "0",
+        "before_turns": 16,
+        "after_turns": 16
+      },
+      {
+        "unit": "B",
+        "route": "entry_dining",
+        "start": [
+          "9.825",
+          "11.925"
+        ],
+        "end": [
+          "637/40",
+          "437/25"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "2731/200",
+        "after_length_m": "2731/200",
+        "length_delta_m": "0",
+        "before_turns": 12,
+        "after_turns": 12
+      },
+      {
+        "unit": "B",
+        "route": "entry_living",
+        "start": [
+          "9.825",
+          "11.925"
+        ],
+        "end": [
+          "379/40",
+          "639/50"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "241/200",
+        "after_length_m": "241/200",
+        "length_delta_m": "0",
+        "before_turns": 2,
+        "after_turns": 2
+      },
+      {
+        "unit": "B",
+        "route": "living_dining",
+        "start": [
+          "379/40",
+          "639/50"
+        ],
+        "end": [
+          "637/40",
+          "437/25"
+        ],
+        "body_m": "7/10",
+        "before_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "after_state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+        "both_have_width_witness": true,
+        "before_length_m": "263/20",
+        "after_length_m": "263/20",
+        "length_delta_m": "0",
+        "before_turns": 9,
+        "after_turns": 9
+      }
+    ],
+    "living_comparisons": [
+      {
+        "unit": "A",
+        "scope": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+        "before_state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+        "after_state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+        "before_floor_area_m2": "3209321/40000",
+        "after_floor_area_m2": "3213851/40000",
+        "area_not_proven_useful": true,
+        "paths": [
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair1",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 2,
+            "after_turns": 2
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair2",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 2,
+            "after_turns": 2
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "sofa2",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 0,
+            "after_turns": 0
+          }
+        ]
+      },
+      {
+        "unit": "A",
+        "scope": "DECLARED_RESIDUAL_LIVING",
+        "before_state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+        "after_state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+        "before_floor_area_m2": "2376347/40000",
+        "after_floor_area_m2": "2380877/40000",
+        "area_not_proven_useful": true,
+        "paths": [
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair1",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair2",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "sofa2",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "scope": "CONCEPTUAL_PUBLIC_UNION_PROBE",
+        "before_state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+        "after_state": "CONNECTED_SEAT_ACCESS_SOURCE_PROFILE",
+        "before_floor_area_m2": "3209321/40000",
+        "after_floor_area_m2": "3213851/40000",
+        "area_not_proven_useful": true,
+        "paths": [
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair1",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 2,
+            "after_turns": 2
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair2",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 2,
+            "after_turns": 2
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "sofa2",
+            "before_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "after_state": "PASS_WIDTH_AWARE_SEAT_ACCESS_ONLY",
+            "length_delta_m": "0",
+            "before_turns": 0,
+            "after_turns": 0
+          }
+        ]
+      },
+      {
+        "unit": "B",
+        "scope": "DECLARED_RESIDUAL_LIVING",
+        "before_state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+        "after_state": "NO_CONNECTED_SEAT_WITNESS_THIS_STUDY",
+        "before_floor_area_m2": "2376347/40000",
+        "after_floor_area_m2": "2380877/40000",
+        "area_not_proven_useful": true,
+        "paths": [
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair1",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "armchair2",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          },
+          {
+            "from_fixture": "sofa1",
+            "to_fixture": "sofa2",
+            "before_state": "NO_WITNESS_IN_THIS_STUDY",
+            "after_state": "NO_WITNESS_IN_THIS_STUDY"
+          }
+        ]
+      }
+    ],
+    "negative_tests": [
+      "endpoint",
+      "body",
+      "missing_route",
+      "duplicate_unit",
+      "profile",
+      "missing_living",
+      "living_target"
+    ],
+    "NONFUNCTIONAL_WALL_EXCLUSION": "UNKNOWN",
+    "whole_physical_verified": false
+  },
+  "guard_before": 12991,
+  "guard_after": 12991,
+  "artifact": {
+    "id": 14487556526,
+    "name": "v25-wall-alternative",
+    "size_bytes": 68289,
+    "sha256": "bd8a9971dbf16f0a7e8d4f420dc20e8f7681287c05c703abc709c1168ade3bb1",
+    "expires_at": "2026-12-19T00:53:44Z",
+    "durably_archived": false
+  },
+  "reproduction": "Run exact workflow at test commit; input archive44417514104 and pair-http.json member hashes checked before baseline127 and independent new source reconstruction.",
+  "source_and_actual_inventory_bound": true,
+  "whole_cycle_verified": false,
+  "accepted": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "qualified": false,
+  "stage303_execution_started": false,
+  "limitations": [
+    "Two source wall pieces only; 89 source walls remain, no all-wall functional necessity conclusion",
+    "Eight route length/turn counts unchanged; not global shortest or principal organization",
+    "Public-union seat access exists, declared-residual-living seat access not found in this conservative diagnostic, before and after",
+    "Released physical material is not proven useful area",
+    "No active production integration or architectural acceptance"
+  ]
+}
