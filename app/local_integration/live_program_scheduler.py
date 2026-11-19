@@ -57,6 +57,7 @@ def child(directory):
  out['decision']=decision['decision'];out['decision_digest']=digest(decision)
  out['state']='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED';save(directory/'child-complete.json',out)
 def bind_completed(result,request,runtime,decision):
+ if result.get('state') not in ('LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED','ORIGINAL_RUNTIME_INCOMPLETE_NO_FOUR_REPORT_DECISION'):raise ValueError('LIVE_STATE_ENUM')
  if result['nonce']!=request['nonce'] or result['request_digest']!=digest(request):raise ValueError('LIVE_RECEIPT_NONCE_REQUEST')
  pf=preflight(bytes.fromhex(request['body_hex']))
  for key,value in [('preflight_digest',digest(pf)),('programme_digest',pf['binding']['program_registry_digest']),('contract_digest',pf['binding']['contract_digest'])]:
@@ -66,7 +67,10 @@ def bind_completed(result,request,runtime,decision):
  if result['runtime_digest']!=digest(runtime):raise ValueError('LIVE_RUNTIME_DIGEST')
  if result['model_digest']!=runtime.get('model_digest'):raise ValueError('LIVE_MODEL_DIGEST')
  if result['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED':
-  if decision is None or result['decision_digest']!=digest(decision) or decision['model_digest']!=result['model_digest']:raise ValueError('LIVE_DECISION_BINDING')
+  if runtime.get('completed') is not True or runtime.get('model_binding_verified') is not True:raise ValueError('LIVE_COMPLETED_RUNTIME_REQUIRED')
+  if decision is None or decision.get('integrity_verified') is not True or any(decision.get(k) is not False for k in AUTH):raise ValueError('LIVE_DECISION_INTEGRITY_AUTHORITY')
+  if any(runtime.get(k) is not False for k in AUTH):raise ValueError('LIVE_RUNTIME_AUTHORITY')
+  if result['decision_digest']!=digest(decision) or decision['model_digest']!=result['model_digest']:raise ValueError('LIVE_DECISION_BINDING')
   if digest(result['decision'])!=digest(decision['decision']):raise ValueError('LIVE_DECISION_CHANGED')
  return True
 def run_live(body,*,budget=None):
@@ -115,8 +119,10 @@ def run_live(body,*,budget=None):
    row['model_digest']=result.get('model_digest');row['runtime_digest']=result['runtime_digest']
    row['decision_digest']=result.get('decision_digest')
   if runtime:
-   out['fresh_model_executed']=runtime['construction_returned']
-   row['constructor_called']=runtime['constructor_called'];row['model_binding_verified']=runtime['model_binding_verified']
+   out['construction_observed']=runtime.get('construction_returned') is True
+   out['construction_observation_verified']=row.get('receipt_verified') is True
+   out['fresh_model_executed']=row.get('receipt_verified') is True and runtime.get('construction_returned') is True and runtime.get('model_binding_verified') is True
+   row['constructor_called_observed']=runtime['constructor_called'];row['model_binding_verified']=row.get('receipt_verified') is True and runtime['model_binding_verified'] is True
   if decision:out['current_decision']=copy.deepcopy(decision['decision'])
  except Exception as ex:row.update(state='RECEIPT_FAILED_CLOSED',error=type(ex).__name__+':'+str(ex))
  # One fixed source core/split was used; no alternatives falsely recorded as searched.
