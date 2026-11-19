@@ -8,7 +8,7 @@ def fixture():
  path='app/local_integration/current_four_decision.py';snap={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest()}
  rows={}
  for cid,schema in SCHEMAS.items():
-  r={'schema':schema,'criterion':cid,'state':'UNKNOWN','model_digest':mh,'integrity_verified':True,'source_snapshot':snap,**{k:False for k in AUTH}}
+  r={'schema':schema,'criterion':cid,'state':'UNKNOWN','model_digest':mh,'integrity_verified':True,'source_snapshot':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in REQUIRED_SOURCES[cid]},**{k:False for k in AUTH}}
   if cid=='CURRENT_PROGRAM_SUITABILITY':r.update(reports={'replay':replay},historical_physical_report=physical,historical_physical_digest=digest(physical))
   else:r.update(replay=replay,original_physical_report=physical,original_physical_digest=digest(physical))
   rows[cid]=r
@@ -52,11 +52,23 @@ class Decisions(unittest.TestCase):
   self.assertTrue(d['current_four_conditions_complete']);self.assertFalse(d['all_PRD_requirements_verified']);self.assertFalse(d['qualified'])
  def test_source_hash_wrong(self):
   b,r,p=fixture();r['CONTINUOUS_USEFUL_LIVING']['source_snapshot']={'app/local_integration/current_four_decision.py':'0'*64};p={k:digest(v) for k,v in r.items()}
-  with self.assertRaisesRegex(ValueError,'SOURCE_SNAPSHOT_CHANGED'):assemble(b,r,p)
+  with self.assertRaisesRegex(ValueError,'SOURCE_SNAPSHOT_REQUIRED_SET|SOURCE_SNAPSHOT_CHANGED'):assemble(b,r,p)
  def test_source_traversal(self):
   b,r,p=fixture();r['CONTINUOUS_USEFUL_LIVING']['source_snapshot']={'app/local_integration/../x':'0'*64};p={k:digest(v) for k,v in r.items()}
-  with self.assertRaisesRegex(ValueError,'SOURCE_PATH'):assemble(b,r,p)
+  with self.assertRaisesRegex(ValueError,'SOURCE_SNAPSHOT_REQUIRED_SET|SOURCE_PATH'):assemble(b,r,p)
  def test_replay_typed_boolean(self):
   b,r,p=fixture();r['CONTINUOUS_USEFUL_LIVING']['replay']['verified']=1;p={k:digest(v) for k,v in r.items()}
   with self.assertRaisesRegex(ValueError,'ASSESSMENT_REPLAY'):assemble(b,r,p)
+ def test_fail_and_error_both_retained(self):
+  b,r,p=fixture();r['CONTINUOUS_USEFUL_LIVING'].update(state='FAIL',missing=['OTHER_SUBCHECK_ERROR']);p={k:digest(v) for k,v in r.items()}
+  out=assemble(b,r,p);self.assertIn('CURRENT_NECESSARY_FAIL',out['decision']['blockers']);self.assertIn('EVALUATOR_ERROR',out['decision']['blockers'])
+ def test_wrong_programme_criterion(self):
+  b,r,p=fixture();r['CURRENT_PROGRAM_SUITABILITY']['criterion']='OTHER';p={k:digest(v) for k,v in r.items()}
+  with self.assertRaisesRegex(ValueError,'ASSESSMENT_CRITERION'):assemble(b,r,p)
+ def test_programme_schema_legacy_absent_criterion(self):
+  b,r,p=fixture();del r['CURRENT_PROGRAM_SUITABILITY']['criterion'];p={k:digest(v) for k,v in r.items()}
+  self.assertTrue(assemble(b,r,p)['integrity_verified'])
+ def test_required_evaluator_source_omitted(self):
+  b,r,p=fixture();r['CONTINUOUS_USEFUL_LIVING']['source_snapshot'].pop('app/local_integration/source_living_evaluator.py');p={k:digest(v) for k,v in r.items()}
+  with self.assertRaisesRegex(ValueError,'SOURCE_SNAPSHOT_REQUIRED_SET'):assemble(b,r,p)
 if __name__=='__main__':unittest.main()
