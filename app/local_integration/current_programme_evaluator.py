@@ -66,6 +66,9 @@ def inventory(model,profile,catalog):
    'activity_phase_coverage':{'arrival':'Source route presence recorded; actual clearance retained in original physical report','use':'Fresh limited capacity audit; other module operations only original physical evidence','exit':'NOT_INDEPENDENTLY_EVALUATED','simultaneous_states':'SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE'},'living_location_binding':'Original whole-construction replay; source dimensions independently compared',
    'operations_coverage':'Original physical report retained separately; this inventory checker does not re-prove operation collisions or simultaneous state completeness'})
  return rows
+def proven_capacity_violation(cap):
+ """Known source instance shortfall, not malformed input or hypothetical-profile collision."""
+ return any(e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' for e in cap['errors']) or any(r['actual_places']['sleeping_places']!=4 for r in cap['evidence']['units'])
 def assess(bundle):
  """Same-model artifact evaluation. No generator, repair or admission."""
  bundle,_=transport(bundle);baseline=digest(bundle);model=bundle['packet']['world_model'];mh=digest(model)
@@ -108,7 +111,7 @@ def assess(bundle):
   out['capacity_error_mapping']=[{'original_error':e,'current_rule_effect':'FAIL_NECESSARY_APPROVED_BUNDLE_CAPACITY' if e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' else 'UNKNOWN_SOURCE_PROFILE_OR_EVALUATOR_FINDING_NOT_AUTOMATIC_CURRENT_RULE_FAIL'} for e in cap['errors']]
   out['decision']='BLOCK_DELIVERY_UNKNOWN_PROGRAMME_AND_RETAIN_INDEPENDENT_PHYSICAL_RESULT'
   # A proven same-model mismatch to approved sleeping capacity is a necessary programme violation.
-  if any(e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' for e in cap['errors']) or any(r['actual_places']['sleeping_places']!=4 for r in cap['evidence']['units']):
+  if proven_capacity_violation(cap):
    out.update(state='FAIL',decision='BLOCK_DELIVERY_PROVEN_PROGRAMME_CAPACITY_MISMATCH')
    out['findings'].append({'kind':'PROVEN_NECESSARY_VIOLATION','code':'ACTUAL_CAPACITY_BELOW_APPROVED_DESIGN_GROUP'})
  except Exception as ex:
