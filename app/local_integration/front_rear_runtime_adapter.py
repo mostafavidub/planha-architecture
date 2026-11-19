@@ -27,6 +27,16 @@ def transport(value):
  return out,{'tuple_paths':changes,'before_digest':digest(value),'after_digest':digest(out),'scope':'JSON tuple-to-array only; exact scalar types retained'}
 def verify_reports(reports,pins):
  for key,h in pins.items():ensure(digest(reports[key])==h,'COMPLETED_REPORT_MUTATION:'+key)
+def preserve_report(originals,live,pins,key,value):
+ live[key]=value
+ originals[key]=copy.deepcopy(value)
+ pins[key]=digest(value)
+def proposal_disposition(proposal):
+ ensure(type(proposal) is dict,'PROPOSAL_OBJECT')
+ status=proposal.get('status')
+ allowed={'PROPOSAL_ONLY','SEARCH_TIMEOUT_NO_WITNESS','NO_PROPOSAL_IN_THIS_TOPOLOGY','NO_PROPOSAL_IN_THIS_PROGRAM','ROUNDED_PROPOSAL_REJECTED'}
+ ensure(type(status) is str and status in allowed,'UNKNOWN_PRODUCER_STATUS')
+ return status
 def source_audit():
  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration'),str(ROOT/'frontend')]
  from same_version_front_rear_contract import audit_sources
@@ -56,15 +66,16 @@ def run(body,*,solver_seconds):
   'fresh_model_executed':False,'completed':False,'production_supported':False,
   'solver_budget_seconds':solver_seconds,'outer_hard_timeout_required':True,
   **{k:False for k in AUTHORITY}}
- report_pins={};objects={};object_pins={};sources=None;state=None
+ report_pins={};live_reports={};objects={};object_pins={};sources=None;state=None
  def freeze_object(k,v):
   objects[k]=v;object_pins[k]=digest(v)
  def freeze_report(k,v):
-  out['reports'][k]=v;report_pins[k]=digest(v)
+  preserve_report(out['reports'],live_reports,report_pins,k,v)
  def unchanged():
   ensure(digest(binding)==binding_pin,'BINDING_MUTATION')
   for k,h in object_pins.items():ensure(digest(objects[k])==h,'OBJECT_MUTATION:'+k)
   verify_reports(out['reports'],report_pins)
+  verify_reports(live_reports,report_pins)
   if sources is not None:
    from producer_provenance import require_unchanged
    require_unchanged(ROOT,sources)
@@ -74,19 +85,21 @@ def run(body,*,solver_seconds):
    ensure(source_state()==state and guard(FREEZE)==12991,'SOURCE_OR_GUARD_CHANGED')
  stage='source_audit'
  try:
-  audit=source_audit();freeze_report('source_audit',audit);state=audit['engine_state']
+  sys.path[:0]=[str(ENGINE),str(ROOT/'app/local_integration'),str(ROOT/'frontend')]
   from producer_provenance import snapshot
   paths=['app/local_integration/'+f for f in ('front_rear_runtime_adapter.py','public_wln_contract.py','program_profile_registry.py','same_version_front_rear_contract.py','functional_review.py','guest_four_route_diagnostic.py','kitchen_guest_review.py','living_connectivity_diagnostic.py','review_cycle.py','producer_provenance.py','left_right_two_source_binding.py')]
   sources=snapshot(ROOT,paths)
+  audit=source_audit();freeze_report('source_audit',audit);state=audit['engine_state']
+  unchanged()
   import constructor127,search114,construction_replay127,evaluate_pair127,functional_review
   freeze_object('raw',raw);unchanged()
-  stage='frame';core,_=constructor127.frame(raw,'FRONT_REAR');freeze_object('core',core);out['stages'].append(stage);unchanged()
+  stage='frame';core,_=constructor127.frame(raw,'FRONT_REAR');ensure(core is not None,'UNSUPPORTED_CURRENT_CORE_FIT');freeze_object('core',core);out['stages'].append(stage);unchanged()
   stage='proposal'
   proposal=search114.propose(core,2,time_limit=solver_seconds,variant=0,fixed_witness=None,diagnostic_capture=None,
    sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',organization_profile='UNRESTRICTED')
   proposal,receipt=transport(proposal);freeze_object('proposal',proposal);freeze_report('proposal_transport',receipt)
   out['proposal']=proposal;out['stages'].append(stage);unchanged()
-  if proposal.get('status')!='PROPOSAL_ONLY':
+  if proposal_disposition(proposal)!='PROPOSAL_ONLY':
    out.update(status='NO_PROPOSAL_IN_BOUNDED_ATTEMPT',completed=True,global_infeasibility_proven=False)
   else:
    from left_right_two_source_binding import proposal_check
@@ -125,6 +138,9 @@ def run(body,*,solver_seconds):
   except Exception as ex:
    out.update(status='RUNTIME_FAILED_CLOSED',completed=False)
    out['errors'].append({'stage':'final_integrity','kind':'INTEGRITY_ERROR','type':type(ex).__name__,'detail':str(ex)})
+  out['report_mutations']=[{'section':k,'original_digest':h,'observed_report':copy.deepcopy(live_reports[k])} for k,h in report_pins.items() if digest(live_reports[k])!=h]
+  out['object_integrity_verified']=all(digest(objects[k])==h for k,h in object_pins.items())
+  out['forensic_notice']='On integrity failure, returned mutable objects are forensic observations, not originals or valid model evidence; original reports are separately preserved.'
   out.update(report_digests=copy.deepcopy(report_pins),object_digests=copy.deepcopy(object_pins),
    source_snapshot=sources,engine_revision=ENGINE_REVISION)
  return out
