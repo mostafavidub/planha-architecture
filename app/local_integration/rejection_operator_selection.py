@@ -32,7 +32,11 @@ def select(request,runtime,child,scheduler,decision,expected):
  ensure(attempt['runtime_digest']==digest(runtime) and attempt['decision_digest']==digest(decision),'ATTEMPT_OUTPUT_BINDING')
  ensure(digest(scheduler['current_decision'])==digest(decision['decision']),'SCHEDULER_DECISION')
  ensure(all(scheduler[k] is False for k in AUTH),'SCHEDULER_AUTHORITY')
- rebuilt=assemble(runtime,decision['assessments'],{k:digest(v) for k,v in decision['assessments'].items()})
+ criterion_order=[row['criterion'] for row in decision['criteria']]
+ ensure(len(criterion_order)==4 and len(set(criterion_order))==4 and set(criterion_order)==set(decision['assessments']),'DECISION_CRITERION_ORDER_SET')
+ # JSON object key sorting is not list reordering: replay the retained explicit row order.
+ ordered_assessments={k:decision['assessments'][k] for k in criterion_order}
+ rebuilt=assemble(runtime,ordered_assessments,{k:digest(v) for k,v in ordered_assessments.items()})
  ensure(digest(rebuilt)==digest(decision),'CURRENT_DECISION_REBUILD:'+','.join(sorted(k for k in set(rebuilt)|set(decision) if digest(rebuilt.get(k))!=digest(decision.get(k)))))
  report=runtime['reports']['physical'];model=runtime['packet']['world_model'];mh=digest(model)
  ensure(report['model_hash']==mh==runtime['model_digest']==decision['model_digest'],'SAME_PARENT_MODEL')
