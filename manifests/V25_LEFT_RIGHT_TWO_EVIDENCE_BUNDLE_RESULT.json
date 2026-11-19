@@ -1,0 +1,482 @@
+{
+  "schema": "V25_LEFT_RIGHT_TWO_EVIDENCE_BUNDLE_RESULT_V1",
+  "task": "V25-11",
+  "commit": "082b936dd5e3ee000cef2d8990741c21b9efaa87",
+  "run": 44443156785,
+  "job": 135288746805,
+  "report": {
+    "schema": "V25_LEFT_RIGHT_TWO_EVIDENCE_BUNDLE_TEST_V1",
+    "passed": true,
+    "positive": [
+      {
+        "input": {
+          "W": "25",
+          "L": "25",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "model_hash": "1fdff263c0d97184845fe29b4273308558369b56d53529313334b81d7815aafc",
+        "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+        "historical_errors": 40,
+        "historical_pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "checker_errors": [
+          "UNKNOWN_RECORD_FIELDS:root.walls",
+          "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+          "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+          "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+          "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+          "UNKNOWN_RECORD_FIELDS:root.walls",
+          "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+          "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+          "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+          "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+        ],
+        "checker_pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "raw_pending_preserved": "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED",
+        "named_count": 38,
+        "current_requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "stages": [
+          "source_derived_shape_d4",
+          "original_evaluate_pair127_with_original_physical_named",
+          "original_current_functional_assess"
+        ],
+        "status": "FAIL"
+      },
+      {
+        "input": {
+          "W": "20",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "model_hash": "9ac3a335cfc80225b07c5ecca0d7fc2e223d157465324890a1016385afd9e020",
+        "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+        "historical_errors": 75,
+        "historical_pending": [
+          "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+          "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+          "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "checker_errors": [
+          {
+            "code": "ACTOR_NOT_ON_DECLARED_DOOR_SIDE",
+            "opening": "A.bath",
+            "role": "A.public_access"
+          },
+          {
+            "code": "ACTOR_NOT_ON_DECLARED_DOOR_SIDE",
+            "opening": "B.bath",
+            "role": "B.public_access"
+          },
+          {
+            "code": "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR",
+            "unit": "A",
+            "room": "bath"
+          },
+          {
+            "code": "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR",
+            "unit": "A",
+            "room": "bath"
+          },
+          {
+            "code": "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR",
+            "unit": "B",
+            "room": "bath"
+          },
+          {
+            "code": "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR",
+            "unit": "B",
+            "room": "bath"
+          },
+          {
+            "code": "MISSING_REQUIRED_ACTIVITY_ROUTES",
+            "failures": [
+              {
+                "unit": "A",
+                "route": "sofa2_front",
+                "reason": "NO_CONNECTED_BODY_ROUTE"
+              },
+              {
+                "unit": "B",
+                "route": "sofa2_front",
+                "reason": "NO_CONNECTED_BODY_ROUTE"
+              },
+              {
+                "unit": "A",
+                "route": "sofa2_front",
+                "reason": "NO_CONNECTED_BODY_ROUTE",
+                "profile": "living_access_other_occupied_seats"
+              },
+              {
+                "unit": "B",
+                "route": "sofa2_front",
+                "reason": "NO_CONNECTED_BODY_ROUTE",
+                "profile": "living_access_other_occupied_seats"
+              }
+            ]
+          },
+          {
+            "code": "ROUTE_TARGET_BINDING",
+            "unit": "A",
+            "target": "sofa2_front"
+          },
+          {
+            "code": "ROUTE_TARGET_BINDING",
+            "unit": "B",
+            "target": "sofa2_front"
+          },
+          {
+            "code": "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR",
+            "unit": "A",
+            "room": "bath"
+          },
+          {
+            "code": "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR",
+            "unit": "A",
+            "room": "bath"
+          },
+          {
+            "code": "MODULE_APRON_NOT_REAL_PUBLIC_FLOOR",
+            "unit": "B",
+            "room": "bath"
+          },
+          {
+            "code": "PLACED_PORT_BODY_NOT_ON_PUBLIC_FLOOR",
+            "unit": "B",
+            "room": "bath"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "body_route_sweeps"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "door_operation"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "fixture_inventory_use"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "closet_operation"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "program_functional_roles"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "kitchen_essential_operation"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "bath_service_operation"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "privacy_scenarios"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "guest_living_route"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "guest_dining_route"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "serving_route"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "q11_functional_boundary"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "worst_unit_function"
+          },
+          {
+            "code": "RULE_FAILED",
+            "requirement_id": "circulation_functional_integrity"
+          },
+          "UNKNOWN_RECORD_FIELDS:root.walls",
+          "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+          "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+          "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+          "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile",
+          "UNKNOWN_RECORD_FIELDS:root.walls",
+          "UNKNOWN_RECORD_FIELDS:root.wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.source_wall_hosts",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.units[].rooms",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixtures",
+          "UNKNOWN_RECORD_FIELDS:root.units[].fixture_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.units[].activities",
+          "UNKNOWN_RECORD_FIELDS:root.units[].routes",
+          "UNKNOWN_RECORD_FIELDS:root.units[].route_targets",
+          "UNKNOWN_RECORD_FIELDS:root.room_metadata",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.route_failures[]",
+          "UNKNOWN_RECORD_FIELDS:root.proposal_network_paths",
+          "UNKNOWN_RECORD_FIELDS:root.module_aprons",
+          "UNKNOWN_RECORD_FIELDS:root.physical_wall_network.source_aliases",
+          "UNKNOWN_RECORD_FIELDS:root.wall_finish_profile"
+        ],
+        "checker_pending": [
+          "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:A.bath",
+          "BOTH_CONNECTED_ROLES_OPERATION_NOT_PROVEN:B.bath",
+          "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "raw_pending_preserved": "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED",
+        "named_count": 38,
+        "current_requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "FAIL",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ],
+        "stages": [
+          "source_derived_shape_d4",
+          "original_evaluate_pair127_with_original_physical_named",
+          "original_current_functional_assess"
+        ],
+        "status": "FAIL"
+      }
+    ],
+    "negative": [
+      {
+        "name": "raw_outside25",
+        "errors": [
+          {
+            "section": "orchestration",
+            "type": "ValueError",
+            "detail": "SOURCE_DERIVED_BINDING_FAILED",
+            "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 47, in evaluate\n    ensure(shape['scoped_verified'],'SOURCE_DERIVED_BINDING_FAILED')\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 18, in ensure\n    if not ok:raise ValueError(reason)\n              ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: SOURCE_DERIVED_BINDING_FAILED\n"
+          }
+        ],
+        "binding_errors": [
+          "RAW_RANGE"
+        ],
+        "stages": [
+          "source_derived_shape_d4"
+        ]
+      },
+      {
+        "name": "world_unknown_field",
+        "errors": [
+          {
+            "section": "orchestration",
+            "type": "ValueError",
+            "detail": "SOURCE_DERIVED_BINDING_FAILED",
+            "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 47, in evaluate\n    ensure(shape['scoped_verified'],'SOURCE_DERIVED_BINDING_FAILED')\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 18, in ensure\n    if not ok:raise ValueError(reason)\n              ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: SOURCE_DERIVED_BINDING_FAILED\n"
+          }
+        ],
+        "binding_errors": [
+          "INDEPENDENT_D4_FAILED:['INDEPENDENT_D4_TYPED_WORLD_MISMATCH']"
+        ],
+        "stages": [
+          "source_derived_shape_d4"
+        ]
+      },
+      {
+        "name": "wrong_family",
+        "errors": [
+          {
+            "section": "orchestration",
+            "type": "ValueError",
+            "detail": "SOURCE_DERIVED_BINDING_FAILED",
+            "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 47, in evaluate\n    ensure(shape['scoped_verified'],'SOURCE_DERIVED_BINDING_FAILED')\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 18, in ensure\n    if not ok:raise ValueError(reason)\n              ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: SOURCE_DERIVED_BINDING_FAILED\n"
+          }
+        ],
+        "binding_errors": [
+          "PACKET_FAMILY_AUTHORITY"
+        ],
+        "stages": [
+          "source_derived_shape_d4"
+        ]
+      },
+      {
+        "name": "context_trace_model_hash",
+        "errors": [
+          {
+            "section": "orchestration",
+            "type": "ValueError",
+            "detail": "SOURCE_DERIVED_BINDING_FAILED",
+            "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 47, in evaluate\n    ensure(shape['scoped_verified'],'SOURCE_DERIVED_BINDING_FAILED')\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/left_right_two_evidence_bundle.py\", line 18, in ensure\n    if not ok:raise ValueError(reason)\n              ^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: SOURCE_DERIVED_BINDING_FAILED\n"
+          }
+        ],
+        "binding_errors": [
+          "SOURCE_DERIVED_CONTEXT_TYPED_MISMATCH"
+        ],
+        "stages": [
+          "source_derived_shape_d4"
+        ]
+      }
+    ],
+    "synthetic_report_mutations": [
+      {
+        "section": "source_derived_shape_d4",
+        "error": "COMPLETED_REPORT_MUTATION:source_derived_shape_d4",
+        "scope": "SYNTHETIC_LEDGER_BRANCH_NOT_GEOMETRY"
+      },
+      {
+        "section": "historical_full_report",
+        "error": "COMPLETED_REPORT_MUTATION:historical_full_report",
+        "scope": "SYNTHETIC_LEDGER_BRANCH_NOT_GEOMETRY"
+      },
+      {
+        "section": "named_requirement_inventory",
+        "error": "COMPLETED_REPORT_MUTATION:named_requirement_inventory",
+        "scope": "SYNTHETIC_LEDGER_BRANCH_NOT_GEOMETRY"
+      },
+      {
+        "section": "current_functional_report",
+        "error": "COMPLETED_REPORT_MUTATION:current_functional_report",
+        "scope": "SYNTHETIC_LEDGER_BRANCH_NOT_GEOMETRY"
+      }
+    ],
+    "source_snapshot": {
+      "app/local_integration/left_right_two_evidence_bundle.py": "8beca2e08d22520446e1dd08e65c0a1c5f9363508d38a0f5e16f00924bd8cc1d",
+      "app/local_integration/test_left_right_two_evidence_bundle.py": "8aa18cf4282864072308745d7097a742465d1aa376a61cee83bc05705a4683a6",
+      ".github/workflows/v25-left-right-two-evidence.yml": "517447f01718d75e81bf422b82d6136fbadd803c5535067ae9efa8cc5869f816"
+    },
+    "guard_before": 12991,
+    "guard_after": 12991,
+    "accepted": false,
+    "delivery_allowed": false,
+    "scope": "Integration evidence only; every original report and current UNKNOWN retained. No production support or historical schema replacement."
+  },
+  "summary_scope": "Nested RULE_FAILED witness payloads omitted from this durable summary only; original unfiltered reports remain in the artifact. Error code/unit/role/requirement IDs, pending, model/source hashes and test outcomes retained.",
+  "artifacts": [
+    {
+      "id": 14492037174,
+      "name": "v25-left-right-two-evidence-only",
+      "size": 645455,
+      "sha": "sha256:eda75839e823ca37cf33c3e89504c2f2a5fc10fd6d975459d124b7d28a1390d1",
+      "expires": "2026-12-19T02:19:06Z"
+    }
+  ],
+  "archived": false,
+  "production_supported": false,
+  "whole_cycle_verified": false,
+  "scope": "Test orchestration passed; both generated models remain FAIL. Synthetic report mutation tests cover shared ledger branch, not fault injection inside real assess."
+}
