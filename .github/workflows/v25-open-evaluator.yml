@@ -1,0 +1,189 @@
+name: V25 independent new-origin named and current evaluator
+on:
+  push:
+    paths:
+      - '.github/workflows/v25-open-evaluator.yml'
+      - 'app/local_integration/open_front_evaluator.py'
+      - 'app/local_integration/open_front_named_checks.py'
+      - 'app/local_integration/open_front_rule_contract.py'
+      - 'app/local_integration/open_front_circulation_*.py'
+      - 'app/local_integration/open_front_q11_pending.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Independently replay new-origin world and retain historical checker disagreement
+        run: |
+          timeout 900s python -B - <<'PY'
+          import sys,json,tarfile,hashlib
+          from pathlib import Path
+          from copy import deepcopy
+          root=Path.cwd();sys.path[:0]=[str(root/'app/local_integration'),str(root/'engine'),str(root/'frontend')]
+          from guard400 import guard
+          from explicit_pair_redirection import FREEZE
+          from open_front_world_origin import build,verify
+          from review_cycle import digest
+          from checker114 import evaluate
+          from producer_provenance import snapshot,require_unchanged
+          sources=snapshot(root,['.github/workflows/v25-open-evaluator.yml','app/local_integration/open_front_placement_check.py','app/local_integration/open_front_operation_check.py','app/local_integration/open_front_typed_public.py','app/local_integration/open_front_boundary_comparison.py','app/local_integration/open_front_raw_physical.py']);assert guard(FREEZE)==12991
+          index=json.loads(Path('evidence/archive/V25_SELECTED_EVIDENCE_INDEX.json').read_text());a=next(x for x in index['archives']if x['run_id']==44417514104)
+          archive=Path('evidence/archive')/a['path'];assert hashlib.sha256(archive.read_bytes()).hexdigest()==a['sha256']
+          with tarfile.open(archive,'r:gz')as tar:data=tar.extractfile('pair-http.json').read()
+          assert hashlib.sha256(data).hexdigest()==next(m['sha256']for m in a['members']if m['path']=='pair-http.json')
+          saved=json.loads(data)['continuation']['candidates'][0];t=saved['generation_context']['construction_trace']
+          packet,trace=build(t['raw'],t['proposals']);origin=verify(packet,trace);m=packet['world_model']
+          assert m['schema']=='OPEN_FRONT_WORLD_STUDY_V1' and m['program']['bedrooms_per_unit']==2
+          assert digest(m)!=saved['model_digest'] and origin['origin_verified']
+          negative=[]
+          for name in ['model','raw','proposal','source','admission','integer_to_float','boolean_to_zero','proposal_type','proposal_capacity','proposal_macro','raw_type']:
+              p=deepcopy(packet);tr=deepcopy(trace)
+              if name=='model':p['world_model']['accepted']=True
+              elif name=='raw':
+                  key=next(iter(tr['raw']));tr['raw'][key]=str(tr['raw'][key])+' '
+              elif name=='proposal':tr['proposal_hashes']['A']='0'*64
+              elif name=='source':tr['sources']={}
+              elif name=='integer_to_float':p['world_model']['program']['units']=2.0
+              elif name=='boolean_to_zero':p['world_model']['accepted']=0
+              elif name=='proposal_type':tr['proposals']['A']['bedrooms']=2.0
+              elif name=='proposal_capacity':tr['proposals']['A']['capacity_profile']='SIX_PERSON_INTERNAL_PROGRAM121'
+              elif name=='proposal_macro':tr['proposals']['A']['ordered_macro']={'kind':'L3_EXPERIMENTAL131'}
+              elif name=='raw_type':tr['raw']['n']=2.0
+              else:tr['qualified']=True
+              try:verify(p,tr)
+              except (ValueError,KeyError):negative.append(name)
+              else:raise AssertionError('ORIGIN_MUTATION_ACCEPTED:'+name)
+          import inspect
+          from open_front_placement_check import check_module_placements
+          assert Path(inspect.getsourcefile(check_module_placements)).resolve()==(root/'app/local_integration/open_front_placement_check.py').resolve()
+          placement=check_module_placements(m)
+          assert placement['status']=='PASS_PLACEMENT_SCOPED' and not placement['errors'] and not placement['pending'],placement
+          placement_negatives=[]
+          for case in ('fixture','aperture','apron','duplicate','port'):
+              changed=deepcopy(m);rec=next(r for r in changed['module_placements']if r['unit_id']=='A'and r['room_id']=='kitchen')
+              if case=='fixture':next(u for u in changed['units']if u['id']=='A')['fixtures']['fridge'][2]='25'
+              elif case=='aperture':next(o for o in changed['openings']if o['id']=='A.kitchen.entry')['rect'][2]='25'
+              elif case=='apron':changed['module_aprons']['A.kitchen']=[]
+              elif case=='duplicate':changed['module_placements'].append(deepcopy(rec))
+              else:next(p for p in changed['module_ports']if p['id']=='A.kitchen.port')['center'][0]='25'
+              check=check_module_placements(changed)
+              assert check['status']=='FAIL_PLACEMENT',(case,check)
+              placement_negatives.append({'case':case,'error_codes':[e.get('code')if isinstance(e,dict)else e for e in check['errors']]})
+          from open_front_operation_check import check_operations,source_nonleaf117
+          from checker114 import rect
+          assert Path(inspect.getsourcefile(check_operations)).resolve()==(root/'app/local_integration/open_front_operation_check.py').resolve()
+          owners={u['id']:[rect(q)for q in u['ownership']]for u in m['units']}
+          owners['COMMON']=[rect(q)for q in m['common_spaces']['lobby']]
+          walls={k:rect(q)for k,q in m['walls'].items()}
+          fixtures=[(u['id'],k,rect(q))for u in m['units']for k,q in u['fixtures'].items()]
+          oe,op=check_operations(m,owners,walls,fixtures)
+          assert not oe and not op,(oe,op)
+          operation_study={'errors':oe,'pending':op,'scope':'Fresh operation components only, mandatory placement and whole checks remain separate','whole_model_pass':False}
+          arch_negatives=[]
+          for case in ('module_hash','opening_rect','hardware','module_type'):
+              changed=deepcopy(m);rec=next(r for r in changed['module_placements']if r['unit_id']=='A'and r['room_id']=='kitchen')
+              opening=next(o for o in changed['openings']if o['id']=='A.kitchen.entry')
+              if case=='module_hash':rec['module_hash']='0'*64
+              elif case=='opening_rect':opening['rect'][2]='25'
+              elif case=='hardware':opening['hardware']={}
+              else:rec['module']['accepted']=0;rec['module_hash']=digest(rec['module'])
+              assert not source_nonleaf117(changed,opening),case
+              arch_negatives.append(case)
+          from constructor127 import build as baseline_build,context as baseline_context_fn
+          from open_front_boundary_comparison import assess as boundary_assess
+          baseline_packet=baseline_build(t['raw'],'FRONT_REAR',t['proposals']['A'],t['proposals']['B'])
+          baseline_context=baseline_context_fn(t['raw'],baseline_packet,t['proposals'])
+          assert digest(baseline_packet['world_model'])==saved['model_digest']
+          from checker114 import check_module_placements as historical_placement
+          from operation_check114 import check_operations as historical_operations
+          old=baseline_packet['world_model']
+          assert digest(check_module_placements(old))==digest(historical_placement(old))
+          oldowners={u['id']:[rect(q)for q in u['ownership']]for u in old['units']}
+          oldowners['COMMON']=[rect(q)for q in old['common_spaces']['lobby']]
+          oldwalls={k:rect(q)for k,q in old['walls'].items()}
+          oldfixtures=[(u['id'],k,rect(q))for u in old['units']for k,q in u['fixtures'].items()]
+          assert digest(check_operations(old,oldowners,oldwalls,oldfixtures))==digest(historical_operations(old,oldowners,oldwalls,oldfixtures))
+          legacy_adapter_equivalence={'placement':True,'operations':True,'scope':'Exact output comparison on this actual verified legacy baseline, not all possible inputs'}
+          boundary=boundary_assess(packet,trace,baseline_packet,baseline_context)
+          assert boundary['status']=='PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED' and not boundary['errors'] and not boundary['pending'],boundary
+          boundary_negative=[]
+          for case in ('baseline_mutation','different_proposal'):
+              bp=deepcopy(baseline_packet);bc=deepcopy(baseline_context)
+              if case=='baseline_mutation':bp['world_model']['accepted']=True
+              else:bc['construction_trace']['proposals']['A']['bedrooms']=3
+              try:boundary_assess(packet,trace,bp,bc)
+              except ValueError:boundary_negative.append(case)
+              else:raise AssertionError('BASELINE_BINDING_BYPASS:'+case)
+          from open_front_raw_physical import assess as raw_physical_assess
+          raw_physical=raw_physical_assess(m)
+          assert raw_physical['status']=='NOT_EVALUATED' and not raw_physical['errors'] and raw_physical['pending']==['VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED'],raw_physical
+          assert raw_physical['whole_physical_verified'] is False and raw_physical['eligible_for_draft_export'] is False
+          raw_negatives=[]
+          for case in ('outside_domain','fixture_collision','common_endpoint'):
+              changed=deepcopy(m)
+              if case=='outside_domain':changed['inputs'][0]='26'
+              elif case=='fixture_collision':changed['units'][0]['fixtures']['fridge']=['0','0','0.7','0.7']
+              else:changed['common_routes']['stair_A'][0]=['0','0']
+              checked=raw_physical_assess(changed)
+              assert checked['errors'],case
+              raw_negatives.append({'case':case,'error_codes':[e.get('code')if isinstance(e,dict)else e for e in checked['errors']]})
+          try:historical=evaluate(m)
+          except Exception as e:historical={'status':'CHECKER_EXCEPTION_NOT_APPROVAL','exception':type(e).__name__,'detail':str(e)}
+          assert historical.get('status') not in ('PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED')
+          from open_front_evaluator import assess as study_assess
+          from open_front_rule_contract import evaluate_rule_contract as study_rules, _input as study_domain
+          comprehensive=study_assess(packet,trace,baseline_packet,baseline_context)
+          assert comprehensive['model_digest']==digest(m)
+          assert comprehensive['status'] in ('UNKNOWN_REQUIRED_STUDY','FAIL_STUDY')
+          assert all(comprehensive[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed','whole_physical_verified','eligible_for_draft_export'))
+          assert len(comprehensive['named_contract']['rows'])==89 and len(comprehensive['named_contract']['requirements'])==38
+          assert all('CURRENT_FUNCTIONAL_UNKNOWN:'+rid in comprehensive['pending'] for rid in ('CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION'))
+          contract_negatives=[]
+          for axis in (0,1):
+              changed=deepcopy(m);changed['inputs'][axis]='26'
+              assert study_domain(changed)['status']=='FAIL'
+              contract_negatives.append('domain_axis_'+str(axis))
+          for value in ('5','25'):
+              changed=deepcopy(m);changed['inputs'][0]=value;changed['inputs'][1]=value
+              assert study_domain(changed)['status']=='PASS_LIMITED'
+          untrusted=study_rules(m,evidence_by_rule={'input_exact_domain':{'status':'PASS_LIMITED'}},context={'stage':'concept_internal','batch_models':[m]})
+          assert any(e['code']=='UNTRUSTED_RECEIPTS_NOT_ACCEPTED'for e in untrusted['errors'])
+          contract_negatives.append('untrusted_pass_receipt')
+          assert any(x.startswith('RULE_NOT_EVALUATED:')for x in untrusted['pending'])
+          contract_negatives.append('missing_callbacks_remain_pending')
+          from open_front_rule_contract import _call
+          def mutate(view):
+              view['accepted']=True
+              return {'status':'PASS_LIMITED','witness':{'fake':True},'scope':'negative mutation fixture'}
+          assert _call(mutate,m)['status']=='FAIL' and m.get('accepted') is False
+          contract_negatives.append('mutating_callback_rejected')
+          evaluator_negatives=[]
+          for case in ('model_type','origin_source'):
+              changed=deepcopy(packet);changed_trace=deepcopy(trace)
+              if case=='model_type':changed['world_model']['program']['units']=2.0
+              else:changed_trace['sources']={}
+              try:study_assess(changed,changed_trace,baseline_packet,baseline_context)
+              except ValueError:evaluator_negatives.append(case)
+              else:raise AssertionError('COMPOSITE_ORIGIN_BYPASS:'+case)
+          print('NEW_EVALUATOR '+json.dumps({'status':comprehensive['status'],'errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in comprehensive['errors']],'pending':comprehensive['pending'],'named_requirements':{r['requirement_id']:r['status']for r in comprehensive['named_contract']['requirements']},'contract_negative_tests':contract_negatives,'evaluator_negative_tests':evaluator_negatives,'model_digest':digest(m),'whole_physical_verified':False}),flush=True)
+          require_unchanged(root,sources);assert guard(FREEZE)==12991
+          out={'operation_start':'2026-11-18T23:41:09Z','operation_deadline':'2026-11-19T01:07:31Z','independent_evaluator':comprehensive,'contract_negative_tests':contract_negatives,'evaluator_negative_tests':evaluator_negatives,'packet':packet,'trace':trace,'origin':origin,'historical_checker_unfiltered':historical,'new_schema_placement':placement,'placement_negatives':placement_negatives,'operation_study':operation_study,'arch_negative_tests':arch_negatives,'boundary_comparison':boundary,'legacy_adapter_equivalence':legacy_adapter_equivalence,'boundary_negative_tests':boundary_negative,'raw_physical_core':raw_physical,'raw_physical_negative_tests':raw_negatives,'negative_origin_tests':negative,'source_snapshot':sources,'baseline_model_digest':saved['model_digest'],'whole_physical_verified':False,'functional_state':'UNKNOWN','accepted':False,'delivery_allowed':False,'scope':'New independent deterministic assembly and origin only. Historical checker errors retained, never filtered or reinterpreted as new-contract approval.'}
+          Path('open-evaluator.json').write_text(json.dumps(out,ensure_ascii=False))
+          print('OPEN_WORLD '+json.dumps({'model_digest':digest(m),'origin_verified':True,'negative_tests':len(negative),'raw_physical_status':raw_physical['status'],'raw_physical_errors':raw_physical['errors'],'raw_physical_pending':raw_physical['pending'],'raw_physical_negative_tests':len(raw_negatives),'legacy_adapter_equivalence':legacy_adapter_equivalence,'boundary_status':boundary['status'],'boundary_errors':boundary['errors'],'boundary_pending':boundary['pending'],'released_physical_material_m2':boundary['released_physical_material_m2'],'boundary_negative_tests':len(boundary_negative),'operation_errors':oe,'operation_pending':op,'arch_negative_tests':len(arch_negatives),'new_placement_status':placement['status'],'new_placement_errors':placement['errors'],'new_placement_pending':placement['pending'],'placement_negative_tests':len(placement_negatives),'historical_status':historical.get('status'),'historical_errors':[{'code':e.get('code'),'requirement_id':e.get('requirement_id')} if isinstance(e,dict) else e for e in historical.get('errors',[])],'historical_pending':historical.get('pending',[]),'whole_physical_verified':False}),flush=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v25-open-evaluator
+          path: open-evaluator.json
+          retention-days: 30
