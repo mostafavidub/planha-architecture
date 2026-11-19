@@ -15,10 +15,17 @@ def diagnostics_guard():
  need(Path(inspect.getsourcefile(module.parse_public_errors)).resolve()==path.resolve(),'CURRENT_DIAGNOSTICS_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
+def withholding_guard():
+ path=ROOT/'app/local_integration/http_withholding_x04.py';data=path.read_bytes()
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='d2237f58367ccec40699e581632883bb5d95815d','CURRENT_WITHHOLDING_SOURCE_CHANGED')
+ module=importlib.import_module('http_withholding_x04')
+ need(Path(inspect.getsourcefile(module.Boundary)).resolve()==path.resolve() and Path(inspect.getsourcefile(module.Boundary.execute)).resolve()==path.resolve(),'CURRENT_WITHHOLDING_IMPORT_PATH')
+ return hashlib.sha256(data).hexdigest()
 def server(identifier,port=0):
  need(type(identifier)is str and identifier in SERVICES,'UNREGISTERED_OR_HISTORICAL_SERVICE_CURRENT_DISABLED')
  need(type(port)is int and 0<=port<=65535,'LOOPBACK_PORT_REQUIRED')
  before=parser_guard();diagnostic_pin=diagnostics_guard();name,pin=SERVICES[identifier]
+ withholding_pin=withholding_guard() if identifier=='PUBLIC_WLN_18X20' else None
  path=ROOT/'app/local_integration'/ (name+'.py');data=path.read_bytes()
  need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==pin,'CURRENT_SERVICE_SOURCE_CHANGED')
  module=importlib.import_module(name)
@@ -31,6 +38,7 @@ def server(identifier,port=0):
   after=path.read_bytes()
   need(hashlib.sha1(b'blob '+str(len(after)).encode()+bytes([0])+after).hexdigest()==pin,'CURRENT_SERVICE_CHANGED_DURING_STARTUP')
   need(source_snapshot()==before and diagnostics_guard()==diagnostic_pin,'CURRENT_BOUNDARY_SOURCE_CHANGED')
+  if withholding_pin is not None:need(withholding_guard()==withholding_pin,'CURRENT_WITHHOLDING_CHANGED_DURING_STARTUP')
   return server
  except BaseException:
   server.server_close()
