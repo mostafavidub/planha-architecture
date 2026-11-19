@@ -897,7 +897,8 @@
       ],
       "evidence": "Task1.1 and2.1 contracts; future same-request trace",
       "effect": "Reject invalid/extra/over25; valid but selected-engine unsupported separated",
-      "state": "NOT_RUN_TASK_2_2"
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "historical_mapping_state": "NOT_RUN_TASK_2_2"
     },
     {
       "id": "PAIR127_ORIGIN",
@@ -911,7 +912,8 @@
       ],
       "evidence": "Complete replay and exact JSON digests of actual model/core/proposals/context",
       "effect": "Any binding or source failure blocks; origin alone never admission",
-      "state": "NOT_RUN_TASK_2_2"
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
+      "historical_mapping_state": "NOT_RUN_TASK_2_2"
     },
     {
       "id": "PHYSICAL_GEOMETRY_AND_OPERATIONS",
@@ -927,11 +929,12 @@
       ],
       "evidence": "Full errors/pending/counts/placement/privacy report plus original_pending/not_evaluated/out_of_scope",
       "effect": "Errors or necessary pending block; preserve entire report; no downstream filtering",
-      "state": "NOT_RUN_TASK_2_2",
+      "state": "NOT_RUN_BASELINE_BINDING_PENDING",
       "limitations": [
         "Frozen .7 body/source fixtures are scoped studies, not ergonomic approval.",
         "scope117 moves overall spatial-quality unknown to not_evaluated; functional current layer must not drop it."
-      ]
+      ],
+      "historical_mapping_state": "NOT_RUN_TASK_2_2"
     }
   ],
   "named_requirements": [
@@ -2437,51 +2440,72 @@
       {
         "id": "export_parity",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "A plan is offered for display/download/export",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Source-bound action/output/inventory proves antecedent false for declared scope; absence of evidence is not inapplicability"
       },
       {
         "id": "immutable_history",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "An execution/revision is persisted or resumed; preservation requirement applies even when its plan is rejected",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Source-bound action/output/inventory proves antecedent false for declared scope; absence of evidence is not inapplicability"
       },
       {
         "id": "owner_access",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "User-owned stored artifacts or sessions are accessible through a service",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Source-bound action/output/inventory proves antecedent false for declared scope; absence of evidence is not inapplicability"
       },
       {
         "id": "llm_budget",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "At least one LLM call is requested or performed",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Complete call/dispatch ledger establishes zero requested or performed LLM calls in declared scope"
       },
       {
         "id": "per_option_rule_report",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "At least one candidate/design option is reported or offered",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Source-bound action/output/inventory proves antecedent false for declared scope; absence of evidence is not inapplicability"
       },
       {
         "id": "claim_boundary_display",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "A user-facing result/status/plan is displayed",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Source-bound action/output/inventory proves antecedent false for declared scope; absence of evidence is not inapplicability"
       },
       {
         "id": "geometric_diversity",
         "state": "NOT_EVALUATED_PRODUCT_STAGE",
-        "blocking_product_completion": true,
         "blocking_internal_geometry_study": false,
-        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS."
+        "next_action": "Separate end-to-end source-bound test; do not infer from four current criteria or physical scoped PASS.",
+        "applicability_predicate": "More than one qualified option is offered for the same request",
+        "applicability_state": "NOT_ESTABLISHED_FOR_R4",
+        "blocking_when_applicable_and_unresolved": true,
+        "evidence_needed_for_inapplicability": "Exact qualified-option inventory for same request establishes k<=1; not merely absent report"
       }
     ],
     "up_to_six": {
