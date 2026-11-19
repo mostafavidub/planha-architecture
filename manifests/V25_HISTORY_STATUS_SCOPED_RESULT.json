@@ -1,26 +1,246 @@
 {
   "schema": "V25_HISTORY_STATUS_SCOPED_RESULT_V1",
-  "status": "PASS_SCOPED_NEW_TESTS_OLD_FIXTURE_REGRESSION_PENDING",
   "task": "V25-03",
-  "commit": "26f3810f8fb3da87058e8a2bed55544a69b6b1f1",
-  "run": 44437356231,
-  "job": 135269463772,
+  "status": "PASS_HISTORY_TAXONOMY_SCOPED_LEGACY_NINE_BLOCKED",
+  "start_utc": "2026-11-19T01:25:01Z",
+  "deadline_utc": "2026-11-19T04:25:01Z",
+  "completed_utc": "2026-11-19T01:45:54Z",
+  "commit": "5e2574ca091d171ed9d9da674816419d55293076",
+  "run": 44438109457,
+  "job": 135271937822,
+  "verified_report": {
+    "schema": "V25_HISTORY_STATUS_TEST_V1",
+    "controlled_fixture_tests": 19,
+    "unit_success": true,
+    "legacy_regression": {
+      "status": "BLOCKED_MISSING_HISTORICAL_FIXTURE",
+      "tests": 9,
+      "errors": [
+        {
+          "test": "test_run_history.HistoryTests.test_flag_not_authority",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_historical_only_no_model",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_legacy_omitted",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_model_tamper",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_output_denied",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_repaired_history_no_authority",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_request_tamper",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_review_tamper",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        },
+        {
+          "test": "test_run_history.HistoryTests.test_traversal",
+          "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/planha-architecture/planha-architecture/app/local_integration/test_run_history.py\", line 8, in setUp\n    self.result=json.loads((ROOT/'app/local_integration/evidence/review_cycle/integrated_http_result.json').read_text());self.id=self.result['run_id'];self.folder=self.base/self.id;self.folder.mkdir();self.body=json.dumps({'W':'25','L':'27','n':2,'requested_count':1}).encode();self.save()\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/planha-architecture/planha-architecture/app/local_integration/evidence/review_cycle/integrated_http_result.json'\n"
+        }
+      ],
+      "missing": [
+        "evidence/review_cycle/integrated_http_result.json",
+        "evidence/parametric_repair/flow/repair_ui_response.json"
+      ]
+    },
+    "independent_real_archive_regression": {
+      "passed": true,
+      "archive_run": 44417514104,
+      "archive_sha256": "3c227801016f42c1d7dd0d7354ba64f2363c320fd56482c7acc245f6963fed90",
+      "records": [
+        {
+          "run_id": "3ae91ee0-edc0-4077-a81c-b85c2f4d842a",
+          "generated_count": 1,
+          "reviewed_candidate_count": 1,
+          "taxonomy": {
+            "schema": "V25_HISTORICAL_STATUS_TAXONOMY_V1",
+            "primary": "MULTIPLE",
+            "categories": [
+              "REJECTED",
+              "UNSUPPORTED"
+            ],
+            "original_outcome": "EXPERIMENT_COMPLETED",
+            "original_code": null,
+            "original_field": null,
+            "attempt_causes": [
+              {
+                "attempt_index": 0,
+                "category": "CONSTRUCTED",
+                "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED_EXPLICIT_PROGRAM",
+                "family": "FRONT_REAR",
+                "organization": "EXPLICIT_TWO_BEDROOM_SOURCE"
+              },
+              {
+                "attempt_index": 1,
+                "category": "UNSUPPORTED",
+                "state": "UNSUPPORTED_CURRENT_SOURCE_RECORD_SCHEMA",
+                "reason": "Known source schema mismatch; not global geometric infeasibility",
+                "family": "LEFT_RIGHT"
+              }
+            ],
+            "candidate_states": [
+              {
+                "candidate_id": "989fbc163788cd470e1511b16524c0ad6dd4b6ec8c71c9138374c01a1681b883",
+                "state": "REJECTED_PHYSICAL",
+                "category": "REJECTED"
+              }
+            ],
+            "qualified": false,
+            "global_infeasibility_proven": false,
+            "scope": "Historical status explanation only; constructed is not qualified, zero witnesses are not global infeasibility, and skipped attempts are not search results."
+          },
+          "states": [
+            "REJECTED_PHYSICAL"
+          ]
+        },
+        {
+          "run_id": "4ac2d52f-e014-4c02-80d7-89f033ab93aa",
+          "generated_count": 1,
+          "reviewed_candidate_count": 1,
+          "taxonomy": {
+            "schema": "V25_HISTORICAL_STATUS_TAXONOMY_V1",
+            "primary": "UNKNOWN",
+            "categories": [
+              "UNKNOWN"
+            ],
+            "original_outcome": "EXPERIMENT_COMPLETED",
+            "original_code": null,
+            "original_field": null,
+            "attempt_causes": [
+              {
+                "attempt_index": 0,
+                "category": "UNKNOWN",
+                "state": "FRESH_PHYSICAL_PASS_FUNCTIONAL_UNKNOWN"
+              }
+            ],
+            "candidate_states": [
+              {
+                "candidate_id": "ef6c58eb973bddec93eae3891f6dcc584d60c00ccabad0595dc08fecd5619504",
+                "state": "PHYSICAL_PASS_SEMANTIC_UNKNOWN",
+                "category": "UNKNOWN"
+              }
+            ],
+            "qualified": false,
+            "global_infeasibility_proven": false,
+            "scope": "Historical status explanation only; constructed is not qualified, zero witnesses are not global infeasibility, and skipped attempts are not search results."
+          },
+          "states": [
+            "PHYSICAL_PASS_SEMANTIC_UNKNOWN"
+          ]
+        },
+        {
+          "run_id": "74157a4c-fa28-441c-a56b-38c716fd2a6c",
+          "generated_count": 2,
+          "reviewed_candidate_count": 2,
+          "taxonomy": {
+            "schema": "V25_HISTORICAL_STATUS_TAXONOMY_V1",
+            "primary": "MULTIPLE",
+            "categories": [
+              "REJECTED",
+              "UNKNOWN"
+            ],
+            "original_outcome": "EXPERIMENT_COMPLETED",
+            "original_code": null,
+            "original_field": null,
+            "attempt_causes": [
+              {
+                "attempt_index": 0,
+                "category": "CONSTRUCTED",
+                "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+                "family": "FRONT_REAR",
+                "organization": "ROW"
+              },
+              {
+                "attempt_index": 1,
+                "category": "CONSTRUCTED",
+                "state": "CONSTRUCTED_AND_FRESHLY_REVIEWED",
+                "family": "LEFT_RIGHT",
+                "organization": "ROW"
+              }
+            ],
+            "candidate_states": [
+              {
+                "candidate_id": "c04d7f04715a8f407fdac409f12c4ed53d9bcceb6a180f5874bee61282b59fb7",
+                "state": "PHYSICAL_PASS_SEMANTIC_UNKNOWN",
+                "category": "UNKNOWN"
+              },
+              {
+                "candidate_id": "054ed06268219cc9205b97222ed454687400dcb98c6b35fb3d96d439e9db3b7b",
+                "state": "REJECTED_PHYSICAL",
+                "category": "REJECTED"
+              }
+            ],
+            "qualified": false,
+            "global_infeasibility_proven": false,
+            "scope": "Historical status explanation only; constructed is not qualified, zero witnesses are not global infeasibility, and skipped attempts are not search results."
+          },
+          "states": [
+            "PHYSICAL_PASS_SEMANTIC_UNKNOWN",
+            "REJECTED_PHYSICAL"
+          ]
+        }
+      ],
+      "immutable": true,
+      "scope": "Previously generated real archived records through current history consistency gates; no fresh geometry or qualification. Separate from unavailable legacy fixtures."
+    },
+    "browser": {
+      "schema": "V25_CONTROLLED_HISTORY_BROWSER_V1",
+      "passed": true,
+      "browser_version": "141.0.7390.37",
+      "cases": [
+        "NO_PROPOSAL",
+        "TIMEOUT",
+        "UNSUPPORTED",
+        "MULTIPLE"
+      ],
+      "no_live_model_restore": true,
+      "form_unchanged": true,
+      "browser_errors": [],
+      "scope": "Actual Chromium and unchanged HTTP Handler reading synthetic saved zero-candidate records through current summary. No geometry execution or positive qualification proof."
+    },
+    "source_snapshot": {
+      ".github/workflows/v25-history-status.yml": "404f5b495700cbc9a685412ce7812483988922ca7144a659fbfff80188013c54",
+      "app/local_integration/history_status_taxonomy.py": "e9199f227fec3c3be1d880d87df2f98c51b94df6e2c3c6a79fe02ef7f903ac7f",
+      "app/local_integration/run_history.py": "4e0f0d6d002d96e8284c2e72e5d7be47ad340ea42431b10acfcc1ac941494fe1",
+      "app/local_integration/history_ui.js": "c724c71b9b26a9a33d7a50882c27b9220e7fd0e3a2059337f4fa44220b43b0b8",
+      "app/local_integration/test_history_status_taxonomy.py": "b1c7d89a57b855a53f1ce6e90b774a9952a7283894c82873577d35500fbb1c6d",
+      "app/local_integration/test_history_status_browser.py": "0c90d8c2a414751f51ec667064c442c0218c836da3af7f78f9589a6bea05461e",
+      "app/local_integration/test_history_status_archive.py": "958fc769de662b8edd3b2f3a821ff1019b583023f9890e0eb48491a876578809",
+      "app/local_integration/test_run_history.py": "7c4ae060fdb60759a8623e383dd7bcf3f1aff5d70bdb53220bead5b32f0ca1b4",
+      "app/local_integration/test_explicit_pair_review.py": "d9dc9cdde248b8eba18768a9aea5e389ac590558b0231b170af50ee2935e2d4e",
+      "app/local_integration/validation_server.py": "13bbbc00b8cab81cf5c8ec218e2d5e284e7969a75ff3484c00ff507cb74ac883",
+      "app/local_integration/generation_gateway.py": "4ca67273e3e23f564985f219c98b53d3115cb8c9b465cb23ddda4f645ba04911",
+      "app/local_integration/generation_ui.js": "6c50132296f4727d71a8a564f12bb63d3a292db8fdbaed8967ab4821b4ccffeb"
+    },
+    "guard_before": 12991,
+    "guard_after": 12991,
+    "accepted": false,
+    "delivery_allowed": false,
+    "scope": "Controlled taxonomy and saved-record/browser regression only. No generated geometry, no new producer outcome, no positive QUALIFIED branch."
+  },
   "artifact": {
-    "id": 14489293827,
-    "size": 249200,
-    "sha256": "b34234b21145e7a0c85d2cee60e4f16806dbfa600fad3c14ad29c203b2e0f89a",
-    "expires": "2026-12-19T01:31:00Z",
+    "id": 14491120692,
+    "size": 251361,
+    "sha256": "94536240958bd734a60a92f03a929f6451076efe0f293be321643a034a72b693",
+    "expires": "2026-12-19T01:45:52Z",
     "archived": false
   },
   "visual_review_performed": false,
-  "broader_regression": {
-    "run": 44437428845,
-    "status": "FAILED_MISSING_HISTORICAL_FIXTURE",
-    "tests": 28,
-    "errors": 9,
-    "path": "app/local_integration/evidence/review_cycle/integrated_http_result.json",
-    "resolution": "IN_PROGRESS; do not silently substitute fixture or mark nine tests passed"
-  },
   "whole_cycle_verified": false,
   "stage303_execution_started": false
 }
