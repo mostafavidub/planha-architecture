@@ -43,4 +43,10 @@ class Comparison(unittest.TestCase):
   a,b,l,r=fixture();r['source_snapshot'].pop('app/local_integration/source_living_evaluator.py');self.assertEqual(run((a,b,l,r))['status'],'NOT_COMPARABLE')
  def test_typed_program_difference(self):
   a,b,l,r=fixture();b['program']['design_persons']=4.0;self.assertEqual(run((a,b,l,r))['status'],'NOT_COMPARABLE')
+ def test_mismatch_keeps_observed_physical_fail(self):
+  a,b,l,r=fixture();b['program']['bedrooms']=1;o=run((a,b,l,r))
+  self.assertEqual(o['observed_physical_reports'][0]['status'],'FAIL');self.assertEqual(o['status'],'NOT_COMPARABLE')
+ def test_late_missing_physical_status_failclosed(self):
+  a,b,l,r=fixture();del r['original_physical_report']['status'];r['original_physical_digest']=digest(r['original_physical_report'])
+  o=run((a,b,l,r));self.assertEqual(o['status'],'NOT_COMPARABLE');self.assertEqual(o['comparisons'],[])
 if __name__=='__main__':unittest.main()
