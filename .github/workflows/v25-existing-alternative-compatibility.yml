@@ -30,7 +30,12 @@ jobs:
             try:o=json.loads(raw)
             except Exception:continue
             rows.append({'name':f.name,'bytes':f.size,'sha256':hashlib.sha256(raw).hexdigest(),'keys':list(o)[:35] if isinstance(o,dict) else 'array'})
-          out={'archive_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'files':rows,'scope':'Existing artifact compatibility inventory only; no model generated or modified'}
+          detail=[]
+          with tarfile.open(p,'r:gz') as t:
+           f=next(f for f in t.getmembers() if f.name.endswith('exploratory_evidence.json'))
+           obj=json.loads(t.extractfile(f).read());child=obj['child']
+           detail={'top':{k:v for k,v in obj.items() if type(v) in (str,int,float,bool,type(None))},'child_keys':list(child),'child_fields':{k:(list(v)[:40] if isinstance(v,dict) else len(v) if isinstance(v,list) else v) for k,v in child.items()}}
+          out={'detail':detail,'archive_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'files':rows,'scope':'Existing artifact compatibility inventory only; no model generated or modified'}
           Path('alternative-compatibility-inventory.json').write_text(json.dumps(out,indent=2))
           print(json.dumps(out,sort_keys=True))
           PY
