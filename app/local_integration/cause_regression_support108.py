@@ -93,6 +93,7 @@ def readback(folder,result):
  bundles=0
  for label in('parent','child'):
   key=label+'_bundle_digest'
+  if result.get(label+'_observed')is True:need(key in result,'READBACK_OBSERVED_BUNDLE_REQUIRED')
   if key not in result:continue
   bundle=read(folder/(label+'-bundle.json'));bundles+=1
   need(digest(bundle)==result[key],'READBACK_BUNDLE_DIGEST')
@@ -111,7 +112,7 @@ def readback(folder,result):
    modules=('current_programme_evaluator','source_guest_route_evaluator','source_living_evaluator','source_wall_function_evaluator')
    for name in modules:
     key=label+'_current_'+name
-    if key not in reports:continue
+    need(key in reports,'READBACK_CURRENT_REPORT_REQUIRED')
     report=reports[key];bind_current(name,report,evidence)
     expected={'state':report['state'],'integrity_verified':True,'missing_count':0,'evaluator_error_count':0}
     need(digest(result[label+'_current'][name])==digest(expected),'READBACK_CURRENT_SUMMARY')
