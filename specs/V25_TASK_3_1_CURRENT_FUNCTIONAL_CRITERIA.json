@@ -97,7 +97,7 @@
         "Average quality compensates for a proven failed unit."
       ],
       "missing_rule": [
-        "No arbitrary score/weight/area cutoff is authorized; final required quality dimensions/anchor calibration not yet operationally fixed."
+        "Operational selection of required quality dimensions and reviewed acceptance-anchor criteria remains unresolved; the qualitative programme requirement itself exists."
       ],
       "missing_profile": [
         "Calibrated quality floors and reviewed scenario/equipment/activity profiles."
@@ -131,7 +131,11 @@
           "case": "Known failed room plus another strong unit",
           "expected": "FAIL; no mean compensation"
         }
-      ]
+      ],
+      "known_rule_scope": [
+        "No arbitrary score, weight or area cutoff may be invented."
+      ],
+      "missing_rule_status": "OPERATIONAL_QUALITY_SPECIFICATION_OPEN"
     },
     {
       "id": "KITCHEN_GUEST_PATH_SEPARATION",
@@ -201,9 +205,7 @@
         "Living path succeeds but dining destination is disconnected.",
         "WC guest access necessarily cuts private sleeping domain under applicable requirement."
       ],
-      "missing_rule": [
-        "No requirement for a separate corridor or whole-kitchen-floor prohibition; do not invent these."
-      ],
+      "missing_rule": [],
       "missing_profile": [
         "Effective route/activity width, simultaneous-operation scenario and ergonomic support may be unqualified."
       ],
@@ -236,7 +238,11 @@
           "case": "Living-first detour exists",
           "expected": "Limited existence evidence, not proof of principal/natural organisation"
         }
-      ]
+      ],
+      "known_rule_scope": [
+        "No requirement for a separate corridor or whole-kitchen-floor prohibition; do not invent these."
+      ],
+      "missing_rule_status": "NONE_IDENTIFIED"
     },
     {
       "id": "CONTINUOUS_USEFUL_LIVING",
@@ -305,9 +311,7 @@
         "A required furniture activity or access is demonstrably unusable.",
         "A labelled living strip cannot support required programme under a valid profile."
       ],
-      "missing_rule": [
-        "No universal golden ratio, corridor-length cap, waste percentage or arbitrary compactness threshold is authorized."
-      ],
+      "missing_rule": [],
       "missing_profile": [
         "Reviewed quality anchors and necessary activity/room-floor thresholds remain incomplete."
       ],
@@ -340,7 +344,11 @@
           "case": "No seats or unknown target binding",
           "expected": "UNKNOWN/invalid evidence, not vacuous PASS"
         }
-      ]
+      ],
+      "known_rule_scope": [
+        "No universal golden ratio, corridor-length cap, waste percentage or arbitrary compactness threshold is authorized."
+      ],
+      "missing_rule_status": "NONE_IDENTIFIED"
     },
     {
       "id": "NONFUNCTIONAL_WALL_EXCLUSION",
@@ -400,9 +408,7 @@
         "Wall proven to serve only view masking with no real usable boundary.",
         "Rename screen as hall/storage while keeping same nonfunctional geometry."
       ],
-      "missing_rule": [
-        "Qualitative ban and comparison duty already exist; no missing owner preference or fixed waste percentage should be invented."
-      ],
+      "missing_rule": [],
       "missing_profile": [
         "Specific use/privacy scenario may need qualification; do not generalize one body-width study."
       ],
@@ -435,7 +441,11 @@
           "case": "Missing counterfactual",
           "expected": "UNKNOWN, not approve from label"
         }
-      ]
+      ],
+      "known_rule_scope": [
+        "Qualitative ban and comparison duty already exist; no missing owner preference or fixed waste percentage should be invented."
+      ],
+      "missing_rule_status": "NONE_IDENTIFIED"
     }
   ],
   "accepted": false,
