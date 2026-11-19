@@ -9,7 +9,7 @@ from same_version_front_rear_contract import digest
 from program_profile_registry import lookup
 ROOT=Path(__file__).resolve().parents[2]
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
-FILES=('request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
+FILES=('request_trace109.html','request_trace109.js','request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
 DEADLINE=datetime(2026,11,19,15,59,9,tzinfo=timezone.utc)
 def need(ok,code):
  if not ok:raise ValueError(code)

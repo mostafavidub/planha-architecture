@@ -88,6 +88,6 @@ class HTTP(unittest.TestCase):
    status,out=self.post(b'{"W":"18","L":"20","n":2}')
    self.assertEqual(status,409);r=out['study_result'];self.assertEqual(r['state'],'UNSUPPORTED_TRACE_STUDY_CONTRACT');self.assertEqual(r['attempt_count'],0);self.assertFalse(r['receipt_verified']);launch.assert_not_called()
  def test_static_api_has_no_product_surface(self):
-  conn=http.client.HTTPConnection('127.0.0.1',self.server.server_address[1]);conn.request('GET','/')
+  conn=http.client.HTTPConnection('127.0.0.1',self.server.server_address[1]);conn.request('GET','/download')
   r=conn.getresponse();self.assertEqual(r.status,404);r.read();conn.close()
 if __name__=='__main__':unittest.main()

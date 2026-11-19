@@ -1,5 +1,6 @@
 """Separate loopback study endpoint; original public runtime is unchanged."""
 import json,threading
+from pathlib import Path
 from http.server import ThreadingHTTPServer
 from public_wln_server import Handler as BaseHandler
 from public_wln_contract import parse_public,verify_public
@@ -15,7 +16,12 @@ class Handler(BaseHandler):
  def do_GET(self):
   if not self.host_ok():self.reply(403,{'code':'LOOPBACK_HOST_REQUIRED'});return
   if self.path=='/health':self.reply(200,{'schema':'REQUEST_TRACE_HEALTH109_V1','mode':'SEPARATE18x22_STUDY','public_fields':['W','L','n'],**{k:False for k in AUTH}});return
-  self.reply(404,{'code':'NOT_FOUND_NO_PRODUCT_UI'})
+  assets={'/':('request_trace109.html','text/html; charset=utf-8'),'/request-trace.js':('request_trace109.js','text/javascript; charset=utf-8')}
+  if self.path not in assets:self.reply(404,{'code':'NOT_FOUND'});return
+  name,kind=assets[self.path];data=Path(__file__).with_name(name).read_bytes()
+  self.send_response(200);self.send_header('Content-Type',kind);self.send_header('Content-Length',str(len(data)));self.send_header('Cache-Control','no-store');self.send_header('X-Content-Type-Options','nosniff')
+  self.send_header('Content-Security-Policy',"default-src 'self'; style-src 'unsafe-inline'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'")
+  self.end_headers();self.wfile.write(data)
  def do_POST(self):
   if not self.host_ok():self.reply(403,{'code':'LOOPBACK_HOST_REQUIRED'});return
   if self.path!='/api/public/plan':self.reply(404,{'code':'NOT_FOUND'});return
