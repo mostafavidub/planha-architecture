@@ -64,7 +64,7 @@
     },
     {
       "id": "V25-11",
-      "status": "PARTIAL_EXPLICIT_TWO_BEDROOM",
+      "status": "IN_PROGRESS_LEFT_RIGHT_SOURCE_DIAGNOSIS",
       "evidence": "مسیر FRONT_REAR صریح دوخوابه واقعی تولید می‌کند؛ n1 و LEFT_RIGHT و پوشش کافی کل دامنه بازند.",
       "evidence_runs": [
         44401790896,
@@ -313,5 +313,12 @@
     "scope": "Preserve distinct observed outcome causes in historical summaries; no geometry or qualification change",
     "completed_utc": "2026-11-19T01:45:54Z",
     "run": 44438109457
+  },
+  "family_operation": {
+    "id": "V25-11-LEFT-RIGHT-SOURCE",
+    "start_utc": "2026-11-19T01:49:30Z",
+    "deadline_utc": "2026-11-19T04:49:30Z",
+    "state": "READ_ONLY_DIAGNOSIS",
+    "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart"
   }
 }
