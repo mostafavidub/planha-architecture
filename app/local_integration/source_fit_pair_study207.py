@@ -24,7 +24,7 @@ def child(folder,case,nonce):
  folder=Path(folder);folder.mkdir(exist_ok=False)
  out={'run_nonce':nonce,'schema':'SOURCE_FIT_PAIR_STUDY207_V1','case':case,'state':'STARTED','completed':False,'construction_observed':False,
  'independent_origin_verified':False,'integrity_verified':False,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False,
- 'current_four':'NOT_EVALUATED_FRESH_CURRENT_CRITERIA_NOT_RUN','technical_core':'POST_MVP_NOT_EVALUATED','internal_count_is_product_count':False}
+ 'current_assessment_attempted':False,'current_four':'NOT_EVALUATED_FRESH_CURRENT_CRITERIA_NOT_RUN','technical_core':'POST_MVP_NOT_EVALUATED','internal_count_is_product_count':False}
  originals={};live={};pins={};inputs={};inputpins={};bundle=None;bp=None;snap=None;audited=False
  def save():
   for n,v in (('reports.json',originals),('summary.json',out)):
@@ -96,14 +96,15 @@ def child(folder,case,nonce):
     'report_digests':{k:pins[k]for k in ('physical','original_replay')}}
    pin('current_evidence',evidence)
    import current_programme_evaluator,source_guest_route_evaluator,source_living_evaluator,source_wall_function_evaluator
-   out['current_assessments']={}
+   out['current_assessments']={};out['current_assessment_attempted']=True
    for module in (current_programme_evaluator,source_guest_route_evaluator,source_living_evaluator,source_wall_function_evaluator):
     need(Path(inspect.getsourcefile(module.assess)).resolve()==ROOT/'app/local_integration'/(module.__name__+'.py'),'CURRENT_IMPORT_PATH')
     out['stage']='CURRENT_ASSESS_'+module.__name__;save()
     try:
      assessment=module.assess(evidence);check()
+     need(assessment.get('model_digest')==digest(model)and all(assessment.get(k)is False for k in ('accepted','qualified','display_allowed','delivery_allowed')),'CURRENT_OUTPUT_BINDING_AUTHORITY')
     except Exception as ex:
-     assessment={'state':'EVALUATOR_ERROR','model_digest':digest(model),'integrity_verified':False,'exception_type':type(ex).__name__,'accepted':False,'qualified':False}
+     assessment={'state':'EVALUATOR_ERROR','model_digest':digest(model),'integrity_verified':False,'exception_type':type(ex).__name__,'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
     key='current_'+module.__name__;retain(key,assessment)
     state=assessment.get('state');state=state if state in ('PASS','FAIL','UNKNOWN','NOT_EVALUATED','EVALUATOR_ERROR')else'UNRECOGNIZED_STATE'
     error_count=sum(f.get('kind')in ('EVALUATOR_OR_SOURCE_BINDING_ERROR','INTEGRITY_ERROR')for f in assessment.get('findings',[]))
@@ -151,6 +152,7 @@ def main():
    result.update(case=case,outer_timeout=timed,wait_completed=proc.poll()is not None,returncode=proc.returncode,elapsed_seconds=time.monotonic()-start,outer_budget_seconds=budget,full_model_uploaded=False)
    if timed or proc.returncode!=0:result.update(completed=False,origin_observed_at_checkpoint=result.get('independent_origin_verified',False),independent_origin_verified=False,state='OUTER_TIMEOUT_PARTIAL_OBSERVATION'if timed else'PROCESS_FAILED_CLOSED')
    print(json.dumps(result,sort_keys=True,allow_nan=False),flush=True);results.append(result)
+ if sys.argv[1:]==['--current-study']:need(all(r.get('current_assessment_attempted')is True and len(r.get('current_assessments',{}))==4 for r in results),'CURRENT_ASSESSMENTS_NOT_RUN')
  need(all(r.get('current_evaluation_integrity_verified',True)is True for r in results),'CURRENT_EVALUATION_ERROR_RETAINED')
  need(all(r.get('completed')is True and r.get('integrity_verified')is True and not r['outer_timeout']and r['returncode']==0 for r in results),'STUDY_NOT_COMPLETED')
 if __name__=='__main__':main()

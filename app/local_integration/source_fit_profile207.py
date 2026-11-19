@@ -202,6 +202,7 @@ def actual_floor_motion_negatives(model,guest_report):
   if row.get('state')!='PASS_SOURCE_PROFILE_ROUTE_ONLY':
    rows.append({'unit':uid,'mutation':'ACTUAL_GUEST_THROUGH_KITCHEN_MOTION','state':'NOT_EVALUATED_NO_POSITIVE_SOURCE_SCENARIO'});continue
   s=scene(model,u,'entry_living');path=row['path'];start,end=row['start'],row['end'];body=F('.7')
+  need(F(row['body_m'])==F(s['body'])==F('.7')and digest(row['floor_roles'])==digest(s['roles'])and digest(row['domain_box'])==digest(s['box']),'ACTUAL_SCENE_PROFILE_DOMAIN')
   need(row['floor_digest']==digest(s['parts'])and row['obstacle_digest']==digest(s['obstacles'])and row['ownership_digest']==digest(s['owner']),'ACTUAL_SCENE_BINDING')
   route_check(path,start,end,body,s['parts'],s['obstacles'])
   other=[r for r,label in zip(s['obstacles'],s['labels'])if not label.startswith('kitchen_motion:')]
