@@ -55,15 +55,16 @@ def post(port,w,l,index,kind):
  conn=http.client.HTTPConnection('127.0.0.1',port,timeout=190 if kind=='CONTROL'else 20)
  try:
   conn.request('POST','/api/public/plan',body=body,headers={'Content-Type':'application/json'})
-  response=conn.getresponse();payload=response.read(1024*1024+1);need(len(payload)<=1024*1024,'RESPONSE_BYTE_LIMIT')
+  response=conn.getresponse();row['received_http_status']=response.status;row['http_status']=response.status
+  payload=response.read(1024*1024+1);row['response_bytes_digest']=sha(payload);need(len(payload)<=1024*1024,'RESPONSE_BYTE_LIMIT')
   def reject(value):raise ValueError('RESPONSE_NONFINITE')
   def unique(pairs):
    out={}
    for key,value in pairs:need(key not in out,'RESPONSE_DUPLICATE');out[key]=value
    return out
   data=json.loads(payload,parse_constant=reject,object_pairs_hook=unique)
-  row.update(projection(data,response.status));row['response_bytes_digest']=sha(payload)
- except Exception as ex:row.update(stage='TRANSPORT_OR_RESPONSE_ERROR',exception_type=type(ex).__name__,http_status=None)
+  row.update(projection(data,response.status));row['response_bytes_digest']=sha(payload);row['response_contract_valid']=True
+ except Exception as ex:row.update(stage='RESPONSE_CONTRACT_ERROR'if 'received_http_status'in row else'TRANSPORT_ERROR',exception_type=type(ex).__name__,http_status=row.get('received_http_status'),response_contract_valid=False)
  finally:conn.close()
  row['elapsed_seconds']=time.monotonic()-start;emit({'schema':'PUBLIC50_CASE_V1',**row});return row
 def main():
@@ -90,10 +91,10 @@ def main():
    'random_preflight_unsupported':sum(r.get('stage')=='PREFLIGHT_UNSUPPORTED'for r in rows),
    'random_response_available_count_sum':sum(r['plan_count_available']for r in rows if type(r.get('plan_count_available'))is int),
    'random_available_count_missing':sum(type(r.get('plan_count_available'))is not int for r in rows),
-   'control':control,'product_sources_unchanged':unchanged,'source_after':after,'worker_lock_released':not product.LOCK.locked(),
+   'control':control,'control_complete_receipt_observed':control.get('http_status')==200 and control.get('full_evidence_binding_verified')is True,'product_sources_unchanged':unchanged,'source_after':after,'worker_lock_released':not product.LOCK.locked(),
    'total_seconds':time.monotonic()-start,'raw_models_logged':False,'artifact_upload':False,'durable_raw_archive':False,
    'current_product_qualified':False,'scope':'Fifty real public POSTs plus one separately labelled existing-case control; rejection is not infeasibility.'}
   emit(summary);need(unchanged,'PRODUCT_SOURCE_CHANGED')
-  need(len(rows)==50 and all(r.get('http_status')is not None for r in rows)and control.get('http_status')is not None,'HTTP_COLLECTION_INCOMPLETE')
+  need(len(rows)==50 and all(r.get('response_contract_valid')is True for r in rows)and control.get('response_contract_valid')is True,'HTTP_COLLECTION_INCOMPLETE')
  finally:server.shutdown();server.server_close();thread.join(timeout=5)
 if __name__=='__main__':main()
