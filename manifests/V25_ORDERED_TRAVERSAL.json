@@ -65,14 +65,15 @@
     {
       "id": "V25-11",
       "status": "PARTIAL_SOURCE_DERIVED_D4_STUDY_PASS_HISTORICAL_GATE_FAIL",
-      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده. مقایسه44444599800:چهارreplayمعتبرولیهمهFAIL؛۲۰SIDE۶۵error،۲۰FRAMEو۲۵هردو۴۰schemaerror؛۴UNKNOWNوFRAMEbindingNOT_APPLICABLEمحفوظ. FRAME44445639710:دوpositiveمحدود،۱۶negativeو۱۳directnegative؛historicalFAIL40/2pending/4UNKNOWN محفوظ.",
+      "evidence": "تشخیص تازهLEFT_RIGHT:run44440172082 دوreplayمعتبرولیschemaFAIL؛run44440388271 ارزیاباصلی۲۵×۲۵FAILبا۴۰schemaerror/۲pending،۲۰×۲۰timeout و۱۸×۲۰بدونپیشنهاد. producer/gateتاریخیبدونتغییر؛source-derived shape+independentD4 gateصرفاًstudyدرحالپیاده‌سازی،نهschemaمعنایییاپذیرشخانواده. run44441849585:یکfreshpositive۲۵×۲۵،۱۸negativebinding+۱۴directD4negative موفق؛shapeمنبع‌مبناست نهschemaمعنایی مستقل.گیتتاریخیهمانFAILوproductionunsupported محفوظ. bundle44443156785:۲مدل تازهFAIL؛۲۵×۲۵۴۰schemaerror،۲۰×۲۰۷۵خطا(۴۸schema+۲۷physical/named)،۳۸نیازnamed و۴UNKNOWNمحفوظ.۴negativeinput+۴syntheticledgerpass؛نهپذیرشخانواده. مقایسه44444599800:چهارreplayمعتبرولیهمهFAIL؛۲۰SIDE۶۵error،۲۰FRAMEو۲۵هردو۴۰schemaerror؛۴UNKNOWNوFRAMEbindingNOT_APPLICABLEمحفوظ. FRAME44445639710:دوpositiveمحدود،۱۶negativeو۱۳directnegative؛historicalFAIL40/2pending/4UNKNOWN محفوظ. غیرمربع44447123050:دوno-proposal،دوFRAMEsource/D4passباoriginalFAIL40؛مرزnp.float64نقش‌محدودوثابت‌مقداررفعشد. کلخانوادهناقص،checkpointبرایاولویتV25-06.",
       "evidence_runs": [
         44440172082,
         44440388271,
         44441849585,
         44443156785,
         44444599800,
-        44445639710
+        44445639710,
+        44447123050
       ]
     },
     {
@@ -322,13 +323,13 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "RUNNING_PREREGISTERED_NONSQUARE_FRAME_MATRIX",
+    "state": "CHECKPOINT_PARTIAL_REPRIORITIZED_TO_V25_06_NOT_TIMEOUT",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
       44440388271
     ],
-    "latest_scoped_run": 44445639710,
+    "latest_scoped_run": 44447123050,
     "topology_comparison": {
       "start_utc": "2026-11-19T02:24:31Z",
       "deadline_utc": "2026-11-19T04:49:30Z",
@@ -375,7 +376,12 @@
       "seconds": 3,
       "topology": "FRAME125_SERVICE_SIDE",
       "program": "explicit2 double+twin",
-      "variant": 0
+      "variant": 0,
+      "runs": [
+        44446376966,
+        44446746506,
+        44447123050
+      ]
     }
   },
   "automatic_program_operation": {
