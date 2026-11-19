@@ -258,7 +258,7 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T02:19:06Z",
+  "last_evidence_update_utc": "2026-11-19T02:24:31Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
@@ -320,12 +320,27 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "READ_ONLY_PHYSICAL_BLOCKER_AND_EXISTING_TOPOLOGY_DIAGNOSIS",
+    "state": "RUNNING_PREREGISTERED_TWO_TOPOLOGY_FOUR_CASE_DIAGNOSTIC",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
       44440388271
     ],
-    "latest_scoped_run": 44443156785
+    "latest_scoped_run": 44443156785,
+    "topology_comparison": {
+      "start_utc": "2026-11-19T02:24:31Z",
+      "deadline_utc": "2026-11-19T04:49:30Z",
+      "cases": [
+        "20x20/SIDE_ROOTED_SERVICES",
+        "20x20/FRAME125_SERVICE_SIDE",
+        "25x25/SIDE_ROOTED_SERVICES",
+        "25x25/FRAME125_SERVICE_SIDE"
+      ],
+      "search_seconds_per_case": 3,
+      "variant": 0,
+      "program": "explicit2 double+twin",
+      "strict_binding_new_topology": "NOT_APPLICABLE_CONTRACT_TOPOLOGY",
+      "hidden_selection": false
+    }
   }
 }
