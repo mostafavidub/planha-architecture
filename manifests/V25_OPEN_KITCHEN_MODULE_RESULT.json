@@ -122,5 +122,73 @@
       "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
     ],
     "whole_physical_verified": false
+  },
+  "independent_world_adapters": {
+    "run": 44426199579,
+    "commit": "70f65ac7fddab529dd4eb93b8d2cd724ccfb79fa",
+    "model_digest": "b8050a31571367941748a3bcc47112ca809f811bc46268ea7653becdd333d880",
+    "origin_verified": true,
+    "negative_tests": 11,
+    "operation_errors": [],
+    "operation_pending": [],
+    "arch_negative_tests": 4,
+    "new_placement_status": "PASS_PLACEMENT_SCOPED",
+    "new_placement_errors": [],
+    "new_placement_pending": [],
+    "placement_negative_tests": 5,
+    "historical_status": "FAIL",
+    "historical_errors": [
+      {
+        "code": "SOURCE_MODULE_RECHECK_FAILED",
+        "requirement_id": null
+      },
+      {
+        "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY",
+        "requirement_id": null
+      },
+      {
+        "code": "SOURCE_MODULE_RECHECK_FAILED",
+        "requirement_id": null
+      },
+      {
+        "code": "MODULE_PLACEMENT_SCHEMA_OR_GEOMETRY",
+        "requirement_id": null
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "fixture_inventory_use"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "program_functional_roles"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "bath_service_operation"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "privacy_scenarios"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "q11_functional_boundary"
+      },
+      {
+        "code": "RULE_FAILED",
+        "requirement_id": "circulation_functional_integrity"
+      }
+    ],
+    "historical_pending": [
+      "DOOR_OPERATION_NOT_EVALUATED:A.kitchen.entry",
+      "DOOR_OPERATION_NOT_EVALUATED:B.kitchen.entry",
+      "Q11_BEFORE_AFTER_OR_TRUSTED_NEW_WORKFLOW_NOT_EVALUATED",
+      "Q11_FUNCTIONAL_BOUNDARY_NOT_EVALUATED",
+      "RULE_NOT_EVALUATED:closet_operation",
+      "RULE_NOT_EVALUATED:door_operation",
+      "RULE_NOT_EVALUATED:kitchen_essential_operation",
+      "SOURCE_MODULE:DOOR_OPERATION_NOT_EVALUATED:K.kitchen.entry"
+    ],
+    "whole_physical_verified": false
   }
 }
