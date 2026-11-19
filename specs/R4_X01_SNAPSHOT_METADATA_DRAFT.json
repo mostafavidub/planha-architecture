@@ -14,7 +14,8 @@
     "Same retry metadata is not a real idempotent backend transaction",
     "LegacyUUIDs cannot be auto-adopted into product projects",
     "Public summary with plan_payloadnull cannot populate a complete snapshot",
-    "Positive QUALIFIED artifact issuance intentionally unimplemented; rejected/UNKNOWN/error/partial metadata preserved"
+    "Positive QUALIFIED artifact issuance intentionally unimplemented; rejected/UNKNOWN/error/partial metadata preserved",
+    "Owner string equality reported OWNER_REFERENCE_MATCH_NOT_AUTHENTICATED, never authorized"
   ],
   "external_dependencies": [
     "R4-3.05 verified immutable full snapshot and geometry mapping",
@@ -22,11 +23,13 @@
     "Trusted owner/principal authentication and authorization adapter",
     "Actual durable storage adapter with atomic commit/idempotency/retention/expiry"
   ],
-  "tests_prepared": 13,
+  "tests_prepared": 15,
   "tests_executed": 0,
   "source_content_verified": false,
   "owner_authenticated": false,
   "storage_committed": false,
   "qualified": false,
-  "delivery_allowed": false
+  "delivery_allowed": false,
+  "record_stage_scope": "Only metadata with model/report/profile and referenced contents already produced. PARTIAL/EVALUATOR_ERROR refers to a later-stage partial evaluation, not preconstruction failure. Preconstruction lifecycle records require a separate future schema; never fabricate digests.",
+  "source_identity": "source_snapshot_digest is SHA256 of source manifest/bundle, NOT Git commit SHA. No Git revision field or code-version authentication is implemented."
 }

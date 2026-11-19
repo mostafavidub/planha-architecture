@@ -2,7 +2,7 @@
 import copy,unittest
 from project_snapshot_contract import validate,digest,read_intent,compare_retry
 def record():
-    return {"schema":"R4_PROJECT_SNAPSHOT_METADATA_DRAFT_V1","project_id":"p1","snapshot_id":"s1","owner_subject":"ownerA","revision":1,"parent_snapshot_digest":None,"snapshot_content_digest":"d"*64,"profile_digest":"e"*64,"source_revision":"f"*64,"units_digest":"1"*64,"geometry_mapping_digest":"2"*64,"request_digest":"a"*64,"model_digest":"b"*64,"rule_version":"rules_v1","report_digest":"c"*64,"state":"UNKNOWN","artifact":None,"legacy_run_id":None}
+    return {"schema":"R4_PROJECT_SNAPSHOT_METADATA_DRAFT_V1","project_id":"p1","snapshot_id":"s1","owner_subject":"ownerA","revision":1,"parent_snapshot_digest":None,"snapshot_content_digest":"d"*64,"profile_digest":"e"*64,"source_snapshot_digest":"f"*64,"units_digest":"1"*64,"geometry_mapping_digest":"2"*64,"request_digest":"a"*64,"model_digest":"b"*64,"rule_version":"rules_v1","report_digest":"c"*64,"state":"UNKNOWN","artifact":None,"legacy_run_id":None}
 class Contract(unittest.TestCase):
     def test_metadata_match_never_authenticates(self):
         r=validate(record());self.assertTrue(r["metadata_valid"]);self.assertFalse(r["owner_authenticated"]);self.assertFalse(r["storage_committed"])
@@ -37,6 +37,12 @@ class Contract(unittest.TestCase):
     def test_qualified_state_not_implemented(self):
         m=record();m["state"]="QUALIFIED"
         with self.assertRaisesRegex(ValueError,"STATE_NOT_SUPPORTED"):validate(m)
+    def test_preconstruction_missing_model_is_outside_scope(self):
+        m=record();m["model_digest"]=None
+        with self.assertRaisesRegex(ValueError,"DIGEST:model_digest"):validate(m)
+    def test_git_commit_is_not_source_snapshot_digest(self):
+        m=record();m["source_snapshot_digest"]="a"*40
+        with self.assertRaisesRegex(ValueError,"DIGEST:source_snapshot_digest"):validate(m)
     def test_no_source_authenticity_from_self_consistency(self):
         m=record();m["model_digest"]="d"*64;r=validate(m)
         self.assertTrue(r["metadata_valid"]);self.assertFalse(r["source_content_verified"])
