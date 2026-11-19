@@ -1,0 +1,145 @@
+{
+  "schema": "SYNTHETIC_CODEC_ENVIRONMENT402_V1",
+  "source_commit": "372a1592add359703465ae6add74725f3b63fc27",
+  "discovery": {
+    "commit": "2be47fbda807bac6b977ff354be7bff7ea201aa4",
+    "run": 44556322678,
+    "job": 135673227650,
+    "scope": "Official PyPI JSON digests matched downloaded wheel bytes; no installation"
+  },
+  "python": "3.11.18",
+  "implementation": "CPython",
+  "platform": "linux",
+  "machine": "x86_64",
+  "soabi": "cpython-311-x86_64-linux-gnu",
+  "packages": [
+    {
+      "filename": "ezdxf-1.4.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "ezdxf",
+      "requires_dist": [
+        "pyparsing>=2.0.1",
+        "typing_extensions>=4.6.0",
+        "numpy",
+        "fonttools",
+        "PySide6; extra == \"draw\"",
+        "matplotlib; extra == \"draw\"",
+        "PyMuPDF>=1.20.0; extra == \"draw\"",
+        "Pillow; extra == \"draw\"",
+        "PyQt5; extra == \"draw5\"",
+        "matplotlib; extra == \"draw5\"",
+        "PyMuPDF>=1.20.0; extra == \"draw5\"",
+        "Pillow; extra == \"draw5\"",
+        "PySide6; extra == \"dev\"",
+        "setuptools; extra == \"dev\"",
+        "wheel; extra == \"dev\"",
+        "Cython; extra == \"dev\"",
+        "pytest; extra == \"dev\"",
+        "Pillow; extra == \"dev\"",
+        "matplotlib; extra == \"dev\"",
+        "PyMuPDF>=1.20.0; extra == \"dev\"",
+        "PyQt5; extra == \"dev5\"",
+        "setuptools; extra == \"dev5\"",
+        "wheel; extra == \"dev5\"",
+        "Cython; extra == \"dev5\"",
+        "pytest; extra == \"dev5\"",
+        "Pillow; extra == \"dev5\"",
+        "matplotlib; extra == \"dev5\"",
+        "PyMuPDF>=1.20.0; extra == \"dev5\""
+      ],
+      "sha256": "1f86db7aa4ee1103a0fdf565e6a710c9db13cdcf41c19f3f617c183e6959440b",
+      "version": "1.4.3"
+    },
+    {
+      "filename": "fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "fonttools",
+      "requires_dist": [
+        "lxml>=4.0; extra == \"lxml\"",
+        "brotli>=1.2.1; platform_python_implementation == \"CPython\" and extra == \"woff\"",
+        "brotlicffi>=1.2.1.0; platform_python_implementation != \"CPython\" and extra == \"woff\"",
+        "zopfli>=0.1.4; extra == \"woff\"",
+        "unicodedata2>=18.0.0; python_version <= \"3.15\" and extra == \"unicode\"",
+        "lz4>=1.7.4.2; extra == \"graphite\"",
+        "scipy; platform_python_implementation != \"PyPy\" and extra == \"interpolatable\"",
+        "munkres; platform_python_implementation == \"PyPy\" and extra == \"interpolatable\"",
+        "pycairo; extra == \"interpolatable\"",
+        "matplotlib; extra == \"plot\"",
+        "sympy; extra == \"symfont\"",
+        "xattr; sys_platform == \"darwin\" and extra == \"type1\"",
+        "skia-pathops>=0.5.0; extra == \"pathops\"",
+        "uharfbuzz>=0.45.0; extra == \"repacker\"",
+        "lxml>=4.0; extra == \"all\"",
+        "brotli>=1.2.1; platform_python_implementation == \"CPython\" and extra == \"all\"",
+        "brotlicffi>=1.2.1.0; platform_python_implementation != \"CPython\" and extra == \"all\"",
+        "zopfli>=0.1.4; extra == \"all\"",
+        "unicodedata2>=18.0.0; python_version <= \"3.15\" and extra == \"all\"",
+        "lz4>=1.7.4.2; extra == \"all\"",
+        "scipy; platform_python_implementation != \"PyPy\" and extra == \"all\"",
+        "munkres; platform_python_implementation == \"PyPy\" and extra == \"all\"",
+        "pycairo; extra == \"all\"",
+        "matplotlib; extra == \"all\"",
+        "sympy; extra == \"all\"",
+        "xattr; sys_platform == \"darwin\" and extra == \"all\"",
+        "skia-pathops>=0.5.0; extra == \"all\"",
+        "uharfbuzz>=0.45.0; extra == \"all\""
+      ],
+      "sha256": "4b9c89b5876f1a74b1341632dfaf4c4c2be565d76c060445df401ebe7a4ceefa",
+      "version": "4.68.0"
+    },
+    {
+      "filename": "numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "numpy",
+      "requires_dist": [],
+      "sha256": "89cd468399cfd2504718f0ba50e410dca55a170b61a02ad92bb18c8a65186e93",
+      "version": "2.4.6"
+    },
+    {
+      "filename": "pyparsing-3.3.3-py3-none-any.whl",
+      "name": "pyparsing",
+      "requires_dist": [
+        "railroad-diagrams ; extra == \"diagrams\"",
+        "jinja2 ; extra == \"diagrams\""
+      ],
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "version": "3.3.3"
+    },
+    {
+      "filename": "typing_extensions-4.16.0-py3-none-any.whl",
+      "name": "typing_extensions",
+      "requires_dist": [],
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "version": "4.16.0"
+    }
+  ],
+  "extras_requested": [],
+  "source_blobs": {
+    "studies/r4/paired_codec308.py": "8ef497ea6e9c3f32b1f26b75b2275c25fcb144a7",
+    "studies/r4/preview_codec_study306.py": "bda5dd060c044b33e94742b2de246c846a861351",
+    "studies/r4/dxf_codec_study307.py": "5b922b484b27f3792748b2a4bf5faaa7e221112f",
+    "studies/r4/test_paired_codec308.py": "7a305bf047742ffaf3008d1048341b2c458bd3a1",
+    "studies/r4/test_dxf_codec_study307.py": "27c4d723ebea833c9ad782192a9061cdda4a1895",
+    "studies/r4/codec_environment402.requirements.txt": "53a3fe65b624dbc1fdba2fdf35f0433f140533c2"
+  },
+  "actions": {
+    "checkout": "11d5960a326750d5838078e36cf38b85af677262",
+    "setup_python": "a26af69be951a213d495a4c3e4e4022e16d87065"
+  },
+  "limitations": [
+    "Hosted ubuntu-24.04 image floats; OS binary digest not pinned",
+    "Python patch and ABI pinned, interpreter distribution bytes not independently pinned",
+    "pip bootstrap tool is observed, not immutable",
+    "No solver or product reproducibility claim"
+  ],
+  "baseline_pair": {
+    "commit": "372a1592add359703465ae6add74725f3b63fc27",
+    "run": 44554520467,
+    "job": 135666859504,
+    "expected": {
+      "state": "PAIRED_CODEC_CONSISTENCY_ONLY",
+      "fixture_digest": "0cc421fe6654c8fa4370eebce822870a67570352fff1f5f862575d234095e5e5",
+      "svg_sha256": "b5652c0bf8eb928ded5b82db08ef2a33a9a3f04968f57ddd05222649de821d9f",
+      "dxf_sha256": "702bdacd751419ef93da2e45d476e61e1007d0a0873052814f0575c4870a559c",
+      "report_digest": "02064ea226185b7b2f0857676a7bdd7be66acd75c2b55c8749907349c1498855",
+      "mismatch_count": 0
+    }
+  }
+}
