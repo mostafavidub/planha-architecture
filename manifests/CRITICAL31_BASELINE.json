@@ -1,0 +1,69 @@
+{
+  "schema": "CRITICAL31_BASELINE_V1",
+  "task": "0.1",
+  "status": "DONE_SCOPED_BASELINE_INVENTORY",
+  "start_utc": "2026-11-19T02:59:30Z",
+  "completed_utc": "2026-11-19T03:00:05Z",
+  "deadline_utc": "2026-11-19T05:59:30Z",
+  "baseline_commit": "bf1366952597d12351eff5d361736a5f9a86bafe",
+  "repository": "mostafavidub/planha-architecture",
+  "code_inventory": {
+    "active_diagnostic": {
+      "entrypoint": "app/local_integration/validation_server.py",
+      "bind": "127.0.0.1",
+      "mode": "EXPERIMENTAL_PARAMETRIC",
+      "generation": "generation_gateway.py -> parametric_worker.py",
+      "explicit_two": "explicit_two_bedroom_worker.py; FRONT_REAR only, qualification false",
+      "repair": [
+        "repair_saved_run.py",
+        "explicit_pair_saved_run.py"
+      ],
+      "scope": "Active reachable diagnostic code is not a qualified public production product."
+    },
+    "historical": {
+      "root": "app/reconstruction357/planha_general150_runtime_work",
+      "guard_pins": 12991,
+      "engine_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+      "policy": "frozen, not edited; historical reports retained",
+      "known_limits": [
+        "contract114 historical 5..45 is not universal current input compliance",
+        "schema129 does not cover explicit-two LEFT_RIGHT record inventory"
+      ]
+    },
+    "standalone_study": [
+      "FRAME/SIDE source-D4 contracts and workflows",
+      "open-front kitchen independent source/evaluator",
+      "route/living/wall diagnostic probes"
+    ],
+    "unfinished_new": [
+      "app/local_integration/public_wln_contract.py",
+      "app/local_integration/automatic_program_search.py"
+    ]
+  },
+  "blob_shas": {
+    "app/local_integration/generation_gateway.py": "099a6afcd261deac2d34162b033438d0377ed199",
+    "app/local_integration/explicit_two_bedroom_worker.py": "d519ae888f29edb66398f55c9dda1cb931990522",
+    "app/local_integration/functional_review.py": "b4da45728949de78bd085692ba7eebf7bb4e4a71",
+    "app/local_integration/public_wln_contract.py": "a1aea97c36b544d1159af23c3065503ab639e600",
+    "app/local_integration/repair_saved_run.py": "da1729664c27fb2863be91f693538c8a85552367",
+    "app/local_integration/explicit_pair_saved_run.py": "1af919a12b67a1c906c4628b1ee39b4ffbe5181d",
+    "app/local_integration/validation_server.py": "2f1143fb55a19c8862792bdc6a87ae12e6afcc95",
+    "app/local_integration/parametric_worker.py": "8ebb7a46b31770fa80d28236a0bd767661e40d2a",
+    "app/local_integration/automatic_program_search.py": "7aefccb8010615843803f140f43ee5cd76c072cd"
+  },
+  "verified_baseline_ci": [
+    44447616283,
+    44447616260,
+    44447616256,
+    44447616302
+  ],
+  "ci_scope": "Four general checks success at exact baseline; not dedicated validation of two unfinished files.",
+  "remaining": [
+    "No qualified architecture",
+    "Four current functional requirements UNKNOWN",
+    "No public W/L/n product integration",
+    "No dedicated automatic program tests yet"
+  ],
+  "whole_cycle_verified": false,
+  "stage303_started": false
+}
