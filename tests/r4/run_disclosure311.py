@@ -5,6 +5,8 @@ from unittest.mock import patch
 from playwright.sync_api import sync_playwright,expect
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT/'app/local_integration'))
 import public_wln_server as m
+def handler(payload):
+ return lambda route:route.fulfill(status=200,content_type='application/json',body=json.dumps(payload))
 def main():
  paths=[ROOT/'app/local_integration'/n for n in ('public_wln.html','public_wln.js','public_wln_server.py')]
  before={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
@@ -26,7 +28,7 @@ def main():
       'source_integrity_verified':True,'decision':{'state':'BLOCKED'},
       **{k:False for k in ('accepted','qualified','display_allowed','delivery_allowed')},
       'candidate_count':6,'constructed_count':6,'qualified_count':6,'downloaded_count':6}
-     page.route('**/api/public/plan',lambda route,d=data:route.fulfill(status=200,content_type='application/json',body=json.dumps(d)))
+     page.route('**/api/public/plan',handler(data))
      page.locator('#submit').click();expect(page.locator('#result')).to_have_attribute('data-state','blocked')
      counts=page.locator('#stage-counts').inner_text()
      assert counts.count('NOT_REPORTED')==(7 if type(attempts) is bool else 6)
