@@ -19,7 +19,7 @@ def validate(controller,complete,bundle,decision,operator):
  require(digest(complete)==COMPLETE==controller['observed_result_digest'],'PINNED_COMPLETE')
  require(complete['nonce']==controller['nonce'] and complete['completed'] is True,'NONCE_COMPLETE')
  require(complete['parent_model_digest']==PARENT and complete['child_model_digest']==CHILD,'LINEAGE')
- require(type(complete['generated_count']) is int and complete['generated_count']==1 and complete['verified_generated_count']==1,'COUNT')
+ require(type(complete['generated_count']) is int and complete['generated_count']==1 and type(complete['verified_generated_count']) is int and complete['verified_generated_count']==1,'COUNT')
  require(digest(bundle)==complete['child_runtime_digest'],'RUNTIME_DIGEST')
  require(digest(bundle['packet']['world_model'])==bundle['model_digest']==CHILD,'MODEL_DIGEST')
  require(digest(operator)==complete['operator_result_digest'] and operator['child']['model_digest']==CHILD,'OPERATOR')
@@ -73,7 +73,7 @@ def audit(root):
  contract='app/local_integration/public_wln_contract.py'
  old=subprocess.check_output(['git','show',HISTORICAL+':'+contract]);now=pathlib.Path(contract).read_bytes()
  require(b'V25_PUBLIC_WLN_CONTRACT_V1' in old and b'V25_PUBLIC_WLN_CONTRACT_V2' in now,'PUBLIC_VERSION_DISTINCTION')
- require(before=={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},'FILES_CHANGED')
+ require(before=={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(p for p in root.rglob('*') if p.is_file())},'FILES_CHANGED')
  out={'schema':'R4_BASELINE_AUDIT_V1','task':'R4-1.01','state':'HISTORICAL_BASELINE_VERIFIED_NOT_QUALIFIED',
  'historical_commit':HISTORICAL,'audit_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
  'parent_model_digest':PARENT,'child_model_digest':CHILD,'binding':bundle['binding'],
