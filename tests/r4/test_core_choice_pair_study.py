@@ -75,4 +75,24 @@ class CoreStudyTests(unittest.TestCase):
   core,m=self.model('FRONT_REAR_FULL_BAND114');args=[RAW,'FRONT_REAR_FULL_BAND114',lookup('PROGRAM_2BED_V1'),core,{},m,{},'1'*32]
   receipt=s.make_receipt(*args);receipt['accepted']=True
   with self.assertRaises(ValueError):s.bind_receipt(receipt,*args)
+class AssessmentOnlyTests(unittest.TestCase):
+ def test_status_aggregation_never_hides_failure(self):
+  rows={'core_partition':{'status':'PASS_SOURCE_CORE_PARTITION_ONLY','errors':[],'pending':[]},
+   'core_concept':{'status':'PASS_LIMITED','witness':{'errors':[],'pending':[]}},
+   'opening_hosts':{'status':'PASS_LIMITED','witness':{'errors':[],'pending':[]}}}
+  self.assertTrue(s.predicates_verified(rows))
+  for state in ('FAIL','UNKNOWN','NOT_EVALUATED','EVALUATOR_ERROR'):
+   bad=copy.deepcopy(rows);bad['core_concept']['status']=state;self.assertFalse(s.predicates_verified(bad))
+  for key in ('errors','pending'):
+   bad=copy.deepcopy(rows);bad['opening_hosts']['witness'][key]=['SYNTHETIC_BLOCKER'];self.assertFalse(s.predicates_verified(bad))
+  bad=copy.deepcopy(rows);del bad['opening_hosts'];self.assertFalse(s.predicates_verified(bad))
+ def test_core_adapter_fixed_scope_before_model_access(self):
+  raw={**RAW,'W':'19'}
+  with self.assertRaisesRegex(ValueError,'CORE_ASSESSMENT_DIMENSION_SCOPE'):
+   s.core_assessment(raw,'FRONT_REAR_FULL_BAND114',{},None,{},None,{},'1'*32,{}, {},{})
+ def test_predicate_exception_stays_error(self):
+  result=s.core_predicates({}, {})
+  self.assertEqual(result['core_partition']['status'],'EVALUATOR_ERROR')
+  self.assertFalse(s.predicates_verified(result))
 if __name__=='__main__':unittest.main()
+

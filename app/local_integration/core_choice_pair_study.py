@@ -78,6 +78,68 @@ def core_geometry(model,core):
    else:entries.append(os_[0]['id'])
  return {'status':'FAIL'if errors else'PASS_SOURCE_CORE_PARTITION_ONLY','errors':sorted(set(errors)),'pending':[],
  'independent_entry_count':len(entries),'scope':'Source core/ownership/entry relations only; body routes independently assessed; no technical or quality approval'}
+def core_predicates(model,core):
+ """Independent geometry layer; no receipt rejection can mask these checks."""
+ import core_wall_audit118
+ out={}
+ for name,fn in (('core_partition',lambda:core_geometry(model,core)),('core_concept',lambda:core_wall_audit118.core_concept(model)),('opening_hosts',lambda:core_wall_audit118.opening_hosts(model))):
+  try:out[name]=fn()
+  except Exception as ex:out[name]={'status':'EVALUATOR_ERROR','error_type':type(ex).__name__,'errors':[],'pending':['EVALUATOR_ERROR']}
+ return out
+def predicates_verified(predicates):
+ expected={'core_partition':'PASS_SOURCE_CORE_PARTITION_ONLY','core_concept':'PASS_LIMITED','opening_hosts':'PASS_LIMITED'}
+ if type(predicates)is not dict or set(predicates)!=set(expected):return False
+ for name,row in predicates.items():
+  if type(row)is not dict:return False
+  details=row.get('witness',row)
+  if type(details)is not dict or row.get('status')!=expected[name]or details.get('errors')or details.get('pending'):return False
+ return True
+def core_assessment(raw,choice,profile,core,proposals,model,sources,nonce,receipt,origin,predicates):
+ """Same-process source replay prerequisite, never an externally trusted signature."""
+ from producer_provenance import require_unchanged
+ need(digest(raw)==digest({'W':'18','L':'20','n':2,'requested_count':1}),'CORE_ASSESSMENT_DIMENSION_SCOPE')
+ bind_program(model,profile)
+ selected,_=selected_core(raw,choice);need(digest(selected)==digest(core),'SELECTED_CORE_BINDING')
+ required={'app/local_integration/core_choice_pair_study.py','app/local_integration/program_profile_registry.py'}|{'app/reconstruction357/planha_general150_runtime_work/'+n for n in ('contract114.py','assemble114.py','core_wall_audit118.py','entry117.py')}
+ need(required<=set(sources),'CORE_ASSESSMENT_SOURCE_COVERAGE');require_unchanged(ROOT,sources)
+ bind_receipt(receipt,raw,choice,profile,core,proposals,model,sources,nonce)
+ need(type(origin)is dict and origin.get('verified')is True and origin.get('authority')is False and origin.get('model_hash')==digest(model)and origin.get('receipt_digest')==digest(receipt),'SOURCE_REASSEMBLY_PREREQUISITE')
+ need(set(predicates)=={'core_partition','core_concept','opening_hosts'},'CORE_PREDICATE_COVERAGE')
+ need(digest(predicates)==digest(core_predicates(model,core)),'MODEL_PREDICATE_RECOMPUTATION_MISMATCH')
+ verified=predicates_verified(predicates)
+ return {'schema':'CORE_CHOICE_CONCEPT_ASSESSMENT_V1','state':'PASS_CORE_SCOPE_ONLY'if verified else'BLOCKED_CORE_SCOPE',
+ 'core_scoped_verified':verified,'model_hash':digest(model),'core_hash':digest(core),'program_hash':digest(model['program']),
+ 'raw_hash':digest(raw),'profile_hash':digest(profile),'source_hash':digest(sources),'origin_receipt_hash':digest(receipt),
+ 'choice':choice,'run_nonce':nonce,'predicates':copy.deepcopy(predicates),
+ 'source_reassembly_scope':'Observed same-process reassembly; not third-party authentication',
+ 'excluded_obligations':['WHOLE_PHYSICAL_GATE','CURRENT_FOUR_CRITERIA','Q04_ORGANISATION_QUALITY','TECHNICAL_CORE_APPROVAL','ALL_DIMENSIONS','PUBLIC_API_ADMISSION'],
+ 'accepted':False,'qualified':False,'display_allowed':False,'delivery_allowed':False}
+def actual_candidate_negatives(model,core,raw,choice,profile,proposals,sources,nonce,receipt):
+ """Detached actual-model mutation; binding and direct geometry layers kept separate."""
+ baseline=digest(model);rows=[]
+ for kind in ('MISSING_LIFT','DUPLICATE_STAIR','ENTRY_FROM_STAIR','OWNERSHIP_OVERLAP','COMMON_ROUTE_THROUGH_OTHER_CORE'):
+  bad=copy.deepcopy(model)
+  if kind=='MISSING_LIFT':del bad['common_spaces']['lift']
+  elif kind=='DUPLICATE_STAIR':bad['common_spaces']['stair2']=copy.deepcopy(bad['common_spaces']['stair'])
+  elif kind=='ENTRY_FROM_STAIR':
+   next(o for o in bad['openings']if o['id']=='A.entry')['connects']=['stair','A.public_access']
+  elif kind=='OWNERSHIP_OVERLAP':bad['units'][1]['ownership']=copy.deepcopy(bad['units'][0]['ownership'])
+  else:
+   from contract114 import S
+   lift=list(map(F,bad['common_spaces']['lift']));x=(lift[0]+lift[2])/2;y=(lift[1]+lift[3])/2
+   old=bad['common_routes']['stair_A'];start=old[0];end=old[-1]
+   bad['common_routes']['stair_A']=[start,[S(x),start[1]],[S(x),S(y)],[end[0],S(y)],end]
+  rejected=False
+  try:bind_receipt(receipt,raw,choice,profile,core,proposals,bad,sources,nonce)
+  except ValueError:rejected=True
+  direct=core_predicates(bad,core)
+  relevant='core_concept'if kind=='COMMON_ROUTE_THROUGH_OTHER_CORE'else'core_partition'
+  rows.append({'mutation':kind,'base_model_hash':baseline,'mutated_model_hash':digest(bad),'binding_rejected':rejected,
+   'direct_predicate':relevant,'direct_status':direct[relevant]['status'],'direct_geometry_rejected':direct[relevant]['status']=='FAIL',
+   'full_direct_reports':direct,'authority':False})
+  need(digest(model)==baseline,'NEGATIVE_MUTATED_ORIGINAL')
+ return {'schema':'CORE_CHOICE_ACTUAL_DETACHED_NEGATIVES_V1','model_hash':baseline,'rows':rows,'original_unchanged':True,
+ 'all_expected_rejected':all(r['binding_rejected']and r['direct_geometry_rejected']for r in rows),'qualified':False}
 def child(folder,choice,nonce):
  from program_profile_registry import lookup
  from producer_provenance import snapshot,require_unchanged
@@ -136,6 +198,14 @@ def child(folder,choice,nonce):
   retain('core_partition',core_geometry(model,core))
   retain('core_concept',core_wall_audit118.core_concept(model))
   retain('opening_hosts',core_wall_audit118.opening_hosts(model))
+  predicates={k:originals[k]for k in ('core_partition','core_concept','opening_hosts')}
+  retain('core_assessment',core_assessment(raw,choice,profile,core,proposals,model,snap,nonce,receipt,originals['independent_replay'],predicates))
+  retain('actual_detached_negatives',actual_candidate_negatives(model,core,raw,choice,profile,proposals,snap,nonce,receipt))
+  need(originals['actual_detached_negatives']['all_expected_rejected']is True,'ACTUAL_NEGATIVE_NOT_DETECTED')
+  out.update(core_scoped_verified=originals['core_assessment']['core_scoped_verified'],core_assessment_state=originals['core_assessment']['state'],
+   actual_negative_count=len(originals['actual_detached_negatives']['rows']),actual_binding_rejections=sum(r['binding_rejected']for r in originals['actual_detached_negatives']['rows']),
+   actual_geometry_rejections=sum(r['direct_geometry_rejected']for r in originals['actual_detached_negatives']['rows']),
+   actual_original_model_unchanged=originals['actual_detached_negatives']['original_unchanged'])
   out.update(state='FULL_REPORTS_RETAINED_NOT_QUALIFIED',completed=True,legacy_replay_verified=originals['original_replay'].get('verified')is True,
    core_geometry_status=originals['core_partition']['status'],core_concept_status=originals['core_concept']['status'],opening_hosts_status=originals['opening_hosts']['status'],
    physical_status=originals['physical'].get('status'),physical_error_counts=code_counts(originals['physical'].get('errors',[])),
@@ -151,7 +221,7 @@ def child(folder,choice,nonce):
   try:
    need(audited and snap is not None,'INITIAL_AUDIT_NOT_ESTABLISHED');check()
    need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'FINAL_ENGINE_GUARD');out['integrity_verified']=True
-  except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,origin_observed_at_checkpoint=out.get('independent_origin_verified',False),independent_origin_verified=False,integrity_error_type=type(ex).__name__)
+  except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,origin_observed_at_checkpoint=out.get('independent_origin_verified',False),independent_origin_verified=False,core_scoped_verified=False,integrity_error_type=type(ex).__name__)
   out.update(report_digests=pins,original_reports_retained_job_temporarily=True,durable_archive_created=False);save()
 def main():
  if len(sys.argv)==5 and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3],sys.argv[4]);return
@@ -167,9 +237,9 @@ def main():
    try:result=json.loads((dest/'summary.json').read_text())if(dest/'summary.json').exists()else{'state':'NO_SUMMARY'}
    except(ValueError,OSError):result={'state':'SUMMARY_PARSE_FAILED_CLOSED'}
    if type(result)is not dict:result={'state':'SUMMARY_TYPE_FAILED_CLOSED'}
-   if result.get('run_nonce')!=nonce:result.update(state='NONCE_BINDING_FAILED',completed=False,independent_origin_verified=False)
+   if result.get('run_nonce')!=nonce:result.update(state='NONCE_BINDING_FAILED',completed=False,independent_origin_verified=False,core_scoped_verified=False)
    result.update(choice=choice,outer_timeout=timed,wait_completed=proc.poll()is not None,returncode=proc.returncode,elapsed_seconds=time.monotonic()-start,outer_budget_seconds=budget,full_model_uploaded=False)
-   if timed or proc.returncode!=0:result.update(completed=False,origin_observed_at_checkpoint=result.get('independent_origin_verified',False),independent_origin_verified=False,state='OUTER_TIMEOUT_PARTIAL_OBSERVATION'if timed else'PROCESS_FAILED_CLOSED')
+   if timed or proc.returncode!=0:result.update(completed=False,origin_observed_at_checkpoint=result.get('independent_origin_verified',False),independent_origin_verified=False,core_scoped_verified=False,state='OUTER_TIMEOUT_PARTIAL_OBSERVATION'if timed else'PROCESS_FAILED_CLOSED')
    print(json.dumps(result,sort_keys=True,allow_nan=False),flush=True);results.append(result)
  need(all(r.get('completed')is True and r.get('integrity_verified')is True and not r['outer_timeout']and r['returncode']==0 for r in results),'STUDY_NOT_COMPLETED')
 if __name__=='__main__':main()
