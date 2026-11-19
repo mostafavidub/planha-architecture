@@ -120,6 +120,9 @@ def readback(folder,result):
 
 def solver_observation(proposal):
  import math
+ if proposal.get('status')=='NO_PROPOSAL_IN_THIS_PROGRAM'and proposal.get('reason')=='ROOM_OR_CORE_BOUND_CONFLICT':
+  need(not any(key in proposal for key in('solver_status','solver_seconds','budget_seconds')),'PRE_SOLVER_OBSERVATION_CONFLICT')
+  return {'solver_called':False,'solver_status':None,'solver_seconds':None,'budget_seconds':None,'state':'SOURCE_BOUND_CONFLICT_BEFORE_MILP'}
  out={}
  for key in('solver_status','solver_seconds','budget_seconds'):
   value=proposal.get(key)

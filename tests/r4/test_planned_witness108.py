@@ -118,4 +118,11 @@ class PlannedTests(unittest.TestCase):
   for key,value in(('solver_status',True),('solver_seconds',float('nan')),('budget_seconds',False)):
    bad=dict(p);bad[key]=value
    with self.assertRaisesRegex(ValueError,'SOLVER_OBSERVATION_TYPE'):support.solver_observation(bad)
+ def test_source_bound_conflict_is_not_missing_solver_telemetry(self):
+  p={'status':'NO_PROPOSAL_IN_THIS_PROGRAM','reason':'ROOM_OR_CORE_BOUND_CONFLICT'}
+  self.assertIs(support.solver_observation(p)['solver_called'],False)
+  bad=dict(p);bad['solver_status']=2
+  with self.assertRaisesRegex(ValueError,'PRE_SOLVER_OBSERVATION_CONFLICT'):support.solver_observation(bad)
+  with self.assertRaisesRegex(ValueError,'SOLVER_OBSERVATION_TYPE'):support.solver_observation({'status':'NO_PROPOSAL_IN_THIS_TOPOLOGY'})
 if __name__=='__main__':unittest.main()
+
