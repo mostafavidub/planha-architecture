@@ -1,0 +1,51 @@
+name: V25 task2.5 original evidence readback
+on:
+  push:
+    paths: ['.github/workflows/v25-runtime-evidence-readback.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  readback:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-original-runtime-task-2-5
+          run-id: 44455198301
+          github-token: ${{ github.token }}
+          path: evidence-readback
+      - name: Verify original bundle and summarize complete report fields
+        run: |
+          python -B - <<'PY'
+          import json,hashlib,pathlib,sys
+          sys.path.insert(0,'app/local_integration')
+          from same_version_front_rear_contract import digest
+          files=list(pathlib.Path('evidence-readback').rglob('runtime-bundle.json'))
+          assert len(files)==1
+          p=files[0]; assert hashlib.sha256(p.read_bytes()).hexdigest()=='fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720'
+          b=json.loads(p.read_text());r=b['reports']
+          assert b['model_digest']=='67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181'
+          for k,v in r.items():assert digest(v)==b['report_digests'][k],k
+          out={'source_run':44455198301,'source_commit':'9bf9ada0a9c71b413d07573e97aed0cdce6a71cd','model_digest':b['model_digest'],'report_digests':b['report_digests'],
+           'replay':r['replay'],'physical':{k:v for k,v in r['physical'].items() if k in ('status','accepted','release','errors','pending','original_pending','not_evaluated','out_of_scope')},
+           'physical_keys':list(r['physical']),'functional':r['functional'],
+           'mutation_counts':{'reports':len(b['report_mutations']),'objects':len(b['object_mutations'])},
+           'object_integrity_verified':b['object_integrity_verified'],'accepted':False,'qualified':False,'delivery_allowed':False}
+          pathlib.Path('runtime-readback-summary.json').write_text(json.dumps(out,sort_keys=True,indent=2,ensure_ascii=False))
+          print(json.dumps(out,sort_keys=True,ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: original-runtime-readback-summary
+          path: runtime-readback-summary.json
+          retention-days: 30
