@@ -377,5 +377,12 @@
       "program": "explicit2 double+twin",
       "variant": 0
     }
+  },
+  "automatic_program_operation": {
+    "id": "V25-06-AUTOMATIC-PROGRAM-SEARCH",
+    "start_utc": "2026-11-19T02:51:01Z",
+    "deadline_utc": "2026-11-19T05:51:01Z",
+    "state": "PLANNING_SOURCE_BOUND_EXECUTION",
+    "scope": "W/L/n only; AP07 ordered program alternatives; no invented cutoff, rubric, or quality acceptance; not V25-22 restart"
   }
 }
