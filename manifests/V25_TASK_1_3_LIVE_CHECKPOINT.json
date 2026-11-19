@@ -1,0 +1,22 @@
+{
+  "task": "1.3",
+  "status": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_TESTED_VARIABLE_PROGRAM_SEARCH_OPEN",
+  "continuation_start": "2026-11-19T04:43:45Z",
+  "carryover_deadline": "2026-11-19T05:51:01Z",
+  "evidence_manifest": "manifests/V25_TASK_1_3_1_4_LIVE_CONTINUATION_EVIDENCE.json",
+  "evidence_manifest_commit": "422a1eca71a3044c297783f290f85f4c481fe4ea",
+  "tested_commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+  "run": 44460753648,
+  "job": 135346654843,
+  "tests": 49,
+  "actual_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "decision": "BLOCKED",
+  "remaining": [
+    "Only18x20/n2/programme2 live; variable dimensions and programme alternative adapters not ready",
+    "No quality winner or completed automatic search"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
