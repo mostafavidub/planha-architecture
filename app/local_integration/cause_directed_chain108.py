@@ -16,7 +16,7 @@ from cause_directed_contract108 import diagnose,freeze,bind_parent,check_child,r
 from precision_boundary208 import prepare
 def need(ok,code):
  if not ok:raise ValueError(code)
-def child(folder,nonce):
+def child(folder,nonce,request=None):
  from producer_provenance import snapshot,require_unchanged
  from program_profile_registry import lookup
  import engine114,guard400,search114,constructor127,construction_replay127,evaluate_pair127,cause_directed_candidate108
@@ -28,7 +28,10 @@ def child(folder,nonce):
   'solver_limit_per_attempt':30,'maximum_attempts':2,'attempt_count':0,'whole_dependencies':'PRIOR_FUNCTIONAL_STUDIES_PARTIAL',
   'scope':'Cause-directed resynthesis with fixed dimensions and protected state, not minimal geometric repair'}
  originals={};live={};pins={};objects={};opins={};snap=None;audited=False
+ out['stage_trace']=[]
  def save():
+  stage=out.get('stage',out['state'])
+  if not out['stage_trace'] or out['stage_trace'][-1]['stage']!=stage:out['stage_trace'].append({'stage':stage,'utc':datetime.now(timezone.utc).isoformat()})
   out['report_digests']=copy.deepcopy(pins)
   for name,value in (('reports.json',originals),('summary.json',out)):
    tmp=folder/(name+'.tmp');tmp.write_text(json.dumps(value,sort_keys=True,allow_nan=False));tmp.replace(folder/name)
@@ -83,6 +86,11 @@ def child(folder,nonce):
  try:
   local=['cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','source_fit_candidate207.py','source_fit_profile207.py','precision_boundary208.py','public_wln_contract.py','dimension_contract.py','core_choice_pair_study.py','protected_repair_contract.py','explicit_pair_redirection.py','front_rear_runtime_adapter.py','same_version_front_rear_contract.py','program_profile_registry.py','guest_route_certificate_study.py','current_programme_evaluator.py','source_guest_route_evaluator.py','source_living_evaluator.py','source_wall_function_evaluator.py']
   paths=['app/local_integration/'+n for n in local]+['app/reconstruction357/planha_general150_runtime_work/'+n for n in('search114.py','constructor127.py','construction_replay127.py','evaluate_pair127.py','checker114.py','typed_public_access120.py','public_program_audit118.py')]
+  if request is not None:
+   from request_trace109 import validate_request
+   validate_request(request,digest(request));pin('http_request',request)
+   paths+=['app/local_integration/'+n for n in ('request_trace109.py','request_trace_server109.py','repair_attempt_control.py')]
+   out.update(request_digest=digest(request),request_account_id=request['account_id'],request_source_digest=digest(request['source_snapshot']),request_mode='PARENT_ONLY')
   snap=snapshot(ROOT,paths)
   need(engine114.revision()==ENGINE_REVISION and guard400.guard(FREEZE)==12991,'ENGINE_GUARD')
   for mod,names in ((search114,('propose',)),(constructor127,('build','context')),(construction_replay127,('verify',)),(evaluate_pair127,('evaluate',))):
@@ -90,7 +98,7 @@ def child(folder,nonce):
   for mod,names in ((cause_directed_candidate108,('propose',)),(cause_directed_contract108,('diagnose','freeze','bind_parent','check_child')),(current_programme_evaluator,('assess',)),(source_guest_route_evaluator,('assess',)),(source_living_evaluator,('assess',)),(source_wall_function_evaluator,('assess',))):
    for name in names:need(Path(inspect.getsourcefile(getattr(mod,name))).resolve()==ROOT/'app/local_integration'/(mod.__name__+'.py'),'LOCAL_IMPORT')
   source_fit_profile207.source_check();audited=True
-  raw=prepare(b'{"W":"18","L":"22","n":2}')['raw'];profile=lookup('PROGRAM_2BED_V1');bind_profile(profile)
+  raw=prepare(bytes.fromhex(request['body_hex'])if request is not None else b'{"W":"18","L":"22","n":2}')['raw'];profile=lookup('PROGRAM_2BED_V1');bind_profile(profile)
   core,_=selected_core(raw,'FRONT_REAR_COMPACT118')
   for k,v in (('raw',raw),('profile',profile),('core',core)):pin(k,v)
   out.update(raw_digest=digest(raw),profile_digest=digest(profile),core_digest=digest(core),source_digest=digest(snap),stage='PARENT_PROPOSAL',attempt_count=1);save()
@@ -103,6 +111,7 @@ def child(folder,nonce):
   out['selected_causes']=cause['selected_causes']
   out['parent_cause_rows']=[{k:r[k]for k in('unit','cause','established')}for r in cause['rows']];save()
   if not cause['selected_causes']:out.update(state='BLOCKED_NO_SUPPORTED_CAUSE',completed=True);return
+  if request is not None:out.update(state='BLOCKED_REPAIR_CONTROLLER_ADAPTER',completed=True);return
   contract=freeze(raw,pp,pc,ps,pr,cause,snap,nonce);pin('parent_contract',contract);retain('parent_contract',contract)
   rejected=0
   for field in('rectangle_dimensions','enabled_causes','run_nonce','protected'):
@@ -136,6 +145,10 @@ def child(folder,nonce):
   except Exception as ex:out.update(state='INTEGRITY_ERROR',completed=False,integrity_verified=False,cause_repair_verified=False,protected_verified=False,integrity_error_type=type(ex).__name__)
   out.update(original_reports_retained_job_temporarily=True,durable_archive_created=False);save()
 def main():
+ if len(sys.argv)==5 and sys.argv[1]=='--request-child':
+  from request_trace109 import validate_request
+  request=json.loads(Path(sys.argv[3]).read_text());validate_request(request,sys.argv[4])
+  child(sys.argv[2],request['nonce'],request);return
  if len(sys.argv)==4 and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3]);return
  need(len(sys.argv)==1,'NO_EXTRA_STUDY_MODES')
  budget=min(480,(datetime(2026,11,19,15,40,2,tzinfo=timezone.utc)-datetime.now(timezone.utc)).total_seconds()-5);need(budget>0,'TASK_TIMEBOX_EXPIRED')
