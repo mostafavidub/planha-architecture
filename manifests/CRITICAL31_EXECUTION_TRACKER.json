@@ -61,7 +61,14 @@
         "input_audit": 5,
         "total": 43
       },
-      "remaining": "No public UI/API hookup or automatic generation; verify_public(original bytes,envelope) required at integration"
+      "remaining": "No public UI/API hookup or automatic generation; verify_public(original bytes,envelope) required at integration",
+      "remaining_at_original_checkpoint": "No public UI/API hookup or automatic generation; verify_public(original bytes,envelope) required at integration",
+      "later_evidence": {
+        "tasks": [
+          "1.6"
+        ],
+        "interpretation": "verify_public original-byte binding now used by selected loopback UI/API; no public deployment or general geometry."
+      }
     },
     {
       "id": "1.2",
@@ -85,7 +92,14 @@
         "previous_input": 43,
         "total": 54
       },
-      "remaining": "whole bundle functionality and calibrated quality not verified; one-bedroom adapter not audited; no orchestrator linkage"
+      "remaining": "whole bundle functionality and calibrated quality not verified; one-bedroom adapter not audited; no orchestrator linkage",
+      "remaining_at_original_checkpoint": "whole bundle functionality and calibrated quality not verified; one-bedroom adapter not audited; no orchestrator linkage",
+      "later_evidence": {
+        "tasks": [
+          "1.3"
+        ],
+        "interpretation": "Registry linked in selected-case scheduler; one-bedroom readiness and whole-bundle suitability remain open."
+      }
     },
     {
       "id": "1.3",
@@ -113,7 +127,14 @@
       "live_continuation_start_utc": "2026-11-19T04:43:45Z",
       "checkpoint_state": "STOPPED_TIMEBOX_PARTIAL",
       "active_execution": false,
-      "checkpoint_note": "Original carried deadline05:51:01 elapsed; partial single-case evidence retained. No restart, renamed operation or deadline reset. Core/split/optional merge alternatives and multiple-programme/dimension coverage remain incomplete."
+      "checkpoint_note": "Original carried deadline05:51:01 elapsed; partial single-case evidence retained. No restart, renamed operation or deadline reset. Core/split/optional merge alternatives and multiple-programme/dimension coverage remain incomplete.",
+      "remaining_at_original_checkpoint": "Live18x20/n2 single-contract attempt only; multi-programme/dimension search, quality and publicAPI not complete.",
+      "later_evidence": {
+        "tasks": [
+          "1.6"
+        ],
+        "interpretation": "Selected-case loopback public-contract UI connected; stopped automatic multi-programme/dimension scope remains incomplete."
+      }
     },
     {
       "id": "1.4",
@@ -209,7 +230,14 @@
         "previous": 54,
         "total": 63
       },
-      "remaining": "No solver/model/replay/evaluator execution in task; runtime compatibility and fresh gates remain tasks2.3/2.5"
+      "remaining": "No solver/model/replay/evaluator execution in task; runtime compatibility and fresh gates remain tasks2.3/2.5",
+      "remaining_at_original_checkpoint": "No solver/model/replay/evaluator execution in task; runtime compatibility and fresh gates remain tasks2.3/2.5",
+      "later_evidence": {
+        "tasks": [
+          "2.5"
+        ],
+        "interpretation": "Original producer/replay/evaluator actually exercised on selected18x20 case; not general compatibility."
+      }
     },
     {
       "id": "2.2",
@@ -277,7 +305,15 @@
         "previous": 99,
         "total": 118
       },
-      "remaining": "No real model/solver/original replay run; full live chain and hard process timeout remain2.5."
+      "remaining": "No real model/solver/original replay run; full live chain and hard process timeout remain2.5.",
+      "remaining_at_original_checkpoint": "No real model/solver/original replay run; full live chain and hard process timeout remain2.5.",
+      "later_evidence": {
+        "tasks": [
+          "2.5",
+          "4.3"
+        ],
+        "interpretation": "Later real parent and fresh child chains ran; original2.4 tests remain synthetic, not relabelled."
+      }
     },
     {
       "id": "2.5",
@@ -303,7 +339,15 @@
       ],
       "physical_pending": 6,
       "current_unknown": 4,
-      "remaining": "Actual model rejected; guest dining routes absent A/B. Orchestrator linkage1.3 and actual alternative order1.4 remain, no product acceptance."
+      "remaining": "Actual model rejected; guest dining routes absent A/B. Orchestrator linkage1.3 and actual alternative order1.4 remain, no product acceptance.",
+      "remaining_at_original_checkpoint": "Actual model rejected; guest dining routes absent A/B. Orchestrator linkage1.3 and actual alternative order1.4 remain, no product acceptance.",
+      "later_evidence": {
+        "tasks": [
+          "1.3",
+          "4.3"
+        ],
+        "interpretation": "Selected live scheduler subsequently ran; separate fresh child physical scopedPASS, parent FAIL unchanged."
+      }
     },
     {
       "id": "3.1",
@@ -450,7 +494,14 @@
         "actual_bound_assessments": 4
       },
       "actual_decision": "BLOCKED",
-      "remaining": "Four UNKNOWN and original physical FAIL/pending retained. No fresh generation, product qualification or automatic/public integration in this task."
+      "remaining": "Four UNKNOWN and original physical FAIL/pending retained. No fresh generation, product qualification or automatic/public integration in this task.",
+      "remaining_at_original_checkpoint": "Four UNKNOWN and original physical FAIL/pending retained. No fresh generation, product qualification or automatic/public integration in this task.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "All four assessments and decision reran on child; four UNKNOWN and qualification blocked."
+      }
     },
     {
       "id": "4.1",
@@ -470,7 +521,14 @@
       "run": 44464386479,
       "tests": "8 unit + 9 detached evidence negatives",
       "manifest": "manifests/V25_TASK_4_1_REJECTION_OPERATOR_EVIDENCE.json",
-      "remaining": "Fresh protected child execution and all gates in4.2/4.3; no operator execution occurred."
+      "remaining": "Fresh protected child execution and all gates in4.2/4.3; no operator execution occurred.",
+      "remaining_at_original_checkpoint": "Fresh protected child execution and all gates in4.2/4.3; no operator execution occurred.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "Selected operator subsequently executed in4.3, not inside4.1."
+      }
     },
     {
       "id": "4.2",
@@ -489,7 +547,14 @@
       "tested_commit": "1b64374a7edbb7ced46b8a8b3ab87d7d70515d62",
       "run": 44465121269,
       "tests": "10 unit + 15 detached negative fixtures",
-      "remaining": "No child generated. Task4.3 must run fresh replay, full physical and four current gates; preservation is not validity."
+      "remaining": "No child generated. Task4.3 must run fresh replay, full physical and four current gates; preservation is not validity.",
+      "remaining_at_original_checkpoint": "No child generated. Task4.3 must run fresh replay, full physical and four current gates; preservation is not validity.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "Fresh child073a4ea… passed typed protection then original replay/fullphysical/four current gates. Historical FRESH_CHILD_PENDING describes4.2 checkpoint only; no current fresh-child blocker."
+      }
     },
     {
       "id": "4.3",
@@ -528,7 +593,14 @@
       "tested_commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
       "run": 44467634916,
       "tests": "20 tests and controlled subprocess hard timeout; no new geometry",
-      "remaining": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence."
+      "remaining": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
+      "remaining_at_original_checkpoint": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
+      "later_evidence": {
+        "tasks": [
+          "4.5"
+        ],
+        "interpretation": "History consumption completed; new controller runtime adoption remains open under original08:43:03 deadline."
+      }
     },
     {
       "id": "4.5",
@@ -649,13 +721,16 @@
       "description_verbatim": "۵.۶. تطبیق نسخه GitHub، قواعد سند، نتایج، محدودیت‌ها و شواهد ماندگار؛ ثبت موارد باقی‌مانده. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_31_TASK_RECONCILIATION_PRODUCT_INCOMPLETE",
       "dependencies": [
         "5.5"
       ],
       "start_utc": "2026-11-19T06:19:28Z",
       "deadline_utc": "2026-11-19T09:19:28Z",
-      "scope": "Reconcile31 statuses, later evidence vs historical checkpoints, source/document scope, durable manifests and expiring artifacts; assess remaining independent authorized work."
+      "scope": "Reconcile31 statuses, later evidence vs historical checkpoints, source/document scope, durable manifests and expiring artifacts; assess remaining independent authorized work.",
+      "completed_utc": "2026-11-19T06:27:00Z",
+      "audited_base_commit": "df23a23ebf7eb662b294bf26432dc8ff3e94749c",
+      "remaining": "Product qualification, variable-dimension automatic generation, four functional criteria and positive display/DXF remain open. Independent4.4 controller adoption still eligible under original cap;1.3/1.4 remain stopped."
     }
   ],
   "prior_v25": [
@@ -694,7 +769,11 @@
       "evidence_runs": [
         44421177419
       ],
-      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست.",
+      "later_evidence": {
+        "task": "1.6",
+        "note": "Separate WLN-only loopback UI/API implemented and actual browser tested. Historical diagnostic UI remains separate; automatic multi-programme/product closure still incomplete."
+      }
     },
     {
       "id": "V25-07",
@@ -798,7 +877,11 @@
         44421177419,
         44420400051
       ],
-      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست."
+      "public_product_gap": "طبق بررسی مستقل PRD D07 توسط هماهنگ‌کننده، فرم عمومی فقط W/L/n و انتخاب برنامه خواب خودکار است. UI فعلی localhost با dropdown خواب و requested_count صرفاً ابزار آزمایشی است و با فرم نهایی تطابق ندارد؛ جداسازی diagnostic از public و انتخاب خودکار برنامه هنوز اجرا نشده. آزمون Chromium موجود تأیید محصول عمومی نیست.",
+      "later_evidence": {
+        "task": "1.6",
+        "note": "Separate WLN-only loopback UI/API implemented and actual browser tested. Historical diagnostic UI remains separate; automatic multi-programme/product closure still incomplete."
+      }
     },
     {
       "id": "V25-21",

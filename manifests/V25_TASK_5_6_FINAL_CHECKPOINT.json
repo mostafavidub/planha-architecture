@@ -1,0 +1,702 @@
+{
+  "schema": "CRITICAL31_FINAL_CHECKPOINT_V1",
+  "task": "5.6",
+  "status": "DONE_SCOPED_31_TASK_RECONCILIATION_PRODUCT_INCOMPLETE",
+  "start_utc": "2026-11-19T06:19:28Z",
+  "deadline_utc": "2026-11-19T09:19:28Z",
+  "completed_utc": "2026-11-19T06:27:00Z",
+  "audited_base_commit": "df23a23ebf7eb662b294bf26432dc8ff3e94749c",
+  "scope": "Read-only evidence/manifest/tracker reconciliation, not rerun of all tests or full PRD audit.",
+  "counts": {
+    "scoped_deliverables": 21,
+    "partial": 8,
+    "timebox_stopped": 2,
+    "total": 31
+  },
+  "count_meaning": "Scoped deliverable count is not product requirements completed, test count or percentage completion.",
+  "tasks": [
+    {
+      "id": "0.1",
+      "status": "DONE_SCOPED",
+      "scope": "۰.۱. تعیین commit مبنا و تفکیک کد فعال، تاریخی و آزمایشی؛ خروجی: یک فهرست قابل استناد. ۳۰ دقیقه",
+      "evidence": {
+        "commit": null,
+        "runs": []
+      },
+      "remaining": "Completed only within stated checkpoint scope; not whole-product acceptance.",
+      "later_evidence": null
+    },
+    {
+      "id": "0.2",
+      "status": "DONE_SCOPED",
+      "scope": "۰.۲. ثبت وضعیت واقعی کارهای قبلی و وابستگی‌ها، از جمله کد نیمه‌کاره انتخاب خودکار. ۴۵ دقیقه",
+      "evidence": {
+        "commit": null,
+        "runs": []
+      },
+      "remaining": "Completed only within stated checkpoint scope; not whole-product acceptance.",
+      "later_evidence": null
+    },
+    {
+      "id": "0.3",
+      "status": "DONE_SCOPE_DEFINED_NOT_PRODUCT_ACCEPTED",
+      "scope": "۰.۳. انتخاب یک مسیر محدود برای اولین چرخه کامل و تعیین معیار قبولی آن، بدون ادعای پوشش همه زمین‌ها. ۴۵ دقیقه",
+      "evidence": {
+        "commit": null,
+        "runs": []
+      },
+      "remaining": "Completed only within stated checkpoint scope; not whole-product acceptance.",
+      "later_evidence": null
+    },
+    {
+      "id": "1.1",
+      "status": "DONE_SCOPED_PUBLIC_INPUT_CONTRACT",
+      "scope": "Dedicated public WLN parser tests; no automatic orchestrator or UI release yet",
+      "evidence": {
+        "commit": "8128cd34b5599d01072519f2ec80b91c281e607b",
+        "runs": [
+          44449120537
+        ]
+      },
+      "remaining": "No public UI/API hookup or automatic generation; verify_public(original bytes,envelope) required at integration",
+      "later_evidence": {
+        "tasks": [
+          "1.6"
+        ],
+        "interpretation": "verify_public original-byte binding now used by selected loopback UI/API; no public deployment or general geometry."
+      }
+    },
+    {
+      "id": "1.2",
+      "status": "DONE_SCOPED_SOURCE_PROGRAM_REGISTRY",
+      "scope": "Separate approved programme, source inventory and execution readiness; no planner modification or suitability claim",
+      "evidence": {
+        "commit": "622393243a2c10b9835fac5dca9a90399e406629",
+        "runs": [
+          44449675063
+        ]
+      },
+      "remaining": "whole bundle functionality and calibrated quality not verified; one-bedroom adapter not audited; no orchestrator linkage",
+      "later_evidence": {
+        "tasks": [
+          "1.3"
+        ],
+        "interpretation": "Registry linked in selected-case scheduler; one-bedroom readiness and whole-bundle suitability remain open."
+      }
+    },
+    {
+      "id": "1.3",
+      "status": "STOPPED_TIMEBOX_PARTIAL",
+      "scope": "Registry and selected same-version contract backed automatic scheduler; explicit budget/reasons/order, no fresh whole-model claim before task2.5.",
+      "evidence": {
+        "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+        "runs": [
+          44460753648
+        ]
+      },
+      "remaining": "Live18x20/n2 single-contract attempt only; multi-programme/dimension search, quality and publicAPI not complete.",
+      "later_evidence": {
+        "tasks": [
+          "1.6"
+        ],
+        "interpretation": "Selected-case loopback public-contract UI connected; stopped automatic multi-programme/dimension scope remains incomplete."
+      }
+    },
+    {
+      "id": "1.4",
+      "status": "STOPPED_TIMEBOX_PARTIAL",
+      "scope": "Explicit source-backed engineering ordering and lower-program alternative policy; no infinite exhaustive proof, no timeout infeasibility, no budget reset.",
+      "evidence": {
+        "commit": "031d4981e2371c7c3e560c7e45eb4f9c4df0730a",
+        "runs": [
+          44460753648
+        ]
+      },
+      "remaining": "Only placement actual; alternative core/split/optional merge NOT_IMPLEMENTED; one-bed adapter not ready; AP07 incomplete. No budget reset.",
+      "later_evidence": null
+    },
+    {
+      "id": "1.5",
+      "status": "PARTIAL_BOUND_EVIDENCE_COMPARISON_QUALITY_SELECTION_OPEN",
+      "scope": "Comparable source-bound evidence only, no arbitrary weights or winner when calibrated quality remains open.",
+      "evidence": {
+        "commit": "7fbf125dfef2210864ef48f1a7f422d1b876209c",
+        "runs": [
+          44461526009
+        ]
+      },
+      "remaining": "Comparable bound metrics only, not independent remeasurement or quality selection; calibrated quality floors/anchors/directions remain open, winner/Pareto null.",
+      "later_evidence": null
+    },
+    {
+      "id": "1.6",
+      "status": "DONE_SCOPED_LOOPBACK_THREE_FIELD_UI_LIVE_WIRING",
+      "scope": "Separate loopback-only three-field WLN UI/API connected to limited live scheduler, no rejected model display/download or public deployment.",
+      "evidence": {
+        "commit": "d2b063dcce0f5071ea359f4b402850df8e8ef6ca",
+        "runs": [
+          44462498782
+        ]
+      },
+      "remaining": "Only loopback18x20/n2 single-contract study, no public deployment or qualified output. Visual review two snapshots, not exhaustive browsers/lifecycle.",
+      "later_evidence": null
+    },
+    {
+      "id": "2.1",
+      "status": "DONE_CONTRACT_AND_SOURCE_API_AUDIT_ONLY",
+      "scope": "Select and audit same-version frozen FRONT_REAR producer/replay/evaluator contract for first slice; no new geometry or global acceptance",
+      "evidence": {
+        "commit": "7b5212b95cde64adc865b0db9ea7730183e7ccf2",
+        "runs": [
+          44450274916
+        ]
+      },
+      "remaining": "No solver/model/replay/evaluator execution in task; runtime compatibility and fresh gates remain tasks2.3/2.5",
+      "later_evidence": {
+        "tasks": [
+          "2.5"
+        ],
+        "interpretation": "Original producer/replay/evaluator actually exercised on selected18x20 case; not general compatibility."
+      }
+    },
+    {
+      "id": "2.2",
+      "status": "DONE_SCOPED_RULE_DATA_CHECKER_EVIDENCE_MAP",
+      "scope": "Necessary rule/data/checker/evidence/decision mapping for first slice; explicit unmapped and excluded scope.",
+      "evidence": {
+        "commit": "744f809a4d108f200f5f3bef2e6116b5ccc57e59",
+        "runs": [
+          44451972996
+        ]
+      },
+      "remaining": "Mapping only, not runtime rule satisfaction or complete PRD; 4 current static UNKNOWN and product gaps remain.",
+      "later_evidence": null
+    },
+    {
+      "id": "2.3",
+      "status": "DONE_SCOPED_SAME_MODEL_RUNTIME_INTEGRATION",
+      "scope": "Connect same-version packet/context/replay/full physical/current report with immutable exact bindings; negative fixtures2.4 then fresh execution2.5.",
+      "evidence": {
+        "commit": "8b6a33e36c89fc8cf2baeaf73501d73f5078dcf2",
+        "runs": [
+          44453562388,
+          44455198301
+        ]
+      },
+      "remaining": "Original producer/replay/physical/current bound on one fresh rejected model; not general domain or qualified design.",
+      "later_evidence": null
+    },
+    {
+      "id": "2.4",
+      "status": "PASS_LISTED_SYNTHETIC_ADVERSARIAL_CASES_NOT_LIVE_CYCLE",
+      "scope": "Adversarial exact input/programme/model/origin/report mutation; original evidence retention and fail-closed serialization; no geometric qualification.",
+      "evidence": {
+        "commit": "905472fbd5c584489f793dffe72d9a331c442af5",
+        "runs": [
+          44454050998
+        ]
+      },
+      "remaining": "No real model/solver/original replay run; full live chain and hard process timeout remain2.5.",
+      "later_evidence": {
+        "tasks": [
+          "2.5",
+          "4.3"
+        ],
+        "interpretation": "Later real parent and fresh child chains ran; original2.4 tests remain synthetic, not relabelled."
+      }
+    },
+    {
+      "id": "2.5",
+      "status": "DONE_SCOPED_REAL_CHAIN_MODEL_REJECTED",
+      "scope": "First fresh original FRONT_REAR18x20/n2/program2 live chain with outer process timeout, full unfiltered reports and exact sources.",
+      "evidence": {
+        "commit": "9bf9ada0a9c71b413d07573e97aed0cdce6a71cd",
+        "runs": [
+          44455198301
+        ]
+      },
+      "remaining": "Actual model rejected; guest dining routes absent A/B. Orchestrator linkage1.3 and actual alternative order1.4 remain, no product acceptance.",
+      "later_evidence": {
+        "tasks": [
+          "1.3",
+          "4.3"
+        ],
+        "interpretation": "Selected live scheduler subsequently ran; separate fresh child physical scopedPASS, parent FAIL unchanged."
+      }
+    },
+    {
+      "id": "3.1",
+      "status": "DONE_SOURCE_CRITERIA_CATALOG_ONLY",
+      "scope": "Extract source-backed four-current-requirement criteria/data; separate missing rule/profile from missing witness; not V25-22 geometry restart",
+      "evidence": {
+        "commit": "0c385d434d1655898218ecd20eb52b902b88ec15",
+        "runs": [
+          44451216527
+        ]
+      },
+      "remaining": "All four current criteria remain UNKNOWN; 20 proposed cases are definitions, not executed architectural tests.",
+      "later_evidence": null
+    },
+    {
+      "id": "3.2",
+      "status": "PARTIAL_SOURCE_CAPACITY_VERIFIED_QUALITY_PROFILE_OPEN",
+      "scope": "Source-backed actual programme/capacity assessment on same real model, explicit missing quality/profile; no arbitrary pass thresholds.",
+      "evidence": {
+        "commit": "19ff506ffe0a6db7dc261b992360301ccaa0cc44",
+        "runs": [
+          44456479873
+        ]
+      },
+      "remaining": "Quality anchors/ergonomic scenarios, AP07/Pareto evidence, clothing volume/full simultaneous bundle and net-capacity prefilter remain. Actual scoped capacity is not suitability.",
+      "later_evidence": null
+    },
+    {
+      "id": "3.3",
+      "status": "PARTIAL_EIGHT_SOURCE_PROFILE_ROUTES_VERIFIED_CURRENT_CLOSURE_UNKNOWN",
+      "scope": "Source-bound real guest destinations and four routes per unit against actual work/motion zones; preserve original physical FAIL and unqualified scenarios.",
+      "evidence": {
+        "commit": "9201c3a3d6a54686fb5e82681619c4e7110125c0",
+        "runs": [
+          44457232839
+        ]
+      },
+      "remaining": "First-living/principal organization, full scenarios, bottleneck/opening and ergonomic profile unclosed. New work/motion zone scenario does not replace original whole-kitchen exclusion FAIL.",
+      "later_evidence": null
+    },
+    {
+      "id": "3.4",
+      "status": "PARTIAL_EXACT_LIVING_EVIDENCE_AND_EXISTING_COMPARISON_QUALITY_OPEN",
+      "scope": "Source-bound continuous useful living/furnishing/circulation assessment; distinguish permitted access domain from living useful floor and area, preserve unproved group/quality.",
+      "evidence": {
+        "commit": "17e90e4bef41ea4ef507668e50e17c2d159a9399",
+        "runs": [
+          44457926185,
+          44458422610
+        ]
+      },
+      "remaining": "No verified useful area/coherent full group quality or shorter organization. Existing alternative improves limited connectivity but one path is longer; no quality winner.",
+      "later_evidence": null
+    },
+    {
+      "id": "3.5",
+      "status": "PARTIAL_EXACT_WALL_PROBES_FUNCTIONAL_CLOSURE_OPEN",
+      "scope": "Source-bound wall functions and alias-aware material removal/alternative evidence; not global minimality or mere source-label proof.",
+      "evidence": {
+        "commit": "fcafde6cec36a3df08bc21828d01c281c7b8a941",
+        "runs": [
+          44459297261
+        ]
+      },
+      "remaining": "Alternative placement/shorter organization, freshly rerouted access/full privacy and furnishing/useful-area consequences unproved. Material release is not useful area; boundary dependency is not necessity.",
+      "later_evidence": null
+    },
+    {
+      "id": "3.6",
+      "status": "DONE_SCOPED_FOUR_REPORT_DECISION_BINDING",
+      "scope": "Bind actual same-model four criteria and complete original physical report to fail-closed decision; preserve missing profile and no authority.",
+      "evidence": {
+        "commit": "6c47196f7bde9285256f14f0f7b4472cf5837954",
+        "runs": [
+          44460110976
+        ]
+      },
+      "remaining": "Four UNKNOWN and original physical FAIL/pending retained. No fresh generation, product qualification or automatic/public integration in this task.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "All four assessments and decision reran on child; four UNKNOWN and qualification blocked."
+      }
+    },
+    {
+      "id": "4.1",
+      "status": "DONE_SCOPED_EXISTING_OPERATOR_SELECTION_NO_EXECUTION",
+      "scope": "Bind real rejection/current decision and full preserved physical report to existing explicit_pair_redirection eligibility; no solver/child generation. Independent of task1.6 browser install.",
+      "evidence": {
+        "commit": "20a86d096203c5a5c90ef185b4730f71806dadd5",
+        "runs": [
+          44464386479
+        ]
+      },
+      "remaining": "Fresh protected child execution and all gates in4.2/4.3; no operator execution occurred.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "Selected operator subsequently executed in4.3, not inside4.1."
+      }
+    },
+    {
+      "id": "4.2",
+      "status": "DONE_SCOPED_TYPED_PROTECTION_TESTED_FRESH_CHILD_PENDING",
+      "scope": "Exact typed programme/input/profile/core and actual fixture-ID/dimension preservation plus parent lineage; no fresh child yet.",
+      "evidence": {
+        "commit": "1b64374a7edbb7ced46b8a8b3ab87d7d70515d62",
+        "runs": [
+          44465121269
+        ]
+      },
+      "remaining": "No child generated. Task4.3 must run fresh replay, full physical and four current gates; preservation is not validity.",
+      "later_evidence": {
+        "tasks": [
+          "4.3"
+        ],
+        "interpretation": "Fresh child073a4ea… passed typed protection then original replay/fullphysical/four current gates. Historical FRESH_CHILD_PENDING describes4.2 checkpoint only; no current fresh-child blocker."
+      }
+    },
+    {
+      "id": "4.3",
+      "status": "DONE_SCOPED_FRESH_REPAIR_AND_ALL_GATES_CURRENT_QUALIFICATION_BLOCKED",
+      "scope": "One existing exploratory operator plus fresh protected binding, original replay/fullphysical and four current gates; no quality approval or matrix.",
+      "evidence": {
+        "commit": "54b001d2e3b128b3dc0ecb45dae172291a37eb65",
+        "runs": [
+          44466696183
+        ]
+      },
+      "remaining": "Current UNKNOWN and historical unresolved remain; production repair registration and qualification not claimed.",
+      "later_evidence": null
+    },
+    {
+      "id": "4.4",
+      "status": "PARTIAL_CONTROLLER_AND_CONTROLLED_TIMEOUT_TESTED_RUNTIME_ADOPTION_OPEN",
+      "scope": "Shared attempt budget/no-progress control, controlled subprocess timeout and retained4.3 receipt classification; no new solver.",
+      "evidence": {
+        "commit": "9e51eb71d9d85cb41014c3c70e211582b931295e",
+        "runs": [
+          44467634916
+        ]
+      },
+      "remaining": "New controller tested independently and retained real history classified; it has not replaced original4.3 runtime timeout. Task4.5 consumes history evidence.",
+      "later_evidence": {
+        "tasks": [
+          "4.5"
+        ],
+        "interpretation": "History consumption completed; new controller runtime adoption remains open under original08:43:03 deadline."
+      }
+    },
+    {
+      "id": "4.5",
+      "status": "DONE_SCOPED_ACTUAL_HISTORY_AND_TAMPER_AUDIT_DELIVERY_BLOCKED",
+      "scope": "Bind retained actual4.3 rejection→new child→all-gates history with tamper/no-delivery tests; no repeated solver or live-controller adoption claim.",
+      "evidence": {
+        "commit": "094f298d066e5e04c169549ee84b85a1ae8bf495",
+        "runs": [
+          44468288358
+        ]
+      },
+      "remaining": "No product qualification or publicUI auto-repair integration claimed; current UNKNOWN and historical unresolved preserved.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.1",
+      "status": "DONE_SCOPED_28_CASE_PREREGISTRATION_VALIDATED_NO_GEOMETRY",
+      "scope": "Preregister input strata and expected valid/unsupported/invalid outcomes before matrix run; no expansion of timeboxed automatic search.",
+      "evidence": {
+        "commit": "8d835ca89bd954aff2de7034f7a2aa15893d19b3",
+        "runs": [
+          44469114968
+        ]
+      },
+      "remaining": "Completed only within stated checkpoint scope; not whole-product acceptance.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.2",
+      "status": "PARTIAL_ACTUAL_HTTP_MATRIX_VERIFIED_VARIABLE_GEOMETRY_UNSUPPORTED",
+      "scope": "26 real nonready HTTP POSTs; two ready canonical cases not posted again; actual1.6 supported evidence reused separately. No new solver or variable-dimension geometry coverage claim.",
+      "evidence": {
+        "commit": "8c3125f7e4ec235b50fbcf65ec94a061b51bfb1d",
+        "runs": [
+          44469980246
+        ]
+      },
+      "remaining": "Only selected18x20/n2 geometry witnessed. Other valid dimensions/unit counts unsupported; no new solver or full variable-dimension geometric coverage.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.3",
+      "status": "DONE_SCOPED_ACTUAL_CYCLE_ASSESSED_QUALIFICATION_FAILURE_RECORDED",
+      "scope": "Assessment of actual4.3 execution plus4.5 audit, no new or relabelled solver run",
+      "evidence": {
+        "commit": null,
+        "runs": [
+          44466696183,
+          44468288358
+        ]
+      },
+      "remaining": "Child physicalPASS_SCOPED but current decisionBLOCKED; no qualified product result.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.4",
+      "status": "PARTIAL_NEGATIVE_NO_DELIVERY_VERIFIED_POSITIVE_DISPLAY_DXF_BLOCKED",
+      "scope": "Negative forged public authority fields and static current form plus pinned existing real browser no-delivery. Positive display/DXF blocked, no exporter-success claim.",
+      "evidence": {
+        "commit": "8c7c09e764ac869cefc1d2e8a6a49f13faa76e82",
+        "runs": [
+          44470895702
+        ]
+      },
+      "remaining": "No qualified current candidate; no active public plan-render/DXF export route in this study server. Positive display/DXF test not executed.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.5",
+      "status": "DONE_SCOPED_QUALIFIED_COUNT_ZERO_DEFICIT_SIX_RECORDED",
+      "scope": "Exact two-hash actual inspected lineage only; zero qualified plans, deficit6, approved-set diversity not measurable. Not a global repository inventory.",
+      "evidence": {
+        "commit": null,
+        "runs": []
+      },
+      "remaining": "Completed only within stated checkpoint scope; not whole-product acceptance.",
+      "later_evidence": null
+    },
+    {
+      "id": "5.6",
+      "status": "DONE_SCOPED_31_TASK_RECONCILIATION_PRODUCT_INCOMPLETE",
+      "scope": "Reconcile31 statuses, later evidence vs historical checkpoints, source/document scope, durable manifests and expiring artifacts; assess remaining independent authorized work.",
+      "evidence": {
+        "commit": null,
+        "runs": []
+      },
+      "remaining": "Product qualification, variable-dimension automatic generation, four functional criteria and positive display/DXF remain open. Independent4.4 controller adoption still eligible under original cap;1.3/1.4 remain stopped.",
+      "later_evidence": null
+    }
+  ],
+  "manifest_inventory": [
+    {
+      "path": "manifests/V25_TASK_1_1_PUBLIC_WLN_EVIDENCE.json",
+      "git_blob_sha": "533f3798af1a81ad10d4f152092efd357e8a14f5",
+      "status_at_original_checkpoint": "COMPLETED_INPUT_CONTRACT_ONLY"
+    },
+    {
+      "path": "manifests/V25_TASK_1_2_PROGRAM_REGISTRY_EVIDENCE.json",
+      "git_blob_sha": "1849c0207e564bff6fa09774c29cbd8dfcd25404",
+      "status_at_original_checkpoint": "COMPLETED_REGISTRY_SCOPE_ONLY"
+    },
+    {
+      "path": "manifests/V25_TASK_1_3_1_4_LIVE_CONTINUATION_EVIDENCE.json",
+      "git_blob_sha": "4f27d25ac18733022b5f706fb4ebdd81d7c5b10f",
+      "status_at_original_checkpoint": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_AND_ORDER_LEDGER_TESTED_BROADER_SEARCH_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_1_3_LIVE_CHECKPOINT.json",
+      "git_blob_sha": "b7ee4316471dd265518fdd8c4b2c86de1884c159",
+      "status_at_original_checkpoint": "PARTIAL_LIVE_SINGLE_CASE_SCHEDULER_TESTED_VARIABLE_PROGRAM_SEARCH_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_1_3_SCHEDULER_FRAMEWORK_EVIDENCE.json",
+      "git_blob_sha": "73d4b16e9d19ea5679bc2baf6352d2613efbc4ae",
+      "status_at_original_checkpoint": "PARTIAL_FRAMEWORK_TESTED_LIVE_SEARCH_PENDING"
+    },
+    {
+      "path": "manifests/V25_TASK_1_4_LIVE_CHECKPOINT.json",
+      "git_blob_sha": "520733b207d25ebfdcf157c4d8d9ab57755eac08",
+      "status_at_original_checkpoint": "PARTIAL_LIVE_ORDERED_DISPOSITIONS_TESTED_AP07_ALTERNATIVE_SEARCH_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_1_4_PROGRAMME_ORDER_EVIDENCE.json",
+      "git_blob_sha": "007e0a90a66a4b85c6dc1e0e02993731148f3df3",
+      "status_at_original_checkpoint": "PARTIAL_POLICY_TESTED_RUNTIME_ORDER_PENDING"
+    },
+    {
+      "path": "manifests/V25_TASK_1_5_COMPARISON_EVIDENCE.json",
+      "git_blob_sha": "b55a75ec77fd98f9b6e5d001bd67731ce78a3a20",
+      "status_at_original_checkpoint": "COMPARABLE_SCOPED_EVIDENCE_NOT_QUALITY_RANKING"
+    },
+    {
+      "path": "manifests/V25_TASK_1_6_PUBLIC_UI_EVIDENCE.json",
+      "git_blob_sha": "e877684a5003b9ce4b106fcc34892d38a77215d7",
+      "status_at_original_checkpoint": "PARTIAL_LOCAL_THREE_FIELD_UI_REAL_CHAIN_TESTED_NOT_PRODUCT_RELEASE"
+    },
+    {
+      "path": "manifests/V25_TASK_2_1_SAME_VERSION_CONTRACT_EVIDENCE.json",
+      "git_blob_sha": "6ca9b73543eac4212c425e0f01546824e1bc9c2f",
+      "status_at_original_checkpoint": "COMPLETED_CONTRACT_SELECTION_ONLY"
+    },
+    {
+      "path": "manifests/V25_TASK_2_2_RULE_MAPPING_EVIDENCE.json",
+      "git_blob_sha": "99177139c8a6ac17c01e05d2f06bb3e6f9c22c48",
+      "status_at_original_checkpoint": "MAPPING_SPECIFICATION_COMPLETED_NOT_RULES_PASSED"
+    },
+    {
+      "path": "manifests/V25_TASK_2_3_RUNTIME_WIRING_EVIDENCE.json",
+      "git_blob_sha": "484cf9a39e6efcb7dfbe0392de79b97f14e17e9a",
+      "status_at_original_checkpoint": "SCOPED_RUNTIME_WIRING_TESTED_NO_LIVE_EXECUTION"
+    },
+    {
+      "path": "manifests/V25_TASK_2_4_ADVERSARIAL_EVIDENCE.json",
+      "git_blob_sha": "7ea82bc8b2681435c93acfa63bc0234dc3892830",
+      "status_at_original_checkpoint": "SYNTHETIC_ADVERSARIAL_BINDING_TESTED_FRESH_RUN_PENDING"
+    },
+    {
+      "path": "manifests/V25_TASK_2_5_INITIAL_RUNTIME_OBSERVATION.json",
+      "git_blob_sha": "c97bf23854fd2cb9861f5fd80bfba4e0bad6fb7b",
+      "status_at_original_checkpoint": "IN_PROGRESS_OBSERVED_PROPOSAL_TRANSPORT_BLOCKER"
+    },
+    {
+      "path": "manifests/V25_TASK_2_5_ORIGINAL_RUNTIME_EVIDENCE.json",
+      "git_blob_sha": "e10fcc5f53694ba8f254b4785ea5f1c1217f4058",
+      "status_at_original_checkpoint": "ORIGINAL_RUNTIME_EXECUTED_MODEL_REJECTED"
+    },
+    {
+      "path": "manifests/V25_TASK_2_5_TRANSPORT_DIAGNOSIS.json",
+      "git_blob_sha": "bae29409986223af9f5981c8cbf6f4d22c041e5e",
+      "status_at_original_checkpoint": "INTERMEDIATE_TRANSPORT_DIAGNOSIS_AND_ADAPTER_DEFECT"
+    },
+    {
+      "path": "manifests/V25_TASK_3_1_CRITERIA_CATALOG_EVIDENCE.json",
+      "git_blob_sha": "3494563517247c19989e9094cb1c67b9acf81133",
+      "status_at_original_checkpoint": "REQUIREMENTS_CATALOG_ONLY"
+    },
+    {
+      "path": "manifests/V25_TASK_3_2_PROGRAMME_EVALUATOR_EVIDENCE.json",
+      "git_blob_sha": "8acee0b62c1e2c1f02ac81e5137e40d37abd3c57",
+      "status_at_original_checkpoint": "PARTIAL_SOURCE_CAPACITY_VERIFIED_QUALITY_PROFILE_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_3_3_SOURCE_GUEST_ROUTES_EVIDENCE.json",
+      "git_blob_sha": "bf9d458f3901a06cefe8a61881b2ca698ccec129",
+      "status_at_original_checkpoint": "PARTIAL_EIGHT_SOURCE_PROFILE_ROUTES_VERIFIED_PRD_CLOSURE_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_3_4_SOURCE_LIVING_EVIDENCE.json",
+      "git_blob_sha": "564ed09f853b493ba1e31688564cfcc2d305367a",
+      "status_at_original_checkpoint": "PARTIAL_LIVING_SOURCE_WITNESSES_TESTED_USEFUL_QUALITY_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_3_5_WALL_FUNCTION_EVIDENCE.json",
+      "git_blob_sha": "1c5b915c57fb29b126d47fe9949f8c3a4ff9ee72",
+      "status_at_original_checkpoint": "PARTIAL_EXACT_SOURCE_WALL_REMOVAL_EVIDENCE_FUNCTIONAL_NECESSITY_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_3_6_CURRENT_DECISION_EVIDENCE.json",
+      "git_blob_sha": "c2f684d40163389d50044a8c97226394288ca740",
+      "status_at_original_checkpoint": "DONE_SCOPED_SAME_MODEL_FOUR_REPORT_DECISION_BLOCKED_NOT_PRODUCT_QUALIFIED"
+    },
+    {
+      "path": "manifests/V25_TASK_4_1_REJECTION_OPERATOR_EVIDENCE.json",
+      "git_blob_sha": "bfeaac0c788d6d68060b4a66f70fd13d2f59229b",
+      "status_at_original_checkpoint": "DONE_SCOPED_OPERATOR_SELECTION_NOT_EXECUTED"
+    },
+    {
+      "path": "manifests/V25_TASK_4_2_TYPED_PROTECTION_EVIDENCE.json",
+      "git_blob_sha": "07d3bc2bfdf4e240316adc06d9d3376b6d130d21",
+      "status_at_original_checkpoint": "DONE_SCOPED_TYPED_PROTECTION_TESTED_FRESH_CHILD_PENDING"
+    },
+    {
+      "path": "manifests/V25_TASK_4_3_FRESH_REPAIR_CHAIN_EVIDENCE.json",
+      "git_blob_sha": "e059f1518ab0888c1b7c3c50a46021a7fb02f33f",
+      "status_at_original_checkpoint": "DONE_SCOPED_FRESH_REPAIR_AND_ALL_GATES_CURRENT_QUALIFICATION_BLOCKED"
+    },
+    {
+      "path": "manifests/V25_TASK_4_4_REPAIR_BUDGET_EVIDENCE.json",
+      "git_blob_sha": "bcb4d1b32bfc3a459950f0c90fcd4a8045159fe5",
+      "status_at_original_checkpoint": "PARTIAL_CONTROLLER_AND_CONTROLLED_TIMEOUT_TESTED_RUNTIME_ADOPTION_OPEN"
+    },
+    {
+      "path": "manifests/V25_TASK_4_5_ACTUAL_HISTORY_EVIDENCE.json",
+      "git_blob_sha": "4cc64aface2786591247872679bdafdf70aa616b",
+      "status_at_original_checkpoint": "DONE_SCOPED_ACTUAL_HISTORY_AND_TAMPER_AUDIT_DELIVERY_BLOCKED"
+    },
+    {
+      "path": "manifests/V25_TASK_5_1_PREREGISTRATION_EVIDENCE.json",
+      "git_blob_sha": "9ecc2d27ef36d9226c758c6c0de10304f3c4aef9",
+      "status_at_original_checkpoint": "DONE_SCOPED_28_CASE_PREREGISTRATION_VALIDATED_NO_GEOMETRY"
+    },
+    {
+      "path": "manifests/V25_TASK_5_2_HTTP_MATRIX_EVIDENCE.json",
+      "git_blob_sha": "f693eaebf4b26dad082421c07a2c37c398182035",
+      "status_at_original_checkpoint": "PARTIAL_ACTUAL_HTTP_MATRIX_VERIFIED_VARIABLE_GEOMETRY_UNSUPPORTED"
+    },
+    {
+      "path": "manifests/V25_TASK_5_3_ACTUAL_CYCLE_ASSESSMENT.json",
+      "git_blob_sha": "028334d65a320a996a03ad50d5e40ea05c0a697f",
+      "status_at_original_checkpoint": "DONE_SCOPED_ACTUAL_CYCLE_ASSESSED_QUALIFICATION_FAILURE_RECORDED"
+    },
+    {
+      "path": "manifests/V25_TASK_5_4_PUBLIC_DELIVERY_EVIDENCE.json",
+      "git_blob_sha": "f01389f0066d3ae363975b7c59e9a7e48fe7934e",
+      "status_at_original_checkpoint": "PARTIAL_NEGATIVE_NO_DELIVERY_VERIFIED_POSITIVE_DISPLAY_DXF_BLOCKED"
+    },
+    {
+      "path": "manifests/V25_TASK_5_5_QUALIFIED_COUNTS.json",
+      "git_blob_sha": "fe4c9de552668047ffa8c229701c137b98824ac4",
+      "status_at_original_checkpoint": "DONE_SCOPED_QUALIFIED_COUNT_ZERO_DEFICIT_SIX_RECORDED"
+    }
+  ],
+  "source_checkpoint": {
+    "run": 44470895701,
+    "job": 135379808677,
+    "guard_pin_count": 12991,
+    "normalized_closure_paths": 8178,
+    "matching": 8178,
+    "missing": 0,
+    "mismatched": 0,
+    "scope": "Pinned historical closure only; not recovery of all version588 or every historical change."
+  },
+  "document_scope": {
+    "prd": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+    "blueprint": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
+    "criteria_catalog": "Task3.1 source readbacks; not newly reread whole documents in5.6",
+    "rule_map": "Task2.2 89 historical crosswalk/38 requirements; four current criteria are not whole PRD",
+    "dimensions": "Active public WLN5..25 both axes; frozen historical contract1145..45 retained, not all entrypoints updated."
+  },
+  "result": {
+    "qualified_plans": 0,
+    "requested": 6,
+    "deficit": 6,
+    "inspected_candidate_hashes": [
+      "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44"
+    ],
+    "scope": "Two-hash inspected actual lineage, not global inventory",
+    "whole_cycle_verified": false,
+    "stage303_started": false
+  },
+  "durability": {
+    "durable": "Code/specs/tests/workflows/small manifests in GitHub commits",
+    "temporary": "Full reports/models/screenshots mostly30-day Actions artifacts; detailed hashes/expiry in task manifests",
+    "expiry_month": "2026-12-19",
+    "archive_approval": "New private archive ingestion still pending; not bypassed. Previously authorized073a archive is not substitute for all current evidence.",
+    "reproduction": "Use exact tested_commit and workflow in each manifest. Dependency artifacts may expire; reproducing after expiry may require authorized preservation or new regeneration. No forever-reproducible claim.",
+    "artifact_metadata_basis": "Task-specific metadata fetched at result collection; no bulk redownload or blanket liveness claim in5.6."
+  },
+  "remaining_actions": [
+    {
+      "task": "4.4",
+      "action": "Independent versioned outer-controller adapter using unchanged bounded repair child plus controlled worker tests only; preserve historical source snapshots",
+      "deadline_utc": "2026-11-19T08:43:03Z",
+      "not_claimed": "Controlled-worker wiring is not a new live geometry run or internal variant-loop controller adoption."
+    },
+    {
+      "tasks": [
+        "1.3",
+        "1.4"
+      ],
+      "action": "Remain STOPPED_TIMEBOX_PARTIAL; no reset or renamed continuation."
+    },
+    {
+      "tasks": [
+        "3.2",
+        "3.3",
+        "3.4",
+        "3.5",
+        "1.5"
+      ],
+      "action": "Source profiles/quality and missing geometric/comparison evidence remain distinct; no fabricated threshold or UNKNOWN closure."
+    },
+    {
+      "tasks": [
+        "5.2",
+        "5.4"
+      ],
+      "action": "Variable geometry unsupported in selected contract; positive qualified rendering/DXF blocked."
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
