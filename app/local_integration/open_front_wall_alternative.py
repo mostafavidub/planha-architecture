@@ -60,8 +60,12 @@ def assess(packet,trace,baseline_packet,baseline_context):
     before_living=living(deepcopy(old));after_living=review['current_functional']['living_connectivity_study']
     if before_guests['model_digest']!=digest(old)or before_living['model_digest']!=digest(old):raise ValueError('BASELINE_DIAGNOSTIC_BINDING')
     if after_guests['model_digest']!=digest(new)or after_living['model_digest']!=digest(new):raise ValueError('ALTERNATIVE_DIAGNOSTIC_BINDING')
+    for study in (before_living,after_living):
+        if study.get('missing') or len(study.get('units',[]))!=2 or {u['unit']for u in study['units']}!={'A','B'}:
+            raise ValueError('LIVING_COMPARISON_INCOMPLETE')
     comparison=compare_routes(before_guests,after_guests)
     if digest([packet,trace,baseline_packet,baseline_context])!=bundle:raise ValueError('WALL_ALTERNATIVE_INPUT_MUTATED')
+    require_unchanged(ROOT,review['source_snapshot'])
     require_unchanged(ROOT,sources)
     return {'schema':'OPEN_FRONT_SAME_PROGRAM_WALL_ALTERNATIVE_STUDY_V1',
       'baseline_model_digest':digest(old),'model_digest':digest(new),
