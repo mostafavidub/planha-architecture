@@ -37,7 +37,7 @@ class References(unittest.TestCase):
         r=check(m);self.assertTrue(r["reference_verified"]);self.assertIn("GEOMETRIC_PLACEMENT_EQUALITY",r["not_checked"]);self.assertFalse(r["accepted"])
     def test_empty_present_inventory_is_not_complete_inventory(self):
         m=fixture();m["module_placements"]=[]
-        r=check(m);self.assertTrue(r["reference_verified"]);self.assertEqual(r["module_instances"],0);self.assertIn("MODULE_INVENTORY_COMPLETENESS",r["not_checked"])
+        r=check(m);self.assertFalse(r["reference_verified"]);self.assertTrue(any("EMPTY_MODULE_PLACEMENT_INVENTORY" in x for x in r["errors"]));self.assertIn("MODULE_INVENTORY_COMPLETENESS",r["not_checked"])
     def test_extra_map_reference_is_disclosed_not_verified(self):
         m=fixture();m["module_placements"][0]["id_map"]["invented"]="absent"
         r=check(m);self.assertTrue(r["reference_verified"]);self.assertIn("invented",r["unvalidated_id_map_keys"][0]["unvalidated_id_map_keys"]);self.assertFalse(r["qualified"])

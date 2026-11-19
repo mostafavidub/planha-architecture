@@ -39,6 +39,7 @@ def check(model):
             by[u["id"]]=u
         require(set(by)=={"A","B"},"UNIT_INVENTORY")
         require(type(model["module_placements"]) is list,"PLACEMENT_LIST")
+        require(bool(model["module_placements"]),"EMPTY_MODULE_PLACEMENT_INVENTORY")
         instances=set();claimed=set();unvalidated=[]
         def bind(mapping,source,target,namespace,uid,instance):
             require(type(source) is dict and type(target) is dict,"REFERENCE_DICTIONARY")
