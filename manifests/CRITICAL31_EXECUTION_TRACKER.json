@@ -68,6 +68,11 @@
           "1.6"
         ],
         "interpretation": "verify_public original-byte binding now used by selected loopback UI/API; no public deployment or general geometry."
+      },
+      "post_audit_correction": {
+        "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+        "manifest": "manifests/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE.json",
+        "note": "Active contractV2 rejects n3/4 asINVALID_BRIEF, n1validunsupported. Historical V1 tests/HTTP/browser pins remain unchanged, not current-V2 execution proof."
       }
     },
     {
@@ -207,7 +212,12 @@
         "http_contract_and_controlled_wiring": 35,
         "actual_browser_live_request": 1
       },
-      "remaining": "Only loopback18x20/n2 single-contract study, no public deployment or qualified output. Visual review two snapshots, not exhaustive browsers/lifecycle."
+      "remaining": "Only loopback18x20/n2 single-contract study, no public deployment or qualified output. Visual review two snapshots, not exhaustive browsers/lifecycle.",
+      "post_audit_correction": {
+        "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+        "manifest": "manifests/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE.json",
+        "note": "Active contractV2 rejects n3/4 asINVALID_BRIEF, n1validunsupported. Historical V1 tests/HTTP/browser pins remain unchanged, not current-V2 execution proof."
+      }
     },
     {
       "id": "2.1",
@@ -662,7 +672,12 @@
       "completed_utc": "2026-11-19T06:01:20Z",
       "tested_commit": "8d835ca89bd954aff2de7034f7a2aa15893d19b3",
       "run": 44469114968,
-      "tests": "28 parser/preflight expectations,5 exact source blob pins; HTTP0/solver0"
+      "tests": "28 parser/preflight expectations,5 exact source blob pins; HTTP0/solver0",
+      "post_audit_correction": {
+        "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+        "manifest": "manifests/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE.json",
+        "note": "Active contractV2 rejects n3/4 asINVALID_BRIEF, n1validunsupported. Historical V1 tests/HTTP/browser pins remain unchanged, not current-V2 execution proof."
+      }
     },
     {
       "id": "5.2",
@@ -682,7 +697,12 @@
       "tested_commit": "8c3125f7e4ec235b50fbcf65ec94a061b51bfb1d",
       "run": 44469980246,
       "tests": "26 real HTTP nonready cases;2 ready cases not reexecuted; separately pinned existing1.6 actual witness",
-      "remaining": "Only selected18x20/n2 geometry witnessed. Other valid dimensions/unit counts unsupported; no new solver or full variable-dimension geometric coverage."
+      "remaining": "Only selected18x20/n2 geometry witnessed. Other valid dimensions/unit counts unsupported; no new solver or full variable-dimension geometric coverage.",
+      "post_audit_correction": {
+        "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+        "manifest": "manifests/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE.json",
+        "note": "Active contractV2 rejects n3/4 asINVALID_BRIEF, n1validunsupported. Historical V1 tests/HTTP/browser pins remain unchanged, not current-V2 execution proof."
+      }
     },
     {
       "id": "5.3",
@@ -737,7 +757,12 @@
       "start_utc": "2026-11-19T06:17:57Z",
       "deadline_utc": "2026-11-19T09:17:57Z",
       "completed_utc": "2026-11-19T06:19:28Z",
-      "scope": "Exact two-hash actual inspected lineage only; zero qualified plans, deficit6, approved-set diversity not measurable. Not a global repository inventory."
+      "scope": "Exact two-hash actual inspected lineage only; zero qualified plans, deficit6, approved-set diversity not measurable. Not a global repository inventory.",
+      "post_audit_correction": {
+        "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
+        "manifest": "manifests/POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE.json",
+        "note": "Up to6 qualified options is conditional, no forced six-output requirement; historical zero count stays valid only for its inspected checkpoint. Later4.4 adds third unqualified hash."
+      }
     },
     {
       "id": "5.6",
@@ -1015,11 +1040,16 @@
   "post_audit_corrections": [
     {
       "id": "PUBLIC_UNIT_DOMAIN_CORRIGENDUM",
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_CURRENT_V2_INPUT_HTTP_NO_DISPATCH",
       "start_utc": "2026-11-19T06:46:34Z",
       "deadline_utc": "2026-11-19T09:46:34Z",
       "source": "PRD FR-UNIT-COUNT/AC-UNIT-COUNT129744–130181; n only1,2. PRD133051–133647 up to6 qualifying alternatives, no forced fill.",
-      "scope": "New explicitly instructed defect correction, not resume/reset of stopped1.3/1.4. Historical5.1/5.2spec/results preserved."
+      "scope": "New explicitly instructed defect correction, not resume/reset of stopped1.3/1.4. Historical5.1/5.2spec/results preserved.",
+      "completed_utc": "2026-11-19T06:51:33Z",
+      "tested_commit": "f1dca1afcf6eed26fe38dcca2d82091ac6aa92ec",
+      "run": 44475204242,
+      "regression_run": 44475204475,
+      "remaining": "No fresh V2 geometry/browser run; old V1 evidence remains exact-commit historical, not transferred across changed source/envelope version."
     }
   ]
 }

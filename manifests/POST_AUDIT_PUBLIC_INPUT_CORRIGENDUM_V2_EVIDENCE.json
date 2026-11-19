@@ -1,0 +1,149 @@
+{
+  "schema": "POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2_EVIDENCE",
+  "status": "DONE_SCOPED_CURRENT_V2_INPUT_HTTP_NO_DISPATCH",
+  "start_utc": "2026-11-19T06:46:34Z",
+  "deadline_utc": "2026-11-19T09:46:34Z",
+  "completed_utc": "2026-11-19T06:51:33Z",
+  "tested_commit": "f1dca1afcf6eed26fe38dcca2d82091ac6aa92ec",
+  "run": 44475204242,
+  "job": 135393951844,
+  "tests": {
+    "target_contract_http_preflight": 58,
+    "public_dimension_input_regression": 45,
+    "overlap": "Counts overlap;22 public contract tests are included in both, do not sum as103 distinct tests.",
+    "fake_DOM_JS": "Invalid3/4:zero fetch; valid1/2:two mock fetches, not browser/backend generation"
+  },
+  "regression": {
+    "run": 44475204475,
+    "job": 135393952688,
+    "guard_before": 12991,
+    "guard_after": 12991
+  },
+  "evidence": {
+    "accepted": false,
+    "cases": [
+      {
+        "execution_ready": false,
+        "n": 1,
+        "schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+        "state": "UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT"
+      },
+      {
+        "execution_ready": true,
+        "n": 2,
+        "schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+        "state": "READY_SCOPED_CONTRACT_ONLY"
+      },
+      {
+        "code": "INVALID_BRIEF",
+        "field": "n",
+        "n": 3,
+        "status": 422
+      },
+      {
+        "code": "INVALID_BRIEF",
+        "field": "n",
+        "n": 4,
+        "status": 422
+      }
+    ],
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "new_browser_journey_executed": false,
+    "qualified": false,
+    "rule_spec": {
+      "accepted": false,
+      "deadline_utc": "2026-11-19T09:46:34Z",
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "qualified": false,
+      "rules": {
+        "dimensions_m_inclusive": [
+          5,
+          25
+        ],
+        "max_qualified_options": 6,
+        "minimum_forced_output_count": null,
+        "n1": "VALID_INPUT_UNSUPPORTED_CURRENT_ENGINE",
+        "n2": "VALID_INPUT_SELECTED18x20CASE_READY_ONLY",
+        "n3_n4": "INVALID_BRIEF_HTTP422_BEFORE_DISPATCH",
+        "public_fields": [
+          "W",
+          "L",
+          "n"
+        ],
+        "quality_gates_never_relaxed_to_fill_options": true,
+        "valid_unit_counts": [
+          1,
+          2
+        ]
+      },
+      "schema": "POST_AUDIT_PUBLIC_INPUT_CORRIGENDUM_V2",
+      "scope": "Explicit new defect correction aftercompleted1.1, not restart of stopped1.3/1.4. No solver, no generation-domain expansion, no historical frozen engine change.",
+      "source": {
+        "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+        "options_indices": [
+          133051,
+          133647
+        ],
+        "tab": "t.0",
+        "unit_count_indices": [
+          129744,
+          130181
+        ],
+        "unit_count_rule": "FR-UNIT-COUNT/AC-UNIT-COUNT",
+        "verification": "Live readback by coordinating parent; explicit correction assigned."
+      },
+      "start_utc": "2026-11-19T06:46:34Z",
+      "versioning": {
+        "active_envelope_schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+        "preserved_history": [
+          "specs/V25_TASK_5_1_WLN_MATRIX_PREREGISTRATION.json",
+          "manifests/V25_TASK_5_1_PREREGISTRATION_EVIDENCE.json",
+          "manifests/V25_TASK_5_2_HTTP_MATRIX_EVIDENCE.json",
+          "manifests/V25_TASK_5_5_QUALIFIED_COUNTS.json"
+        ],
+        "previous_n3_classification": "Incorrect valid-but-unsupported relative to current PRD; historical test expectations/results are preserved as historical, not silently corrected.",
+        "replaced_schema": "V25_PUBLIC_WLN_CONTRACT_V1",
+        "source_compatibility": "Old source snapshots and envelope digests do not authorize currentV2 execution; reproduce historic evidence at exact commit. No blind source-pin regeneration, no transferred old browser/current-source compatibility.",
+        "wire_change": "V2 schema changes valid envelope digest too; old envelope rejected explicitly. Geometry rules5..25 and3fields unchanged."
+      },
+      "workflow_trigger_audit": {
+        "current_validation": "Targeted current contract/preflight/real HTTP negatives and fake-DOM JS handler; no solver/browser installation.",
+        "expensive_UI": "v25-public-wln-ui.yml changed to manual-only exact d2b063dcce0f5071ea359f4b402850df8e8ef6ca historical reproduction; no currentV2 browser claim.",
+        "files_inspected": 82,
+        "unchanged": "Current public-contract guard/regression and broad bounded input/mechanics checks remain enabled; no historical expectation pins rewritten."
+      }
+    },
+    "schema": "V25_PUBLIC_WLN_CONTRACT_V2",
+    "solver_executed": false,
+    "source_sha256": {
+      "app/local_integration/public_wln.html": "14d8fe0a64044d667e1946b41841985d95a2f977e8178f91703d1456bc2c8474",
+      "app/local_integration/public_wln.js": "49235558e911f9dc48cb290eb8099f446c68b3e89d9242bd67f19997fc96421e",
+      "app/local_integration/public_wln_contract.py": "b7c6802810d43903e022d1da3e48cd54293103ee6dd409cbed3d69bbfb8d1369"
+    }
+  },
+  "artifact": {
+    "id": 14506675074,
+    "sha256": "740cf69177dfd0cc3c074ae9fd0e04b08a2f3bca43fde23e5688c64b7590fdd1",
+    "expires_at": "2026-12-19T06:51:33Z"
+  },
+  "historical_scope": [
+    "Task5.1/5.2 preregistered V1 n3valid-unsupported expectation was inconsistent with currentPRD. Files/pins/results preserved with explicit corrigendum, not called correctcurrent behavior.",
+    "Task1.6 old browser assets are not currentV2 assets; historical workflow is manual and exact-commitd2b063dcce0f5071ea359f4b402850df8e8ef6ca.",
+    "V2 changes schema and envelope digest; old V1 receipts must not be silently relabelled. Historical chain reproduction uses exact previous commit.",
+    "Current V2 preflight18x20/n2ready is not a newly executed geometric chain. Frozen engine and guards unchanged.",
+    "The requested maximum is up to6 qualified plans, not compulsory filling; qualification/profile unknowns cannot be waived.",
+    "Stopped1.3/1.4 not resumed; this is explicitly authorized new defect correction."
+  ],
+  "reproduction": {
+    "workflow": ".github/workflows/v25-unit-domain-correction.yml",
+    "commit": "f1dca1afcf6eed26fe38dcca2d82091ac6aa92ec",
+    "solver": false,
+    "artifact_dependency": false
+  },
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
