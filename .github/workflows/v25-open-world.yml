@@ -68,6 +68,7 @@ jobs:
           from open_front_placement_check import check_module_placements
           assert Path(inspect.getsourcefile(check_module_placements)).resolve()==(root/'app/local_integration/open_front_placement_check.py').resolve()
           placement=check_module_placements(m)
+          assert placement['status']=='PASS_PLACEMENT_SCOPED' and not placement['errors'] and not placement['pending'],placement
           placement_negatives=[]
           for case in ('fixture','aperture','apron','duplicate','port'):
               changed=deepcopy(m);rec=next(r for r in changed['module_placements']if r['unit_id']=='A'and r['room_id']=='kitchen')
@@ -87,6 +88,7 @@ jobs:
           walls={k:rect(q)for k,q in m['walls'].items()}
           fixtures=[(u['id'],k,rect(q))for u in m['units']for k,q in u['fixtures'].items()]
           oe,op=check_operations(m,owners,walls,fixtures)
+          assert not oe and not op,(oe,op)
           operation_study={'errors':oe,'pending':op,'scope':'Fresh operation components only, mandatory placement and whole checks remain separate','whole_model_pass':False}
           arch_negatives=[]
           for case in ('module_hash','opening_rect','hardware','module_type'):
@@ -114,6 +116,7 @@ jobs:
           assert digest(check_operations(old,oldowners,oldwalls,oldfixtures))==digest(historical_operations(old,oldowners,oldwalls,oldfixtures))
           legacy_adapter_equivalence={'placement':True,'operations':True,'scope':'Exact output comparison on this actual verified legacy baseline, not all possible inputs'}
           boundary=boundary_assess(packet,trace,baseline_packet,baseline_context)
+          assert boundary['status']=='PASS_CLOSET_BOUNDARY_AND_COMPARISON_SCOPED' and not boundary['errors'] and not boundary['pending'],boundary
           boundary_negative=[]
           for case in ('baseline_mutation','different_proposal'):
               bp=deepcopy(baseline_packet);bc=deepcopy(baseline_context)
@@ -124,6 +127,7 @@ jobs:
               else:raise AssertionError('BASELINE_BINDING_BYPASS:'+case)
           from open_front_raw_physical import assess as raw_physical_assess
           raw_physical=raw_physical_assess(m)
+          assert raw_physical['status']=='NOT_EVALUATED' and not raw_physical['errors'] and raw_physical['pending']==['VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED'],raw_physical
           assert raw_physical['whole_physical_verified'] is False and raw_physical['eligible_for_draft_export'] is False
           raw_negatives=[]
           for case in ('outside_domain','fixture_collision','common_endpoint'):
