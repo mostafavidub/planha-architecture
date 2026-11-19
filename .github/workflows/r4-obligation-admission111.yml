@@ -5,6 +5,8 @@ on:
     paths:
       - 'app/local_integration/obligation_admission111.py'
       - 'tests/r4/test_obligation_admission111.py'
+      - 'app/local_integration/current_report_adapter111.py'
+      - 'tests/r4/test_current_report_adapter111.py'
       - '.github/workflows/r4-obligation-admission111.yml'
 permissions:
   contents: read
@@ -20,4 +22,5 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -B -m unittest discover -s tests/r4 -p test_obligation_admission111.py -v
+      - run: python -B -m unittest discover -s tests/r4 -p test_current_report_adapter111.py -v
       - run: git diff --exit-code
