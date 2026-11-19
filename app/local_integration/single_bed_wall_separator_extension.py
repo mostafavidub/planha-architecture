@@ -34,6 +34,7 @@ def assess(bundle):
  from producer_provenance import snapshot,require_unchanged
  snap=snapshot(ROOT,['app/local_integration/'+p for p in ('single_bed_wall_separator_extension.py','current_programme_evaluator.py','source_wall_function_evaluator.py')])
  audit=source_audit()
+ ensure(Path(inspect.getsourcefile(placed)).resolve()==ROOT/'app/local_integration/current_programme_evaluator.py','PLACED_SOURCE')
  from geometry114 import cells
  from privacy115 import rect,boundary,crosses,separator
  import construction_replay127
@@ -58,7 +59,7 @@ def assess(bundle):
    after=[q for k,q in m['walls'].items() if k!=sid];new=list(map(rect,cells(after,[])))
    checks=[]
    for t in targets:
-    for ap in apmap[t['fixture_id']]:
+    for ap in apmap[target_key(t)]:
      checks.append({'unit':t['unit'],'room':t['room'],'target_fixture_id':t['fixture_id'],'opening_id':ap['id'],
       'before_sufficient_separator':any(separator(rect(ap['rect']),rect(t['rect']),w) for w in old),
       'after_sufficient_separator':any(separator(rect(ap['rect']),rect(t['rect']),w) for w in new),

@@ -51,11 +51,11 @@ jobs:
            else:raise AssertionError(kind)
           out=assess(b);out['detached_binding_negatives']=tested
           pathlib.Path('single-bed-wall-extension.json').write_text(json.dumps(out,sort_keys=True,indent=2))
+          print(json.dumps({k:v for k,v in out.items() if k not in ('probes','original_physical_report')},sort_keys=True))
           assert out['integrity_verified'] is True and not out.get('error')
           assert out['state']=='UNKNOWN' and out['counts']['single_bed_targets']==4 and out['counts']['separator_pairs']>0
           assert out['original_physical_digest']=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
           assert digest(out['original_physical_report'])==out['original_physical_digest']
-          print(json.dumps({k:v for k,v in out.items() if k not in ('probes','original_physical_report')},sort_keys=True))
           PY
       - run: git diff --exit-code
         if: always()
