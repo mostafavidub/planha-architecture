@@ -1,0 +1,94 @@
+{
+  "task": "2.2",
+  "started_at": "2026-11-19T03:27:58Z",
+  "deadline": "2026-11-19T06:27:58Z",
+  "completed_ci_at": "2026-11-19T03:31:08Z",
+  "status": "MAPPING_SPECIFICATION_COMPLETED_NOT_RULES_PASSED",
+  "tested_commit": "744f809a4d108f200f5f3bef2e6116b5ccc57e59",
+  "run_id": 44451972996,
+  "job_id": 135317851551,
+  "ci": "SUCCESS_STRUCTURAL_ONLY",
+  "counts": {
+    "historical_registry": 89,
+    "historical_requirements": 38,
+    "current_static_unknowns": 4
+  },
+  "spec": "specs/V25_TASK_2_2_FRONT_REAR_RULE_EVIDENCE_MAP.json",
+  "unmapped": {
+    "product_stage_requirements": [
+      "export_parity",
+      "immutable_history",
+      "owner_access",
+      "llm_budget",
+      "per_option_rule_report",
+      "claim_boundary_display"
+    ],
+    "named_missing_in_selected_chain": [
+      "geometric_diversity"
+    ],
+    "registry_without_named_subconditions": [
+      "H14",
+      "Q02",
+      "Q09",
+      "Q10",
+      "Q13",
+      "IR-P01",
+      "IR-P05",
+      "IR-P06",
+      "IR-P07",
+      "IR-P08",
+      "IR-P14",
+      "IR-P17",
+      "IR-P20",
+      "IR-P22",
+      "IR-P25",
+      "IR-P26",
+      "IR-P27",
+      "IR-P28",
+      "IR-P29",
+      "IR-P31",
+      "IR-P32",
+      "IR-P33",
+      "IR-P34",
+      "IR-P35",
+      "IR-P36",
+      "IR-P37",
+      "IR-P38",
+      "IR-P40",
+      "IR-P41",
+      "IR-P42",
+      "IR-P43",
+      "IR-L01",
+      "IR-L02",
+      "IR-L03",
+      "IR-L04",
+      "IR-L05",
+      "IR-P46",
+      "IR-L06"
+    ],
+    "full_prd_coverage": "NOT_CLAIMED; 89 historical rows and four current IDs are not entire current PRD or verified product implementation.",
+    "artifact_and_product": "Owner access, persistence, rendered warnings, export parity, cumulative spending and all-pair diversity need separate end-to-end evidence."
+  },
+  "independent_review": {
+    "reviewer": "geometry_review",
+    "scope": "Read-only semantic scope, not all callback runtime binding",
+    "resolved": [
+      "Distinct diagnostic causes retained",
+      "External public input restriction distinguished from internally derived programme"
+    ]
+  },
+  "known_conflicts": [
+    "Frozen5..45 versus current5..25",
+    "scope117 moved quality unknown must not become final acceptance",
+    "Four current criteria hardcoded UNKNOWN; partial diagnostics are not final checks",
+    "Product-stage obligations not run in concept_internal"
+  ],
+  "reproduce": ".github/workflows/v25-rule-mapping.yml at tested commit; pinned contract JSON hash validated, source functions not invoked",
+  "fresh_models": 0,
+  "checker_executed": false,
+  "product_assessment_executed": false,
+  "engine_or_gate_or_orchestrator_modified": false,
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
