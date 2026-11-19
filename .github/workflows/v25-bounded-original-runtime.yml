@@ -20,6 +20,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Exact transport and adversarial regression
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_front_rear_numeric_transport test_front_rear_runtime_adversarial test_front_rear_runtime_wiring
       - name: Original runtime with independent hard kill and wait
         env:
           PYTHONPATH: app/local_integration
