@@ -472,13 +472,18 @@
       "description_verbatim": "۴.۲. حفظ ورودی، تعداد واحد، برنامه، ظرفیت و تجهیزات لازم و ثبت رابطه طرح قبلی و جدید. ۹۰ دقیقه",
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_TYPED_PROTECTION_TESTED_FRESH_CHILD_PENDING",
       "dependencies": [
         "4.1"
       ],
       "start_utc": "2026-11-19T05:21:18Z",
       "deadline_utc": "2026-11-19T08:21:18Z",
-      "scope": "Exact typed programme/input/profile/core and actual fixture-ID/dimension preservation plus parent lineage; no fresh child yet."
+      "scope": "Exact typed programme/input/profile/core and actual fixture-ID/dimension preservation plus parent lineage; no fresh child yet.",
+      "completed_utc": "2026-11-19T05:26:32Z",
+      "tested_commit": "1b64374a7edbb7ced46b8a8b3ab87d7d70515d62",
+      "run": 44465121269,
+      "tests": "10 unit + 15 detached negative fixtures",
+      "remaining": "No child generated. Task4.3 must run fresh replay, full physical and four current gates; preservation is not validity."
     },
     {
       "id": "4.3",

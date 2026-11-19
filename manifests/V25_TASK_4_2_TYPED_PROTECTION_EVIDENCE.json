@@ -1,0 +1,79 @@
+{
+  "task": "4.2",
+  "status": "DONE_SCOPED_TYPED_PROTECTION_TESTED_FRESH_CHILD_PENDING",
+  "start_utc": "2026-11-19T05:21:18Z",
+  "deadline_utc": "2026-11-19T08:21:18Z",
+  "tested_commit": "1b64374a7edbb7ced46b8a8b3ab87d7d70515d62",
+  "run": 44465121269,
+  "job": 135360925431,
+  "tests": {
+    "unit": 10,
+    "detached_actual_parent_negative": 15
+  },
+  "evidence": {
+    "accepted": false,
+    "contract_digest": "64d7700851e02fb72cc9debe115783222b19671f9b37c24fa137ac9e97ee09b0",
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "fresh_child_generated": false,
+    "negative_cases": [
+      "program_type",
+      "program_lower",
+      "profile_type",
+      "core_extra",
+      "fixture_dimension",
+      "fixture_kind",
+      "source_size_type",
+      "fixture_remove",
+      "fixture_alias",
+      "duplicate_unit",
+      "input_type",
+      "authority",
+      "context_hash",
+      "contract_digest",
+      "selection_operator_source_hash"
+    ],
+    "negative_count": 15,
+    "original_physical_digest": "44d22046735ac9c83604c80025757893275ba7b43740c3c9d636bc36bcc38322",
+    "original_physical_status": "FAIL",
+    "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "pending_count": 6,
+    "positive_same_parent_only": {
+      "accepted": false,
+      "child_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "contract_digest": "64d7700851e02fb72cc9debe115783222b19671f9b37c24fa137ac9e97ee09b0",
+      "current_requirements_verified": false,
+      "delivery_allowed": false,
+      "display_allowed": false,
+      "fresh_origin_verified": false,
+      "model_changed": false,
+      "parent_model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "physical_verified": false,
+      "protected_state_verified": true,
+      "qualified": false,
+      "schema": "TYPED_REPAIR_PRESERVATION_RESULT_V1",
+      "scope": "Preservation only. No permission to skip fresh original provenance, evaluator or current four checks."
+    },
+    "qualified": false,
+    "schema": "TASK4_2_PROTECTION_EVIDENCE_V1",
+    "solver_executed": false,
+    "source_integrity_verified": true
+  },
+  "artifact": {
+    "id": 14501203935,
+    "sha256": "efe81959512d98a0ef3d6a9a84234aac5ade7f29f14e4ab53d59d85e05d14c1f",
+    "expires_at": "2026-12-19T05:26:32Z"
+  },
+  "prior_failure": {
+    "run": 44464895447,
+    "reason": "10unit passed; test harness assumed model.inputs dict while actualsource is list. Corrected negative container-type mutation; protection itself unchanged."
+  },
+  "review_fix": "Original selection five-file source snapshot must match current files before/after freeze and child-preservation verification.",
+  "scope": "Typed inputs/programme/profile/core plus actual instance IDs/kind/source size/exact rational dimensions. Geometry location may change. Not an independent provenance, activity adequacy or whole-model checker.",
+  "reproduce": "Run .github/workflows/v25-protected-repair-contract.yml at tested commit; only existing pinned artifacts, no solver.",
+  "next": "Task4.3 actual bounded child plus original fresh replay/fullphysical and four current reports. Packet/context/local/family correctness belongs to full binding and replay.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
