@@ -1,0 +1,899 @@
+{
+  "task": "3.3",
+  "start": "2026-11-19T04:11:34Z",
+  "deadline": "2026-11-19T07:11:34Z",
+  "status": "PARTIAL_EIGHT_SOURCE_PROFILE_ROUTES_VERIFIED_PRD_CLOSURE_OPEN",
+  "commit": "9201c3a3d6a54686fb5e82681619c4e7110125c0",
+  "run": 44457232839,
+  "job": 135335113090,
+  "tests": {
+    "helper": 8,
+    "wrong_model_physical_report_negative": 1
+  },
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "criterion_state": "UNKNOWN",
+  "integrity_verified": true,
+  "original_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+  "original_physical_status": "FAIL",
+  "profile": {
+    "body_m": ".7"
+  },
+  "profile_scope": "Hypothetical source body width, not ergonomic approval",
+  "units": [
+    {
+      "destination_bindings": {
+        "WC": {
+          "activity_id": "WC_use",
+          "module_hash": "a76041f89239501c3b4d6199fc2b00d53bad2aa78579f6b1013b56203663c915"
+        },
+        "dining": {
+          "module_hash": "cf41f558c69889e3309a36776ddb5285fb7b65da88e9f6c53b4e349f8f606e05",
+          "scope": "Actual post-pull standing station; vertical seated transfer still not proven",
+          "seat_id": "seat_east"
+        },
+        "living": {
+          "activity_id": "sofa1_front",
+          "fixture_id": "sofa1",
+          "source": "Actual capacity instance/access binding plus original whole-model replay"
+        }
+      },
+      "historical_guest_dining_route_present": false,
+      "kitchen_operation_digest": "644a69e029ee4e62b6e4b818f15c12a8b93961b314b2bd110924a13ff5c1006e",
+      "routes": [
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "1/4",
+            "71/4",
+            "397/40"
+          ],
+          "end": [
+            "393/40",
+            "361/50"
+          ],
+          "floor_digest": "35392806e0d03351d661a24a1528fa0374a799889b18bdd177b8b6cb41eeb487",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "entry_living",
+          "length_m": "171/200",
+          "obstacle_count": 166,
+          "obstacle_digest": "70e1082fc0e52fd40dd09d522a5299bb50eccf01642f4c7788e89c178a020c10",
+          "ownership_digest": "cace239ccc0179642029d9dc861046be572aef9d7b588bf73cdd647ba0e180b7",
+          "path": [
+            [
+              "9.825",
+              "8.075"
+            ],
+            [
+              "9.825",
+              "7.22"
+            ]
+          ],
+          "reason": null,
+          "segments": 1,
+          "start": [
+            "9.825",
+            "8.075"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "1/4",
+            "71/4",
+            "397/40"
+          ],
+          "end": [
+            "651/40",
+            "587/100"
+          ],
+          "floor_digest": "35392806e0d03351d661a24a1528fa0374a799889b18bdd177b8b6cb41eeb487",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "entry_dining",
+          "length_m": "2157/200",
+          "obstacle_count": 166,
+          "obstacle_digest": "70e1082fc0e52fd40dd09d522a5299bb50eccf01642f4c7788e89c178a020c10",
+          "ownership_digest": "cace239ccc0179642029d9dc861046be572aef9d7b588bf73cdd647ba0e180b7",
+          "path": [
+            [
+              "9.825",
+              "8.075"
+            ],
+            [
+              "9.825",
+              "8.005"
+            ],
+            [
+              "12.125",
+              "8.005"
+            ],
+            [
+              "12.125",
+              "8.125"
+            ],
+            [
+              "14.075",
+              "8.125"
+            ],
+            [
+              "14.075",
+              "8.275"
+            ],
+            [
+              "14.425",
+              "8.275"
+            ],
+            [
+              "14.425",
+              "8.37"
+            ],
+            [
+              "14.525",
+              "8.37"
+            ],
+            [
+              "14.525",
+              "8.57"
+            ],
+            [
+              "15.825",
+              "8.57"
+            ],
+            [
+              "15.825",
+              "7.67"
+            ],
+            [
+              "15.875",
+              "7.67"
+            ],
+            [
+              "15.875",
+              "7.42"
+            ],
+            [
+              "16.575",
+              "7.42"
+            ],
+            [
+              "16.575",
+              "7.32"
+            ],
+            [
+              "16.775",
+              "7.32"
+            ],
+            [
+              "16.775",
+              "5.87"
+            ],
+            [
+              "16.275",
+              "5.87"
+            ]
+          ],
+          "reason": null,
+          "segments": 18,
+          "start": [
+            "9.825",
+            "8.075"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "1/4",
+            "71/4",
+            "397/40"
+          ],
+          "end": [
+            "291/40",
+            "269/40"
+          ],
+          "floor_digest": "18bfb57bacbf4b342fb5e222286188585ab72898c245e057c0c1331d95f33387",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen",
+            "bath"
+          ],
+          "id": "entry_WC",
+          "length_m": "1711/100",
+          "obstacle_count": 174,
+          "obstacle_digest": "353c589cafc7f1e5a2b1b29ef0b1a346a7d6238bc360b019278c54ba8b514994",
+          "ownership_digest": "cace239ccc0179642029d9dc861046be572aef9d7b588bf73cdd647ba0e180b7",
+          "path": [
+            [
+              "9.825",
+              "8.075"
+            ],
+            [
+              "9.825",
+              "7.275"
+            ],
+            [
+              "13.375",
+              "7.275"
+            ],
+            [
+              "13.375",
+              "7.22"
+            ],
+            [
+              "13.475",
+              "7.22"
+            ],
+            [
+              "13.475",
+              "5.62"
+            ],
+            [
+              "8.375",
+              "5.62"
+            ],
+            [
+              "8.375",
+              "5.725"
+            ],
+            [
+              "6.275",
+              "5.725"
+            ],
+            [
+              "6.275",
+              "5.795"
+            ],
+            [
+              "6.225",
+              "5.795"
+            ],
+            [
+              "6.225",
+              "7.42"
+            ],
+            [
+              "6.275",
+              "7.42"
+            ],
+            [
+              "6.275",
+              "7.475"
+            ],
+            [
+              "6.335",
+              "7.475"
+            ],
+            [
+              "6.335",
+              "7.525"
+            ],
+            [
+              "7.075",
+              "7.525"
+            ],
+            [
+              "7.075",
+              "7.475"
+            ],
+            [
+              "7.125",
+              "7.475"
+            ],
+            [
+              "7.125",
+              "7.32"
+            ],
+            [
+              "7.195",
+              "7.32"
+            ],
+            [
+              "7.195",
+              "7.22"
+            ],
+            [
+              "7.275",
+              "7.22"
+            ],
+            [
+              "7.275",
+              "6.725"
+            ]
+          ],
+          "reason": null,
+          "segments": 23,
+          "start": [
+            "9.825",
+            "8.075"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": "Only target body intersection with own WC fixture; all remaining WC fixture material stays obstacle"
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "1/4",
+            "71/4",
+            "397/40"
+          ],
+          "end": [
+            "651/40",
+            "587/100"
+          ],
+          "floor_digest": "35392806e0d03351d661a24a1528fa0374a799889b18bdd177b8b6cb41eeb487",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "living_dining",
+          "length_m": "23/2",
+          "obstacle_count": 166,
+          "obstacle_digest": "70e1082fc0e52fd40dd09d522a5299bb50eccf01642f4c7788e89c178a020c10",
+          "ownership_digest": "cace239ccc0179642029d9dc861046be572aef9d7b588bf73cdd647ba0e180b7",
+          "path": [
+            [
+              "9.825",
+              "7.22"
+            ],
+            [
+              "9.825",
+              "7.675"
+            ],
+            [
+              "13.925",
+              "7.675"
+            ],
+            [
+              "13.925",
+              "8.125"
+            ],
+            [
+              "14.075",
+              "8.125"
+            ],
+            [
+              "14.075",
+              "8.275"
+            ],
+            [
+              "14.425",
+              "8.275"
+            ],
+            [
+              "14.425",
+              "8.37"
+            ],
+            [
+              "14.525",
+              "8.37"
+            ],
+            [
+              "14.525",
+              "8.57"
+            ],
+            [
+              "15.825",
+              "8.57"
+            ],
+            [
+              "15.825",
+              "7.67"
+            ],
+            [
+              "15.875",
+              "7.67"
+            ],
+            [
+              "15.875",
+              "7.42"
+            ],
+            [
+              "16.575",
+              "7.42"
+            ],
+            [
+              "16.575",
+              "7.32"
+            ],
+            [
+              "16.775",
+              "7.32"
+            ],
+            [
+              "16.775",
+              "5.87"
+            ],
+            [
+              "16.275",
+              "5.87"
+            ]
+          ],
+          "reason": null,
+          "segments": 18,
+          "start": [
+            "393/40",
+            "361/50"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        }
+      ],
+      "scenario": "Actual kitchen workstations and six conservative motions; open door panels; all dining chair swept/occupied and living occupied bodies",
+      "unit": "A"
+    },
+    {
+      "destination_bindings": {
+        "WC": {
+          "activity_id": "WC_use",
+          "module_hash": "a76041f89239501c3b4d6199fc2b00d53bad2aa78579f6b1013b56203663c915"
+        },
+        "dining": {
+          "module_hash": "cf41f558c69889e3309a36776ddb5285fb7b65da88e9f6c53b4e349f8f606e05",
+          "scope": "Actual post-pull standing station; vertical seated transfer still not proven",
+          "seat_id": "seat_east"
+        },
+        "living": {
+          "activity_id": "sofa1_front",
+          "fixture_id": "sofa1",
+          "source": "Actual capacity instance/access binding plus original whole-model replay"
+        }
+      },
+      "historical_guest_dining_route_present": false,
+      "kitchen_operation_digest": "4c2fc423525c7c747762a4fe7857ef2d08ce645040d874ce9e247a003c23f718",
+      "routes": [
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "403/40",
+            "71/4",
+            "79/4"
+          ],
+          "end": [
+            "393/40",
+            "639/50"
+          ],
+          "floor_digest": "f4761ce5983e1ab67322f3e42bed269d7a671070519c7081c8c31211bbfb93a0",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "entry_living",
+          "length_m": "171/200",
+          "obstacle_count": 166,
+          "obstacle_digest": "f965cf72b4cfd9232f49e4f40dff15bd8a6e8e992206089fba9a8a5069abbca3",
+          "ownership_digest": "1fe7da96cde9154335e52b46993b9896224f3b13b8ea06727adef14a5a3624a9",
+          "path": [
+            [
+              "9.825",
+              "11.925"
+            ],
+            [
+              "9.825",
+              "12.78"
+            ]
+          ],
+          "reason": null,
+          "segments": 1,
+          "start": [
+            "9.825",
+            "11.925"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "403/40",
+            "71/4",
+            "79/4"
+          ],
+          "end": [
+            "651/40",
+            "1413/100"
+          ],
+          "floor_digest": "f4761ce5983e1ab67322f3e42bed269d7a671070519c7081c8c31211bbfb93a0",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "entry_dining",
+          "length_m": "2157/200",
+          "obstacle_count": 166,
+          "obstacle_digest": "f965cf72b4cfd9232f49e4f40dff15bd8a6e8e992206089fba9a8a5069abbca3",
+          "ownership_digest": "1fe7da96cde9154335e52b46993b9896224f3b13b8ea06727adef14a5a3624a9",
+          "path": [
+            [
+              "9.825",
+              "11.925"
+            ],
+            [
+              "9.825",
+              "11.995"
+            ],
+            [
+              "12.125",
+              "11.995"
+            ],
+            [
+              "12.125",
+              "11.875"
+            ],
+            [
+              "14.075",
+              "11.875"
+            ],
+            [
+              "14.075",
+              "11.725"
+            ],
+            [
+              "14.425",
+              "11.725"
+            ],
+            [
+              "14.425",
+              "11.63"
+            ],
+            [
+              "14.525",
+              "11.63"
+            ],
+            [
+              "14.525",
+              "11.43"
+            ],
+            [
+              "15.825",
+              "11.43"
+            ],
+            [
+              "15.825",
+              "12.33"
+            ],
+            [
+              "15.875",
+              "12.33"
+            ],
+            [
+              "15.875",
+              "12.58"
+            ],
+            [
+              "16.575",
+              "12.58"
+            ],
+            [
+              "16.575",
+              "12.68"
+            ],
+            [
+              "16.775",
+              "12.68"
+            ],
+            [
+              "16.775",
+              "14.13"
+            ],
+            [
+              "16.275",
+              "14.13"
+            ]
+          ],
+          "reason": null,
+          "segments": 18,
+          "start": [
+            "9.825",
+            "11.925"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "403/40",
+            "71/4",
+            "79/4"
+          ],
+          "end": [
+            "291/40",
+            "531/40"
+          ],
+          "floor_digest": "438f5cc10c3478367c72b826fb63838945ca935d3f9d92ba1322e270fb581d32",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen",
+            "bath"
+          ],
+          "id": "entry_WC",
+          "length_m": "1711/100",
+          "obstacle_count": 174,
+          "obstacle_digest": "855f5f5fab51d6b1b7ac9af35cca2d537c75964be0e96d170b718ff664fb6ad2",
+          "ownership_digest": "1fe7da96cde9154335e52b46993b9896224f3b13b8ea06727adef14a5a3624a9",
+          "path": [
+            [
+              "9.825",
+              "11.925"
+            ],
+            [
+              "9.825",
+              "12.725"
+            ],
+            [
+              "13.375",
+              "12.725"
+            ],
+            [
+              "13.375",
+              "12.78"
+            ],
+            [
+              "13.475",
+              "12.78"
+            ],
+            [
+              "13.475",
+              "14.38"
+            ],
+            [
+              "8.375",
+              "14.38"
+            ],
+            [
+              "8.375",
+              "14.275"
+            ],
+            [
+              "6.275",
+              "14.275"
+            ],
+            [
+              "6.275",
+              "14.205"
+            ],
+            [
+              "6.225",
+              "14.205"
+            ],
+            [
+              "6.225",
+              "12.58"
+            ],
+            [
+              "6.275",
+              "12.58"
+            ],
+            [
+              "6.275",
+              "12.525"
+            ],
+            [
+              "6.335",
+              "12.525"
+            ],
+            [
+              "6.335",
+              "12.475"
+            ],
+            [
+              "7.075",
+              "12.475"
+            ],
+            [
+              "7.075",
+              "12.525"
+            ],
+            [
+              "7.125",
+              "12.525"
+            ],
+            [
+              "7.125",
+              "12.68"
+            ],
+            [
+              "7.195",
+              "12.68"
+            ],
+            [
+              "7.195",
+              "12.78"
+            ],
+            [
+              "7.275",
+              "12.78"
+            ],
+            [
+              "7.275",
+              "13.275"
+            ]
+          ],
+          "reason": null,
+          "segments": 23,
+          "start": [
+            "9.825",
+            "11.925"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": "Only target body intersection with own WC fixture; all remaining WC fixture material stays obstacle"
+        },
+        {
+          "body_m": "7/10",
+          "domain_box": [
+            "1/4",
+            "403/40",
+            "71/4",
+            "79/4"
+          ],
+          "end": [
+            "651/40",
+            "1413/100"
+          ],
+          "floor_digest": "f4761ce5983e1ab67322f3e42bed269d7a671070519c7081c8c31211bbfb93a0",
+          "floor_roles": [
+            "living",
+            "entry_circulation",
+            "dining",
+            "kitchen"
+          ],
+          "id": "living_dining",
+          "length_m": "23/2",
+          "obstacle_count": 166,
+          "obstacle_digest": "f965cf72b4cfd9232f49e4f40dff15bd8a6e8e992206089fba9a8a5069abbca3",
+          "ownership_digest": "1fe7da96cde9154335e52b46993b9896224f3b13b8ea06727adef14a5a3624a9",
+          "path": [
+            [
+              "9.825",
+              "12.78"
+            ],
+            [
+              "9.825",
+              "12.325"
+            ],
+            [
+              "13.925",
+              "12.325"
+            ],
+            [
+              "13.925",
+              "11.875"
+            ],
+            [
+              "14.075",
+              "11.875"
+            ],
+            [
+              "14.075",
+              "11.725"
+            ],
+            [
+              "14.425",
+              "11.725"
+            ],
+            [
+              "14.425",
+              "11.63"
+            ],
+            [
+              "14.525",
+              "11.63"
+            ],
+            [
+              "14.525",
+              "11.43"
+            ],
+            [
+              "15.825",
+              "11.43"
+            ],
+            [
+              "15.825",
+              "12.33"
+            ],
+            [
+              "15.875",
+              "12.33"
+            ],
+            [
+              "15.875",
+              "12.58"
+            ],
+            [
+              "16.575",
+              "12.58"
+            ],
+            [
+              "16.575",
+              "12.68"
+            ],
+            [
+              "16.775",
+              "12.68"
+            ],
+            [
+              "16.775",
+              "14.13"
+            ],
+            [
+              "16.275",
+              "14.13"
+            ]
+          ],
+          "reason": null,
+          "segments": 18,
+          "start": [
+            "393/40",
+            "639/50"
+          ],
+          "state": "PASS_SOURCE_PROFILE_ROUTE_ONLY",
+          "wc_exception": null
+        }
+      ],
+      "scenario": "Actual kitchen workstations and six conservative motions; open door panels; all dining chair swept/occupied and living occupied bodies",
+      "unit": "B"
+    }
+  ],
+  "remaining": [
+    "First-living/principal organisation unproved",
+    "Complete door/chair simultaneous scenario coverage unproved",
+    "Opening/bottleneck classification unproved",
+    "Conservative no-witness is not global infeasibility",
+    "This actual-work-area profile differs from historical whole-kitchen-floor exclusion; it does not overwrite that FAIL"
+  ],
+  "artifact": {
+    "id": 14497674305,
+    "zip_sha256": "a0536f1c868196f2081fa666288b74d82963435cd5d9c690098a3d77325ed804",
+    "expiry": "2026-12-19T04:17:28Z",
+    "input_artifact": 14497880207,
+    "input_run": 44455198301
+  },
+  "reproduce": ".github/workflows/v25-source-guest-routes.yml at pinned commit; requires original input artifact while retained. Regeneration after expiry is new evidence, not old-run recovery.",
+  "intermediate_defect": {
+    "commit": "c95f3095486d04415575a1307e951612c7068380",
+    "run": 44457089275,
+    "error": "ROUTER_SOURCE",
+    "cause": "New evaluator assumed definition in geometry114.py, while pinned source aliases fast_route120.py; corrected actual callable binding. No geometry/evaluator relaxation."
+  },
+  "limitations": [
+    "Fresh paths are standalone witnesses and are not installed into original model",
+    "No change to frozen gate or original physical FAIL",
+    "Long route existence does not establish programme quality or principal first-living organisation",
+    "WC own-fixture exemption only actual destination body; all remaining material remains obstacle",
+    "Actual public bathroom apron included for all four routes; bath interior only WC",
+    "No blanket kitchen-floor exclusion; actual equipment/activity/motions remain obstacles"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
