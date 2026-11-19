@@ -1,5 +1,6 @@
 import copy,json,sys,tempfile,unittest
 from pathlib import Path
+from datetime import datetime as RealDatetime, timezone
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'app/local_integration'))
 import report_lifecycle112 as l
@@ -36,7 +37,13 @@ def write(root,summary,reports):
     (root/'reports.json').write_text(json.dumps(reports))
 def consume(root,r,h,account):
     return l.consume(root,r,h,{'returncode':0,'wait_completed':True,'timed_out':False},account,t.digest(account))
+class SyntheticClock(RealDatetime):
+    @classmethod
+    def now(cls,tz=None):return cls(2026,11,19,13,0,0,tzinfo=timezone.utc)
 class LifecycleTests(unittest.TestCase):
+    def setUp(self):
+        clock=patch.object(t,'datetime',SyntheticClock);clock.start();self.addCleanup(clock.stop)
+        process=patch('subprocess.Popen',side_effect=AssertionError('SYNTHETIC_NO_PROCESS'));process.start();self.addCleanup(process.stop)
     def test_same_lifecycle_fullraw_consumed_then_cleanup(self):
         r,h,o,reports,account=fixture()
         with tempfile.TemporaryDirectory() as d:

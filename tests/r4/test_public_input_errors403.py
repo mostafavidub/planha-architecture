@@ -70,5 +70,6 @@ class HTTP(unittest.TestCase):
   with patch.object(P,'run_live',side_effect=AssertionError('NO_WORKER'))as p,patch.object(trace,'make_request',side_effect=AssertionError('NO_WORKER'))as t:
    for m,s,thread in self.servers:
     status,out=self.post(s,b'{"W":"5","L":"5","n":"1"}');self.assertEqual(status,409);self.assertNotEqual(out.get('schema'),D.SCHEMA)
+    self.assertTrue(out.get('input_valid'));self.assertEqual(out.get('scope'),'VALID_UNSUPPORTED_CAPABILITY')if m is T else None
    p.assert_not_called();t.assert_not_called()
 if __name__=='__main__':unittest.main()

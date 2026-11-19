@@ -59,6 +59,10 @@ def parse_public_errors(body):
  finally:
   if guard()!=pin:raise ValueError('ERROR_SET_SOURCE_CHANGED')
 def response(error):
+ if not isinstance(error,ErrorSet):
+  # Downstream valid-but-unsupported capability errors are not field errors.
+  return {'code':error.code,'field':error.field,'generation_started':False,
+   **({'input_valid':True,'scope':'VALID_UNSUPPORTED_CAPABILITY'}if error.code=='UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT'and error.status==409 else{}),**{k:False for k in AUTH}}
  errors=getattr(error,'errors',[row(error)])
  return {'schema':SCHEMA,'acceptance_contract':v3.SCHEMA,'code':error.code,'field':error.field,
   'primary_status':error.status,'errors':errors,'error_scope':getattr(error,'scope','SINGLE_CONTRACT_ERROR'),

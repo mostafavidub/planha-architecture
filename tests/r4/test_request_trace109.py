@@ -1,12 +1,24 @@
 import copy,http.client,json,sys,threading,unittest
 from pathlib import Path
+from datetime import datetime as RealDatetime, timezone
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'app/local_integration'),str(ROOT/'frontend')]
 import request_trace109 as c
 import request_trace_server109 as s
 B=b'{"W":"18","L":"22","n":2}'
+class SyntheticClock(RealDatetime):
+    @classmethod
+    def now(cls,tz=None):return cls(2026,11,19,13,0,0,tzinfo=timezone.utc)
 class Contract(unittest.TestCase):
+ def setUp(self):
+  clock=patch.object(c,'datetime',SyntheticClock);clock.start();self.addCleanup(clock.stop)
+  process=patch('subprocess.Popen',side_effect=AssertionError('SYNTHETIC_NO_PROCESS'));process.start();self.addCleanup(process.stop)
+ def test_expired_clock_still_rejected_without_process(self):
+  class ExpiredClock(RealDatetime):
+   @classmethod
+   def now(cls,tz=None):return c.DEADLINE
+  with patch.object(c,'datetime',ExpiredClock),self.assertRaisesRegex(ValueError,'TASK_TIMEBOX_EXPIRED'):c.make_request(B)
  def test_exact_study_and_original_scope(self):
   self.assertTrue(c.preflight(B)['execution_ready'])
   self.assertFalse(c.preflight(b'{"W":"18","L":"20","n":2}')['execution_ready'])

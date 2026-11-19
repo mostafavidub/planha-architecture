@@ -41,6 +41,7 @@ def main():
       with page.expect_response(lambda r:r.url==base+'/api/public/plan'and r.request.method=='POST')as got:page.locator('#submit').click()
       assert got.value.status==409 and got.value.json().get('schema')!='PUBLIC_WLN_ERROR_SET_V1'
       page.wait_for_function("document.querySelector('#submit').disabled===false")
+      expect(page.locator('#result')).to_contain_text('ورودی معتبر است')
       rows.append({'interface':m.__name__,'viewport':[width,height],'state':'VALID_UNSUPPORTED'})
       # Synthetic response integrity tests, explicitly not actual HTTP outcomes.
       for badstatus,badprimary in [(200,False),(422,True)]:

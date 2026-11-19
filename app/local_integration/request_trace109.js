@@ -19,6 +19,9 @@ form.addEventListener('submit',async event=>{
     if(![409,422].includes(response.status)||response.status!==data.primary_status||!data.errors.some(e=>e.code===data.code&&e.field===data.field&&e.status===data.primary_status))throw new Error("INCONSISTENT_ERROR_PRIMARY");
     show("invalid","درخواست اجرا نشد؛ خطاهای ورودی:\n"+data.errors.map(e=>(["W","L","n"].includes(e.field)?e.field:"JSON")+": "+e.code+" ["+e.status+"]").join("\n"));return;
    }
+  if(response.status===409 && data.scope==='VALID_UNSUPPORTED_CAPABILITY' && data.code==='UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT' && data.input_valid===true && data.generation_started===false && safe(data)){
+   show('unsupported','ورودی معتبر است ولی این مطالعه آن را پشتیبانی نمی‌کند؛ هیچ تولیدی آغاز نشد.');return;
+  }
   if(response.status===422 || response.status===415){
    show('invalid','ورودی پذیرفته نشد؛ هیچ تولیدی برای این خطای ورودی آغاز نشده است.');return;
   }

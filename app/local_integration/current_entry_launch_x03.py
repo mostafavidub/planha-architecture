@@ -7,7 +7,7 @@ from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
  'PUBLIC_WLN_18X20':('public_wln_server','b3cb9e9ad0ef34349d3c6740f6285f95b865371a'),
  'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
-DIAGNOSTICS_BLOB='3fd879fc77870bfbbfbc4ae2c8aafc54b0a86638'
+DIAGNOSTICS_BLOB='4dba239c1484c6eda7985cde0b590680ec9ed3f3'
 def diagnostics_guard():
  path=ROOT/'app/local_integration/public_input_errors403.py';data=path.read_bytes()
  need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==DIAGNOSTICS_BLOB,'CURRENT_DIAGNOSTICS_SOURCE_CHANGED')
