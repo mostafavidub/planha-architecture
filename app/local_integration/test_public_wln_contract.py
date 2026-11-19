@@ -77,6 +77,18 @@ class PublicWLNTests(unittest.TestCase):
         for change in changes:
             x=copy.deepcopy(e);change(x)
             with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):engine_raw(x)
+    def test_malformed_envelope_cycles_and_depth(self):
+        e=parse_public(body());e['received_input']['W']=e
+        with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):engine_raw(e)
+        e=parse_public(body());deep=[]
+        for _ in range(1200):deep=[deep]
+        e['received_input']['W']=deep
+        with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):engine_raw(e)
+    def test_transport_hash_requires_original_bytes_verification(self):
+        b=body();e=parse_public(b);e['transport_body_sha256']='0'*64
+        # Conversion alone authenticates no transport. Future integration must verify bytes.
+        self.assertEqual(engine_raw(e)['n'],2)
+        with self.assertRaisesRegex(InputError,'ENVELOPE_BINDING_CHANGED'):verify_public(b,e)
     def test_no_authority_or_hidden_program(self):
         e=parse_public(body());r=engine_raw(e)
         self.assertEqual(set(e['received_input']),{'W','L','n'})
