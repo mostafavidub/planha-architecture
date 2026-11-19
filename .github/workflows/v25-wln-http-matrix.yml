@@ -1,0 +1,53 @@
+name: V25 actual nonready HTTP matrix task5.2
+on:
+  push:
+    paths:
+      - 'app/local_integration/run_wln_http_matrix.py'
+      - '.github/workflows/v25-wln-http-matrix.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  http:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/download-artifact@v4
+        with:
+          name: public-three-field-local-ui-task1-6
+          run-id: 44462498782
+          github-token: ${{ github.token }}
+          path: reused-ui-evidence
+      - name: Verify immutable reused artifact metadata pin
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python -B - <<'PY'
+          import os,json,urllib.request
+          url='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/artifacts/14500313851'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req,timeout=30) as response:meta=json.load(response)
+          assert meta['id']==14500313851 and meta['workflow_run']['id']==44462498782 and meta['expired'] is False
+          assert meta['name']=='public-three-field-local-ui-task1-6'
+          assert meta['digest']=='sha256:fcbfe269bf8189882145b85570625c7f3f40491cc1296d19ecf53c357fbcb02b'
+          print('Verified immutable existing UI artifact pin; no token output')
+          PY
+      - name: Actual HTTP negative matrix with no new solver and separate existing supported witness
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B app/local_integration/run_wln_http_matrix.py reused-ui-evidence
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-nonready-http-matrix-task5-2
+          path: actual-http-matrix.json
+          retention-days: 30
