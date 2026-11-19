@@ -4,7 +4,7 @@ diagnostics afresh. Historical registry coverage is not full current PRD closure
 """
 from pathlib import Path
 from copy import deepcopy
-import inspect,importlib
+import inspect,importlib,hashlib
 from contract114 import digest
 from open_front_kitchen_study import ROOT,ENGINE
 
@@ -71,7 +71,17 @@ def assess(packet,trace,baseline_packet,baseline_context):
     current={r['id']:r for r in requirements}
     if len(current)!=len(requirements):raise ValueError('CURRENT_REQUIRED_DUPLICATE_ID')
     if not CURRENT_REQUIRED<=set(current):raise ValueError('CURRENT_REQUIRED_INVENTORY')
-    errors=list(raw['errors'])+list(named['errors'])+list(boundary['errors'])
+    scope_path=ENGINE/'references/CONCEPT_GATE_FA.md'
+    scope_hash='8804bca0ecb774c5186969f85c0d03b73766e23e20d30304b84f580c41a1d05e'
+    scope_errors=[]
+    if not scope_path.is_file() or hashlib.sha256(scope_path.read_bytes()).hexdigest()!=scope_hash:
+        scope_errors.append({'code':'CONCEPT_SCOPE_SOURCE_CHANGED'})
+    scope_source={'path':'references/CONCEPT_GATE_FA.md','sha256':scope_hash,
+        'scope':'Pinned historical limited concept source only; no scope117 pending reduction, no current PRD approval'}
+    nonleaf=[{'opening_id':o['id'],'kind':o.get('kind'),
+        'hardware_status':'NOT_EVALUATED' if o.get('kind')=='core_access_interface' else 'NO_LEAF_SOURCE_ARCH'}
+        for o in m.get('openings',[]) if o.get('kind') in ('core_access_interface','permanent_open_arch')]
+    errors=list(raw['errors'])+list(named['errors'])+list(boundary['errors'])+scope_errors
     pending=list(raw['pending'])+list(named['pending'])+list(boundary['pending'])
     for rid,row in current.items():
         if row['state'] in ('FAIL','REJECTED_FUNCTIONAL'):
@@ -90,6 +100,7 @@ def assess(packet,trace,baseline_packet,baseline_context):
         'model_digest':model_digest,'input_bundle_digest':before,
         'origin':origin,'raw_physical':raw,'named_contract':named,
         'boundary_comparison':boundary,'current_functional':functional,
+        'scope_source':scope_source,'nonleaf_interfaces':nonleaf,
         'source_snapshot':sources,'frozen_revision':rev,
         'errors':errors,'pending':sorted(set(pending)),
         'status':'FAIL_STUDY' if errors else 'UNKNOWN_REQUIRED_STUDY',
