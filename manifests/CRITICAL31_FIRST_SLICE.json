@@ -1,0 +1,83 @@
+{
+  "schema": "CRITICAL31_FIRST_SLICE_V1",
+  "task": "0.3",
+  "status": "DONE_SCOPE_AND_ACCEPTANCE_DEFINED_NOT_PRODUCT_ACCEPTED",
+  "start_utc": "2026-11-19T03:02:39Z",
+  "completed_utc": "2026-11-19T03:03:00Z",
+  "deadline_utc": "2026-11-19T06:02:39Z",
+  "baseline_commit": "bf1366952597d12351eff5d361736a5f9a86bafe",
+  "public_request": {
+    "W": 18,
+    "L": 20,
+    "n": 2
+  },
+  "family": "FRONT_REAR",
+  "programme_target": {
+    "bedrooms": 2,
+    "sleep_roles": [
+      "double",
+      "twin"
+    ],
+    "design_persons_per_unit": 4,
+    "role": "approved bounded first-slice target, not hidden user input or predetermined quality winner"
+  },
+  "source_reference": {
+    "natural_cycle_run": 44417514104,
+    "commit": "7dd0036a25ba2e95dbeb3b2d65d817c5fde12047",
+    "parent": "b8a87574df5573b256b04b201af11d9fc2ff47d08f319c4d5ffd140faab28d49",
+    "child": "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44",
+    "scope": "Existing natural rejected parent/physical-pass exploratory child is regression evidence only; no current admission."
+  },
+  "why": "Existing natural rejection and bounded operator reduce duplicate search; FRONT_REAR avoids adding a new family while closing the first path.",
+  "acceptance": [
+    "Public input W/L/n only, dimensions5..25 and supported n explicit",
+    "Automatic programme trace follows AP07; no hidden fallback or invented quality score",
+    "Request/program/fixture/core/source/model/review identities bound exactly",
+    "Fresh physical and named/current requirements all satisfied; UNKNOWN forbids qualification",
+    "Natural rejected parent produces fresh child; all dependent gates rerun, fixed programme preserved",
+    "Only qualified current output may display/download DXF; negative outputs remain blocked",
+    "One reproducible commit with test evidence and honest limits"
+  ],
+  "not_in_scope": [
+    "All sizes in5..25",
+    "n1 geometry",
+    "six qualified diverse options",
+    "LEFT_RIGHT expansion",
+    "303 execution before whole-cycle completion"
+  ],
+  "current_acceptance": "BLOCKED_FOUR_CURRENT_UNKNOWN_AND_PRODUCT_INTEGRATION",
+  "execution_order": [
+    "0.1",
+    "0.2",
+    "0.3",
+    "1.1",
+    "1.2",
+    "2.1",
+    "3.1",
+    "2.2",
+    "1.3",
+    "1.4",
+    "2.3",
+    "2.4",
+    "2.5",
+    "3.2",
+    "3.3",
+    "3.4",
+    "3.5",
+    "3.6",
+    "1.5",
+    "1.6",
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.4",
+    "4.5",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5",
+    "5.6"
+  ],
+  "timebox_carryover": "Unfinished same-work automatic-program code started02:51:01 retains prior05:51:01 ceiling when resumed; rename does not reset it."
+}
