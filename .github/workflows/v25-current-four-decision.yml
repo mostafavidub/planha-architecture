@@ -1,0 +1,97 @@
+name: V25 current four decision task3.6
+on:
+  push:
+    paths:
+      - 'app/local_integration/current_four_decision.py'
+      - 'app/local_integration/test_current_four_decision.py'
+      - '.github/workflows/v25-current-four-decision.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - uses: actions/download-artifact@v4
+        with:
+          name: bounded-original-runtime-task-2-5
+          run-id: 44455198301
+          github-token: ${{ github.token }}
+          path: decision-input/original
+      - uses: actions/download-artifact@v4
+        with:
+          name: current-programme-task3-2
+          run-id: 44456479873
+          github-token: ${{ github.token }}
+          path: decision-input/programme
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-guest-routes-task3-3
+          run-id: 44457232839
+          github-token: ${{ github.token }}
+          path: decision-input/guest
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-living-task3-4
+          run-id: 44457926185
+          github-token: ${{ github.token }}
+          path: decision-input/living
+      - uses: actions/download-artifact@v4
+        with:
+          name: source-wall-function-task3-5
+          run-id: 44459297261
+          github-token: ${{ github.token }}
+          path: decision-input/walls
+      - name: Pure synthetic decision adversarial tests
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest -v test_current_four_decision
+      - name: Bind retained actual same-model evidence
+        env:
+          PYTHONPATH: app/local_integration
+        run: |
+          python -B - <<'PY'
+          import pathlib,json,hashlib
+          from current_four_decision import assemble,digest
+          from front_rear_runtime_adapter import source_audit
+          before=source_audit()
+          def read(folder,name):
+           fs=list(pathlib.Path('decision-input',folder).rglob(name));assert len(fs)==1
+           raw=fs[0].read_bytes();return json.loads(raw),hashlib.sha256(raw).hexdigest()
+          b,bh=read('original','runtime-bundle.json');assert bh=='fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720'
+          specs=[('CURRENT_PROGRAM_SUITABILITY','programme','programme-assessment.json',44456479873),
+           ('KITCHEN_GUEST_PATH_SEPARATION','guest','source-guest-routes.json',44457232839),
+           ('CONTINUOUS_USEFUL_LIVING','living','source-living-assessment.json',44457926185),
+           ('NONFUNCTIONAL_WALL_EXCLUSION','walls','source-wall-function-assessment.json',44459297261)]
+          rows={};receipts={}
+          for cid,folder,name,run in specs:
+           rows[cid],rh=read(folder,name);receipts[cid]={'run':run,'filename':name,'file_sha256':rh,'report_digest':digest(rows[cid])}
+          out=assemble(b,rows,{k:digest(v) for k,v in rows.items()})
+          out['artifact_input_receipts']=receipts
+          assert source_audit()==before
+          assert out['integrity_verified'] is True
+          assert out['decision']['state']=='BLOCKED'
+          assert out['decision']['blockers']==['PHYSICAL_FAIL','CURRENT_UNKNOWN','PHYSICAL_PENDING','HISTORICAL_UNRESOLVED_RETAINED']
+          assert all(r['effective_state']=='UNKNOWN' and not r['evaluator_errors'] for r in out['criteria'])
+          assert out['physical_digest']=='676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3'
+          assert digest(out['original_reports']['physical'])==out['physical_digest']
+          pathlib.Path('current-four-decision.json').write_text(json.dumps(out,sort_keys=True,ensure_ascii=False,indent=2))
+          print(json.dumps({'model_digest':out['model_digest'],'physical_digest':out['physical_digest'],'criteria':out['criteria'],'decision':out['decision'],'integrity_verified':out['integrity_verified'],'artifact_input_receipts':receipts,'output_digest':digest(out)},sort_keys=True))
+          PY
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: current-four-decision-task3-6
+          path: current-four-decision.json
+          retention-days: 30
