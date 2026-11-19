@@ -40,6 +40,7 @@ jobs:
           from open_front_boundary_comparison import assess as boundary_assess
           from open_front_raw_physical import assess as raw_assess
           from checker114 import evaluate as historical_evaluate,rect
+          from open_front_evaluator import assess as integrated_assess,CURRENT_REQUIRED
           started=datetime.now(timezone.utc).isoformat()
           assert started<'2026-11-19T01:07:31'
           assert FREEZE=='530cc37c1fa0d2a8be10c3ec09a3b6c3c4a8526245e3d0a2e2e719459dab11e0'
@@ -98,6 +99,31 @@ jobs:
                       assert physical['status']=='NOT_EVALUATED'
                       assert physical['pending']==['VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED']
                   row.update(packet=packet,trace=trace,origin=origin,model_digest=mh,placement=placement,operations={'errors':oe,'pending':op},boundary_comparison=boundary,raw_physical_core=physical,historical_checker_unfiltered=historical,scoped_clean=scoped_clean,study_executed=True)
+                  save()
+                  integrated=integrated_assess(packet,trace,bp,bc)
+                  row['integrated_evaluator']=integrated
+                  save()
+                  assert integrated['model_digest']==mh
+                  for flag in ('whole_physical_verified','qualified','accepted','display_allowed','delivery_allowed','eligible_for_draft_export','all_rules_approved'):
+                      assert integrated[flag]is False
+                  assert integrated['raw_physical']['pending']==['VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED']
+                  current={r['id']:r['state']for r in integrated['current_functional']['requirements']}
+                  assert set(current)==CURRENT_REQUIRED|{'INTERNAL_INSTANCE_CAPACITY'}
+                  assert all(current[rid]=='UNKNOWN'for rid in CURRENT_REQUIRED)
+                  assert 'CURRENT_Q11_FULL_FUNCTIONAL_BOUNDARY_NOT_CLOSED'in integrated['pending']
+                  assert all('CURRENT_FUNCTIONAL_UNKNOWN:'+rid in integrated['pending']for rid in CURRENT_REQUIRED)
+                  assert len(integrated['named_contract']['rows'])==89
+                  if not integrated['errors']:
+                      assert integrated['status']=='UNKNOWN_REQUIRED_STUDY'
+                      assert not integrated['named_contract']['errors']
+                      assert current['INTERNAL_INSTANCE_CAPACITY']=='PASS_SCOPED'
+                      assert not any(r['state']in('FAIL','REJECTED_FUNCTIONAL')for r in integrated['current_functional']['requirements'])
+                      row['integrated_zero_errors_asserted']=True
+                  else:
+                      assert integrated['status']=='FAIL_STUDY'
+                      row['integrated_zero_errors_asserted']=False
+                  row['integrated_executed']=True
+                  print('MATRIX_INTEGRATED '+json.dumps({'inputs':row['inputs'],'model_digest':mh,'status':integrated['status'],'errors':integrated['errors'],'pending':integrated['pending'],'named_status':integrated['named_contract']['status'],'named_errors':integrated['named_contract']['errors'],'named_pending':integrated['named_contract']['pending'],'current_requirements':current,'scope_source':integrated['scope_source'],'nonleaf_interfaces':integrated['nonleaf_interfaces'],'whole_physical_verified':False,'source_snapshot':integrated['source_snapshot'],'zero_errors_asserted':row['integrated_zero_errors_asserted']}),flush=True)
               except Exception as e:
                   row.update(study_executed=False,exception=type(e).__name__,detail=str(e),traceback=traceback.format_exc())
               save()
@@ -108,10 +134,13 @@ jobs:
           out['guard_after']=guard(FREEZE);assert out['guard_after']==12991
           out['finished_at']=datetime.now(timezone.utc).isoformat()
           out['completed_study_cases']=sum(r.get('study_executed',False)for r in out['rows'])
+          out['integrated_executed_cases']=sum(r.get('integrated_executed',False)for r in out['rows'])
+          out['integrated_zero_errors_cases']=sum(r.get('integrated_zero_errors_asserted',False)for r in out['rows'])
           out['scoped_clean_cases']=sum(r.get('scoped_clean',False)for r in out['rows'])
           save()
           assert out['completed_study_cases']>=2,'FEWER_THAN_TWO_COMPLETE_NEW_DIMENSION_DIAGNOSTICS'
-          print('MATRIX_FINISHED '+json.dumps({k:out[k]for k in ('started_at','finished_at','github_sha','github_run_id','guard_before','guard_after','completed_study_cases','scoped_clean_cases','whole_physical_verified')}),flush=True)
+          assert out['integrated_executed_cases']==3,'INTEGRATED_MATRIX_CASE_INCOMPLETE'
+          print('MATRIX_FINISHED '+json.dumps({k:out[k]for k in ('started_at','finished_at','github_sha','github_run_id','guard_before','guard_after','completed_study_cases','scoped_clean_cases','integrated_executed_cases','integrated_zero_errors_cases','whole_physical_verified')}),flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()
