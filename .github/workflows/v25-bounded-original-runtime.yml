@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'app/local_integration/front_rear_runtime_adapter.py'
+      - 'app/local_integration/test_front_rear_numeric_transport.py'
       - 'app/local_integration/run_front_rear_bounded_experiment.py'
       - '.github/workflows/v25-bounded-original-runtime.yml'
   workflow_dispatch:
