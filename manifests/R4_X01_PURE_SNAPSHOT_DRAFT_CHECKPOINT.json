@@ -1,0 +1,38 @@
+{
+  "schema": "R4_X01_PURE_SNAPSHOT_DRAFT_CHECKPOINT_V1",
+  "task": "R4-X.01",
+  "started_at": "2026-11-19T07:46:12Z",
+  "deadline": "2026-11-19T10:46:12Z",
+  "checkpoint_at": "2026-11-19T07:51:12Z",
+  "status": "PARTIAL_PURE_METADATA_CONTRACT_DRAFT_NOT_RUN",
+  "draft_commit": "5366209538a09a6aee7380f9c50aff62db8c624c",
+  "branch": "r4-project-snapshot-contract-draft",
+  "files": [
+    "studies/r4/project_snapshot_contract.py",
+    "studies/r4/test_project_snapshot_contract.py",
+    "specs/R4_X01_SNAPSHOT_METADATA_DRAFT.json"
+  ],
+  "tests_prepared": 15,
+  "tests_executed": 0,
+  "active_code_merged": false,
+  "scope": "Post-model/post-report opaque snapshot-reference metadata only; all auth/storage/read/download operations remain blocked. Not complete3.05snapshot schema.",
+  "review_corrections": [
+    "source_snapshot_digest isSHA256 bundle/manifest digest, not40hexGitcommit; Git revision authentication not implemented",
+    "parent_metadata_digest refers to canonical parent metadata; existence/owner/revision chain not verified here",
+    "Preconstruction failures outside this record schema; never fabricate missing model/report digests",
+    "Owner equality named OWNER_REFERENCE_MATCH_NOT_AUTHENTICATED; synthetic mismatch test is notACL test",
+    "Metadata hash is consistency only; snapshot/model/report/profile/source/units/geometry mapping contents are not loaded or verified"
+  ],
+  "blockers": [
+    "Trusted auth/owner adapter absent from reviewedchain",
+    "Actual durable backend/atomicidempotenttransaction not implemented",
+    "R4-3.05 andR4-3.09 prerequisites incomplete",
+    "Qualified artifact issuer absent",
+    "Actions infrastructure blocked"
+  ],
+  "source_content_verified": false,
+  "owner_authenticated": false,
+  "storage_committed": false,
+  "qualified": false,
+  "delivery_allowed": false
+}
