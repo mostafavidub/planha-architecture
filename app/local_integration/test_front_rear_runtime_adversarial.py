@@ -72,6 +72,15 @@ class RuntimeAdversarial(unittest.TestCase):
   originals={};live={};pins={}
   with self.assertRaises(ValueError):a.preserve_report(originals,live,pins,'x',{'nan':float('nan')})
   self.assertEqual(originals,{})
+ def test_report_key_and_numpy_types_rejected(self):
+  import numpy as np
+  for value in ({1:'x'},{'x':np.float64(1.5)}):
+   with self.assertRaises(ValueError):a.preserve_report({}, {}, {}, 'x',value)
+ def test_report_tuple_boundary_recorded(self):
+  original={};live={};pins={}
+  receipt=a.preserve_report(original,live,pins,'x',{'a':(1,2.0)})
+  self.assertEqual(receipt['tuple_paths'],[['a']])
+  self.assertEqual(original['x'],{'a':[1,2.0]})
  def test_noncanonical_packet_observation(self):
   p,c,r,q=fixture();original=copy.deepcopy(p);p['world_model']['bad']=object()
   self.assertTrue(a.observed_digest(p).startswith('UNHASHABLE_INTEGRITY_ERROR'))
@@ -89,7 +98,7 @@ class RuntimeAdversarial(unittest.TestCase):
  def test_unknown_status_rejected(self):
   for status in (None,False,2,'PASS','ERROR','SOURCE_CONFLICT'):
    with self.assertRaises(ValueError):a.proposal_disposition({'status':status})
- def test_preflight_invalid_budget_never_imports_solver(self):
+ def test_preflight_invalid_budget_rejected(self):
   for seconds in (True,0,-1,float('nan'),float('inf'),'3',61):
    with self.assertRaises(ValueError):a.run(b'{}',solver_seconds=seconds)
  def test_invalid_public_or_case_before_live(self):
