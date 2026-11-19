@@ -9,7 +9,7 @@ from same_version_front_rear_contract import digest
 from program_profile_registry import lookup
 ROOT=Path(__file__).resolve().parents[2]
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
-FILES=('request_budget110.py','request_trace109.html','request_trace109.js','request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
+FILES=('report_lifecycle112.py','current_report_adapter111.py','obligation_admission111.py','request_budget110.py','request_trace109.html','request_trace109.js','request_trace109.py','request_trace_server109.py','cause_directed_chain108.py','cause_directed_contract108.py','cause_directed_candidate108.py','public_wln_contract.py','dimension_contract.py','program_profile_registry.py','repair_attempt_control.py')
 DEADLINE=datetime(2026,11,19,15,59,9,tzinfo=timezone.utc)
 def need(ok,code):
  if not ok:raise ValueError(code)
@@ -83,7 +83,7 @@ def bind_result(r,expected,out,reports,process):
 def invalidate(result):
  result['receipt_verified']=False
  prior={}
- for k in ('parent_model_digest','full_report_digests','current_states','parent_physical','runtime_trace'):
+ for k in ('parent_model_digest','full_report_digests','current_states','parent_physical','runtime_trace','lifecycle_admission'):
   if k in result:prior[k]=result.pop(k)
  if prior:result['observed_unverified_evidence']=prior
  result['evidence_usable']=False
@@ -157,12 +157,12 @@ def run(body):
    process=run_bounded([sys.executable,'-B',str(ROOT/'app/local_integration/cause_directed_chain108.py'),'--request-child',str(dest),str(req),expected],remaining)
    trace.append({'stage':'PROCESS_WAIT_COMPLETED','utc':stamp()})
    base['process']={k:process[k]for k in ('timed_out','kill_sent','wait_completed','returncode','elapsed_seconds','allocated_seconds')}
-   if (dest/'summary.json').exists():out=json.loads((dest/'summary.json').read_text())
-   if (dest/'reports.json').exists():reports=json.loads((dest/'reports.json').read_text())
-   # stdout/stderr and full reports never enter public response or workflow output.
-   need(out is not None and reports is not None,'PARTIAL_OR_MISSING_REPORTS')
+   from report_lifecycle112 import consume
+   # Private evidence is consumed inside this live request's temporary lifecycle,
+   # never returned in HTTP or uploaded. Full reports remain nondurable.
+   out,reports,lifecycle=consume(dest,request,expected,process,account,base['account_reserved_digest'])
    base['observed_summary_digest']=digest(out)
-   bind_result(request,expected,out,reports,process)
+   base['lifecycle_admission']=copy.deepcopy(lifecycle['safe_summary'])
    base.update(receipt_verified=True,state=out['state'],attempt_count=out['attempt_count'],parent_model_digest=out.get('parent_model_digest'),
     full_report_digests=copy.deepcopy(out['report_digests']),current_states={k:v['state']for k,v in out.get('parent_current',{}).items()},
     parent_physical=copy.deepcopy(out.get('parent_physical')),runtime_trace=copy.deepcopy(out.get('stage_trace',[])))
