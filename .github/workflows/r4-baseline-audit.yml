@@ -1,0 +1,53 @@
+name: R4 baseline historical evidence audit
+on:
+  push:
+    paths:
+      - 'app/local_integration/r4_baseline_audit.py'
+      - '.github/workflows/r4-baseline-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify historical artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/mostafavidub/planha-architecture/actions/artifacts/14506041574 > artifact-metadata.json
+          python - <<'PY'
+          import json
+          m=json.load(open('artifact-metadata.json'))
+          assert m['id']==14506041574 and m['workflow_run']['id']==44474177603
+          assert m['expired'] is False
+          assert m['digest']=='sha256:a6b5156df6d7930ecf5607b50de81bbe85756362591d37c5e50596cc012ee1e3'
+          assert m['workflow_run']['head_sha']=='a1dcf7827ff59f49b7daa205368fcd2a29c26c27'
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: controlled-outer-controller-live-task4-4
+          run-id: 44474177603
+          github-token: ${{ github.token }}
+          path: retained-input
+      - name: Read twice and reject detached mutations without generation
+        run: python -B app/local_integration/r4_baseline_audit.py retained-input r4-baseline.json
+      - run: git diff --exit-code
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: r4-baseline-audit
+          path: |
+            r4-baseline.json
+            artifact-metadata.json
+          retention-days: 30
