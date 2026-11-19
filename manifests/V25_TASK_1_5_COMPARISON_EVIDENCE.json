@@ -1,0 +1,264 @@
+{
+  "task": "1.5",
+  "start": "2026-11-19T04:50:46Z",
+  "deadline": "2026-11-19T07:50:46Z",
+  "status": "COMPARABLE_SCOPED_EVIDENCE_NOT_QUALITY_RANKING",
+  "tested_commit": "7fbf125dfef2210864ef48f1a7f422d1b876209c",
+  "run": 44461526009,
+  "job": 135349197480,
+  "tests": 16,
+  "accepted": false,
+  "comparison_source_snapshot": {
+    "app/local_integration/programme_evidence_comparison.py": "196ca7101d8102efcf5e86d16e84984b353a9d25a2e47e0b4a1af9845dd24c8a"
+  },
+  "comparisons": [
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "armchair1",
+      "unit": "A"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "armchair2",
+      "unit": "A"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "sofa2",
+      "unit": "A"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_direction_changes": 1,
+      "left_length_m": "321/200",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 2,
+      "right_length_m": "52/5",
+      "right_minus_left_length_m": "1759/200",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair1",
+      "unit": "A"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair2",
+      "unit": "A"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_direction_changes": 0,
+      "left_length_m": "11/5",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 0,
+      "right_length_m": "11/5",
+      "right_minus_left_length_m": "0",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "sofa2",
+      "unit": "A"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_direction_changes": 1,
+      "left_length_m": "321/200",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 2,
+      "right_length_m": "52/5",
+      "right_minus_left_length_m": "1759/200",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair1",
+      "unit": "A"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair2",
+      "unit": "A"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_direction_changes": 0,
+      "left_length_m": "11/5",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 0,
+      "right_length_m": "11/5",
+      "right_minus_left_length_m": "0",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "sofa2",
+      "unit": "A"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "armchair1",
+      "unit": "B"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "armchair2",
+      "unit": "B"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "DECLARED_RESIDUAL_LIVING",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "NO_WITNESS_THIS_DOMAIN",
+      "target_fixture": "sofa2",
+      "unit": "B"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_direction_changes": 1,
+      "left_length_m": "321/200",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 2,
+      "right_length_m": "52/5",
+      "right_minus_left_length_m": "1759/200",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair1",
+      "unit": "B"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair2",
+      "unit": "B"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS",
+      "left_direction_changes": 0,
+      "left_length_m": "11/5",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 0,
+      "right_length_m": "11/5",
+      "right_minus_left_length_m": "0",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "sofa2",
+      "unit": "B"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_direction_changes": 1,
+      "left_length_m": "321/200",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 2,
+      "right_length_m": "52/5",
+      "right_minus_left_length_m": "1759/200",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair1",
+      "unit": "B"
+    },
+    {
+      "comparison": "MISSING_WITNESS_NOT_NUMERIC_SUPERIORITY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_state": "NO_WITNESS_THIS_DOMAIN",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "armchair2",
+      "unit": "B"
+    },
+    {
+      "comparison": "SAME_DEFINED_METRICS_ONLY",
+      "domain": "LOCAL_SEAT_GROUP_BBOX_DOMAIN_ONLY",
+      "left_direction_changes": 0,
+      "left_length_m": "11/5",
+      "left_state": "PASS_ACCESS_WITNESS_ONLY",
+      "right_direction_changes": 0,
+      "right_length_m": "11/5",
+      "right_minus_left_length_m": "0",
+      "right_state": "PASS_ACCESS_WITNESS_ONLY",
+      "target_fixture": "sofa2",
+      "unit": "B"
+    }
+  ],
+  "delivery_allowed": false,
+  "denominator_semantics": [
+    "gross_unit_ownership_union_m2",
+    "net_unit_ownership_minus_actual_wall_solids_m2"
+  ],
+  "display_allowed": false,
+  "input_evidence": {
+    "existing_comparison_run": 44458422610,
+    "file_sha256": "18f8e339452d122aed597016499db76232d45bfb005148621b7d3eaf2a5bdc67",
+    "replay_mode": "Retained verified same-source reports, not newly generated models"
+  },
+  "measurement_scope": "Metrics read from bound evaluator reports, not independently remeasured by this comparator",
+  "models": [
+    "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "073a4ea21f9b8ed76a26e1c573a4ac876b8000bd890c455396f6d94dd8321c44"
+  ],
+  "pareto_front": null,
+  "physical_failure_preserved": [
+    true,
+    false
+  ],
+  "physical_report_model_digest_bindings": [
+    true,
+    true
+  ],
+  "physical_statuses": [
+    "FAIL",
+    "PASS_CONCEPT_SCOPED_REVIEW"
+  ],
+  "qualified": false,
+  "quality_comparison": "UNRESOLVED_PROFILE",
+  "quality_gaps": [
+    "No calibrated per-room/unit quality floors and acceptance anchors",
+    "No approved quality dimensions/directions/weights for Pareto",
+    "Route counts/lengths cannot turn physical FAIL or profile UNKNOWN into acceptance"
+  ],
+  "quality_scores": null,
+  "reasons": [],
+  "report_digests": [
+    "23a7517d71adf3823ef71991a6904d2e735f44d4e96216dd4f656c7d7f3d13b8",
+    "1342f07c7738a3c274acd3e3eaa7ffa8d259c49142896b968aed7a91efcf6bff"
+  ],
+  "schema": "PROGRAMME_ALTERNATIVE_EVIDENCE_COMPARISON_V1",
+  "scope": "Two existing same-request/programme models with equal source evaluator/scenario definitions; evidence deltas only, not programme suitability, ranking or all-PRD qualification.",
+  "source_snapshot": {
+    "app/local_integration/fixed_route_clearance_diagnostic.py": "efa1ab1b8a5b9f29991655bb654f0b9e4a44198744a5089cb9c25e1771c22b69",
+    "app/local_integration/kitchen_guest_review.py": "27b3dcef57dc3ce0bbd5ec428c01187ccfb23a7dd57a27084e09f5fd4855261f",
+    "app/local_integration/living_connectivity_diagnostic.py": "eb5cdc67614471d383924332eef832caaaf154e661645219f0ebff64e6138370",
+    "app/local_integration/source_guest_route_evaluator.py": "fbeb74ab006df108e7181dc6e1eba715368b2622d1432fc12ca31d76b771f952",
+    "app/local_integration/source_living_evaluator.py": "69f935c47c196bddc57929eaed2caacc101fb750f8553f7cdc6248035d3336df"
+  },
+  "winner": null,
+  "artifact": {
+    "id": 14499464352,
+    "digest": "sha256:f9a51d0af88d27266d02bb6d23cf67c9d7146622ac02ea35535c739c102ed3dd",
+    "expires_at": "2026-12-19T04:55:15Z"
+  },
+  "remaining": [
+    "Calibrated room/unit quality floors and acceptance anchors unavailable",
+    "No source-approved comparison dimensions/directions/weights; no Pareto or winner",
+    "Eight/three route counts and lengths do not resolve current functional UNKNOWN",
+    "Existing alternative comparison is not new generation or proof of shorter acceptable organisation"
+  ],
+  "reproduce": "Checkout tested commit and run .github/workflows/v25-programme-evidence-comparison.yml while pinned source artifacts exist. It reads current model bundle and approved archived explicit-two child, plus exact retained source living assessments. No solver invoked. After artifact expiry reconstruct matching same-source assessments and verify original/model/report digests."
+}
