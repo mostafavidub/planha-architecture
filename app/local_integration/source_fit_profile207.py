@@ -147,3 +147,30 @@ def installation_negatives(model,expected):
  need(digest(model)==pin,'NEGATIVE_MUTATED_ORIGINAL')
  return {'schema':'INSTALLATION_DETACHED_NEGATIVES207_V1','original_model_digest':pin,'original_unchanged':True,'all_detected':all(r['detected']for r in rows),'rows':rows,
  'scope':'Direct source-subset correspondence failures, not complete neighbor physics or architectural infeasibility','accepted':False}
+
+def door_side_negative(model):
+ """Direct inherited geometry predicate, separate from digest/source equality."""
+ from operation_check114 import check_operations
+ need(Path(inspect.getsourcefile(check_operations)).resolve()==ENGINE/'operation_check114.py','OPERATION_CHECK_IMPORT')
+ owners={u['id']:[q(r)for r in u['ownership']]for u in model['units']}
+ walls={k:q(v)for k,v in model['walls'].items()}
+ fixtures=[(u['id'],k,q(v))for u in model['units']for k,v in u['fixtures'].items()]
+ pin=digest(model);rows=[]
+ for uid in ('A','B'):
+  role=uid+'.WC'
+  choices=[(o,s)for o in model['operations']['doors']for s in o.get('continuous_actor_segments',[])if s.get('role_id')==role]
+  if not choices:rows.append({'unit':uid,'state':'NOT_EVALUATED_NO_WC_SEGMENT'});continue
+  op,seg=choices[0];others=[s for s in op['continuous_actor_segments']if s.get('role_id')!=role]
+  if not others:rows.append({'unit':uid,'state':'NOT_EVALUATED_NO_OTHER_SIDE'});continue
+  def inspect_side(m):
+   e,p=check_operations(m,owners,walls,fixtures,components=('doors',))
+   return sum(x.get('code')=='ACTOR_NOT_ON_DECLARED_DOOR_SIDE'and x.get('opening')==op['opening_id']and x.get('role')==role for x in e)
+  before=inspect_side(model)
+  changed=copy.deepcopy(model);co=next(o for o in changed['operations']['doors']if o['opening_id']==op['opening_id'])
+  cs=next(s for s in co['continuous_actor_segments']if s.get('role_id')==role)
+  for key in ('actor_start','actor_end'):cs[key]=copy.deepcopy(others[0][key])
+  after=inspect_side(changed)
+  rows.append({'unit':uid,'state':'DETECTED_DIRECT_GEOMETRY'if before==0 and after>0 else'NOT_ESTABLISHED_BASELINE_OR_MUTATION','before_target_error_count':before,'after_target_error_count':after,'mutated_model_digest':digest(changed)})
+ need(digest(model)==pin,'DOOR_NEGATIVE_MUTATED_ORIGINAL')
+ return {'schema':'ACTUAL_DOOR_SIDE_NEGATIVE207_V1','model_digest':pin,'rows':rows,'original_unchanged':True,
+ 'scope':'Wrong physical actor sweep retained under original declared WC role; original check_operations, not receipt mismatch','accepted':False,'qualified':False}

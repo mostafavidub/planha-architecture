@@ -12,7 +12,7 @@ from front_rear_runtime_adapter import transport,proposal_transport,proposal_dis
 from same_version_front_rear_contract import digest,ENGINE_REVISION,FREEZE
 from one_bed_pair_source_study import code_counts,stop_process
 from core_choice_pair_study import selected_core,bind_profile,bind_program
-from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives
+from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives,door_side_negative
 CASES={'20x18':('20','18'),'18x22':('18','22')}
 def need(ok,code):
  if not ok:raise ValueError(code)
@@ -80,6 +80,8 @@ def child(folder,case,nonce):
   out.update(installed_subset_state=originals['installed_source_subset']['state'],installed_record_count=originals['installed_source_subset']['checked_record_count'],
    actual_negative_count=len(originals['actual_source_negatives']['rows']),actual_negatives_detected=originals['actual_source_negatives']['all_detected'])
   need(out['installed_subset_state']=='PASS_SOURCE_SUBSET_ONLY'and out['actual_negatives_detected']is True,'INSTALLATION_STUDY_NOT_VERIFIED')
+  retain('door_side_negative',door_side_negative(model))
+  out['door_side_negative_states']=[r['state']for r in originals['door_side_negative']['rows']]
   out.update(state='FULL_REPORTS_RETAINED_NOT_QUALIFIED',completed=True,independent_origin_verified=originals['original_replay'].get('verified')is True,
    legacy_replay_verified=originals['original_replay'].get('verified')is True,
    physical_status=originals['physical'].get('status'),physical_error_counts=code_counts(originals['physical'].get('errors',[])),

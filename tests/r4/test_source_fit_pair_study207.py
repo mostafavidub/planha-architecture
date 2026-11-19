@@ -58,6 +58,12 @@ class FitTests(unittest.TestCase):
   expected=fit.installation_expectations(props,F(18));observed=copy.deepcopy(expected)
   del observed['operations']['kitchen'][0]['motion_envelopes']
   self.assertEqual(fit.verify_installed_subset(observed,expected)['state'],'FAIL_SOURCE_BINDING')
+ def test_source_installed_wrong_door_side_direct_geometry(self):
+  props={uid:{'rectangles':{'bath':['6','5','9.15','7.25'],'kitchen':['1','1','3.35','4.05']}}for uid in ('A','B')}
+  shell=fit.installation_expectations(props,F(18))
+  for u in shell['units']:u['ownership']=[['0','0','20','18']]
+  result=fit.door_side_negative(shell)
+  self.assertEqual([r['state']for r in result['rows']],['DETECTED_DIRECT_GEOMETRY']*2)
  def test_scope_no_one_bed_fallback(self):
   with self.assertRaisesRegex(ValueError,'SOURCE_FIT207_SCOPE'):candidate.propose(core_first(F(20),F(18)),1,sleep_roles=['double'])
  def test_profile_copy_isolation(self):
