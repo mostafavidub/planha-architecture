@@ -1,0 +1,148 @@
+{
+  "task": "2.5",
+  "start": "2026-11-19T03:49:50Z",
+  "deadline": "2026-11-19T06:49:50Z",
+  "status": "ORIGINAL_RUNTIME_EXECUTED_MODEL_REJECTED",
+  "commit": "9bf9ada0a9c71b413d07573e97aed0cdce6a71cd",
+  "run": 44455198301,
+  "job": 135328437647,
+  "tests": 34,
+  "elapsed_seconds": 62.031820845999995,
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "report_digests": {
+    "functional": "313e2bee5b1dc55fe83c24061d901ca16b8c7858493fe859f485d9c3f9a32ce8",
+    "model_transport": "54b711add9d6af28a22564b5087388e18e848e0c1d8a9f890e1a2061defacc77",
+    "physical": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+    "proposal_transport": "26ef32cc0e2f0d590e592b8f16427ce8785bfd14e8a42e7c2f08c85ba0b5d4ef",
+    "replay": "08030bd9ceb77437fd5e3bb7aec0127072f6bbae89029e97f8b2928f616e6adc",
+    "source_audit": "22f7b8dfdfa0c7a2fb51eaa8841ce96e1c55141efa62c826a8146360b49bbf65"
+  },
+  "replay": {
+    "accepted": false,
+    "errors": [],
+    "model_hash": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+    "pending": [],
+    "scope": "Ordered A/B same-program deterministic whole-construction provenance only. No geometry, operation, privacy, diversity or admission receipt transferred. Separate fresh whole gate remains required.",
+    "source_revision": "faada6a8a1106adfe8a24a5f18dfdf6b550f20a6ecc93d81ce07d47a20d6a279",
+    "trace_hash": "1c33ad2847a9438be6e4ac6867ceb7a5b96f5947f395b7758b203ce97ac2bef8",
+    "verified": true
+  },
+  "physical": {
+    "accepted": false,
+    "errors": [
+      {
+        "code": "MISSING_REQUIRED_ACTIVITY_ROUTES",
+        "failures": [
+          {
+            "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion",
+            "reason": "NO_CONNECTED_BODY_ROUTE",
+            "route": "guest_dining",
+            "unit": "A"
+          },
+          {
+            "profile": "public_all_seat_motion_occupied_and_kitchen_exclusion",
+            "reason": "NO_CONNECTED_BODY_ROUTE",
+            "route": "guest_dining",
+            "unit": "B"
+          }
+        ]
+      }
+    ],
+    "not_evaluated": [
+      "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+    ],
+    "original_pending": [
+      "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED"
+    ],
+    "out_of_scope": [
+      {
+        "code": "VARIABLE_ROOM_PROGRAM_CAPACITY_AND_SPATIAL_QUALITY_NOT_EVALUATED",
+        "label_fa": "تناسب کلی برنامه فضایی، کیفیت چیدمان و بهینه‌بودن تأیید نشده؛ موجودی فضا/اثاث و کارکردهای الزامی همچنان کنترل می‌شوند.",
+        "reason": "Overall program adequacy, spatial quality and global optimality remain for review. Required actual room/fixture inventory, use areas, circulation, privacy and independent functional witnesses are not excluded.",
+        "status": "NOT_EVALUATED"
+      }
+    ],
+    "pending": [
+      "RULE_NOT_EVALUATED:circulation_functional_integrity",
+      "RULE_NOT_EVALUATED:guest_dining_route",
+      "RULE_NOT_EVALUATED:guest_living_route",
+      "RULE_NOT_EVALUATED:private_grouping",
+      "RULE_NOT_EVALUATED:program_functional_roles",
+      "RULE_NOT_EVALUATED:serving_route"
+    ],
+    "release": false,
+    "status": "FAIL"
+  },
+  "functional": {
+    "state": "UNKNOWN_REQUIRED_FUNCTIONAL_PROOF",
+    "requirements": [
+      {
+        "basis": "actual source-profile instances and limited planar access, not area or room labels",
+        "id": "INTERNAL_INSTANCE_CAPACITY",
+        "state": "PASS_SCOPED"
+      },
+      {
+        "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof",
+        "id": "CURRENT_PROGRAM_SUITABILITY",
+        "state": "UNKNOWN"
+      },
+      {
+        "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven",
+        "id": "KITCHEN_GUEST_PATH_SEPARATION",
+        "state": "UNKNOWN"
+      },
+      {
+        "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved",
+        "id": "CONTINUOUS_USEFUL_LIVING",
+        "state": "UNKNOWN"
+      },
+      {
+        "basis": "no per-wall alternative/removal comparison proving current owner requirement",
+        "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+        "state": "UNKNOWN"
+      }
+    ],
+    "guest_missing": [
+      "KeyError:'guest_dining'"
+    ],
+    "internal_capacity_status": "PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY",
+    "living_state": "UNKNOWN_CONTINUOUS_USEFUL_LIVING"
+  },
+  "object_integrity_verified": true,
+  "mutation_counts": {
+    "objects": 0,
+    "reports": 0
+  },
+  "source_unchanged": true,
+  "hard_timeout": {
+    "implemented": true,
+    "triggered": false,
+    "solver_seconds": 30,
+    "child_seconds": 180,
+    "kill_path_executed": false
+  },
+  "evidence": {
+    "artifact": 14497880207,
+    "zip_sha256": "7060397c648c79731fcc03df282f8b6e86e8ead8e47acef17ee11e7b9ab8c9d9",
+    "bundle_sha256": "fb87b9e3de841bb8b81e9bb1812fd14baba75304390c6eeb54cb47b2bcea3720",
+    "expiry": "2026-12-19T04:01:05Z",
+    "readback_run": 44455507776,
+    "readback_job": 135329427119,
+    "readback_commit": "4b07411f9972fd27003bf38f3176bb21ff3324c9",
+    "readback_artifact": 14497781140,
+    "readback_zip_sha256": "312df254442e0cff22e9815e99658ab921b0cc9da5c44c7de99171f4d13efdd3",
+    "reproduce": "v25-bounded-original-runtime.yml at source_commit; readback requires unexpired artifact. After expiry rerun produces new evidence, not recovery of old solver output."
+  },
+  "limitations": [
+    "One18x20 FRONT_REAR two-bedroom source programme, not variable-size coverage",
+    "No repair/redesign executed by this task",
+    "Scheduler1.3/order1.4 are not connected to live execution by this standalone experiment",
+    "Historical physical FAIL retained; four current requirements UNKNOWN",
+    "Source body/profile is study-only; planar capacity PASS_SCOPED is not ergonomics/programme approval",
+    "Complete original reports stay in temporary artifact; no pending archive ingestion bypassed"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
