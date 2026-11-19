@@ -13,7 +13,7 @@ from same_version_front_rear_contract import digest,ENGINE_REVISION,FREEZE
 from one_bed_pair_source_study import code_counts,stop_process
 from core_choice_pair_study import selected_core,bind_profile,bind_program
 from source_fit_profile207 import source_fit,profiles,installation_expectations,verify_installed_subset,installation_negatives,door_side_negative
-CASES={'20x18':('20','18'),'18x22':('18','22'),'base20x18':('20','18'),'22x18':('22','18')}
+CASES={'20x18':('20','18'),'18x22':('18','22'),'base20x18':('20','18'),'22x18':('22','18'),'20x22':('20','22')}
 def need(ok,code):
  if not ok:raise ValueError(code)
 def child(folder,case,nonce):
@@ -107,8 +107,8 @@ def child(folder,case,nonce):
 def main():
  if len(sys.argv)==5 and sys.argv[1]=='--child':child(sys.argv[2],sys.argv[3],sys.argv[4]);return
  results=[]
- selected=['base20x18','22x18']if sys.argv[1:]==['--wide-study']else['20x18','18x22']
- need(sys.argv[1:]in ([],['--wide-study']),'STUDY_MODE')
+ selected=['20x22']if sys.argv[1:]==['--deep-study']else['base20x18','22x18']if sys.argv[1:]==['--wide-study']else['20x18','18x22']
+ need(sys.argv[1:]in ([],['--wide-study'],['--deep-study']),'STUDY_MODE')
  for case in selected:
   remaining=(datetime(2026,11,19,14,35,44,tzinfo=timezone.utc)-datetime.now(timezone.utc)).total_seconds()
   budget=min(240,remaining-5);need(budget>0,'TASK_TIMEBOX_EXPIRED')
