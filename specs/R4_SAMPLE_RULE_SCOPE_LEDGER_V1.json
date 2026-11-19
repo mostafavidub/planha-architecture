@@ -2646,9 +2646,12 @@
     },
     {
       "id": "R4-GAP-USER-PERSISTENCE",
-      "owner_task": "R4-4.11",
       "state": "MISSING_EVIDENCE",
-      "action": "User-linked durable sameoutput retrieval remains absent; temporaryActions artifact notproductstorage."
+      "action": "User-linked durable sameoutput retrieval requires dedicated adapter and authorization tests; evidence archiveR4-4.11 alone insufficient.",
+      "owner_tasks": [
+        "R4-X.01",
+        "R4-X.02"
+      ]
     }
   ],
   "accepted": false,
@@ -2792,7 +2795,7 @@
       ],
       "existing_checker_reference": "Temporary Actions artifacts and small manifests do not implement userpanel/durable product storage",
       "state": "NOT_RUN_BASELINE_BINDING_PENDING",
-      "next_action": "R4-4.11 and output/persistence work: authorized durable storage and replay/download evidence; no unapprovedarchive ingestion"
+      "next_action": "R4-X.01 project storage/owner/snapshot/retention contract and adapter; R4-X.02 owner-authorized same-snapshot retrieval/download without regeneration. R4-4.11 only archives engineering evidence and is not a user project panel/storage implementation."
     },
     {
       "id": "CURRENT_OPTION_POLICY",
