@@ -25,7 +25,7 @@ def main():
  receipt={'schema':'BOUNDED_ORIGINAL_RUNTIME_EXPERIMENT_V1','public_body':BODY.decode(),
   'programme':'PROGRAM_2BED_V1','solver_seconds':SOLVER_SECONDS,'outer_seconds':OUTER_SECONDS,
   'budget_scope':'Engineering experiment limits, not architectural feasibility or output count',
-  'head_sha':os.environ.get('GITHUB_SHA'),'accepted':False,'qualified':False,'delivery_allowed':False,
+  'head_sha':os.environ.get('GITHUB_SHA'),'runner_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'accepted':False,'qualified':False,'delivery_allowed':False,
   'display_allowed':False,'timed_out':False,'kill_sent':False,'wait_completed':False}
  proc=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'--child'],
   cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,start_new_session=True)
