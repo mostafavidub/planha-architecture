@@ -2662,7 +2662,11 @@
       ],
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PLANNED",
+      "additional_completion_dependencies": [
+        "R4-X.01",
+        "R4-X.02"
+      ]
     }
   ],
   "scope_review_policy": "Before/after each task assess current cycle adequacy; append new necessary gaps with source and dependencies, not fake completion.",
@@ -2692,7 +2696,16 @@
         "Authentication/owner identity contract absent",
         "Permission for provisioning or payments not implied"
       ],
-      "started": false
+      "started": false,
+      "source_document": {
+        "document_id": "12YC7qIRtnQsTSXtRwtdZXusTRjfARz4L2ZHVt4VZ17w",
+        "tab": "t.0",
+        "range": [
+          664581,
+          666528
+        ],
+        "readback": "CONFIRMED_BY_COORDINATING_PARENT"
+      }
     },
     {
       "id": "R4-X.02",
@@ -2711,7 +2724,16 @@
         "Storage/auth unavailable",
         "No qualified design/output for positive finaldelivery"
       ],
-      "started": false
+      "started": false,
+      "source_document": {
+        "document_id": "12YC7qIRtnQsTSXtRwtdZXusTRjfARz4L2ZHVt4VZ17w",
+        "tab": "t.0",
+        "range": [
+          664581,
+          666528
+        ],
+        "readback": "CONFIRMED_BY_COORDINATING_PARENT"
+      }
     }
   ],
   "adequacy_gap_queue": [
