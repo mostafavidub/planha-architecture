@@ -49,10 +49,11 @@ def run(body,*,test_adapter=None,clock=None,budget=None):
     clock=time.monotonic if clock is None else clock
     started=_clock_value(clock);last=started
     out={'schema':'AUTOMATIC_PROGRAM_SCHEDULER_FRAMEWORK_V1',
-      'status':'SCHEDULER_FRAMEWORK_ONLY','binding':binding,'alternatives':alts,
+      'status':'SINGLE_CASE_SCHEDULER_FRAMEWORK_ONLY','binding':binding,'alternatives':alts,
       'attempts':[],'budget':limits,'used_attempts':0,'allocated_seconds':0,
       'selected_alternative':None,'pareto_selected':[],'quality_status':'PROFILE_NOT_READY',
       'production_supported':False,'request_fulfilled':False,'fresh_model_executed':False,
+      'scope':'Only18x20/n2 selected contract; other cases rejected before scheduling. Digest binds data, not proof of runtime producer origin. One attempt, not multi-option search.',
       'test_mode':test_adapter is not None,'ap07_complete':False,
       'global_infeasibility_proven':False,'transitions':[],
       'remaining_stages':[{'stage':s,'status':'NOT_IMPLEMENTED_IN_SELECTED_SCHEDULER'} for s in
