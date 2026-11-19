@@ -144,7 +144,7 @@
     {
       "id": "V25-22",
       "status": "PARTIAL_INDEPENDENT_EVALUATOR_VERIFIED_CURRENT_QUALITY_UNKNOWN",
-      "evidence": "Evaluator۱۸×۲۰ وmatrixevaluator۱۵×۲۵/۲۰×۲۰/۲۴×۱۸ مستقل صفرخطا ولی۷pending وچهارUNKNOWN دارند. جایگزینsource-built دوwallآشپزخانه با۸guestpath ثابت و۷negative تأیید؛۰٫۲۲۶۵m²مصالح کمتر،نه usefularea.۸۹wallباقی؛livingresidual همچنان درdiagnostic بدونشاهداتصال.qualification/تحویل/۳۰۳ممنوع.",
+      "evidence": "Evaluator۱۸×۲۰ وmatrixevaluator۱۵×۲۵/۲۰×۲۰/۲۴×۱۸ مستقل صفرخطا ولی۷pending وچهارUNKNOWN دارند. جایگزینsource-built دوwallآشپزخانه با۸guestpath ثابت و۷negative تأیید؛۰٫۲۲۶۵m²مصالح کمتر،نه usefularea.۸۹wallباقی؛livingresidual همچنان درdiagnostic بدونشاهداتصال.qualification/تحویل/۳۰۳ممنوع. endpoint attribution در44433258552:هرstandingbody۰٫۴۹m²کاملدرگردش/public،صفرresidual وبدونمانعفیزیکی؛blockedبودنresidual یک محدودیتdomainاست،نهاثباتناممکنیliving.",
       "evidence_runs": [
         44416886004,
         44418924830,
@@ -158,7 +158,8 @@
         44428930218,
         44430645378,
         44430765347,
-        44432473286
+        44432473286,
+        44433258552
       ]
     },
     {
@@ -243,24 +244,25 @@
     "end": "2026-11-18T19:40:20.656Z"
   },
   "migration_scope": "User expressly approved smaller-step continuation; exact guard closure restored, no universal original588 recovery claim",
-  "last_evidence_update_utc": "2026-11-19T00:53:48Z",
+  "last_evidence_update_utc": "2026-11-19T01:00:14Z",
   "current_independent_operation": {
     "id": "V25-22-LIVING-WITNESS",
     "start_utc": "2026-11-18T22:07:31Z",
     "deadline_utc": "2026-11-19T01:07:31Z",
-    "state": "INTEGRATED_MATRIX_AND_TWO_WALL_ALTERNATIVE_SCOPED_COMPLETE_CURRENT_CLOSURE_OPEN",
+    "state": "ENDPOINT_ATTRIBUTION_SCOPED_CHECKPOINT_COMPLETE_CURRENT_FUNCTIONAL_CLOSURE_OPEN",
     "first_diagnostic_error": "UNSUPPORTED_MULTI_OWNER_BOX; corrected by search bbox with exact non-floor complement and independent swept-union coverage",
     "latest_subtask": {
       "id": "V25-22-OPEN-KITCHEN",
       "start_utc": "2026-11-18T23:41:09Z",
       "deadline_utc": "2026-11-19T01:07:31Z",
       "running_test": null,
-      "latest_verified_run": 44432473286,
+      "latest_verified_run": 44433258552,
       "raw_status": "NOT_EVALUATED_REQUIRED_CAPACITY_QUALITY_PENDING",
       "matrix_worker": "/root/migration_continue/new_schema_matrix",
       "named_current_status": "UNKNOWN_REQUIRED_STUDY_ZERO_ERRORS_SEVEN_PENDING",
       "integrated_matrix_run": 44430765347,
-      "wall_alternative_manifest": "manifests/V25_WALL_ALTERNATIVE_RESULT.json"
+      "wall_alternative_manifest": "manifests/V25_WALL_ALTERNATIVE_RESULT.json",
+      "endpoint_manifest": "manifests/V25_LIVING_ENDPOINT_ATTRIBUTION_RESULT.json"
     }
   },
   "live_cycle_operation": {
