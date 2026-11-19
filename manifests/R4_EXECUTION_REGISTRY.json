@@ -124,9 +124,11 @@
       "start_utc": "2026-11-19T07:13:13Z",
       "deadline_utc": "2026-11-19T10:13:13Z",
       "checkpoint_utc": "2026-11-19T07:18:00Z",
-      "draft_commit": "e89309233418a90932837011a528fe311e3878c3",
+      "draft_commit": "92beaca2c4e095111286e0ad00dd05ca6c623591",
       "main_contract_unchanged": "V2",
-      "dependency_status": "R4-1.01 BLOCKED_CI_BEFORE_FIRST_STEP"
+      "dependency_status": "R4-1.01 BLOCKED_CI_BEFORE_FIRST_STEP",
+      "draft_branch": "r4-input-v3-draft",
+      "test_execution": "NOT_RUN"
     },
     {
       "id": "R4-1.03",
@@ -180,7 +182,15 @@
       ],
       "estimate_minutes": 90,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "DRAFT_SOURCE_CROSSWALK_PREPARED_BASELINE_BLOCKED",
+      "start_utc": "2026-11-19T07:18:42Z",
+      "deadline_utc": "2026-11-19T10:18:42Z",
+      "checkpoint_utc": "2026-11-19T07:22:34Z",
+      "draft_commit": "aa2ee130c80caeeaafeb40c4702212e61078d42a",
+      "draft_branch": "r4-scope-ledger-draft",
+      "test_execution": "NOT_RUN",
+      "baseline_assessment": "NOT_RUN_DEPENDENCY_R4_1_01_BLOCKED",
+      "completed": false
     },
     {
       "id": "R4-1.04",

@@ -1,0 +1,109 @@
+{
+  "schema": "R4_1_03_PREPARATION_CHECKPOINT_V1",
+  "task": "R4-1.03",
+  "status": "SOURCE_CROSSWALK_PREPARED_NOT_EXECUTED",
+  "start_utc": "2026-11-19T07:18:42Z",
+  "deadline_utc": "2026-11-19T10:18:42Z",
+  "checkpoint_utc": "2026-11-19T07:22:34Z",
+  "draft_commit": "aa2ee130c80caeeaafeb40c4702212e61078d42a",
+  "branch": "r4-scope-ledger-draft",
+  "counts": {
+    "historical_registry": 89,
+    "named_requirements": 38,
+    "current_criteria": 4,
+    "new_current_process_product_requirements": 7
+  },
+  "source_readback": {
+    "existing_spec_blobs": [
+      "0b8bb876cc675ed27f88b340b3c6ed4e41608eb4",
+      "125ed9cdf0c8b5d5ca2a9eae0e7d00ba869d0841"
+    ],
+    "live_prd": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
+    "tab": "t.0",
+    "ranges": [
+      [
+        69987,
+        72606
+      ],
+      [
+        118328,
+        118743
+      ],
+      [
+        133051,
+        133647
+      ],
+      [
+        135031,
+        135250
+      ]
+    ]
+  },
+  "done": [
+    "Exact historical crosswalk/source references retained; not wholePRD completeness",
+    "Missingrule/profile/evidence/NOT_RUN/error/conflict distinguished; dd3b evidence pending no67857/073a transfer",
+    "Explicit POST_MVP nonblocking predicates with conceptualcore retained; no historical error filtering",
+    "Product applicability conditional including LLMcall and k>1; no unsupported unconditional obligations",
+    "Live process rules added: separateG_REPORT89/unit andG_DESIGN, causalreturn andall89review, allpositivefinitebudgetcategories, user-linkedpersistent sameoutput, currentupto6 versus historicalD08"
+  ],
+  "tests": {
+    "prepared": "tests/r4/test_scope_ledger.py",
+    "executed": false,
+    "scope": "Structural counts/reference hashes/falseauthority only, not behavioral or architectural evaluation"
+  },
+  "independent_review": "Initial scope reviewed and applicability fixes applied; latestlivePRD addition submitted for review",
+  "remaining": [
+    "R4-1.01baseline audit blocked beforeCI start",
+    "Same-modeldd3b report rows and allrequiredcurrent predicates not verified",
+    "FullPRD mapping completion unproven",
+    "No structuraltests executed dueGitHubbilling/spendingblock"
+  ],
+  "adequacy_queue": [
+    {
+      "id": "R4-GAP-INPUT-ERROR-SEMANTICS",
+      "owner_task": "R4-1.02",
+      "state": "DRAFT_NOT_RUN",
+      "action": "Validate current PRD n error categories after infrastructure restored."
+    },
+    {
+      "id": "R4-GAP-BASELINE-EXECUTION",
+      "owner_task": "R4-1.01",
+      "state": "BLOCKED_CI",
+      "action": "Run fixed historical baseline audit before attaching dd3b report-level statuses."
+    },
+    {
+      "id": "R4-GAP-COMPLETE-PRD-CROSSWALK",
+      "owner_task": "R4-1.03",
+      "state": "MISSING_EVIDENCE",
+      "action": "Review remaining source requirements and required applicability beyond89historical/fourcurrent; do not advertise this finite map as wholePRD."
+    },
+    {
+      "id": "R4-GAP-REPORT-DESIGN-SEPARATION",
+      "owner_task": "R4-1.11",
+      "state": "MISSING_EVIDENCE",
+      "action": "All89current/per-unit G_REPORT completeness separately from G_DESIGN; four reports insufficient."
+    },
+    {
+      "id": "R4-GAP-RETURN-ROUTING-ALL89",
+      "owner_task": "R4-1.09",
+      "state": "MISSING_EVIDENCE",
+      "action": "Explicit failure routing and comprehensive currentphase review; fresh four checks do not establish all89manual review."
+    },
+    {
+      "id": "R4-GAP-ALL-BOUND-CATEGORIES",
+      "owner_task": "R4-1.10",
+      "state": "MISSING_EVIDENCE",
+      "action": "Finite positive policy for allrequired bound categories plus semantic cycle; currentoutercontroller not fullinnerloopproof."
+    },
+    {
+      "id": "R4-GAP-USER-PERSISTENCE",
+      "owner_task": "R4-4.11",
+      "state": "MISSING_EVIDENCE",
+      "action": "User-linked durable sameoutput retrieval remains absent; temporaryActions artifact notproductstorage."
+    }
+  ],
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
