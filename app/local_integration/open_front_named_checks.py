@@ -221,20 +221,27 @@ ADAPTERS['actual_opening_geometry']=actual_opening_geometry
 ADAPTERS.pop('window_opportunities',None)
 
 def adapters_for_study(packet,trace,baseline_packet,baseline_context):
- """Exact new-origin packet binding. No historical construction trace is invented."""
+ """Exact new-origin binding verified once for this immutable bundle.
+ Fresh geometry callbacks still run; enclosing study evaluator guards source files.
+ No historical construction trace is invented.
+ """
  from open_front_world_origin import verify
  from open_front_boundary_comparison import assess as boundary_assess
+ bundle=[packet,trace,baseline_packet,baseline_context]
+ bundle_digest=digest(bundle)
  origin=verify(packet,trace)
+ if digest(bundle)!=bundle_digest:raise ValueError('NAMED_STUDY_BUNDLE_MUTATED')
  model_digest=digest(packet['world_model'])
  context={'study_packet':packet,'study_trace':trace}
  callbacks=adapters_for_workflow(context)
  def checked(fn):
   def run(m):
    if digest(m)!=model_digest:raise ValueError('NAMED_STUDY_MODEL_BINDING')
-   verify(packet,trace)
+   if digest(bundle)!=bundle_digest:raise ValueError('NAMED_STUDY_BUNDLE_MUTATED')
    before=digest(m)
    result=fn(m)
    if digest(m)!=before:raise ValueError('NAMED_STUDY_INPUT_MUTATED')
+   if digest(bundle)!=bundle_digest:raise ValueError('NAMED_STUDY_BUNDLE_MUTATED')
    return result
   return run
  def q11_current(m):
