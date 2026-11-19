@@ -1,0 +1,103 @@
+name: R4 isolated historical draft unit checks
+on:
+  push:
+    paths: ['.github/workflows/r4-isolated-drafts.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scope:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 2899f46cd2b96b1f36985edc52209c252ec886bc
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact isolated draft syntax and contract tests, not current integration
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s tests/r4 -p test_scope_ledger.py -v
+      - name: No tracked mutation
+        if: always()
+        run: git diff --exit-code
+  coverage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 8b420f31d74aa830b55903a51e62c90440191a86
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact isolated draft syntax and contract tests, not current integration
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s tests/r4 -p test_coverage_preflight.py -v
+      - name: No tracked mutation
+        if: always()
+        run: git diff --exit-code
+  placement:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 66ad6781f705e09f820596501d72cc82cd91df96
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact isolated draft syntax and contract tests, not current integration
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s studies/r4 -p test_placement_reference_contract.py -v
+      - name: No tracked mutation
+        if: always()
+        run: git diff --exit-code
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 5366209538a09a6aee7380f9c50aff62db8c624c
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact isolated draft syntax and contract tests, not current integration
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s studies/r4 -p test_project_snapshot_contract.py -v
+      - name: No tracked mutation
+        if: always()
+        run: git diff --exit-code
+  onebed:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 8d73e754aeed6e06b03c33cf243c67fe3dd0e0dd
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact isolated draft syntax and contract tests, not current integration
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s studies/r4 -p test_one_bed_proposal_contract.py -v
+      - name: No tracked mutation
+        if: always()
+        run: git diff --exit-code
