@@ -1,0 +1,111 @@
+{
+  "task": "3.6",
+  "start": "2026-11-19T04:37:04Z",
+  "deadline": "2026-11-19T07:37:04Z",
+  "status": "DONE_SCOPED_SAME_MODEL_FOUR_REPORT_DECISION_BLOCKED_NOT_PRODUCT_QUALIFIED",
+  "tested_commit": "6c47196f7bde9285256f14f0f7b4472cf5837954",
+  "run": 44460110976,
+  "job": 135344548200,
+  "tests": {
+    "synthetic_adversarial": 19,
+    "actual_same_model_existing_artifact_join": 1
+  },
+  "artifact_input_receipts": {
+    "CONTINUOUS_USEFUL_LIVING": {
+      "file_sha256": "420703199c20cde535bbccd2aaaaeab845a5476bb30e3c4783836db72e98452e",
+      "filename": "source-living-assessment.json",
+      "report_digest": "23a7517d71adf3823ef71991a6904d2e735f44d4e96216dd4f656c7d7f3d13b8",
+      "run": 44457926185
+    },
+    "CURRENT_PROGRAM_SUITABILITY": {
+      "file_sha256": "40edac4629e75d6003ad1f939a31bac74bc6a6afd7b7470f5a5d14b17994ef4a",
+      "filename": "programme-assessment.json",
+      "report_digest": "fc40a493dcb756e5fdf267bf5aa85aa9d2f67701bb6a6f91bf31447a7a189e6b",
+      "run": 44456479873
+    },
+    "KITCHEN_GUEST_PATH_SEPARATION": {
+      "file_sha256": "6c8a0d72c7e95102146403c642e8bad49384f40db7a110e74af256822e899b15",
+      "filename": "source-guest-routes.json",
+      "report_digest": "020e6f04be1cb3512d38367468ca4926fccba69e4572900446c3a6218486db54",
+      "run": 44457232839
+    },
+    "NONFUNCTIONAL_WALL_EXCLUSION": {
+      "file_sha256": "af9c7642184830841a08c2fd69e1748cf062b6c09e8466084514106e5424196a",
+      "filename": "source-wall-function-assessment.json",
+      "report_digest": "91a84a84c157c4535fc3c0cef6aa514789b67098faa882aed605aafdd6817034",
+      "run": 44459297261
+    }
+  },
+  "criteria": [
+    {
+      "assessment_digest": "fc40a493dcb756e5fdf267bf5aa85aa9d2f67701bb6a6f91bf31447a7a189e6b",
+      "criterion": "CURRENT_PROGRAM_SUITABILITY",
+      "effective_state": "UNKNOWN",
+      "evaluator_errors": [],
+      "reported_state": "UNKNOWN"
+    },
+    {
+      "assessment_digest": "020e6f04be1cb3512d38367468ca4926fccba69e4572900446c3a6218486db54",
+      "criterion": "KITCHEN_GUEST_PATH_SEPARATION",
+      "effective_state": "UNKNOWN",
+      "evaluator_errors": [],
+      "reported_state": "UNKNOWN"
+    },
+    {
+      "assessment_digest": "23a7517d71adf3823ef71991a6904d2e735f44d4e96216dd4f656c7d7f3d13b8",
+      "criterion": "CONTINUOUS_USEFUL_LIVING",
+      "effective_state": "UNKNOWN",
+      "evaluator_errors": [],
+      "reported_state": "UNKNOWN"
+    },
+    {
+      "assessment_digest": "91a84a84c157c4535fc3c0cef6aa514789b67098faa882aed605aafdd6817034",
+      "criterion": "NONFUNCTIONAL_WALL_EXCLUSION",
+      "effective_state": "UNKNOWN",
+      "evaluator_errors": [],
+      "reported_state": "UNKNOWN"
+    }
+  ],
+  "decision": {
+    "accepted": false,
+    "all_PRD_requirements_verified": false,
+    "blockers": [
+      "PHYSICAL_FAIL",
+      "CURRENT_UNKNOWN",
+      "PHYSICAL_PENDING",
+      "HISTORICAL_UNRESOLVED_RETAINED"
+    ],
+    "current_four_conditions_complete": false,
+    "delivery_allowed": false,
+    "display_allowed": false,
+    "qualified": false,
+    "state": "BLOCKED"
+  },
+  "integrity_verified": true,
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "output_digest": "cde6a4d8d051c238f7921d1a21522ea8bee80424ba244e7c7f1dd56c200b40e1",
+  "physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+  "artifact": {
+    "id": 14498784602,
+    "digest": "sha256:c6ed28a6f1832ce9281147956c7f7759d5df2180b676e67be3b8cb0bfafc25f3",
+    "expires_at": "2026-12-19T04:42:45Z"
+  },
+  "scope": [
+    "Complete original reports, errors, pending, original_pending, not_evaluated and out_of_scope retained without filtering.",
+    "Exact versioned required snapshot sets checked against current files; same original replay, model and physical digests.",
+    "Programme V1 schema explicitly maps to criterion because legacy report lacks criterion field; present contradictory field rejected.",
+    "Confirmed reported FAIL and evaluator errors are retained as separate simultaneous blockers.",
+    "All-four PASS only concerns these four checks; never whole PRD or product qualification.",
+    "No fresh geometry generated in task3.6; all actual input reports from named retained GitHub Actions artifacts."
+  ],
+  "remaining": [
+    "Original physical guest-dining rejection remains.",
+    "All four current architectural requirements remain UNKNOWN.",
+    "Live scheduler/order connection and broader product requirements remain separate."
+  ],
+  "reproduce": "Checkout tested commit, rerun .github/workflows/v25-current-four-decision.yml while pinned input artifacts remain available. File hashes and report digests are recorded above. After expiry, reproduce each original task and verify exact same-model/source compatibility; do not assume deterministic equality.",
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false
+}
