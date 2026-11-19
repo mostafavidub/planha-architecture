@@ -1,0 +1,25 @@
+name: R4 current V3 preflight coverage
+on:
+  push:
+    paths: ['tests/r4/test_current_v3_coverage.py', '.github/workflows/r4-current-v3-coverage.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  coverage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source identity and current preflight, no geometry execution
+        env:
+          PYTHONPATH: app/local_integration
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python -B -m unittest discover -s tests/r4 -p test_current_v3_coverage.py -v
+      - if: always()
+        run: git diff --exit-code
