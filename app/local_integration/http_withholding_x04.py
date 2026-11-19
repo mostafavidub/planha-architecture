@@ -40,7 +40,12 @@ class Boundary:
     with self._mutex:record.update(worker_state='RUNNING',generation_started=True)
     raw=run(body)
     # Retain only bounded public projection in this in-memory boundary, not raw model.
-    summary=project(raw);payload=encoded(summary)
+    summary=project(raw)
+    rows=raw.get('attempts',[])
+    receipts_observed=type(rows)is list and len(rows)>0 and all(type(r)is dict and r.get('receipt_verified')is True for r in rows)
+    if not receipts_observed:
+     summary=copy.deepcopy(summary);summary['decision']={'state':'NO_VERIFIED_DECISION','blockers':['RUNTIME_RECEIPT_NOT_VERIFIED']}
+    payload=encoded(summary)
     if len(payload)>1024*1024:raise ValueError('SUMMARY_LIMIT')
     rows=raw.get('attempts',[])
     observed={'source_integrity_observed':raw.get('source_integrity_verified') is True,
@@ -52,7 +57,7 @@ class Boundary:
      record['worker_state']='COMPLETED_OBSERVED'
      # Source failure remains observed failure; no decision is promoted to verified.
      if not observed['source_integrity_observed']:record['worker_state']='SOURCE_UNVERIFIED_OBSERVED'
-     box['payload']=payload
+     if observed['source_integrity_observed']:box['payload']=payload
    except Exception:
     with self._mutex:record['worker_state']='WORKER_FAILED_OBSERVED'
    finally:

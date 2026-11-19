@@ -70,8 +70,10 @@ def main():
        page.wait_for_timeout(200)
        assert page.locator('#result').inner_text()==text
        assert len(posts)==2 and len(calls)==1 and all(x.poll()==0 for x in processes)
-       page.locator('#submit').click()
-       expect(page.locator('#result')).to_contain_text('بررسی اجرا شد')
+       with page.expect_response(lambda r:r.url.endswith('/api/public/plan')) as response:
+        page.locator('#submit').click()
+       assert response.value.status==200 and response.value.json()['decision']['state']=='NO_VERIFIED_DECISION'
+       expect(page.locator('#result')).to_have_attribute('data-state','blocked')
        until(lambda:not m.LOCK.locked())
        assert len(posts)==3 and len(calls)==2 and len(processes)==2
        assert all(x.poll()==0 for x in processes) and errors==[]

@@ -55,10 +55,12 @@ class HTTP(unittest.TestCase):
   self.assertEqual(status,500);self.assertNotIn('PRIVATE',json.dumps(data));self.assertFalse(s.LOCK.locked())
  def test_finalization_overrun(self):
   original=s.public_summary
-  def slow(raw):time.sleep(.12);return original(raw)
+  release=threading.Event()
+  def slow(raw):
+   release.wait(4);return original(raw)
   with patch.object(w,'LIMIT_SECONDS',.05),patch.object(s,'run_live',side_effect=fake),patch.object(s,'public_summary',side_effect=slow):
    status,data=self.request();self.assertEqual(status,504)
-   self.assertTrue(s.LOCK.locked());until(lambda:not s.LOCK.locked())
+   self.assertTrue(s.LOCK.locked());release.set();until(lambda:not s.LOCK.locked())
   self.assertTrue(s.HTTP_BOUNDARY.snapshot()[-1]['worker_state'].startswith('LATE_'))
  def test_preflight_overrun_no_dispatch(self):
   original=s.preflight
@@ -81,8 +83,13 @@ class HTTP(unittest.TestCase):
   data=fake(BODY);data['source_integrity_verified']=False
   with patch.object(s,'run_live',return_value=data):
    status,out=self.request()
-  self.assertEqual(status,200);self.assertFalse(out['source_integrity_verified']);self.assertFalse(out['http_lifecycle']['receipt_verified'])
+  self.assertEqual(status,500);self.assertNotIn('decision',out);self.assertFalse(out['receipt_verified'])
   self.assertEqual(s.HTTP_BOUNDARY.snapshot()[-1]['worker_state'],'SOURCE_UNVERIFIED_OBSERVED')
+ def test_invalid_receipt_not_verified_decision(self):
+  with patch.object(s,'run_live',side_effect=fake):
+   status,out=self.request()
+  self.assertEqual(status,200);self.assertEqual(out['decision']['state'],'NO_VERIFIED_DECISION')
+  self.assertFalse(out['http_lifecycle']['evidence_usable'])
  def test_invalid_unsupported_no_boundary(self):
   with patch.object(s,'run_live',side_effect=AssertionError('NO_RUN')) as run:
    self.assertEqual(self.request(b'{"W":"26","L":"20","n":2}')[0],422)
