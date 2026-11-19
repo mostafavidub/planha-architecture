@@ -209,7 +209,7 @@
       "description_verbatim": "۲.۳. اتصال بررسی‌های هندسی، عملکردی و قواعد به همان مدل ساخته‌شده. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "PARTIAL_RUNTIME_WIRING_SMOKE_TESTED_LIVE_BINDING_PENDING",
+      "status": "DONE_SCOPED_SAME_MODEL_RUNTIME_INTEGRATION",
       "dependencies": [
         "2.2"
       ],
@@ -224,8 +224,10 @@
         "previous": 92,
         "total": 99
       },
-      "remaining": "No solver/model/replay/evaluator execution; adversarial runtime2.4 and real execution2.5 remain. np.float64 explicitly unsupported at current transport.",
-      "evidence_manifest_commit": "faebaac35373f2ca0307dfd0d39cb50fa39b9a98"
+      "remaining": "Original producer/replay/physical/current bound on one fresh rejected model; not general domain or qualified design.",
+      "evidence_manifest_commit": "faebaac35373f2ca0307dfd0d39cb50fa39b9a98",
+      "live_run": 44455198301,
+      "live_readback_run": 44455507776
     },
     {
       "id": "2.4",
@@ -256,13 +258,25 @@
       "description_verbatim": "۲.۵. اجرای یک مسیر واقعی تولید تا گزارش ارزیابی؛ نتیجه تاریخی جدا بماند و هیچ خطایی صرفاً برای قبولی حذف نشود. ۱۲۰ دقیقه",
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "DONE_SCOPED_REAL_CHAIN_MODEL_REJECTED",
       "dependencies": [
         "2.4"
       ],
       "start_utc": "2026-11-19T03:49:50Z",
       "deadline_utc": "2026-11-19T06:49:50Z",
-      "scope": "First fresh original FRONT_REAR18x20/n2/program2 live chain with outer process timeout, full unfiltered reports and exact sources."
+      "scope": "First fresh original FRONT_REAR18x20/n2/program2 live chain with outer process timeout, full unfiltered reports and exact sources.",
+      "completed_utc": "2026-11-19T04:02:27Z",
+      "commit": "9bf9ada0a9c71b413d07573e97aed0cdce6a71cd",
+      "run": 44455198301,
+      "readback_run": 44455507776,
+      "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+      "physical_status": "FAIL",
+      "physical_error_codes": [
+        "MISSING_REQUIRED_ACTIVITY_ROUTES"
+      ],
+      "physical_pending": 6,
+      "current_unknown": 4,
+      "remaining": "Actual model rejected; guest dining routes absent A/B. Orchestrator linkage1.3 and actual alternative order1.4 remain, no product acceptance."
     },
     {
       "id": "3.1",
@@ -288,11 +302,14 @@
       "description_verbatim": "۳.۲. بررسی تناسب برنامه فضایی و ظرفیت واقعی هر واحد. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "3.1",
         "1.2"
-      ]
+      ],
+      "start_utc": "2026-11-19T04:03:32Z",
+      "deadline_utc": "2026-11-19T07:03:32Z",
+      "scope": "Source-backed actual programme/capacity assessment on same real model, explicit missing quality/profile; no arbitrary pass thresholds."
     },
     {
       "id": "3.3",
