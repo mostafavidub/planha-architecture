@@ -321,7 +321,7 @@
     "id": "V25-11-LEFT-RIGHT-SOURCE",
     "start_utc": "2026-11-19T01:49:30Z",
     "deadline_utc": "2026-11-19T04:49:30Z",
-    "state": "TOPOLOGY_COMPARISON_COMPLETED_SCOPED_FAMILY_NOT_ACCEPTED",
+    "state": "RUNNING_SEPARATE_FRAME_SOURCE_D4_STUDY_CONTRACT",
     "scope": "Independent family producer/source schema blocker; not V25-22 functional closure restart",
     "evidence_runs": [
       44440172082,
@@ -347,6 +347,8 @@
         44444259272,
         44444599800
       ]
-    }
+    },
+    "frame_contract_run": 44445639710,
+    "frame_contract_commit": "2106b3f462cf19c43754c1a473f4656d4f3072f2"
   }
 }
