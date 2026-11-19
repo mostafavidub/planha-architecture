@@ -1,0 +1,197 @@
+{
+  "task": "3.2",
+  "start": "2026-11-19T04:03:32Z",
+  "deadline": "2026-11-19T07:03:32Z",
+  "status": "SCOPED_PROGRAMME_EVALUATOR_TESTED_OVERALL_SUITABILITY_UNKNOWN",
+  "commit": "19ff506ffe0a6db7dc261b992360301ccaa0cc44",
+  "run": 44456479873,
+  "job": 135332609844,
+  "tests": {
+    "unit_helper_and_registry": 21,
+    "detached_actual_inventory_negative": 6
+  },
+  "model_digest": "67857a94b8bab1f46741871fd074e1eafd0c86b8330db13a420d245618df8181",
+  "source_capacity_state": "PASS_SCOPED",
+  "criterion_state": "UNKNOWN",
+  "decision": "BLOCK_DELIVERY_UNKNOWN_PROGRAMME_AND_RETAIN_INDEPENDENT_PHYSICAL_RESULT",
+  "findings": [
+    {
+      "code": "CALIBRATED_ROOM_UNIT_QUALITY_AND_ERGONOMIC_SCENARIOS",
+      "kind": "MISSING_PROFILE"
+    },
+    {
+      "code": "OPERATIONAL_QUALITY_DIMENSIONS_AND_ACCEPTANCE_ANCHORS_OPEN",
+      "kind": "MISSING_RULE"
+    },
+    {
+      "code": "AP07_ALTERNATIVE_SEQUENCE_AND_PARETO_SELECTION",
+      "kind": "MISSING_EVIDENCE"
+    },
+    {
+      "code": "CLOTHING_STORAGE_VOLUME_AND_FULL_SIMULTANEOUS_BUNDLE_ADEQUACY",
+      "kind": "MISSING_EVIDENCE"
+    },
+    {
+      "code": "NET_CAPACITY_PREFILTER_SOURCE_BOUND_NOT_AVAILABLE",
+      "kind": "NOT_EVALUATED"
+    }
+  ],
+  "report_digests": {
+    "capacity": "63e341da5349caf763eb82651e98a964c234fe8deb07c7739804de255a6d5311",
+    "replay": "08030bd9ceb77437fd5e3bb7aec0127072f6bbae89029e97f8b2928f616e6adc"
+  },
+  "inventory": [
+    {
+      "unit": "A",
+      "fixture_ids": [
+        "WC_iranian",
+        "armchair1",
+        "armchair2",
+        "basin",
+        "bed1.bed",
+        "bed1.closet",
+        "bed2.bedA",
+        "bed2.bedB",
+        "bed2.closet",
+        "cooker",
+        "dining_chair_back",
+        "dining_chair_east",
+        "dining_chair_front",
+        "dining_chair_west",
+        "dining_table",
+        "fridge",
+        "prep",
+        "shower_floor",
+        "sink",
+        "sofa1",
+        "sofa2"
+      ],
+      "required_source_activity_ids": [
+        "WC_front",
+        "WC_use",
+        "armchair1_front",
+        "armchair2_front",
+        "basin_front",
+        "bed1.bed_back",
+        "bed1.bed_front",
+        "bed1.changing",
+        "bed1.closet_front",
+        "bed2.bedA_back",
+        "bed2.bedA_front",
+        "bed2.bedB_back",
+        "bed2.bedB_front",
+        "bed2.changing",
+        "bed2.closet_front",
+        "dining_back",
+        "dining_east",
+        "dining_front",
+        "dining_west",
+        "kitchen_work",
+        "shower_use",
+        "sofa1_front",
+        "sofa2_front"
+      ],
+      "required_activity_count": 23,
+      "dining_transfer_profile_validated": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "activity_phase_coverage": {
+        "arrival": "Source route presence recorded; actual clearance retained in original physical report",
+        "exit": "NOT_INDEPENDENTLY_EVALUATED",
+        "simultaneous_states": "SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE",
+        "use": "Fresh limited capacity audit; other module operations only original physical evidence"
+      }
+    },
+    {
+      "unit": "B",
+      "fixture_ids": [
+        "WC_iranian",
+        "armchair1",
+        "armchair2",
+        "basin",
+        "bed1.bed",
+        "bed1.closet",
+        "bed2.bedA",
+        "bed2.bedB",
+        "bed2.closet",
+        "cooker",
+        "dining_chair_back",
+        "dining_chair_east",
+        "dining_chair_front",
+        "dining_chair_west",
+        "dining_table",
+        "fridge",
+        "prep",
+        "shower_floor",
+        "sink",
+        "sofa1",
+        "sofa2"
+      ],
+      "required_source_activity_ids": [
+        "WC_front",
+        "WC_use",
+        "armchair1_front",
+        "armchair2_front",
+        "basin_front",
+        "bed1.bed_back",
+        "bed1.bed_front",
+        "bed1.changing",
+        "bed1.closet_front",
+        "bed2.bedA_back",
+        "bed2.bedA_front",
+        "bed2.bedB_back",
+        "bed2.bedB_front",
+        "bed2.changing",
+        "bed2.closet_front",
+        "dining_back",
+        "dining_east",
+        "dining_front",
+        "dining_west",
+        "kitchen_work",
+        "shower_use",
+        "sofa1_front",
+        "sofa2_front"
+      ],
+      "required_activity_count": 23,
+      "dining_transfer_profile_validated": [
+        false,
+        false,
+        false,
+        false
+      ],
+      "activity_phase_coverage": {
+        "arrival": "Source route presence recorded; actual clearance retained in original physical report",
+        "exit": "NOT_INDEPENDENTLY_EVALUATED",
+        "simultaneous_states": "SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE",
+        "use": "Fresh limited capacity audit; other module operations only original physical evidence"
+      }
+    }
+  ],
+  "source_binding_scope": "Module fixture/activity rigid geometry and exact fixture set; living dimensions independently checked but location relies on fresh original replay. Additional activity aliases are recorded, not independently reconstructed; operation count is presence, not functional proof.",
+  "integrity_verified": true,
+  "report_mutations": 0,
+  "historical_physical_digest": "676e15defedd8b835215fd9e290c155440d7e2ae8912b8bbf2990653a62ee8a3",
+  "historical_physical_status": "FAIL retained unchanged",
+  "artifact": {
+    "id": 14498635226,
+    "zip_sha256": "09e55ab224cf0c1778fe8f076558283a118b7d70ddc3232550449b4b146ede10",
+    "expiry": "2026-12-19T04:11:00Z",
+    "input_artifact": 14497880207,
+    "input_run": 44455198301
+  },
+  "reproduce": ".github/workflows/v25-current-programme-evaluator.yml at pinned commit requires original runtime artifact until expiry; after expiry regenerate new runtime evidence explicitly, do not claim old artifact recovery.",
+  "limitations": [
+    "Not a complete source activity/operation evaluator",
+    "No fresh geometry generated or repaired",
+    "Overall profile/quality/AP07/net-capacity/clothes-volume closure remains unresolved",
+    "No current programme PASS; inherited scoped capacity is not ergonomic acceptance",
+    "Scheduler1.3/order1.4 runtime still separate and incomplete"
+  ],
+  "accepted": false,
+  "qualified": false,
+  "delivery_allowed": false,
+  "display_allowed": false
+}
