@@ -302,8 +302,8 @@
       "paraphrase": "Living must be a genuinely continuous furnishable and usable floor, not a label, bounding box, narrow neck or leftover winding strip. Internal furniture use and width-bearing movement evidence remain necessary even when movable furniture is omitted from output. Compare long circulation with a genuinely shorter organisation under the same programme.",
       "required_data": [
         "Exact non-overlapping actual living-floor union, excluded kitchen/dining/threshold/private circulation and accounting conventions.",
-        "Actual source-bound seating fixtures, activity targets, all required design persons, access/use and simultaneous-use scenarios.",
-        "Body-width paths contained in actual floor, coherent furnishing/group-use evidence, route lengths/turns/bottlenecks and shorter alternative with rejection reasons.",
+        "Actual source-bound seating fixtures, activity targets, all required design persons, access/use and simultaneous-use scenarios. Access routes may traverse authorized circulation; circulation area does not thereby become useful living.",
+        "Separate witnesses: a claimed living-floor continuity path must remain in that explicitly defined floor scope; actual access paths use their valid floor/circulation domain. Record coherent furnishing/group use, route lengths/turns/bottlenecks and shorter alternative with rejection reasons.",
         "Functional useful area distinguished from residual geometry, fixture footprints and released wall material; comparable denominators."
       ],
       "conditional_pass": "Necessary furnishing, cohesive use, floor continuity and applicable quality/comparison requirements all proven for each unit under valid profiles; mere seat connectivity is insufficient.",
@@ -325,8 +325,8 @@
       },
       "proposed_tests": [
         {
-          "case": "All points connected inside bbox but route leaves actual living floor",
-          "expected": "FAIL asserted floor witness"
+          "case": "Claimed living-floor continuity witness leaves its declared floor scope",
+          "expected": "Reject that witness only; do not reject a valid access route merely for traversing authorized circulation"
         },
         {
           "case": "Seats connected in long winding strip",
@@ -346,7 +346,8 @@
         }
       ],
       "known_rule_scope": [
-        "No universal golden ratio, corridor-length cap, waste percentage or arbitrary compactness threshold is authorized."
+        "No universal golden ratio, corridor-length cap, waste percentage or arbitrary compactness threshold is authorized.",
+        "Living-floor continuity and real access routing have distinct domains. A source-labelled entry_circulation access path is not forbidden by this rule, nor counted automatically as useful living."
       ],
       "missing_rule_status": "NONE_IDENTIFIED"
     },
