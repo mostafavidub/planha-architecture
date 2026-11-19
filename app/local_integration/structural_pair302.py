@@ -258,8 +258,11 @@ def descriptor_import():
  a.guard();dependency_guard()
  return a
 def pair_readback(results,folder):
+ if len(results)!=2 or [r.get('case')for r in results]!=['V0','V2']:
+  return {'state':'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR','reason':'EXACT_TWO_REGISTERED_CASES_REQUIRED','architectural_diversity_verified':False,**{k:False for k in AUTH}}
  accepted=[r for r in results if r.get('completed')is True and r.get('descriptor_state')=='ACTUAL_MODEL_BOUND_DESCRIPTOR'and r.get('integrity_verified')is True]
  if len(accepted)!=2:return {'state':'NOT_COMPARABLE_MISSING_BOUND_DESCRIPTOR','reason':'NO_FALLBACK_OR_RESAMPLE','architectural_diversity_verified':False,**{k:False for k in AUTH}}
+ need(all(type(results[0].get(k))is str and results[0][k]==results[1].get(k)for k in('raw_digest','core_digest','profile_digest','program_digest','source_digest')),'PAIR_COMMON_ANCHOR')
  a=descriptor_import();pin=a.guard();projections=[]
  for r in results:
   path=folder/r['case']/'projection.json';need(path.stat().st_size<=33554432,'PROJECTION_SIZE')
@@ -269,7 +272,7 @@ def pair_readback(results,folder):
  result=a.compare_projections(*projections)
  result.update(model_hashes=[r['model_digest']for r in results],same_model=results[0]['model_digest']==results[1]['model_digest'],
   signatures=[r['descriptor_signature']for r in results],comparison_scope='Actual source-bound descriptor relationship difference, not quality or admission',
-  canonical_difference_digest=digest([a.canonical(p)for p in projections]),**{k:False for k in AUTH})
+  canonical_difference_digest=digest([a.canonical(p)for p in projections]),common_input_programme_core_source_verified=True,**{k:False for k in AUTH})
  need(digest(a.guard())==digest(pin),'PAIR_SOURCE_CHANGED')
  return result
 def run():
