@@ -1,0 +1,379 @@
+{
+  "schema": "R4_2_02_FRAME_REUSE_CHECKPOINT_V1",
+  "task_id": "R4-2.02",
+  "started_at": "2026-11-19T07:32:00Z",
+  "deadline": "2026-11-19T10:32:00Z",
+  "checkpoint_at": "2026-11-19T07:33:02Z",
+  "status": "PARTIAL_EXISTING_SOURCE_MANIFEST_REUSE_RUNTIME_DEPENDENCIES_BLOCKED",
+  "scope": "READ_SOURCE_MANIFEST_ONLY_NOT_ARTIFACT_REVALIDATED",
+  "source_base_commit": "c9916a0777fa36f51ca0e0f8f1dcd82711e8158a",
+  "current_sources": [
+    {
+      "path": "app/local_integration/left_right_two_source_binding.py",
+      "blob_sha": "9b4c6fa08ba53051cb4f7ffda683d7561a509514"
+    },
+    {
+      "path": "app/local_integration/frame125_two_source_binding.py",
+      "blob_sha": "46ed08ff1fe9df752bdda671ec7109b735ca6efb"
+    },
+    {
+      "path": "app/local_integration/study_frame125_two_nonsquare.py",
+      "blob_sha": "aeb2d85893dd960f36be2102b60c7058a56ffb47"
+    }
+  ],
+  "historical_manifests": [
+    {
+      "path": "manifests/V25_FRAME125_TWO_NONSQUARE_RESULT.json",
+      "blob_sha": "1bdb699d3654d39138b3ade627767f4b1bd32c63"
+    },
+    {
+      "path": "manifests/V25_FRAME125_TWO_SOURCE_BINDING_RESULT.json",
+      "blob_sha": "2a9f7e20873d2b6352e4e104cfebaefaf959c373"
+    },
+    {
+      "path": "manifests/V25_LEFT_RIGHT_TWO_SOURCE_D4_RESULT.json",
+      "blob_sha": "751302107fc9681f3564ede144d23e82bf4f8296"
+    }
+  ],
+  "historical_nonsquare": {
+    "run": 44447123050,
+    "commit": "4366044dc241d8862475334696c38948344b4526",
+    "artifact": {
+      "id": 14493099680,
+      "digest": "sha256:b261c86040dbc1ead4032b74998d5cd71a4327a86daf75751f2a53c6af0ed72a",
+      "expires_at": "2026-12-19T02:51:59Z",
+      "url": "https://api.github.com/repos/mostafavidub/planha-architecture/actions/artifacts/14493099680"
+    },
+    "cases": [
+      {
+        "input": {
+          "W": "18",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "axis_evidence": {
+          "raw": [
+            "18",
+            "20",
+            2
+          ],
+          "local_solver": [
+            "20",
+            "18",
+            2
+          ],
+          "world_core": [
+            "18",
+            "20",
+            2
+          ],
+          "matrix": {
+            "matrix": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "translation": [
+              "0",
+              "0"
+            ]
+          }
+        },
+        "model_hash": null,
+        "result": "NO_FRESH_MODEL",
+        "replay": null,
+        "binding": null,
+        "historical_status": null,
+        "error_count": 0,
+        "error_codes": {},
+        "pending": [],
+        "current_requirements": []
+      },
+      {
+        "input": {
+          "W": "20",
+          "L": "18",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "axis_evidence": {
+          "raw": [
+            "20",
+            "18",
+            2
+          ],
+          "local_solver": [
+            "18",
+            "20",
+            2
+          ],
+          "world_core": [
+            "20",
+            "18",
+            2
+          ],
+          "matrix": {
+            "matrix": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "translation": [
+              "0",
+              "0"
+            ]
+          }
+        },
+        "model_hash": null,
+        "result": "NO_FRESH_MODEL",
+        "replay": null,
+        "binding": null,
+        "historical_status": null,
+        "error_count": 0,
+        "error_codes": {},
+        "pending": [],
+        "current_requirements": []
+      },
+      {
+        "input": {
+          "W": "20",
+          "L": "25",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "axis_evidence": {
+          "raw": [
+            "20",
+            "25",
+            2
+          ],
+          "local_solver": [
+            "25",
+            "20",
+            2
+          ],
+          "world_core": [
+            "20",
+            "25",
+            2
+          ],
+          "matrix": {
+            "matrix": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "translation": [
+              "0",
+              "0"
+            ]
+          }
+        },
+        "model_hash": "49bb486ee0fa308f05737b9bfa72e7f08f03277075aea7ced98b49b93f975e8f",
+        "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+        "replay": true,
+        "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+        "historical_status": "FAIL",
+        "error_count": 40,
+        "error_codes": {
+          "UNKNOWN_RECORD_FIELDS": 40
+        },
+        "pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "current_requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ]
+      },
+      {
+        "input": {
+          "W": "25",
+          "L": "20",
+          "n": 2,
+          "requested_count": 1,
+          "program": {
+            "bedrooms_per_unit": 2
+          }
+        },
+        "axis_evidence": {
+          "raw": [
+            "25",
+            "20",
+            2
+          ],
+          "local_solver": [
+            "20",
+            "25",
+            2
+          ],
+          "world_core": [
+            "25",
+            "20",
+            2
+          ],
+          "matrix": {
+            "matrix": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "translation": [
+              "0",
+              "0"
+            ]
+          }
+        },
+        "model_hash": "54ecfc2454f36d97a2975601291b8e7d8b2b2ed75cf794b593e44ceac778e24d",
+        "result": "FRESH_EVIDENCE_RECORDED_NO_ADMISSION",
+        "replay": true,
+        "binding": "SOURCE_DERIVED_SHAPE_AND_INDEPENDENT_D4_BINDING_ONLY",
+        "historical_status": "FAIL",
+        "error_count": 40,
+        "error_codes": {
+          "UNKNOWN_RECORD_FIELDS": 40
+        },
+        "pending": [
+          "RULE_NOT_EVALUATED:circulation_functional_integrity",
+          "RULE_NOT_EVALUATED:private_grouping"
+        ],
+        "current_requirements": [
+          {
+            "id": "INTERNAL_INSTANCE_CAPACITY",
+            "state": "PASS_SCOPED",
+            "basis": "actual source-profile instances and limited planar access, not area or room labels"
+          },
+          {
+            "id": "CURRENT_PROGRAM_SUITABILITY",
+            "state": "UNKNOWN",
+            "basis": "actual supplied source profile is provisional; no current automatic programme suitability proof"
+          },
+          {
+            "id": "KITCHEN_GUEST_PATH_SEPARATION",
+            "state": "UNKNOWN",
+            "basis": "four-route source-profile evidence attached; guest-first-living, scenario completeness, doorway/bottleneck and ergonomic closure remain unproven"
+          },
+          {
+            "id": "CONTINUOUS_USEFUL_LIVING",
+            "state": "UNKNOWN",
+            "basis": "seat-access connectivity study attached; coherent group, shorter organization, functional activities and useful area remain unproved"
+          },
+          {
+            "id": "NONFUNCTIONAL_WALL_EXCLUSION",
+            "state": "UNKNOWN",
+            "basis": "no per-wall alternative/removal comparison proving current owner requirement"
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "Initial Actions success meant diagnostic execution completed, not source binding success. Two fresh models were blocked before original/current gates in both initial runs. Those failures are not retroactively passed.",
+      "First failed boundary hypothesis was tuples; actual recorded type was numpy.float64 in local proposal paths and trace proposal rectangles/paths. Final correction is narrowly role/type-bound, not broad numeric coercion.",
+      "Final 18x20 and 20x18 have no proposal in this bounded topology/search; zero error count means no evaluation, not feasibility or PASS.",
+      "Final 20x25 and 25x20 have source-derived shape/D4 binding and six axis-mutation rejections, but original historical FAIL40 and two pending obligations remain. All four current functional UNKNOWNs remain.",
+      "No schema/production/SIDE/FRAME contract modification. No new semantic grammar or V25-22 closure.",
+      "Full path/type ledgers and original reports remain in the expiring Actions artifacts. Short manifest exception messages point there for full detail.",
+      "Final synthetic wrong-type/nonfinite failures may occur at JSON serialization before role conversion; only wrong-role float64 directly exercises role authorization. No broader numeric semantic validation claim."
+    ]
+  },
+  "reuse_decisions": [
+    "Reuse existing exact typed source reconstruction and explicit-field swapXY checks; do not implement a duplicate D4 checker or rerun historical solver",
+    "Source modules/contracts remain immutable in embedded placements; world geometry points/rectangles/paths, axis metadata, placements and canonical transforms have explicit roles; alias/material and accounting ledgers are rebuilt by pinned original helpers",
+    "Current API FRONT_REAR18x20 and V2 input contract are distinct from historical LEFT_RIGHT FRAME/SIDE study inputs; V3 remains an untested draft",
+    "W/L swap is family-specific, not universal architectural symmetry"
+  ],
+  "gaps": [
+    {
+      "id": "DECLARATIVE_SCHEMA",
+      "state": "NOT_IMPLEMENTED_IN_REUSED_CHECKER",
+      "reason": "Local shape and derived ledgers depend on original executable sources; not an independently declared semantic grammar"
+    },
+    {
+      "id": "DECIMAL_FRESH_WITNESS",
+      "state": "NOT_TESTED_BY_INTEGER_NONSQUARE_CASES",
+      "reason": "Numeric float64 boundary demonstrates enumerated role/value preservation, not fresh fractional input geometry"
+    },
+    {
+      "id": "INVERSE_ROUND_TRIP",
+      "state": "NOT_ESTABLISHED_BY_THIS_REUSE_AUDIT",
+      "reason": "No new test executed; current study explicitly verifies forward swapXY"
+    },
+    {
+      "id": "N1_AND_CURRENT_PUBLIC_INTEGRATION",
+      "state": "BLOCKED_UNSUPPORTED_DEPENDENCIES",
+      "reason": "Historical n2 LR packets do not establish n1 or current public family admission"
+    },
+    {
+      "id": "ACTUAL_ARTIFACT_REVALIDATION",
+      "state": "NOT_RUN",
+      "reason": "Read manifests and source only; no artifact downloaded or hashed in this task"
+    }
+  ],
+  "new_tests_executed": 0,
+  "new_solver_executed": false,
+  "new_evaluator_executed": false,
+  "accepted": false,
+  "qualified": false,
+  "display_allowed": false,
+  "delivery_allowed": false,
+  "dependencies_open": [
+    "R4-2.01"
+  ],
+  "infrastructure_block": "Actions job start blocked by account payment/spending-limit annotation; no retry or billing changes",
+  "next_action": "After infrastructure and prerequisite readiness, revalidate pinned artifacts/source compatibility and implement only the missing family/version-specific semantic and runtime contracts. Historical FAIL/pending remain unchanged.",
+  "cause_classification": "The 40 historical errors are UNKNOWN_RECORD_FIELDS schema errors, not 40 geometric collisions or proof of geometric impossibility. Two pending circulation/private grouping plus four current UNKNOWNs remain; NO_PROPOSAL cases were not evaluated."
+}

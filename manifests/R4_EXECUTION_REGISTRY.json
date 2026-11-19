@@ -803,7 +803,18 @@
       ],
       "estimate_minutes": 120,
       "max_minutes": 180,
-      "status": "PLANNED"
+      "status": "PARTIAL_EXISTING_SOURCE_MANIFEST_REUSE_RUNTIME_DEPENDENCIES_BLOCKED",
+      "started_at": "2026-11-19T07:32:00Z",
+      "deadline": "2026-11-19T10:32:00Z",
+      "checkpoint_at": "2026-11-19T07:33:02Z",
+      "manifest": "manifests/R4_2_02_FRAME_REUSE_CHECKPOINT.json",
+      "remaining": [
+        "DECLARATIVE_SCHEMA: NOT_IMPLEMENTED_IN_REUSED_CHECKER",
+        "DECIMAL_FRESH_WITNESS: NOT_TESTED_BY_INTEGER_NONSQUARE_CASES",
+        "INVERSE_ROUND_TRIP: NOT_ESTABLISHED_BY_THIS_REUSE_AUDIT",
+        "N1_AND_CURRENT_PUBLIC_INTEGRATION: BLOCKED_UNSUPPORTED_DEPENDENCIES",
+        "ACTUAL_ARTIFACT_REVALIDATION: NOT_RUN"
+      ]
     },
     {
       "id": "R4-2.03",
