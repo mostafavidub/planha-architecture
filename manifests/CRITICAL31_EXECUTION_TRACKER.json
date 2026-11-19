@@ -376,14 +376,28 @@
       "description_verbatim": "۳.۵. بررسی نقش دیوارها با مقایسه حذف یا جایگذاری جایگزین و اثر بر حریم و مسیر. ۱۵۰ دقیقه",
       "estimate_minutes": 150,
       "max_minutes": 180,
-      "status": "IN_PROGRESS",
+      "status": "PARTIAL_EXACT_WALL_PROBES_FUNCTIONAL_CLOSURE_OPEN",
       "dependencies": [
         "3.1",
         "2.3"
       ],
       "start_utc": "2026-11-19T04:29:22Z",
       "deadline_utc": "2026-11-19T07:29:22Z",
-      "scope": "Source-bound wall functions and alias-aware material removal/alternative evidence; not global minimality or mere source-label proof."
+      "scope": "Source-bound wall functions and alias-aware material removal/alternative evidence; not global minimality or mere source-label proof.",
+      "checkpoint_utc": "2026-11-19T04:35:45Z",
+      "commit": "fcafde6cec36a3df08bc21828d01c281c7b8a941",
+      "run": 44459297261,
+      "tests": {
+        "helper": 9,
+        "wrong_model_report": 1,
+        "actual_source_walls": 91,
+        "module_bound_removal_probes": 70,
+        "inventory_only": 21,
+        "zero_unique_material": 18,
+        "boundary_dependencies": 46
+      },
+      "criterion_state": "UNKNOWN",
+      "remaining": "Alternative placement/shorter organization, freshly rerouted access/full privacy and furnishing/useful-area consequences unproved. Material release is not useful area; boundary dependency is not necessity."
     },
     {
       "id": "3.6",
