@@ -39,6 +39,14 @@ def assess(packet,trace,baseline_packet,baseline_context):
     from open_front_named_checks import adapters_for_study,APPLICABILITY_ADAPTERS
     from open_front_boundary_comparison import assess as boundary_assess
     from functional_review import assess as functional_assess
+    for fn,filename in [(verify,'open_front_world_origin.py'),(raw_assess,'open_front_raw_physical.py'),
+        (evaluate_rule_contract,'open_front_rule_contract.py'),(adapters_for_study,'open_front_named_checks.py'),
+        (boundary_assess,'open_front_boundary_comparison.py'),(functional_assess,'functional_review.py'),
+        (require_unchanged,'producer_provenance.py')]:
+        if Path(inspect.getsourcefile(fn)).resolve()!=Path(__file__).with_name(filename).resolve():
+            raise ValueError('STUDY_EVALUATOR_CALLABLE_PATH:'+filename)
+    if Path(inspect.getsourcefile(revision)).resolve()!=(ENGINE/'engine114.py').resolve():
+        raise ValueError('STUDY_REVISION_CALLABLE_PATH')
     if guard(FREEZE)!=12991:raise ValueError('FROZEN_GUARD')
     sources=bindings();rev=revision()
     before=digest([packet,trace,baseline_packet,baseline_context])
@@ -57,7 +65,11 @@ def assess(packet,trace,baseline_packet,baseline_context):
     if boundary.get('model_digest')!=model_digest:raise ValueError('BOUNDARY_MODEL_BINDING')
     functional=functional_assess(m,raw,rev)
     if functional.get('model_digest')!=model_digest:raise ValueError('FUNCTIONAL_MODEL_BINDING')
-    current={r['id']:r for r in functional['requirements']}
+    requirements=functional['requirements']
+    if type(requirements) is not list or any(type(r) is not dict or type(r.get('id')) is not str or r.get('state') not in ('PASS','PASS_SCOPED','FAIL','REJECTED_FUNCTIONAL','UNKNOWN') for r in requirements):
+        raise ValueError('CURRENT_REQUIRED_SCHEMA')
+    current={r['id']:r for r in requirements}
+    if len(current)!=len(requirements):raise ValueError('CURRENT_REQUIRED_DUPLICATE_ID')
     if not CURRENT_REQUIRED<=set(current):raise ValueError('CURRENT_REQUIRED_INVENTORY')
     errors=list(raw['errors'])+list(named['errors'])+list(boundary['errors'])
     pending=list(raw['pending'])+list(named['pending'])+list(boundary['pending'])
