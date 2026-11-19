@@ -44,10 +44,14 @@
       "description_verbatim": "۱.۱. تکمیل و تست قرارداد ورودی فقط عرض، طول و تعداد واحد؛ رد ابعاد خارج ۵ تا ۲۵ و ورودی اضافی. ۶۰ دقیقه",
       "estimate_minutes": 60,
       "max_minutes": 180,
-      "status": "NOT_STARTED",
+      "status": "IN_PROGRESS",
       "dependencies": [
         "0.3"
-      ]
+      ],
+      "start_utc": "2026-11-19T03:04:22Z",
+      "carried_operation_start_utc": "2026-11-19T02:51:01Z",
+      "deadline_utc": "2026-11-19T05:51:01Z",
+      "scope": "Dedicated public WLN parser tests; no automatic orchestrator or UI release yet"
     },
     {
       "id": "1.2",
