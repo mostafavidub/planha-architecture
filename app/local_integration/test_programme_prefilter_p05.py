@@ -76,4 +76,86 @@ class NetCapacityP05(unittest.TestCase):
   self.assertEqual(a['state'],'MEASURED_SCOPED_NO_FIT_CLAIM',a.get('reason'))
   self.assertEqual(a['core_digest'],b['core_digest']);self.assertEqual(a['request_digest'],b['request_digest'])
   self.assertNotEqual(a['transport_body_sha256'],b['transport_body_sha256'])
+class CapacityHTTP(unittest.TestCase):
+ def setUp(self):
+  import threading,public_wln_server as server
+  self.server=server
+  self.socket=server.server(0)
+  self.thread=threading.Thread(target=self.socket.serve_forever,daemon=True);self.thread.start()
+  self.spawn=patch('subprocess.Popen',side_effect=AssertionError('P05_NO_SOLVER'))
+  self.spy=self.spawn.start();self.addCleanup(self.spawn.stop)
+ def tearDown(self):
+  self.socket.shutdown();self.socket.server_close();self.thread.join(timeout=5)
+  self.spy.assert_not_called();self.assertFalse(self.server.LOCK.locked())
+ def post(self,raw):
+  import http.client
+  c=http.client.HTTPConnection('127.0.0.1',self.socket.server_port,timeout=15)
+  try:
+   c.request('POST','/api/public/plan',raw,{'Content-Type':'application/json'})
+   r=c.getresponse();return r.status,json.loads(r.read())
+  finally:c.close()
+ def assert_bound(self,raw,row):
+  import hashlib
+  self.assertEqual(row['request_digest'],hashlib.sha256(raw).hexdigest())
+  self.assertEqual(p.freeze_http({k:v for k,v in row.items() if k!='observation_digest'})[1],row['observation_digest'])
+  self.assertIs(row['fit_verified'],False);self.assertIs(row['dispatch_authorized'],False)
+ def test_named_cases_real_http_unchanged_unsupported_no_worker(self):
+  with patch.object(self.server,'run_bound',side_effect=AssertionError('unexpected worker')) as work:
+   for w,l,gross,quotient in (('13','6','19.735',1),('18','5','24.36',1),('10','5','6.96',0)):
+    raw=body(w,l);status,out=self.post(raw)
+    self.assertEqual(status,409);self.assertEqual(out['status'],'UNSUPPORTED_SELECTED_SAME_VERSION_CASE')
+    self.assertIs(out['input_valid'],True);self.assertEqual(out['actual_live_attempts'],0)
+    row=out['capacity_observation'];self.assert_bound(raw,row)
+    self.assertEqual(row['state'],'MEASURED_SCOPED_NO_FIT_CLAIM')
+    self.assertEqual(row['historical_module_area_bound'],0)
+    self.assertEqual(Q(row['per_unit']['A']['owned_union_m2']),Q(gross))
+    self.assertEqual(row['per_unit']['A']['geometric_double_bedroom_area_quotient_not_count'],quotient)
+    self.assertNotIn('sources',row);self.assertNotIn('model',row)
+   raw=body('25','10');status,out=self.post(raw)
+   self.assertEqual(status,409)
+   row=out['capacity_observation'];self.assert_bound(raw,row)
+   self.assertEqual(row['per_unit']['A']['geometric_area_comparison'],'AREA_NOT_BELOW_BOUND_NOT_FIT')
+   self.assertIn('twin',row['per_unit']['A']['modules_not_fitting_source_box_dimensions'])
+   work.assert_not_called()
+ def test_invalid_and_n1_skip_observation_and_producer(self):
+  with patch.object(p,'capture_http',side_effect=AssertionError('must not observe')) as cap,patch.object(self.server,'run_bound',side_effect=AssertionError('no dispatch')) as run:
+   for raw,expected in [(body('4.999','20'),422),(body('18','20',3),422),(body(18.1,'22.2'),409),(body('17','20',1),409)]:
+    status,out=self.post(raw)
+    self.assertEqual(status,expected);self.assertNotIn('capacity_observation',out)
+   cap.assert_not_called();run.assert_not_called()
+ def controlled(self,raw,runtime,*,deadline):
+  pf=self.server.preflight(raw)
+  return {'state':'CONTROLLED_NO_MODEL','preflight':pf,'source_integrity_verified':True,'attempts':[],**p.AUTH}
+ def test_ready_n2_observed_and_n1_not_observed_without_changing_receipt(self):
+  for n in (2,1):
+   raw=body(units=n)
+   with patch.object(self.server,'run_bound',side_effect=self.controlled) as run:
+    status,out=self.post(raw);self.assertEqual(status,200);run.assert_called_once()
+   self.assertEqual(out['status'],'CONTROLLED_NO_MODEL')
+   self.assertEqual(out['decision']['state'],'NO_VERIFIED_DECISION');self.assertEqual(out['plan_count_available'],0)
+   if n==2:self.assert_bound(raw,out['capacity_observation'])
+   else:self.assertNotIn('capacity_observation',out)
+ def test_observer_exception_does_not_deny_ready_dispatch(self):
+  raw=body()
+  with patch.object(p,'capture_http',side_effect=RuntimeError('PRIVATE_DIAGNOSTIC')),patch.object(self.server,'run_bound',side_effect=self.controlled) as run:
+   status,out=self.post(raw)
+   self.assertEqual(status,200);run.assert_called_once()
+  row=out['capacity_observation'];self.assert_bound(raw,row)
+  self.assertEqual(row['state'],'PROFILE_NOT_READY');self.assertNotIn('PRIVATE_DIAGNOSTIC',json.dumps(out))
+ def test_frozen_no_alias_binding_and_rehashed_private_metadata_rejected(self):
+  raw=body('13','6')
+  env=p.parse_public(raw)
+  report=p.inspect_request(raw)
+  with patch.object(p,'inspect_request',return_value=report):snapshot=p.capture_http(raw,env)
+  report['per_unit']['A']['owned_union_m2']='0'
+  out=p.attach_http({'status':'ORIGINAL','qualified':True},raw,snapshot)
+  self.assertEqual(Q(out['capacity_observation']['per_unit']['A']['owned_union_m2']),Q('19.735'))
+  self.assertIs(out['qualified'],True)
+  for wire,frozen in ((body('10','5'),snapshot),(raw,(snapshot[0]+b' ',snapshot[1]))):
+   self.assertEqual(p.attach_http({},wire,frozen)['capacity_observation']['state'],'PROFILE_NOT_READY')
+  forged=json.loads(snapshot[0]);forged['per_unit']['A']['private']='PRIVATE_PAYLOAD'
+  r=p.attach_http({},raw,p.freeze_http(forged))['capacity_observation']
+  self.assertEqual(r['state'],'PROFILE_NOT_READY');self.assertNotIn('PRIVATE_PAYLOAD',json.dumps(r))
+  with patch.object(p,'source_guard',return_value={}):
+   self.assertEqual(p.attach_http({},raw,snapshot)['capacity_observation']['state'],'PROFILE_NOT_READY')
 if __name__=='__main__':unittest.main()

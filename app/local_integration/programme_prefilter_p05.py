@@ -193,6 +193,97 @@ def inspect_request(body,programme='PROGRAM_2BED_V1'):
  except MissingEvidence as ex:result['reason']=str(ex)
  except (ValueError,TypeError,KeyError,OSError,ZeroDivisionError):result['reason']='SOURCE_EVIDENCE_INCOMPLETE'
  return result
+# Same-request HTTP observation only. Never consulted for dispatch or admission.
+HTTP_SCHEMA='P05_HTTP_PREFLIGHT_OBSERVATION_V1'
+HTTP_AREAS=('owned_union_m2','fixed_union_overlap_m2','geometric_area_after_known_fixed_deductions_m2',
+ 'historical_source_box_m2','source_box_width_m','source_box_depth_m')
+HTTP_COMPARE=('BELOW_SOURCE_MODULE_AREA_BOUND','AREA_NOT_BELOW_BOUND_NOT_FIT')
+HTTP_REASONS={'SOURCE_FILE_REQUIRED','SOURCE_PIN_CHANGED','ACTUAL_SOURCE_PATH','ACTUAL_ENGINE_SOURCE_PATH',
+ 'SOURCE_CHANGED_DURING_OBSERVATION','SOURCE_EVIDENCE_INCOMPLETE','CURRENT_CORE_METHOD_NO_FIT_NOT_INFEASIBILITY'}
+def http_unknown(body):
+ return {'schema':HTTP_SCHEMA,'state':'PROFILE_NOT_READY','request_digest':hashlib.sha256(body).hexdigest(),
+  'reason':'CAPACITY_OBSERVATION_UNVERIFIED','programme':'PROGRAM_2BED_V1','fit_verified':False,'dispatch_authorized':False,**AUTH}
+def freeze_http(value):
+ data=json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
+ return data,hashlib.sha256(data).hexdigest()
+def capture_http(body,envelope):
+ """Freeze only safe fields. Preserve an unknown without changing the main result."""
+ base=http_unknown(body)
+ try:
+  checked=verify_public(body,envelope)
+  require(checked['canonical_request']['unit_count']==2,'HTTP_N2_ONLY')
+  r=inspect_request(body);scope=r.get('state')
+  require(r.get('schema')=='P05_NET_CAPACITY_DIAGNOSTIC_V1' and r.get('input_valid') is True
+   and r.get('programme')=='PROGRAM_2BED_V1' and r.get('dispatch_authorized') is False
+   and r.get('fit_verified') is False and all(r.get(k) is False for k in AUTH)
+   and r['transport_body_sha256']==base['request_digest'] and r['request_digest']==checked['canonical_request_digest'],'HTTP_CAPACITY_BINDING')
+  if scope=='PROFILE_NOT_READY':
+   if r.get('reason') in HTTP_REASONS:base['reason']=r['reason']
+  elif scope=='MEASURED_SCOPED_NO_FIT_CLAIM':
+   source=source_guard()
+   require(digest(source)==digest(r['sources']) and r['family']=='FRONT_REAR' and r['core_method']==CORE_KIND,'HTTP_CAPACITY_SOURCE')
+   require(set(r['per_unit'])=={'A','B'},'HTTP_CAPACITY_UNITS')
+   per={}
+   for uid,row in r['per_unit'].items():
+    v={k:row[k] for k in HTTP_AREAS}
+    require(all(type(z) is str and len(z)<=256 and re.fullmatch(r'[0-9]+(?:/[1-9][0-9]*)?',z) for z in v.values()),'HTTP_CAPACITY_RATIO')
+    for k in ('geometric_area_comparison','source_box_comparison'):
+     require(row[k] in HTTP_COMPARE,'HTTP_CAPACITY_COMPARISON');v[k]=row[k]
+    q=row['geometric_double_bedroom_area_quotient_not_count']
+    require(type(q) is int and 0<=q<=100,'HTTP_CAPACITY_QUOTIENT')
+    v['geometric_double_bedroom_area_quotient_not_count']=q
+    roles=row['modules_not_fitting_source_box_dimensions']
+    require(type(roles) is list and len(set(roles))==len(roles) and set(roles)<=set(MINIMA),'HTTP_CAPACITY_ROLES')
+    v['modules_not_fitting_source_box_dimensions']=list(roles)
+    require(Q(v['owned_union_m2'])-Q(v['fixed_union_overlap_m2'])==Q(v['geometric_area_after_known_fixed_deductions_m2']),'HTTP_CAPACITY_DEDUCTION')
+    per[uid]=v
+   bound=r['historical_module_bound']['bound'];minimum=r['necessary_disjoint_module_area_m2']
+   require(type(bound) is int and bound==int(Q(per['A']['historical_source_box_m2'])/Q('19.62')),'HTTP_CAPACITY_HISTORICAL_BOUND')
+   require(type(minimum) is str and Q(minimum)==Q('69.25'),'HTTP_CAPACITY_P2_BOUND')
+   require(all(type(r[k]) is str and re.fullmatch('[a-f0-9]{64}',r[k]) for k in ('core_digest','programme_digest')),'HTTP_CAPACITY_SHA')
+   base.pop('reason')
+   base.update(state=scope,canonical_input_digest=r['request_digest'],source_digest=digest(source),core_digest=r['core_digest'],
+    programme_digest=r['programme_digest'],family='FRONT_REAR',core_method=CORE_KIND,per_unit=per,
+    historical_module_area_bound=bound,necessary_disjoint_module_area_m2=minimum)
+  else:raise MissingEvidence('HTTP_CAPACITY_STATE')
+ except Exception:
+  base=http_unknown(body)
+ return freeze_http(base)
+def attach_http(summary,body,frozen):
+ """Check the frozen advisory record against this request without changing existing keys."""
+ try:
+  data,h=frozen
+  require(type(data) is bytes and len(data)<=12000 and hashlib.sha256(data).hexdigest()==h,'HTTP_CAPACITY_SNAPSHOT')
+  payload=json.loads(data)
+  require(payload.get('schema')==HTTP_SCHEMA and payload.get('request_digest')==hashlib.sha256(body).hexdigest()
+   and payload.get('dispatch_authorized') is False and payload.get('fit_verified') is False
+   and all(payload.get(k) is False for k in AUTH),'HTTP_CAPACITY_REQUEST_BINDING')
+  common=set(http_unknown(body))
+  if payload.get('state')=='MEASURED_SCOPED_NO_FIT_CLAIM':
+   measured={'canonical_input_digest','source_digest','core_digest','programme_digest','family','core_method',
+    'per_unit','historical_module_area_bound','necessary_disjoint_module_area_m2'}
+   require(set(payload)==(common-{'reason'})|measured and payload['programme']=='PROGRAM_2BED_V1','HTTP_CAPACITY_KEYS')
+   per=payload['per_unit'];row_keys=set(HTTP_AREAS)|{'geometric_area_comparison','source_box_comparison',
+    'geometric_double_bedroom_area_quotient_not_count','modules_not_fitting_source_box_dimensions'}
+   require(set(per)=={'A','B'} and all(set(row)==row_keys for row in per.values()),'HTTP_CAPACITY_NESTED_KEYS')
+   require(all(type(payload[k]) is str and re.fullmatch('[a-f0-9]{64}',payload[k]) for k in
+    ('canonical_input_digest','source_digest','core_digest','programme_digest')),'HTTP_CAPACITY_SHA_AT_PROJECTION')
+   require(payload['family']=='FRONT_REAR' and payload['core_method']==CORE_KIND
+    and payload['necessary_disjoint_module_area_m2']=='277/4'
+    and type(payload['historical_module_area_bound']) is int and 0<=payload['historical_module_area_bound']<=100,'HTTP_CAPACITY_SCOPE')
+   for row in per.values():
+    require(all(type(row[k]) is str and len(row[k])<=256 and re.fullmatch(r'[0-9]+(?:/[1-9][0-9]*)?',row[k]) for k in HTTP_AREAS),'HTTP_CAPACITY_RATIO_AT_PROJECTION')
+    require(all(row[k] in HTTP_COMPARE for k in ('geometric_area_comparison','source_box_comparison')),'HTTP_CAPACITY_COMPARE_AT_PROJECTION')
+    q=row['geometric_double_bedroom_area_quotient_not_count'];roles=row['modules_not_fitting_source_box_dimensions']
+    require(type(q) is int and 0<=q<=100 and type(roles) is list and len(roles)<=5 and set(roles)<=set(MINIMA),'HTTP_CAPACITY_ROW_AT_PROJECTION')
+   require(payload['source_digest']==digest(source_guard()),'HTTP_CAPACITY_SOURCE_AT_PROJECTION')
+  else:
+   require(payload.get('state')=='PROFILE_NOT_READY' and set(payload)==common and payload['programme']=='PROGRAM_2BED_V1'
+    and payload['reason'] in HTTP_REASONS|{'CAPACITY_OBSERVATION_UNVERIFIED'},'HTTP_CAPACITY_STATE')
+ except Exception:
+  payload=http_unknown(body);_,h=freeze_http(payload)
+ return {**summary,'capacity_observation':{**payload,'observation_digest':h}}
+
 if __name__=='__main__':
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('--programme',default='PROGRAM_2BED_V1')
