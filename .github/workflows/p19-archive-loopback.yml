@@ -1,0 +1,22 @@
+name: P19 isolated archived LR HTTP contract
+on:
+  push:
+    branches: [p19-archived-lr-loopback-review]
+    paths:
+      - 'studies/p19_archived_lr_loopback.py'
+      - 'tests/r4/test_p19_archived_lr_loopback.py'
+      - '.github/workflows/p19-archive-loopback.yml'
+permissions:
+  contents: read
+jobs:
+  no-solver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B -m unittest discover -s tests/r4 -p test_p19_archived_lr_loopback.py -v
