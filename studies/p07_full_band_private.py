@@ -18,6 +18,7 @@ DENIED={k:False for k in ('accepted','qualified','display_allowed','delivery_all
 REPORTS={'independent_replay','original_replay','physical','core_partition','core_concept','opening_hosts','core_assessment','actual_detached_negatives'}
 WATCH=('producer','milp','highs')
 CAP=32*1024*1024
+CONTEXT_FILES=('constructor127.py','assemble114.py','contract114.py','frame_contract125.py','common_core125.py','world_transform125.py')
 
 def need(x,c):
  if not x:raise ValueError(c)
@@ -68,7 +69,7 @@ def source():
   (engine114,('revision',)),(guard400,('guard',)),(program_profile_registry,('lookup',)),
   (s,('core_predicates','actual_candidate_negatives','selected_core')))
  expect={s:STOCK,guard400:GUARD,program_profile_registry:LOCAL/'program_profile_registry.py'}
- paths={SELF,STOCK,ENGINE/'entry117.py',ENGINE/'checker114.py',ENGINE/'private_binding121.py',
+ paths={SELF,STOCK,ENGINE/'entry117.py',ENGINE/'checker114.py',ENGINE/'private_binding121.py',*(ENGINE/n for n in CONTEXT_FILES),
   LOCAL/'front_rear_runtime_adapter.py',LOCAL/'same_version_front_rear_contract.py',LOCAL/'one_bed_pair_source_study.py'}
  for mod,names in mods:
   p=expect.get(mod,ENGINE/(mod.__name__+'.py'));paths.add(p)
@@ -114,6 +115,9 @@ def bind_packet(v,cfg):
   v['tr']['before_digest']==v['tr']['after_digest']==digest(props['A'])==digest(props['B']),'P07_PROPOSAL_TRANSPORT')
  s.bind_program(m,v['profile'])
  need(digest(m['inputs'])==digest(['18','20',2]) and digest(ctx['inputs'])==digest(m['inputs']),'P07_MODEL_INPUT')
+ expected={k:cfg['source']['files'][str((ENGINE/k).relative_to(ROOT))] for k in CONTEXT_FILES}
+ need(ctx['operation']=='generate_from_dimensions' and ctx['baseline_model_hash'] is None and ctx['existing_plan_id'] is None
+  and digest(ctx['source_files'])==digest(expected),'P07_CONSTRUCTOR_CONTEXT_SOURCE')
  need(digest({k:cfg['source']['files'][k]for k in v['snap']})==digest(v['snap']) and
   {'app/local_integration/core_choice_pair_study.py','app/local_integration/program_profile_registry.py',
    str((ENGINE/'assemble114.py').relative_to(ROOT)),str((ENGINE/'contract114.py').relative_to(ROOT))}<=set(v['snap']),'P07_SNAPSHOT_CLOSURE')
@@ -185,6 +189,13 @@ def worker(output):
   proof['observed_worker_end']=time.monotonic()
   write(output/'worker-proof.json',proof)
 
+def bind_original_reports(rep,ph,mh,trace,summary,revision):
+ need(type(rep.get('verified'))is bool and rep['verified'] is summary['legacy_replay_verified'] and rep['accepted'] is False and
+  rep['model_hash']==mh and rep['trace_hash']==digest(trace) and rep['source_revision']==revision and
+  type(rep['errors'])is list and type(rep['pending'])is list and
+  digest(rep)==digest(ph['multiproposal_provenance127']) and ph['model_hash']==mh and
+  ph['status']==summary['physical_status'] and type(ph['errors'])is list and type(ph['pending'])is list,'P07_DISTINCT_ORIGINAL_REPORTS')
+
 def archive_report(output,cfg,wait):
  cfg_valid(cfg)
  need(type(wait)is dict and wait['exit']==0 and wait['timeout'] is False and wait['reaped'] is True and
@@ -240,8 +251,7 @@ def archive_report(output,cfg,wait):
    a['verified']is True and a['receipt_digest']==s['receipt_digest']==digest(v['receipt'])
    and s['independent_origin_verified']is True and s['source_digest']==digest(v['snap']),'P07_REASSEMBLY_REPORT_BINDING')
   rep=r['original_replay'];ph=r['physical']
-  need(type(rep.get('verified'))is bool and rep['verified'] is s['legacy_replay_verified'] and type(rep['errors'])is list and
-   ph['status']==s['physical_status'] and type(ph['errors'])is list and type(ph['pending'])is list,'P07_DISTINCT_ORIGINAL_REPORTS')
+  bind_original_reports(rep,ph,mh,v['ctx']['construction_trace'],s,cfg['source']['engine_revision'])
   f=stock();expected={'core_partition','core_concept','opening_hosts'}
   direct={k:r[k]for k in expected};recomputed=f.core_predicates(m,v['core'])
   # Stock report ordering is preserved; a mismatch is not normalized.

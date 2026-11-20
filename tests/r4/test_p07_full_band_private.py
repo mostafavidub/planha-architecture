@@ -13,7 +13,7 @@ def fixture():
  other,_=s.selected_core(p.RAW,'FRONT_REAR_COMPACT118')
  prof=lookup('PROGRAM_2BED_V1')
  cfg={'schema':'P07_PRIVATE_LAUNCH_V1','nonce':'a'*32,'choice':p.CHOICE,'start':1,'deadline':241,
-       'source':{'engine_revision':'e'*64,'files':{str(f.relative_to(p.ROOT)):p.sha(f.read_bytes()) for f in (p.STOCK,p.LOCAL/'program_profile_registry.py',p.ENGINE/'assemble114.py',p.ENGINE/'contract114.py')}},
+       'source':{'engine_revision':'e'*64,'files':{str(f.relative_to(p.ROOT)):p.sha(f.read_bytes()) for f in (p.STOCK,p.LOCAL/'program_profile_registry.py',*(p.ENGINE/n for n in p.CONTEXT_FILES))}},
        'inputs':{'raw_digest':p.digest(p.RAW),'core_digest':p.digest(c),'profile_digest':p.digest(prof),'different_compact_core_digest':p.digest(other)}}
  props={k:{'bedrooms':2,'sleep_roles':['double','twin'],'status':'PROPOSAL_ONLY','variant':0}for k in ('A','B')}
  m={'inputs':['18','20',2],'program':{'units':2,'bedrooms_per_unit':2,'sleep_roles':['double','twin'],
@@ -26,7 +26,8 @@ def fixture():
    'logical_regions':{u+'.public_access':{'unit':u,'source_roles':['living','entry_circulation']} for u in ('A','B')}}
  h={k:p.digest(q)for k,q in props.items()}
  pkt={'family':'FRONT_REAR','admission_claim':False,'core':c,'world_model':m,'local_model':m,'unit_proposal_hashes':h}
- ctx={'inputs':m['inputs'],'construction_trace':{'family':'FRONT_REAR','schema':'CONSTRUCTION_TRACE127_PAIR_V1','core_hash':p.digest(c),
+ ctx={'inputs':m['inputs'],'operation':'generate_from_dimensions','baseline_model_hash':None,'existing_plan_id':None,
+  'source_files':{k:p.sha((p.ENGINE/k).read_bytes())for k in p.CONTEXT_FILES},'construction_trace':{'family':'FRONT_REAR','schema':'CONSTRUCTION_TRACE127_PAIR_V1','core_hash':p.digest(c),
   'raw':p.RAW,'local_model_hash':p.digest(m),'model_hash':p.digest(m),'source_revision':cfg['source']['engine_revision'],
   'proposals':props,'unit_proposal_hashes':h}}
  snap=cfg['source']['files'];r=s.make_receipt(p.RAW,p.CHOICE,prof,c,props,m,snap,cfg['nonce'])
@@ -58,6 +59,18 @@ class P07Tests(unittest.TestCase):
  def test_raw_number_type_not_equal_by_python_coercion(self):
   self.v['raw']['n']=2.0
   with self.assertRaisesRegex(ValueError,'P07_INPUT_CORE_PROFILE'):p.bind_packet(self.v,self.cfg)
+ def test_constructor_source_and_failed_original_replay_bond(self):
+  v=copy.deepcopy(self.v);v['ctx']['source_files']['constructor127.py']='a'*64
+  with self.assertRaisesRegex(ValueError,'P07_CONSTRUCTOR_CONTEXT_SOURCE'):p.bind_packet(v,self.cfg)
+  trace=self.v['ctx']['construction_trace'];mh=trace['model_hash'];rev=trace['source_revision']
+  r={'verified':False,'accepted':False,'model_hash':mh,'trace_hash':p.digest(trace),'source_revision':rev,
+     'errors':[{'code':'MULTIPROPOSAL_CONSTRUCTION_BINDING'}],'pending':[]}
+  ph={'model_hash':mh,'status':'FAIL','errors':copy.deepcopy(r['errors']),'pending':[],
+     'multiproposal_provenance127':copy.deepcopy(r)}
+  s={'legacy_replay_verified':False,'physical_status':'FAIL'}
+  p.bind_original_reports(r,ph,mh,trace,s,rev)
+  ph['multiproposal_provenance127']['trace_hash']='b'*64
+  with self.assertRaisesRegex(ValueError,'P07_DISTINCT_ORIGINAL_REPORTS'):p.bind_original_reports(r,ph,mh,trace,s,rev)
  def test_malformed_route_rejected_directly_not_only_by_hash(self):
   from core_choice_pair_study import core_geometry
   m=self.v['packet']['world_model']
