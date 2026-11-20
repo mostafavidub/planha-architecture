@@ -8,6 +8,7 @@ from producer_provenance import snapshot
 import current_entry_boundary_x03 as boundary
 import precision_boundary208 as precision
 import source_fit_profile207 as fit
+import guest_master_p11 as guest
 from core_choice_pair_study import bind_profile,bind_program
 
 CASES=(('18.1','22.2'),('25','25'))
@@ -16,13 +17,14 @@ ENTRY='SOURCE_FIT207_COMPACT_PAIR'
 
 def guard():
  paths=['app/local_integration/'+n for n in ('parametric_pair_p04.py','precision_boundary208.py',
-    'source_fit_profile207.py','core_choice_pair_study.py','producer_provenance.py')]
+    'source_fit_profile207.py','guest_master_p11.py','core_choice_pair_study.py','producer_provenance.py')]
  for fn,name in ((precision.prepare,'precision_boundary208.py'),(precision.coordinate_receipt,'precision_boundary208.py'),
    (boundary.prepare,'current_entry_boundary_x03.py'),(boundary.propose_current,'current_entry_boundary_x03.py'),
    (boundary.construct_current,'current_entry_boundary_x03.py'),(fit.source_fit,'source_fit_profile207.py'),
+   (guest.entry_source,'guest_master_p11.py'),(guest.plan,'guest_master_p11.py'),(guest.observe,'guest_master_p11.py'),
    (bind_profile,'core_choice_pair_study.py'),(bind_program,'core_choice_pair_study.py')):
   ensure(Path(inspect.getsourcefile(fn)).resolve()==ROOT/'app/local_integration'/name,'P04_IMPORT_PATH')
- return {'local':snapshot(ROOT,paths),'boundary':boundary.source_snapshot()}
+ return {'local':snapshot(ROOT,paths),'boundary':boundary.source_snapshot(),'p11_frozen_source':guest.source_snapshot()}
 
 def bath_alignment(proposal,model,fit_report,physical):
  """P10 observation only, preserving the original physical result verbatim.
@@ -169,7 +171,7 @@ def run(body,*,solver_seconds):
   baseline=guard();out['source_snapshot']=baseline
   audit=source_audit();keep('source_audit',audit)
   stage='proposal'
-  result=boundary.propose_current(body,seconds=solver_seconds,variant=0)
+  result=boundary.propose_current(body,seconds=solver_seconds,variant=0,guest_entry_panel=True)
   p,pr=proposal_transport(result);out['proposal']=copy.deepcopy(p);objects['proposal']=p;pins['proposal']=digest(p)
   keep('proposal_transport',pr);keep('coordinate_precision',precision.coordinate_receipt(result,p,pr))
   out['stages'].append(stage)
@@ -180,6 +182,11 @@ def run(body,*,solver_seconds):
   check_fit=fit.source_fit(p,core);keep('preconstruction_fit',check_fit)
   ensure(check_fit['proposal_digest']==pins['proposal'] and check_fit['core_digest']==pins['core'],'P04_FIT_BINDING')
   if check_fit['state']!='PASS_LIMITED_CONSTRAINTS':
+   out.update(status='EXACT_FIT_REJECTED_NO_GLOBAL_INFEASIBILITY',completed=True,global_infeasibility_proven=False)
+   return out
+  stage='p11_guest_master_residual'
+  guest_plan=guest.plan(p,core);keep('guest_master_p11',guest_plan);out['stages'].append(stage)
+  if guest_plan['state']!='GUEST_MASTER_SOURCE_RESERVATIONS_CLEAR_ONLY':
    out.update(status='EXACT_FIT_REJECTED_NO_GLOBAL_INFEASIBILITY',completed=True,global_infeasibility_proven=False)
    return out
   stage='constructor';out['constructor_called']=True
@@ -205,6 +212,8 @@ def run(body,*,solver_seconds):
   out['stages'].append(stage)
   stage='p10_bath_observation'
   keep('bath_alignment_p10',observe_bath_alignment(p,model,check_fit,physical));out['stages'].append(stage)
+  stage='p11_installed_guest_binding'
+  keep('guest_installed_p11',guest.observe(p,core,model,physical,guest_plan));out['stages'].append(stage)
   out.update(status='FULL_REPORTS_RETAINED_NOT_QUALIFIED',completed=True)
  except Exception as ex:
   out.update(status='RUNTIME_FAILED_CLOSED',completed=False)
@@ -235,5 +244,10 @@ def verify_completed(bundle):
  ensure(set(bundle['reports'])==set(bundle['report_digests']) and {'physical','replay','functional'}<=set(bundle['reports']),'P04_COMPLETED_REPORTS')
  ensure(digest(bundle['reports'].get('bath_alignment_p10'))==digest(
    observe_bath_alignment(proposal,packet['world_model'],report,bundle['reports']['physical'])),'P10_REPORT_READBACK')
+ guest_plan=guest.plan(proposal,packet['core'])
+ ensure(guest_plan['state']=='GUEST_MASTER_SOURCE_RESERVATIONS_CLEAR_ONLY'
+  and digest(bundle['reports'].get('guest_master_p11'))==digest(guest_plan),'P11_MASTER_READBACK')
+ ensure(digest(bundle['reports'].get('guest_installed_p11'))==digest(
+  guest.observe(proposal,packet['core'],packet['world_model'],bundle['reports']['physical'],guest_plan)),'P11_INSTALLED_READBACK')
  ensure(guard()==before,'P04_COMPLETED_SOURCE_CHANGED')
  return True

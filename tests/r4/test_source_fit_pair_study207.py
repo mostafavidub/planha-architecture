@@ -195,17 +195,167 @@ class P10BathAlignmentTests(unittest.TestCase):
  def test_completed_real_receipt_readback_with_rehashed_tamper(self):
   from unittest.mock import patch
   a,phys=self.receipt();mh=digest(self.model)
-  reports={'physical':phys,'replay':{},'functional':{},'preconstruction_fit':self.fit,'bath_alignment_p10':a}
+  gplan={'state':'GUEST_MASTER_SOURCE_RESERVATIONS_CLEAR_ONLY'};ginstalled={}
+  reports={'physical':phys,'replay':{},'functional':{},'preconstruction_fit':self.fit,'bath_alignment_p10':a,
+           'guest_master_p11':gplan,'guest_installed_p11':ginstalled}
   bundle={'binding':{'source_core_digest':digest({}),'raw':{}},'packet':{'core':{},'world_model':self.model},'context':{},
           'proposal':self.proposal,'engine_revision':self.p04.ENGINE_REVISION,'model_digest':mh,
           'source_snapshot':{},'object_integrity_verified':True,'reports':reports,
           'report_digests':{key:digest(value) for key,value in reports.items()}}
   # Stub unrelated whole-packet/repo identity; actual P10 reconstruction and digest validation run.
-  with patch.object(self.p04,'guard',return_value={}),patch.object(self.p04,'packet_binding',return_value=mh):
+  with patch.object(self.p04,'guard',return_value={}),patch.object(self.p04,'packet_binding',return_value=mh), \
+       patch.object(self.p04.guest,'plan',return_value=gplan),patch.object(self.p04.guest,'observe',return_value=ginstalled):
    self.assertTrue(self.p04.verify_completed(bundle))
    bundle['reports']['bath_alignment_p10']['units'][0]['apron_piece_count']+=1
    bundle['report_digests']['bath_alignment_p10']=digest(bundle['reports']['bath_alignment_p10'])
    with self.assertRaisesRegex(ValueError,'^P10_REPORT_READBACK$'):
     self.p04.verify_completed(bundle)
   self.assertEqual(bundle['reports']['physical'],phys)
+class P11GuestMasterTests(unittest.TestCase):
+ """Source operations and actual capture; nonpersonal detached scenes, no solve."""
+ def setUp(self):
+  from contextlib import ExitStack
+  from unittest.mock import patch
+  import scipy.optimize,subprocess
+  self.stack=ExitStack();self.addCleanup(self.stack.close)
+  for mod,key in ((subprocess,'Popen'),(scipy.optimize,'milp'),(candidate,'milp')):
+   self.stack.enter_context(patch.object(mod,key,side_effect=AssertionError('NO_SOLVER_OR_WORKER')))
+  import guest_master_p11 as guest
+  self.g=guest;self.core=core_first(F('18.1'),F('22.2'));self.source=guest.entry_source(self.core)
+ def test_real_master_guest_panel_rows_and_old_serving_feasible_projection(self):
+  import numpy as np
+  def capture(enabled):
+   return candidate.propose(self.core,2,sleep_roles=['double','twin'],guest_entry_panel=enabled,diagnostic_capture=lambda x:x)
+  old,new=capture(False),capture(True);scope=new['p11_network_scope']
+  groups=lambda p:[r['group']for r in p['row_metadata']]
+  og,ng=groups(old),groups(new);base=og.index('rooted_body_network')
+  self.assertEqual(ng[:base],og[:base])
+  prefix=max(old['matrix'][:base].indices)+1
+  self.assertEqual((old['matrix'][:base,:prefix]!=new['matrix'][:base,:prefix]).nnz,0)
+  self.assertEqual(new['matrix'][:base,prefix:].nnz,0)
+  for key in ('lower','upper'):self.assertTrue(np.array_equal(old[key][:base],new[key][:base]))
+  for key in ('integrality','objective'):self.assertTrue(np.array_equal(old[key][:prefix],new[key][:prefix]))
+  self.assertEqual(ng.count('p11_guest_root_entry_panel'),5)
+  self.assertEqual(ng.count('p11_guest_tail_entry_panel'),30)
+  oi=base;old_start_var=prefix
+  for name,(lo,hi,start_var) in scope['spans'].items():
+   with self.subTest(terminal=name):
+    want_guest=name in self.g.GUESTS
+    self.assertEqual(scope['terminal_junctions'][name],scope['guest_junction' if want_guest else 'old_junction'])
+    kinds=ng[lo:hi]
+    self.assertEqual(kinds.count('p11_guest_tail_entry_panel'),15 if want_guest else 0)
+    kept=[i for i in range(lo,hi)if ng[i]!='p11_guest_tail_entry_panel']
+    us=sorted({int(j)for j in new['matrix'][kept].indices if j>=start_var})
+    vs=sorted({int(j)for j in old['matrix'][oi:oi+len(kept)].indices if j>=old_start_var})
+    self.assertEqual(len(us),len(vs))
+    remap=dict(zip(us,vs));remap[scope['guest_junction']]=scope['old_junction']
+    for prev,cur in zip(range(oi,oi+len(kept)),kept):
+     self.assertEqual(og[prev],'rooted_body_network')
+     a,b=old['matrix'].getrow(prev),new['matrix'].getrow(cur)
+     self.assertEqual(dict(zip(a.indices,a.data)),{remap.get(int(j),j):v for j,v in zip(b.indices,b.data)})
+     for bound in ('lower','upper'):self.assertEqual(old[bound][prev],new[bound][cur])
+    for x,y in zip(us,vs):
+     for name2 in ('integrality','objective'):self.assertEqual(new[name2][x],old[name2][y])
+     self.assertEqual(new['bounds'].lb[x],old['bounds'].lb[y]);self.assertEqual(new['bounds'].ub[x],old['bounds'].ub[y])
+    oi+=len(kept)
+    if vs:old_start_var=vs[-1]+1
+  self.assertEqual(og[oi],'bedroom_actual_approach')
+ def make_scene(self):
+  from contract114 import S
+  from kitchen_module117 import build as build_k
+  from dining_module118 import build as build_d
+  from place_kitchen117 import install as install_k
+  L=F(self.source['length']);roots=list(map(F,self.source['root']))
+  kit=['13','1','15.35','4.05'];k=build_k();dm=build_d('3.1','3.5');tx,ty=F('4'),F('3')
+  fxmap={key:'dining_'+key for key in dm['fixtures']}
+  east=next(s for s in dm['seating']['instances'] if s['id']=='seat_east')['rise_transfer']['standing_body']
+  shift=lambda q:[S(F(v)+(tx if i%2==0 else ty))for i,v in enumerate(q)]
+  def center(rect):
+   a,b,c,d=fit.q(rect);return[S((a+c)/2),S((b+d)/2)]
+  def planned(end):
+   x,y=map(F,end);rx,ry=roots
+   return [[S(a),S(b)] for a,b in (roots,(8,ry),(8,y),(x,y),(x,y))]
+  ex=center(shift(east));living=['4','6','6','6.7'];le=center(living)
+  p={'rectangles':{'kitchen':kit},'p11_entry_source_digest':self.p04_digest(self.source),
+   'network_paths':{'dining_east':planned(ex),'sofa1_use':planned(le),'kitchen':[['0','0']]*5}}
+  m={'inputs':['18.1','22.2',2],'units':[],'walls':{},'wall_hosts':{},'source_wall_hosts':{},
+    'openings':copy.deepcopy(self.source['openings']),'operations':{'doors':copy.deepcopy(self.source['operations'])}}
+  for uid in ('A','B'):
+   world=lambda r:r if uid=='A' else list(map(S,self.g.reflect_rect(r,L)))
+   u={'id':uid,'rooms':{},'fixtures':{},'activities':{},'fixture_metadata':{},'ownership':self.core['unit_ownership'][uid]}
+   m['units'].append(u);install_k(k,m,u,uid,kit,L)
+   op=m['operations']['kitchen'][-1];op['motion_envelopes']=fit.motion_rectangles({'schema':'KITCHEN_MODULE117','operations':{'kitchen':[op]}})
+   u['entry_point']=[S(roots[0]),S(roots[1]if uid=='A'else L-roots[1])]
+   u['rooms']['living']=u['ownership']
+   u['fixtures'].update({fxmap[n]:world(shift(r))for n,r in dm['fixtures'].items()});u['fixtures']['sofa1']=world(['4','5.1','6','6'])
+   u['activities'].update(sofa1_front=world(living),dining_east=world(shift(east)))
+   u['dining_module_placement']={'module':dm,'module_hash':digest(dm),'id_map':fxmap,
+     'transform':{'matrix':[[1,0],[0,1 if uid=='A'else -1]],'translation':[S(tx),S(ty if uid=='A'else L-ty)]}}
+   u['public_program']={'capacity':{'living_seats':[{'fixture_id':'sofa1','access_activity_id':'sofa1_front'}]},
+     'destinations':{'guest_living':{'fixture_id':'sofa1','activity_id':'sofa1_front'},
+                     'guest_dining':{'fixture_id':'dining_chair_east','activity_id':'dining_east'}}}
+   u['scenario_routes']={'kitchen_to_dining_floor':[['1','2'],['1','3']]}
+  return p,m
+ def p04_digest(self,data):
+  from same_version_front_rear_contract import digest
+  return digest(data)
+ def test_exact_clear_guest_roles_and_installed_A_B_destinations(self):
+  p,m=self.make_scene();plan=self.g.plan(p,self.core)
+  self.assertEqual(plan['state'],'GUEST_MASTER_SOURCE_RESERVATIONS_CLEAR_ONLY',plan)
+  ph={'status':'FAIL','model_hash':digest(m),'errors':[{'code':'UNRELATED_SYNTHETIC'}]}
+  old=(digest(m),digest(ph),digest(p))
+  report=self.g.installed(p,self.core,m,ph,plan)
+  self.assertFalse(report['serving_evaluated']);self.assertEqual([u['motion_pieces']for u in report['rows']],[6,6])
+  for row in report['rows']:self.assertEqual([r['codes']for r in row['routes']],[[],[]],row)
+  self.assertEqual((digest(m),digest(ph),digest(p)),old)
+  import json
+  ready=json.loads(json.dumps(m,sort_keys=True))
+  self.assertEqual(digest(ready),digest(m))
+  self.assertEqual(self.g.installed(p,self.core,ready,ph,plan),report)
+ def test_panel_and_motion_direct_geometry_no_serving_projection(self):
+  p,m=self.make_scene();before=copy.deepcopy(p['network_paths']['kitchen'])
+  route=p['network_paths']['dining_east'];route[1][0]=route[2][0]='11'
+  plan=self.g.plan(p,self.core)
+  row=next(r for r in plan['routes']if r['role']=='guest_dining')
+  self.assertIn('P11_GUEST_SOURCE_ENTRY_PANEL_COLLISION',row['codes'])
+  self.assertEqual(p['network_paths']['kitchen'],before)
+  p,m=self.make_scene();base=self.g.plan(p,self.core)
+  # Detached mutation of the source operation only: first sweep segment is
+  # now occupied, so same-version source identity and geometry both detect it.
+  start=list(map(F,self.source['root']));x,y=start
+  motion=m['operations']['kitchen'][0]['motion_envelopes']
+  motion[0]=list(map(str,(x-F('.1'),y-F('.1'),x+F('.1'),y+F('.1'))))
+  ph={'model_hash':digest(m)}
+  result=self.g.installed(p,self.core,m,ph,base)
+  a,b=result['rows']
+  self.assertTrue(all('P11_INSTALLED_GUEST_KITCHEN_MOTION_COLLISION'in r['codes'] and
+     'P11_INSTALLED_MOTION_SOURCE_MISMATCH'in r['codes']for r in a['routes']))
+  self.assertTrue(all(not r['codes']for r in b['routes']))
+  self.assertFalse(result['serving_evaluated'])
+ def test_source_changed_entry_pin_and_wrong_standing_are_not_clear(self):
+  p,m=self.make_scene();plan=self.g.plan(p,self.core)
+  m['units'][1]['activities']['dining_east']=['1','1','2','2']
+  m['operations']['doors'][1]['open_panel']=['1','1','2','2']
+  rows=self.g.installed(p,self.core,m,{'model_hash':digest(m)},plan)['rows']
+  self.assertEqual([r['codes']for r in rows[0]['routes']],[[],[]])
+  self.assertTrue(all('P11_INSTALLED_ENTRY_SOURCE_MISMATCH'in r['codes']for r in rows[1]['routes']))
+  d=next(r for r in rows[1]['routes']if r['role']=='guest_dining')
+  self.assertIn('P11_INSTALLED_DESTINATION_UNVERIFIED',d['codes'])
+  p['p11_entry_source_digest']='0'*64
+  with self.assertRaisesRegex(ValueError,'^P11_PRODUCER_ENTRY_SOURCE$'):self.g.plan(p,self.core)
+ def test_current_selected_runtime_reaches_only_controlled_guest_master(self):
+  from types import SimpleNamespace
+  from unittest.mock import patch
+  import parametric_pair_p04 as p04
+  kw={'sleep_roles':['double','twin'],'diagnostic_capture':lambda a:a}
+  n=candidate.propose(self.core,2,guest_entry_panel=True,**kw)['matrix'].shape
+  def no_witness(*args,**kwargs):
+   self.assertEqual(kwargs['constraints'].A.shape,n)
+   return SimpleNamespace(x=None,status=1,message='CONTROLLED_NO_WITNESS')
+  with patch.object(candidate,'milp',side_effect=no_witness) as fake:
+   out=p04.run(b'{"W":"18.1","L":"22.2","n":2}',solver_seconds=1)
+  fake.assert_called_once()
+  self.assertEqual(out['status'],'NO_PROPOSAL_IN_BOUNDED_ATTEMPT',out['errors'])
+  self.assertFalse(out['constructor_called']);self.assertTrue(out['object_integrity_verified'])
+
 if __name__=='__main__':unittest.main()

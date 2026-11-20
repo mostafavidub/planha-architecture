@@ -11,8 +11,14 @@ from scipy.sparse import lil_matrix
 from contract114 import GRID
 from source_fit_profile207 import profiles
 
-def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED"):
+def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_capture=None,sleep_roles=None,ordered_macro=False,topology="SIDE_ROOTED_SERVICES",organization_profile="UNRESTRICTED",*,guest_entry_panel=False):
  if bedrooms!=2 or sleep_roles!=['double','twin']or ordered_macro or topology!='SIDE_ROOTED_SERVICES' or organization_profile!='UNRESTRICTED':raise ValueError('SOURCE_FIT207_SCOPE')
+ if type(guest_entry_panel) is not bool or (guest_entry_panel and fixed_witness is not None):raise ValueError('P11_FIXED_WITNESS_UNSUPPORTED')
+ guest_entry=None
+ guests=()
+ if guest_entry_panel:
+  from guest_master_p11 import entry_source,GUESTS
+  guest_entry=entry_source(core);guests=GUESTS
  fit_profile=profiles()
  box=list(map(lambda x:float(__import__('fractions').Fraction(str(x))),core['units']['A']));x0,y0,x1,y1=box;ar=(x1-x0)*(y1-y0);scale=float(GRID)
  # No exterior-facade or daylight condition constrains bedroom placement.
@@ -278,25 +284,51 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  for oname,ob in obstacles+guest_motion:
   zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
   for expr,z in zip([plus(sharedseg[2],neg(ob[0])),plus(ob[2],neg(sharedseg[0])),plus(sharedseg[3],neg(ob[1])),plus(ob[3],neg(sharedseg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
+ # P11 has a dedicated guest junction. The old shared serving prefix above
+ # retains its original obstacle rows (including inherited motion restrictions).
+ # New panel rows are added only to the new guest prefix and guest tails.
+ guest_junction=None;guest_obstacle=[]
+ if guest_entry is not None:
+  group="p11_guest_root_scaled"
+  guest_junction=var((x0+.35)/scale,(x1-.35)/scale)
+  glo,ghi=minmax(({},rootx),aff(guest_junction),x0/scale,x1/scale)
+  for j in glo[0]:objective[j]-=.0001*(len(guests)-1)
+  for j in ghi[0]:objective[j]+=.0001*(len(guests)-1)
+  gseg=[plus(glo,({},-half)),({},rooty-half),plus(ghi,({},half)),({},rooty+half)]
+  for idx,lo,hi in ((0,x0/scale,np.inf),(1,y0/scale,np.inf),(2,-np.inf,x1/scale),(3,-np.inf,y1/scale)):lin(gseg[idx],lo=lo,hi=hi)
+  guest_obstacle=[('p11_entry_panel',[const(float(F(v)))for v in guest_entry['local_panel']])]
+  for oname,ob in obstacles+guest_motion+guest_obstacle:
+   group="p11_guest_root_entry_panel" if oname=='p11_entry_panel' else "p11_guest_root_retained_obstacle"
+   zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
+   for expr,z in zip([plus(gseg[2],neg(ob[0])),plus(ob[2],neg(gseg[0])),plus(gseg[3],neg(ob[1])),plus(ob[3],neg(gseg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
  group="rooted_body_network"
+ route_spans={}
  for name,px,py,side in terminaldefs:
+  row0=len(rows);variable0=len(lower);
+  current_junction=guest_junction if guest_entry is not None and name in guests else junction
+  group="p11_guest_tail_retained" if current_junction!=junction else "rooted_body_network"
   # Explicit engineering preference for compact functional placement, not a
   # mandated maximum distance or evidence of global architectural optimality.
   for node,rootcoord in ((px,rootx),(py,rooty)):
    deviation=var(0,M,.01,0);row({node:1,deviation:-1},hi=rootcoord);row({node:-1,deviation:-1},hi=-rootcoord)
   bend=var((y0+.35)/scale,(y1-.35)/scale)
   ylo,yhi=minmax(({},rooty),aff(bend),y0/scale,y1/scale)
-  xlo,xhi=minmax(aff(junction),aff(px),x0/scale,x1/scale)
+  xlo,xhi=minmax(aff(current_junction),aff(px),x0/scale,x1/scale)
   plo,phi=minmax(aff(py),aff(bend),y0/scale,y1/scale)
-  segments=[ [plus(aff(junction),({},-half)),plus(ylo,({},-half)),plus(aff(junction),({},half)),plus(yhi,({},half))],
+  segments=[ [plus(aff(current_junction),({},-half)),plus(ylo,({},-half)),plus(aff(current_junction),({},half)),plus(yhi,({},half))],
    [plus(xlo,({},-half)),plus(aff(bend),({},-half)),plus(xhi,({},half)),plus(aff(bend),({},half))],
    [plus(aff(px),({},-half)),plus(plo,({},-half)),plus(aff(px),({},half)),plus(phi,({},half))] ]
   for seg in segments:
    lin(seg[0],lo=x0/scale);lin(seg[1],lo=y0/scale);lin(seg[2],hi=x1/scale);lin(seg[3],hi=y1/scale)
-   for oname,ob in obstacles+(guest_motion if name in ('sofa1_use','dining_east')else[]):
+   tail_group=group
+   for oname,ob in obstacles+(guest_motion if name in ('sofa1_use','dining_east')else[])+(guest_obstacle if current_junction!=junction else []):
+    group="p11_guest_tail_entry_panel" if oname=='p11_entry_panel' else tail_group
     zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
     for expr,z in zip([plus(seg[2],neg(ob[0])),plus(ob[2],neg(seg[0])),plus(seg[3],neg(ob[1])),plus(ob[3],neg(seg[1]))],zz):lin(plus(expr,aff(z,-M)),hi=0)
-  network.append((name,px,py,bend,side))
+   group=tail_group
+  network.append((name,px,py,bend,side,current_junction))
+  if guest_entry is not None and diagnostic_capture is not None:
+   route_spans[name]=[row0,len(rows),variable0]
  group="bedroom_actual_approach"
  # Module exterior apron is real reserved floor, not a discarded bbox.
  for name,px,py,side in terminaldefs:
@@ -347,7 +379,7 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   for i,sp in enumerate(specs):
    q=list(map(lambda v:F(str(v)),fixed_witness['rectangles'][sp[0]]))
    for a,v in enumerate((q[0],q[1],q[2]-q[0],q[3]-q[1])):fixed(4*i+a,v,sp[0]+'.'+('x','y','width','height')[a])
-  for name,px,py,bend,side in network:
+  for name,px,py,bend,side,_ in network:
    path=fixed_witness['network_paths'][name]
    fixed(px,path[-1][0],name+'.port.x');fixed(py,path[-1][1],name+'.port.y');fixed(bend,path[-2][1],name+'.bend.y')
    fixed(junction,path[1][0]if len(path)==5 else rootx*scale,'shared_junction.x')
@@ -371,7 +403,11 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  for i,d in enumerate(rows):
   for j,v in d.items():A[i,j]=v
  if diagnostic_capture is not None:
-  return diagnostic_capture({'objective':np.array(objective),'integrality':np.array(integer),'bounds':Bounds(lower,upper),'matrix':A.tocsr(),'lower':np.array(lbs),'upper':np.array(ubs),'row_metadata':row_meta,'specs':specs})
+  capture={'objective':np.array(objective),'integrality':np.array(integer),'bounds':Bounds(lower,upper),'matrix':A.tocsr(),'lower':np.array(lbs),'upper':np.array(ubs),'row_metadata':row_meta,'specs':specs}
+  if guest_entry is not None:
+   capture['p11_network_scope']={'old_junction':junction,'guest_junction':guest_junction,
+    'terminal_junctions':{name:j for name,px,py,bend,side,j in network},'spans':route_spans}
+  return diagnostic_capture(capture)
  start=time.monotonic();r=milp(np.array(objective),integrality=np.array(integer),bounds=Bounds(lower,upper),constraints=LinearConstraint(A.tocsr(),lbs,ubs),options={'time_limit':time_limit,'mip_rel_gap':.02,'presolve':True})
  out={'organization_profile':organization_profile,'organization_topology':topology,'objective_profile':'REPEATED_ROOT_WEIGHT_PRESERVED_PLUS_EXPLICIT_TERMINAL_L1_0.01_COMPACT_STUDY','capacity_profile':'SIX_PERSON_INTERNAL_PROGRAM121'if six_person else'LEGACY_SOURCE_PROGRAM','sleep_roles':sleep_roles,'status':'PROPOSAL_ONLY'if r.x is not None else'SEARCH_TIMEOUT_NO_WITNESS'if r.status==1 else'NO_PROPOSAL_IN_THIS_TOPOLOGY','solver_status':int(r.status),'solver_message':r.message,'solver_seconds':time.monotonic()-start,'budget_seconds':time_limit,'bedrooms':bedrooms,'variant':variant,'variables':len(lower),'binary_separation_variables':4*n*(n-1)//2,'constraints':len(rows),'no_global_infeasibility_claim':True}
  if ordered_macro:out['ordered_macro']=macro
@@ -385,8 +421,9 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   if np.any(residual<np.array(lbs)-1e-7)or np.any(residual>np.array(ubs)+1e-7):out['status']='ROUNDED_PROPOSAL_REJECTED';return out
   out['rectangles']={s[0]:[round(vals[4*i]*scale,6),round(vals[4*i+1]*scale,6),round((vals[4*i]+vals[4*i+2])*scale,6),round((vals[4*i+1]+vals[4*i+3])*scale,6)]for i,s in enumerate(specs)}
   out['roles']={s[0]:s[7]for s in specs}
-  out['network_paths']={name:[[round(rootx*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(rooty*scale,6)],[round(vals[junction]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]]for name,px,py,bend,side in network}
-  out['bed_door_sides']={name:('right'if vals[side]>.5 else'left')for name,px,py,bend,side in network if side is not None}
+  out['network_paths']={name:[[round(rootx*scale,6),round(rooty*scale,6)],[round(vals[j]*scale,6),round(rooty*scale,6)],[round(vals[j]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[bend]*scale,6)],[round(vals[px]*scale,6),round(vals[py]*scale,6)]]for name,px,py,bend,side,j in network}
+  out['bed_door_sides']={name:('right'if vals[side]>.5 else'left')for name,px,py,bend,side,j in network if side is not None}
   out['private_module_contract']='PRIVATE_ROOM_GEOMETRY_OPERATIONS_V1; variable W>=5.45 H>=3.6; full module independently checked before and after placement'
-  out['network_scope']='shared variable junction with actual root connector and 3-segment junction-to-terminal paths; limited topology, not complete router' 
+  out['network_scope']='two junctions with same actual root; dedicated guest prefix and tails check entry panel and six motions; serving legacy prefix retained' if guest_entry is not None else 'shared variable junction with actual root connector and 3-segment junction-to-terminal paths; limited topology, not complete router'
+  if guest_entry is not None:out['p11_entry_source_digest']=__import__('contract114').digest(guest_entry)
  return out

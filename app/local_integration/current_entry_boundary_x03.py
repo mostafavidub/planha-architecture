@@ -12,7 +12,7 @@ SOURCE_PINS={
  "app/local_integration/public_wln_contract.py": "80fd2b2710342735dc35e484c9b0da790995d830",
  "app/local_integration/dimension_contract.py": "058502cd97b5131908b82fdbdba34c62d3376ea3",
  "app/local_integration/core_choice_pair_study.py": "4ed751238583d63ec2d9bb570bccbb9b0802cd3c",
- "app/local_integration/source_fit_candidate207.py": "be98c37a0827f23b34d6110182c582177532217c",
+ "app/local_integration/source_fit_candidate207.py": "8f56cc4cba74bd8c184bb6f820e60971911e4b44",
  "app/local_integration/program_profile_registry.py": "af549f86f39e2e57554cd48e0ffdea54d5444262",
  "app/local_integration/front_rear_runtime_adapter.py": "92ce916b71bb05f0087e2527a51dd8de4d40a676",
  "app/reconstruction357/planha_general150_runtime_work/contract114.py": "a2631c6a38a43b8d423edf82ad8d526ced1b8196",
@@ -94,15 +94,17 @@ def validate_prepared(prepared,body):
  expected=prepare(prepared.get('entry'),body)
  need(digest(prepared)==digest(expected),'CURRENT_REQUEST_BINDING')
  return expected
-def propose_current(body,*,seconds=3,variant=0):
+def propose_current(body,*,seconds=3,variant=0,guest_entry_panel=False):
  need(type(seconds)is int and 1<=seconds<=30,'STUDY_BUDGET')
  need(type(variant)is int and 0<=variant<=2,'STUDY_VARIANT')
+ need(type(guest_entry_panel)is bool,'P11_INTERNAL_FLAG')
  p=prepare('SOURCE_FIT207_COMPACT_PAIR',body);pin=digest(p)
  producer=importlib.import_module('source_fit_candidate207')
  call=imported(producer,'propose','app/local_integration/source_fit_candidate207.py')
  try:
+  kwargs={'guest_entry_panel':True} if guest_entry_panel else {}
   return call(copy.deepcopy(p['core']),2,time_limit=seconds,variant=variant,
-       sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES')
+       sleep_roles=['double','twin'],ordered_macro=False,topology='SIDE_ROOTED_SERVICES',**kwargs)
  finally:
   need(digest(p)==pin and source_snapshot()==p['sources'],'CURRENT_BOUNDARY_MUTATED')
 def construct_current(body,proposals):

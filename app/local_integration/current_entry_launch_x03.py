@@ -23,7 +23,7 @@ def withholding_guard():
  return hashlib.sha256(data).hexdigest()
 def evidence_guard():
  path=ROOT/'app/local_integration/http_evidence_x07.py';data=path.read_bytes()
- need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='6cfdff1c9678cd44e5f71d6e3d485582e2c64115','CURRENT_EVIDENCE_SOURCE_CHANGED')
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='36e36679af7fd1858818f52b7f538f3d4558b5a2','CURRENT_EVIDENCE_SOURCE_CHANGED')
  module=importlib.import_module('http_evidence_x07')
  for fn in (module.run_bound,module.consume,module.guard):
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
@@ -45,7 +45,7 @@ def single_guard():
 def capacity_guard():
  path=ROOT/'app/local_integration/programme_prefilter_p05.py';data=path.read_bytes()
  need(not path.is_symlink() and hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()
-  =='61aa0d427d8baf3d42a03a590863d4a5edb63ceb','CURRENT_CAPACITY_SOURCE_CHANGED')
+  =='928d07ef8dc42b9ed49057dd7568bdc1c98552c5','CURRENT_CAPACITY_SOURCE_CHANGED')
  mod=importlib.import_module('programme_prefilter_p05')
  need(all(Path(inspect.getsourcefile(fn)).resolve()==path.resolve() for fn in
   (mod.capture_http,mod.attach_http,mod.inspect_request,mod.source_guard)),'CURRENT_CAPACITY_IMPORT_PATH')
