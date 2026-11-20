@@ -82,6 +82,30 @@ class Observation(unittest.TestCase):
   record=caught.exception.http_diagnostic['stop_record']
   self.assertEqual(record['outcome'],'EVIDENCE_READ_ERROR');self.assertEqual(record['physical']['error_count'],2)
   self.assertEqual(caught.exception.private_evidence['private_bytes']['summary.json'],b'{"partial":')
+ def test_x04_private_record_request_binding_and_no_response_leak(self):
+  record=s.unsupported(BODY);sha=hashlib.sha256(BODY).hexdigest()
+  value={'schema':'P01_PRIVATE_DIAGNOSTIC_V1','request_digest':sha,'stop_record':record}
+  out=boundary.diagnostic_record(value,sha);self.assertEqual(out['stop_record'],record)
+  self.assertEqual(boundary.diagnostic_record(value,'c'*64),{'state':'REQUEST_MISMATCH_REJECTED'})
+  b=boundary.Boundary();lock=threading.Lock();lock.acquire()
+  def failure(body):
+   ex=ValueError('CONTROLLED');ex.http_diagnostic=value;raise ex
+  status,payload=b.execute(BODY,accepted_at=time.monotonic(),lock=lock,run=failure,project=lambda raw:raw)
+  self.assertEqual(status,500);self.assertNotIn('stop_record',payload);self.assertEqual(b.snapshot()[0]['runtime_diagnostic']['stop_record'],record)
+ def test_late_diagnostic_remains_private_and_does_not_release_early(self):
+  record=s.unsupported(BODY);release=threading.Event();entered=threading.Event()
+  b=boundary.Boundary();lock=threading.Lock();lock.acquire()
+  def failure(body):
+   entered.set();release.wait(3)
+   ex=ValueError('CONTROLLED');ex.http_diagnostic={'schema':'P01_PRIVATE_DIAGNOSTIC_V1','request_digest':hashlib.sha256(BODY).hexdigest(),'stop_record':record};raise ex
+  try:
+   with patch.object(boundary,'LIMIT_SECONDS',.05):
+    status,payload=b.execute(BODY,accepted_at=time.monotonic(),lock=lock,run=failure,project=lambda raw:raw)
+   self.assertEqual(status,504);self.assertTrue(entered.is_set());self.assertTrue(lock.locked());self.assertNotIn('stop_record',payload)
+  finally:release.set()
+  end=time.monotonic()+3
+  while lock.locked()and time.monotonic()<end:time.sleep(.005)
+  self.assertFalse(lock.locked());self.assertEqual(b.snapshot()[0]['runtime_diagnostic']['stop_record'],record)
 class HTTP(unittest.TestCase):
  def setUp(self):
   self.calls=0;self.mode=None

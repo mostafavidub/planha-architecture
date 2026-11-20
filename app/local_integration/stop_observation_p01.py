@@ -143,6 +143,7 @@ def observe(body,nonce,family,snap,*,timed_out=False,returncode=None,bound=False
 def unsupported(body):
  out=observe(body,None,'UNKNOWN',{'parsed':{},'files':[]})
  out.update(programme='NOT_SELECTED',stage='PREFLIGHT',outcome='VALID_UNSUPPORTED')
+ out['solver'].update(called=False,evidence='NOT_DISPATCHED_BY_PREFLIGHT')
  out.pop('record_digest');out['record_digest']=digest(out);return out
 def _safe(value,request_digest):
  """Exact generated shape + finite typed scalars + semantic enum allowlists."""
@@ -154,12 +155,14 @@ def _safe(value,request_digest):
  if value['producer_status']not in PRODUCER|{None}or value['producer_reason']not in REASONS|{None,'UNKNOWN_CODE'}or value['constraint_cause']!='UNKNOWN'or value['execution_error_type']not in ERROR_TYPES|{None}:return None
  for k,n in (('attempt_nonce',32),('source_digest',64),('error_record_digest',64)):
   if value[k]is not None and not sha(value[k],n):return None
+ if value['binding_verified']and(not value['source_unchanged']or not sha(value['attempt_nonce'],32)or not sha(value['source_digest'])):return None
  sol=value['solver']
  if type(sol)is not dict or set(sol)!= {'called','status','seconds','budget_seconds','incumbent_observed','evidence'}:return None
  if any(sol[k]is not None and type(sol[k])is not bool for k in ('called','incumbent_observed'))or sol['status']is not None and(type(sol['status'])is not int or sol['status']not in range(5)):return None
- if any(sol[k]is not None and(type(sol[k])not in(int,float)or not math.isfinite(sol[k])or sol[k]<0)for k in ('seconds','budget_seconds'))or sol['evidence']not in ('UNOBSERVED','SOURCE_PRE_SOLVER_RETURN','SOURCE_RETURN_OBSERVATION'):return None
+ if any(sol[k]is not None and(type(sol[k])not in(int,float)or not math.isfinite(sol[k])or sol[k]<0)for k in ('seconds','budget_seconds'))or sol['evidence']not in ('UNOBSERVED','SOURCE_PRE_SOLVER_RETURN','SOURCE_RETURN_OBSERVATION','NOT_DISPATCHED_BY_PREFLIGHT'):return None
  ph=value['physical']
  if type(ph)is not dict or set(ph)!= {'state','status','error_count','pending_count','error_codes','report_digest','model_digest'}:return None
+ if ph['state']=='BOUND_REPORT_OBSERVATION'and(not value['binding_verified']or not sha(ph['model_digest'])or not sha(ph['report_digest'])):return None
  if ph['state']not in ('BOUND_REPORT_OBSERVATION','OBSERVED_UNVERIFIED','NOT_REPORTED')or ph['status']not in (None,'FAIL','PASS_CONCEPT_SCOPED_REVIEW','NOT_EVALUATED'):return None
  if any(ph[k]is not None and(type(ph[k])is not int or ph[k]<0)for k in ('error_count','pending_count'))or any(ph[k]is not None and not sha(ph[k])for k in ('report_digest','model_digest')):return None
  if type(ph['error_codes'])is not list:return None
