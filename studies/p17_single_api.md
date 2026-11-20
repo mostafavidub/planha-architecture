@@ -26,7 +26,7 @@ P15 access/source shape is not ergonomic quality. Each current state is preserve
 Always BLOCKED is a study non-delivery policy until P25, not fabricated physical failure.
 
 ## Evidence and budget
-One real HTTP n1 request after targeted tests/review. One proposal, solver <=30s,
+Each authorized actual HTTP n1 run follows targeted tests/review. One proposal per run, solver <=30s,
 no retry/fallback. X04 existing180-second response deadline begins after complete body,
 before preflight. That same monotonic deadline reaches n1 subprocess/setup/sourceaudit,
 constructor/replay/physical/four-current/decision and parent full-file readback.
@@ -43,10 +43,41 @@ A successful HTTP collection is not qualified architecture or completion of P25/
 ## Tests
 Source exact-delta, P15 regressions, n1 identity/type/core/old-report rejection,
 real HTTP invalid/unsupported zero-dispatch, n2 unchanged dispatch and registered-launcher.
-The sole actual HTTP run exercises real construction, reassembly, full reports,
+The successful actual HTTP run exercises real construction, reassembly, full reports,
 same-request file binding and five actual-model negative contracts.
 Synthetic identity fixtures are not a physical model/PASS or substitute for the live call.
 Existing X03/X05 static whole-inventory snapshots may remain stale; this does not disable them
 or claim arbitrary Python legacy-call isolation.
 
 P03 historical test/receipt stays at its original commit: its n1-18x20 unsupported assumption no longer describes this API. P17 explicitly tests the new readiness and current source-pinned launcher; original V3/parser and old n2 direct-wrapper policies stay unchanged.
+
+## Verified integration checkpoint (not delivery or quality)
+Commit c154f3d715fc42f3ce60a73dadad58b52657da98, run44707652366 /
+job136191145375: 98 tests passed; actual HTTP200, 160.252 seconds,
+one proposal (solver30.018s), source/reassembly/full-file readback and five
+actual-model negative checks passed. The new physical report is FAIL (1 error,
+0 pending); unchanged historical physical is FAIL (4 errors); four current
+criteria remain UNKNOWN. The physical error's exact code was not projected
+and full temporary files were removed: no cause is inferred from its count.
+The decision remains BLOCKED with P25 delivery missing and all authority false.
+
+Inner SINGLE_READBACK_P17 binding and attempt receipt are true.
+Outer X04 lifecycle remains ON_TIME_OBSERVED with receipt_verified=false and
+evidence_usable=false by design; it does not authenticate the producer or
+authorize delivery. No durable raw archive or uploaded artifact exists.
+
+Execution accounting is not "one solve in the whole task":
+- First target44704731549 stopped at a launcher test, actual step not run.
+- Target44705199188 had 70 tests pass but actual HTTP500; its inner cause was
+  not recoverable from its projected log.
+- Diagnostic target44706577453 had 95 tests pass but actual HTTP500:
+  worker completed, parent rejected P17_DECISION_READBACK. Canonical criterion
+  array ordering fixes JSON object-order dependence without weakening hashes.
+- Target44707652366 is the successful actual integration checkpoint above.
+- Two old controlled-test assumptions also dispatched unintentionally:
+  run44704731565 and run44706577179. Their jobs completed/cleaned up; their
+  model/solver outcome and exact process termination are NOT_VERIFIED.
+  Both n1 unsupported fixtures and no-process sentinels were corrected.
+  The latter controlled suite subsequently passed10 HTTP +4 launcher tests.
+These failures and unintended dispatches are not silently reclassified as success.
+The follow-up scope-label correction is tested without another actual generation.

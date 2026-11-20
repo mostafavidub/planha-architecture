@@ -36,6 +36,18 @@ class HTTP(unittest.TestCase):
   pair=dispatch.preflight(b'{"W":"18","L":"20","n":2}')
   self.assertTrue(one['execution_ready']);self.assertTrue(pair['execution_ready'])
   self.assertEqual(one['raw']['n'],1);self.assertIn('n1',one['case_scope'])
+ def test_n1_completed_projection_has_same_family_scope(self):
+  import single_runtime_p17
+  body=b'{"W":"18","L":"20","n":1}'
+  # Runtime is controlled only; parser, dispatcher and summary are real.
+  controlled={'schema':'SINGLE_HTTP_RESULT_P17_V1','preflight':{'input_valid':True},'state':'BLOCKED','attempts':[]}
+  with patch.object(single_runtime_p17,'run_bound',return_value=controlled)as worker,patch('subprocess.Popen',side_effect=AssertionError('NO_PROCESS'))as spawn:
+   result=dispatch.run_bound(body,None,deadline=123)
+   worker.assert_called_once_with(body,123);spawn.assert_not_called()
+  summary=server.public_summary(result)
+  self.assertEqual(summary['case_scope'],dispatch.preflight(body)['case_scope'])
+  self.assertEqual(summary['case_scope'],dispatch.SINGLE_CASE_SCOPE)
+  self.assertIn('n1/P2',summary['case_scope']);self.assertFalse(summary['qualified'])
  def test_n2_runtime_path_unmodified(self):
   body=b'{"W":"18","L":"20","n":2}'
   with patch.object(dispatch,'pair_bound',return_value={'marker':'PAIR'})as spy:
