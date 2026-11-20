@@ -6,6 +6,7 @@ on:
       - 'app/local_integration/single_*_p17.py'
       - 'app/local_integration/public_program_dispatch_p17.py'
       - 'studies/*p17*'
+      - 'tests/r4/test_current_entry_launch_x03.py'
       - '.github/workflows/p17-single-api.yml'
   workflow_dispatch:
 permissions:
