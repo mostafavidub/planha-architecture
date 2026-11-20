@@ -58,8 +58,8 @@ class HTTP(unittest.TestCase):
  def test_finalization_overrun(self):
   original=s.public_summary
   release=threading.Event()
-  def slow(raw):
-   release.wait(4);return original(raw)
+  def slow(raw,body=None):
+   release.wait(4);return original(raw,body)
   try:
    with patch.object(w,'LIMIT_SECONDS',.05),patch.object(s,'run_live',side_effect=fake),patch.object(s,'public_summary',side_effect=slow):
     status,data=self.request();self.assertEqual(status,504)

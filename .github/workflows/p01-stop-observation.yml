@@ -5,6 +5,8 @@ on:
     paths:
       - 'app/local_integration/stop_observation_p01.py'
       - 'studies/test_stop_observation_p01.py'
+      - 'tests/r4/test_http_withholding_x04.py'
+      - 'tests/r4/test_http_evidence_x07.py'
       - '.github/workflows/p01-stop-observation.yml'
   workflow_dispatch:
 permissions:
@@ -26,5 +28,5 @@ jobs:
       - run: python -m pip install numpy==2.4.6 scipy==1.17.1
       - run: python -B studies/test_stop_observation_p01.py
       - run: python -B studies/test_p17_forensic.py
-      - run: python -B -m unittest test_http_withholding_x04 test_current_entry_launch_x03 test_public_wln_server -v
+      - run: python -B -m unittest test_http_evidence_x07 test_http_withholding_x04 test_current_entry_launch_x03 test_public_wln_server -v
       - run: git diff --exit-code
