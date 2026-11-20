@@ -1,0 +1,23 @@
+name: P37 isolated archived diagnosis synthetic checks
+on:
+  push:
+    branches: [p37-archived-diagnostics-review]
+    paths:
+      - 'studies/p37_archived_diagnostics.py'
+      - 'tests/r4/test_p37_archived_diagnostics.py'
+      - '.github/workflows/p37-archived-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  fixture-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B -m unittest discover -s tests/r4 -p test_p37_archived_diagnostics.py -v
+      - run: git diff --exit-code
