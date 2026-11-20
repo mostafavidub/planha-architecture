@@ -249,7 +249,7 @@ def capture_http(body,envelope):
  except Exception:
   base=http_unknown(body)
  return freeze_http(base)
-def attach_http(summary,body,frozen):
+def attach_http(summary,body,frozen,expected_canonical=None):
  """Check the frozen advisory record against this request without changing existing keys."""
  try:
   data,h=frozen
@@ -268,6 +268,7 @@ def attach_http(summary,body,frozen):
    require(set(per)=={'A','B'} and all(set(row)==row_keys for row in per.values()),'HTTP_CAPACITY_NESTED_KEYS')
    require(all(type(payload[k]) is str and re.fullmatch('[a-f0-9]{64}',payload[k]) for k in
     ('canonical_input_digest','source_digest','core_digest','programme_digest')),'HTTP_CAPACITY_SHA_AT_PROJECTION')
+   require(expected_canonical is None or payload['canonical_input_digest']==expected_canonical,'HTTP_CAPACITY_CANONICAL')
    require(payload['family']=='FRONT_REAR' and payload['core_method']==CORE_KIND
     and payload['necessary_disjoint_module_area_m2']=='277/4'
     and type(payload['historical_module_area_bound']) is int and 0<=payload['historical_module_area_bound']<=100,'HTTP_CAPACITY_SCOPE')
@@ -276,6 +277,12 @@ def attach_http(summary,body,frozen):
     require(all(row[k] in HTTP_COMPARE for k in ('geometric_area_comparison','source_box_comparison')),'HTTP_CAPACITY_COMPARE_AT_PROJECTION')
     q=row['geometric_double_bedroom_area_quotient_not_count'];roles=row['modules_not_fitting_source_box_dimensions']
     require(type(q) is int and 0<=q<=100 and type(roles) is list and len(roles)<=5 and set(roles)<=set(MINIMA),'HTTP_CAPACITY_ROW_AT_PROJECTION')
+    net=Q(row['geometric_area_after_known_fixed_deductions_m2']);box=Q(row['historical_source_box_m2'])
+    require(Q(row['owned_union_m2'])-Q(row['fixed_union_overlap_m2'])==net
+     and Q(row['source_box_width_m'])*Q(row['source_box_depth_m'])==box and q==int(net/Q('19.62')),'HTTP_CAPACITY_ARITHMETIC')
+    for k,metric in (('geometric_area_comparison',net),('source_box_comparison',box)):
+     require(row[k]==HTTP_COMPARE[int(metric>=Q('69.25'))],'HTTP_CAPACITY_COMPARISON_ARITHMETIC')
+   require(payload['historical_module_area_bound']==int(Q(per['A']['historical_source_box_m2'])/Q('19.62')),'HTTP_CAPACITY_HISTORICAL_ARITHMETIC')
    require(payload['source_digest']==digest(source_guard()),'HTTP_CAPACITY_SOURCE_AT_PROJECTION')
   else:
    require(payload.get('state')=='PROFILE_NOT_READY' and set(payload)==common and payload['programme']=='PROGRAM_2BED_V1'

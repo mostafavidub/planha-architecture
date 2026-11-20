@@ -72,14 +72,25 @@ class Handler(BaseHTTPRequestHandler):
   except Exception:self.reply(500,{'code':'INPUT_VALIDATION_FAILED_CLOSED','generation_started':False,**{k:False for k in AUTH}});return
   observation=None
   observes_capacity=envelope['canonical_request']['unit_count']==2
-  if observes_capacity:
-   try:observation=capacity.capture_http(body,envelope)
-   except Exception:pass # Observation failure is not an execution failure.
+  def capture():
+   nonlocal observation
+   if observes_capacity:
+    try:observation=capacity.capture_http(body,envelope)
+    except Exception:pass # Observation failure is not an execution failure.
+  def with_capacity(summary):
+   if not observes_capacity:return summary
+   try:return capacity.attach_http(summary,body,observation,envelope['canonical_request_digest'])
+   except Exception:return summary # Advisory projection cannot replace the existing response.
   def project(result):
    summary=public_summary(result,body)
-   return capacity.attach_http(summary,body,observation) if observes_capacity else summary
+   # Dispatch already settled. Omit optional measurement when close to X04 cutoff.
+   if not observes_capacity or time.monotonic()>=accepted_at+179:return summary
+   capture()
+   return with_capacity(summary)
   if not pf['execution_ready']:
-   self.reply(409,project({'preflight':pf,'state':pf['state'],'stop_record':stop.unsupported(body)}));return
+   capture()
+   summary=public_summary({'preflight':pf,'state':pf['state'],'stop_record':stop.unsupported(body)},body)
+   self.reply(409,with_capacity(summary));return
   if not LOCK.acquire(blocking=False):self.reply(409,{'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}});return
   status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=lambda b:run_bound(b,run_live,deadline=accepted_at+180),project=project)
   self.reply(status,value)

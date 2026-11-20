@@ -5,7 +5,7 @@ import argparse,hashlib,importlib,inspect,json
 from pathlib import Path
 from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
- 'PUBLIC_WLN_18X20':('public_wln_server','0f5743a527a6a2832d6c03aad6f8daa5b94b77ba'),
+ 'PUBLIC_WLN_18X20':('public_wln_server','872dfcf0551379355183e21e0a675af3e19730fc'),
  'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
 DIAGNOSTICS_BLOB='4dba239c1484c6eda7985cde0b590680ec9ed3f3'
 def diagnostics_guard():
@@ -29,7 +29,7 @@ def evidence_guard():
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
-P17_PINS={"stop_observation_p01.py":"e5421221179a78ad8e313a5e86ba8e000bc26b79","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"0f5743a527a6a2832d6c03aad6f8daa5b94b77ba","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"ca33f86aa6ca0d23aa59fa366698c268f9c7c936","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
+P17_PINS={"stop_observation_p01.py":"e5421221179a78ad8e313a5e86ba8e000bc26b79","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"872dfcf0551379355183e21e0a675af3e19730fc","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"ca33f86aa6ca0d23aa59fa366698c268f9c7c936","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
 def single_guard():
  observed={}
  for name,pin in P17_PINS.items():
@@ -45,7 +45,7 @@ def single_guard():
 def capacity_guard():
  path=ROOT/'app/local_integration/programme_prefilter_p05.py';data=path.read_bytes()
  need(not path.is_symlink() and hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()
-  =='d4935a015d44838a7d18c51132b1756f797ea036','CURRENT_CAPACITY_SOURCE_CHANGED')
+  =='61aa0d427d8baf3d42a03a590863d4a5edb63ceb','CURRENT_CAPACITY_SOURCE_CHANGED')
  mod=importlib.import_module('programme_prefilter_p05')
  need(all(Path(inspect.getsourcefile(fn)).resolve()==path.resolve() for fn in
   (mod.capture_http,mod.attach_http,mod.inspect_request,mod.source_guard)),'CURRENT_CAPACITY_IMPORT_PATH')

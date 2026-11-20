@@ -158,4 +158,22 @@ class CapacityHTTP(unittest.TestCase):
   self.assertEqual(r['state'],'PROFILE_NOT_READY');self.assertNotIn('PRIVATE_PAYLOAD',json.dumps(r))
   with patch.object(p,'source_guard',return_value={}):
    self.assertEqual(p.attach_http({},raw,snapshot)['capacity_observation']['state'],'PROFILE_NOT_READY')
+  forged=json.loads(snapshot[0]);forged['per_unit']['A']['geometric_double_bedroom_area_quotient_not_count']=9
+  self.assertEqual(p.attach_http({},raw,p.freeze_http(forged),env['canonical_request_digest'])['capacity_observation']['state'],'PROFILE_NOT_READY')
+  forged=json.loads(snapshot[0]);forged['canonical_input_digest']='0'*64
+  self.assertEqual(p.attach_http({},raw,p.freeze_http(forged),env['canonical_request_digest'])['capacity_observation']['state'],'PROFILE_NOT_READY')
+ def test_advisory_projection_error_cannot_replace_response(self):
+  with patch.object(p,'attach_http',side_effect=RuntimeError('PRIVATE_DIAGNOSTIC')),patch.object(self.server,'run_bound',side_effect=self.controlled) as run:
+   ready,out=self.post(body());self.assertEqual(ready,200);run.assert_called_once()
+   self.assertEqual(out['status'],'CONTROLLED_NO_MODEL');self.assertNotIn('capacity_observation',out)
+   unsupported,out=self.post(body('13','6'))
+   self.assertEqual(unsupported,409);self.assertEqual(out['status'],'UNSUPPORTED_SELECTED_SAME_VERSION_CASE')
+   self.assertNotIn('capacity_observation',out);self.assertEqual(run.call_count,1)
+ def test_busy_does_not_observe_or_dispatch(self):
+  self.server.LOCK.acquire()
+  try:
+   with patch.object(p,'capture_http',side_effect=AssertionError('no observer')) as obs,patch.object(self.server,'run_bound',side_effect=AssertionError('no worker')) as run:
+    status,out=self.post(body());self.assertEqual(status,409);self.assertEqual(out['code'],'STUDY_BUSY_NO_QUEUE')
+    self.assertNotIn('capacity_observation',out);obs.assert_not_called();run.assert_not_called()
+  finally:self.server.LOCK.release()
 if __name__=='__main__':unittest.main()
