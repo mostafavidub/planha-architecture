@@ -5,7 +5,7 @@ import argparse,hashlib,importlib,inspect,json
 from pathlib import Path
 from current_entry_boundary_x03 import ROOT,parser_guard,source_snapshot,need
 SERVICES={
- 'PUBLIC_WLN_18X20':('public_wln_server','da45aa429bf055ec021e3e4110024b05a85ae49c'),
+ 'PUBLIC_WLN_18X20':('public_wln_server','8fe1afe174b621e57cabbe38f576ca93bc7890c3'),
  'REQUEST_TRACE_18X22':('request_trace_server109','fbe215097b43c576ff3c97d44e741cea3d0de834')}
 DIAGNOSTICS_BLOB='4dba239c1484c6eda7985cde0b590680ec9ed3f3'
 def diagnostics_guard():
@@ -29,12 +29,26 @@ def evidence_guard():
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
+P17_PINS={"public_program_dispatch_p17.py":"ce4f2772a1ffd353556735003bfd128465a03adf","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"8b9fabb81d0f7caefc310557650660b47d1c199d","single_evaluation_p17.py":"1ec03950b60298d872863d47d5f6b0be4248a56e","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"879657aa2536b1b4e275e8729e80cf76fcafe84d","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
+def single_guard():
+ observed={}
+ for name,pin in P17_PINS.items():
+  path=ROOT/'app/local_integration'/name;data=path.read_bytes()
+  need(not path.is_symlink() and hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==pin,'SINGLE_SOURCE_CHANGED')
+  observed[name]=hashlib.sha256(data).hexdigest()
+ module=importlib.import_module('public_program_dispatch_p17')
+ path=ROOT/'app/local_integration/public_program_dispatch_p17.py'
+ for fn in (module.preflight,module.run_bound,module.is_single):
+  need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'SINGLE_DISPATCH_IMPORT_PATH')
+ return observed
+
 def server(identifier,port=0):
  need(type(identifier)is str and identifier in SERVICES,'UNREGISTERED_OR_HISTORICAL_SERVICE_CURRENT_DISABLED')
  need(type(port)is int and 0<=port<=65535,'LOOPBACK_PORT_REQUIRED')
  before=parser_guard();diagnostic_pin=diagnostics_guard();name,pin=SERVICES[identifier]
  withholding_pin=withholding_guard() if identifier=='PUBLIC_WLN_18X20' else None
  evidence_pin=evidence_guard() if identifier=='PUBLIC_WLN_18X20' else None
+ single_pin=single_guard() if identifier=='PUBLIC_WLN_18X20' else None
  path=ROOT/'app/local_integration'/ (name+'.py');data=path.read_bytes()
  need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()==pin,'CURRENT_SERVICE_SOURCE_CHANGED')
  module=importlib.import_module(name)
@@ -49,6 +63,7 @@ def server(identifier,port=0):
   need(source_snapshot()==before and diagnostics_guard()==diagnostic_pin,'CURRENT_BOUNDARY_SOURCE_CHANGED')
   if withholding_pin is not None:need(withholding_guard()==withholding_pin,'CURRENT_WITHHOLDING_CHANGED_DURING_STARTUP')
   if evidence_pin is not None:need(evidence_guard()==evidence_pin,'CURRENT_EVIDENCE_CHANGED_DURING_STARTUP')
+  if single_pin is not None:need(single_guard()==single_pin,'SINGLE_SOURCE_CHANGED_DURING_STARTUP')
   return server
  except BaseException:
   server.server_close()

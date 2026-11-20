@@ -35,7 +35,7 @@
    if(data.schema==="PUBLIC_WLN_STUDY_SUMMARY_V1"){
     if(data.accepted!==false||data.qualified!==false||data.display_allowed!==false||data.delivery_allowed!==false||data.plan_count_available!==0||data.plan_payload!==null||data.download_available!==false)throw new Error("UNSAFE_SUMMARY");
     stageDisclosure(data);
-    if(data.status.startsWith("UNSUPPORTED")){show("ورودی معتبر است، اما این حالت هنوز به مولد آماده متصل نیست. فعلاً فقط زمین ۱۸×۲۰ متر با ۲ واحد پشتیبانی آزمایشی دارد.","blocked");return;}
+    if(data.status.startsWith("UNSUPPORTED")){show("ورودی معتبر است، اما این حالت هنوز به مولد آماده متصل نیست. فعلاً فقط زمین ۱۸×۲۰ متر با ۱ یا ۲ واحد پشتیبانی آزمایشی دارد.","blocked");return;}
     if(data.source_integrity_verified!==true){show("نتیجهٔ کامل با منشأ تأییدشده در دسترس نیست. هیچ طرحی ارائه نشد.","error");return;}
     if(data.decision.state==="BLOCKED"){show("بررسی اجرا شد، اما طرح قابل تحویل نیست.\nرد هندسی، معیارهای نامعلوم یا خطای ارزیابی مانع تحویل است؛ هیچ طرح یا فایل خروجی ارائه نشده.\nاین نتیجه، تکمیل چرخه یا تأیید کیفیت نیست.","blocked");return;}
     show("بررسی کامل و تأییدشده در دسترس نیست. هیچ طرحی ارائه نشد.","blocked");return;

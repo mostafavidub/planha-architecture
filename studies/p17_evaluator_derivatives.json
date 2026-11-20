@@ -1,0 +1,150 @@
+{
+  "app/local_integration/single_current_programme_evaluator_p17.py": {
+    "source": "app/local_integration/current_programme_evaluator.py",
+    "source_blob": "99ada55f405e0c205d1a431469d1faae55a149dd",
+    "edits": [
+      [
+        "from current_entry_boundary_x03 import check_model_domain\n check_model_domain(bundle['packet']['world_model'])",
+        "from single_evaluation_p17 import bind_bundle\n bind_bundle(bundle)"
+      ],
+      [
+        "import construction_replay127",
+        "import single_evaluation_p17 as construction_replay127"
+      ],
+      [
+        "'CURRENT_ENTRY_DOMAIN_X03_V1'",
+        "'SINGLE_CURRENT_DOMAIN_P17_V1'"
+      ],
+      [
+        "for mod,fn in ((construction_replay127,'verify'),(program_capacity_audit118,'examine')):",
+        "for mod,fn in ((program_capacity_audit118,'examine'),):"
+      ],
+      [
+        "out.update(report_digests=pins,source_snapshot=snap,input_bundle_digest=baseline)",
+        "out.update(report_digests=pins,source_snapshot=snap,single_source_snapshot=audit,input_bundle_digest=baseline)"
+      ],
+      [
+        "'historical_physical_report'",
+        "'source_physical_report'"
+      ],
+      [
+        "'historical_physical_digest'",
+        "'source_physical_digest'"
+      ]
+    ],
+    "schema_from": "CURRENT_PROGRAMME_SOURCE_EVALUATION_V1",
+    "schema_to": "SINGLE_P17_CURRENT_PROGRAMME_SOURCE_EVALUATION_V1",
+    "inventory_from_p15": true,
+    "audit_override": true,
+    "tail_retained_historical": true
+  },
+  "app/local_integration/single_source_guest_route_evaluator_p17.py": {
+    "source": "app/local_integration/source_guest_route_evaluator.py",
+    "source_blob": "17fb50e08d153aee4aa2ecd4fa4d13928f522a4e",
+    "edits": [
+      [
+        "from current_entry_boundary_x03 import check_model_domain\n check_model_domain(bundle['packet']['world_model'])",
+        "from single_evaluation_p17 import bind_bundle\n bind_bundle(bundle)"
+      ],
+      [
+        "import construction_replay127",
+        "import single_evaluation_p17 as construction_replay127"
+      ],
+      [
+        "'CURRENT_ENTRY_DOMAIN_X03_V1'",
+        "'SINGLE_CURRENT_DOMAIN_P17_V1'"
+      ],
+      [
+        "out['source_snapshot']=snap",
+        "out['source_snapshot']=snap;out['single_source_snapshot']=audit"
+      ],
+      [
+        "'original_physical_report'",
+        "'source_physical_report'"
+      ],
+      [
+        "'original_physical_digest'",
+        "'source_physical_digest'"
+      ]
+    ],
+    "schema_from": "SOURCE_BOUND_FOUR_GUEST_ROUTES_V1",
+    "schema_to": "SINGLE_P17_SOURCE_BOUND_FOUR_GUEST_ROUTES_V1",
+    "inventory_from_p15": false,
+    "audit_override": true,
+    "tail_retained_historical": true
+  },
+  "app/local_integration/single_source_living_evaluator_p17.py": {
+    "source": "app/local_integration/source_living_evaluator.py",
+    "source_blob": "2f368ae2a1d5db32d7163076f90eb5a7e991f76f",
+    "edits": [
+      [
+        "from current_entry_boundary_x03 import check_model_domain\n check_model_domain(bundle['packet']['world_model'])",
+        "from single_evaluation_p17 import bind_bundle\n bind_bundle(bundle)"
+      ],
+      [
+        "import construction_replay127",
+        "import single_evaluation_p17 as construction_replay127"
+      ],
+      [
+        "'CURRENT_ENTRY_DOMAIN_X03_V1'",
+        "'SINGLE_CURRENT_DOMAIN_P17_V1'"
+      ],
+      [
+        "out['source_snapshot']=snap",
+        "out['source_snapshot']=snap;out['single_source_snapshot']=audit"
+      ],
+      [
+        "'original_physical_report'",
+        "'source_physical_report'"
+      ],
+      [
+        "'original_physical_digest'",
+        "'source_physical_digest'"
+      ]
+    ],
+    "schema_from": "CURRENT_LIVING_SOURCE_EVIDENCE_V1",
+    "schema_to": "SINGLE_P17_CURRENT_LIVING_SOURCE_EVIDENCE_V1",
+    "inventory_from_p15": false,
+    "audit_override": true,
+    "tail_retained_historical": true
+  },
+  "app/local_integration/single_source_wall_function_evaluator_p17.py": {
+    "source": "app/local_integration/source_wall_function_evaluator.py",
+    "source_blob": "84233b6bba2c4835af5e59c203ecf51a6765b8e0",
+    "edits": [
+      [
+        "from current_entry_boundary_x03 import check_model_domain\n check_model_domain(bundle['packet']['world_model'])",
+        "from single_evaluation_p17 import bind_bundle\n bind_bundle(bundle)"
+      ],
+      [
+        "import construction_replay127",
+        "import single_evaluation_p17 as construction_replay127"
+      ],
+      [
+        "'CURRENT_ENTRY_DOMAIN_X03_V1'",
+        "'SINGLE_CURRENT_DOMAIN_P17_V1'"
+      ],
+      [
+        "out['source_snapshot']=snap",
+        "out['source_snapshot']=snap;out['single_source_snapshot']=audit"
+      ],
+      [
+        "'original_physical_report'",
+        "'source_physical_report'"
+      ],
+      [
+        "'original_physical_digest'",
+        "'source_physical_digest'"
+      ],
+      [
+        "'Core/shell non-module walls inventoried only, no removal authorization'",
+        "'Core/shell non-module walls inventoried only, no removal authorization','Inherited bed-target separator probe includes kind bed only; twin single_bed targets NOT_EVALUATED here'"
+      ]
+    ],
+    "schema_from": "SOURCE_WALL_FUNCTION_EVIDENCE_V1",
+    "schema_to": "SINGLE_P17_SOURCE_WALL_FUNCTION_EVIDENCE_V1",
+    "inventory_from_p15": false,
+    "audit_override": true,
+    "tail_retained_historical": true
+  }
+}
