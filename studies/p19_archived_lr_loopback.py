@@ -142,7 +142,7 @@ def evaluate_archive(body,archive_path,archive_pin,model_pin,output_path):
   mark(stage,'RETURNED')
   stage='WHOLE_ORIGINAL_PHYSICAL';mark(stage,'STARTED')
   ph=evaluate(p,ctx);keep('physical.json',ph)
-  need(ph['model_hash']==model_pin and ph['accepted'] is False and ph['release'] is False and digest(ph['multiproposal_provenance127'])==digest(replay),'ARCHIVE_PHYSICAL_BINDING')
+  need(type(ph['errors'])is list and type(ph['pending'])is list and ph['model_hash']==model_pin and ph['accepted'] is False and ph['release'] is False and digest(ph['multiproposal_provenance127'])==digest(replay),'ARCHIVE_PHYSICAL_BINDING')
   mark(stage,'RETURNED')
   reports={'replay':replay,'physical':ph,'original_archived_physical':r['historical_report'],'original_archived_replay':r['replay']}
   bundle={'schema':'P19_ARCHIVED_LR_PRIVATE_EVALUATION_INPUT_V1','packet':p,'context':ctx,'model_digest':model_pin,'engine_revision':ENGINE_REVISION,
@@ -151,7 +151,7 @@ def evaluate_archive(body,archive_path,archive_pin,model_pin,output_path):
   results={}
   for criterion,fn in evaluators.items():
    stage=criterion;mark(stage,'STARTED');current=fn(bundle);keep(criterion+'.json',current)
-   need(current['model_digest']==model_pin and digest(bundle)==bpin and digest(r)==original,'ARCHIVE_ASSESSMENT_BINDING')
+   need(current['integrity_verified'] is True and current['model_digest']==model_pin and digest(bundle)==bpin and digest(r)==original,'ARCHIVE_ASSESSMENT_BINDING')
    results[criterion]=current;mark(stage,'RETURNED')
   stage='DECISION_AND_READBACK';mark(stage,'STARTED')
   decision=four.assemble(bundle,results,{k:digest(v)for k,v in results.items()});keep('decision.json',decision)
@@ -174,15 +174,28 @@ def evaluate_archive(body,archive_path,archive_pin,model_pin,output_path):
   write(folder,'failure.json',{'stage':stage,'request_digest':request_pin,'private_traceback':traceback.format_exc(),'files_sha256':files,'timeline':timeline,**ZERO})
   raise
 
+STATUS='ARCHIVED_MODEL_EVALUATION_COMPLETED'
+PHYSICAL={'FAIL','NOT_EVALUATED','PASS_CONCEPT_SCOPED_REVIEW','PASS_LIMITED'}
+DECISIONS={'BLOCKED','FOUR_CURRENT_CHECKS_COMPLETE_NOT_PRODUCT_QUALIFIED'}
+BLOCKERS={'PHYSICAL_FAIL','CURRENT_NECESSARY_FAIL','EVALUATOR_ERROR','CURRENT_UNKNOWN','CURRENT_NOT_EVALUATED','PHYSICAL_PENDING','PHYSICAL_NOT_VERIFIED','HISTORICAL_UNRESOLVED_RETAINED'}
+def valid_decision(v):
+ return type(v)is dict and set(v)=={'state','blockers'} and type(v['state'])is str and v['state']in DECISIONS and type(v['blockers'])is list and all(
+  type(k)is str and k in BLOCKERS for k in v['blockers']) and len(set(v['blockers']))==len(v['blockers']) and bool(v['blockers'])==(v['state']=='BLOCKED')
+
 def project(v):
- need(v.get('archived_model_reused')is True and hash_token(v.get('receipt_sha256')),'ARCHIVE_PROJECT_RECEIPT')
+ rows=v.get('attempts')
+ need(v.get('source_integrity_verified')is True and type(rows)is list and len(rows)==1 and
+      type(rows[0])is dict and rows[0].get('receipt_verified')is True and
+      v.get('archived_model_reused')is True and hash_token(v.get('receipt_sha256')),'ARCHIVE_PROJECT_RECEIPT')
+ need(type(v.get('physical_status'))is str and v['physical_status']in PHYSICAL and valid_decision(v.get('decision')),'ARCHIVE_PROJECT_STATE')
  return {'status':'ARCHIVED_MODEL_EVALUATION_COMPLETED','archived_model_reused':True,'archived_evaluation_started':True,
   'archive_report_receipt_sha256':v['receipt_sha256'],'decision':v['decision'],'physical_status':v['physical_status'],**ZERO}
 
 def safe_response(status,obj):
  lifecycle=obj.get('http_lifecycle',{}) if status==200 else obj
+ lifecycle=lifecycle if type(lifecycle)is dict else {}
  base={'schema':'P19_PRIVATE_ARCHIVE_HTTP_V1','family':'LEFT_RIGHT','scope':'OPERATOR_ONLY_ARCHIVED_MODEL_STUDY','case':CASE_SCOPE,**ZERO}
- if status==200 and obj.get('archived_model_reused')is True:
+ if status==200 and obj.get('archived_model_reused')is True and obj.get('status')==STATUS and hash_token(obj.get('archive_report_receipt_sha256')) and type(obj.get('physical_status'))is str and obj['physical_status']in PHYSICAL and valid_decision(obj.get('decision')) and lifecycle.get('response_state')=='ON_TIME_OBSERVED':
   return {**base,'status':obj['status'],'archive_report_receipt_sha256':obj['archive_report_receipt_sha256'],
    'archived_evaluation_started':True,'archived_model_reused':True,'physical_status':obj['physical_status'],
    'decision':obj['decision'],'outer_observation':{'state':lifecycle.get('response_state'),'receipt_verified':False,'evidence_usable':False}}
