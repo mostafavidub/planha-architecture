@@ -114,6 +114,23 @@ def worker(folder):
   if not out['source_integrity_verified']:out['state']='SOURCE_CHANGED'
   if not out['within_budget']:out['state']='BUDGET_EXHAUSTED'
   out['elapsed_seconds']=time.monotonic()-start;save(folder/'summary.json',out)
+def diagnostic(body,request,summary,observed,stage,ex=None):
+ # Shape-filtered codes from pinned source, not semantic allowlist/authenticity.
+ summary=summary if type(summary)is dict else {}
+ def enum(v):return v if type(v)is str and re.fullmatch(r'[A-Z][A-Z0-9_]{0,95}',v)else None
+ def sha(v):return v if type(v)is str and re.fullmatch(r'[0-9a-f]{64}',v)else None
+ return {'schema':'P17_PRIVATE_DIAGNOSTIC_V1','request_digest':hashlib.sha256(body).hexdigest(),
+         'runtime_nonce':request['nonce'],'parent_stage':enum(stage),'worker_stage':enum(str(summary.get('stage','')).upper()),
+         'worker_state':enum(summary.get('state')),'error_type':type(ex).__name__ if ex is not None else summary.get('error_type'),
+         'error_code':enum(str(ex)) if ex is not None else enum(summary.get('error_code')),
+         'observed_model_digest':sha(summary.get('model_digest')),
+         'source_integrity_observed':summary.get('source_integrity_verified')is True,
+         'within_budget_observed':summary.get('within_budget')is True,
+         'observed_file_hashes':{k:v for k,v in observed.items()if k in ('request','summary','bundle','current','decision','originals','proposal','model','negatives') and sha(v)},
+         'evidence_usable':False,'receipt_verified':False,'raw_archive_durable':False}
+class DiagnosticFailure(ValueError):
+ def __init__(self,value):
+  super().__init__('P17_RUNTIME_FAILED_CLOSED');self.http_diagnostic=value
 def run_bound(body,deadline):
  started=time.monotonic();before=binding.source_audit();pf=p.preflight(body)
  p.require(pf['execution_ready'],'P17_UNSUPPORTED')
@@ -130,42 +147,49 @@ def run_bound(body,deadline):
    try:os.killpg(proc.pid,signal.SIGKILL)
    except ProcessLookupError:pass
    _,err=proc.communicate()
-  summary,_=read(folder/'summary.json')if(folder/'summary.json').exists()else({'state':'NO_SUMMARY','attempts':0},None)
-  observed={};data={}
-  for key in ('request','summary','bundle','current','decision','originals','proposal','model','negatives'):
-   path=folder/(key+'.json')
-   if path.exists():
-    value,h=read(path);observed[key]=h;data[key]=value
-  usable=False;d=None
-  if not timed and proc.returncode==0 and summary['state']=='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED':
-   p.require(type(summary['attempts'])is int and summary['attempts']==1,'P17_ATTEMPT_COUNT')
-   p.require(summary['nonce']==request['nonce'] and summary['request_digest']==p.digest(request) and p.digest(data['request'])==p.digest(request),'P17_REQUEST_BINDING')
-   b=data['bundle'];current=data['current'];d=data['decision']
-   p.require(p.digest(b)==summary['bundle_digest'] and p.digest(b['context']['raw'])==p.digest(pf['raw']),'P17_BUNDLE_READBACK')
-   p.require(p.digest(data['model'])==b['model_digest']==summary['model_digest'] and p.digest(data['proposal'])==p.digest(b['context']['proposal']),'P17_MODEL_READBACK')
-   p.require(p.digest(data['originals'])==p.digest(b['reports']),'P17_ORIGINAL_READBACK')
-   rebuilt=decision.assemble(b,current,summary['current_digests'])
-   p.require(p.digest(rebuilt)==p.digest(d)==summary['decision_digest'],'P17_DECISION_READBACK')
-   check_summary(summary,b,current,d,data['negatives'])
-   p.require(summary['current_states']=={r['criterion']:r['state']for r in d['criteria']},'P17_SUMMARY_CURRENT')
-   ph=b['reports']['physical']
-   p.require([summary['physical_status'],summary['physical_errors'],summary['physical_pending']]==[ph['status'],len(ph['errors']),len(ph['pending'])],'P17_SUMMARY_PHYSICAL')
-   for key,h in observed.items():p.require(read(folder/(key+'.json'))[1]==h,'P17_FILE_CHANGED')
-   usable=True
-  source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True
-  term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
-  row={'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
-       'receipt_verified':usable,'solver_status':summary.get('solver_status'),'solver_seconds':summary.get('solver_seconds'),
-       'stage':summary.get('stage'),'error_type':summary.get('error_type'),'error_code':summary.get('error_code'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
-       'physical_pending':summary.get('physical_pending'),'historical_status':summary.get('historical_status'),'historical_errors':summary.get('historical_errors'),
-       'current_states':summary.get('current_states'),'actual_negatives':summary.get('negatives'),
-       'timed_out':timed,'returncode':proc.returncode,'wait_completed':proc.poll()is not None,
-       'observed_file_hashes':observed,'stderr_digest':hashlib.sha256(err).hexdigest()}
-  return {'schema':'SINGLE_HTTP_RESULT_P17_V1','state':term['state'],'preflight':pf,'attempts':[row]if type(summary.get('attempts'))is int and summary['attempts']==1 else[],
-          'fresh_model_executed':term['fresh_model_executed'],'observed_model_constructed':term['observed_model_constructed'],'source_integrity_verified':source_ok,
-          'current_decision':d['decision'] if usable else None,'http_full_evidence':{'schema':'SINGLE_READBACK_P17_V1','binding_verified':usable,'raw_archive_durable':False,
-          'scope':'Same request/source/full-report readback and decision rederivation, not producer authenticity or P25 admission'},
-          'elapsed_seconds':time.monotonic()-started,**{k:False for k in AUTH}}
+  summary={};observed={};parent_stage='READ_SUMMARY'
+  try:
+   summary,_=read(folder/'summary.json')if(folder/'summary.json').exists()else({'state':'NO_SUMMARY','attempts':0},None)
+   parent_stage='FILE_SNAPSHOT';observed={};data={}
+   for key in ('request','summary','bundle','current','decision','originals','proposal','model','negatives'):
+    path=folder/(key+'.json')
+    if path.exists():
+     value,h=read(path);observed[key]=h;data[key]=value
+   usable=False;d=None
+   if not timed and proc.returncode==0 and summary['state']=='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED':
+    parent_stage='FULL_READBACK'
+    p.require(type(summary['attempts'])is int and summary['attempts']==1,'P17_ATTEMPT_COUNT')
+    p.require(summary['nonce']==request['nonce'] and summary['request_digest']==p.digest(request) and p.digest(data['request'])==p.digest(request),'P17_REQUEST_BINDING')
+    b=data['bundle'];current=data['current'];d=data['decision']
+    p.require(p.digest(b)==summary['bundle_digest'] and p.digest(b['context']['raw'])==p.digest(pf['raw']),'P17_BUNDLE_READBACK')
+    p.require(p.digest(data['model'])==b['model_digest']==summary['model_digest'] and p.digest(data['proposal'])==p.digest(b['context']['proposal']),'P17_MODEL_READBACK')
+    p.require(p.digest(data['originals'])==p.digest(b['reports']),'P17_ORIGINAL_READBACK')
+    rebuilt=decision.assemble(b,current,summary['current_digests'])
+    p.require(p.digest(rebuilt)==p.digest(d)==summary['decision_digest'],'P17_DECISION_READBACK')
+    check_summary(summary,b,current,d,data['negatives'])
+    p.require(summary['current_states']=={r['criterion']:r['state']for r in d['criteria']},'P17_SUMMARY_CURRENT')
+    ph=b['reports']['physical']
+    p.require([summary['physical_status'],summary['physical_errors'],summary['physical_pending']]==[ph['status'],len(ph['errors']),len(ph['pending'])],'P17_SUMMARY_PHYSICAL')
+    for key,h in observed.items():p.require(read(folder/(key+'.json'))[1]==h,'P17_FILE_CHANGED')
+    usable=True
+   parent_stage='FINAL_SOURCE'
+   source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True
+   term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
+   row={'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
+        'receipt_verified':usable,'solver_status':summary.get('solver_status'),'solver_seconds':summary.get('solver_seconds'),
+        'stage':summary.get('stage'),'error_type':summary.get('error_type'),'error_code':summary.get('error_code'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
+        'physical_pending':summary.get('physical_pending'),'historical_status':summary.get('historical_status'),'historical_errors':summary.get('historical_errors'),
+        'current_states':summary.get('current_states'),'actual_negatives':summary.get('negatives'),
+        'timed_out':timed,'returncode':proc.returncode,'wait_completed':proc.poll()is not None,
+        'observed_file_hashes':observed,'stderr_digest':hashlib.sha256(err).hexdigest()}
+   return {'schema':'SINGLE_HTTP_RESULT_P17_V1','http_diagnostic':diagnostic(body,request,summary,observed,parent_stage),'state':term['state'],'preflight':pf,'attempts':[row]if type(summary.get('attempts'))is int and summary['attempts']==1 else[],
+           'fresh_model_executed':term['fresh_model_executed'],'observed_model_constructed':term['observed_model_constructed'],'source_integrity_verified':source_ok,
+           'current_decision':d['decision'] if usable else None,'http_full_evidence':{'schema':'SINGLE_READBACK_P17_V1','binding_verified':usable,'raw_archive_durable':False,
+           'scope':'Same request/source/full-report readback and decision rederivation, not producer authenticity or P25 admission'},
+           'elapsed_seconds':time.monotonic()-started,**{k:False for k in AUTH}}
+  except Exception as ex:
+   raise DiagnosticFailure(diagnostic(body,request,summary,observed,parent_stage,ex))from None
+
 if __name__=='__main__':
  if len(sys.argv)==3 and sys.argv[1]=='--worker':worker(Path(sys.argv[2]))
  else:raise SystemExit('P17_INTERNAL_WORKER_ARGUMENTS')

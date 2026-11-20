@@ -31,6 +31,7 @@ jobs:
       - run: python -B studies/test_single_physical_p17.py
       - run: python -B studies/test_single_evaluation_p17.py
       - run: python -B studies/test_public_single_p17.py
+      - run: python -B studies/test_p17_forensic.py
       - run: python -B -m unittest test_public_wln_contract test_public_wln_server test_current_entry_launch_x03 -v
       - name: One actual HTTP n1 attempt with full temporary reports
         if: contains(github.event.head_commit.message, '[p17-live]')

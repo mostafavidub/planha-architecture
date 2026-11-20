@@ -1,5 +1,5 @@
 """X04 HTTP withholding only. No scheduler budget change, cancellation or recovery."""
-import copy,hashlib,json,math,threading,time,uuid
+import copy,hashlib,json,math,re,threading,time,uuid
 from collections import deque
 LIMIT_SECONDS=180.0
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
@@ -11,6 +11,25 @@ def denied(code,request_id,generation_started):
   'generation_started':generation_started,'evidence_usable':False,'receipt_verified':False,
   'plan_count_available':0,'plan_payload':None,'download_available':False,
   'cancelled':False,'deadline_preemption':False,'durable_record':False,**{k:False for k in AUTH}}
+def diagnostic_record(value,request_digest):
+ # Private bounded observation only; never modifies the HTTP decision or authority.
+ if type(value)is not dict or value.get('schema')!='P17_PRIVATE_DIAGNOSTIC_V1':return {'state':'NOT_REPORTED'}
+ if value.get('request_digest')!=request_digest:return {'state':'REQUEST_MISMATCH_REJECTED'}
+ out={'state':'OBSERVED_UNVERIFIED','schema':value['schema'],'request_digest':request_digest,
+      'evidence_usable':False,'receipt_verified':False,'raw_archive_durable':False}
+ for key in ('parent_stage','worker_stage','worker_state','error_code'):
+  v=value.get(key);out[key]=v if type(v)is str and re.fullmatch(r'[A-Z][A-Z0-9_]{0,95}',v)else None
+ v=value.get('error_type')
+ out['error_type']=v if type(v)is str and v in ('ValueError','KeyError','TypeError','AssertionError','OSError','FileNotFoundError','RecursionError','RuntimeError','JSONDecodeError')else 'UNREPORTED_EXCEPTION_TYPE'
+ for key,size in (('runtime_nonce',32),('observed_model_digest',64)):
+  v=value.get(key);out[key]=v if type(v)is str and re.fullmatch('[0-9a-f]{'+str(size)+'}',v)else None
+ for key in ('source_integrity_observed','within_budget_observed'):out[key]=value.get(key)is True
+ files=value.get('observed_file_hashes');out['observed_file_hashes']={}
+ if type(files)is dict:
+  for key in ('request','summary','bundle','current','decision','originals','proposal','model','negatives'):
+   v=files.get(key)
+   if type(v)is str and re.fullmatch(r'[0-9a-f]{64}',v):out['observed_file_hashes'][key]=v
+ return out
 class Boundary:
  def __init__(self):
   self._mutex=threading.Lock();self._records=deque(maxlen=64)
@@ -38,8 +57,11 @@ class Boundary:
      with self._mutex:record['worker_state']='NOT_STARTED_DEADLINE'
      return
     with self._mutex:record.update(worker_state='RUNNING',generation_started=True)
+    with self._mutex:record['boundary_stage']='RUN'
     raw=run(body)
+    with self._mutex:record['runtime_diagnostic']=diagnostic_record(raw.get('http_diagnostic'),record['request_digest'])
     # Retain only bounded public projection in this in-memory boundary, not raw model.
+    with self._mutex:record['boundary_stage']='PROJECT'
     summary=project(raw)
     rows=raw.get('attempts',[])
     receipts_observed=type(rows)is list and len(rows)>0 and all(type(r)is dict and r.get('receipt_verified')is True for r in rows)
@@ -58,8 +80,11 @@ class Boundary:
      # Source failure remains observed failure; no decision is promoted to verified.
      if not observed['source_integrity_observed']:record['worker_state']='SOURCE_UNVERIFIED_OBSERVED'
      if observed['source_integrity_observed']:box['payload']=payload
-   except Exception:
-    with self._mutex:record['worker_state']='WORKER_FAILED_OBSERVED'
+   except Exception as ex:
+    with self._mutex:
+     record['worker_state']='WORKER_FAILED_OBSERVED'
+     record['boundary_error']=diagnostic_record({'schema':'P17_PRIVATE_DIAGNOSTIC_V1','request_digest':record['request_digest'],'parent_stage':record.get('boundary_stage'),'error_type':type(ex).__name__,'error_code':str(ex)},record['request_digest'])
+     if 'runtime_diagnostic'not in record:record['runtime_diagnostic']=diagnostic_record(getattr(ex,'http_diagnostic',None),record['request_digest'])
    finally:
     with self._mutex:
      record['finished_at']=time.monotonic()

@@ -23,6 +23,11 @@ def main():
  except Exception as ex:
   out.update(actual_http_chain_complete=False,error_type=type(ex).__name__)
  finally:
+  import public_wln_server as service
+  expected=hashlib.sha256(b'{"W":"18","L":"20","n":1}').hexdigest()
+  rid=out.get('response',{}).get('request_id',out.get('response',{}).get('http_lifecycle',{}).get('request_id'))
+  records=[r for r in service.HTTP_BOUNDARY.snapshot()if r['request_id']==rid and r['request_digest']==expected]
+  out['private_boundary_observation']=records[0]if len(records)==1 else {'state':'NOT_BOUND_NOT_REPORTED'}
   s.shutdown();s.server_close();t.join(timeout=5)
   out.update(elapsed_seconds=time.monotonic()-start,old_pair_scheduler_unchanged=hashlib.sha256(source.read_bytes()).hexdigest()==pin,raw_archive_durable=False)
   print(json.dumps(out,sort_keys=True,ensure_ascii=False),flush=True)
