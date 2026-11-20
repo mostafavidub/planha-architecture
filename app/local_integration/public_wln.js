@@ -106,7 +106,7 @@
    if(data.schema==="PUBLIC_WLN_STUDY_SUMMARY_V1"){
     if(data.accepted!==false||data.qualified!==false||data.display_allowed!==false||data.delivery_allowed!==false||data.plan_count_available!==0||data.plan_payload!==null||data.download_available!==false)throw new Error("UNSAFE_SUMMARY");
     stageDisclosure(data);
-    if(typeof data.status==="string"&&data.status.startsWith("UNSUPPORTED")){if(response.status!==409||data.input_valid!==true)throw new Error("UNSUPPORTED_RESPONSE");show("ورودی معتبر است، اما این حالت هنوز به مولد آماده متصل نیست. فعلاً فقط زمین ۱۸×۲۰ متر با ۱ یا ۲ واحد پشتیبانی آزمایشی دارد.","blocked","unsupported_case");return;}
+    if(typeof data.status==="string"&&data.status.startsWith("UNSUPPORTED")){if(response.status!==409||data.input_valid!==true)throw new Error("UNSUPPORTED_RESPONSE");show("ورودی معتبر است، اما این حالت هنوز به مولد آماده متصل نیست. اجرای آزمایشی فقط برای ترکیب‌های اعلام‌شده در فرم فعال است.","blocked","unsupported_case");return;}
     const bound=await boundObservation(data,response,wire);
     if(sequence!==requestSequence)return;
     if(!bound){show("نتیجه‌ای مشاهده شد، اما اتصال معتبر آن به شواهد همین درخواست تأیید نشد. رد یا تأیید معماری اعلام نمی‌شود؛ هیچ طرحی ارائه نشد.","blocked","observed_unverified");return;}

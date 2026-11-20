@@ -19,7 +19,7 @@ def public_summary(result,body=None):
  decision=result.get('current_decision')
  return {'schema':'PUBLIC_WLN_STUDY_SUMMARY_V1','mode':'LOCAL_SCOPED_STUDY_NOT_PRODUCT',
   'stop_record':stop.safe(result.get('stop_record'),hashlib.sha256(body).hexdigest())if type(body)is bytes else None,
-  'status':result['state'],'input_valid':pf['input_valid'],'case_scope':pf.get('case_scope','18x20/n2 only; other valid cases currently unsupported'),
+  'status':result['state'],'input_valid':pf['input_valid'],'case_scope':pf.get('case_scope','FRONT_REAR/P2 study: 18x20, 18.1x22.2, 25x25 (n2); 18x20 only (n1)'),
   'programme_source':'Automatic approved registry programme2 for the selected study case; not quality-optimal selection',
   'actual_live_attempts':len(rows),'fresh_model_executed':result.get('fresh_model_executed',False),
   'source_integrity_verified':result.get('source_integrity_verified',False),

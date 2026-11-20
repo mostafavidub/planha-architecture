@@ -9,7 +9,10 @@ EVIDENCE_ROOT=ROOT/'live-program-evidence'
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 COMPLETE='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED'
 PINS={
- 'live_program_scheduler.py':'1b671b6632d01c1012fcb39b2c33e731fb619fbc',
+ 'live_program_scheduler.py':'104a8f84baac13501223013d1f370c14aba214aa',
+ 'parametric_pair_p04.py':'7d437a5e44ea1a56672073924e825dbd4a60447a',
+ 'precision_boundary208.py':'e1ece20ad40d7d17e268fc9e1c2fe701ca383548',
+ 'source_fit_profile207.py':'8454b4a0a1e99cc49055fd6a7f375f048d9520f0',
  'current_four_decision.py':'55e503d1459fb8005607997f3e09df983bc6d041',
  'front_rear_runtime_adapter.py':'92ce916b71bb05f0087e2527a51dd8de4d40a676',
  'same_version_front_rear_contract.py':'0c182a3e26ba48ef6a42df2bf40c2a2ab67c055c',
@@ -42,7 +45,7 @@ def decode(data):
 def guard():
  import live_program_scheduler as live,current_four_decision as decision
  import front_rear_runtime_adapter as runtime,same_version_front_rear_contract as contract
- import current_entry_boundary_x03 as boundary
+ import current_entry_boundary_x03 as boundary,parametric_pair_p04 as parametric
  snap={}
  for name,pin in PINS.items():
   p=ROOT/'app/local_integration'/name;data=p.read_bytes()
@@ -51,6 +54,8 @@ def guard():
  for mod,fn,name in [(live,live.bind_completed,'live_program_scheduler.py'),(live,live.preflight,'live_program_scheduler.py'),
   (decision,decision.assemble,'current_four_decision.py'),(runtime,decision.transport,'front_rear_runtime_adapter.py'),
   (contract,decision.digest,'same_version_front_rear_contract.py'),(boundary,boundary.check_model_domain,'current_entry_boundary_x03.py'),
+  (parametric,parametric.prepare,'parametric_pair_p04.py'),(parametric,parametric.run,'parametric_pair_p04.py'),
+  (parametric,parametric.guard,'parametric_pair_p04.py'),(parametric,parametric.verify_completed,'parametric_pair_p04.py'),
   (stop,stop.source_snapshot,'stop_observation_p01.py'),(stop,stop.snapshot,'stop_observation_p01.py'),(stop,stop.observe,'stop_observation_p01.py')]:
   expected=(ROOT/'app/local_integration'/name).resolve()
   need(Path(mod.__file__).resolve()==expected and Path(inspect.getsourcefile(fn)).resolve()==expected,'X07_IMPORT_PATH')
@@ -58,6 +63,7 @@ def guard():
  need(Path(__file__).resolve()==selfpath.resolve(),'X07_SELF_PATH')
  snap['self']=hashlib.sha256(selfpath.read_bytes()).hexdigest()
  snap['boundary']=boundary.source_snapshot()
+ snap['parametric']=parametric.guard()
  snap['stop_observation']=stop.source_snapshot()
  return snap
 def existing_nonces():

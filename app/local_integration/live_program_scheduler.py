@@ -21,7 +21,14 @@ def preflight(body):
  base={'public_envelope':e,'input_valid':True,**{k:False for k in AUTH}}
  if e['canonical_request']['unit_count']!=2:return {**base,'state':'UNSUPPORTED_CURRENT_ENGINE_UNIT_COUNT','execution_ready':False}
  raw=engine_raw(e)
- if raw!={'W':'18','L':'20','n':2,'requested_count':1}:return {**base,'state':'UNSUPPORTED_SELECTED_SAME_VERSION_CASE','execution_ready':False}
+ if raw!={'W':'18','L':'20','n':2,'requested_count':1}:
+  import parametric_pair_p04 as parametric
+  if (raw['W'],raw['L']) not in parametric.CASES:return {**base,'state':'UNSUPPORTED_SELECTED_SAME_VERSION_CASE','execution_ready':False,'case_scope':parametric.SCOPE}
+  try:binding,_=parametric.prepare(body)
+  except ValueError as ex:
+   if str(ex)!='CURRENT_CORE_METHOD_NO_FIT_NOT_INFEASIBLE':raise
+   return {**base,'state':'UNSUPPORTED_CURRENT_COMPACT_CORE_FIT','execution_ready':False,'case_scope':parametric.SCOPE}
+  return {**base,'state':'READY_SCOPED_CONTRACT_ONLY','execution_ready':True,'binding':binding,'case_scope':parametric.SCOPE}
  return {**base,'state':'READY_SCOPED_CONTRACT_ONLY','execution_ready':True,'binding':bind_request(body,e,'PROGRAM_2BED_V1')}
 def save(path,value):
  path.write_text(json.dumps(value,ensure_ascii=False,sort_keys=True,indent=2,allow_nan=False))
@@ -34,7 +41,10 @@ def child(directory):
   'programme_digest':pf['binding']['program_registry_digest'],'contract_digest':pf['binding']['contract_digest'],
   'stages':[],'state':'STARTED','assessments':{},**{k:False for k in AUTH}}
  save(directory/'child-progress.json',out)
- from front_rear_runtime_adapter import run
+ if pf['binding']['schema']=='P04_PARAMETRIC_REQUEST_BINDING_V1':
+  from parametric_pair_p04 import run
+ else:
+  from front_rear_runtime_adapter import run
  runtime=run(body,solver_seconds=limits['solver_seconds'])
  save(directory/'runtime-bundle.json',runtime)
  out['runtime_digest']=digest(runtime);out['model_digest']=runtime.get('model_digest')
@@ -70,6 +80,9 @@ def bind_completed(result,request,runtime,decision):
  if result['state']=='ORIGINAL_RUNTIME_INCOMPLETE_NO_FOUR_REPORT_DECISION' and runtime.get('completed') is True and runtime.get('model_binding_verified') is True:raise ValueError('LIVE_INCOMPLETE_STATE_CONTRADICTION')
  if result['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED':
   if runtime.get('completed') is not True or runtime.get('model_binding_verified') is not True:raise ValueError('LIVE_COMPLETED_RUNTIME_REQUIRED')
+  if pf['binding']['schema']=='P04_PARAMETRIC_REQUEST_BINDING_V1':
+   from parametric_pair_p04 import verify_completed
+   verify_completed(runtime)
   if decision is None or decision.get('integrity_verified') is not True or any(decision.get(k) is not False for k in AUTH):raise ValueError('LIVE_DECISION_INTEGRITY_AUTHORITY')
   if any(runtime.get(k) is not False for k in AUTH):raise ValueError('LIVE_RUNTIME_AUTHORITY')
   if result['decision_digest']!=digest(decision) or decision['model_digest']!=result['model_digest']:raise ValueError('LIVE_DECISION_BINDING')
@@ -80,12 +93,14 @@ def run_live(body,*,budget=None):
  out={'schema':'AUTOMATIC_PROGRAM_LIVE_SINGLE_CASE_V1','preflight':pf,'budget':limits,'attempts':[],
   'fresh_model_executed':False,'selected_alternative':None,'quality_winner':False,'production_supported':False,
   'ap07_complete':False,'global_infeasibility_proven':False,
-  'scope':'Only original FRONT_REAR18x20/n2 approved two-bedroom contract. One actual attempt, not variable-dimension coverage or complete programme search.',
+  'scope':'One allowlisted FRONT_REAR/n2 two-bedroom case. No exhaustive dimension coverage, lower-program fallback, or complete programme search.',
   **{k:False for k in AUTH}}
  if not pf['execution_ready']:out['state']=pf['state'];return out
  from front_rear_runtime_adapter import source_audit
  from producer_provenance import snapshot,require_unchanged
  paths=['app/local_integration/'+s for s in ('live_program_scheduler.py','automatic_program_search.py','program_search_order.py','current_four_decision.py','current_programme_evaluator.py','source_guest_route_evaluator.py','source_living_evaluator.py','source_wall_function_evaluator.py')]
+ if pf['binding']['schema']=='P04_PARAMETRIC_REQUEST_BINDING_V1':
+  paths.extend('app/local_integration/'+s for s in ('parametric_pair_p04.py','precision_boundary208.py','source_fit_candidate207.py','source_fit_profile207.py','core_choice_pair_study.py','current_entry_boundary_x03.py'))
  snap=snapshot(ROOT,paths);before=source_audit()
  nonce=uuid.uuid4().hex;directory=ROOT/'live-program-evidence'/nonce;directory.mkdir(parents=True,exist_ok=False)
  request={'schema':'LIVE_PROGRAM_ATTEMPT_V1','nonce':nonce,'body_hex':body.hex(),'preflight_digest':digest(pf),'budget':limits}

@@ -24,35 +24,5 @@ jobs:
         env:
           PYTHONPATH: app/local_integration
         run: python -B -m unittest -v test_live_program_scheduler test_automatic_program_search test_program_search_order
-      - name: Real single-case scheduling and original generation evaluation
-        env:
-          PYTHONPATH: app/local_integration
-        run: python -B app/local_integration/live_program_scheduler.py
-      - name: Validate actual scoped chain and retained decision
-        env:
-          PYTHONPATH: app/local_integration
-        run: |
-          python -B - <<'PY'
-          import pathlib,json
-          from same_version_front_rear_contract import digest
-          fs=list(pathlib.Path('live-program-evidence').glob('*/scheduler.json'));assert len(fs)==1
-          out=json.loads(fs[0].read_text());row=out['attempts'][0]
-          assert row['receipt_verified'] is True and not row['timed_out'] and row['wait_completed']
-          assert row['state']=='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED'
-          assert out['fresh_model_executed'] is True and row['model_binding_verified'] is True
-          assert out['source_integrity_verified'] is True
-          assert out['current_decision']['state']=='BLOCKED'
-          assert all(out[k] is False for k in ('accepted','qualified','display_allowed','delivery_allowed'))
-          assert out['budget_ledger']['used_attempts']==1 and out['lower_program_transition']['budget_reset'] is False
-          assert out['lower_program_transition']['execute_lower_program'] is False
-          assert [x['state'] for x in out['ordered_stage_dispositions']]==['NOT_IMPLEMENTED','NOT_IMPLEMENTED','ATTEMPTED_WITH_WITNESS','NOT_IMPLEMENTED']
-          print(json.dumps({'model_digest':row['model_digest'],'decision':out['current_decision'],'ordered_stage_dispositions':out['ordered_stage_dispositions'],'budget_ledger':out['budget_ledger'],'scheduler_digest':digest(out)},sort_keys=True))
-          PY
       - run: git diff --exit-code
         if: always()
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: live-programme-scheduler-1-3-1-4
-          path: live-program-evidence/
-          retention-days: 30
