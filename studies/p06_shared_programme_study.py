@@ -1,5 +1,5 @@
 """Private P06 experiment: one clock, two explicit programmes, no public wiring."""
-import argparse, copy, hashlib, inspect, json, math, os, re, runpy, signal, stat, subprocess, sys, time, uuid
+import argparse, copy, hashlib, inspect, json, math, os, re, signal, stat, subprocess, sys, time, uuid
 from pathlib import Path
 
 SELF=Path(__file__).resolve()
@@ -47,9 +47,9 @@ def write(path,value):
  need(read(path)==b,'P06_FILE_READBACK');return sha(b)
 
 class Budget:
- def __init__(self,clock=None):
+ def __init__(self,clock=None,start=None):
   self.clock=time.monotonic if clock is None else clock
-  self.start=self.clock();need(finite(self.start),'P06_CLOCK')
+  self.start=self.clock()if start is None else start;need(finite(self.start),'P06_CLOCK')
   self.last=self.start;self.deadline=self.start+SECONDS;self.used=0
  def now(self):
   v=self.clock();need(finite(v) and v>=self.last,'P06_CLOCK')
@@ -136,6 +136,8 @@ def worker(folder):
   path=Path(inspect.getsourcefile(fn)).resolve()
   need(path.is_relative_to(ROOT) and path.stem==name,'P06_FORBIDDEN_PRODUCER_ORIGIN')
   forbidden.add(fn.__code__)
+ def guard_sentinel():raise AssertionError('P06_PREBODY_CONTROL_MISSED')
+ forbidden.add(guard_sentinel.__code__)
  expected_source=LOCAL/('front_rear_runtime_adapter.py'if p==P2 else'one_bed_pair_p14.py')
  def guard(code,_):
   try:
@@ -163,6 +165,10 @@ def worker(folder):
  for code in watched:m.set_local_events(tool,code,ev.PY_START|ev.PY_RETURN)
  for code in forbidden:m.set_local_events(tool,code,ev.PY_START)
  try:
+  try:guard_sentinel()
+  except ValueError as ex:need(str(ex)=='P06_ALTERNATIVE_PRODUCER' and proof['guards']==['P06_ALTERNATIVE_PRODUCER'],'P06_GUARD_CONTROL')
+  else:raise ValueError('P06_GUARD_CONTROL_MISSING')
+  proof['guards'].clear();proof['synthetic_prebody_guard_verified']=True
   need(time.monotonic()<v['child_deadline'],'P06_EXPIRED_WORKER')
   if p==P2:live.child(folder/'runner')
   else:
@@ -214,7 +220,7 @@ def worker_proof(folder,cfg,proc):
  p=decode(read(folder/'worker-proof.json'))
  need(type(p)is dict and p.get('schema')=='P06_WORKER_COMPLETION_V1' and p.get('config_sha256')==sha(raw)
   and p.get('programme')==v['programme'] and p.get('account_id')==v['account_id'],'P06_WORKER_PROOF_IDENTITY')
- need(p.get('source_still_matches') is True and p.get('guards')==[] and finite(p.get('finished_clock'))
+ need(p.get('source_still_matches') is True and p.get('synthetic_prebody_guard_verified') is True and p.get('guards')==[] and finite(p.get('finished_clock'))
   and v['started']<=p['finished_clock']<=v['child_deadline'],'P06_WORKER_PROOF_SOURCE_TIME')
  for h in ('starts','returns'):
   s=p.get(h)
@@ -228,11 +234,15 @@ def worker_proof(folder,cfg,proc):
 def bound_model(bundle,request,programme):
  rt=bundle;packet=rt['packet'];context=rt['context'];t=context['construction_trace'];m=packet['world_model'];mh=rt['model_digest']
  need(auth(rt) and packet['family']=='FRONT_REAR' and packet['admission_claim']is False and
-  t['family']=='FRONT_REAR' and digest(t['raw'])==request['canonical_raw_digest'] and digest(packet['core'])==request['core_digest']==t['core_hash'],'P06_MODEL_FRAME_CORE')
- need(hexn(mh,64) and digest(m)==digest(packet['local_model'])==mh==t['model_hash']==t['local_model_hash'] and m['inputs']==['18','20',2],'P06_MODEL_IDENTITY')
+  t['schema']=='CONSTRUCTION_TRACE127_PAIR_V1' and t['family']=='FRONT_REAR' and digest(t['raw'])==request['canonical_raw_digest'] and digest(packet['core'])==request['core_digest']==t['core_hash'],'P06_MODEL_FRAME_CORE')
+ need(hexn(mh,64) and digest(m)==digest(packet['local_model'])==mh==t['model_hash']==t['local_model_hash'] and digest(m['inputs'])==digest(context['inputs'])==digest(['18','20',2]),'P06_MODEL_IDENTITY')
  n=2 if programme==P2 else 1;roles=['double','twin']if n==2 else['double']
  need(type(m['program']['units'])is int and m['program']['units']==2 and type(m['program']['bedrooms_per_unit'])is int
-  and m['program']['bedrooms_per_unit']==n and m['program']['sleep_roles']==roles and [u['id']for u in m['units']]==['A','B'],'P06_MODEL_PROGRAMME')
+  and m['program']['bedrooms_per_unit']==n and m['program']['sleep_roles']==roles and [u['id']for u in m['units']]==['A','B']
+  and type(m['program']['design_occupants_per_unit'])is int and m['program']['design_occupants_per_unit']==2*n
+  and digest(m['profile'])==digest({'body_m':'.7'})
+  and all(type(u['public_program']['capacity']['residents'])is int and u['public_program']['capacity']['residents']==2*n
+    and [k for k in sorted(u['rooms'])if k.startswith('bed')]==['bed'+str(i+1) for i in range(n)] for u in m['units']),'P06_MODEL_PROGRAMME')
  need(set(t['proposals'])=={'A','B'} and all(type(z['bedrooms'])is int and z['bedrooms']==n and z['sleep_roles']==roles and
   z['status']=='PROPOSAL_ONLY' for z in t['proposals'].values()),'P06_PROPOSAL_PROGRAMME')
  return mh
@@ -247,6 +257,7 @@ def bind_p2(folder,cfg,request,source,initial_request,proof):
  need(auth(rt) and rt['engine_revision']==source['engine_revision'] and rt['object_integrity_verified']is True and rt.get('completed')is True
   and not rt['errors'] and rt.get('report_mutations')==[] and rt.get('object_mutations')==[] and rt['object_digests']['core']==request['core_digest']
   and rt['binding']['program_registry_digest']==cfg['programme_digest'] and digest(rt['binding'])==request['p2_binding_digest'],'P06_P2_RUNTIME')
+ need(set(rt['reports'])==set(rt['report_digests']) and digest(rt['reports']['source_audit'])==digest(fr.source_audit()),'P06_P2_ORIGINAL_SOURCE_AUDIT')
  require_unchanged(ROOT,rt['source_snapshot']);fr.verify_reports(rt['reports'],rt['report_digests'])
  prop=rt['proposal'];need(type(prop['bedrooms'])is int and prop['bedrooms']==2 and prop.get('sleep_roles')==['double','twin']
   and prop.get('variant')==0,'P06_P2_PROPOSAL_SCOPE')
@@ -263,6 +274,8 @@ def bind_p2(folder,cfg,request,source,initial_request,proof):
  need(proof['starts']['milp']==1 and proof.get('incumbent')is True,'P06_P2_VERIFIED_INCUMBENT')
  need(live.bind_completed(child,rr,rt,dec)is True and digest(child['assessments'])==digest(reports),'P06_P2_FULL_REPORTS')
  mh=bound_model(rt,request,P2)
+ need(child.get('schema')=='LIVE_SCHEDULER_CHILD_V1','P06_P2_CHILD_SCHEMA')
+ need(fr.packet_binding(rt['packet'],rt['context'],CASE,prop)==mh,'P06_P2_PROPOSAL_TO_PACKET')
  reb=four.assemble(rt,reports,{k:digest(v)for k,v in reports.items()})
  need(digest(reb)==digest(dec) and dec['integrity_verified']is True and dec['model_digest']==mh and auth(dec['decision']),'P06_P2_DECISION_REDERIVATION')
  states={k:v['state']for k,v in reports.items()}
@@ -271,32 +284,47 @@ def bind_p2(folder,cfg,request,source,initial_request,proof):
  return {'result':'VERIFIED_WITH_WITNESS_EVALUATOR_FAULT'if errors else 'VERIFIED_WITH_WITNESS_NOT_QUALIFIED'if block else 'VERIFIED_WITH_WITNESS_NO_LOWER_EXPLORATION',
   'p1_eligible':block and not errors,'model_digest':mh,'states':states,'decision_digest':digest(dec),'decision_state':dec['decision']['state']}
 
+def stock_index(root,index,expected):
+ files=index.get('files')
+ need(auth(index) and type(files)is dict and set(files)==set(expected),'P06_P1_EXACT_STOCK_FILE_SET')
+ for name,claim in files.items():
+  need(type(name)is str and Path(name).name==name and type(claim)is dict and set(claim)=={'bytes','sha256'}
+   and type(claim['bytes'])is int and claim['bytes']>=0 and hexn(claim['sha256'],64),'P06_P1_INDEX_FILE_SHAPE')
+  b=read(root/name);need(len(b)==claim['bytes'] and sha(b)==claim['sha256'],'P06_P1_STOCK_INDEX')
+
 def bind_p1(folder,cfg,request,proof):
  import one_bed_pair_p14 as p14,current_four_decision as four
  from front_rear_runtime_adapter import source_audit
+ from producer_provenance import require_unchanged
  root=folder/'runner';get=lambda n:decode(read(root/n))
- index=get('evidence-index.json')
- need(auth(index) and type(index['files'])is dict and all(len(read(root/n))==v['bytes'] and sha(read(root/n))==v['sha256']
-  for n,v in index['files'].items() if type(n)is str and Path(n).name==n) and all(type(n)is str and Path(n).name==n for n in index['files']),'P06_P1_STOCK_INDEX')
- request_saved=get('request.json');s=get('summary.json')
+ index=get('evidence-index.json');request_saved=get('request.json');s=get('summary.json')
  need(auth(s) and request_saved['request_body_hex']==request['body_hex'] and
   digest(request_saved['request'])==request['p1_request_digest'] and request_saved['request']['programme_digest']==cfg['programme_digest'],'P06_P1_WORKER_REQUEST')
+ need(digest(index['engine'])==digest(source_audit()) and set(index['local_source'])==p14.PATHS,'P06_P1_STOCK_SOURCE')
+ require_unchanged(ROOT,index['local_source'])
  if s['state']=='NO_WITNESS_WITHIN_SINGLE_ATTEMPT':
+  stock_index(root,index,{'request.json','attempt-open.json','proposal-observed.json'})
   v=get('proposal-observed.json')
   need(type(s['exact_attempts'])is int and s['exact_attempts']==1 and v['status']!='PROPOSAL_ONLY','P06_P1_NO_WITNESS')
   if proof['starts']['milp']:need(proof['solver_status']==v['solver_status'] and type(v['solver_status'])is int,'P06_P1_SOLVER_READBACK')
-  return {'result':'VERIFIED_P1_NO_WITNESS_IN_BOUNDED_ATTEMPT','model_digest':None,'p1_eligible':False}
+  return {'result':'VERIFIED_P1_SOLVER_TIMEOUT_NO_WITNESS'if v['status']=='SEARCH_TIMEOUT_NO_WITNESS'else'VERIFIED_P1_NO_WITNESS_IN_BOUNDED_ATTEMPT','model_digest':None,'p1_eligible':False}
  need(s['state'] in ('ONE_BEDROOM_PAIR_SOURCE_STUDY_NOT_QUALIFIED','FOUR_ASSESSMENTS_WITH_EVALUATOR_ERRORS_NOT_QUALIFIED')
       and proof['starts']['milp']==1 and proof.get('incumbent')is True,'P06_P1_TERMINAL')
+ stock_index(root,index,{'request.json','attempt-open.json','proposal.json','proposal-transport.json','packet.json','context.json',
+    'replay-original.json','physical-original.json','runtime-bundle.json','decision.json',*(k+'.json' for k in four.SCHEMAS)})
  rt=get('runtime-bundle.json');dec=get('decision.json');rs={k:get(k+'.json')for k in four.SCHEMAS}
  need(auth(rt) and digest(rt['request'])==request['p1_request_digest'] and rt['request']['programme_digest']==cfg['programme_digest']
-  and digest(index['engine'])==digest(source_audit()),'P06_P1_RUNTIME')
- need(digest(rt['reports']['physical'])==digest(get('physical-original.json')) and digest(rt['reports']['replay'])==digest(get('replay-original.json')),'P06_P1_ORIGINAL_REPORTS')
+  and rt['request_body_hex']==request['body_hex'],'P06_P1_RUNTIME')
+ need(all(digest(rt[k])==digest(get(k+'.json'))for k in ('packet','proposal','context')) and
+  digest(rt['reports']['physical'])==digest(get('physical-original.json')) and digest(rt['reports']['replay'])==digest(get('replay-original.json'))
+  and digest(rt['source_snapshot'])==digest(index['local_source']),'P06_P1_ORIGINAL_REPORTS')
+ if proof['starts']['milp']:need(rt['proposal'].get('solver_status')==proof['solver_status'] and type(rt['proposal'].get('solver_status'))is int,'P06_P1_SOLVER_READBACK')
  mh=bound_model(rt,request,P1);p14.binding(rt)
  reb=p14.decision(rt,rs,{k:digest(v)for k,v in rs.items()})
- need(digest(reb)==digest(dec) and dec['integrity_verified']is True and mh==s['model_digest']==dec['model_digest'] and
+ need(digest(reb)==digest(dec) and dec['integrity_verified'] is True and mh==s['model_digest']==dec['model_digest'] and
    digest(s['decision'])==digest(dec['decision']) and auth(dec['decision']),'P06_P1_DECISION_REDERIVATION')
- return {'result':'VERIFIED_P1_WITH_WITNESS_NOT_QUALIFIED','p1_eligible':False,'model_digest':mh,
+ errored='EVALUATOR_ERROR'in dec['decision']['blockers'] or any(v.get('integrity_verified')is not True for v in rs.values())
+ return {'result':'VERIFIED_P1_WITH_WITNESS_EVALUATOR_FAULT'if errored else'VERIFIED_P1_WITH_WITNESS_NOT_QUALIFIED','p1_eligible':False,'model_digest':mh,
     'states':{k:v['state']for k,v in rs.items()},'decision_digest':digest(dec),'decision_state':dec['decision']['state']}
 
 def stage_records(account,verdict):
@@ -356,7 +384,7 @@ def execute(root,budget):
    if p==P2:
     result['transition']=transition_gate(budget,account,v)
     write(root/'p2-finished-transition.json',result['transition'])
-   result['state']='TWO_PROGRAMMES_VERIFIED_SCOPED_NOT_QUALIFIED'if p==P1 else'P2_VERIFIED_LOWER_NOT_YET_EXECUTED'
+   result['state']=('TWO_TERMINALS_RETAINED_P1_EVALUATOR_ERROR'if v['result']=='VERIFIED_P1_WITH_WITNESS_EVALUATOR_FAULT'else'TWO_PROGRAMME_TERMINALS_VERIFIED_NO_ADMISSION')if p==P1 else'P2_VERIFIED_LOWER_NOT_YET_EXECUTED'
   except Exception as ex:
    row.update(verified=False,state='P06_ATTEMPT_STOPPED_FAIL_CLOSED',error_type=type(ex).__name__,error_code=str(ex))
    result['state']='SCOPED_PARTIAL_OR_FAILED_CLOSED'
@@ -366,7 +394,10 @@ def execute(root,budget):
  if len(result['attempts'])==1:
   result['attempts'].append({'programme':P1,'attempted':False,'verified':False,'state':'NOT_LAUNCHED'})
  now=budget.now();result['budget']=budget.ledger(account,now);result['common_deadline']=budget.deadline
- if now>=budget.deadline:result['state']='SHARED_DEADLINE_EXPIRED_RECEIPTS_FORENSIC_ONLY'
+ if now>=budget.deadline:
+  result['state']='SHARED_DEADLINE_EXPIRED_RECEIPTS_FORENSIC_ONLY'
+  for r in result['attempts']:r['verified_before_shared_cutoff']=r['verified'];r['verified']=False
+  if 'transition'in result:result['transition']['study_p1_allowed']=False
  out=root/'summary.json'
  write(out,result)
  if budget.now()>=budget.deadline and result['state']!='SHARED_DEADLINE_EXPIRED_RECEIPTS_FORENSIC_ONLY':
@@ -377,11 +408,12 @@ def execute(root,budget):
 class SharedCutoff(BaseException):pass
 
 def main():
- budget=Budget()
+ entry=time.monotonic()
  ap=argparse.ArgumentParser(description='Private two-programme study. No public dispatch.')
  g=ap.add_mutually_exclusive_group(required=True);g.add_argument('--private-output',type=Path);g.add_argument('--worker',type=Path)
  a=ap.parse_args();os.umask(0o077)
  if a.worker is not None:worker(a.worker);return
+ budget=Budget(start=entry)
  p=a.private_output
  need(p.is_absolute() and safe_root(p.parent) and p.resolve()==p,'P06_PRIVATE_PARENT')
  p.mkdir(mode=0o700,exist_ok=False)

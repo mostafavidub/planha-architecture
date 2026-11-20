@@ -19,7 +19,7 @@ def success(folder,v):
  h=p.sha(p.read(folder/'config.json'))
  return {'schema':'P06_WORKER_COMPLETION_V1','config_sha256':h,'programme':v['programme'],'account_id':v['account_id'],
   'starts':{'producer':1,'milp':1,'highs':1},'returns':{'producer':1,'milp':1,'highs':1},
-  'guards':[],'finished_clock':105.0,'source_still_matches':True,'solver_status':1,'incumbent':True}
+  'guards':[],'finished_clock':105.0,'source_still_matches':True,'synthetic_prebody_guard_verified':True,'solver_status':1,'incumbent':True}
 PROC={'wait_completed':True,'timed_out':False,'returncode':0,'kill_sent':False}
 class Controls(unittest.TestCase):
  def test_common_deadline_no_reset_and_programme_order(self):
@@ -71,17 +71,43 @@ class Controls(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'EXACT_SAME_REQUEST'):p.prepare(b'{"W":"18","L":"20","n":1}')
    no.assert_not_called();child.assert_not_called()
  def test_crossed_model_and_changed_core_before_any_evaluation(self):
-  r=request();model={'inputs':['18','20',2],'units':[{'id':'A'},{'id':'B'}],
-   'program':{'units':2,'bedrooms_per_unit':2,'sleep_roles':['double','twin']}}
+  r=request();model={'inputs':['18','20',2],'profile':{'body_m':'.7'},
+   'units':[{'id':uid,'rooms':{'bed1':[],'bed2':[]},'public_program':{'capacity':{'residents':4}}}for uid in 'AB'],
+   'program':{'units':2,'bedrooms_per_unit':2,'sleep_roles':['double','twin'],'design_occupants_per_unit':4}}
   core={'fixture_core':True};r['core_digest']=p.digest(core);mh=p.digest(model)
   prop={'bedrooms':2,'sleep_roles':['double','twin'],'status':'PROPOSAL_ONLY'}
   b={'packet':{'family':'FRONT_REAR','admission_claim':False,'core':core,'world_model':model,'local_model':model},
-   'context':{'construction_trace':{'family':'FRONT_REAR','raw':p.CASE,'core_hash':r['core_digest'],'model_hash':mh,'local_model_hash':mh,
+   'context':{'inputs':['18','20',2],'construction_trace':{'schema':'CONSTRUCTION_TRACE127_PAIR_V1','family':'FRONT_REAR','raw':p.CASE,'core_hash':r['core_digest'],'model_hash':mh,'local_model_hash':mh,
     'proposals':{'A':prop,'B':prop}}},'model_digest':mh,**p.DENIED}
   self.assertEqual(p.bound_model(b,r,p.P2),mh)
   with self.assertRaisesRegex(ValueError,'MODEL_PROGRAMME'):p.bound_model(b,r,p.P1)
+  b['context']['inputs']=['18','20',2.0]
+  with self.assertRaisesRegex(ValueError,'MODEL_IDENTITY'):p.bound_model(b,r,p.P2)
+  b['context']['inputs']=['18','20',2]
   b['packet']['core']={'fixture_core':1}
   with self.assertRaisesRegex(ValueError,'FRAME_CORE'):p.bound_model(b,r,p.P2)
+ def test_p1_stock_index_rejects_missing_and_tampered_original(self):
+  with tempfile.TemporaryDirectory()as td:
+   f=Path(td);h=p.write(f/'physical-original.json',{'state':'FAIL'})
+   block={'files':{'physical-original.json':{'bytes':len(p.read(f/'physical-original.json')),'sha256':h}},**p.DENIED}
+   self.assertIsNone(p.stock_index(f,block,{'physical-original.json'}))
+   with self.assertRaisesRegex(ValueError,'FILE_SET'):p.stock_index(f,block,{'physical-original.json','replay-original.json'})
+   block['files']['physical-original.json']['sha256']='0'*64
+   with self.assertRaisesRegex(ValueError,'STOCK_INDEX'):p.stock_index(f,block,{'physical-original.json'})
+ def test_child_timeout_kill_and_wait_no_actual_process(self):
+  import subprocess
+  from unittest.mock import Mock
+  with tempfile.TemporaryDirectory()as td:
+   proc=Mock(pid=123456)
+   proc.poll.side_effect=[None,-9]
+   proc.wait.side_effect=[subprocess.TimeoutExpired('synthetic',1),-9]
+   proc.returncode=-9
+   with patch('subprocess.Popen',return_value=proc)as spawn,patch('os.killpg')as kill,patch.object(p.time,'monotonic',return_value=100):
+    status=p.run_child(Path(td),101)
+   spawn.assert_called_once()
+   kill.assert_called_once_with(123456,p.signal.SIGKILL)
+   self.assertEqual(proc.wait.call_count,2)
+   self.assertEqual(status,{'returncode':-9,'timed_out':True,'kill_sent':True,'wait_completed':True})
  def test_fake_process_success_without_native_receipt_never_attempts_p1(self):
   with tempfile.TemporaryDirectory()as td,patch.object(p,'source_state',return_value={'source':'synthetic'}),patch.object(p,'prepare',return_value=request()),patch.object(p,'run_child',return_value=PROC)as child:
    result=p.execute(Path(td),p.Budget(Clock()))
