@@ -1,4 +1,4 @@
-import json,unittest,threading,http.client
+import hashlib,json,unittest,threading,http.client
 from unittest.mock import patch
 import public_input_errors403 as D
 import public_wln_contract as V
@@ -57,7 +57,14 @@ class HTTP(unittest.TestCase):
      e=D.parse_public_errors
      try:e(b)
      except InputError as expected:
-      status,out=self.post(s,b);self.assertEqual(status,expected.status);self.assertEqual(out,D.response(expected))
+      status,out=self.post(s,b);self.assertEqual(status,expected.status)
+      if m is P:
+       c=out.pop('capability');kind='WIRE_UNSUPPORTED'if status==409 else'INVALID_INPUT'
+       self.assertEqual(c,{'schema':'PUBLIC_WLN_CAPABILITY_P36_V1','request_digest':hashlib.sha256(b).hexdigest(),
+        'input_state':kind,'capability_state':kind,'canonical_case':None,'selected_study':None,'evidence_state':'NOT_VERIFIED',
+        'evidence_contract':None,'production_supported':False,'product_available':False,
+        **{k:False for k in ('accepted','qualified','display_allowed','delivery_allowed')}})
+      self.assertEqual(out,D.response(expected))
    p.assert_not_called();t.assert_not_called()
  def test_validation_fault_closed_before_dispatch(self):
   for m,s,thread in self.servers:

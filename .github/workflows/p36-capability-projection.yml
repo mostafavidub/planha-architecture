@@ -9,6 +9,7 @@ on:
       - 'app/local_integration/public_wln.js'
       - 'app/local_integration/public_wln.html'
       - 'tests/r4/test_capability_p36.py'
+      - 'tests/r4/test_public_input_errors403.py'
       - 'tests/r4/test_capability_p36_ui.cjs'
       - '.github/workflows/p36-capability-projection.yml'
 permissions:
