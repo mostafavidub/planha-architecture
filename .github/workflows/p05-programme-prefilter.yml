@@ -1,0 +1,28 @@
+name: P05 source programme prefilter
+on:
+  push:
+    paths:
+      - 'app/local_integration/programme_prefilter_p05.py'
+      - 'app/local_integration/test_programme_prefilter_p05.py'
+      - '.github/workflows/p05-programme-prefilter.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  controlled:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - name: Exact source core diagnostic and detached tests only
+        env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest test_programme_prefilter_p05 -v
+      - name: CLI smoke with named public synthetic dimensions
+        run: python -B app/local_integration/programme_prefilter_p05.py --body '{"W":"13","L":"6","n":2}'
+      - run: git diff --exit-code
