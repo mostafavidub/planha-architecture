@@ -1,0 +1,9 @@
+# P01 bounded stop evidence
+Existing current n1 and n2 paths retain a request-bound safe observation before cleanup or consumer failure. Frozen search, scheduler, acceptance and budgets are unchanged.
+The six real HTTP cases use a controlled Popen file writer, not an executed MILP, real geometry or producer authenticity. They exercise the actual parser, preflight, n1 dispatcher, runtime observation, X04 and projection.
+A returned search114 proposal with solver status 1 and no x is distinct from an outer watchdog with no persisted proposal: the latter has UNOBSERVED incumbent, never false. Status 2 means this MILP, not global architectural infeasibility.
+Physical error codes/counts are a separate observation with report/model digests. Only literal codes in the pinned checker114, single_physical_p17 and rule_contract118 sources may be published. Other code/text becomes UNKNOWN_CODE; original report digest and error count remain. No private free text, model, route or coordinate is published.
+File bytes are hashed before parsing. Corrupt files do not prevent collection of healthy siblings; raw bytes remain process-local only. This is NOT P02 durable raw archive. Historical P17 physical error code remains UNKNOWN and is not recovered by this change.
+Request/body/nonce and existing full receipt binding are separate from observation. An incomplete run never gains a verified receipt from this helper. X04 remains an unverified HTTP boundary, and late results remain withheld. All delivery authority stays false.
+n2 uses only existing scheduler outputs, with no new solver/progress instrumentation. A child killed before runtime-bundle exists cannot expose its internal solver/incumbent. Missing fields stay unknown. n2 full consumer still performs its original independent consistency checks.
+Source inventory X03/X05 historical snapshots remain stale; this change does not repair them or authorize any legacy entrypoint.

@@ -1,4 +1,5 @@
 """X04 HTTP withholding only. No scheduler budget change, cancellation or recovery."""
+import stop_observation_p01 as stop
 import copy,hashlib,json,math,re,threading,time,uuid
 from collections import deque
 LIMIT_SECONDS=180.0
@@ -13,10 +14,11 @@ def denied(code,request_id,generation_started):
   'cancelled':False,'deadline_preemption':False,'durable_record':False,**{k:False for k in AUTH}}
 def diagnostic_record(value,request_digest):
  # Private bounded observation only; never modifies the HTTP decision or authority.
- if type(value)is not dict or value.get('schema')!='P17_PRIVATE_DIAGNOSTIC_V1':return {'state':'NOT_REPORTED'}
+ if type(value)is not dict or value.get('schema')not in ('P17_PRIVATE_DIAGNOSTIC_V1','P01_PRIVATE_DIAGNOSTIC_V1'):return {'state':'NOT_REPORTED'}
  if value.get('request_digest')!=request_digest:return {'state':'REQUEST_MISMATCH_REJECTED'}
  out={'state':'OBSERVED_UNVERIFIED','schema':value['schema'],'request_digest':request_digest,
       'evidence_usable':False,'receipt_verified':False,'raw_archive_durable':False}
+ out['stop_record']=stop.safe(value.get('stop_record'),request_digest)
  for key in ('parent_stage','worker_stage','worker_state','error_code'):
   v=value.get(key);out[key]=v if type(v)is str and re.fullmatch(r'[A-Z][A-Z0-9_]{0,95}',v)else None
  v=value.get('error_type')

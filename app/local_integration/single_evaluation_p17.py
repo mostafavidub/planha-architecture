@@ -19,7 +19,7 @@ def source_audit():
   require(Path(inspect.getsourcefile(fn)).resolve()==(LOCAL/name).resolve(),'P17_CALLABLE_SOURCE')
  for mod,name in ((producer,'single_model_p15.py'),(single_assembler_p15,'single_assembler_p15.py'),(single_access_p15,'single_access_p15.py')):
   require(Path(mod.__file__).resolve()==(LOCAL/name).resolve(),'P17_ACTUAL_SOURCE_PATH')
- names=['single_evaluation_p17.py','single_physical_p17.py','single_decision_p17.py','single_runtime_p17.py','public_program_dispatch_p17.py','public_wln_server.py',*DERIVED_NAMES]
+ names=['single_evaluation_p17.py','single_physical_p17.py','single_decision_p17.py','single_runtime_p17.py','public_program_dispatch_p17.py','public_wln_server.py','stop_observation_p01.py',*DERIVED_NAMES]
  observed={}
  for name in names:
   path=LOCAL/name;require(not path.is_symlink(),'P17_SOURCE_SYMLINK')
@@ -27,7 +27,7 @@ def source_audit():
   mod=sys.modules.get(name[:-3])
   if mod is not None:
    require(Path(mod.__file__).resolve()==path.resolve(),'P17_SHADOW_MODULE')
-   own={'single_physical_p17.py':('evaluate','verify_context'),'single_decision_p17.py':('assemble',),'single_runtime_p17.py':('worker','run_bound','read'),'public_program_dispatch_p17.py':('preflight','run_bound','is_single')}
+   own={'single_physical_p17.py':('evaluate','verify_context'),'single_decision_p17.py':('assemble',),'single_runtime_p17.py':('worker','run_bound','read'),'public_program_dispatch_p17.py':('preflight','run_bound','is_single'),'stop_observation_p01.py':('observe','snapshot','safe','source_snapshot')}
    for attr in (('assess',)if name in DERIVED_NAMES else own.get(name,())):
     require(Path(inspect.getsourcefile(getattr(mod,attr))).resolve()==path.resolve(),'P17_ACTUAL_EVALUATOR_PATH')
  collection={}

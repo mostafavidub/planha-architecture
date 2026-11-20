@@ -4,6 +4,7 @@ from pathlib import Path
 import single_model_p15 as p
 import single_evaluation_p17 as binding
 import single_decision_p17 as decision
+import stop_observation_p01 as stop
 AUTH=p.AUTH
 def save(path,value):
  data=json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False).encode()
@@ -114,7 +115,7 @@ def worker(folder):
   if not out['source_integrity_verified']:out['state']='SOURCE_CHANGED'
   if not out['within_budget']:out['state']='BUDGET_EXHAUSTED'
   out['elapsed_seconds']=time.monotonic()-start;save(folder/'summary.json',out)
-def diagnostic(body,request,summary,observed,stage,ex=None):
+def diagnostic(body,request,summary,observed,stage,ex=None,stop_record=None):
  # Shape-filtered codes from pinned source, not semantic allowlist/authenticity.
  summary=summary if type(summary)is dict else {}
  def enum(v):return v if type(v)is str and re.fullmatch(r'[A-Z][A-Z0-9_]{0,95}',v)else None
@@ -127,19 +128,26 @@ def diagnostic(body,request,summary,observed,stage,ex=None):
          'source_integrity_observed':summary.get('source_integrity_verified')is True,
          'within_budget_observed':summary.get('within_budget')is True,
          'observed_file_hashes':{k:v for k,v in observed.items()if k in ('request','summary','bundle','current','decision','originals','proposal','model','negatives') and sha(v)},
-         'evidence_usable':False,'receipt_verified':False,'raw_archive_durable':False}
+         'evidence_usable':False,'receipt_verified':False,'raw_archive_durable':False,
+         'stop_record':stop.safe(stop_record,hashlib.sha256(body).hexdigest())}
 class DiagnosticFailure(ValueError):
  def __init__(self,value):
   super().__init__('P17_RUNTIME_FAILED_CLOSED');self.http_diagnostic=value
 def run_bound(body,deadline):
- started=time.monotonic();before=binding.source_audit();pf=p.preflight(body)
+ started=time.monotonic();stop_before=stop.source_snapshot();before=binding.source_audit();pf=p.preflight(body)
  p.require(pf['execution_ready'],'P17_UNSUPPORTED')
  p.require(type(deadline)in(int,float) and math.isfinite(deadline) and 0<deadline-started<=180,'P17_DEADLINE')
  request={'schema':'SINGLE_REQUEST_P17_V1','nonce':uuid.uuid4().hex,'body_hex':body.hex(),'deadline':deadline}
  with tempfile.TemporaryDirectory(prefix='p17-')as name:
   folder=Path(name);save(folder/'request.json',request)
-  p.require(time.monotonic()<deadline,'P17_PRESPAWN_DEADLINE')
-  proc=subprocess.Popen([sys.executable,'-B',__file__,'--worker',name],start_new_session=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
+  try:
+   p.require(time.monotonic()<deadline,'P17_PRESPAWN_DEADLINE')
+   proc=subprocess.Popen([sys.executable,'-B',__file__,'--worker',name],start_new_session=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
+  except Exception as ex:
+   retained=stop.snapshot(folder)
+   record=stop.observe(body,request['nonce'],p.FAMILY,retained,parent_error=ex,parent_stage='SETUP',source_digest=stop.digest(stop_before))
+   failure=DiagnosticFailure(diagnostic(body,request,{}, {},'SETUP',ex,stop_record=record));failure.private_evidence=retained
+   raise failure from None
   timed=False
   try:_,err=proc.communicate(timeout=max(.001,deadline-time.monotonic()))
   except subprocess.TimeoutExpired:
@@ -147,7 +155,8 @@ def run_bound(body,deadline):
    try:os.killpg(proc.pid,signal.SIGKILL)
    except ProcessLookupError:pass
    _,err=proc.communicate()
-  summary={};observed={};parent_stage='READ_SUMMARY'
+  retained=stop.snapshot(folder)
+  summary={};observed={};parent_stage='READ_SUMMARY';source_ok=False
   try:
    summary,_=read(folder/'summary.json')if(folder/'summary.json').exists()else({'state':'NO_SUMMARY','attempts':0},None)
    parent_stage='FILE_SNAPSHOT';observed={};data={}
@@ -171,24 +180,34 @@ def run_bound(body,deadline):
     ph=b['reports']['physical']
     p.require([summary['physical_status'],summary['physical_errors'],summary['physical_pending']]==[ph['status'],len(ph['errors']),len(ph['pending'])],'P17_SUMMARY_PHYSICAL')
     for key,h in observed.items():p.require(read(folder/(key+'.json'))[1]==h,'P17_FILE_CHANGED')
+    kept={v['file']:v['bytes_digest']for v in retained['files']}
+    p.require(all(kept.get(k+'.json')==h for k,h in observed.items()),'P01_SNAPSHOT_CHANGED')
     usable=True
    parent_stage='FINAL_SOURCE'
-   source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True
+   source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True and stop.source_snapshot()==stop_before
    term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
-   row={'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
+   stop_record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,bound=usable,source_ok=source_ok,source_digest=stop.digest(stop_before))
+   save(folder/'stop-record.json',stop_record)
+   term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
+   if not usable and stop_record['binding_verified']:
+    stop_record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,source_ok=source_ok,source_digest=stop.digest(stop_before))
+   row={'stop_record':stop_record,'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
         'receipt_verified':usable,'solver_status':summary.get('solver_status'),'solver_seconds':summary.get('solver_seconds'),
         'stage':summary.get('stage'),'error_type':summary.get('error_type'),'error_code':summary.get('error_code'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
         'physical_pending':summary.get('physical_pending'),'historical_status':summary.get('historical_status'),'historical_errors':summary.get('historical_errors'),
         'current_states':summary.get('current_states'),'actual_negatives':summary.get('negatives'),
         'timed_out':timed,'returncode':proc.returncode,'wait_completed':proc.poll()is not None,
         'observed_file_hashes':observed,'stderr_digest':hashlib.sha256(err).hexdigest()}
-   return {'schema':'SINGLE_HTTP_RESULT_P17_V1','http_diagnostic':diagnostic(body,request,summary,observed,parent_stage),'state':term['state'],'preflight':pf,'attempts':[row]if type(summary.get('attempts'))is int and summary['attempts']==1 else[],
+   return {'schema':'SINGLE_HTTP_RESULT_P17_V1','stop_record':stop_record,'http_diagnostic':diagnostic(body,request,summary,observed,parent_stage,stop_record=stop_record),'state':term['state'],'preflight':pf,'attempts':[row]if type(summary.get('attempts'))is int and summary['attempts']==1 else[],
            'fresh_model_executed':term['fresh_model_executed'],'observed_model_constructed':term['observed_model_constructed'],'source_integrity_verified':source_ok,
            'current_decision':d['decision'] if usable else None,'http_full_evidence':{'schema':'SINGLE_READBACK_P17_V1','binding_verified':usable,'raw_archive_durable':False,
            'scope':'Same request/source/full-report readback and decision rederivation, not producer authenticity or P25 admission'},
            'elapsed_seconds':time.monotonic()-started,**{k:False for k in AUTH}}
   except Exception as ex:
-   raise DiagnosticFailure(diagnostic(body,request,summary,observed,parent_stage,ex))from None
+   record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,source_digest=stop.digest(stop_before),parent_error=ex)
+   failure=DiagnosticFailure(diagnostic(body,request,summary,observed,parent_stage,ex,stop_record=record))
+   failure.private_evidence=retained # process-local only; never HTTP/log/public artifact
+   raise failure from None
 
 if __name__=='__main__':
  if len(sys.argv)==3 and sys.argv[1]=='--worker':worker(Path(sys.argv[2]))

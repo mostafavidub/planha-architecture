@@ -15,11 +15,12 @@ def write(p,v):p.write_text(json.dumps(v,sort_keys=True,ensure_ascii=False,allow
 class HTTP(unittest.TestCase):
  def setUp(self):
   self.folders=[];self.raw=None
+  self.spawn=patch('subprocess.Popen',side_effect=AssertionError('P01_NO_SOLVER'));self.spawn_mock=self.spawn.start();self.addCleanup(self.spawn.stop)
   self.s=server.server();self.thread=threading.Thread(target=self.s.serve_forever,daemon=True);self.thread.start()
  def tearDown(self):
   self.s.shutdown();self.s.server_close();self.thread.join()
   for p in self.folders:shutil.rmtree(p,ignore_errors=True)
-  self.assertFalse(server.LOCK.locked())
+  self.assertFalse(server.LOCK.locked());self.spawn_mock.assert_not_called()
  def request(self):
   c=http.client.HTTPConnection('127.0.0.1',self.s.server_port,timeout=10)
   c.request('POST','/api/public/plan',BODY,{'Content-Type':'application/json'})
@@ -59,6 +60,7 @@ class HTTP(unittest.TestCase):
   self.assertTrue(out['full_evidence_binding']['binding_verified'])
   self.assertFalse(out['full_evidence_binding']['producer_authenticity_verified'])
   self.assertFalse(out['http_lifecycle']['receipt_verified'])
+  self.assertTrue(out['stop_record']['binding_verified']);self.assertEqual(out['stop_record']['physical']['status'],'FAIL')
   self.assertTrue(all(out[k]is False for k in live.AUTH))
   self.assertNotIn('original_reports',out);self.assertNotIn('file_bytes',out)
  def test_changed_summary_no_raw_rewrite(self):
@@ -154,6 +156,21 @@ class HTTP(unittest.TestCase):
    release.set()
    end=time.monotonic()+4
    while server.LOCK.locked() and time.monotonic()<end:time.sleep(.005)
+ def test_p01_missing_report_keeps_other_files(self):
+  before=x.existing_nonces();sources=x.guard()
+  def writer(body):
+   raw=self.make(body);(self.folder/'decision.json').unlink();return raw
+  with self.assertRaises(x.EvidenceFailure)as caught:x.run_bound(BODY,writer)
+  record=caught.exception.http_diagnostic['stop_record'];snap=caught.exception.stop_private_snapshot
+  self.assertFalse(record['binding_verified']);self.assertIn('runtime-bundle.json',snap['parsed'])
+  self.assertEqual(record['physical']['status'],'FAIL');self.assertIn('CURRENT_PROGRAM_SUITABILITY.json',snap['parsed'])
+ def test_p01_outer_timeout_without_bundle_is_unobserved(self):
+  def writer(body):
+   raw=self.make(body);raw['attempts'][0].update(state='TIMED_OUT_NOT_INFEASIBLE',receipt_verified=False,timed_out=True)
+   for name in ('runtime-bundle.json','child-complete.json'): (self.folder/name).unlink()
+   return raw
+  out=x.run_bound(BODY,writer);record=out['stop_record']
+  self.assertEqual(record['outcome'],'OUTER_TIMEOUT');self.assertIsNone(record['solver']['incumbent_observed']);self.assertFalse(record['binding_verified'])
  def test_strict_types_duplicates_and_nonfinite(self):
   for value in (b'{"x":1,"x":2}',b'{"x":NaN}',b'{"x":Infinity}'):
    with self.assertRaises(ValueError):x.decode(value)

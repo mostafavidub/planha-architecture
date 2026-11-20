@@ -1,5 +1,6 @@
 """Loopback-only three-field public-contract study UI. Not published production."""
-import argparse,json,threading,time
+import argparse,json,threading,time,hashlib
+import stop_observation_p01 as stop
 from http_withholding_x04 import Boundary
 from public_program_dispatch_p17 import run_bound
 from pathlib import Path
@@ -12,11 +13,12 @@ from public_program_dispatch_p17 import preflight
 LOCK=threading.Lock()
 HTTP_BOUNDARY=Boundary()
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
-def public_summary(result):
+def public_summary(result,body=None):
  # Never expose world model, routes, SVG, artifacts or internal local file paths.
  pf=result['preflight'];rows=result.get('attempts',[])
  decision=result.get('current_decision')
  return {'schema':'PUBLIC_WLN_STUDY_SUMMARY_V1','mode':'LOCAL_SCOPED_STUDY_NOT_PRODUCT',
+  'stop_record':stop.safe(result.get('stop_record'),hashlib.sha256(body).hexdigest())if type(body)is bytes else None,
   'status':result['state'],'input_valid':pf['input_valid'],'case_scope':pf.get('case_scope','18x20/n2 only; other valid cases currently unsupported'),
   'programme_source':'Automatic approved registry programme2 for the selected study case; not quality-optimal selection',
   'actual_live_attempts':len(rows),'fresh_model_executed':result.get('fresh_model_executed',False),
@@ -68,9 +70,9 @@ class Handler(BaseHTTPRequestHandler):
   except InputError as ex:self.reply(ex.status,input_error_response(ex));return
   except Exception:self.reply(500,{'code':'INPUT_VALIDATION_FAILED_CLOSED','generation_started':False,**{k:False for k in AUTH}});return
   if not pf['execution_ready']:
-   self.reply(409,public_summary({'preflight':pf,'state':pf['state']}));return
+   self.reply(409,public_summary({'preflight':pf,'state':pf['state'],'stop_record':stop.unsupported(body)},body));return
   if not LOCK.acquire(blocking=False):self.reply(409,{'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}});return
-  status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=lambda b:run_bound(b,run_live,deadline=accepted_at+180),project=public_summary)
+  status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=lambda b:run_bound(b,run_live,deadline=accepted_at+180),project=lambda result:public_summary(result,body))
   self.reply(status,value)
 def server(port=0):return ThreadingHTTPServer(('127.0.0.1',port),Handler)
 if __name__=='__main__':

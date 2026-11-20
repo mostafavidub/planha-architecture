@@ -1,6 +1,7 @@
 """Same-request full-file decision consistency. Not producer authenticity or admission.
 Consumes existing scheduler files read-only inside the X04 worker/deadline.
 """
+import stop_observation_p01 as stop
 import copy,hashlib,inspect,json,math,re,os,stat
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
@@ -56,6 +57,7 @@ def guard():
  need(Path(__file__).resolve()==selfpath.resolve(),'X07_SELF_PATH')
  snap['self']=hashlib.sha256(selfpath.read_bytes()).hexdigest()
  snap['boundary']=boundary.source_snapshot()
+ snap['stop_observation']=stop.source_snapshot()
  return snap
 def existing_nonces():
  need(not EVIDENCE_ROOT.is_symlink(),'X07_ROOT_SYMLINK')
@@ -138,13 +140,38 @@ def run_bound(body,run):
  sources=guard();before=existing_nonces()
  raw=run(body);pin=digest(raw)
  rows=raw.get('attempts')
- complete=type(rows)is list and len(rows)==1 and type(rows[0])is dict and rows[0].get('state')==COMPLETE and rows[0].get('receipt_verified')is True
- if complete and raw.get('source_integrity_verified')is True:
-  evidence=consume(body,raw,before,sources)
- else:
-  evidence={'schema':'HTTP_FULL_EVIDENCE_X07_V1','state':'NOT_EVALUATED_NO_COMPLETE_SOURCE_VERIFIED_RECEIPT',
-   'binding_verified':False,'producer_authenticity_verified':False,**{k:False for k in AUTH}}
- need(digest(raw)==pin and guard()==sources,'X07_RETURN_SOURCE_CHANGED')
- out=copy.deepcopy(raw);out['http_full_evidence']=evidence
+ row=rows[0]if type(rows)is list and len(rows)==1 and type(rows[0])is dict else{}
+ nonce=row.get('nonce');retained={'parsed':{},'files':[],'private_bytes':{}}
+ # Paths are selected by this fixed root and new nonce, never supplied by HTTP.
+ if stop.sha(nonce,32)and nonce not in before and raw.get('evidence_directory')=='live-program-evidence/'+nonce:
+  folder=EVIDENCE_ROOT/nonce
+  need(not EVIDENCE_ROOT.is_symlink()and not folder.is_symlink()and folder.resolve().parent==EVIDENCE_ROOT.resolve(),'X07_DIRECTORY_CONTAINMENT')
+  retained=stop.snapshot(folder)
+ complete=row.get('state')==COMPLETE and row.get('receipt_verified')is True
+ def observation(bound=False,error=None):
+  return stop.observe(body,nonce,'FRONT_REAR',retained,timed_out=row.get('timed_out')is True,
+   returncode=row.get('returncode'),bound=bound,source_ok=raw.get('source_integrity_verified')is True and guard()==sources,
+   source_digest=stop.digest(sources),parent_error=error)
+ try:
+  if complete and raw.get('source_integrity_verified')is True:
+   evidence=consume(body,raw,before,sources)
+   # Bind the diagnostic snapshot to the exact complete consumer bytes too.
+   initial={r['file']:r['bytes_digest']for r in retained['files']if r['state']=='PARSED_OBSERVED'}
+   expected=['request.json','runtime-bundle.json','child-complete.json','decision.json','scheduler.json']+[k+'.json'for k in __import__('current_four_decision').SCHEMAS]
+   need(len(expected)==evidence['file_count']and digest({k:initial[k]for k in expected})==evidence['file_hashes_digest'],'X07_DIAGNOSTIC_SNAPSHOT_CHANGED')
+  else:
+   evidence={'schema':'HTTP_FULL_EVIDENCE_X07_V1','state':'NOT_EVALUATED_NO_COMPLETE_SOURCE_VERIFIED_RECEIPT',
+    'binding_verified':False,'producer_authenticity_verified':False,**{k:False for k in AUTH}}
+  need(digest(raw)==pin and guard()==sources,'X07_RETURN_SOURCE_CHANGED')
+  record=observation(evidence['binding_verified'])
+ except Exception as ex:
+  try:record=observation(error=ex)
+  except Exception:record=stop.observe(body,nonce,'FRONT_REAR',retained,parent_error=ex)
+  failure=ex if isinstance(ex,EvidenceFailure)else EvidenceFailure(retained,'X07_EVIDENCE_ERROR')
+  failure.http_diagnostic={'schema':'P01_PRIVATE_DIAGNOSTIC_V1','request_digest':hashlib.sha256(body).hexdigest(),'stop_record':record}
+  failure.stop_private_snapshot=retained
+  raise failure from None
+ out=copy.deepcopy(raw);out['http_full_evidence']=evidence;out['stop_record']=record
+ out['http_diagnostic']={'schema':'P01_PRIVATE_DIAGNOSTIC_V1','request_digest':hashlib.sha256(body).hexdigest(),'stop_record':record}
  if not evidence['binding_verified']:out['current_decision']={'state':'NO_VERIFIED_DECISION','blockers':['NO_COMPLETE_FULL_EVIDENCE']}
  return out
