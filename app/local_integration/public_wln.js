@@ -2,6 +2,35 @@
 (function(){
  const form=document.querySelector("#plan-form"),button=document.querySelector("#submit"),result=document.querySelector("#result");
  let busy=false,requestSequence=0;
+ const capabilityLabel=document.querySelector("#capability-status");
+ const capabilityText={
+  INVALID_INPUT:"پشتیبانی: ورودی نامعتبر است.",
+  WIRE_UNSUPPORTED:"پشتیبانی: قالب ارسال این ورودی پشتیبانی نمی‌شود.",
+  VALID_UNSUPPORTED:"پشتیبانی: ورودی معتبر است؛ اجرای آزمایشی برای این ترکیب آماده نیست.",
+  STUDY_PERMITTED:"پشتیبانی: فقط بررسی آزمایشی؛ نه مجوز ارائهٔ طرح.",
+  STUDY_BUSY:"پشتیبانی: مسیر آزمایشی مشغول است.",
+  STUDY_RESULT_WITHHELD:"پشتیبانی: نتیجه در مهلت پاسخ ارائه نشد.",
+  SERVER_RESULT_UNAVAILABLE:"پشتیبانی: نتیجهٔ معتبر در دسترس نیست."
+ };
+ function renderCapability(value,verified=false){
+  if(!capabilityLabel)return;
+  capabilityLabel.textContent=value?(verified?"پشتیبانی: گزارش‌های همین بررسی آزمایشی تطبیق داده شدند؛ تحویل طرح مجاز نیست.":capabilityText[value.capability_state]):"";
+  capabilityLabel.dataset.capability=value?(verified?"same_request_study_verified":value.capability_state.toLowerCase()):"";
+ }
+ async function capabilityFor(data,response,wire){
+  const c=data&&data.capability;if(!c||c.schema!=="PUBLIC_WLN_CAPABILITY_P36_V1"||
+   !Object.hasOwn(capabilityText,c.capability_state)||c.product_available!==false||
+   !['accepted','qualified','display_allowed','delivery_allowed'].every(k=>c[k]===false))return null;
+  const status=c.capability_state;
+  if((status==="INVALID_INPUT"&&response.status!==422)||(status==="WIRE_UNSUPPORTED"&&response.status!==409)||
+     (status==="VALID_UNSUPPORTED"&&response.status!==409)||(status==="STUDY_BUSY"&&response.status!==409)||
+     (status==="STUDY_RESULT_WITHHELD"&&response.status!==504)||(status==="STUDY_PERMITTED"&&response.status!==200)||
+     (status==="SERVER_RESULT_UNAVAILABLE"&&response.status!==500))return null;
+  try{
+   const h=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(wire))),x=>x.toString(16).padStart(2,"0")).join("");
+   return c.request_digest===h?c:null;
+  }catch(_){return null;}
+ }
  const seenResponses=new Set(),seenNonces=new Set();
  const auth=['accepted','qualified','display_allowed','delivery_allowed'];
  const hex=(v,n=64)=>typeof v==='string'&&new RegExp('^[0-9a-f]{'+n+'}$').test(v);
@@ -82,7 +111,7 @@
  // Navigation invalidates a pending response, not the server job. No cancellation claim.
  if(typeof window!=="undefined"){
   window.addEventListener("pagehide",()=>{requestSequence++;});
-  window.addEventListener("pageshow",event=>{if(event.persisted){requestSequence++;resetForm();stageDisclosure(null);show("وضعیت اجرای قبلی نامعلوم است؛ درخواست تازه‌ای خودکار ارسال نشد.","error","outcome_unknown");}});
+  window.addEventListener("pageshow",event=>{if(event.persisted){requestSequence++;resetForm();stageDisclosure(null);renderCapability(null);show("وضعیت اجرای قبلی نامعلوم است؛ درخواست تازه‌ای خودکار ارسال نشد.","error","outcome_unknown");}});
  }
 
  form.addEventListener("submit",async function(event){
@@ -90,12 +119,15 @@
   const body={W:form.elements.W.value,L:form.elements.L.value,n:form.elements.n.value};
   const sequence=++requestSequence,wire=JSON.stringify(body);
   busy=true;button.disabled=true;Array.from(form.elements).forEach(x=>x.disabled=true);
-  stageDisclosure(null);
+  stageDisclosure(null);renderCapability(null);
   show("بررسی محدود در حال اجراست. هنوز هیچ طرحی تأیید نشده است.","running");
   try{
    const response=await fetch("/api/public/plan",{method:"POST",headers:{"Content-Type":"application/json"},body:wire});
    const data=await response.json();
    if(sequence!==requestSequence)return;
+   const capability=await capabilityFor(data,response,wire);
+   if(sequence!==requestSequence)return;
+   renderCapability(capability);
    if(data.schema==="PUBLIC_WLN_ERROR_SET_V1"){
     if(data.acceptance_contract!=="V25_PUBLIC_WLN_CONTRACT_V3"||data.generation_started!==false||!Array.isArray(data.errors)||!data.errors.length||!['accepted','qualified','display_allowed','delivery_allowed'].every(k=>data[k]===false))throw new Error("INVALID_ERROR_SET");
     if(!data.errors.every(e=>e&&typeof e.code==="string"&&(e.field===null||typeof e.field==="string")&&Number.isInteger(e.status)&&[409,422].includes(e.status)))throw new Error("INVALID_ERROR_ROW");
@@ -110,13 +142,14 @@
     const bound=await boundObservation(data,response,wire);
     if(sequence!==requestSequence)return;
     if(!bound){show("نتیجه‌ای مشاهده شد، اما اتصال معتبر آن به شواهد همین درخواست تأیید نشد. رد یا تأیید معماری اعلام نمی‌شود؛ هیچ طرحی ارائه نشد.","blocked","observed_unverified");return;}
+    if(capability&&capability.evidence_state==="SAME_REQUEST_STUDY_REPORTS_VERIFIED"&&capability.evidence_contract===data.full_evidence_binding.schema)renderCapability(capability,true);
     const status=observationText(data.decision.blockers);show(status.text,"blocked",status.kind);return;
    }
    if(response.status===504&&["DEADLINE_EXCEEDED_BEFORE_DISPATCH","DEADLINE_EXCEEDED_RESULT_WITHHELD"].includes(data.code)&&denied(data)){show("مهلت پاسخ پایان یافت؛ نتیجهٔ دیررس ارائه نمی‌شود. توقف اجرای سرور یا رد معماری احراز نشده است.","error","timeout");return;}
    if(data.code==="STUDY_FAILED_CLOSED"||response.status>=500){show("نتیجهٔ معتبر در دسترس نیست؛ اجرای سرور ممکن است شروع شده باشد. تکرار خودکار انجام نمی‌شود.","error","server_error");return;}
    if(!response.ok){show("درخواست اجرا نشد: "+String(data.code||"خطای نامشخص")+". ورودی را بررسی کنید.","error");return;}
    throw new Error("UNEXPECTED_RESPONSE");
-  }catch(error){if(sequence!==requestSequence)return;show("نتیجهٔ قابل اتکا دریافت نشد. وضعیت اجرای سرور ممکن است نامعلوم باشد؛ تلاش دوباره خودکار انجام نمی‌شود.","error","outcome_unknown");}
+  }catch(error){if(sequence!==requestSequence)return;renderCapability(null);show("نتیجهٔ قابل اتکا دریافت نشد. وضعیت اجرای سرور ممکن است نامعلوم باشد؛ تلاش دوباره خودکار انجام نمی‌شود.","error","outcome_unknown");}
   finally{if(sequence===requestSequence)resetForm();}
  });
 })();
