@@ -16,9 +16,10 @@ import planned_witness_contract108 as contract
 import planned_witness_support108 as support
 from core_choice_pair_study import selected_core
 from same_version_front_rear_contract import digest
+from contract114 import GRID
 import test_planned_witness108 as prior
 
-def verify_capture(base,guest):
+def verify_capture(base,guest,core):
  scope=guest['p27_scope']
  m,n=base['matrix'].shape
  assert scope['old_row_count']==m and scope['old_var_end']==n+1,'P27_LEGACY_SHAPE'
@@ -54,10 +55,47 @@ def verify_capture(base,guest):
  assert Counter(k for k,_ in blocks)=={'common_guest_root':1,'dining_east':3,'sofa1_use':3},'P27_PANEL_EXACT_SEGMENTS'
  assert [i for _,i in blocks]==list(range(b.shape[0]-35,b.shape[0],5)),'P27_PANEL_APPEND'
  assert sum(n for k,n in groups.items()if k.startswith('p27_guest_panel_'))==35,'P27_PANEL_ROW_COUNT'
+ def coefficients(mat,i):
+  a,b=mat.indptr[i:i+2]
+  return dict(zip(mat.indices[a:b],mat.data[a:b]))
+ def equal(a,b):
+  return abs(a-b)<=1e-8
+ # The copied guest prefix (bounds/obstacles/motions) must be exactly the
+ # original serving prefix under variable remap, except the new junction.
+ old_prefix=[i for i,r in enumerate(base['row_metadata'])if r['group']=='shared_root_body_segment']
+ new_prefix=[i for i,r in enumerate(guest['row_metadata'])if r['group'].startswith('p27_guest_root_')]
+ assert len(old_prefix)==len(new_prefix) and old_prefix,'P27_PREFIX_ROW_SET'
+ for o,p in zip(old_prefix,new_prefix):
+  exp={}
+  for j,v in coefficients(a,o).items():
+   k=gj if j==sj else scope['old_var_end']+(j-sj-1) if sj<j<gj else j
+   exp[k]=v
+  assert coefficients(b,p)==exp and base['lower'][o]==guest['lower'][p] and base['upper'][o]==guest['upper'][p],'P27_PREFIX_CSR'
+ # Independently derive each swept rectangle expression from its four
+ # domain rows, then check every panel inequality and disjunction.
+ box=list(map(lambda x:float(F(x))/float(GRID),core['units']['A']))
+ panel=list(map(lambda x:float(F(x))/float(GRID),p11.entry_source(core)['local_panel']))
+ M=max(box[2]-box[0],box[3]-box[1])+2000
+ domain={k:list(v)for k,v in scope['sweep_domain_rows'].items()}
+ used=set()
  for route,i in blocks:
+  assert domain.get(route),'P27_PANEL_DOMAIN_MAP'
+  r=domain[route].pop(0)
+  assert r not in used and (r in guest_rows if route!='common_guest_root' else r in new_prefix),'P27_PANEL_DOMAIN_MAP'
+  used.add(r)
+  edge=[coefficients(b,k)for k in range(r,r+4)]
+  shift=[box[k]-(guest['lower' if k<2 else 'upper'][r+k])for k in range(4)]
+  assert all(np.isfinite(shift)),'P27_PANEL_DOMAIN_BOUNDS'
   assert all(x['group']=='p27_guest_panel_'+route for x in guest['row_metadata'][i:i+5]),'P27_PANEL_GROUP'
   u,v=b.indptr[i:i+2];bits=list(b.indices[u:v])
   assert len(bits)==4 and min(bits)>=scope['old_var_end'] and all(guest['integrality'][j]==1 for j in bits),'P27_PANEL_SWITCHES'
+  assert coefficients(b,i)==dict.fromkeys(bits,1) and guest['upper'][i]==3 and np.isneginf(guest['lower'][i]),'P27_PANEL_BIT_OR'
+  for j,(axis,sign,wall_axis)in enumerate(((2,1,0),(0,-1,2),(3,1,1),(1,-1,3))):
+   expected={k:sign*v for k,v in edge[axis].items()}
+   expected[bits[j]]=-M
+   got=coefficients(b,i+1+j)
+   assert set(expected)==set(got) and all(equal(v,got[k])for k,v in expected.items()) and np.isneginf(guest['lower'][i+1+j]) and equal(guest['upper'][i+1+j],sign*(panel[wall_axis]-shift[axis])),'P27_PANEL_SEPARATION_CSR'
+ assert not any(domain.values()),'P27_PANEL_DOMAIN_UNUSED'
  return {'old_rows':m,'old_vars':n,'new_rows':b.shape[0],'new_vars':b.shape[1],
          'guest_junction_coefficients_remapped':touched,'panel_segments':len(blocks),'panel_rows':35,'optimizer_calls':0}
 
@@ -82,17 +120,24 @@ class GuestTests(unittest.TestCase):
    cls.base=old.propose(cls.core,2,**opts);cls.guest=new.propose(cls.core,2,**opts)
    assert digest([cls.core,cls.operator])==before
    for fn in (a,b,c,d):fn.assert_not_called()
- def test_exact_preserved_matrix(self):self.assertEqual(verify_capture(self.base,self.guest)['panel_segments'],7)
+ def test_exact_preserved_matrix(self):self.assertEqual(verify_capture(self.base,self.guest,self.core)['panel_segments'],7)
  def test_serving_route_cannot_use_guest_junction(self):
   bad={**self.guest,'p27_scope':copy.deepcopy(self.guest['p27_scope'])};s=bad['p27_scope'];k=next(k for k in s['route_junctions']if k not in p11.GUESTS);s['route_junctions'][k]=s['guest_junction']
-  with self.assertRaisesRegex(AssertionError,'P27_ROUTE_JUNCTION'):verify_capture(self.base,bad)
+  with self.assertRaisesRegex(AssertionError,'P27_ROUTE_JUNCTION'):verify_capture(self.base,bad,self.core)
  def test_motion_row_cannot_be_dropped(self):
   bad={**self.guest,'row_metadata':copy.deepcopy(self.guest['row_metadata'])}
   next(r for r in bad['row_metadata']if r['group']=='p27_guest_root_retained_motion')['group']='OTHER'
-  with self.assertRaisesRegex(AssertionError,'P27_GUEST_SIX_MOTIONS'):verify_capture(self.base,bad)
+  with self.assertRaisesRegex(AssertionError,'P27_GUEST_SIX_MOTIONS'):verify_capture(self.base,bad,self.core)
+ def test_same_label_motion_and_panel_equations_tampered(self):
+  cases=(('p27_guest_root_retained_motion','P27_PREFIX_CSR'),('p27_guest_panel_dining_east','P27_PANEL_SEPARATION_CSR'))
+  for group,code in cases:
+   bad={**self.guest,'upper':self.guest['upper'].copy()}
+   i=next(i for i,r in enumerate(bad['row_metadata'])if r['group']==group)
+   bad['upper'][i+1]+=.05
+   with self.assertRaisesRegex(AssertionError,code):verify_capture(self.base,bad,self.core)
  def test_preserved_coefficient_cannot_be_rewritten(self):
   bad={**self.guest,'matrix':self.guest['matrix'].copy()};bad['matrix'].data[0]+=1
-  with self.assertRaisesRegex(AssertionError,'P27_LEGACY_CSR'):verify_capture(self.base,bad)
+  with self.assertRaisesRegex(AssertionError,'P27_LEGACY_CSR'):verify_capture(self.base,bad,self.core)
  def test_entry_and_request_semantics_are_not_just_hash_scope(self):
   for field,err in (('core','ENTRY_RESERVATION_CORE'),('raw','P27_GUEST_EXACT_REQUEST'),('root','P27_GUEST_ENTRY_BINDING'),('operation','P27_GUEST_ENTRY_BINDING'),('panel','P27_GUEST_ENTRY_BINDING')):
    o=copy.deepcopy(self.operator)
@@ -104,6 +149,6 @@ class GuestTests(unittest.TestCase):
  def test_guest_panel_block_cannot_be_relabelled_as_serving(self):
   bad={**self.guest,'row_metadata':copy.deepcopy(self.guest['row_metadata'])}
   next(r for r in bad['row_metadata']if r['group']=='p27_guest_panel_common_guest_root')['group']='p27_serving_panel'
-  with self.assertRaisesRegex(AssertionError,'P27_PANEL_ROW_COUNT'):verify_capture(self.base,bad)
+  with self.assertRaisesRegex(AssertionError,'P27_PANEL_ROW_COUNT'):verify_capture(self.base,bad,self.core)
 
 if __name__=='__main__':unittest.main()
