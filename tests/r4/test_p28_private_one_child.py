@@ -84,6 +84,15 @@ class TestP28(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,code):p.terminal_slot(proof)
   proof['result']=row;proof['starts']['milp']=True
   with self.assertRaisesRegex(ValueError,'P28_TERMINAL_COUNTER_TYPE'):p.terminal_slot(proof)
+ def test_bound_conflict_terminal_without_optimizer_is_not_timeout_or_failure(self):
+  calls={'operator':1,'milp':0,'highs':0}
+  row={'state':'CHILD_BOUND_CONFLICT_NO_OPTIMIZER','model_digest':None,'disposition':'BOUND_CONFLICT_NO_OPTIMIZER',
+       'cause_repair_verified':False,**p.DENIED}
+  proof={'starts':dict(calls),'returns':dict(calls),'faults':[],'result':row}
+  self.assertEqual(p.terminal_slot(proof),(row['state'],row))
+  self.assertEqual(p.classify_child({'status':'NO_PROPOSAL_IN_THIS_PROGRAM','reason':'ROOM_OR_CORE_BOUND_CONFLICT'},proof),'BOUND_CONFLICT_NO_OPTIMIZER')
+  proof['starts']['milp']=1
+  with self.assertRaisesRegex(ValueError,'P28_TERMINAL_COUNTER_RANGE'):p.terminal_slot(proof)
  def test_child_cause_hash_bound_to_exact_model_and_physical(self):
   props={'A':{},'B':{}};m=routes();ph={'status':'FAIL'};ctx={'raw':{'n':2}}
   b={'model_digest':p.digest(m),'packet':{'world_model':m},'context':ctx,'reports':{'physical':ph},'report_digests':{'physical':p.digest(ph)}}

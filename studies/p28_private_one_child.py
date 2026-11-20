@@ -376,8 +376,10 @@ def terminal_slot(worker):
   need(type(a)is dict and set(a)==WATCHED and
    all(type(x)is int and x in (0,1)for x in a.values()),'P28_TERMINAL_COUNTER_TYPE')
  starts=worker['starts'];back=worker['returns']
- need(starts['highs']<=starts['milp']<=starts['operator'] and back['highs']>=back['milp']>=back['operator']
-  and all(back[k]<=starts[k]for k in WATCHED) and type(worker['faults'])is list,'P28_TERMINAL_COUNTER_RANGE')
+ need(starts['highs']<=starts['milp']<=starts['operator'] and all(back[k]<=starts[k]for k in WATCHED)
+  and (not (starts['milp'] and back['operator']) or back['milp']==1)
+  and (not (starts['highs'] and back['milp']) or back['highs']==1)
+  and type(worker['faults'])is list,'P28_TERMINAL_COUNTER_RANGE')
  r=worker['result']
  need(type(r)is dict and type(r.get('state'))is str and all(r.get(k)is False for k in DENIED),'P28_TERMINAL_RESULT_AUTHORITY')
  st=r['state'];fields={'state','cause_repair_verified',*DENIED}
@@ -405,8 +407,12 @@ def final_bind(folder,launch,conf,values,src,at):
   and worker['files']==files(folder,exclude={'worker-complete.json','outside-parent-process-observed.json','child-p25-private.json'}),'P28_WORKER_EVIDENCE_READBACK')
  archived=read_parent(values)
  state_name,result=terminal_slot(worker);derived_repair=False;checked_p25=False;study=None
+ get=lambda n:decode(read(folder/(n+'.json')))
+ if state_name!=FAILED:
+  parent=get('parent-rederived-cause');ct=get('parent-rederived-contract');q=archived['p27']
+  need(digest(parent)==q['cause_certificate'] and digest(ct)==q['parent_contract_digest'] and
+   digest(get('parent-operator-translation'))==q['operator_contract_digest'],'P28_PARENT_INDEPENDENT_ANCHOR_READBACK')
  if state_name in WITNESS_STATES:
-  get=lambda n:decode(read(folder/(n+'.json')))
   need(worker['faults']==[] and classify_child(get('solver-proposal-observed'),worker)=='WITNESS','P28_READBACK_WITNESS')
   ab=read(folder/'child-worker-evidence-anchors.json')
   need(sha(ab)==result['anchor_file_sha256'],'P28_ARCHIVAL_ANCHOR_BYTES')
@@ -423,10 +429,7 @@ def final_bind(folder,launch,conf,values,src,at):
   v=p25.verify(b,assess,ds,pins,anchor['canonical_anchor_sha256'])
   need(v['evidence_consistency_verified']is True and v['state']=='BLOCKED' and v['model_digest']==result['model_digest'] and
    all(v[k]is False for k in p25.AUTH+('execution_authenticity_verified','product_coverage_verified')),'P28_P25_NONADMISSION')
-  parent=get('parent-rederived-cause');ct=get('parent-rederived-contract');child=get('child-cause')
-  q=archived['p27']
-  need(digest(parent)==q['cause_certificate'] and digest(ct)==q['parent_contract_digest'] and
-   digest(get('parent-operator-translation'))==q['operator_contract_digest'],'P28_PARENT_INDEPENDENT_ANCHOR_READBACK')
+  child=get('child-cause')
   bind_diagnostic(child,b,props)
   m=b['packet']['world_model'];ph=b['reports']['physical'];ctx=b['context']
   need(digest(c.diagnose(m,props,RAW['L'],ph,ctx))==digest(child),'P28_DIRECT_STORED_ROUTE_READBACK')
