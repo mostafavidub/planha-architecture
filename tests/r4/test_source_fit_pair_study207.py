@@ -160,7 +160,7 @@ class P10BathAlignmentTests(unittest.TestCase):
   r,_=self.receipt();rows=r['units']
   self.assertEqual([s['orientation'] for s in rows],['TRANSLATION','Y_REFLECTION'])
   for row in rows:
-   self.assertEqual(row['state'],'ALIGNED_SOURCE_SUBSET_ONLY')
+   self.assertEqual(row['state'],'ALIGNED_SOURCE_SUBSET_ONLY',row['codes'])
    self.assertTrue(row['decimal_terminal_matches_source'])
    self.assertFalse(row['binary64_terminal_equals_world_port_exact'])
    self.assertEqual(row['stored_activity_destinations_matched'],4)

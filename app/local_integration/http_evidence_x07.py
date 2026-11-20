@@ -10,7 +10,7 @@ AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 COMPLETE='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED'
 PINS={
  'live_program_scheduler.py':'104a8f84baac13501223013d1f370c14aba214aa',
- 'parametric_pair_p04.py':'7fefe7778ec6195850e7da4cce8357c90c7dcf6e',
+ 'parametric_pair_p04.py':'1a97e576410d131a071a8aef74cf3e1e633b4fae',
  'precision_boundary208.py':'e1ece20ad40d7d17e268fc9e1c2fe701ca383548',
  'source_fit_profile207.py':'8454b4a0a1e99cc49055fd6a7f375f048d9520f0',
  'current_four_decision.py':'55e503d1459fb8005607997f3e09df983bc6d041',

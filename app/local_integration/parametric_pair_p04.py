@@ -52,9 +52,9 @@ def bath_alignment(proposal,model,fit_report,physical):
  def unique(rows,code):
   ensure(len(rows)==1,code)
   return rows[0]
- rect=proposal['rectangles']['bath'];p=proposal['network_paths']['bath']
- ensure(len(rect)==4 and len(p)==5 and len(p[-1])==2,'P10_PROPOSAL_SHAPE')
- a,b,c,d=map(decimal,rect);terminal=tuple(map(decimal,p[-1]))
+ proposal_rect=proposal['rectangles']['bath'];p=proposal['network_paths']['bath']
+ ensure(len(proposal_rect)==4 and len(p)==5 and len(p[-1])==2,'P10_PROPOSAL_SHAPE')
+ a,b,c,d=map(decimal,proposal_rect);terminal=tuple(map(decimal,p[-1]))
  L=F(model['inputs'][1]);ensure(type(model['inputs'][2]) is int and model['inputs'][2]==2,'P10_FR_PAIR_ONLY')
  base=build(c-a,d-b)
  ensure(digest(base)==fit_report['source_module_hashes']['bath'],'P10_SOURCE_MODULE_BINDING')
@@ -69,7 +69,7 @@ def bath_alignment(proposal,model,fit_report,physical):
   unit=unique([u for u in model['units'] if u['id']==uid],'P10_UNIT_INVENTORY')
   u={'id':uid,'rooms':{},'fixtures':{},'activities':{},'fixture_metadata':{}}
   expected={'walls':{},'wall_hosts':{},'source_wall_hosts':{},'openings':[]}
-  install(base,expected,u,uid,rect,L)
+  install(base,expected,u,uid,proposal_rect,L)
   rec=expected['module_placements'][0];port=expected['module_ports'][0]
   apron=expected['module_aprons'][uid+'.bath'];pid=port['id'];oid=port['opening_id']
   records=[v for v in model.get('module_placements',[]) if (v.get('unit_id'),v.get('room_id'))==(uid,'bath')]
@@ -97,13 +97,13 @@ def bath_alignment(proposal,model,fit_report,physical):
   dining=unit['rooms'].get('dining',[])
   if any(fit.hit(Q(q),Q(r)) for q in apron for r in dining):issues.append('P10_APRON_DINING_INTRUSION')
   activities=u['activities'];matched=0;missing=0
-  for name,rect in sorted(activities.items()):
-   if digest(unit.get('activities',{}).get(name))!=digest(rect):
+  for name,activity_rect in sorted(activities.items()):
+   if digest(unit.get('activities',{}).get(name))!=digest(activity_rect):
     issues.append('P10_INSTALLED_ACTIVITY_MISMATCH');continue
    path=unit.get('routes',{}).get(name)
    if not path:
     missing+=1;continue
-   xx,yy,zz,tt=Q(rect);center=((xx+zz)/2,(yy+tt)/2)
+   xx,yy,zz,tt=Q(activity_rect);center=((xx+zz)/2,(yy+tt)/2)
    if Q(path[-1])!=center or Q(unit.get('route_targets',{}).get(name,[]))!=center:
     issues.append('P10_STORED_ACTIVITY_DESTINATION_MISMATCH')
    else:matched+=1
