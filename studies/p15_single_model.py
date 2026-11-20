@@ -14,17 +14,22 @@ def worker(folder):
  save(folder/'summary.json',out)
  import search114,checker114
  try:
+  out['stage']='PROPOSE';save(folder/'summary.json',out)
   proposal=search114.propose(p.core(pf['raw']),2,time_limit=30,variant=0,sleep_roles=['double','twin'])
   proposal,transport=p.proposal_transport(proposal)
   save(folder/'proposal.json',proposal)
   out['producer_status']=proposal['status'];out['solver_status']=proposal.get('solver_status')
   out['solver_seconds']=proposal.get('solver_seconds');out['proposal_digest']=p.digest(proposal)
   if proposal['status']!='PROPOSAL_ONLY':out['state']='NO_MODEL_IN_THIS_ATTEMPT';return
+  out['stage']='CONSTRUCT';save(folder/'summary.json',out)
   m=p.construct(pf['raw'],proposal);save(folder/'model.json',m)
   out['model_digest']=p.digest(m)
+  out['stage']='REPLAY';save(folder/'summary.json',out)
   replay=p.replay(m,pf['raw'],proposal);save(folder/'replay.json',replay)
+  out['stage']='ACCESS';save(folder/'summary.json',out)
   report=assess(m);save(folder/'access.json',report)
   # Retain the unmodified historical checker as diagnostic, never suppress n2-domain failures.
+  out['stage']='HISTORICAL';save(folder/'summary.json',out)
   historical=checker114.evaluate(m);historical,_=p.transport(historical);save(folder/'historical.json',historical)
   out.update(replay_digest=p.digest(replay),access_digest=p.digest(report),historical_digest=p.digest(historical),
    replay_verified=replay['verified'],access_state=report['state'],access_error_codes=[e['code']for e in report['errors']],
@@ -47,6 +52,9 @@ def worker(folder):
   p.require(all(tests.values())and len(tests)==6,'ACTUAL_NEGATIVE')
   p.require(p.digest(m)==out['model_digest'],'ACTUAL_MUTATION')
   out['actual_negatives']=tests;out['state']='ACTUAL_SINGLE_UNIT_MODEL_ACCESS_VERIFIED_NOT_QUALIFIED'
+ except Exception as ex:
+  out.update(state='FAILED_CLOSED',error_type=type(ex).__name__)
+  raise
  finally:
   out['source_unchanged']=p.snapshot()==before
   if not out['source_unchanged']:out['state']='SOURCE_CHANGED'
@@ -65,6 +73,12 @@ def run():
    except ProcessLookupError:pass
    _,err=proc.communicate()
   out=json.loads((folder/'summary.json').read_text())if(folder/'summary.json').exists()else{'state':'NO_SUMMARY'}
+  observed={}
+  for key in ('model','proposal','access','replay','historical'):
+   if(folder/(key+'.json')).exists():
+    b=(folder/(key+'.json')).read_bytes();observed[key]={'byte_count':len(b),'sha256':__import__('hashlib').sha256(b).hexdigest()}
+  out['retained_files_observed_before_cleanup']=observed
+  out['stderr_digest']=__import__('hashlib').sha256(err.encode()).hexdigest()
   # Full bytes read before cleanup; no solver/evaluator rerun in parent.
   if not timed and out.get('state')=='ACTUAL_SINGLE_UNIT_MODEL_ACCESS_VERIFIED_NOT_QUALIFIED':
    raw={k:json.loads((folder/(k+'.json')).read_text())for k in('model','proposal','access','replay','historical')}

@@ -11,7 +11,7 @@ def assess(m):
   need(m.get('schema')==FAMILY and m.get('contract_version')=='p15-single-v1','MODEL_SCHEMA')
   need(digest(m['inputs'])==digest(['18','20',1]),'INPUT_BINDING')
   need(type(m['program']['units'])is int and m['program']['units']==1,'PROGRAM_UNITS')
-  need(m['program']['bedrooms_per_unit']==2 and m['program']['sleep_roles']==['double','twin'],'PROGRAMME')
+  need(type(m['program']['bedrooms_per_unit'])is int and m['program']['bedrooms_per_unit']==2 and m['program']['sleep_roles']==['double','twin'] and type(m['program']['design_occupants_per_unit'])is int and m['program']['design_occupants_per_unit']==4,'PROGRAMME')
   need(type(m['units'])is list and len(m['units'])==1 and m['units'][0]['id']=='A','EXACT_ONE_UNIT')
   need(all(m.get(k)is False for k in AUTH),'AUTHORITY')
   c=core(RAW);u=m['units'][0];owner=[rect(q)for q in u['ownership']]
@@ -42,7 +42,10 @@ def assess(m):
   for q in owner:
    for r in [rect(c['stair']),rect(c['lift']),*[rect(z)for z in c['lobby']]]:
     need(not intersects(q,r),'OWNERSHIP_COMMON_OVERLAP')
-  openings=m['openings'];entry=[o for o in openings if o['id']=='A.entry']
+  openings=m['openings']
+  roles=set(m['logical_regions'])|{'A.'+k for k in u['rooms']}|{'stair','lift','lobby'}
+  need(all(type(o['connects'])is list and len(o['connects'])==2 and all(x in roles for x in o['connects'])for o in openings),'OPENING_OWNER_REFERENCE')
+  entry=[o for o in openings if o['id']=='A.entry']
   need(len(entry)==1 and set(entry[0]['connects'])=={'lobby','A.public_access'},'ENTRY_BINDING')
   entryq=rect(entry[0]['rect']);cx=(entryq[0]+entryq[2])/2
   target=[cx,owner[0][3]-F('.4')]
