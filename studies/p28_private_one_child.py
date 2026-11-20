@@ -365,16 +365,47 @@ def files(folder,*,exclude=frozenset()):
   need(p.is_file() and not p.is_symlink(),'P28_OUTPUT_FILE_SHAPE')
   if p.name not in exclude:out[p.name]=sha(read(p))
  return out
+WITNESS_STATES={'BOTH_ACTUAL_STORED_GUEST_ROUTES_RESOLVED_NO_ADMISSION','CHILD_NOT_PROVEN_TARGET_RESOLVED'}
+NO_WITNESS_KINDS={'BOUND_CONFLICT_NO_OPTIMIZER','BOUNDED_NO_WITNESS','SOLVER_TIMEOUT_NO_WITNESS','SOLVER_FAULT_NO_WITNESS','ROUNDED_WITNESS_REJECTED'}
+PARTIAL_CHILD='CHILD_RETAINED_REQUIRED_CHECKS_UNVERIFIED'
+FAILED='FAILED_CLOSED_PARTIAL_PRIVATE_ONLY'
+WATCHED={'operator','milp','highs'}
+def terminal_slot(worker):
+ for k in ('starts','returns'):
+  a=worker[k]
+  need(type(a)is dict and set(a)==WATCHED and
+   all(type(x)is int and x in (0,1)for x in a.values()),'P28_TERMINAL_COUNTER_TYPE')
+ starts=worker['starts'];back=worker['returns']
+ need(starts['highs']<=starts['milp']<=starts['operator'] and back['highs']>=back['milp']>=back['operator']
+  and all(back[k]<=starts[k]for k in WATCHED) and type(worker['faults'])is list,'P28_TERMINAL_COUNTER_RANGE')
+ r=worker['result']
+ need(type(r)is dict and type(r.get('state'))is str and all(r.get(k)is False for k in DENIED),'P28_TERMINAL_RESULT_AUTHORITY')
+ st=r['state'];fields={'state','cause_repair_verified',*DENIED}
+ need(r.get('cause_repair_verified')is(st=='BOTH_ACTUAL_STORED_GUEST_ROUTES_RESOLVED_NO_ADMISSION'),'P28_TERMINAL_CAUSE_BOOLEAN')
+ if st==FAILED:
+  need(set(r)==fields|{'error','type'} and all(type(r[k])is str for k in ('error','type')),'P28_TERMINAL_FAILURE_FIELDS')
+ elif st==PARTIAL_CHILD or st in WITNESS_STATES:
+  need(set(r)==fields|{'model_digest','disposition'}|({'anchor_file_sha256'}if st in WITNESS_STATES else set())
+   and r['disposition']=='WITNESS' and hexn(r['model_digest']) and
+   (st==PARTIAL_CHILD or hexn(r['anchor_file_sha256'])) and starts==back==dict.fromkeys(WATCHED,1)
+   and worker['faults']==[],'P28_TERMINAL_WITNESS_FIELDS')
+ elif st.startswith('CHILD_') and st[6:] in NO_WITNESS_KINDS:
+  need(set(r)==fields|{'model_digest','disposition'} and r['model_digest'] is None and r['disposition']==st[6:]
+   and starts==back and starts['operator']==1 and worker['faults']==[],'P28_TERMINAL_NO_WITNESS_FIELDS')
+ else:raise ValueError('P28_TERMINAL_STATE')
+ return st,r
+
 def final_bind(folder,launch,conf,values,src,at):
  import p25_bound_evidence as p25
  import planned_witness_contract108 as c
+ from collections import Counter
  worker=decode(read(folder/'worker-complete.json'));nonce=launch['nonce']
  need(worker['schema']=='P28_WORKER_EXECUTION_V1' and worker['nonce']==nonce and worker['input_config_sha256']==launch['input_config_sha256']
   and worker['source_digest']==digest(src) and launch['start']<=worker['worker_end']<=at<launch['deadline']
   and worker['files']==files(folder,exclude={'worker-complete.json','outside-parent-process-observed.json','child-p25-private.json'}),'P28_WORKER_EVIDENCE_READBACK')
  archived=read_parent(values)
- result=worker['result'];state_name=result['state']
- if state_name in ('BOTH_ACTUAL_STORED_GUEST_ROUTES_RESOLVED_NO_ADMISSION','CHILD_NOT_PROVEN_TARGET_RESOLVED'):
+ state_name,result=terminal_slot(worker);derived_repair=False;checked_p25=False;study=None
+ if state_name in WITNESS_STATES:
   get=lambda n:decode(read(folder/(n+'.json')))
   need(worker['faults']==[] and classify_child(get('solver-proposal-observed'),worker)=='WITNESS','P28_READBACK_WITNESS')
   ab=read(folder/'child-worker-evidence-anchors.json')
@@ -401,16 +432,33 @@ def final_bind(folder,launch,conf,values,src,at):
   need(digest(c.diagnose(m,props,RAW['L'],ph,ctx))==digest(child),'P28_DIRECT_STORED_ROUTE_READBACK')
   cp=c.check_child(ct,b['packet'],props)
   need(digest(cp)==digest(get('child-protection')) and digest(c.resolution(parent,child))==digest(get('v3-resolution')),'P28_READBACK_CHILD_PROTECTION')
-  need(resolve(parent,child,cp,b['packet']['world_model'])['state']==state_name,'P28_READBACK_RESOLUTION')
+  re=resolve(parent,child,cp,b['packet']['world_model'])
+  need(re['state']==state_name,'P28_READBACK_RESOLUTION')
   write(folder/'child-p25-private.json',v)
+  checked_p25=True
+  old=archived['bundle']['reports']['physical']
+  count=lambda r:dict(Counter(x.get('code','UNREPORTED') if type(x)is dict else 'UNREPORTED' for x in r['errors']))
+  study={'parent_physical_status':old['status'],'child_physical_status':ph['status'],
+   'parent_physical_codes':count(old),'child_physical_codes':count(ph),
+   'parent_pending_count':len(old['pending']),'child_pending_count':len(ph['pending']),
+   'child_current_states':{x['criterion']:x['effective_state']for x in v['criteria']},
+   'target_stored_path_digests':{u['id']:digest(u.get('scenario_routes',{}).get('guest_dining'))for u in m['units']},
+   'method':'Targeted direct route result is separate from whole gate and is not a no-new-error or quality claim.'}
+  derived_repair=re['state']=='BOTH_ACTUAL_STORED_GUEST_ROUTES_RESOLVED_NO_ADMISSION'
+ elif state_name==PARTIAL_CHILD:
+  kind=classify_child(decode(read(folder/'solver-proposal-observed.json')),worker)
+  need(kind=='WITNESS','P28_READBACK_PARTIAL_WITNESS')
  elif state_name.startswith('CHILD_') and result.get('model_digest') is None:
   kind=classify_child(decode(read(folder/'solver-proposal-observed.json')),worker)
   need(worker['faults']==[] and state_name=='CHILD_'+kind and kind!='WITNESS','P28_READBACK_NO_WITNESS')
  need(state(archived['p26']['source_hashes_same_c5ee_and_current_afb'])==src
   and all_inputs(conf)==values and time.monotonic()<launch['deadline'],'P28_FINAL_SOURCE_OR_CUTOFF')
- return {'schema':'P28_PRIVATE_TERMINAL_V1',**result,'nonce':nonce,'parent_was_regenerated':False,
+ need(derived_repair is result['cause_repair_verified'] and (not derived_repair or checked_p25),'P28_READBACK_REPAIR_AUTHORITY')
+ return {'schema':'P28_PRIVATE_TERMINAL_V1','state':state_name,'nonce':nonce,'parent_was_regenerated':False,
+  'cause_repair_verified':derived_repair,'observed_model_digest':result.get('model_digest'),
+  'producer_disposition':result.get('disposition'),'worker_error':result.get('error'),
   'child_solver_calls':worker['starts']['milp'],'worker_reaped_at':at,'outer_deadline':launch['deadline'],
-  'independent_scoped_p25_receipt':(folder/'child-p25-private.json').exists(),**DENIED}
+  'independent_scoped_p25_receipt':checked_p25,'separate_physical_current_observations':study,**DENIED}
 class Cutoff(BaseException):pass
 def execute(root,path,want,start,deadline):
  import uuid

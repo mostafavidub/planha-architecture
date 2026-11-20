@@ -71,6 +71,19 @@ class TestP28(unittest.TestCase):
    z=observations();mutate(z)
    self.assertEqual(p.resolve(par,z,good,routes())['state'],'CHILD_NOT_PROVEN_TARGET_RESOLVED')
   with self.assertRaisesRegex(ValueError,'P28_PROTECTED_CHILD'):p.resolve(par,observations(),{},routes())
+ def test_terminal_closed_state_false_authority_and_disposition(self):
+  proof=telemetry(2,False);proof['faults']=[]
+  row={'state':'CHILD_BOUNDED_NO_WITNESS','model_digest':None,'disposition':'BOUNDED_NO_WITNESS',
+       'cause_repair_verified':False,**p.DENIED}
+  proof['result']=row
+  self.assertEqual(p.terminal_slot(proof),(row['state'],row))
+  for changes,code in (({'state':'NEW_STATE'},'P28_TERMINAL_STATE'),({'cause_repair_verified':True},'P28_TERMINAL_CAUSE_BOOLEAN'),
+   ({'disposition':'WITNESS'},'P28_TERMINAL_NO_WITNESS_FIELDS'),({'download_allowed':True},'P28_TERMINAL_NO_WITNESS_FIELDS'),
+   ({'qualified':1},'P28_TERMINAL_RESULT_AUTHORITY')):
+   proof['result']={**row,**changes}
+   with self.assertRaisesRegex(ValueError,code):p.terminal_slot(proof)
+  proof['result']=row;proof['starts']['milp']=True
+  with self.assertRaisesRegex(ValueError,'P28_TERMINAL_COUNTER_TYPE'):p.terminal_slot(proof)
  def test_child_cause_hash_bound_to_exact_model_and_physical(self):
   props={'A':{},'B':{}};m=routes();ph={'status':'FAIL'};ctx={'raw':{'n':2}}
   b={'model_digest':p.digest(m),'packet':{'world_model':m},'context':ctx,'reports':{'physical':ph},'report_digests':{'physical':p.digest(ph)}}
