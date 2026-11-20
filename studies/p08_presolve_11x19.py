@@ -12,6 +12,9 @@ JOB=135930395558
 RECEIPT='5991884cfa007a334090e30521e2e25dc34bc5a78de71138bc5537d878cb4482'
 RAW={'W':'11','L':'19','n':2}
 PINS={
+ "dining_module118.py":"313b9673e8efcb48e9fa61d0ca24b6b33507310f",
+ "approach_contract123.py":"4b0b6c1ae2395e99854ce8f31228e91aac36dcb5",
+ "fixture_catalog114.json":"df6ef667f54d7e577e7027d33fe320ec0d16ad07",
  "search114.py": "65e0f278c9f9ef480388d3ea8056161c0a938a36",
  "engine114.py": "f999904358705c96bc1b3a2cb832d102ed33cba6",
  "contract114.py": "a2631c6a38a43b8d423edf82ad8d526ced1b8196",
@@ -113,9 +116,10 @@ def inspect_capture(master,core,beds,topology,grid):
 def execute():
  before=check_sources()
  sys.path.insert(0,str(ENGINE))
- import contract114,capacity_program118,schedule123,search114,scipy.optimize
+ import contract114,capacity_program118,schedule123,search114,scipy.optimize,dining_module118,approach_contract123
  for f,n in ((contract114.core_first,'contract114.py'),(capacity_program118.proposed_program,'capacity_program118.py'),
-             (schedule123.schedule,'schedule123.py'),(search114.propose,'search114.py')):
+             (schedule123.schedule,'schedule123.py'),(search114.propose,'search114.py'),
+             (dining_module118.build,'dining_module118.py'),(approach_contract123.dining_actor_sweeps,'approach_contract123.py')):
   need(Path(inspect.getsourcefile(f)).resolve()==ENGINE/n,'P08_CALLABLE_SOURCE')
  W,L,n=contract114.parse(RAW);core=contract114.core_first(W,L)
  need(core['kind']=='COMPACT_CONNECTED_CENTRAL_CORE118','P08_CORE')
