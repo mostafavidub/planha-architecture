@@ -1,0 +1,25 @@
+name: P28 private repair archive no-solver checks
+on:
+  push:
+    branches:
+      - p28-private-one-child-review
+    paths:
+      - 'studies/p28_private_one_child.py'
+      - 'tests/r4/test_p28_private_one_child.py'
+      - '.github/workflows/p28-private-one-child.yml'
+permissions:
+  contents: read
+jobs:
+  no-solver-boundaries:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - run: python -B -m unittest discover -s tests/r4 -p test_p28_private_one_child.py -v
+      - run: git diff --exit-code
