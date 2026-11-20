@@ -138,35 +138,39 @@ def consume(body,raw,before_nonces,source_before):
   raise EvidenceFailure(observed,code) from None
 def run_bound(body,run):
  sources=guard();before=existing_nonces()
- raw=run(body);pin=digest(raw)
- rows=raw.get('attempts')
- row=rows[0]if type(rows)is list and len(rows)==1 and type(rows[0])is dict else{}
- nonce=row.get('nonce');retained={'parsed':{},'files':[],'private_bytes':{}}
- # Paths are selected by this fixed root and new nonce, never supplied by HTTP.
- if stop.sha(nonce,32)and nonce not in before and raw.get('evidence_directory')=='live-program-evidence/'+nonce:
-  folder=EVIDENCE_ROOT/nonce
-  need(not EVIDENCE_ROOT.is_symlink()and not folder.is_symlink()and folder.resolve().parent==EVIDENCE_ROOT.resolve(),'X07_DIRECTORY_CONTAINMENT')
-  retained=stop.snapshot(folder)
- complete=row.get('state')==COMPLETE and row.get('receipt_verified')is True
+ raw={};row={};nonce=None;parent_stage='RUN_RUNTIME'
+ retained={'parsed':{},'files':[],'private_bytes':{}}
  def observation(bound=False,error=None):
   return stop.observe(body,nonce,'FRONT_REAR',retained,timed_out=row.get('timed_out')is True,
    returncode=row.get('returncode'),bound=bound,source_ok=raw.get('source_integrity_verified')is True and guard()==sources,
-   source_digest=stop.digest(sources),parent_error=error)
+   source_digest=stop.digest(sources),parent_error=error,parent_stage=parent_stage if error is not None else None)
  try:
+  returned=run(body)
+  need(type(returned)is dict,'X07_RETURN_OBJECT')
+  raw=returned;pin=digest(raw);rows=raw.get('attempts')
+  row=rows[0]if type(rows)is list and len(rows)==1 and type(rows[0])is dict else{}
+  nonce=row.get('nonce');parent_stage='FILE_SNAPSHOT'
+  # Fixed root + new nonce, never an HTTP-supplied path. No guessing after run failure.
+  if stop.sha(nonce,32)and nonce not in before and raw.get('evidence_directory')=='live-program-evidence/'+nonce:
+   folder=EVIDENCE_ROOT/nonce
+   need(not EVIDENCE_ROOT.is_symlink()and not folder.is_symlink()and folder.resolve().parent==EVIDENCE_ROOT.resolve(),'X07_DIRECTORY_CONTAINMENT')
+   retained=stop.snapshot(folder)
+  complete=row.get('state')==COMPLETE and row.get('receipt_verified')is True
+  parent_stage='FULL_READBACK'
   if complete and raw.get('source_integrity_verified')is True:
    evidence=consume(body,raw,before,sources)
-   # Bind the diagnostic snapshot to the exact complete consumer bytes too.
    initial={r['file']:r['bytes_digest']for r in retained['files']if r['state']=='PARSED_OBSERVED'}
    expected=['request.json','runtime-bundle.json','child-complete.json','decision.json','scheduler.json']+[k+'.json'for k in __import__('current_four_decision').SCHEMAS]
    need(len(expected)==evidence['file_count']and digest({k:initial[k]for k in expected})==evidence['file_hashes_digest'],'X07_DIAGNOSTIC_SNAPSHOT_CHANGED')
   else:
    evidence={'schema':'HTTP_FULL_EVIDENCE_X07_V1','state':'NOT_EVALUATED_NO_COMPLETE_SOURCE_VERIFIED_RECEIPT',
     'binding_verified':False,'producer_authenticity_verified':False,**{k:False for k in AUTH}}
+  parent_stage='FINAL_SOURCE'
   need(digest(raw)==pin and guard()==sources,'X07_RETURN_SOURCE_CHANGED')
   record=observation(evidence['binding_verified'])
  except Exception as ex:
   try:record=observation(error=ex)
-  except Exception:record=stop.observe(body,nonce,'FRONT_REAR',retained,parent_error=ex)
+  except Exception:record=stop.observe(body,nonce,'FRONT_REAR',retained,parent_error=ex,parent_stage=parent_stage)
   failure=ex if isinstance(ex,EvidenceFailure)else EvidenceFailure(retained,'X07_EVIDENCE_ERROR')
   failure.http_diagnostic={'schema':'P01_PRIVATE_DIAGNOSTIC_V1','request_digest':hashlib.sha256(body).hexdigest(),'stop_record':record}
   failure.stop_private_snapshot=retained

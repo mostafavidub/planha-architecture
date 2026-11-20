@@ -187,7 +187,7 @@ def run_bound(body,deadline):
    source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True and stop.source_snapshot()==stop_before
    term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
    stop_record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,bound=usable,source_ok=source_ok,source_digest=stop.digest(stop_before))
-   save(folder/'stop-record.json',stop_record)
+   # Safe record travels in memory/HTTP; no pre-cutoff sidecar can retain a stale binding claim.
    term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
    if not usable and stop_record['binding_verified']:
     stop_record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,source_ok=source_ok,source_digest=stop.digest(stop_before))
@@ -204,7 +204,7 @@ def run_bound(body,deadline):
            'scope':'Same request/source/full-report readback and decision rederivation, not producer authenticity or P25 admission'},
            'elapsed_seconds':time.monotonic()-started,**{k:False for k in AUTH}}
   except Exception as ex:
-   record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,source_digest=stop.digest(stop_before),parent_error=ex)
+   record=stop.observe(body,request['nonce'],p.FAMILY,retained,timed_out=timed,returncode=proc.returncode,source_digest=stop.digest(stop_before),parent_error=ex,parent_stage=parent_stage)
    failure=DiagnosticFailure(diagnostic(body,request,summary,observed,parent_stage,ex,stop_record=record))
    failure.private_evidence=retained # process-local only; never HTTP/log/public artifact
    raise failure from None

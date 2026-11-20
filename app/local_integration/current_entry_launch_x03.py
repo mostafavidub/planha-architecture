@@ -23,13 +23,13 @@ def withholding_guard():
  return hashlib.sha256(data).hexdigest()
 def evidence_guard():
  path=ROOT/'app/local_integration/http_evidence_x07.py';data=path.read_bytes()
- need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='d99ad41be046572dd76d2572906f9ffe2d4fdccb','CURRENT_EVIDENCE_SOURCE_CHANGED')
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='c93e12be30e22b7325e6c0e72e7ac8c49141b256','CURRENT_EVIDENCE_SOURCE_CHANGED')
  module=importlib.import_module('http_evidence_x07')
  for fn in (module.run_bound,module.consume,module.guard):
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
-P17_PINS={"stop_observation_p01.py":"856e8c0ba328d0f34ee51d97b7d787c75dde8121","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"6db3de70e19b79ca1817bac550549a540a0ea552","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"b337a38041a3fe32c461252cce2ded9ad6457b39","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
+P17_PINS={"stop_observation_p01.py":"e2efe38e4454ac4fe5dbd1934d3b635f750d163e","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"6db3de70e19b79ca1817bac550549a540a0ea552","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"ca33f86aa6ca0d23aa59fa366698c268f9c7c936","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
 def single_guard():
  observed={}
  for name,pin in P17_PINS.items():

@@ -156,6 +156,14 @@ class HTTP(unittest.TestCase):
    release.set()
    end=time.monotonic()+4
    while server.LOCK.locked() and time.monotonic()<end:time.sleep(.005)
+ def test_p01_scheduler_exception_without_nonce_keeps_request_record(self):
+  with patch.object(server,'run_live',side_effect=ValueError('PRIVATE FREE TEXT')):
+   status,out=self.request()
+  self.assertEqual(status,500);self.assertNotIn('stop_record',out)
+  record=server.HTTP_BOUNDARY.snapshot()[-1]['runtime_diagnostic']['stop_record']
+  self.assertEqual(record['stage'],'RUN_RUNTIME');self.assertEqual(record['outcome'],'EXECUTION_ERROR')
+  self.assertIsNone(record['attempt_nonce']);self.assertEqual(record['files'],[]);self.assertFalse(record['binding_verified'])
+  self.assertNotIn('PRIVATE',json.dumps(record))
  def test_p01_missing_report_keeps_other_files(self):
   before=x.existing_nonces();sources=x.guard()
   def writer(body):
