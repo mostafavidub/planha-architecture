@@ -71,6 +71,16 @@ class TestP28(unittest.TestCase):
    z=observations();mutate(z)
    self.assertEqual(p.resolve(par,z,good,routes())['state'],'CHILD_NOT_PROVEN_TARGET_RESOLVED')
   with self.assertRaisesRegex(ValueError,'P28_PROTECTED_CHILD'):p.resolve(par,observations(),{},routes())
+ def test_child_cause_hash_bound_to_exact_model_and_physical(self):
+  props={'A':{},'B':{}};m=routes();ph={'status':'FAIL'};ctx={'raw':{'n':2}}
+  b={'model_digest':p.digest(m),'packet':{'world_model':m},'context':ctx,'reports':{'physical':ph},'report_digests':{'physical':p.digest(ph)}}
+  d={'schema':'SOURCE_COMPOUND_PLANNED_CAUSE108_V3','model_digest':p.digest(m),'physical_digest':p.digest(ph),
+     'context_digest':p.digest(ctx),'proposal_digest':p.digest(props)}
+  p.bind_diagnostic(d,b,props)
+  for key in ('model_digest','physical_digest','context_digest','proposal_digest'):
+   wrong=dict(d,**{key:'a'*64})
+   with self.assertRaisesRegex(ValueError,'P28_CHILD_DIAGNOSTIC_MODEL_PHYSICAL_BINDING'):
+    p.bind_diagnostic(wrong,b,props)
  def test_manifest_requires_independent_expected_hash(self):
   with tempfile.TemporaryDirectory()as t:
    root=Path(t); target=root/'input.json'

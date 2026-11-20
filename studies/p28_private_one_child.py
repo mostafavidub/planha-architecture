@@ -47,7 +47,8 @@ def read(p):
 def write(p,v,*,native=False):
  b=(json.dumps(v,ensure_ascii=False,separators=(',',':'),allow_nan=False).encode() if native else enc(v))
  tmp=p.with_name('.'+p.name+'.partial')
- with tmp.open('xb')as f:f.write(b);f.flush();os.fsync(f.fileno())
+ with os.fdopen(os.open(tmp,os.O_WRONLY|os.O_NOFOLLOW|os.O_EXCL|os.O_CREAT,0o600),'wb')as f:
+  f.write(b);f.flush();os.fsync(f.fileno())
  os.link(tmp,p,follow_symlinks=False);tmp.unlink();need(read(p)==b,'P28_WRITE_READBACK')
  return sha(b)
 def config(path,want):
@@ -210,6 +211,13 @@ def resolve(parent,child_result,protection,model):
   'fresh_both_stored_guest_dining_clear':yes,'no_new_supported_cause':child_result['selected_causes']==[],
   'protected_verified':True,'quality_claim':False,**DENIED}
 
+def bind_diagnostic(record,bundle,proposals):
+ need(type(record)is dict and record.get('schema')=='SOURCE_COMPOUND_PLANNED_CAUSE108_V3'
+  and record.get('model_digest')==bundle['model_digest']==digest(bundle['packet']['world_model'])
+  and record.get('physical_digest')==bundle['report_digests']['physical']==digest(bundle['reports']['physical'])
+  and record.get('context_digest')==digest(bundle['context'])
+  and record.get('proposal_digest')==digest(proposals),'P28_CHILD_DIAGNOSTIC_MODEL_PHYSICAL_BINDING')
+
 def collect(folder,nonce,parent,reason,contract,proposal):
  import constructor127,construction_replay127,evaluate_pair127
  import planned_witness_contract108 as c,planned_witness_support108 as support
@@ -261,6 +269,7 @@ def collect(folder,nonce,parent,reason,contract,proposal):
   protect=None;report_checks['protection']=safe_error(err)
  try:
   ch=c.diagnose(m,props,RAW['L'],ph,ctx);write(folder/'child-cause.json',ch)
+  bind_diagnostic(ch,b,props)
   vr=c.resolution(reason,ch);write(folder/'v3-resolution.json',vr)
  except Exception as err:
   ch=None;report_checks['target_diagnostics']=safe_error(err)
@@ -363,6 +372,7 @@ def final_bind(folder,launch,conf,values,src,at):
  need(worker['schema']=='P28_WORKER_EXECUTION_V1' and worker['nonce']==nonce and worker['input_config_sha256']==launch['input_config_sha256']
   and worker['source_digest']==digest(src) and launch['start']<=worker['worker_end']<=at<launch['deadline']
   and worker['files']==files(folder,exclude={'worker-complete.json','outside-parent-process-observed.json','child-p25-private.json'}),'P28_WORKER_EVIDENCE_READBACK')
+ archived=read_parent(values)
  result=worker['result'];state_name=result['state']
  if state_name in ('BOTH_ACTUAL_STORED_GUEST_ROUTES_RESOLVED_NO_ADMISSION','CHILD_NOT_PROVEN_TARGET_RESOLVED'):
   get=lambda n:decode(read(folder/(n+'.json')))
@@ -383,6 +393,12 @@ def final_bind(folder,launch,conf,values,src,at):
   need(v['evidence_consistency_verified']is True and v['state']=='BLOCKED' and v['model_digest']==result['model_digest'] and
    all(v[k]is False for k in p25.AUTH+('execution_authenticity_verified','product_coverage_verified')),'P28_P25_NONADMISSION')
   parent=get('parent-rederived-cause');ct=get('parent-rederived-contract');child=get('child-cause')
+  q=archived['p27']
+  need(digest(parent)==q['cause_certificate'] and digest(ct)==q['parent_contract_digest'] and
+   digest(get('parent-operator-translation'))==q['operator_contract_digest'],'P28_PARENT_INDEPENDENT_ANCHOR_READBACK')
+  bind_diagnostic(child,b,props)
+  m=b['packet']['world_model'];ph=b['reports']['physical'];ctx=b['context']
+  need(digest(c.diagnose(m,props,RAW['L'],ph,ctx))==digest(child),'P28_DIRECT_STORED_ROUTE_READBACK')
   cp=c.check_child(ct,b['packet'],props)
   need(digest(cp)==digest(get('child-protection')) and digest(c.resolution(parent,child))==digest(get('v3-resolution')),'P28_READBACK_CHILD_PROTECTION')
   need(resolve(parent,child,cp,b['packet']['world_model'])['state']==state_name,'P28_READBACK_RESOLUTION')
@@ -390,7 +406,7 @@ def final_bind(folder,launch,conf,values,src,at):
  elif state_name.startswith('CHILD_') and result.get('model_digest') is None:
   kind=classify_child(decode(read(folder/'solver-proposal-observed.json')),worker)
   need(worker['faults']==[] and state_name=='CHILD_'+kind and kind!='WITNESS','P28_READBACK_NO_WITNESS')
- need(state(read_parent(values)['p26']['source_hashes_same_c5ee_and_current_afb'])==src
+ need(state(archived['p26']['source_hashes_same_c5ee_and_current_afb'])==src
   and all_inputs(conf)==values and time.monotonic()<launch['deadline'],'P28_FINAL_SOURCE_OR_CUTOFF')
  return {'schema':'P28_PRIVATE_TERMINAL_V1',**result,'nonce':nonce,'parent_was_regenerated':False,
   'child_solver_calls':worker['starts']['milp'],'worker_reaped_at':at,'outer_deadline':launch['deadline'],
