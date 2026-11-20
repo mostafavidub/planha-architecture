@@ -108,7 +108,7 @@ def reconcile_current(m,previous,old):
  require(m.get('new_dispatch') is False and m.get('self_hash_closure') is False and m.get('literal_legacy_isolation') is False,'NO_NEW_AUTHORITY')
  require(type(m.get('self_paths_unhashed')) is list and len(m['self_paths_unhashed'])==4 and set(m['self_paths_unhashed'])==SELF_V2,'SELF_SCOPE_CHANGED')
  previous_files,previous_tops=reconcile(previous,old)
- require(m.get('provenance')==PROVENANCE_V2,'CURRENT_PROVENANCE_MISMATCH')
+ require(json.dumps(m.get('provenance'),sort_keys=True)==json.dumps(PROVENANCE_V2,sort_keys=True),'CURRENT_PROVENANCE_MISMATCH')
  added={r['path'] for r in PROVENANCE_V2 if r['old_blob'] is None}
  changed={r['path'] for r in PROVENANCE_V2 if r['old_blob'] is not None}
  d=m.get('delta',{})

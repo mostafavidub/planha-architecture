@@ -73,6 +73,9 @@ class InventoryTests(unittest.TestCase):
  def test_provenance_task_tamper(self):
   m=copy.deepcopy(self.manifest);m['provenance'][0]['task']='INVENTED_APPROVAL'
   with self.assertRaisesRegex(ValueError,'^CURRENT_PROVENANCE_MISMATCH$'):self.reconcile(m)
+ def test_provenance_false_not_integer(self):
+  m=copy.deepcopy(self.manifest);m['provenance'][0]['new_dispatch']=0
+  with self.assertRaisesRegex(ValueError,'^CURRENT_PROVENANCE_MISMATCH$'):self.reconcile(m)
  def test_rehashed_record_not_auto_approved(self):
   m=copy.deepcopy(self.manifest);r=m['provenance'][0];r['blob']='0'*40;m['files'][r['path']]['blob']=r['blob']
   with self.assertRaisesRegex(ValueError,'^CURRENT_PROVENANCE_MISMATCH$'):self.reconcile(m)
