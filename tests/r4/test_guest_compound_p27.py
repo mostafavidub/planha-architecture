@@ -77,7 +77,7 @@ def verify_capture(base,guest,core):
  panel=list(map(lambda x:float(F(x))/float(GRID),p11.entry_source(core)['local_panel']))
  M=max(box[2]-box[0],box[3]-box[1])+2000
  domain={k:list(v)for k,v in scope['sweep_domain_rows'].items()}
- used=set()
+ used=set();switches=set()
  for route,i in blocks:
   assert domain.get(route),'P27_PANEL_DOMAIN_MAP'
   r=domain[route].pop(0)
@@ -88,7 +88,8 @@ def verify_capture(base,guest,core):
   assert all(np.isfinite(shift)),'P27_PANEL_DOMAIN_BOUNDS'
   assert all(x['group']=='p27_guest_panel_'+route for x in guest['row_metadata'][i:i+5]),'P27_PANEL_GROUP'
   u,v=b.indptr[i:i+2];bits=list(b.indices[u:v])
-  assert len(bits)==4 and min(bits)>=scope['old_var_end'] and all(guest['integrality'][j]==1 for j in bits),'P27_PANEL_SWITCHES'
+  assert len(bits)==4 and min(bits)>=scope['old_var_end'] and all(guest['integrality'][j]==1 and guest['bounds'].lb[j]==0 and guest['bounds'].ub[j]==1 for j in bits) and not switches.intersection(bits),'P27_PANEL_SWITCHES'
+  switches.update(bits)
   assert coefficients(b,i)==dict.fromkeys(bits,1) and guest['upper'][i]==3 and np.isneginf(guest['lower'][i]),'P27_PANEL_BIT_OR'
   for j,(axis,sign,wall_axis)in enumerate(((2,1,0),(0,-1,2),(3,1,1),(1,-1,3))):
    expected={k:sign*v for k,v in edge[axis].items()}
