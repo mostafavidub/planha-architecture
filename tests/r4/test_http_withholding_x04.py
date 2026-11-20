@@ -15,11 +15,13 @@ def until(fn):
   time.sleep(.005)
 class HTTP(unittest.TestCase):
  def setUp(self):
+  self.spawn_patch=patch('subprocess.Popen',side_effect=AssertionError('CONTROLLED_NO_PROCESS'))
+  self.spawn=self.spawn_patch.start();self.addCleanup(self.spawn_patch.stop)
   self.server=s.server();self.thread=threading.Thread(target=self.server.serve_forever,daemon=True);self.thread.start()
   self.port=self.server.server_port;self.before=len(s.HTTP_BOUNDARY.snapshot())
  def tearDown(self):
   self.server.shutdown();self.server.server_close();self.thread.join()
-  self.assertFalse(s.LOCK.locked())
+  self.assertFalse(s.LOCK.locked());self.spawn.assert_not_called()
  def request(self,body=BODY):
   c=http.client.HTTPConnection('127.0.0.1',self.port,timeout=5);c.request('POST','/api/public/plan',body,{'Content-Type':'application/json'})
   r=c.getresponse();status=r.status;data=json.loads(r.read());c.close();return status,data
@@ -99,8 +101,8 @@ class HTTP(unittest.TestCase):
    status,out=self.request();self.assertEqual(status,504);run.assert_not_called()
   until(lambda:not s.LOCK.locked());self.assertFalse(s.HTTP_BOUNDARY.snapshot()[-1]['generation_started'])
  def test_invalid_unsupported_no_boundary(self):
-  with patch.object(s,'run_live',side_effect=AssertionError('NO_RUN')) as run:
+  with patch.object(s,'run_bound',side_effect=AssertionError('NO_RUN')) as run:
    self.assertEqual(self.request(b'{"W":"26","L":"20","n":2}')[0],422)
-   self.assertEqual(self.request(b'{"W":"18","L":"20","n":1}')[0],409);run.assert_not_called()
+   self.assertEqual(self.request(b'{"W":"17","L":"20","n":1}')[0],409);run.assert_not_called()
   self.assertEqual(len(s.HTTP_BOUNDARY.snapshot()),self.before)
 if __name__=='__main__':unittest.main()

@@ -73,4 +73,45 @@ class Binding(unittest.TestCase):
    t=terminal(True,source,10,now,True,'FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED')
    self.assertFalse(t['usable']);self.assertFalse(t['fresh_model_executed']);self.assertTrue(t['observed_model_constructed'])
   self.assertTrue(terminal(True,True,10,9,True,'FULL')['fresh_model_executed'])
+ def decision_fixture(self):
+  # Binding/source replay are stubbed here; actual decision assembly and typed digest are not.
+  import single_decision_p17 as d
+  replay={'verified':True};physical={'status':'FAIL','errors':[{'code':'FIXTURE_PHYSICAL_FAIL'}],'pending':['FIXTURE_UNKNOWN']}
+  historical={'status':'FAIL','errors':[{'code':'HISTORICAL_FIXTURE'}]}
+  b={'model_digest':'a'*64,'reports':{'physical':physical,'historical_physical':historical,'access':{'state':'PASS_SCOPED_OWNERSHIP_ACCESS'}},'report_digests':{'historical_physical':p.digest(historical)}}
+  reports={}
+  for cid,schema in d.SCHEMAS.items():
+   row={'schema':schema,'criterion':cid,'integrity_verified':True,'current_domain_policy':'SINGLE_CURRENT_DOMAIN_P17_V1','model_digest':b['model_digest'],
+        'source_physical_report':copy.deepcopy(physical),'source_physical_digest':p.digest(physical),
+        'retained_historical_physical_report':copy.deepcopy(historical),'retained_historical_physical_digest':p.digest(historical),
+        'single_source_snapshot':{},'state':'UNKNOWN',**{k:False for k in p.AUTH}}
+   if cid=='CURRENT_PROGRAM_SUITABILITY':row.update(reports={'replay':replay},report_digests={'replay':p.digest(replay)},report_mutations=[])
+   else:row['replay']=replay
+   reports[cid]=row
+  return d,b,reports,replay
+ def test_decision_json_roundtrip_does_not_change_receipt(self):
+  from unittest.mock import patch
+  d,b,reports,replay=self.decision_fixture();pins={k:p.digest(v)for k,v in reports.items()}
+  with patch.object(d,'bind_bundle',return_value=replay),patch.object(d,'source_audit',return_value={}):
+   original=d.assemble(b,reports,pins)
+   roundtrip=d.assemble(json.loads(json.dumps(b,sort_keys=True)),json.loads(json.dumps(reports,sort_keys=True)),json.loads(json.dumps(pins,sort_keys=True)))
+  self.assertEqual(p.digest(original),p.digest(roundtrip))
+  self.assertEqual([r['criterion']for r in original['criteria']],sorted(d.SCHEMAS))
+  self.assertIn('PHYSICAL_FAIL',original['decision']['blockers']);self.assertIn('CURRENT_UNKNOWN',original['decision']['blockers'])
+  self.assertIn('P25_DELIVERY_NOT_IMPLEMENTED',original['decision']['blockers'])
+ def test_decision_all_criterion_permutations_same_receipt(self):
+  import itertools
+  from unittest.mock import patch
+  d,b,reports,replay=self.decision_fixture();pins={k:p.digest(v)for k,v in reports.items()}
+  digests=set()
+  with patch.object(d,'bind_bundle',return_value=replay),patch.object(d,'source_audit',return_value={}):
+   for order in itertools.permutations(reports):
+    digests.add(p.digest(d.assemble(b,{k:reports[k]for k in order},pins)))
+  self.assertEqual(len(digests),1)
+ def test_decision_content_mutation_still_rejected(self):
+  from unittest.mock import patch
+  d,b,reports,replay=self.decision_fixture();pins={k:p.digest(v)for k,v in reports.items()}
+  reports[next(iter(reports))]['state']='PASS'
+  with patch.object(d,'bind_bundle',return_value=replay),patch.object(d,'source_audit',return_value={}):
+   with self.assertRaisesRegex(ValueError,'P17_CURRENT_DIGEST'):d.assemble(b,reports,pins)
 if __name__=='__main__':unittest.main(verbosity=2)

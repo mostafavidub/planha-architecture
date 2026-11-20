@@ -13,7 +13,9 @@ def assemble(bundle,reports,expected):
  mh=bundle['model_digest'];physical=bundle['reports']['physical'];ph=digest(physical)
  require(set(reports)==set(SCHEMAS)==set(expected),'P17_FOUR_SET')
  rows=[];states={}
- for cid,r in reports.items():
+ # JSON object order is not evidence; the criterion array has one canonical order.
+ for cid in sorted(SCHEMAS):
+  r=reports[cid]
   require(r.get('integrity_verified')is True,'P17_CURRENT_INTEGRITY')
   require(r.get('schema')==SCHEMAS[cid] and r.get('criterion')==cid,'P17_CURRENT_SCHEMA')
   require(r.get('current_domain_policy')=='SINGLE_CURRENT_DOMAIN_P17_V1','P17_CURRENT_POLICY')
