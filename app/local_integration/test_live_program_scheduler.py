@@ -125,7 +125,7 @@ class ParametricP04Tests(unittest.TestCase):
   import http.client,threading
   import public_wln_server as server
   from parametric_pair_p04 import CASES
-  s=server.server();thread=threading.Thread(target=s.serve_forever,daemon=True);thread.start()
+  s=server.server(0);thread=threading.Thread(target=s.serve_forever,daemon=True);thread.start()
   def post(body):
    c=http.client.HTTPConnection('127.0.0.1',s.server_port,timeout=12)
    try:
@@ -135,7 +135,7 @@ class ParametricP04Tests(unittest.TestCase):
   def result(body,runtime,*,deadline):
    self.assertIsInstance(deadline,float);pf=preflight(body)
    self.assertEqual(pf['binding']['schema'],'P04_PARAMETRIC_REQUEST_BINDING_V1')
-   return {'preflight':pf,'state':'CONTROLLED_NO_GEOMETRY','attempts':[],**{k:False for k in AUTH}}
+   return {'preflight':pf,'state':'CONTROLLED_NO_GEOMETRY','attempts':[],'source_integrity_verified':True,**{k:False for k in AUTH}}
   try:
    with patch.object(server,'run_bound',side_effect=result) as mock,patch('subprocess.Popen',side_effect=AssertionError('solver forbidden')) as spawn:
     for w,l in CASES:
