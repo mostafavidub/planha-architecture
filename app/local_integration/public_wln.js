@@ -19,13 +19,20 @@
  }
  async function capabilityFor(data,response,wire){
   const c=data&&data.capability;if(!c||c.schema!=="PUBLIC_WLN_CAPABILITY_P36_V1"||
-   !Object.hasOwn(capabilityText,c.capability_state)||c.product_available!==false||
+   !Object.hasOwn(capabilityText,c.capability_state)||c.product_available!==false||c.production_supported!==false||
    !['accepted','qualified','display_allowed','delivery_allowed'].every(k=>c[k]===false))return null;
   const status=c.capability_state;
-  if((status==="INVALID_INPUT"&&response.status!==422)||(status==="WIRE_UNSUPPORTED"&&response.status!==409)||
-     (status==="VALID_UNSUPPORTED"&&response.status!==409)||(status==="STUDY_BUSY"&&response.status!==409)||
-     (status==="STUDY_RESULT_WITHHELD"&&response.status!==504)||(status==="STUDY_PERMITTED"&&response.status!==200)||
-     (status==="SERVER_RESULT_UNAVAILABLE"&&response.status!==500))return null;
+  const s=response.status,summary=data.schema==="PUBLIC_WLN_STUDY_SUMMARY_V1",errors=data.schema==="PUBLIC_WLN_ERROR_SET_V1";
+  const matches={
+   INVALID_INPUT:s===422&&errors&&data.primary_status===422,
+   WIRE_UNSUPPORTED:s===409&&errors&&data.primary_status===409,
+   VALID_UNSUPPORTED:s===409&&summary&&data.input_valid===true&&typeof data.status==="string"&&data.status.startsWith("UNSUPPORTED"),
+   STUDY_BUSY:s===409&&data.code==="STUDY_BUSY_NO_QUEUE",
+   STUDY_RESULT_WITHHELD:s===504&&["DEADLINE_EXCEEDED_BEFORE_DISPATCH","DEADLINE_EXCEEDED_RESULT_WITHHELD"].includes(data.code),
+   STUDY_PERMITTED:s===200&&summary&&data.input_valid===true&&["BLOCKED","LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED"].includes(data.status),
+   SERVER_RESULT_UNAVAILABLE:s===500&&["INPUT_VALIDATION_FAILED_CLOSED","STUDY_FAILED_CLOSED","HTTP_WORKER_START_FAILED"].includes(data.code)
+  };
+  if(!matches[status]||!denied(data))return null;
   try{
    const h=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(wire))),x=>x.toString(16).padStart(2,"0")).join("");
    return c.request_digest===h?c:null;

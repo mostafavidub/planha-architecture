@@ -50,6 +50,14 @@ def single_states_bound(row,states,blockers):
   ('NOT_EVALUATED'in s)==('CURRENT_NOT_EVALUATED'in blockers) and ('EVALUATOR_ERROR'not in s or 'EVALUATOR_ERROR'in blockers) and
   (pending>0)==('PHYSICAL_PENDING'in blockers))
 
+def current_pair_source(expected):
+ # Current X07 rereads source/import pins; this is not an archive lookup
+ # and does not run its worker or evaluator. A mismatch only withholds proof.
+ try:
+  from http_evidence_x07 import digest,guard
+  return digest(guard())==expected
+ except Exception:return False
+
 def evidence(body_pin,case,result):
  r=as_dict(result);rows=r.get('attempts');decision=as_dict(r.get('current_decision'));proof=as_dict(r.get('http_full_evidence'))
  if not (r.get('fresh_model_executed')is True and r.get('source_integrity_verified')is True and
@@ -63,7 +71,7 @@ def evidence(body_pin,case,result):
    proof.get('state')=='SAME_REQUEST_FULL_REPORT_CONSISTENCY_VERIFIED_SCOPED' and type(proof.get('file_count'))is int and proof['file_count']==9 and
    all(h(proof.get(k))for k in ('nonce_digest','model_digest','decision_digest','source_digest','file_hashes_digest')) and
    h(row.get('nonce'),32) and hashlib.sha256(json.dumps(row['nonce']).encode()).hexdigest()==proof['nonce_digest'] and row.get('model_digest')==proof['model_digest'] and row.get('decision_digest')==proof['decision_digest'] and
-   authority_false(proof)):return PAIR
+   authority_false(proof) and current_pair_source(proof['source_digest'])):return PAIR
  if n==1 and proof.get('schema')==SINGLE and r.get('schema')=='SINGLE_HTTP_RESULT_P17_V1':
   diag=as_dict(r.get('http_diagnostic'));hashes=as_dict(row.get('observed_file_hashes'));states=as_dict(row.get('current_states'))
   d_files=as_dict(diag.get('observed_file_hashes'))
@@ -95,4 +103,4 @@ def disclose(*,kind,body=None,envelope=None,preflight=None,result=None):
   'input_state':'VALID'if valid else kind if kind in ('INVALID_INPUT','WIRE_UNSUPPORTED')else'UNASSESSED',
   'capability_state':kind,'canonical_case':c if valid else None,'selected_study':selected,
   'evidence_state':'SAME_REQUEST_STUDY_REPORTS_VERIFIED'if proof else'NOT_VERIFIED',
-  'evidence_contract':proof,'product_available':False,**{k:False for k in AUTH}}
+  'evidence_contract':proof,'production_supported':False,'product_available':False,**{k:False for k in AUTH}}

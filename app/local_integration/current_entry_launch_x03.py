@@ -52,8 +52,8 @@ def capacity_guard():
  return hashlib.sha256(data).hexdigest()
 
 CAPABILITY_PINS={
- 'capability_p36.py':'64018fcbd08afbff8c379a5871b246af61b92de7',
- 'public_wln.js':'8698b469b37fd6d3f1f96578e1b0a8965ff9f750',
+ 'capability_p36.py':'36dd1636e8c3a73329853fba22a69e72eb5f5031',
+ 'public_wln.js':'674a4ebf185f9c24f08def31e272481627210de4',
  'public_wln.html':'49d4d7342e150cd8ae6b2574b9ef364dfc0bd099'}
 def capability_guard():
  observed={}

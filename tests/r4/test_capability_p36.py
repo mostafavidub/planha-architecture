@@ -8,6 +8,7 @@ import capability_p36 as c
 import current_entry_launch_x03 as launcher
 import public_wln_server as server
 import http_withholding_x04 as x04
+import http_evidence_x07 as x07
 
 N2=b'{"W":"18.1","L":"22.2","n":2}'
 N1=b'{"W":"18","L":"20","n":1}'
@@ -23,7 +24,7 @@ def controlled(body,_,*,deadline):
   r.update(schema='AUTOMATIC_PROGRAM_LIVE_SINGLE_CASE_V1',state=c.PAIR_STATE,
    http_full_evidence={'schema':c.PAIR,'binding_verified':True,'state':'SAME_REQUEST_FULL_REPORT_CONSISTENCY_VERIFIED_SCOPED',
      'request_digest':sh(body),'file_count':9,'nonce_digest':sh(json.dumps(row['nonce']).encode()),'model_digest':'e'*64,
-     'decision_digest':'d'*64,'source_digest':'a'*64,'file_hashes_digest':'b'*64,**AUTH})
+     'decision_digest':'d'*64,'source_digest':x07.digest(x07.guard()),'file_hashes_digest':'b'*64,**AUTH})
  else:
   obs={'model':'e'*64,'summary':'c'*64,'decision':'d'*64}
   row.update(state='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED',timed_out=False,returncode=0,wait_completed=True,
@@ -46,7 +47,7 @@ class CapTests(unittest.TestCase):
   finally:cn.close()
  def cap(self,row,kind,b):
   v=row['capability'];self.assertEqual(v['schema'],c.SCHEMA);self.assertEqual(v['capability_state'],kind)
-  self.assertEqual(v['request_digest'],sh(b));self.assertFalse(v['product_available'])
+  self.assertEqual(v['request_digest'],sh(b));self.assertFalse(v['product_available']);self.assertFalse(v['production_supported'])
   self.assertTrue(all(v[k]is False for k in c.AUTH));return v
  def test_wire_invalid_and_valid_unsupported_no_worker(self):
   rows=[(b'{"W":"20","L":"25","n":3}',422,'INVALID_INPUT'),(b'{"W":20.0,"L":"25","n":2}',409,'WIRE_UNSUPPORTED'),
@@ -75,13 +76,14 @@ class CapTests(unittest.TestCase):
     h,r=self.post(body)
    self.assertEqual(h,200);self.assertEqual(self.cap(r,'STUDY_PERMITTED',body)['evidence_state'],'NOT_VERIFIED')
  def test_single_wrong_semantic_state_and_pair_wrong_version(self):
-  for b,fault in ((N1,'state_type'),(N1,'pending_conflict'),(N1,'model_drift'),(N2,'wrong_version'),(N2,'source_unverified')):
+  for b,fault in ((N1,'state_type'),(N1,'pending_conflict'),(N1,'model_drift'),(N2,'wrong_version'),(N2,'valid_hex_source_substitution'),(N2,'source_unverified')):
    def malformed(body,fn,*,deadline):
     v=controlled(body,fn,deadline=deadline);row=v['attempts'][0]
     if fault=='state_type':row['current_states'][c.CURRENT[0]]=True
     elif fault=='pending_conflict':row['physical_pending']=1
     elif fault=='model_drift':row['observed_file_hashes']['model']='0'*64
     elif fault=='wrong_version':v['preflight']['binding']['schema']='OTHER'
+    elif fault=='valid_hex_source_substitution':v['http_full_evidence']['source_digest']='9'*64
     else:v['source_integrity_verified']=False
     return v
    with patch.object(server,'run_bound',side_effect=malformed):

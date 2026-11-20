@@ -11,7 +11,7 @@ let submit,make;
 elements["#plan-form"]={elements:fields,addEventListener:(k,fn)=>{if(k==="submit")submit=fn;}};
 const ctx={document:{querySelector:x=>elements[x]},fetch:async(_u,{body})=>make(body),TextEncoder,crypto:webcrypto,window:{addEventListener(){}}};
 vm.runInNewContext(source,ctx);
-const cap=(wire,kind,extra={})=>({schema:"PUBLIC_WLN_CAPABILITY_P36_V1",request_digest:sh(wire),capability_state:kind,product_available:false,...auth,...extra});
+const cap=(wire,kind,extra={})=>({schema:"PUBLIC_WLN_CAPABILITY_P36_V1",request_digest:sh(wire),capability_state:kind,product_available:false,production_supported:false,...auth,...extra});
 const value=(wire,extra={})=>({schema:"PUBLIC_WLN_STUDY_SUMMARY_V1",...auth,input_valid:true,source_integrity_verified:true,
  status:"LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED",actual_live_attempts:1,plan_count_available:0,plan_payload:null,download_available:false,
  http_lifecycle:{schema:"HTTP_WITHHOLDING_X04_V1",request_id:"a".repeat(32),summary_digest:"b".repeat(64),request_digest:sh(wire),response_state:"ON_TIME_OBSERVED",receipt_verified:false,evidence_usable:false},
@@ -27,6 +27,7 @@ async function go(fn){make=fn;await submit({preventDefault(){}});return elements
  assert.equal(await go(w=>response(200,value(w,{request_digest:"0".repeat(64)}))),"");
  assert.equal(await go(w=>response(409,{...auth,code:"STUDY_BUSY_NO_QUEUE",capability:cap(w,"STUDY_BUSY")})),"study_busy");
  assert.equal(elements["#result"].dataset.statusKind,"busy");
+ assert.equal(await go(w=>response(409,{...auth,code:"STUDY_BUSY_NO_QUEUE",capability:cap(w,"VALID_UNSUPPORTED")})),"");
  assert.equal(await go(w=>response(504,{...auth,code:"DEADLINE_EXCEEDED_RESULT_WITHHELD",capability:cap(w,"STUDY_RESULT_WITHHELD")})),"study_result_withheld");
  assert.equal(elements["#result"].dataset.statusKind,"timeout");
  assert.equal(await go(w=>response(409,{...value(w),status:"UNSUPPORTED_SELECTED_SAME_VERSION_CASE",capability:cap(w,"VALID_UNSUPPORTED")})),"valid_unsupported");
