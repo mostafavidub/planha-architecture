@@ -266,7 +266,7 @@ class P11GuestMasterTests(unittest.TestCase):
   from dining_module118 import build as build_d
   from place_kitchen117 import install as install_k
   L=F(self.source['length']);roots=list(map(F,self.source['root']))
-  kit=['13','1','15.35','4.05'];k=build_k();dm=build_d('3.1','3.5');tx,ty=F('4'),F('3')
+  kit=['13','1','15.35','4.05'];k=build_k('2.35','3.05');dm=build_d('3.1','3.5');tx,ty=F('4'),F('3')
   fxmap={key:'dining_'+key for key in dm['fixtures']}
   east=next(s for s in dm['seating']['instances'] if s['id']=='seat_east')['rise_transfer']['standing_body']
   shift=lambda q:[S(F(v)+(tx if i%2==0 else ty))for i,v in enumerate(q)]
