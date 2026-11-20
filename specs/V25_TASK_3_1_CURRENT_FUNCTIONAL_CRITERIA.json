@@ -1,10 +1,9 @@
 {
-  "schema": "V25_CURRENT_FUNCTIONAL_CRITERIA_CATALOG_V1",
-  "task": "3.1",
-  "version": 1,
-  "status": "REQUIREMENTS_EXTRACTED_NOT_EVALUATED",
-  "source_read_at": "2026-11-19T03:19:00Z",
-  "scope": "Specification only. No new evaluator, geometry, orchestration, acceptance or V25-22 restart.",
+  "schema": "V25_CURRENT_FUNCTIONAL_CRITERIA_CATALOG_V2",
+  "task": "P20",
+  "version": 2,
+  "status": "CONDITION_INVENTORY_AND_IMPLEMENTATION_MAPPING_NOT_PLAN_EVALUATION",
+  "scope": "Existing catalog extended with per-condition source, witness, actual implementation and open calibration. No generator, evaluator, acceptance or P21-P25 implementation changes.",
   "semantics": {
     "PASS": "Conditional future criterion-level result only when every applicable necessary subcondition has fresh same-model evidence, a valid scenario/profile and no mandatory correction; this catalog grants no PASS.",
     "FAIL": "A demonstrated violation of a known necessary condition. Keep other unresolved findings; do not erase them because FAIL dominates.",
@@ -24,7 +23,8 @@
     "Source body width .7m and source fixture bundles are bounded study profiles, not comprehensive ergonomic approval.",
     "Do not transfer evidence across changed geometry, profiles, programmes, or report hashes.",
     "Daylight/ventilation sufficiency and stair/lift engineering are POST_MVP/NOT_EVALUATED; conceptual core presence/access remains.",
-    "All records retain current_state=UNKNOWN; this task runs no plan assessment."
+    "Catalog current_state=UNKNOWN is a non-assessment marker, not a replacement for runtime FAIL/UNKNOWN. This inventory assesses no plan.",
+    "The source four-layer activity model is body/object, door, human body and route with real operation cycle; installation and simultaneous use remain accompanying requirements."
   ],
   "criteria": [
     {
@@ -32,54 +32,40 @@
       "current_state": "UNKNOWN",
       "sources": [
         {
-          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
-          "tab_id": "t.0",
-          "start_index": 118745,
-          "end_index": 119064,
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_1",
           "label": "PRD FR-BEDROOM",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
-          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.jgj9urck6sd",
-          "start_index": 38709,
-          "end_index": 40105,
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_2",
           "label": "AP05–AP09",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.jgj9urck6sd",
-          "start_index": 40544,
-          "end_index": 40834,
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_3",
           "label": "A7 open calibration",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.jgj9urck6sd",
-          "start_index": 41570,
-          "end_index": 44545,
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_4",
           "label": "A9 approved study capacities and complete activities",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.z09xooqq00st",
-          "start_index": 17507,
-          "end_index": 19698,
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_5",
           "label": "Quality order and rubric",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
+        },
+        {
+          "alias": "CURRENT_PROGRAM_SUITABILITY_SOURCE_6",
+          "label": "Minimum functional programme and evidence-readiness distinction",
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         }
       ],
       "paraphrase": "Choose a source-supported usable programme from net geometry while preserving n, necessary bedrooms and all services. Try genuine core/split/placement alternatives before reducing bedrooms. Approved one-bedroom/two-person and two-bedroom/four-person design scenarios are not actual population, solver feasibility, or automatic quality approval. Do not maximize bedroom count or let mean quality hide one poor unit.",
@@ -105,11 +91,6 @@
       "missing_evidence": [
         "Same-model full-bundle adequacy, AP07 comparative sequence, genuine net-capacity/prefilter and alternative-selection evidence."
       ],
-      "existing_checker": {
-        "path": "app/local_integration/functional_review.py",
-        "entry": "assess",
-        "limit": "INTERNAL_INSTANCE_CAPACITY is limited source-profile evidence; CURRENT_PROGRAM_SUITABILITY remains UNKNOWN. Registry approval is independent of readiness."
-      },
       "proposed_tests": [
         {
           "case": "Budget exhausted without witness",
@@ -135,61 +116,169 @@
       "known_rule_scope": [
         "No arbitrary score, weight or area cutoff may be invented."
       ],
-      "missing_rule_status": "OPERATIONAL_QUALITY_SPECIFICATION_OPEN"
+      "missing_rule_status": "OPERATIONAL_QUALITY_SPECIFICATION_OPEN",
+      "legacy_checker": {
+        "path": "app/local_integration/functional_review.py",
+        "entry": "assess",
+        "limit": "INTERNAL_INSTANCE_CAPACITY is limited source-profile evidence; CURRENT_PROGRAM_SUITABILITY remains UNKNOWN. Registry approval is independent of readiness."
+      },
+      "implementation_bindings": [
+        {
+          "path": "app/local_integration/current_programme_evaluator.py",
+          "git_blob": "99ada55f405e0c205d1a431469d1faae55a149dd",
+          "entry": "assess",
+          "family": "FRONT_REAR_N2_SOURCE_P2",
+          "whole_criterion_pass_implemented": false
+        },
+        {
+          "path": "app/local_integration/single_current_programme_evaluator_p17.py",
+          "git_blob": "7ac2f8efcddab91bba747b7e232393ef6bda45a3",
+          "entry": "assess",
+          "family": "SINGLE_N1_P15_FIXED_18X20_P2",
+          "whole_criterion_pass_implemented": false
+        }
+      ],
+      "conditions": [
+        {
+          "id": "P20_PROGRAM_IDENTITY",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_1"
+          ],
+          "requirement": "Preserve requested unit count, approved programme and actual sleep-role/capacity identity.",
+          "required_witness": "Exact typed request/programme/registry binding, same-model source replay.",
+          "current_implementation": "inventory; PROGRAM_IDENTITY:*",
+          "runtime_condition_result": "Identity mismatch maps to runtime FAIL; malformed/incomplete source evidence does not prove architecture infeasible.",
+          "implementation_gap": "No general net-geometry programme selection across families.",
+          "profile_or_calibration_gap": "None for preserving a specified programme.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_CAPACITY",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_4"
+          ],
+          "requirement": "Required approved design-group sleeping capacity must not be reduced.",
+          "required_witness": "Source-bound distinct fixtures/activities and fresh capacity report with ACTUAL_CAPACITY_SHORTFALL or actual places.",
+          "current_implementation": "proven_capacity_violation; program_capacity_audit118.examine",
+          "runtime_condition_result": "Proven capacity shortfall maps to FAIL; other capacity errors are retained without automatic current-rule FAIL.",
+          "implementation_gap": "Shape inventory is not full clothing volume or simultaneous bundle use.",
+          "profile_or_calibration_gap": "Full arrival/use/exit and ergonomic scenario qualification remains open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_ALTERNATIVES",
+          "kind": "COMPARATIVE_DUTY",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_2"
+          ],
+          "requirement": "Try genuine same-programme core/split/placement alternatives before reducing bedrooms; reduction is a separate programme.",
+          "required_witness": "Attempted and untried alternatives, locked n/programme and budgets, reasons per branch.",
+          "current_implementation": "assess findings AP07_ALTERNATIVE_SEQUENCE_AND_PARETO_SELECTION",
+          "runtime_condition_result": "Missing sequence remains UNKNOWN; exhausted bounded search is not infeasibility.",
+          "implementation_gap": "Full AP07 selection/sequence not implemented by these assessors.",
+          "profile_or_calibration_gap": "No fabricated alternative weights or cutoff.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_QUALITY_FLOOR",
+          "kind": "CALIBRATION_OPEN",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_5"
+          ],
+          "requirement": "A failed unit cannot be compensated by stronger units or mean quality.",
+          "required_witness": "Per-room/per-unit quality dimensions and qualified floors/acceptance anchors.",
+          "current_implementation": "assess findings CALIBRATED_ROOM_UNIT_QUALITY_AND_ERGONOMIC_SCENARIOS",
+          "runtime_condition_result": "No calibrated floor means UNKNOWN, not an inferred numeric pass.",
+          "implementation_gap": "No complete per-unit quality-floor evaluator.",
+          "profile_or_calibration_gap": "Operational dimensions, acceptance anchors and qualified quality floors remain open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_PREFILTER",
+          "kind": "IMPLEMENTATION_OPEN",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_2"
+          ],
+          "requirement": "Missing source capacity bound is distinct from impossible geometry.",
+          "required_witness": "Net/common/core/wall accounting and justified lower bound per programme.",
+          "current_implementation": "assess NET_CAPACITY_PREFILTER_SOURCE_BOUND_NOT_AVAILABLE",
+          "runtime_condition_result": "NOT_EVALUATED prefilter is not PASS or proven no-fit.",
+          "implementation_gap": "Source-bound net-capacity prefilter not available.",
+          "profile_or_calibration_gap": "Do not invent area cutoff.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_BUNDLE_USE",
+          "kind": "PROFILE_AND_EVIDENCE_OPEN",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_4"
+          ],
+          "requirement": "Source instance dimensions are necessary but do not prove complete useful operation.",
+          "required_witness": "Actual fixed-size fixture identities, storage and all required arrival/use/exit/simultaneous activities. Preserve four layers: object body, door, human body and route, plus real operation cycle.",
+          "current_implementation": "inventory activity_phase_coverage; assess capacity",
+          "runtime_condition_result": "Source inventory/capacity diagnostics remain scoped; missing full-use evidence leaves UNKNOWN.",
+          "implementation_gap": "Full clothing/storage volume and simultaneous bundle adequacy absent.",
+          "profile_or_calibration_gap": "Qualified activity/transfer/equipment profiles remain open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_PROGRAM_SERVICE_MINIMA",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CURRENT_PROGRAM_SUITABILITY_SOURCE_6"
+          ],
+          "requirement": "Retain a genuinely enclosed sleeping room, clothes storage, independent WC/bath functions and a real usable kitchen under the chosen programme.",
+          "required_witness": "Same-model source module/fixture inventory, real served spaces and actual access/use evidence; do not substitute labels.",
+          "current_implementation": "inventory exact source modules/fixtures; retained full physical report; full functional approval not provided by shape inventory",
+          "runtime_condition_result": "Proven necessary violation requires correction; missing profile/evidence is PROFILE_NOT_READY or SOURCE_REVIEW_REQUIRED, not a newly missing owner policy or automatic PASS.",
+          "implementation_gap": "Inventory covers fixed source instances; complete independent functional-use closure remains unproved.",
+          "profile_or_calibration_gap": "Approved comparative fixture bundle is not a complete effective anthropometric/operation/installation/simultaneous-use profile.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        }
+      ]
     },
     {
       "id": "KITCHEN_GUEST_PATH_SEPARATION",
       "current_state": "UNKNOWN",
       "sources": [
         {
-          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
-          "tab_id": "t.0",
-          "start_index": 140252,
-          "end_index": 142667,
+          "alias": "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1",
           "label": "PRD four routes",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
-          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
-          "tab_id": "t.0",
-          "start_index": 137783,
-          "end_index": 138163,
+          "alias": "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_2",
           "label": "PRD first living",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
-          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 71731,
-          "end_index": 74146,
+          "alias": "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_3",
           "label": "Kitchen and four guest routes",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.jgj9urck6sd",
-          "start_index": 43222,
-          "end_index": 43551,
+          "alias": "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_4",
           "label": "Guest entry and activity exclusion",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.jgj9urck6sd",
-          "start_index": 42686,
-          "end_index": 43221,
+          "alias": "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_5",
           "label": "Targets versus qualified profiles",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.jgj9urck6sd"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         }
       ],
       "paraphrase": "Per unit verify four independent width-bearing routes: entry→living, entry→actual dining use destination, entry→WC, living↔dining. Required guest movement must avoid actual kitchen equipment, effective opening/motion and cooking/use areas in required scenarios. An enclosed kitchen or separate corridor is not mandated. Guest arrival should reach living without forced travel through dining occupation or cooking.",
@@ -212,11 +301,6 @@
       "missing_evidence": [
         "All four actual destination routes, bottlenecks/openings, first-living and effective-state coverage on same model."
       ],
-      "existing_checker": {
-        "path": "app/local_integration/functional_review.py",
-        "entry": "guest_four_route_diagnostic via assess",
-        "limit": "Attached bounded source-profile route study does not close first-living/scenario/ergonomic requirements; legacy whole-kitchen-floor exclusion is conservative, not equivalent to work-area rule."
-      },
       "proposed_tests": [
         {
           "case": "Entry→living clear, dining only via cooking",
@@ -242,61 +326,139 @@
       "known_rule_scope": [
         "No requirement for a separate corridor or whole-kitchen-floor prohibition; do not invent these."
       ],
-      "missing_rule_status": "NONE_IDENTIFIED"
+      "missing_rule_status": "NONE_IDENTIFIED",
+      "legacy_checker": {
+        "path": "app/local_integration/functional_review.py",
+        "entry": "guest_four_route_diagnostic via assess",
+        "limit": "Attached bounded source-profile route study does not close first-living/scenario/ergonomic requirements; legacy whole-kitchen-floor exclusion is conservative, not equivalent to work-area rule."
+      },
+      "implementation_bindings": [
+        {
+          "path": "app/local_integration/source_guest_route_evaluator.py",
+          "git_blob": "17fb50e08d153aee4aa2ecd4fa4d13928f522a4e",
+          "entry": "assess",
+          "family": "FRONT_REAR_N2_SOURCE_P2",
+          "whole_criterion_pass_implemented": false
+        },
+        {
+          "path": "app/local_integration/single_source_guest_route_evaluator_p17.py",
+          "git_blob": "e32189f2de3cea1545fba2c391468565dc4a0353",
+          "entry": "assess",
+          "family": "SINGLE_N1_P15_FIXED_18X20_P2",
+          "whole_criterion_pass_implemented": false
+        }
+      ],
+      "conditions": [
+        {
+          "id": "P20_GUEST_FOUR_ROUTES",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1"
+          ],
+          "requirement": "Keep four distinct guest route duties: entry-living, entry-dining, entry-WC and living-dining.",
+          "required_witness": "Same-model actual source destination/fixture IDs and body-width swept paths for all four routes.",
+          "current_implementation": "assess per-unit routes; route_check",
+          "runtime_condition_result": "Valid witness yields PASS_SOURCE_PROFILE_ROUTE_ONLY, never aggregate PASS; absent witness is UNKNOWN in this conservative scenario.",
+          "implementation_gap": "No complete necessary-scenario coverage.",
+          "profile_or_calibration_gap": "Source body .7 is a study profile, not ergonomic qualification.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_GUEST_WORK_EXCLUSION",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1"
+          ],
+          "requirement": "Required guest movement must avoid effective kitchen work, operation and equipment obstacles.",
+          "required_witness": "Bound workstation/motion envelopes, exact collision-free swept-body certificate for required scenario.",
+          "current_implementation": "route_check; assess kitchen_operation_digest",
+          "runtime_condition_result": "Colliding supplied witness is rejected; lack of alternate route is not automatically proven global FAIL.",
+          "implementation_gap": "No proof that all possible routes fail; original physical result retained.",
+          "profile_or_calibration_gap": "Complete simultaneous door/chair/kitchen scenarios unqualified.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_GUEST_FIRST_LIVING",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_2"
+          ],
+          "requirement": "Entry should reach living without forced traversal of occupied dining/cooking use.",
+          "required_witness": "Ordered destination/organisation witness in the actual plan, not only existence of a detour.",
+          "current_implementation": "assess remaining First-living/principal organisation unproved",
+          "runtime_condition_result": "UNKNOWN; existing route existence does not prove principal organisation.",
+          "implementation_gap": "First-living/principal-organisation proof absent.",
+          "profile_or_calibration_gap": "No arbitrary natural-route threshold.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_GUEST_PRIVATE_ACCESS",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1"
+          ],
+          "requirement": "Guest WC access must use an applicable actual public route, not private bedroom circulation.",
+          "required_witness": "Source-bound WC operation target, actual ownership, floor coverage and private-domain exclusions.",
+          "current_implementation": "assess entry_WC; route_check",
+          "runtime_condition_result": "Only source-scenario witness is passed; missing/unbound target is invalid evidence/UNKNOWN.",
+          "implementation_gap": "Complete opening/bottleneck classification absent.",
+          "profile_or_calibration_gap": "Effective width/operation scenario qualification open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_GUEST_KITCHEN_LABEL",
+          "kind": "SCOPE_DISTINCTION",
+          "source_refs": [
+            "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1"
+          ],
+          "requirement": "A kitchen label alone does not ban traversing every unoccupied portion or require a separate corridor.",
+          "required_witness": "Actual work/use zones distinguished from legacy whole-floor exclusion.",
+          "current_implementation": "assess scenario and remaining historical-profile distinction",
+          "runtime_condition_result": "Legacy FAIL remains retained; a different profile never overwrites it or becomes automatic PASS.",
+          "implementation_gap": "Profile equivalence between historical whole-floor and work-zone checks is not claimed.",
+          "profile_or_calibration_gap": "Do not turn conservative study exclusions into a universal requirement.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        }
+      ]
     },
     {
       "id": "CONTINUOUS_USEFUL_LIVING",
       "current_state": "UNKNOWN",
       "sources": [
         {
-          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
-          "tab_id": "t.0",
-          "start_index": 144137,
-          "end_index": 144556,
+          "alias": "CONTINUOUS_USEFUL_LIVING_SOURCE_1",
           "label": "PRD useful living",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
-          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 75616,
-          "end_index": 76035,
+          "alias": "CONTINUOUS_USEFUL_LIVING_SOURCE_2",
           "label": "Usable continuous public floor",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.z09xooqq00st",
-          "start_index": 12635,
-          "end_index": 13160,
+          "alias": "CONTINUOUS_USEFUL_LIVING_SOURCE_3",
           "label": "Q02–Q04",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 5209,
-          "end_index": 5727,
+          "alias": "CONTINUOUS_USEFUL_LIVING_SOURCE_4",
           "label": "Shorter organisation comparison",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.z09xooqq00st",
-          "start_index": 19227,
-          "end_index": 19698,
+          "alias": "CONTINUOUS_USEFUL_LIVING_SOURCE_5",
           "label": "Quality-floor limits",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.z09xooqq00st"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         }
       ],
       "paraphrase": "Living must be a genuinely continuous furnishable and usable floor, not a label, bounding box, narrow neck or leftover winding strip. Internal furniture use and width-bearing movement evidence remain necessary even when movable furniture is omitted from output. Compare long circulation with a genuinely shorter organisation under the same programme.",
@@ -318,11 +480,6 @@
       "missing_evidence": [
         "Same-model coherent group use and continuous functional floor, true useful-area accounting and shorter valid organisation comparison."
       ],
-      "existing_checker": {
-        "path": "app/local_integration/functional_review.py",
-        "entry": "living_connectivity_diagnostic via assess",
-        "limit": "Seat-access connectivity and route metrics are partial diagnostics, not continuous useful living or quality approval; overall ID remains UNKNOWN."
-      },
       "proposed_tests": [
         {
           "case": "Claimed living-floor continuity witness leaves its declared floor scope",
@@ -349,51 +506,133 @@
         "No universal golden ratio, corridor-length cap, waste percentage or arbitrary compactness threshold is authorized.",
         "Living-floor continuity and real access routing have distinct domains. A source-labelled entry_circulation access path is not forbidden by this rule, nor counted automatically as useful living."
       ],
-      "missing_rule_status": "NONE_IDENTIFIED"
+      "missing_rule_status": "NONE_IDENTIFIED",
+      "legacy_checker": {
+        "path": "app/local_integration/functional_review.py",
+        "entry": "living_connectivity_diagnostic via assess",
+        "limit": "Seat-access connectivity and route metrics are partial diagnostics, not continuous useful living or quality approval; overall ID remains UNKNOWN."
+      },
+      "implementation_bindings": [
+        {
+          "path": "app/local_integration/source_living_evaluator.py",
+          "git_blob": "2f368ae2a1d5db32d7163076f90eb5a7e991f76f",
+          "entry": "assess",
+          "family": "FRONT_REAR_N2_SOURCE_P2",
+          "whole_criterion_pass_implemented": false
+        },
+        {
+          "path": "app/local_integration/single_source_living_evaluator_p17.py",
+          "git_blob": "cee0eb2d5262b99b553f38ef11c3a77a03e1cb10",
+          "entry": "assess",
+          "family": "SINGLE_N1_P15_FIXED_18X20_P2",
+          "whole_criterion_pass_implemented": false
+        }
+      ],
+      "conditions": [
+        {
+          "id": "P20_LIVING_SOURCE_SEATS",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CONTINUOUS_USEFUL_LIVING_SOURCE_1"
+          ],
+          "requirement": "Required furnishing and its actual activity targets must be source-bound and usable.",
+          "required_witness": "Distinct actual seating inventory, source dimensions and adjacent actual targets.",
+          "current_implementation": "assess SEAT_INVENTORY; living_destination",
+          "runtime_condition_result": "Binding/shape exception is UNKNOWN/invalid evidence here, not a fabricated complete criterion FAIL.",
+          "implementation_gap": "Full seated-use/transfer/exit not proven by fresh approach.",
+          "profile_or_calibration_gap": "Qualified all-person simultaneous-use profile open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_LIVING_FLOOR_CONTINUITY",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CONTINUOUS_USEFUL_LIVING_SOURCE_1"
+          ],
+          "requirement": "A claimed continuity witness must remain in its declared living-floor scope; valid access may use authorized circulation.",
+          "required_witness": "Exact union and swept route in separately named living/access/group domains.",
+          "current_implementation": "assess studies; route_check",
+          "runtime_condition_result": "PASS_ACCESS_WITNESS_ONLY is a limited route result; NO_WITNESS_THIS_DOMAIN is not global impossibility.",
+          "implementation_gap": "Coherent useful living floor is not established by seat connectivity.",
+          "profile_or_calibration_gap": "Reviewed quality anchors remain open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_LIVING_USEFUL_AREA",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "CONTINUOUS_USEFUL_LIVING_SOURCE_1"
+          ],
+          "requirement": "Residual geometry, bounding boxes and released wall material are not proven useful living area.",
+          "required_witness": "Alias-aware union and explicit gross/net/declared-use denominators plus functional-use witness.",
+          "current_implementation": "union_area; assess area_accounting",
+          "runtime_condition_result": "verified_useful_living_area_m2 remains null, not inferred PASS.",
+          "implementation_gap": "Functional useful-area measurement absent.",
+          "profile_or_calibration_gap": "No universal living ratio, compactness or waste cutoff authorized.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_LIVING_SHORTER_ALTERNATIVE",
+          "kind": "COMPARATIVE_DUTY",
+          "source_refs": [
+            "CONTINUOUS_USEFUL_LIVING_SOURCE_4"
+          ],
+          "requirement": "Compare long circulation with genuinely shorter physical organisation under the same programme.",
+          "required_witness": "Constructed same-programme alternative and fresh access/privacy/use evidence, not re-labelling domains.",
+          "current_implementation": "assess shorter_organisation_comparison",
+          "runtime_condition_result": "NOT_RUN remains UNKNOWN; route length alone is not quality.",
+          "implementation_gap": "No alternative organisation constructed by this evaluator.",
+          "profile_or_calibration_gap": "No arbitrary corridor-length threshold.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_LIVING_GROUP_USE",
+          "kind": "PROFILE_AND_EVIDENCE_OPEN",
+          "source_refs": [
+            "CONTINUOUS_USEFUL_LIVING_SOURCE_5"
+          ],
+          "requirement": "Living must support coherent furnishing and required group use, not merely a connected winding strip.",
+          "required_witness": "All-person activities and simultaneous use/exit under qualified profile.",
+          "current_implementation": "assess remaining; activity_phase_coverage",
+          "runtime_condition_result": "UNKNOWN even if all recorded approach routes succeed.",
+          "implementation_gap": "Coherent group-use/exit proof missing.",
+          "profile_or_calibration_gap": "Room quality floors and activity/ergonomic profile open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        }
+      ]
     },
     {
       "id": "NONFUNCTIONAL_WALL_EXCLUSION",
       "current_state": "UNKNOWN",
       "sources": [
         {
-          "document_id": "1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8",
-          "tab_id": "t.0",
-          "start_index": 138164,
-          "end_index": 139535,
+          "alias": "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_1",
           "label": "PRD wall function",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTqMA5CtavQOqX4wDpsALz5ml3m91dP6_70QexONwfNsDsMXQOF0ocDYiADxgsHBhOJCyHrAF6WNq6VV5IQZqe-_7JEWLQaFXQ3-zw",
-          "url": "https://docs.google.com/document/d/1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8/edit?tab=t.0"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 18695,
-          "end_index": 19896,
+          "alias": "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_2",
           "label": "IR-P11 actual function and counterfactual",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 69601,
-          "end_index": 70707,
+          "alias": "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_3",
           "label": "G15 per-wall proof",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         },
         {
-          "document_id": "17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s",
-          "tab_id": "t.j4w0y56xvj8u",
-          "start_index": 5209,
-          "end_index": 5727,
+          "alias": "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_4",
           "label": "Circulation alternative",
-          "readback": "VERIFIED",
-          "revision_id": "AHj4eMTLIeXe4MHjiiDYNTVFyrNGhHFRCkG_ylpvtD-JcFkrkFYuoiUE7zy8LVDcpDcz6zVqJ4sJpFl3WRWTkp3dnAGpOFl8HeBANqiDb9w",
-          "url": "https://docs.google.com/document/d/17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s/edit?tab=t.j4w0y56xvj8u"
+          "locator_scope": "Private source readback retained by owner; no private locator published",
+          "source_kind": "OWNER_REQUIREMENT"
         }
       ],
       "paraphrase": "Do not retain an added wall or L arm whose only function is hiding private views without bounding a genuinely usable space. Real bedroom/bath/closet boundaries may be functional, but names, one-ended attachment or a privacy PASS do not prove it. For each added wall record identity, geometry, function and removal/alternative effects; resolve privacy through real organisation rather than fictitious spaces.",
@@ -416,11 +655,6 @@
       "missing_evidence": [
         "Per-wall function/use and removal/alternative records; unchanged programme and exact alias-aware geometry; current dependent checks."
       ],
-      "existing_checker": {
-        "path": "app/local_integration/functional_review.py",
-        "entry": "NONFUNCTIONAL_WALL_EXCLUSION requirement",
-        "limit": "No complete per-wall alternative proof is installed; provenance, closure dependency or detached probes alone do not imply necessity/quality. ID remains UNKNOWN."
-      },
       "proposed_tests": [
         {
           "case": "Privacy PASS from only-view L screen",
@@ -446,12 +680,230 @@
       "known_rule_scope": [
         "Qualitative ban and comparison duty already exist; no missing owner preference or fixed waste percentage should be invented."
       ],
-      "missing_rule_status": "NONE_IDENTIFIED"
+      "missing_rule_status": "NONE_IDENTIFIED",
+      "legacy_checker": {
+        "path": "app/local_integration/functional_review.py",
+        "entry": "NONFUNCTIONAL_WALL_EXCLUSION requirement",
+        "limit": "No complete per-wall alternative proof is installed; provenance, closure dependency or detached probes alone do not imply necessity/quality. ID remains UNKNOWN."
+      },
+      "implementation_bindings": [
+        {
+          "path": "app/local_integration/source_wall_function_evaluator.py",
+          "git_blob": "84233b6bba2c4835af5e59c203ecf51a6765b8e0",
+          "entry": "assess",
+          "family": "FRONT_REAR_N2_SOURCE_P2",
+          "whole_criterion_pass_implemented": false
+        },
+        {
+          "path": "app/local_integration/single_source_wall_function_evaluator_p17.py",
+          "git_blob": "8beab5c8b68d50458fd8edb10de3608ec5c1b2ca",
+          "entry": "assess",
+          "family": "SINGLE_N1_P15_FIXED_18X20_P2",
+          "whole_criterion_pass_implemented": false
+        }
+      ],
+      "conditions": [
+        {
+          "id": "P20_WALL_SOURCE_INVENTORY",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_2"
+          ],
+          "requirement": "Every added wall needs identity and real served-space/use evidence; naming is insufficient.",
+          "required_witness": "Exact source/material alias inventory, actual modules and fixed source-room boundaries.",
+          "current_implementation": "assess walls; bound_source",
+          "runtime_condition_result": "Source binding and boundary dependency are scoped observations, not functional necessity PASS.",
+          "implementation_gap": "Core/shell non-module walls inventory only.",
+          "profile_or_calibration_gap": "Specific use/privacy scenario qualification open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_WALL_VIEW_ONLY",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_1"
+          ],
+          "requirement": "A wall whose sole function is hiding private views without a real useful boundary must not be accepted.",
+          "required_witness": "Per-wall functional/use proof and same-programme counterfactual, not privacy result or label alone.",
+          "current_implementation": "assess remaining; bed_aperture_separator_changes",
+          "runtime_condition_result": "Known requirement exists but no complete classifier for view-only walls; aggregate UNKNOWN.",
+          "implementation_gap": "Complete function-only/view-only classification not implemented.",
+          "profile_or_calibration_gap": "Absence of implementation is not a missing owner rule.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_WALL_ALIAS_MATERIAL",
+          "kind": "KNOWN_NECESSARY",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_2"
+          ],
+          "requirement": "Removing an overlapping source alias must not invent material or usable-area gain.",
+          "required_witness": "Exact before/after union, alias-aware material difference.",
+          "current_implementation": "assess removed_material_cells; exact_closure_change",
+          "runtime_condition_result": "Zero unique material remains zero; geometric free gain is not useful gain/PASS.",
+          "implementation_gap": "No full usefulness proof from detached probes.",
+          "profile_or_calibration_gap": "No fabricated area-benefit threshold.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_WALL_ALTERNATIVE",
+          "kind": "COMPARATIVE_DUTY",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_4"
+          ],
+          "requirement": "Removal/placement alternatives must preserve programme and be rechecked for access, furnishing and privacy.",
+          "required_witness": "Actual alternative with dependent fresh checks and comparable route/use metrics.",
+          "current_implementation": "assess remaining; fixed_existing_route_wall_collision_changes",
+          "runtime_condition_result": "Detached fixed-path changes are not a constructed alternative; UNKNOWN remains.",
+          "implementation_gap": "No fresh rerouting/full use/privacy or shorter-organisation proof.",
+          "profile_or_calibration_gap": "Qualified full privacy/use scenarios open.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_WALL_PRIVACY_TARGETS",
+          "kind": "SCOPE_DISTINCTION",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_3"
+          ],
+          "requirement": "A limited single-wall separator certificate must not become complete privacy approval.",
+          "required_witness": "Explicit source bed target set and exact coverage exclusions.",
+          "current_implementation": "assess bed_aperture_separator_changes; privacy_scope",
+          "runtime_condition_result": "Absent certificate is UNKNOWN, not a visible-ray proof or PASS; single_bed targets are not covered.",
+          "implementation_gap": "Inherited kind=bed probe omits twin single_bed; other targets/scenarios not evaluated.",
+          "profile_or_calibration_gap": "No expansion to all privacy scenarios.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        },
+        {
+          "id": "P20_CORE_ENGINEERING",
+          "kind": "OUT_OF_SCOPE",
+          "source_refs": [
+            "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_1"
+          ],
+          "requirement": "Conceptual core presence/access is separate from technical/legal stair/lift approval; no blanket wall deletion permission.",
+          "required_witness": "Explicit scope declaration with conceptual core evidence kept separate.",
+          "current_implementation": "assess NON_MODULE_SOURCE_INVENTORY_ONLY",
+          "runtime_condition_result": "NOT_EVALUATED engineering is never PASS or delivery authority.",
+          "implementation_gap": "No technical/legal stair/lift assessment in these four evaluators.",
+          "profile_or_calibration_gap": "Out-of-scope engineering cannot be silently treated as accepted.",
+          "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
+          "numeric_thresholds_added": []
+        }
+      ]
     }
   ],
   "accepted": false,
   "qualified": false,
   "display_allowed": false,
   "delivery_allowed": false,
-  "source_locator_correction": "PRD t.0 ranges above 118000 belong to 1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8, not Blueprint17X. Both documents read back; Blueprint t.0 ends62343 in observed revision."
+  "source_provenance": {
+    "public_locator_policy": "Aliases only; exact private source citations retained separately by owner",
+    "historical_catalog_git_blob": "125ed9cdf0c8b5d5ca2a9eae0e7d00ba869d0841",
+    "implementation_read_at_commit": "b7445bde59f1a480c07a5d4f0806ef5600a954d3",
+    "live_requirement_readback": "READ_ONLY_LIVE_PRD_BLUEPRINT_A_C_G_REVIEWED_2026_11_20_PRIVATE_CITATIONS_RETAINED"
+  },
+  "source_aliases": {
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_1": "PRD FR-BEDROOM",
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_2": "AP05–AP09",
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_3": "A7 open calibration",
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_4": "A9 approved study capacities and complete activities",
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_5": "Quality order and rubric",
+    "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_1": "PRD four routes",
+    "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_2": "PRD first living",
+    "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_3": "Kitchen and four guest routes",
+    "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_4": "Guest entry and activity exclusion",
+    "KITCHEN_GUEST_PATH_SEPARATION_SOURCE_5": "Targets versus qualified profiles",
+    "CONTINUOUS_USEFUL_LIVING_SOURCE_1": "PRD useful living",
+    "CONTINUOUS_USEFUL_LIVING_SOURCE_2": "Usable continuous public floor",
+    "CONTINUOUS_USEFUL_LIVING_SOURCE_3": "Q02–Q04",
+    "CONTINUOUS_USEFUL_LIVING_SOURCE_4": "Shorter organisation comparison",
+    "CONTINUOUS_USEFUL_LIVING_SOURCE_5": "Quality-floor limits",
+    "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_1": "PRD wall function",
+    "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_2": "IR-P11 actual function and counterfactual",
+    "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_3": "G15 per-wall proof",
+    "NONFUNCTIONAL_WALL_EXCLUSION_SOURCE_4": "Circulation alternative",
+    "CURRENT_PROGRAM_SUITABILITY_SOURCE_6": "Minimum functional programme and evidence-readiness distinction"
+  },
+  "aggregate_policy": {
+    "runtime_condition_result_is_not_aggregate_criterion": true,
+    "out_of_scope_is_not_pass": true,
+    "no_witness_is_not_global_infeasibility": true,
+    "known_violation_does_not_erase_unknown": true,
+    "classification_only_no_new_evaluator": true
+  },
+  "numeric_thresholds_added": [],
+  "open_decisions": [
+    {
+      "id": "P20_OPEN_QUALITY_ANCHORS",
+      "kind": "CALIBRATION_AND_OPERATIONAL_SPEC",
+      "criteria": [
+        "CURRENT_PROGRAM_SUITABILITY",
+        "CONTINUOUS_USEFUL_LIVING"
+      ],
+      "decision_needed": "Qualified room/unit quality dimensions, acceptance anchors and floors; no numeric default.",
+      "implemented_by_this_task": false
+    },
+    {
+      "id": "P20_OPEN_EFFECTIVE_ACTIVITY_PROFILES",
+      "kind": "CALIBRATION",
+      "criteria": [
+        "CURRENT_PROGRAM_SUITABILITY",
+        "KITCHEN_GUEST_PATH_SEPARATION",
+        "CONTINUOUS_USEFUL_LIVING",
+        "NONFUNCTIONAL_WALL_EXCLUSION"
+      ],
+      "decision_needed": "Effective anthropometric, equipment, arrival/use/exit and simultaneous-operation profiles.",
+      "implemented_by_this_task": false
+    },
+    {
+      "id": "P20_OPEN_PROGRAMME_SELECTION",
+      "kind": "IMPLEMENTATION_AND_EVIDENCE",
+      "criteria": [
+        "CURRENT_PROGRAM_SUITABILITY"
+      ],
+      "decision_needed": "Source net-capacity bounds and explicit AP07 alternatives/selection under fixed request and programme.",
+      "implemented_by_this_task": false
+    },
+    {
+      "id": "P20_OPEN_PRINCIPAL_GUEST_ORGANISATION",
+      "kind": "IMPLEMENTATION_AND_EVIDENCE",
+      "criteria": [
+        "KITCHEN_GUEST_PATH_SEPARATION"
+      ],
+      "decision_needed": "First-living/principal organisation and opening/bottleneck classifications beyond four route existence.",
+      "implemented_by_this_task": false
+    },
+    {
+      "id": "P20_OPEN_USEFUL_LIVING",
+      "kind": "IMPLEMENTATION_AND_EVIDENCE",
+      "criteria": [
+        "CONTINUOUS_USEFUL_LIVING"
+      ],
+      "decision_needed": "Coherent furnishing, functional useful area and genuinely shorter same-programme alternative.",
+      "implemented_by_this_task": false
+    },
+    {
+      "id": "P20_OPEN_PER_WALL_FUNCTION",
+      "kind": "IMPLEMENTATION_AND_EVIDENCE",
+      "criteria": [
+        "NONFUNCTIONAL_WALL_EXCLUSION"
+      ],
+      "decision_needed": "Per-wall real use/function and dependent fresh alternative checks; complete target coverage including single_bed.",
+      "implemented_by_this_task": false
+    }
+  ],
+  "condition_result_vocabulary": {
+    "PASS_SCOPED": "Only the explicitly witnessed subcondition and profile; not aggregate PASS.",
+    "FAIL_SCOPED": "Demonstrated violation of the applicable necessary subcondition; unresolved findings retained.",
+    "INDETERMINATE": "Available evidence does not settle the condition.",
+    "CONFLICT": "Source/evidence conflict remains distinct from a proven architectural violation.",
+    "NOT_EVALUATED": "Condition not evaluated; never PASS.",
+    "EVALUATION_ERROR": "Execution/evaluation error, not proof of infeasible geometry.",
+    "NOT_APPLICABLE": "Requires an explicit applicability reason; not silently PASS.",
+    "MEASURED_ONLY": "Measurement without a validated acceptance decision."
+  }
 }
