@@ -108,6 +108,19 @@ class ParametricP04Tests(unittest.TestCase):
    tampered=copy.deepcopy(row);tampered['runtime_digest']=digest(altered)
    with self.assertRaisesRegex(ValueError,'LIVE_RUNTIME_REQUEST_BINDING'):bind_completed(tampered,request,altered,None)
    self.assertFalse((folder/'decision.json').exists())
+ def test_real_p04_runner_retains_controlled_no_witness_before_emitting_receipt(self):
+  from types import SimpleNamespace
+  import parametric_pair_p04 as parametric,source_fit_candidate207 as producer
+  from front_rear_runtime_adapter import verify_reports
+  body=self.post_body('18.1','22.2')
+  with patch.object(producer,'milp',return_value=SimpleNamespace(x=None,status=1,message='CONTROLLED_NO_WITNESS')) as fake,patch('subprocess.Popen',side_effect=AssertionError('solver forbidden')) as spawn:
+   b=parametric.run(body,solver_seconds=30)
+   fake.assert_called_once();spawn.assert_not_called()
+  self.assertEqual(b['status'],'NO_PROPOSAL_IN_BOUNDED_ATTEMPT')
+  self.assertEqual(b['proposal']['status'],'SEARCH_TIMEOUT_NO_WITNESS')
+  self.assertIs(b['global_infeasibility_proven'],False);self.assertIs(b['constructor_called'],False)
+  self.assertIs(b['object_integrity_verified'],True);self.assertEqual(b['object_digests']['proposal'],digest(b['proposal']))
+  self.assertEqual(set(b['reports']),set(b['report_digests']));verify_reports(b['reports'],b['report_digests'])
  def test_http_real_route_controlled_n2_no_solver(self):
   import http.client,threading
   import public_wln_server as server
