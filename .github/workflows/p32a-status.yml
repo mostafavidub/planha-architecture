@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - app/local_integration/public_wln.js
+      - app/local_integration/public_wln_server.py
       - app/local_integration/public_wln.html
       - tests/r4/run_status_p32a.py
       - studies/p32a-status.md
