@@ -42,7 +42,7 @@ def fixture(body,mode,serial):
  if mode=='receipt_false':row['receipt_verified']=False
  if mode=='binding_false':binding['binding_verified']=False
  out={'schema':'SINGLE_HTTP_RESULT_P17_V1' if single else 'CONTROLLED_PAIR_RESULT',
-  'preflight':pf,'state':'BLOCKED','attempts':[row],'fresh_model_executed':True,
+  'preflight':pf,'state':'BLOCKED' if single else 'LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED','attempts':[row],'fresh_model_executed':True,
   'source_integrity_verified':mode!='source_false','http_full_evidence':binding,
   'current_decision':{'state':'BLOCKED','blockers':blockers,**{k:False for k in AUTH}}}
  return out
@@ -122,6 +122,8 @@ def main():
        'decision_contradiction':lambda d:d['decision'].update(blockers=['CURRENT_UNKNOWN']),
        'count_bool':lambda d:d['single_unit_evidence'][0].update(physical_errors=True),
        'current_contradiction':lambda d:d['single_unit_evidence'][0]['current_states'].update(CURRENT_PROGRAM_SUITABILITY='FAIL'),
+       'status_contradiction':lambda d:d.update(status='FAILED'),
+       'physical_count_contradiction':lambda d:(d['single_unit_evidence'][0].update(physical_status='PASS_CONCEPT_SCOPED_REVIEW'),d['decision'].update(blockers=['CURRENT_UNKNOWN'])),
        'http_mismatch':lambda d:None}
       for name,change in changes.items():
        data=copy.deepcopy(base);change(data);status=500 if name=='http_mismatch' else 200

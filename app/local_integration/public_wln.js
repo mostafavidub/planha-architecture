@@ -33,6 +33,7 @@
   const requestHash=Array.from(new Uint8Array(bytes),x=>x.toString(16).padStart(2,"0")).join("");
   if(life.request_digest!==requestHash||seenResponses.has(life.request_id))return false;
   if(binding.schema==="SINGLE_READBACK_P17_V1"){
+   if(data.status!=="BLOCKED")return false;
    const rows=data.single_unit_evidence;
    if(!Array.isArray(rows)||rows.length!==1||data.actual_live_attempts!==1)return false;
    const row=rows[0],states=row.current_states,hashes=row.observed_file_hashes;
@@ -46,14 +47,15 @@
       !["FAIL","PASS_CONCEPT_SCOPED_REVIEW"].includes(row.physical_status)||
       !states||Object.keys(states).sort().join("|")!==["CONTINUOUS_USEFUL_LIVING","CURRENT_PROGRAM_SUITABILITY","KITCHEN_GUEST_PATH_SEPARATION","NONFUNCTIONAL_WALL_EXCLUSION"].sort().join("|")||
       !Object.values(states).every(x=>["PASS","FAIL","UNKNOWN","NOT_EVALUATED","EVALUATOR_ERROR"].includes(x)))return false;
-   if((row.physical_status==="FAIL")!==decision.blockers.includes("PHYSICAL_FAIL")||
+   if((row.physical_errors>0&&row.physical_status!=="FAIL")||
+      (row.physical_status==="FAIL")!==decision.blockers.includes("PHYSICAL_FAIL")||
       Object.values(states).includes("UNKNOWN")!==decision.blockers.includes("CURRENT_UNKNOWN")||
       Object.values(states).includes("FAIL")!==decision.blockers.includes("CURRENT_NECESSARY_FAIL")||
       Object.values(states).includes("NOT_EVALUATED")!==decision.blockers.includes("CURRENT_NOT_EVALUATED")||
       (Object.values(states).includes("EVALUATOR_ERROR")&&!decision.blockers.includes("EVALUATOR_ERROR"))||
       (row.physical_pending>0)!==decision.blockers.includes("PHYSICAL_PENDING"))return false;
   }else if(binding.schema==="HTTP_FULL_EVIDENCE_X07_V1"){
-   if(binding.request_digest!==requestHash||binding.state!=="SAME_REQUEST_FULL_REPORT_CONSISTENCY_VERIFIED_SCOPED"||
+   if(data.status!=="LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED"||binding.request_digest!==requestHash||binding.state!=="SAME_REQUEST_FULL_REPORT_CONSISTENCY_VERIFIED_SCOPED"||
       !["nonce_digest","model_digest","decision_digest","source_digest","file_hashes_digest"].every(k=>hex(binding[k]))||
       binding.file_count!==9||data.actual_live_attempts!==1)return false;
   }else return false;
