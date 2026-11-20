@@ -82,9 +82,7 @@
         "A required bedroom/service cannot be used under a valid known profile.",
         "Average quality compensates for a proven failed unit."
       ],
-      "missing_rule": [
-        "Operational selection of required quality dimensions and reviewed acceptance-anchor criteria remains unresolved; the qualitative programme requirement itself exists."
-      ],
+      "missing_rule": [],
       "missing_profile": [
         "Calibrated quality floors and reviewed scenario/equipment/activity profiles."
       ],
@@ -116,7 +114,7 @@
       "known_rule_scope": [
         "No arbitrary score, weight or area cutoff may be invented."
       ],
-      "missing_rule_status": "OPERATIONAL_QUALITY_SPECIFICATION_OPEN",
+      "missing_rule_status": "NONE_IDENTIFIED",
       "legacy_checker": {
         "path": "app/local_integration/functional_review.py",
         "entry": "assess",
@@ -195,7 +193,7 @@
           "current_implementation": "assess findings CALIBRATED_ROOM_UNIT_QUALITY_AND_ERGONOMIC_SCENARIOS",
           "runtime_condition_result": "No calibrated floor means UNKNOWN, not an inferred numeric pass.",
           "implementation_gap": "No complete per-unit quality-floor evaluator.",
-          "profile_or_calibration_gap": "Operational dimensions, acceptance anchors and qualified quality floors remain open.",
+          "profile_or_calibration_gap": "Qualitative dimensions and suitable/strong/unacceptable rubric exist; complete operational acceptance anchors and qualified floors/calibration remain open.",
           "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
           "numeric_thresholds_added": []
         },
@@ -235,8 +233,8 @@
           "source_refs": [
             "CURRENT_PROGRAM_SUITABILITY_SOURCE_6"
           ],
-          "requirement": "Retain a genuinely enclosed sleeping room, clothes storage, independent WC/bath functions and a real usable kitchen under the chosen programme.",
-          "required_witness": "Same-model source module/fixture inventory, real served spaces and actual access/use evidence; do not substitute labels.",
+          "requirement": "Retain at least one genuinely enclosed sleeping room and a built-in closet for each bedroom; retain WC and bathing as two necessary functions (conditional combination is allowed), with at least the required bathroom independently accessible from non-private space rather than through any bedroom/private space; retain a real usable kitchen.",
+          "required_witness": "Same-model source modules, built-in closet per bedroom, two service functions and independent non-private bathroom access/use; labels and fixture counts alone are insufficient.",
           "current_implementation": "inventory exact source modules/fixtures; retained full physical report; full functional approval not provided by shape inventory",
           "runtime_condition_result": "Proven necessary violation requires correction; missing profile/evidence is PROFILE_NOT_READY or SOURCE_REVIEW_REQUIRED, not a newly missing owner policy or automatic PASS.",
           "implementation_gap": "Inventory covers fixed source instances; complete independent functional-use closure remains unproved.",
@@ -244,7 +242,12 @@
           "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
           "numeric_thresholds_added": []
         }
-      ]
+      ],
+      "legacy_runtime_diagnostic": {
+        "code": "OPERATIONAL_QUALITY_DIMENSIONS_AND_ACCEPTANCE_ANCHORS_OPEN",
+        "kind": "MISSING_RULE",
+        "interpretation": "Existing evaluator label retained unchanged. Source qualitative dimensions and suitable/strong/unacceptable rubric exist; the remaining gap is operationalization, complete anchors and calibration, not absent owner policy or all quality dimensions."
+      }
     },
     {
       "id": "KITCHEN_GUEST_PATH_SEPARATION",
@@ -839,12 +842,12 @@
   "open_decisions": [
     {
       "id": "P20_OPEN_QUALITY_ANCHORS",
-      "kind": "CALIBRATION_AND_OPERATIONAL_SPEC",
+      "kind": "CALIBRATION_AND_OPERATIONALIZATION",
       "criteria": [
         "CURRENT_PROGRAM_SUITABILITY",
         "CONTINUOUS_USEFUL_LIVING"
       ],
-      "decision_needed": "Qualified room/unit quality dimensions, acceptance anchors and floors; no numeric default.",
+      "decision_needed": "Operationalize the existing qualitative dimensions and suitable/strong/unacceptable rubric with complete qualified acceptance anchors and quality floors; no numeric default.",
       "implemented_by_this_task": false
     },
     {

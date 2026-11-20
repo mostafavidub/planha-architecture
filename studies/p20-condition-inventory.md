@@ -19,3 +19,5 @@ Synthetic tests call the actual existing capacity helper, route sweep checker, g
 
 ## Done boundary
 Condition inventory and current implementation mapping tested; this does not complete P21-P25, qualify a design, repair architectural quality, provide raw archive durability, or resolve open calibration. No source/evaluator/gate/budget behavior is changed.
+
+The programme evaluator's historical MISSING_RULE diagnostic label is retained unchanged in runtime; the catalog now distinguishes existing qualitative rules/rubric from missing operational anchors and calibration. Minimum services retain built-in closet per bedroom and independent non-private bathroom access; conditional WC/bath combination is not categorically prohibited.
