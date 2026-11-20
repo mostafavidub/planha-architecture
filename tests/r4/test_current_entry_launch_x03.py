@@ -43,7 +43,7 @@ class LauncherTests(unittest.TestCase):
    data=original_read(path)
    if path==target:
     reads[0]+=1
-    if reads[0]>1:return data+b' changed'
+    if objects:return data+b' changed' # mutate only after factory, independent of extra preflight reads
    return data
   def factory(*args,**kwargs):
    obj=original_factory(*args,**kwargs);objects.append(obj);return obj
