@@ -172,6 +172,7 @@ def inspect_request(body,programme='PROGRAM_2BED_V1'):
   modules,minimum=lower_bound(profile)
   for row in source_metrics.values():
    row['geometric_area_comparison']='BELOW_SOURCE_MODULE_AREA_BOUND' if Q(row['geometric_area_after_known_fixed_deductions_m2'])<minimum else 'AREA_NOT_BELOW_BOUND_NOT_FIT'
+   row['geometric_double_bedroom_area_quotient_not_count']=int(Q(row['geometric_area_after_known_fixed_deductions_m2'])/Q('19.62'))
    row['source_box_comparison']='BELOW_SOURCE_MODULE_AREA_BOUND' if Q(row['historical_source_box_m2'])<minimum else 'AREA_NOT_BELOW_BOUND_NOT_FIT'
    row['modules_not_fitting_source_box_dimensions']=[r['role'] for r in modules if
      Q(r['minimum_width_m'])>Q(row['source_box_width_m']) or Q(r['minimum_depth_m'])>Q(row['source_box_depth_m'])]
@@ -179,7 +180,8 @@ def inspect_request(body,programme='PROGRAM_2BED_V1'):
   result.update(state='MEASURED_SCOPED_NO_FIT_CLAIM',family='FRONT_REAR',core_method=CORE_KIND,
     dimensions_m={'W':raw['W'],'L':raw['L']},per_unit=source_metrics,
     core_digest=digest(core),programme_digest=digest(profile),sources=before,
-    known_fixed_wall_ids=wall_keys,known_common_space_ids=['stair','lift','lobby'],
+    derived_fixed_wall_piece_ids=wall_keys,known_common_space_ids=['stair','lift','lobby'],
+    fixed_overlap_policy='Wall/core overlap columns can overlap; only their combined union intersection is subtracted once. Piece labels are analytic, not assembled wall IDs.',
     excluded_from_deductions=['UNBUILT_MODULE_PARTITIONS','UNBUILT_FIXTURES','UNVERIFIED_CIRCULATION_QUALITY'],
     historical={'source':'frozen contract114.program: initial box-only floor(area/55), cap1–4',
       'basis':old['basis'],'bedroom_choices':old['bedroom_choices'],'meaning':'Historical provisional ordering only; not an owner rule or search result'},

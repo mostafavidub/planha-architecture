@@ -20,6 +20,7 @@ class NetCapacityP05(unittest.TestCase):
       self.assertEqual(Q(unit['owned_union_m2']),Q(gross))
       self.assertEqual(Q(unit['fixed_union_overlap_m2']),0)
       self.assertEqual(Q(unit['geometric_area_after_known_fixed_deductions_m2']),Q(gross))
+      self.assertEqual(unit['geometric_double_bedroom_area_quotient_not_count'],int(Q(gross)/Q('19.62')))
       self.assertEqual(unit['geometric_area_comparison'],'BELOW_SOURCE_MODULE_AREA_BOUND')
      self.assertIs(r['fit_verified'],False);self.assertIs(r['global_infeasibility_proven'],False)
    spawn.assert_not_called()
