@@ -1,6 +1,6 @@
 # P32-A: status-only same-request observation
 Input/source baseline: 9032ebaea0e4c685b9306cbdfe7815f459bcd9c9.
-Only public_wln.js changes product behavior. No server, generator, evaluator,
+Only public_wln.js changes status behavior; public_wln.html wraps long error codes on mobile. No server, generator, evaluator,
 budget, gate, frozen source, preview, download, or delivery changes.
 The exact POST byte string is SHA256 compared with X04 request_digest; transport
 is the matching fetch plus local document generation. This is consistency, not
