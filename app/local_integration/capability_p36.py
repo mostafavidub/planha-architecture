@@ -6,7 +6,10 @@ AUTH=('accepted','qualified','display_allowed','delivery_allowed')
 CURRENT=('CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION')
 PAIR='HTTP_FULL_EVIDENCE_X07_V1'
 SINGLE='SINGLE_READBACK_P17_V1'
-PLANS={'FRONT_REAR':('CONSTRUCTOR127_COMPACT_PAIR','PROGRAM_2BED_V1'),'SINGLE_FRONT_TOP_CORE_P15_V1':('SINGLE_CONSTRUCTION_REPLAY_P15_V1','PROGRAM_2BED_V1')}
+PROGRAMME='PROGRAM_2BED_V1'
+STATES={'PASS','FAIL','UNKNOWN','NOT_EVALUATED','EVALUATOR_ERROR'}
+BLOCKERS={'PHYSICAL_FAIL','CURRENT_NECESSARY_FAIL','EVALUATOR_ERROR','CURRENT_UNKNOWN','CURRENT_NOT_EVALUATED','PHYSICAL_PENDING','PHYSICAL_NOT_VERIFIED',
+ 'HISTORICAL_UNRESOLVED_RETAINED','SINGLE_ACCESS_NOT_VERIFIED','P25_DELIVERY_NOT_IMPLEMENTED'}
 COMPLETED='LIVE_ORIGINAL_CHAIN_AND_CURRENT_DECISION_COMPLETED_NOT_QUALIFIED'
 PAIR_STATE='LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED'
 BLOCKED='BLOCKED'
@@ -22,11 +25,38 @@ def canonical(envelope,body_pin):
  if e.get('schema')!='V25_PUBLIC_WLN_CONTRACT_V3' or e.get('transport_body_sha256')!=body_pin or set(d)!={'W','L'} or type(n)is not int or n not in (1,2) or not all(number(v)for v in d.values()):return None
  return {'dimensions_m':{k:dict(v)for k,v in d.items()},'unit_count':n}
 
+def known_study(p,c):
+ if p.get('execution_ready')is not True:return None
+ n=c['unit_count']
+ if n==1 and p.get('state')=='READY_SINGLE_FAMILY_P15' and as_dict(p.get('programme')).get('id')==PROGRAMME:
+  if type(as_dict(p.get('raw')).get('n'))is int and p['raw']['n']==1:
+   return {'family':'SINGLE_FRONT_TOP_CORE_P15_V1','contract':'SINGLE_CONSTRUCTION_REPLAY_P15_V1','programme':PROGRAMME}
+ if n==2 and p.get('state')=='READY_SCOPED_CONTRACT_ONLY':
+  bind=as_dict(p.get('binding'));schema=bind.get('schema')
+  if as_dict(bind.get('program_registry')).get('id')==PROGRAMME and type(as_dict(bind.get('raw')).get('n'))is int and bind['raw']['n']==2:
+   if schema=='FRONT_REAR_TWO_REQUEST_BINDING_V1':
+    return {'family':'FRONT_REAR','contract':schema,'programme':PROGRAMME}
+   contract=as_dict(bind.get('contract'))
+   if schema=='P04_PARAMETRIC_REQUEST_BINDING_V1' and contract.get('family')=='FRONT_REAR' and contract.get('programme')==PROGRAMME:
+    return {'family':'FRONT_REAR','contract':schema,'programme':PROGRAMME}
+ return None
+
+def single_states_bound(row,states,blockers):
+ if set(states)!=set(CURRENT) or not all(type(x)is str and x in STATES for x in states.values()):return False
+ s=states.values();p=row.get('physical_status');errors=row.get('physical_errors');pending=row.get('physical_pending')
+ if p not in ('FAIL','PASS_CONCEPT_SCOPED_REVIEW') or type(errors)is not int or errors<0 or type(pending)is not int or pending<0:return False
+ return ((not errors or p=='FAIL') and (p=='FAIL')==('PHYSICAL_FAIL'in blockers) and
+  ('UNKNOWN'in s)==('CURRENT_UNKNOWN'in blockers) and ('FAIL'in s)==('CURRENT_NECESSARY_FAIL'in blockers) and
+  ('NOT_EVALUATED'in s)==('CURRENT_NOT_EVALUATED'in blockers) and ('EVALUATOR_ERROR'not in s or 'EVALUATOR_ERROR'in blockers) and
+  (pending>0)==('PHYSICAL_PENDING'in blockers))
+
 def evidence(body_pin,case,result):
  r=as_dict(result);rows=r.get('attempts');decision=as_dict(r.get('current_decision'));proof=as_dict(r.get('http_full_evidence'))
  if not (r.get('fresh_model_executed')is True and r.get('source_integrity_verified')is True and
      authority_false(r) and authority_false(decision) and decision.get('state')=='BLOCKED' and type(rows)is list and len(rows)==1 and
      as_dict(rows[0]).get('receipt_verified')is True and proof.get('binding_verified')is True):return None
+ blockers=decision.get('blockers')
+ if type(blockers)is not list or not blockers or not all(type(x)is str and x in BLOCKERS for x in blockers) or len(set(blockers))!=len(blockers):return None
  row=rows[0];n=case['unit_count']
  if n==2 and proof.get('schema')==PAIR and r.get('schema')=='AUTOMATIC_PROGRAM_LIVE_SINGLE_CASE_V1':
   if (r.get('state')==PAIR_STATE and row.get('state')==COMPLETED and proof.get('request_digest')==body_pin and
@@ -43,7 +73,7 @@ def evidence(body_pin,case,result):
    diag.get('source_integrity_observed')is True and diag.get('within_budget_observed')is True and h(row.get('nonce'),32) and
    diag.get('runtime_nonce')==row['nonce'] and diag.get('observed_model_digest')==row.get('model_digest') and
    row.get('model_digest')==row.get('observed_model_digest')==hashes.get('model') and h(row.get('model_digest')) and
-   h(row.get('runtime_digest')) and hashes.get('summary')==row['runtime_digest'] and h(hashes.get('decision')) and all(hashes[k]==d_files.get(k)for k in ('model','summary','decision')) and set(states)==set(CURRENT)):return SINGLE
+   h(row.get('runtime_digest')) and hashes.get('summary')==row['runtime_digest'] and h(hashes.get('decision')) and all(hashes[k]==d_files.get(k)for k in ('model','summary','decision')) and single_states_bound(row,states,blockers)):return SINGLE
  return None
 
 def disclose(*,kind,body=None,envelope=None,preflight=None,result=None):
@@ -53,18 +83,14 @@ def disclose(*,kind,body=None,envelope=None,preflight=None,result=None):
  valid=c is not None and p.get('input_valid')is True
  ready=valid and p.get('execution_ready')is True
  permitted={'STUDY_PERMITTED','STUDY_BUSY','STUDY_RESULT_WITHHELD','SERVER_RESULT_UNAVAILABLE'}
- selected=None
- if ready and kind in permitted:
-  family='SINGLE_FRONT_TOP_CORE_P15_V1'if c['unit_count']==1 else'FRONT_REAR'
-  contract,programme=PLANS[family]
-  selected={'family':family,'contract':contract,'programme':programme}
+ selected=known_study(p,c)if ready and kind in permitted else None
  proof=None
- if kind=='STUDY_PERMITTED' and ready:
+ if kind=='STUDY_PERMITTED' and selected is not None:
   # Bind to the actual server preflight's original parsed envelope, not a
   # guessed type or an aliased/stale runtime preflight.
   runtime_pf=as_dict(r.get('preflight'))
   q=runtime_pf.get('envelope')if c['unit_count']==1 else runtime_pf.get('public_envelope')
-  if canonical(q,body_pin)==c and runtime_pf.get('execution_ready')is True:proof=evidence(body_pin,c,r)
+  if canonical(q,body_pin)==c and known_study(runtime_pf,c)==selected:proof=evidence(body_pin,c,r)
  return {'schema':SCHEMA,'request_digest':body_pin,
   'input_state':'VALID'if valid else kind if kind in ('INVALID_INPUT','WIRE_UNSUPPORTED')else'UNASSESSED',
   'capability_state':kind,'canonical_case':c if valid else None,'selected_study':selected,

@@ -52,7 +52,7 @@ def capacity_guard():
  return hashlib.sha256(data).hexdigest()
 
 CAPABILITY_PINS={
- 'capability_p36.py':'fefff0c25bfb1dadc74982b4f0aad0e75a80647a',
+ 'capability_p36.py':'64018fcbd08afbff8c379a5871b246af61b92de7',
  'public_wln.js':'8698b469b37fd6d3f1f96578e1b0a8965ff9f750',
  'public_wln.html':'49d4d7342e150cd8ae6b2574b9ef364dfc0bd099'}
 def capability_guard():

@@ -27,7 +27,7 @@ def controlled(body,_,*,deadline):
  else:
   obs={'model':'e'*64,'summary':'c'*64,'decision':'d'*64}
   row.update(state='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED',timed_out=False,returncode=0,wait_completed=True,
-    observed_model_digest='e'*64,runtime_digest='c'*64,observed_file_hashes=obs,current_states=dict.fromkeys(c.CURRENT,'UNKNOWN'))
+    observed_model_digest='e'*64,runtime_digest='c'*64,observed_file_hashes=obs,physical_status='PASS_CONCEPT_SCOPED_REVIEW',physical_errors=0,physical_pending=0,current_states=dict.fromkeys(c.CURRENT,'UNKNOWN'))
   r.update(schema='SINGLE_HTTP_RESULT_P17_V1',state='BLOCKED',http_full_evidence={'schema':c.SINGLE,'binding_verified':True},
     http_diagnostic={'schema':'P17_PRIVATE_DIAGNOSTIC_V1','request_digest':sh(body),'runtime_nonce':row['nonce'],
       'source_integrity_observed':True,'within_budget_observed':True,'observed_model_digest':'e'*64,'observed_file_hashes':obs})
@@ -74,6 +74,22 @@ class CapTests(unittest.TestCase):
    with patch.object(server,'run_bound',side_effect=invalid):
     h,r=self.post(body)
    self.assertEqual(h,200);self.assertEqual(self.cap(r,'STUDY_PERMITTED',body)['evidence_state'],'NOT_VERIFIED')
+ def test_single_wrong_semantic_state_and_pair_wrong_version(self):
+  for b,fault in ((N1,'state_type'),(N1,'pending_conflict'),(N1,'model_drift'),(N2,'wrong_version'),(N2,'source_unverified')):
+   def malformed(body,fn,*,deadline):
+    v=controlled(body,fn,deadline=deadline);row=v['attempts'][0]
+    if fault=='state_type':row['current_states'][c.CURRENT[0]]=True
+    elif fault=='pending_conflict':row['physical_pending']=1
+    elif fault=='model_drift':row['observed_file_hashes']['model']='0'*64
+    elif fault=='wrong_version':v['preflight']['binding']['schema']='OTHER'
+    else:v['source_integrity_verified']=False
+    return v
+   with patch.object(server,'run_bound',side_effect=malformed):
+    status,r=self.post(b)
+   if fault=='source_unverified':
+    self.assertEqual(status,500);self.assertEqual(self.cap(r,'SERVER_RESULT_UNAVAILABLE',b)['evidence_state'],'NOT_VERIFIED')
+   else:
+    self.assertEqual(status,200);self.assertEqual(self.cap(r,'STUDY_PERMITTED',b)['evidence_state'],'NOT_VERIFIED')
  def test_busy_withheld_and_changed_projection_cannot_promote(self):
   with server.LOCK,patch.object(server,'run_bound',side_effect=AssertionError('NO_DISPATCH'))as no:
    h,r=self.post(N1);self.assertEqual(h,409);self.assertEqual(self.cap(r,'STUDY_BUSY',N1)['evidence_state'],'NOT_VERIFIED');no.assert_not_called()
