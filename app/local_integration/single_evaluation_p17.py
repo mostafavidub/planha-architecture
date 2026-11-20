@@ -25,8 +25,15 @@ def source_audit():
   path=LOCAL/name;require(not path.is_symlink(),'P17_SOURCE_SYMLINK')
   observed[name]=hashlib.sha256(path.read_bytes()).hexdigest()
   mod=sys.modules.get(name[:-3])
-  if mod is not None:require(Path(mod.__file__).resolve()==path.resolve(),'P17_SHADOW_MODULE')
- return {'p15':base,'p17':observed}
+  if mod is not None:
+   require(Path(mod.__file__).resolve()==path.resolve(),'P17_SHADOW_MODULE')
+   own={'single_physical_p17.py':('evaluate','verify_context'),'single_decision_p17.py':('assemble',),'single_runtime_p17.py':('worker','run_bound','read'),'public_program_dispatch_p17.py':('preflight','run_bound','is_single')}
+   for attr in (('assess',)if name in DERIVED_NAMES else own.get(name,())):
+    require(Path(inspect.getsourcefile(getattr(mod,attr))).resolve()==path.resolve(),'P17_ACTUAL_EVALUATOR_PATH')
+ collection={}
+ for rel in ('studies/p17_http_single.py','.github/workflows/p17-single-api.yml','studies/p17_evaluator_derivatives.json'):
+  path=ROOT/rel;require(not path.is_symlink(),'P17_COLLECTION_SYMLINK');collection[rel]=hashlib.sha256(path.read_bytes()).hexdigest()
+ return {'p15':base,'p17':observed,'collection':collection}
 def verify(model,context):
  before=source_audit();pin=digest([model,context])
  require(type(context)is dict and set(context)=={'schema','raw','proposal','core','programme_digest'},'P17_CONTEXT_SCHEMA')

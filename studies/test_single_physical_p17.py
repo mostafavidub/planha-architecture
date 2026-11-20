@@ -72,4 +72,40 @@ class PhysicalContract(unittest.TestCase):
   for old,new in changes:
    self.assertIn(old,source);source=source.replace(old,new)
   self.assertEqual(inspect.getsource(a._evaluate_impl).strip(),source.strip())
+
+ def derivative(self, filename, oldname, newname, changes):
+  # AST locates source text only; never executes or rewrites a producer.
+  import ast
+  def function_text(path,name):
+   text=path.read_text();tree=ast.parse(text);nodes=[n for n in tree.body if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)) and n.name==name]
+   self.assertEqual(len(nodes),1)
+   node=nodes[0];first=min([node.lineno]+[d.lineno for d in node.decorator_list])
+   return '\n'.join(text.splitlines()[first-1:node.end_lineno]).strip()
+  source=function_text(p.ENGINE/filename,oldname)
+  for old,new in changes:
+   self.assertIn(old,source);source=source.replace(old,new)
+  actual=function_text(Path(a.__file__),newname)
+  self.assertEqual(actual,source)
+ def test_exact_grammar_derivative(self):
+  self.derivative('core_circulation_scope118.py','grammar','grammar',[
+   ('Current module-composed two-bedroom grammar','P15 one-unit module-composed two-bedroom grammar'),
+   ("expected={'left','right','front','back','unit_shared_wing_left','unit_shared_wing_right','core.lobby.outer_right'}","expected={'left','right','front','back'}"),
+   ("uid in('A','B')","uid in('A',)")])
+ def test_exact_circulation_derivative(self):
+  self.derivative('circulation_integrity119.py','evaluate','single_circulation_integrity',[
+   ('def evaluate(','def single_circulation_integrity(')])
+ def test_exact_q11_derivative(self):
+  self.derivative('q11_boundary118.py','examine_whole_boundary','examine_q11',[
+   ('def examine_whole_boundary(','def examine_q11('),
+   ('Path(__file__).parent','ENGINE'),
+   ('verify_new_workflow(model,workflow_context)','verify_context(model,workflow_context)')])
+ def test_exact_scope_reducer_derivative(self):
+  self.derivative('scope117.py','reduce_scope117','reduce_scope117',[
+   ("not str(report.get('checker_version','')).startswith('GENERAL117_')","report.get('checker_version')!=VERSION"),
+   ("'CONCEPT117_REQUIRES_OWN_TRUSTED_CHECKER_REPORT'","'SINGLE_P17_REQUIRES_OWN_CHECKER_REPORT'"),
+   ("out['gate_scope']=SCOPE","out['gate_scope']='SINGLE_P17_CONCEPT_SCOPE_V1'")])
+ def test_exact_attachment_derivative(self):
+  self.derivative('rule_contract118.py','attach_rule_contract','attach_rule_contract',[
+   ("not str(out.get('checker_version','')).startswith(('GENERAL117_','GENERAL118_'))","out.get('checker_version')!=VERSION")])
+
 if __name__=='__main__':unittest.main()
