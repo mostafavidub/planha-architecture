@@ -4,12 +4,17 @@ from single_model_p15 import digest,require,AUTH
 from single_evaluation_p17 import bind_bundle,source_audit
 from current_four_decision import error_markers,decide,SCHEMAS as BASE_SCHEMAS
 SCHEMAS={k:'SINGLE_P17_'+v for k,v in BASE_SCHEMAS.items()}
+def require_current_integrity(reports):
+ require(type(reports)is dict and set(reports)==set(SCHEMAS),'P17_FOUR_SET')
+ for r in reports.values():require(type(r)is dict and r.get('integrity_verified')is True,'P17_CURRENT_INTEGRITY')
 def assemble(bundle,reports,expected):
+ require_current_integrity(reports)
  before=source_audit();pin=digest([bundle,reports,expected]);replay=bind_bundle(bundle)
  mh=bundle['model_digest'];physical=bundle['reports']['physical'];ph=digest(physical)
  require(set(reports)==set(SCHEMAS)==set(expected),'P17_FOUR_SET')
  rows=[];states={}
  for cid,r in reports.items():
+  require(r.get('integrity_verified')is True,'P17_CURRENT_INTEGRITY')
   require(r.get('schema')==SCHEMAS[cid] and r.get('criterion')==cid,'P17_CURRENT_SCHEMA')
   require(r.get('current_domain_policy')=='SINGLE_CURRENT_DOMAIN_P17_V1','P17_CURRENT_POLICY')
   require(r.get('model_digest')==mh and digest(r)==expected[cid],'P17_CURRENT_DIGEST')
@@ -28,6 +33,7 @@ def assemble(bundle,reports,expected):
   require(state in ('PASS','FAIL','UNKNOWN','NOT_EVALUATED','EVALUATOR_ERROR'),'P17_CURRENT_STATE')
   states[cid]=state;rows.append({'criterion':cid,'state':state,'report_digest':expected[cid],'execution_error_count':len(markers)})
  decision=decide(physical,states)
+ if bundle['reports']['access']['state']!='PASS_SCOPED_OWNERSHIP_ACCESS':decision['blockers'].append('SINGLE_ACCESS_NOT_VERIFIED')
  # This scope has no P25 delivery implementation. Never convert that policy into a fake physical failure.
  if any(r['execution_error_count']for r in rows) and 'EVALUATOR_ERROR'not in decision['blockers']:decision['blockers'].append('EVALUATOR_ERROR')
  decision['state']='BLOCKED'

@@ -42,4 +42,35 @@ class Binding(unittest.TestCase):
    self.assertTrue(code.endswith(tail))
    code=code[:-len(tail)]+" out['retained_historical_physical_report']=copy.deepcopy(bundle['reports']['historical_physical'])\n out['retained_historical_physical_digest']=bundle['report_digests']['historical_physical']\n return out\n"
    self.assertEqual((ROOT/path).read_text(),code,path)
+ def test_false_current_integrity_even_with_rehash(self):
+  import single_decision_p17 as d
+  reports={cid:{'integrity_verified':True}for cid in d.SCHEMAS}
+  reports[next(iter(reports))]['integrity_verified']=False
+  rehashed={cid:p.digest(v)for cid,v in reports.items()}
+  self.assertEqual(len(rehashed),4)
+  with self.assertRaisesRegex(ValueError,'P17_CURRENT_INTEGRITY'):d.require_current_integrity(reports)
+ def test_summary_rehashed_claims_rejected(self):
+  import single_runtime_p17 as r
+  bundle={'reports':{'physical':{'status':'FAIL','errors':[{'code':'ACTUAL'}],'pending':['UNKNOWN']},
+                     'historical_physical':{'status':'FAIL','errors':[{'code':'PAIR'}]},'access':{'state':'FAIL'}}}
+  current={'C':{'state':'UNKNOWN'}}
+  decision={'criteria':[{'criterion':'C','state':'UNKNOWN'}]}
+  negatives={k:True for k in r.NEGATIVES}
+  summary={'state':'FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED',**{k:False for k in p.AUTH},'attempts':1,'source_integrity_verified':True,'within_budget':True,'negatives':copy.deepcopy(negatives),
+           'physical_status':'FAIL','physical_errors':1,'physical_pending':1,'historical_status':'FAIL','historical_errors':1,
+           'access_state':'FAIL','current_states':{'C':'UNKNOWN'},'current_digests':{'C':p.digest(current['C'])}}
+  # A summary-only consistency fixture, not a physical/replay/integrity positive.
+  r.check_summary(summary,bundle,current,decision,negatives)
+  for key,value in [('attempts',True),('historical_errors',0),('access_state','PASS'),('physical_status','PASS'),('within_budget',False)]:
+   altered=copy.deepcopy(summary);altered[key]=value;p.digest(altered)
+   with self.assertRaises(ValueError):r.check_summary(altered,bundle,current,decision,negatives)
+  altered=copy.deepcopy(negatives);altered['old_report']=False
+  summary['negatives']=copy.deepcopy(altered)
+  with self.assertRaisesRegex(ValueError,'P17_NEGATIVE_SET'):r.check_summary(summary,bundle,current,decision,altered)
+ def test_late_and_source_failure_are_observed_only(self):
+  from single_runtime_p17 import terminal
+  for source,now in [(True,10),(True,11),(False,9)]:
+   t=terminal(True,source,10,now,True,'FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED')
+   self.assertFalse(t['usable']);self.assertFalse(t['fresh_model_executed']);self.assertTrue(t['observed_model_constructed'])
+  self.assertTrue(terminal(True,True,10,9,True,'FULL')['fresh_model_executed'])
 if __name__=='__main__':unittest.main(verbosity=2)

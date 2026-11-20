@@ -19,6 +19,25 @@ def read(path):
  value=json.loads(data,object_pairs_hook=pairs,parse_constant=lambda _:(_ for _ in()).throw(ValueError('P17_NONFINITE')))
  p.digest(value)
  return value,hashlib.sha256(data).hexdigest()
+NEGATIVES={'n2_request','n2_model','core','numeric_type','old_report'}
+def check_summary(summary,bundle,current,decision_report,negatives):
+ p.require(type(summary.get('attempts'))is int and summary['attempts']==1,'P17_ATTEMPT_COUNT')
+ p.require(summary.get('state')=='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED' and all(summary.get(k)is False for k in AUTH),'P17_SUMMARY_STATE_AUTHORITY')
+ p.require(summary.get('source_integrity_verified')is True and summary.get('within_budget')is True,'P17_SUMMARY_INTEGRITY')
+ p.require(type(negatives)is dict and set(negatives)==NEGATIVES and all(v is True for v in negatives.values()),'P17_NEGATIVE_SET')
+ p.require(p.digest(summary.get('negatives'))==p.digest(negatives),'P17_NEGATIVE_SUMMARY')
+ ph=bundle['reports']['physical'];historical=bundle['reports']['historical_physical'];access=bundle['reports']['access']
+ expected={'physical_status':ph['status'],'physical_errors':len(ph['errors']),'physical_pending':len(ph['pending']),
+           'historical_status':historical['status'],'historical_errors':len(historical['errors']),'access_state':access['state'],
+           'current_states':{r['criterion']:r['state']for r in decision_report['criteria']}}
+ for key,value in expected.items():p.require(p.digest(summary.get(key))==p.digest(value),'P17_SUMMARY_'+key.upper())
+ p.require(set(current)==set(summary['current_digests']),'P17_CURRENT_SUMMARY_SET')
+ for cid,value in current.items():p.require(p.digest(value)==summary['current_digests'][cid],'P17_CURRENT_SUMMARY_DIGEST')
+def terminal(usable,source_ok,deadline,now,observed_model,state):
+ verified=usable and source_ok and now<deadline
+ return {'usable':verified,'state':'BLOCKED'if verified else 'BUDGET_EXHAUSTED_OBSERVED_ONLY'if now>=deadline else 'SOURCE_UNVERIFIED_OBSERVED_ONLY'if not source_ok else state,
+         'fresh_model_executed':verified and observed_model,'observed_model_constructed':observed_model}
+
 def worker(folder):
  request,_=read(folder/'request.json');body=bytes.fromhex(request['body_hex']);deadline=request['deadline']
  start=time.monotonic();before=binding.source_audit();pf=p.preflight(body)
@@ -69,13 +88,14 @@ def worker(folder):
   stage('DECISION');d=decision.assemble(bundle,current,cpins);save(folder/'decision.json',d)
   # Actual-model negative contracts, no generation or altered original reports.
   negatives={}
-  for name,change in [('n2_request',lambda z:z['context']['raw'].update(n=2)),('core',lambda z:z['context']['core']['stair'].__setitem__(0,'.5')),
+  for name,change in [('n2_request',lambda z:z['context']['raw'].update(n=2)),('n2_model',lambda z:z['packet']['world_model']['inputs'].__setitem__(2,2)),('core',lambda z:z['context']['core']['stair'].__setitem__(0,'.5')),
                       ('numeric_type',lambda z:z['packet']['world_model']['inputs'].__setitem__(2,1.0)),('old_report',lambda z:z['reports']['physical'].update(schema='GENERAL117'))]:
    z=copy.deepcopy(bundle);change(z)
    if name=='old_report':z['report_digests']['physical']=p.digest(z['reports']['physical'])
    try:binding.bind_bundle(z)
    except ValueError:negatives[name]=True
    else:negatives[name]=False
+  save(folder/'negatives.json',negatives)
   p.require(all(negatives.values()),'P17_NEGATIVE_ACCEPTED')
   stage('FINAL_BIND')
   p.require(p.digest(bundle['packet']['world_model'])==out['model_digest'],'P17_FINAL_MODEL')
@@ -111,12 +131,13 @@ def run_bound(body,deadline):
    _,err=proc.communicate()
   summary,_=read(folder/'summary.json')if(folder/'summary.json').exists()else({'state':'NO_SUMMARY','attempts':0},None)
   observed={};data={}
-  for key in ('request','summary','bundle','current','decision','originals','proposal','model'):
+  for key in ('request','summary','bundle','current','decision','originals','proposal','model','negatives'):
    path=folder/(key+'.json')
    if path.exists():
     value,h=read(path);observed[key]=h;data[key]=value
   usable=False;d=None
   if not timed and proc.returncode==0 and summary['state']=='FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED':
+   p.require(type(summary['attempts'])is int and summary['attempts']==1,'P17_ATTEMPT_COUNT')
    p.require(summary['nonce']==request['nonce'] and summary['request_digest']==p.digest(request) and p.digest(data['request'])==p.digest(request),'P17_REQUEST_BINDING')
    b=data['bundle'];current=data['current'];d=data['decision']
    p.require(p.digest(b)==summary['bundle_digest'] and p.digest(b['context']['raw'])==p.digest(pf['raw']),'P17_BUNDLE_READBACK')
@@ -124,22 +145,23 @@ def run_bound(body,deadline):
    p.require(p.digest(data['originals'])==p.digest(b['reports']),'P17_ORIGINAL_READBACK')
    rebuilt=decision.assemble(b,current,summary['current_digests'])
    p.require(p.digest(rebuilt)==p.digest(d)==summary['decision_digest'],'P17_DECISION_READBACK')
+   check_summary(summary,b,current,d,data['negatives'])
    p.require(summary['current_states']=={r['criterion']:r['state']for r in d['criteria']},'P17_SUMMARY_CURRENT')
    ph=b['reports']['physical']
    p.require([summary['physical_status'],summary['physical_errors'],summary['physical_pending']]==[ph['status'],len(ph['errors']),len(ph['pending'])],'P17_SUMMARY_PHYSICAL')
    for key,h in observed.items():p.require(read(folder/(key+'.json'))[1]==h,'P17_FILE_CHANGED')
    usable=True
   source_ok=binding.source_audit()==before and summary.get('source_integrity_verified')is True
-  usable=usable and source_ok and time.monotonic()<deadline
-  row={'nonce':request['nonce'],'state':summary['state'],'model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
+  term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
+  row={'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
        'receipt_verified':usable,'solver_status':summary.get('solver_status'),'solver_seconds':summary.get('solver_seconds'),
        'stage':summary.get('stage'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
        'physical_pending':summary.get('physical_pending'),'historical_status':summary.get('historical_status'),'historical_errors':summary.get('historical_errors'),
        'current_states':summary.get('current_states'),'actual_negatives':summary.get('negatives'),
        'timed_out':timed,'returncode':proc.returncode,'wait_completed':proc.poll()is not None,
        'observed_file_hashes':observed,'stderr_digest':hashlib.sha256(err).hexdigest()}
-  return {'schema':'SINGLE_HTTP_RESULT_P17_V1','state':'BLOCKED'if usable else summary['state'],'preflight':pf,'attempts':[row]if summary.get('attempts')==1 else[],
-          'fresh_model_executed':bool(summary.get('model_digest')),'source_integrity_verified':source_ok,
+  return {'schema':'SINGLE_HTTP_RESULT_P17_V1','state':term['state'],'preflight':pf,'attempts':[row]if type(summary.get('attempts'))is int and summary['attempts']==1 else[],
+          'fresh_model_executed':term['fresh_model_executed'],'observed_model_constructed':term['observed_model_constructed'],'source_integrity_verified':source_ok,
           'current_decision':d['decision'] if usable else None,'http_full_evidence':{'schema':'SINGLE_READBACK_P17_V1','binding_verified':usable,'raw_archive_durable':False,
           'scope':'Same request/source/full-report readback and decision rederivation, not producer authenticity or P25 admission'},
           'elapsed_seconds':time.monotonic()-started,**{k:False for k in AUTH}}

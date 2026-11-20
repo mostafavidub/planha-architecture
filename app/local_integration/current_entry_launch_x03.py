@@ -29,7 +29,7 @@ def evidence_guard():
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
-P17_PINS={"public_program_dispatch_p17.py":"ce4f2772a1ffd353556735003bfd128465a03adf","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"8b9fabb81d0f7caefc310557650660b47d1c199d","single_evaluation_p17.py":"1ec03950b60298d872863d47d5f6b0be4248a56e","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"879657aa2536b1b4e275e8729e80cf76fcafe84d","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
+P17_PINS={"public_program_dispatch_p17.py":"ce4f2772a1ffd353556735003bfd128465a03adf","public_wln_server.py":"8fe1afe174b621e57cabbe38f576ca93bc7890c3","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"dc7d5ab899c315a6aae3f636c50dcc94aaebaddd","single_evaluation_p17.py":"7e8894cc6374d7ead04be522a3dd7f12f6581bd7","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"1bcc8b5baf3fcf39da91eefb07b36ae17d1bddc5","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
 def single_guard():
  observed={}
  for name,pin in P17_PINS.items():

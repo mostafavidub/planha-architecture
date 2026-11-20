@@ -19,7 +19,7 @@ def source_audit():
   require(Path(inspect.getsourcefile(fn)).resolve()==(LOCAL/name).resolve(),'P17_CALLABLE_SOURCE')
  for mod,name in ((producer,'single_model_p15.py'),(single_assembler_p15,'single_assembler_p15.py'),(single_access_p15,'single_access_p15.py')):
   require(Path(mod.__file__).resolve()==(LOCAL/name).resolve(),'P17_ACTUAL_SOURCE_PATH')
- names=['single_evaluation_p17.py','single_physical_p17.py','single_decision_p17.py','single_runtime_p17.py','public_program_dispatch_p17.py',*DERIVED_NAMES]
+ names=['single_evaluation_p17.py','single_physical_p17.py','single_decision_p17.py','single_runtime_p17.py','public_program_dispatch_p17.py','public_wln_server.py',*DERIVED_NAMES]
  observed={}
  for name in names:
   path=LOCAL/name;require(not path.is_symlink(),'P17_SOURCE_SYMLINK')
@@ -55,6 +55,14 @@ def bind_bundle(bundle):
   require(digest(report)==bundle['report_digests'][name],'P17_REPORT_DIGEST')
   require(report.get('model_hash',report.get('model_digest'))==mh,'P17_REPORT_MODEL_BINDING')
  require(bundle['reports']['physical'].get('schema')=='SINGLE_PHYSICAL_P17_V1','P17_PHYSICAL_VERSION')
+ import single_physical_p17 as physical
+ ph=bundle['reports']['physical']
+ require(ph.get('integrity_verified')is True and all(ph.get(k)is False for k in AUTH),'P17_PHYSICAL_INTEGRITY')
+ require(ph.get('checker_version')==physical.VERSION and ph.get('status')in('FAIL','NOT_EVALUATED','PASS_CONCEPT_SCOPED_REVIEW'),'P17_PHYSICAL_STATE')
+ require(type(ph.get('errors'))is list and all(type(x)is dict for x in ph['errors']) and type(ph.get('pending'))is list and all(type(x)is str for x in ph['pending']),'P17_PHYSICAL_REPORT_TYPES')
+ require(digest(ph['source_snapshot'])==digest(physical.source_guard()),'P17_PHYSICAL_SOURCE')
+ phcontext={'schema':'SINGLE_P17_PHYSICAL_CONTEXT_V1','raw':bundle['context']['raw'],'proposal':bundle['context']['proposal']}
+ require(digest(ph['replay'])==digest(physical.verify_context(model,phcontext)),'P17_PHYSICAL_REPLAY')
  require(bundle['reports']['access'].get('schema')=='SINGLE_UNIT_OWNERSHIP_ACCESS_P15_V1','P17_ACCESS_VERSION')
  require(bundle['reports']['replay'].get('schema')=='SINGLE_ORIGIN_REPLAY_P17_V1','P17_REPLAY_VERSION')
  current=verify(model,bundle['context'])

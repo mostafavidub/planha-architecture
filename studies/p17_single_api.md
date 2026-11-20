@@ -44,7 +44,9 @@ A successful HTTP collection is not qualified architecture or completion of P25/
 Source exact-delta, P15 regressions, n1 identity/type/core/old-report rejection,
 real HTTP invalid/unsupported zero-dispatch, n2 unchanged dispatch and registered-launcher.
 The sole actual HTTP run exercises real construction, reassembly, full reports,
-same-request file binding and four actual-model negative contracts.
+same-request file binding and five actual-model negative contracts.
 Synthetic identity fixtures are not a physical model/PASS or substitute for the live call.
 Existing X03/X05 static whole-inventory snapshots may remain stale; this does not disable them
 or claim arbitrary Python legacy-call isolation.
+
+P03 historical test/receipt stays at its original commit: its n1-18x20 unsupported assumption no longer describes this API. P17 explicitly tests the new readiness and current source-pinned launcher; original V3/parser and old n2 direct-wrapper policies stay unchanged.
