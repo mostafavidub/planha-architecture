@@ -87,6 +87,18 @@ class HTTPTests(unittest.TestCase):
   s=self.open(run);status,row=post(s)
   self.assertEqual(status,500);self.safe(row);self.assertTrue(row['archived_evaluation_started']);self.assertFalse(row['archived_model_reused'])
   self.assertNotIn('archive_report_receipt_sha256',row)
+ def test_unverified_and_forged_projection_fail_closed(self):
+  invalid=[{'attempts':[]},{'attempts':[{'receipt_verified':1}]},{'source_integrity_verified':False},
+   {'decision':{'state':'NO_VERIFIED_DECISION','blockers':[]}},{'decision':{'state':'BLOCKED','blockers':['PRIVATE_PAYLOAD']}},
+   {'physical_status':'PRIVATE_PATH'}]
+  for fields in invalid:
+   runtime={**control(BODY),**fields}
+   s=self.open(lambda _:runtime)
+   status,row=post(s);self.assertEqual(status,500);self.safe(row)
+   self.assertFalse(row['archived_model_reused']);self.assertNotIn('archive_report_receipt_sha256',row)
+  projected=p.project(control(BODY))
+  projected.update(decision={'state':'NO_VERIFIED_DECISION','blockers':[]},http_lifecycle={'response_state':'ON_TIME_OBSERVED'})
+  self.assertEqual(p.safe_response(200,projected)['status'],'ARCHIVE_RECEIPT_UNAVAILABLE')
  def test_deadline_withholds_and_worker_retains_lock(self):
   entered=threading.Event();release=threading.Event()
   def run(body):
