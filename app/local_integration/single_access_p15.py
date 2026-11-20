@@ -13,7 +13,7 @@ def placed(q,t):
  pts=[[sum(F(M[i][j])*p[j] for j in (0,1))+F(str(v[i])) for i in (0,1)] for p in ((a[0],a[1]),(a[0],a[3]),(a[2],a[1]),(a[2],a[3]))]
  return (min(p[0] for p in pts),min(p[1] for p in pts),max(p[0] for p in pts),max(p[1] for p in pts))
 def inventory(model,profile,catalog):
- """Source-profile identity/shape audit only; caller must establish original replay."""
+ """Source-profile identity/shape audit only; caller must establish P15 same-source replay."""
  expected={'units':1,'bedrooms_per_unit':2,'sleep_roles':['double','twin'],'design_occupants_per_unit':4,'capacity_profile':'LEGACY_SOURCE_PROGRAM','provisional':True}
  for k,v in expected.items():require(digest(model['program'][k])==digest(v),'PROGRAM_IDENTITY:'+k)
  require(profile['id']=='PROGRAM_2BED_V1' and profile['approval']['status']=='APPROVED_DESIGN_PROGRAM','REGISTRY_APPROVAL')
@@ -58,8 +58,8 @@ def inventory(model,profile,catalog):
    'additional_activity_ids':sorted(set(u['activities'])-aids),'activity_coverage':activity_rows,'module_bindings':bindings,
    'dining_module_hash':dp['module_hash'],'dining_transfer_profile_validated':[s['rise_transfer']['human_transfer_and_support_profile_validated'] for s in seats],
    'operation_state_coverage':[{'category':category,'records':len([z for z in records if z.get('unit')==uid]),'state':'PRESENT_SOURCE_RECORDS_NOT_INDEPENDENT_FUNCTIONAL_APPROVAL'} for category,records in model['operations'].items() if type(records) is list],
-   'activity_phase_coverage':{'arrival':'Source route presence recorded; actual clearance retained in original physical report','use':'Fresh limited capacity audit; other module operations only original physical evidence','exit':'NOT_INDEPENDENTLY_EVALUATED','simultaneous_states':'SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE'},'living_location_binding':'Original whole-construction replay; source dimensions independently compared',
-   'operations_coverage':'Original physical report retained separately; this inventory checker does not re-prove operation collisions or simultaneous state completeness'})
+   'activity_phase_coverage':{'arrival':'Source route presence only; scoped entry access checked separately, not every activity','use':'NOT_EVALUATED: no fresh whole-capacity or operational audit','exit':'NOT_INDEPENDENTLY_EVALUATED','simultaneous_states':'SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE'},'living_location_binding':'P15 same-source reassembly plus independent source dimension comparison',
+   'operations_coverage':'SOURCE_INSTANCE_SHAPE_AND_TARGET_BINDING_ONLY; unmodified historical pair checker retained but unsupported for n1; operation/capacity/quality not established'})
  return rows
 
 def assess(m):

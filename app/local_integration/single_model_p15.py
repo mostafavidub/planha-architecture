@@ -30,7 +30,7 @@ def digest(v):
 def preflight(body):
  e=parse_public(body);verify_public(body,e);c=e['canonical_request']
  n=c['unit_count']
- # Public envelope retains exact numerator/denominator; use original textual fields.
+ # Verified public envelope retains exact numerator/denominator; no float conversion.
  w,l=(F(int(c['dimensions_m'][a]['numerator']),int(c['dimensions_m'][a]['denominator'])) for a in ('W','L'))
  normalized={'W':S(w),'L':S(l),'n':n}
  return {'input_valid':True,'execution_ready':normalized==RAW and type(n)is int,
@@ -55,7 +55,8 @@ def snapshot():
  import search114,entry117,single_assembler_p15
  for mod,fn,path in [(search114,search114.propose,ENGINE/'search114.py'),(entry117,entry117.install,ENGINE/'entry117.py'),(single_assembler_p15,assemble,Path(__file__).with_name('single_assembler_p15.py'))]:
   require(Path(mod.__file__).resolve()==path.resolve() and Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'ACTUAL_SOURCE_PATH')
- paths=[Path(__file__),Path(__file__).with_name('single_assembler_p15.py'),Path(__file__).with_name('single_access_p15.py')]
+ paths=[Path(__file__),Path(__file__).with_name('single_assembler_p15.py'),Path(__file__).with_name('single_access_p15.py'),ROOT/'studies/p15_single_model.py',ROOT/'.github/workflows/p15-single-model.yml']
+ require(all(not p.is_symlink() for p in paths),'SOURCE_SYMLINK')
  return {'original_source':original,'p15_sources':{p.name:hashlib.sha256(p.read_bytes()).hexdigest()for p in paths}}
 def construct(raw,proposal):
  c=core(raw)
