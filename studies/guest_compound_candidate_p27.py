@@ -2,8 +2,8 @@
 # No seating-group family imported; motion formula cross-tested against prior helper.
 """Isolated P27 guest-only fixed-size operator, not imported by the product.
 A solver incumbent is NEVER admission.
-Core and real entry apron are fixed first. Room dimensions and locations are
-variables; no historical plan file is loaded or selected by requested dimensions.
+Core, real entry apron, rectangle dimensions and door sides are fixed by
+the bound operator input. Other permitted positions and paths may vary.
 """
 import math,time
 import numpy as np
@@ -315,7 +315,7 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  serving_junction=junction
  guest_junction=var((x0+.35)/scale,(x1-.35)/scale)
  if sum(name in GUESTS for name,_,_,_ in terminaldefs)!=len(GUESTS):raise ValueError('P27_GUEST_TERMINAL_SET')
- guest_segments={};guest_spans={};route_junctions={}
+ guest_segments={};guest_spans={};route_junctions={};domain_rows={}
  group="rooted_body_network"
  for name,px,py,side in terminaldefs:
   first_terminal_row=len(rows)
@@ -332,7 +332,9 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
   segments=[ [plus(aff(junction),({},-half)),plus(ylo,({},-half)),plus(aff(junction),({},half)),plus(yhi,({},half))],
    [plus(xlo,({},-half)),plus(aff(bend),({},-half)),plus(xhi,({},half)),plus(aff(bend),({},half))],
    [plus(aff(px),({},-half)),plus(plo,({},-half)),plus(aff(px),({},half)),plus(phi,({},half))] ]
+  if name in GUESTS:domain_rows[name]=[]
   for seg in segments:
+   if name in GUESTS:domain_rows[name].append(len(rows))
    lin(seg[0],lo=x0/scale);lin(seg[1],lo=y0/scale);lin(seg[2],hi=x1/scale);lin(seg[3],hi=y1/scale)
    for oname,ob in obstacles+(guest_motion if name in ('sofa1_use','dining_east')else[]):
     zz=[var(0,1)for _ in range(4)];row({j:1 for j in zz},hi=3)
@@ -389,6 +391,7 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  for j in glo[0]:objective[j]-=.0001*(len(GUESTS)-1)
  for j in ghi[0]:objective[j]+=.0001*(len(GUESTS)-1)
  gseg=[plus(glo,({},-half)),({},rooty-half),plus(ghi,({},half)),({},rooty+half)]
+ domain_rows['common_guest_root']=[len(rows)]
  for idx,lo,hi in ((0,x0/scale,np.inf),(1,y0/scale,np.inf),(2,-np.inf,x1/scale),(3,-np.inf,y1/scale)):lin(gseg[idx],lo=lo,hi=hi)
  for oname,ob in obstacles+guest_motion:
   group="p27_guest_root_retained_motion" if oname.startswith('source.motion.') else "p27_guest_root_retained_obstacle"
@@ -406,9 +409,9 @@ def propose(core,bedrooms,time_limit=3,variant=0,fixed_witness=None,diagnostic_c
  for i,d in enumerate(rows):
   for j,v in d.items():A[i,j]=v
  if diagnostic_capture is not None:
-  return diagnostic_capture({'objective':np.array(objective),'integrality':np.array(integer),'bounds':Bounds(lower,upper),'matrix':A.tocsr(),'lower':np.array(lbs),'upper':np.array(ubs),'row_metadata':row_meta,'specs':specs,'p27_scope':{'serving_junction':serving_junction,'guest_junction':guest_junction,'route_junctions':route_junctions,'guest_spans':guest_spans,'old_row_count':old_row_count,'old_var_end':old_var_end,'panel_blocks':panel_blocks,'entry_source_digest':digest(source_entry)}})
+  return diagnostic_capture({'objective':np.array(objective),'integrality':np.array(integer),'bounds':Bounds(lower,upper),'matrix':A.tocsr(),'lower':np.array(lbs),'upper':np.array(ubs),'row_metadata':row_meta,'specs':specs,'p27_scope':{'serving_junction':serving_junction,'guest_junction':guest_junction,'route_junctions':route_junctions,'guest_spans':guest_spans,'old_row_count':old_row_count,'old_var_end':old_var_end,'panel_blocks':panel_blocks,'sweep_domain_rows':domain_rows,'entry_source_digest':digest(source_entry)}})
  start=time.monotonic();r=milp(np.array(objective),integrality=np.array(integer),bounds=Bounds(lower,upper),constraints=LinearConstraint(A.tocsr(),lbs,ubs),options={'time_limit':time_limit,'mip_rel_gap':.02,'presolve':True})
- out={'organization_profile':organization_profile,'organization_topology':topology,'objective_profile':'REPEATED_ROOT_WEIGHT_PRESERVED_PLUS_EXPLICIT_TERMINAL_L1_0.01_COMPACT_STUDY','capacity_profile':'SIX_PERSON_INTERNAL_PROGRAM121'if six_person else'LEGACY_SOURCE_PROGRAM','sleep_roles':sleep_roles,'status':'PROPOSAL_ONLY'if r.x is not None else'SEARCH_TIMEOUT_NO_WITNESS'if r.status==1 else'NO_PROPOSAL_IN_THIS_TOPOLOGY','solver_status':int(r.status),'solver_message':r.message,'solver_seconds':time.monotonic()-start,'budget_seconds':time_limit,'bedrooms':bedrooms,'variant':variant,'variables':len(lower),'binary_separation_variables':4*n*(n-1)//2,'constraints':len(rows),'no_global_infeasibility_claim':True}
+ out={'organization_profile':organization_profile,'organization_topology':topology,'objective_profile':'P27_LEGACY_SERVING_WEIGHTS_PLUS_INDEPENDENT_GUEST_PREFIX_AND_TERMINAL_L1','capacity_profile':'SIX_PERSON_INTERNAL_PROGRAM121'if six_person else'LEGACY_SOURCE_PROGRAM','sleep_roles':sleep_roles,'status':'PROPOSAL_ONLY'if r.x is not None else'SEARCH_TIMEOUT_NO_WITNESS'if r.status==1 else'NO_PROPOSAL_IN_THIS_TOPOLOGY','solver_status':int(r.status),'solver_message':r.message,'solver_seconds':time.monotonic()-start,'budget_seconds':time_limit,'bedrooms':bedrooms,'variant':variant,'variables':len(lower),'binary_separation_variables':4*n*(n-1)//2,'constraints':len(rows),'no_global_infeasibility_claim':True}
  if ordered_macro:out['ordered_macro']=macro
  if r.x is not None:
   # Float post-round prefilter only; independent Fraction gate decides admission.
