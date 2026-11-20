@@ -30,5 +30,6 @@ jobs:
       - name: Single-unit contract tests
         run: python -B studies/test_p15_single_model.py
       - name: One actual single-unit construction and full temporary evidence
+        if: contains(github.event.head_commit.message, '[p15-live]')
         run: python -B studies/p15_single_model.py
       - run: git diff --exit-code

@@ -9,7 +9,7 @@ def save(path,v):path.write_text(json.dumps(v,sort_keys=True,ensure_ascii=False,
 def worker(folder):
  req=json.loads((folder/'request.json').read_text());body=bytes.fromhex(req['body_hex'])
  before=p.snapshot();pf=p.preflight(body);p.require(pf['execution_ready'],'PREFLIGHT')
- out={'schema':'P15_ACTUAL_CONSTRUCTION_V1','nonce':req['nonce'],'request_digest':p.digest(req),
+ out={'schema':'P15_ACTUAL_CONSTRUCTION_V1','head_sha':os.environ.get('GITHUB_SHA'),'nonce':req['nonce'],'request_digest':p.digest(req),
       'state':'STARTED','attempts':1,'source_snapshot_digest':p.digest(before),'programme_digest':p.digest(pf['programme']),
       'geometry_source':'New nonpersonal dimensions; no archived model input',**{k:False for k in p.AUTH}}
  save(folder/'summary.json',out)

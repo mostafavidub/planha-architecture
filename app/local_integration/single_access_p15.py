@@ -113,7 +113,14 @@ def assess(m):
   entry=[o for o in openings if o['id']=='A.entry']
   need(len(entry)==1 and set(entry[0]['connects'])=={'lobby','A.public_access'},'ENTRY_BINDING')
   entryq=rect(entry[0]['rect']);cx=(entryq[0]+entryq[2])/2
+  expected_cx=F(c['entry_centers']['A'][0])
+  need(entryq==(expected_cx-F('.65'),owner[0][3],expected_cx+F('.65'),F(c['band'][1])),'ACTUAL_CORE_ENTRY_APERTURE')
   target=[cx,owner[0][3]-F('.4')]
+  approach=(cx-F('.35'),target[1]-F('.35'),cx+F('.35'),owner[0][3])
+  need(covered(approach,owner),'ENTRY_APPROACH_OWNERSHIP')
+  reserved=m['entry_access_reservation'];need(reserved['unit']=='A' and covered(approach,[rect(reserved['rect'])]),'ENTRY_APPROACH_SOURCE_RESERVATION')
+  private=[rect(q)for k,rs in u['rooms'].items()if k not in('living','entry_circulation')for q in rs]
+  need(not any(intersects(approach,q)for q in private),'ENTRY_APPROACH_PRIVATE_ROOM')
   ports={o['id']:rect(o['rect'])for o in openings if o['id']in('stair.entry','lift.entry','A.entry')}
   need(set(ports)=={'stair.entry','lift.entry','A.entry'},'CORE_PORTS')
   all_floor=owner+[rect(c['stair']),rect(c['lift']),*[rect(q)for q in c['lobby']],*ports.values(),*walls.values()]
@@ -124,12 +131,14 @@ def assess(m):
    path=m['common_routes'][source+'_A'];a,b,C,d=rect(c[source]);cy=(b+d)/2
    start=[C-F('.4'),cy]if source=='stair'else[a+F('.4'),cy]
    need([F(x)for x in path[0]]==start and [F(x)for x in path[-1]]==target,'COMMON_ROUTE_ENDPOINT')
-   domains=[rect(c[source]),*[rect(q)for q in c['lobby']],ports[source+'.entry'],ports['A.entry'],*[rect(q)for q in u['rooms']['entry_circulation']]]
+   domains=[rect(c[source]),*[rect(q)for q in c['lobby']],ports[source+'.entry'],ports['A.entry'],approach]
    sw=sweeps(path)
    for q in sw:
+    need(not any(intersects(q,z)for z in private),'COMMON_ROUTE_PRIVATE_ROOM')
     need(covered(q,domains),'COMMON_ROUTE_FLOOR')
     need(not any(intersects(q,z)for z in walls.values()),'COMMON_ROUTE_WALL')
     need(not any(intersects(q,z)for z in panels),'COMMON_ROUTE_OPEN_PANEL')
+    need(not any(intersects(q,rect(z))for z in u['fixtures'].values()),'COMMON_ROUTE_FIXTURE')
    routes.append({'id':source+'_A','body_width_m':'0.7','segments':len(sw),'verified':True})
   # At least one genuinely clear internal route from the same entry, not an empty path placeholder.
   clear=[]
@@ -140,7 +149,7 @@ def assess(m):
    if key not in u['route_targets']or [F(x)for x in path[-1]]!=[F(x)for x in u['route_targets'][key]]:continue
    if all(covered(q,owner)and not any(intersects(q,z)for z in list(walls.values())+panels+list(fixtures.values()))for q in sweeps(path)):clear.append(key)
   need(bool(clear),'NO_CLEAR_ENTRY_TO_UNIT_ACTIVITY')
-  evidence={'unit_ids':['A'],'source_inventory':inventory_rows,'whole_frame_accounted':True,'common_routes':routes,'clear_internal_routes':sorted(clear),
+  evidence={'unit_ids':['A'],'source_inventory':inventory_rows,'whole_frame_accounted':True,'entry_approach_scope':'Exact .7-wide connector from actual aperture to actual entry root, within owned floor and clear of actual obstacles; not room relabelling','common_routes':routes,'clear_internal_routes':sorted(clear),
             'ownership_digest':digest(u['ownership']),'core_digest':digest(c),'fixture_count':len(fixtures),
             'scope':'Necessary single-unit ownership and entry access only; not every activity, quality, privacy, or legal/technical approval'}
  except (KeyError,TypeError,ValueError,IndexError)as ex:

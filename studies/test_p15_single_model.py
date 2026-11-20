@@ -32,6 +32,12 @@ class Contract(unittest.TestCase):
   self.assertTrue(all(not intersects(u,rect(q))for q in [c['stair'],c['lift'],*c['lobby']]))
  def test_no_implicit_pair_core(self):
   with self.assertRaises(ValueError):p.core({'W':'18','L':'20','n':2})
+ def test_source_entry_connector_fraction(self):
+  from checker114 import rect,covered
+  c=p.core(p.RAW);q=rect(c['units']['A']);cx=F(c['entry_centers']['A'][0]);rooty=q[3]-F('.4')
+  approach=(cx-F('.35'),rooty-F('.35'),cx+F('.35'),q[3])
+  reserved=(cx-F('.7'),q[3]-F('.9'),cx+F('1.95'),q[3])
+  self.assertTrue(covered(approach,[reserved]));self.assertEqual(q[3]-(rooty+F('.35')),F('.05'))
  def test_typed_digest(self):
   self.assertNotEqual(p.digest(1),p.digest(True));self.assertNotEqual(p.digest(1),p.digest(1.0))
   with self.assertRaises(ValueError):p.digest(float('nan'))

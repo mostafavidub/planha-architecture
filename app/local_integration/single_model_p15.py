@@ -64,6 +64,7 @@ def construct(raw,proposal):
  m=assemble(F(raw['W']),F(raw['L']),c,proposal)
  require(m['inputs']==['18','20',1] and type(m['inputs'][2])is int,'MODEL_INPUT')
  require([u['id']for u in m['units']]==['A'],'MODEL_UNIT_COUNT')
+ m['entry_access_reservation']={'unit':'A','rect':copy.deepcopy(proposal['rectangles']['entry_apron']),'source':'search114 reserved_entry: same-source proposal rectangle, not useful-room classification'}
  m['construction_identity']={'family':FAMILY,'raw_digest':digest(raw),'core_digest':digest(c),
   'proposal_digest':digest(proposal),'programme_digest':digest(lookup('PROGRAM_2BED_V1')),
   'unit_assignment':{'A':digest(proposal)},'pair_built_then_filtered':False}
