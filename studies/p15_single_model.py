@@ -1,5 +1,6 @@
 """One P15 construction attempt; safe metadata only, no uploaded model."""
 import copy,json,os,signal,subprocess,sys,tempfile,time,uuid
+from fractions import Fraction as F
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'app/local_integration'))
 import single_model_p15 as p
@@ -41,7 +42,14 @@ def worker(folder):
   p.require(report['state']=='PASS_SCOPED_OWNERSHIP_ACCESS','ACCESS_NOT_VERIFIED')
   # Actual-model negatives are applied only to copies, never to the emitted model.
   tests={}
+  def detour(z,q):
+   a,b,C,d=map(F,q);x=(a+C)/2;y=(b+d)/2
+   old=z['common_routes']['stair_A'];sx,sy=map(F,old[0]);ex,ey=map(F,old[-1])
+   z['common_routes']['stair_A']=[[str(v)for v in pt]for pt in[(sx,sy),(x,sy),(x,y),(ex,y),(ex,ey)]]
   for name,mutate in [
+   ('detour_lift',lambda z:detour(z,z['common_spaces']['lift'])),
+   ('detour_private',lambda z:detour(z,z['units'][0]['rooms']['bed1'][0])),
+   ('shrunk_fixture',lambda z:z['units'][0]['fixtures']['bed1.bed'].__setitem__(2,str(F(z['units'][0]['fixtures']['bed1.bed'][2])-F('.1')))),
    ('pair',lambda z:z['units'].append(copy.deepcopy(z['units'][0]))),
    ('hidden',lambda z:z['logical_regions'].update({'B.hidden':{'unit':'B'}})),
    ('empty_common',lambda z:z['common_routes'].update(stair_A=[])),
@@ -49,7 +57,7 @@ def worker(folder):
    ('wrong_owner',lambda z:z['units'][0].update(ownership=[['0','0','18','20']])),
    ('wrong_count_type',lambda z:z['inputs'].__setitem__(2,True))]:
    z=copy.deepcopy(m);mutate(z);tests[name]=assess(z)['state']=='FAIL'
-  p.require(all(tests.values())and len(tests)==6,'ACTUAL_NEGATIVE')
+  p.require(all(tests.values())and len(tests)==9,'ACTUAL_NEGATIVE')
   p.require(p.digest(m)==out['model_digest'],'ACTUAL_MUTATION')
   out['actual_negatives']=tests;out['state']='ACTUAL_SINGLE_UNIT_MODEL_ACCESS_VERIFIED_NOT_QUALIFIED'
  except Exception as ex:

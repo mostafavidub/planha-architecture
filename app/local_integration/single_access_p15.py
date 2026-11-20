@@ -3,6 +3,65 @@ import copy
 from fractions import Fraction as F
 from single_model_p15 import digest,require,core,RAW,FAMILY,AUTH
 from checker114 import rect,intersects,covered,sweeps
+# Explicit P15 adaptation of source programme inventory: one actual unit, same P2 fixtures.
+def placed(q,t):
+ a=rect(q);M=t['matrix'];v=t['translation']
+ require(type(M) is list and len(M)==2 and all(type(r) is list and len(r)==2 for r in M),'ISOMETRY_SHAPE')
+ require(all(type(x) is int and x in (-1,0,1) for r in M for x in r),'ISOMETRY_TYPE')
+ require(all(sum(M[i][j]*M[k][j] for j in (0,1))==int(i==k) for i in (0,1) for k in (0,1)),'ISOMETRY_ORTHOGONAL')
+ require(type(v) is list and len(v)==2,'TRANSLATION')
+ pts=[[sum(F(M[i][j])*p[j] for j in (0,1))+F(str(v[i])) for i in (0,1)] for p in ((a[0],a[1]),(a[0],a[3]),(a[2],a[1]),(a[2],a[3]))]
+ return (min(p[0] for p in pts),min(p[1] for p in pts),max(p[0] for p in pts),max(p[1] for p in pts))
+def inventory(model,profile,catalog):
+ """Source-profile identity/shape audit only; caller must establish original replay."""
+ expected={'units':1,'bedrooms_per_unit':2,'sleep_roles':['double','twin'],'design_occupants_per_unit':4,'capacity_profile':'LEGACY_SOURCE_PROGRAM','provisional':True}
+ for k,v in expected.items():require(digest(model['program'][k])==digest(v),'PROGRAM_IDENTITY:'+k)
+ require(profile['id']=='PROGRAM_2BED_V1' and profile['approval']['status']=='APPROVED_DESIGN_PROGRAM','REGISTRY_APPROVAL')
+ require(digest([profile['bedrooms_per_unit'],profile['design_persons_per_unit'],profile['sleep_roles'],profile['capacity_means_actual_population']])==digest([2,4,['double','twin'],False]),'REGISTRY_BINDING')
+ units=model['units'];require(len(units)==1 and {u['id'] for u in units}=={'A'},'UNITS')
+ expected_modules={'bed1':'PRIVATE_ROOM_MODULE116','bed2':'PRIVATE_TWIN_ROOM_MODULE118','bath':'BATHROOM_MODULE117','kitchen':'KITCHEN_MODULE117'}
+ rows=[]
+ for u in units:
+  uid=u['id'];ps=[p for p in model['module_placements'] if p['unit_id']==uid]
+  require(len(ps)==4 and {p['room_id'] for p in ps}==set(expected_modules),'PLACEMENT_INVENTORY')
+  fids=set();aids=set();bindings=[]
+  for p in ps:
+   module=p['module'];require(digest(module)==p['module_hash'],'MODULE_HASH')
+   require(module['schema']==expected_modules[p['room_id']],'MODULE_ROLE')
+   for category,seen in (('fixtures',fids),('activities',aids)):
+    for key,q in module['unit'][category].items():
+     target=p['id_map'][key];require(target not in seen,'REUSED_SOURCE_'+category)
+     require(placed(q,p['transform'])==rect(u[category][target]),'ACTUAL_SOURCE_'+category+':'+uid+'.'+target)
+     seen.add(target)
+   bindings.append({'room':p['room_id'],'module_hash':p['module_hash'],'transform_digest':digest(p['transform'])})
+  dp=u['dining_module_placement'];dm=dp['module']
+  require(digest(dm)==dp['module_hash'],'DINING_MODULE_HASH')
+  for key,q in dm['fixtures'].items():
+   target=dp['id_map'][key];require(target not in fids,'REUSED_DINING_FIXTURE')
+   require(placed(q,dp['transform'])==rect(u['fixtures'][target]),'DINING_SOURCE_FIXTURE');fids.add(target)
+  seats=dm['seating']['instances'];require(len(seats)==4 and len({s['fixture_id'] for s in seats})==4,'DINING_SOURCE_INSTANCES')
+  for seat in seats:
+   aid='dining_'+seat['id'][5:]
+   require(aid not in aids,'REUSED_DINING_ACTIVITY')
+   require(placed(seat['rise_transfer']['standing_body'],dp['transform'])==rect(u['activities'][aid]),'DINING_ACTIVITY_BINDING')
+   aids.add(aid)
+  for fid in profile['source_inventory']['living_items']:
+   q=rect(u['fixtures'][fid]);kind=u['fixture_metadata'][fid]['kind'];source=catalog['types'][kind]
+   require(kind==fid,'LIVING_SOURCE_KIND')
+   require(sorted((q[2]-q[0],q[3]-q[1]))==sorted((F(source['width_m']),F(source['depth_m']))),'LIVING_SOURCE_DIMENSIONS')
+   require(fid not in fids,'REUSED_LIVING_FIXTURE')
+   fids.add(fid);aid=fid+'_front';require(aid not in aids,'REUSED_LIVING_ACTIVITY');rect(u['activities'][aid]);aids.add(aid)
+  require(set(u['fixtures'])==fids,'WHOLE_SOURCE_FIXTURE_SET')
+  activity_rows=[{'activity_id':a,'present':True,'route_state':'PRESENT_NOT_RECHECKED_HERE' if u['routes'].get(a) else 'MISSING_ROUTE_WITNESS',
+    'target_state':'PRESENT' if a in u['route_targets'] else 'MISSING_TARGET_BINDING'} for a in sorted(aids)]
+  rows.append({'unit':uid,'design_persons':4,'fixture_ids':sorted(fids),'required_source_activity_ids':sorted(aids),
+   'additional_activity_ids':sorted(set(u['activities'])-aids),'activity_coverage':activity_rows,'module_bindings':bindings,
+   'dining_module_hash':dp['module_hash'],'dining_transfer_profile_validated':[s['rise_transfer']['human_transfer_and_support_profile_validated'] for s in seats],
+   'operation_state_coverage':[{'category':category,'records':len([z for z in records if z.get('unit')==uid]),'state':'PRESENT_SOURCE_RECORDS_NOT_INDEPENDENT_FUNCTIONAL_APPROVAL'} for category,records in model['operations'].items() if type(records) is list],
+   'activity_phase_coverage':{'arrival':'Source route presence recorded; actual clearance retained in original physical report','use':'Fresh limited capacity audit; other module operations only original physical evidence','exit':'NOT_INDEPENDENTLY_EVALUATED','simultaneous_states':'SOURCE_SCENARIOS_PARTIAL_NOT_COMPREHENSIVE_PROFILE'},'living_location_binding':'Original whole-construction replay; source dimensions independently compared',
+   'operations_coverage':'Original physical report retained separately; this inventory checker does not re-prove operation collisions or simultaneous state completeness'})
+ return rows
+
 def assess(m):
  before=digest(m);errors=[];evidence={}
  def need(ok,code):
@@ -37,6 +96,12 @@ def assess(m):
   for rs in u['rooms'].values():
    for q in rs:need(covered(rect(q),owner),'ROOM_OUTSIDE_OWNERSHIP')
   for q in u['fixtures'].values():need(covered(rect(q),owner),'FIXTURE_OUTSIDE_OWNERSHIP')
+  from single_model_p15 import ENGINE
+  from program_profile_registry import lookup
+  import json
+  catalog=json.loads((ENGINE/'fixture_catalog114.json').read_text())
+  need(m['fixture_catalog_hash']==digest(catalog),'CATALOG_HASH')
+  inventory_rows=inventory(m,lookup('PROGRAM_2BED_V1'),catalog)
   for x in m['module_placements']:
    need(x['unit_id']=='A','MODULE_OWNER')
   for q in owner:
@@ -51,13 +116,15 @@ def assess(m):
   target=[cx,owner[0][3]-F('.4')]
   ports={o['id']:rect(o['rect'])for o in openings if o['id']in('stair.entry','lift.entry','A.entry')}
   need(set(ports)=={'stair.entry','lift.entry','A.entry'},'CORE_PORTS')
-  domains=owner+[rect(c['stair']),rect(c['lift']),*[rect(q)for q in c['lobby']],*ports.values()]
+  all_floor=owner+[rect(c['stair']),rect(c['lift']),*[rect(q)for q in c['lobby']],*ports.values(),*walls.values()]
+  need(covered(frame,all_floor),'UNACCOUNTED_FLOOR_GAP')
   panels=[rect(o['open_panel'])for o in m['operations']['doors']]
   routes=[]
   for source in('stair','lift'):
    path=m['common_routes'][source+'_A'];a,b,C,d=rect(c[source]);cy=(b+d)/2
    start=[C-F('.4'),cy]if source=='stair'else[a+F('.4'),cy]
    need([F(x)for x in path[0]]==start and [F(x)for x in path[-1]]==target,'COMMON_ROUTE_ENDPOINT')
+   domains=[rect(c[source]),*[rect(q)for q in c['lobby']],ports[source+'.entry'],ports['A.entry'],*[rect(q)for q in u['rooms']['entry_circulation']]]
    sw=sweeps(path)
    for q in sw:
     need(covered(q,domains),'COMMON_ROUTE_FLOOR')
@@ -73,7 +140,7 @@ def assess(m):
    if key not in u['route_targets']or [F(x)for x in path[-1]]!=[F(x)for x in u['route_targets'][key]]:continue
    if all(covered(q,owner)and not any(intersects(q,z)for z in list(walls.values())+panels+list(fixtures.values()))for q in sweeps(path)):clear.append(key)
   need(bool(clear),'NO_CLEAR_ENTRY_TO_UNIT_ACTIVITY')
-  evidence={'unit_ids':['A'],'common_routes':routes,'clear_internal_routes':sorted(clear),
+  evidence={'unit_ids':['A'],'source_inventory':inventory_rows,'whole_frame_accounted':True,'common_routes':routes,'clear_internal_routes':sorted(clear),
             'ownership_digest':digest(u['ownership']),'core_digest':digest(c),'fixture_count':len(fixtures),
             'scope':'Necessary single-unit ownership and entry access only; not every activity, quality, privacy, or legal/technical approval'}
  except (KeyError,TypeError,ValueError,IndexError)as ex:
