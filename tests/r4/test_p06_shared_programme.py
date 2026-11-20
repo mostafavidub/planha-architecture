@@ -20,7 +20,7 @@ def success(folder,v):
  return {'schema':'P06_WORKER_COMPLETION_V1','config_sha256':h,'programme':v['programme'],'account_id':v['account_id'],
   'starts':{'producer':1,'milp':1,'highs':1},'returns':{'producer':1,'milp':1,'highs':1},
   'guards':[],'finished_clock':105.0,'source_still_matches':True,'synthetic_prebody_guard_verified':True,'solver_status':1,'incumbent':True}
-PROC={'wait_completed':True,'timed_out':False,'returncode':0,'kill_sent':False}
+PROC={'wait_completed':True,'timed_out':False,'returncode':0,'kill_sent':False,'observed_terminal_clock':106.0}
 class Controls(unittest.TestCase):
  def test_common_deadline_no_reset_and_programme_order(self):
   k=Clock();b=p.Budget(k)
@@ -86,6 +86,17 @@ class Controls(unittest.TestCase):
   b['context']['inputs']=['18','20',2]
   b['packet']['core']={'fixture_core':1}
   with self.assertRaisesRegex(ValueError,'FRAME_CORE'):p.bound_model(b,r,p.P2)
+ def test_status_incumbent_matrix_for_no_witness(self):
+  def probe(label,status,incumbent):
+   return p.proposal_evidence({'status':label,'solver_status':status,'budget_seconds':30},
+       {'starts':{'milp':1},'solver_status':status,'incumbent':incumbent})
+  self.assertEqual(probe('NO_PROPOSAL_IN_THIS_TOPOLOGY',2,False),'BOUNDED_NO_WITNESS')
+  self.assertEqual(probe('NO_PROPOSAL_IN_THIS_TOPOLOGY',4,False),'SOLVER_FAULT')
+  self.assertEqual(probe('SEARCH_TIMEOUT_NO_WITNESS',1,False),'SOLVER_TIMEOUT')
+  self.assertEqual(probe('ROUNDED_PROPOSAL_REJECTED',1,True),'ROUNDED_REJECTED')
+  self.assertEqual(p.proposal_evidence({'status':'NO_PROPOSAL_IN_THIS_PROGRAM','reason':'ROOM_OR_CORE_BOUND_CONFLICT'},{'starts':{'milp':0}}),'BOUND_CONFLICT_NO_SOLVER')
+  for label,status,incumbent in (('NO_PROPOSAL_IN_THIS_TOPOLOGY',2,True),('SEARCH_TIMEOUT_NO_WITNESS',0,False),('ROUNDED_PROPOSAL_REJECTED',1,False)):
+   with self.assertRaisesRegex(ValueError,'INCUMBENT_CONFLICT'):probe(label,status,incumbent)
  def test_p1_stock_index_rejects_missing_and_tampered_original(self):
   with tempfile.TemporaryDirectory()as td:
    f=Path(td);h=p.write(f/'physical-original.json',{'state':'FAIL'})
@@ -107,7 +118,7 @@ class Controls(unittest.TestCase):
    spawn.assert_called_once()
    kill.assert_called_once_with(123456,p.signal.SIGKILL)
    self.assertEqual(proc.wait.call_count,2)
-   self.assertEqual(status,{'returncode':-9,'timed_out':True,'kill_sent':True,'wait_completed':True})
+   self.assertEqual(status,{'returncode':-9,'timed_out':True,'kill_sent':True,'wait_completed':True,'observed_terminal_clock':100})
  def test_fake_process_success_without_native_receipt_never_attempts_p1(self):
   with tempfile.TemporaryDirectory()as td,patch.object(p,'source_state',return_value={'source':'synthetic'}),patch.object(p,'prepare',return_value=request()),patch.object(p,'run_child',return_value=PROC)as child:
    result=p.execute(Path(td),p.Budget(Clock()))

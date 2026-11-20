@@ -179,7 +179,7 @@ def worker(folder):
  finally:
   for code in set(watched)|forbidden:m.set_local_events(tool,code,0)
   m.free_tool_id(tool)
-  proof['finished_clock']=time.monotonic();proof['source_still_matches']=source_state()==src
+  proof['source_still_matches']=source_state()==src;proof['finished_clock']=time.monotonic()
   write(folder/'worker-proof.json',proof)
 
 def observed_files(folder):
@@ -210,18 +210,19 @@ def run_child(folder,limit):
     try:os.killpg(proc.pid,signal.SIGKILL);killed=True
     except ProcessLookupError:pass
     proc.wait()
-  return {'returncode':proc.returncode,'timed_out':timeout,'kill_sent':killed,'wait_completed':proc.poll() is not None}
+  return {'returncode':proc.returncode,'timed_out':timeout,'kill_sent':killed,'wait_completed':proc.poll() is not None,'observed_terminal_clock':time.monotonic()}
 
 def worker_proof(folder,cfg,proc):
  raw=read(folder/'config.json');v=decode(raw);config_shape(v)
  need(digest(v)==digest(cfg),'P06_CONFIG_READBACK')
  need(type(proc)is dict and proc.get('wait_completed')is True and proc.get('timed_out')is False
-  and type(proc.get('returncode'))is int and proc['returncode']==0,'P06_PROCESS_TERMINAL')
+  and type(proc.get('returncode'))is int and proc['returncode']==0 and finite(proc.get('observed_terminal_clock'))
+  and v['started']<=proc['observed_terminal_clock']<=v['child_deadline'],'P06_PROCESS_TERMINAL')
  p=decode(read(folder/'worker-proof.json'))
  need(type(p)is dict and p.get('schema')=='P06_WORKER_COMPLETION_V1' and p.get('config_sha256')==sha(raw)
   and p.get('programme')==v['programme'] and p.get('account_id')==v['account_id'],'P06_WORKER_PROOF_IDENTITY')
  need(p.get('source_still_matches') is True and p.get('synthetic_prebody_guard_verified') is True and p.get('guards')==[] and finite(p.get('finished_clock'))
-  and v['started']<=p['finished_clock']<=v['child_deadline'],'P06_WORKER_PROOF_SOURCE_TIME')
+  and v['started']<=p['finished_clock']<=proc['observed_terminal_clock']<=v['child_deadline'],'P06_WORKER_PROOF_SOURCE_TIME')
  for h in ('starts','returns'):
   s=p.get(h)
   need(type(s)is dict and set(s)=={'producer','milp','highs'} and
@@ -230,6 +231,28 @@ def worker_proof(folder,cfg,proc):
  if p['starts']['milp']:
   need(type(p.get('solver_status'))is int and type(p.get('incumbent'))is bool,'P06_SOLVER_TELEMETRY')
  return p
+
+def proposal_evidence(prop,proof):
+ from front_rear_runtime_adapter import proposal_disposition
+ state=proposal_disposition(prop)
+ count=proof['starts']['milp']
+ if not count:
+  need(state=='NO_PROPOSAL_IN_THIS_PROGRAM' and prop.get('reason')=='ROOM_OR_CORE_BOUND_CONFLICT'
+       and 'solver_status' not in prop,'P06_PRE_SOLVER_DISPOSITION')
+  return 'BOUND_CONFLICT_NO_SOLVER'
+ status=prop.get('solver_status');incumbent=proof.get('incumbent')
+ need(type(status)is int and status==proof.get('solver_status') and type(incumbent)is bool and prop.get('budget_seconds')==SOLVER,'P06_SOLVER_READBACK')
+ if state=='PROPOSAL_ONLY':
+  need(status in (0,1) and incumbent is True,'P06_STATUS_INCUMBENT_CONFLICT')
+  return 'WITNESS'
+ if state=='ROUNDED_PROPOSAL_REJECTED':
+  need(status in (0,1) and incumbent is True,'P06_STATUS_INCUMBENT_CONFLICT')
+  return 'ROUNDED_REJECTED'
+ if state=='SEARCH_TIMEOUT_NO_WITNESS':
+  need(status==1 and incumbent is False,'P06_STATUS_INCUMBENT_CONFLICT')
+  return 'SOLVER_TIMEOUT'
+ need(state=='NO_PROPOSAL_IN_THIS_TOPOLOGY' and status in (2,3,4) and incumbent is False,'P06_STATUS_INCUMBENT_CONFLICT')
+ return 'BOUNDED_NO_WITNESS'if status==2 else'SOLVER_FAULT'
 
 def bound_model(bundle,request,programme):
  rt=bundle;packet=rt['packet'];context=rt['context'];t=context['construction_trace'];m=packet['world_model'];mh=rt['model_digest']
@@ -261,17 +284,17 @@ def bind_p2(folder,cfg,request,source,initial_request,proof):
  require_unchanged(ROOT,rt['source_snapshot']);fr.verify_reports(rt['reports'],rt['report_digests'])
  prop=rt['proposal'];need(type(prop['bedrooms'])is int and prop['bedrooms']==2 and prop.get('sleep_roles')==['double','twin']
   and prop.get('variant')==0,'P06_P2_PROPOSAL_SCOPE')
- if proof['starts']['milp']:
-  need(prop.get('solver_status')==proof['solver_status'] and type(prop.get('solver_status'))is int and prop.get('budget_seconds')==SOLVER,'P06_P2_SOLVER_READBACK')
+ observed=proposal_evidence(prop,proof)
  if child['state']=='ORIGINAL_RUNTIME_INCOMPLETE_NO_FOUR_REPORT_DECISION':
   need(live.bind_completed(child,rr,rt,None) is True and rt['status']=='NO_PROPOSAL_IN_BOUNDED_ATTEMPT' and
    rt.get('model_binding_verified')is False and child['model_digest']is None and child.get('assessments')=={},'P06_P2_NO_WITNESS_BINDING')
-  status=fr.proposal_disposition(prop)
-  if status=='SEARCH_TIMEOUT_NO_WITNESS':return {'result':'VERIFIED_SOLVER_TIMEOUT_NO_WITNESS','p1_eligible':False,'model_digest':None}
-  need(status in ('NO_PROPOSAL_IN_THIS_TOPOLOGY','NO_PROPOSAL_IN_THIS_PROGRAM','ROUNDED_PROPOSAL_REJECTED'),'P06_P2_PROPOSAL_DISPOSITION')
-  return {'result':'VERIFIED_NO_WITNESS_IN_BOUNDED_ATTEMPT','p1_eligible':True,'model_digest':None}
+  need(observed!='WITNESS','P06_P2_PROPOSAL_DISPOSITION')
+  if observed in ('SOLVER_TIMEOUT','SOLVER_FAULT'):
+   return {'result':'VERIFIED_SOLVER_TIMEOUT_NO_WITNESS'if observed=='SOLVER_TIMEOUT'else'VERIFIED_SOLVER_FAULT_NO_LOWER_EXPLORATION',
+    'proposal_evidence':observed,'p1_eligible':False,'model_digest':None}
+  return {'result':'VERIFIED_NO_WITNESS_IN_BOUNDED_ATTEMPT','proposal_evidence':observed,'p1_eligible':True,'model_digest':None}
  dec=get('decision.json');reports={k:get(k+'.json')for k in four.SCHEMAS}
- need(proof['starts']['milp']==1 and proof.get('incumbent')is True,'P06_P2_VERIFIED_INCUMBENT')
+ need(observed=='WITNESS','P06_P2_VERIFIED_INCUMBENT')
  need(live.bind_completed(child,rr,rt,dec)is True and digest(child['assessments'])==digest(reports),'P06_P2_FULL_REPORTS')
  mh=bound_model(rt,request,P2)
  need(child.get('schema')=='LIVE_SCHEDULER_CHILD_V1','P06_P2_CHILD_SCHEMA')
@@ -305,9 +328,10 @@ def bind_p1(folder,cfg,request,proof):
  if s['state']=='NO_WITNESS_WITHIN_SINGLE_ATTEMPT':
   stock_index(root,index,{'request.json','attempt-open.json','proposal-observed.json'})
   v=get('proposal-observed.json')
-  need(type(s['exact_attempts'])is int and s['exact_attempts']==1 and v['status']!='PROPOSAL_ONLY','P06_P1_NO_WITNESS')
-  if proof['starts']['milp']:need(proof['solver_status']==v['solver_status'] and type(v['solver_status'])is int,'P06_P1_SOLVER_READBACK')
-  return {'result':'VERIFIED_P1_SOLVER_TIMEOUT_NO_WITNESS'if v['status']=='SEARCH_TIMEOUT_NO_WITNESS'else'VERIFIED_P1_NO_WITNESS_IN_BOUNDED_ATTEMPT','model_digest':None,'p1_eligible':False}
+  observed=proposal_evidence(v,proof)
+  need(type(s['exact_attempts'])is int and s['exact_attempts']==1 and s['proposal_disposition']==v['status'] and observed!='WITNESS','P06_P1_NO_WITNESS')
+  label={'SOLVER_TIMEOUT':'VERIFIED_P1_SOLVER_TIMEOUT_NO_WITNESS','SOLVER_FAULT':'VERIFIED_P1_SOLVER_FAULT_NO_ADMISSION'}.get(observed,'VERIFIED_P1_NO_WITNESS_IN_BOUNDED_ATTEMPT')
+  return {'result':label,'proposal_evidence':observed,'model_digest':None,'p1_eligible':False}
  need(s['state'] in ('ONE_BEDROOM_PAIR_SOURCE_STUDY_NOT_QUALIFIED','FOUR_ASSESSMENTS_WITH_EVALUATOR_ERRORS_NOT_QUALIFIED')
       and proof['starts']['milp']==1 and proof.get('incumbent')is True,'P06_P1_TERMINAL')
  stock_index(root,index,{'request.json','attempt-open.json','proposal.json','proposal-transport.json','packet.json','context.json',
@@ -318,7 +342,7 @@ def bind_p1(folder,cfg,request,proof):
  need(all(digest(rt[k])==digest(get(k+'.json'))for k in ('packet','proposal','context')) and
   digest(rt['reports']['physical'])==digest(get('physical-original.json')) and digest(rt['reports']['replay'])==digest(get('replay-original.json'))
   and digest(rt['source_snapshot'])==digest(index['local_source']),'P06_P1_ORIGINAL_REPORTS')
- if proof['starts']['milp']:need(rt['proposal'].get('solver_status')==proof['solver_status'] and type(rt['proposal'].get('solver_status'))is int,'P06_P1_SOLVER_READBACK')
+ need(proposal_evidence(rt['proposal'],proof)=='WITNESS','P06_P1_VERIFIED_INCUMBENT')
  mh=bound_model(rt,request,P1);p14.binding(rt)
  reb=p14.decision(rt,rs,{k:digest(v)for k,v in rs.items()})
  need(digest(reb)==digest(dec) and dec['integrity_verified'] is True and mh==s['model_digest']==dec['model_digest'] and
@@ -384,7 +408,7 @@ def execute(root,budget):
    if p==P2:
     result['transition']=transition_gate(budget,account,v)
     write(root/'p2-finished-transition.json',result['transition'])
-   result['state']=('TWO_TERMINALS_RETAINED_P1_EVALUATOR_ERROR'if v['result']=='VERIFIED_P1_WITH_WITNESS_EVALUATOR_FAULT'else'TWO_PROGRAMME_TERMINALS_VERIFIED_NO_ADMISSION')if p==P1 else'P2_VERIFIED_LOWER_NOT_YET_EXECUTED'
+   result['state']=('TWO_TERMINALS_RETAINED_P1_FAILURE'if v['result'] in ('VERIFIED_P1_WITH_WITNESS_EVALUATOR_FAULT','VERIFIED_P1_SOLVER_FAULT_NO_ADMISSION')else'TWO_PROGRAMME_TERMINALS_VERIFIED_NO_ADMISSION')if p==P1 else'P2_VERIFIED_LOWER_NOT_YET_EXECUTED'
   except Exception as ex:
    row.update(verified=False,state='P06_ATTEMPT_STOPPED_FAIL_CLOSED',error_type=type(ex).__name__,error_code=str(ex))
    result['state']='SCOPED_PARTIAL_OR_FAILED_CLOSED'
