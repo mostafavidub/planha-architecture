@@ -4,10 +4,14 @@ import public_wln_server as S
 class HTTP(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
+  cls.spawn_patch=patch('subprocess.Popen',side_effect=AssertionError('REGRESSION_NO_PROCESS'))
+  cls.spawn=cls.spawn_patch.start()
   cls.server=S.server(0);cls.port=cls.server.server_address[1]
   cls.thread=threading.Thread(target=cls.server.serve_forever,daemon=True);cls.thread.start()
  @classmethod
- def tearDownClass(cls):cls.server.shutdown();cls.server.server_close();cls.thread.join()
+ def tearDownClass(cls):
+  cls.server.shutdown();cls.server.server_close();cls.thread.join();cls.spawn_patch.stop()
+ def tearDown(self):self.spawn.assert_not_called()
  def request(self,body=None,path='/api/public/plan',headers=None,method='POST'):
   c=http.client.HTTPConnection('127.0.0.1',self.port,timeout=10)
   h={'Content-Type':'application/json',**(headers or {})};c.request(method,path,body=body,headers=h);r=c.getresponse();raw=r.read();status=r.status;c.close();return status,raw
@@ -31,7 +35,14 @@ class HTTP(unittest.TestCase):
     out=json.loads(raw);self.assertEqual(status,422);self.assertEqual(out['code'],'INVALID_BRIEF');self.assertEqual(out['field'],'n')
     for key in S.AUTH:self.assertIs(out[key],False)
    p.assert_not_called()
- def test_unit_one_unsupported(self):self.assertEqual(self.request(b'{"W":18,"L":20,"n":1}')[0],409)
+ def test_unit_one_other_dimensions_unsupported(self):
+  with patch.object(S,'run_bound',side_effect=AssertionError('NO_WORKER'))as call:
+   status,raw=self.request(b'{"W":17,"L":20,"n":1}')
+   self.assertEqual(status,409);self.assertTrue(json.loads(raw)['input_valid']);call.assert_not_called()
+ def test_unit_one_selected_family_ready_without_execution(self):
+  with patch.object(S,'run_bound',side_effect=AssertionError('NO_WORKER'))as call:
+   self.assertTrue(S.preflight(b'{"W":18,"L":20,"n":1}')['execution_ready'])
+   call.assert_not_called()
  def test_foreign_origin(self):self.assertEqual(self.request(b'{}',headers={'Origin':'https://evil.invalid'})[0],403)
  def test_foreign_host(self):self.assertEqual(self.request(b'{}',headers={'Host':'evil.invalid'})[0],403)
  def test_content_type(self):self.assertEqual(self.request(b'{}',headers={'Content-Type':'text/plain'})[0],415)

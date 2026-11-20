@@ -7,6 +7,7 @@ on:
       - 'app/local_integration/public_program_dispatch_p17.py'
       - 'studies/*p17*'
       - 'tests/r4/test_current_entry_launch_x03.py'
+      - 'app/local_integration/test_public_wln_server.py'
       - '.github/workflows/p17-single-api.yml'
   workflow_dispatch:
 permissions:
@@ -30,7 +31,7 @@ jobs:
       - run: python -B studies/test_single_physical_p17.py
       - run: python -B studies/test_single_evaluation_p17.py
       - run: python -B studies/test_public_single_p17.py
-      - run: python -B -m unittest test_public_wln_contract test_current_entry_launch_x03 -v
+      - run: python -B -m unittest test_public_wln_contract test_public_wln_server test_current_entry_launch_x03 -v
       - name: One actual HTTP n1 attempt with full temporary reports
         if: contains(github.event.head_commit.message, '[p17-live]')
         run: python -B studies/p17_http_single.py
