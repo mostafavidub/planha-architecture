@@ -24,6 +24,10 @@ def fixture(body,mode,serial):
   physical='PASS_CONCEPT_SCOPED_REVIEW';blockers.remove('PHYSICAL_FAIL')
  if mode=='rejected':
   states={k:'PASS' for k in CRITERIA};blockers.remove('CURRENT_UNKNOWN')
+ if mode in ('necessary','not_evaluated'):
+  physical='PASS_CONCEPT_SCOPED_REVIEW';blockers.remove('PHYSICAL_FAIL');blockers.remove('CURRENT_UNKNOWN')
+  states={k:('FAIL' if mode=='necessary' else 'NOT_EVALUATED') for k in CRITERIA}
+  blockers.append('CURRENT_NECESSARY_FAIL' if mode=='necessary' else 'CURRENT_NOT_EVALUATED')
  if mode=='evaluator':blockers.append('EVALUATOR_ERROR')
  row={'state':'FULL_SINGLE_EVALUATION_COMPLETE_BLOCKED','receipt_verified':True,
   'nonce':h('SYNTHETIC_NONCE_'+str(serial))[:32],'model_digest':model,'observed_model_digest':model,
@@ -82,10 +86,15 @@ def main():
       for name,n,expected in [('mixed','1','physical_rejected_quality_unknown'),('quality','1','quality_unknown'),
        ('rejected','1','physical_rejected'),('evaluator','1','evaluation_error'),('quality','2','quality_unknown'),
        ('receipt_false','1','observed_unverified'),('binding_false','1','observed_unverified'),
-       ('source_false','1','evaluation_error'),('exception','1','evaluation_error')]:
+       ('source_false','1','server_error'),('exception','1','server_error'),
+       ('necessary','1','current_rejected'),('not_evaluated','1','not_evaluated')]:
        mode['value']=name
        with page.expect_response('**/api/public/plan') as response:submit(n)
        state(expected);data=response.value.json()
+       if name in ('mixed','evaluator'):
+        expect(page.locator('#result')).to_contain_text('بررسی فیزیکی این مدل رد شده')
+        expect(page.locator('#result')).to_contain_text('معیارهای کیفیت هنوز نامشخص')
+       if name=='evaluator':expect(page.locator('#result')).to_contain_text('ارزیابی با خطا')
        if name in ('mixed','quality','rejected','evaluator'):
         assert data['http_lifecycle']['receipt_verified'] is False and data['http_lifecycle']['evidence_usable'] is False
         assert data['full_evidence_binding']['binding_verified'] is True
@@ -94,6 +103,9 @@ def main():
        until(lambda:not m.LOCK.locked())
       before=len(calls);submit(w='4.999');state('invalid_input');submit(w='17');state('unsupported_case');assert len(calls)==before
       rows.extend([{'viewport':width,'case':x,'scope':'REAL_PARSER_NO_DISPATCH'} for x in ('invalid','unsupported')])
+      page.route('**/api/public/plan',lambda route:route.continue_(post_data='{"W":18.1,"L":"20","n":"1"}'))
+      submit();state('unsupported_wire');page.unroute('**/api/public/plan');assert len(calls)==before
+      rows.append({'viewport':width,'case':'numeric_wire','scope':'REAL_PARSER_CHANGED_TRANSPORT_NO_DISPATCH'})
       # Invalid response variants are intercepted, never represented as actual evidence.
       wire=json.dumps({'W':'18','L':'20','n':'1'},separators=(',',':')).encode()
       raw=fixture(wire,'mixed',10000+width);base=m.public_summary(raw)
@@ -108,10 +120,11 @@ def main():
        'forged_authority':lambda d:d.update(delivery_allowed=True),
        'source_false_wire':lambda d:d.update(source_integrity_verified=False),
        'decision_contradiction':lambda d:d['decision'].update(blockers=['CURRENT_UNKNOWN']),
+       'count_bool':lambda d:d['single_unit_evidence'][0].update(physical_errors=True),
+       'current_contradiction':lambda d:d['single_unit_evidence'][0]['current_states'].update(CURRENT_PROGRAM_SUITABILITY='FAIL'),
        'http_mismatch':lambda d:None}
       for name,change in changes.items():
        data=copy.deepcopy(base);change(data);status=500 if name=='http_mismatch' else 200
-       def intercept(route,data=data,status=status):route.fulfill(status=status,content_type='application/json',body=json.dumps(data))
        # Closure factory avoids Playwright injecting Request into payload defaults.
        def handler(payload,code):
         return lambda route:route.fulfill(status=code,content_type='application/json',body=json.dumps(payload))

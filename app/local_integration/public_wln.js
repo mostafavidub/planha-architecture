@@ -47,7 +47,11 @@
       !states||Object.keys(states).sort().join("|")!==["CONTINUOUS_USEFUL_LIVING","CURRENT_PROGRAM_SUITABILITY","KITCHEN_GUEST_PATH_SEPARATION","NONFUNCTIONAL_WALL_EXCLUSION"].sort().join("|")||
       !Object.values(states).every(x=>["PASS","FAIL","UNKNOWN","NOT_EVALUATED","EVALUATOR_ERROR"].includes(x)))return false;
    if((row.physical_status==="FAIL")!==decision.blockers.includes("PHYSICAL_FAIL")||
-      Object.values(states).includes("UNKNOWN")!==decision.blockers.includes("CURRENT_UNKNOWN"))return false;
+      Object.values(states).includes("UNKNOWN")!==decision.blockers.includes("CURRENT_UNKNOWN")||
+      Object.values(states).includes("FAIL")!==decision.blockers.includes("CURRENT_NECESSARY_FAIL")||
+      Object.values(states).includes("NOT_EVALUATED")!==decision.blockers.includes("CURRENT_NOT_EVALUATED")||
+      (Object.values(states).includes("EVALUATOR_ERROR")&&!decision.blockers.includes("EVALUATOR_ERROR"))||
+      (row.physical_pending>0)!==decision.blockers.includes("PHYSICAL_PENDING"))return false;
   }else if(binding.schema==="HTTP_FULL_EVIDENCE_X07_V1"){
    if(binding.request_digest!==requestHash||binding.state!=="SAME_REQUEST_FULL_REPORT_CONSISTENCY_VERIFIED_SCOPED"||
       !["nonce_digest","model_digest","decision_digest","source_digest","file_hashes_digest"].every(k=>hex(binding[k]))||
@@ -60,13 +64,17 @@
  function observationText(blockers){
   const physical=blockers.includes("PHYSICAL_FAIL"),unknown=blockers.includes("CURRENT_UNKNOWN");
   const evaluator=blockers.some(x=>x==="EVALUATOR_ERROR"||x==="CURRENT_EVALUATOR_ERROR");
+  const necessary=blockers.includes("CURRENT_NECESSARY_FAIL"),notEvaluated=blockers.includes("CURRENT_NOT_EVALUATED"),pending=blockers.includes("PHYSICAL_PENDING")||blockers.includes("PHYSICAL_NOT_VERIFIED");
   const parts=[];
   if(physical)parts.push("بررسی فیزیکی این مدل رد شده است؛ جزئیات علت در این پاسخ گزارش نشده.");
+  if(necessary)parts.push("حداقل یک شرط ضروری در بررسی فعلی رد شده است.");
+  if(notEvaluated)parts.push("حداقل یک معیار هنوز ارزیابی نشده است.");
+  if(pending)parts.push("بررسی فیزیکی هنوز موارد تعیین‌تکلیف‌نشده دارد.");
   if(unknown)parts.push("نتیجهٔ معیارهای کیفیت هنوز نامشخص است.");
   if(evaluator)parts.push("ارزیابی با خطا مواجه شده است؛ این خطا به‌معنای ناممکن بودن طرح نیست.");
   if(!parts.length)parts.push("بررسی ثبت شد، اما مجوز ارائهٔ طرح وجود ندارد.");
   parts.push("رسید داخلی با شواهد همان درخواست تطبیق شده؛ این تأیید مستقل چرخهٔ HTTP یا مجوز تحویل نیست. هیچ طرح یا فایلی ارائه نمی‌شود.");
-  return {text:parts.join("\n"),kind:evaluator?"evaluation_error":physical?(unknown?"physical_rejected_quality_unknown":"physical_rejected"):(unknown?"quality_unknown":"delivery_blocked")};
+  return {text:parts.join("\n"),kind:evaluator?"evaluation_error":physical?(unknown?"physical_rejected_quality_unknown":"physical_rejected"):(necessary?"current_rejected":notEvaluated?"not_evaluated":unknown?"quality_unknown":pending?"physical_unresolved":"delivery_blocked")};
  }
  function resetForm(){busy=false;Array.from(form.elements).forEach(x=>x.disabled=false);}
  // Navigation invalidates a pending response, not the server job. No cancellation claim.
@@ -103,7 +111,7 @@
     const status=observationText(data.decision.blockers);show(status.text,"blocked",status.kind);return;
    }
    if(response.status===504&&["DEADLINE_EXCEEDED_BEFORE_DISPATCH","DEADLINE_EXCEEDED_RESULT_WITHHELD"].includes(data.code)&&denied(data)){show("مهلت پاسخ پایان یافت؛ نتیجهٔ دیررس ارائه نمی‌شود. توقف اجرای سرور یا رد معماری احراز نشده است.","error","timeout");return;}
-   if(data.code==="STUDY_FAILED_CLOSED"||response.status>=500){show("نتیجهٔ معتبر در دسترس نیست؛ اجرای سرور ممکن است شروع شده باشد. تکرار خودکار انجام نمی‌شود.","error","evaluation_error");return;}
+   if(data.code==="STUDY_FAILED_CLOSED"||response.status>=500){show("نتیجهٔ معتبر در دسترس نیست؛ اجرای سرور ممکن است شروع شده باشد. تکرار خودکار انجام نمی‌شود.","error","server_error");return;}
    if(!response.ok){show("درخواست اجرا نشد: "+String(data.code||"خطای نامشخص")+". ورودی را بررسی کنید.","error");return;}
    throw new Error("UNEXPECTED_RESPONSE");
   }catch(error){if(sequence!==requestSequence)return;show("نتیجهٔ قابل اتکا دریافت نشد. وضعیت اجرای سرور ممکن است نامعلوم باشد؛ تلاش دوباره خودکار انجام نمی‌شود.","error","outcome_unknown");}
