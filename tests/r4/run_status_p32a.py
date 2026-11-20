@@ -152,7 +152,7 @@ def main():
       until(lambda:not m.LOCK.locked());page.wait_for_timeout(100);state('unsupported_case')
       rows.append({'viewport':width,'case':'stale_local_generation_and_busy','scope':'REAL_HTTP_SYNTHETIC_PAGE_EVENTS'})
       mode['value']='timeout';entered.clear();release.clear()
-      with patch.object(boundary,'LIMIT_SECONDS',.15):
+      with patch.object(boundary,'LIMIT_SECONDS',2.0):
        try:submit();state('timeout');assert m.LOCK.locked()
        finally:release.set()
        until(lambda:not m.LOCK.locked())

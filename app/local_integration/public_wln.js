@@ -24,7 +24,7 @@
  // P32-A: consistency of a scoped observation, never authenticity/admission.
  async function boundObservation(data,response,wire){
   const binding=data.full_evidence_binding,life=data.http_lifecycle,decision=data.decision;
-  if(response.status!==200||data.input_valid!==true||data.source_integrity_verified!==true||
+  if(response.status!==200||!["BLOCKED","LIVE_SINGLE_CASE_EVIDENCE_RECORDED_NOT_QUALIFIED"].includes(data.status)||data.input_valid!==true||data.source_integrity_verified!==true||
      !binding||binding.binding_verified!==true||!decision||decision.state!=="BLOCKED"||!denied(decision)||
      !Array.isArray(decision.blockers)||!decision.blockers.every(x=>typeof x==="string")||
      !life||life.schema!=="HTTP_WITHHOLDING_X04_V1"||life.response_state!=="ON_TIME_OBSERVED"||
