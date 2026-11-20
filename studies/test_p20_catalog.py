@@ -51,6 +51,15 @@ class CatalogTests(unittest.TestCase):
  def test_no_private_locator_added(self):
   self.data['private']='https://docs.google.com/document/private'
   with self.assertRaisesRegex(ValueError,'PRIVATE_LOCATOR'):validate(self.data)
+ def test_open_decision_missing_rejected(self):
+  self.data['open_decisions'].pop()
+  with self.assertRaisesRegex(ValueError,'OPEN_DECISION_SET'):validate(self.data)
+ def test_open_calibration_not_falsely_completed(self):
+  self.data['open_decisions'][0]['implemented_by_this_task']=True
+  with self.assertRaisesRegex(ValueError,'OPEN_DECISION_CLAIM'):validate(self.data)
+ def test_not_applicable_not_dropped(self):
+  self.data['condition_result_vocabulary'].pop('NOT_APPLICABLE')
+  with self.assertRaisesRegex(ValueError,'CONDITION_RESULT_VOCABULARY'):validate(self.data)
  def states(self,state='UNKNOWN'):return {k:state for k in SCHEMAS}
  def physical(self):return {'status':'PASS_CONCEPT_SCOPED_REVIEW','errors':[],'pending':[]}
  def test_actual_capacity_violation_and_fail_decision(self):

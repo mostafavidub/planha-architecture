@@ -12,6 +12,8 @@ EXPECTED={
  'NONFUNCTIONAL_WALL_EXCLUSION':{'P20_WALL_SOURCE_INVENTORY','P20_WALL_VIEW_ONLY','P20_WALL_ALIAS_MATERIAL','P20_WALL_ALTERNATIVE','P20_WALL_PRIVACY_TARGETS','P20_CORE_ENGINEERING'}}
 KINDS={'KNOWN_NECESSARY','COMPARATIVE_DUTY','CALIBRATION_OPEN','IMPLEMENTATION_OPEN','PROFILE_AND_EVIDENCE_OPEN','SCOPE_DISTINCTION','OUT_OF_SCOPE'}
 AUTH=('accepted','qualified','display_allowed','delivery_allowed')
+OPEN={'P20_OPEN_QUALITY_ANCHORS','P20_OPEN_EFFECTIVE_ACTIVITY_PROFILES','P20_OPEN_PROGRAMME_SELECTION','P20_OPEN_PRINCIPAL_GUEST_ORGANISATION','P20_OPEN_USEFUL_LIVING','P20_OPEN_PER_WALL_FUNCTION'}
+RESULTS={'PASS_SCOPED','FAIL_SCOPED','INDETERMINATE','CONFLICT','NOT_EVALUATED','EVALUATION_ERROR','NOT_APPLICABLE','MEASURED_ONLY'}
 def require(ok,code):
  if not ok:raise ValueError(code)
 def gitblob(data):
@@ -24,6 +26,11 @@ def validate(data,root=ROOT):
  require(all(data.get('aggregate_policy',{}).get(k) is True for k in ('runtime_condition_result_is_not_aggregate_criterion','out_of_scope_is_not_pass','no_witness_is_not_global_infeasibility','known_violation_does_not_erase_unknown','classification_only_no_new_evaluator')),'AGGREGATE_POLICY')
  rows=data.get('criteria');require(type(rows) is list and len(rows)==4 and {r.get('id') for r in rows}==set(EXPECTED),'CRITERION_SET')
  aliases=data.get('source_aliases');require(type(aliases) is dict and bool(aliases),'SOURCE_ALIAS_SET')
+ opens=data.get('open_decisions');require(type(opens) is list and len(opens)==6 and {r.get('id') for r in opens}==OPEN,'OPEN_DECISION_SET')
+ for item in opens:
+  require(item.get('implemented_by_this_task') is False and type(item.get('decision_needed')) is str and bool(item['decision_needed']),'OPEN_DECISION_CLAIM')
+  require(type(item.get('criteria')) is list and bool(item['criteria']) and set(item['criteria'])<=set(EXPECTED),'OPEN_DECISION_CRITERIA')
+ require(type(data.get('condition_result_vocabulary')) is dict and set(data['condition_result_vocabulary'])==RESULTS,'CONDITION_RESULT_VOCABULARY')
  seen=set();source_files={}
  for row in rows:
   require(row.get('current_state')=='UNKNOWN','CATALOG_IS_NOT_ASSESSMENT')

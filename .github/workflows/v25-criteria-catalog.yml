@@ -1,8 +1,11 @@
-name: V25 criteria catalog task 3.1
+name: P20 existing criteria catalog and scoped semantics
 on:
   push:
     paths:
       - 'specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json'
+      - 'studies/p20_catalog_audit.py'
+      - 'studies/test_p20_catalog.py'
+      - 'studies/p20-condition-inventory.md'
       - '.github/workflows/v25-criteria-catalog.yml'
   workflow_dispatch:
 permissions:
@@ -11,32 +14,19 @@ jobs:
   catalog:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: studies:app/local_integration:app/reconstruction357/planha_general150_runtime_work
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Structural catalog validation only
-        run: |
-          python -B - <<'PY'
-          import json
-          from pathlib import Path
-          p=Path('specs/V25_TASK_3_1_CURRENT_FUNCTIONAL_CRITERIA.json')
-          d=json.loads(p.read_text())
-          ids={'CURRENT_PROGRAM_SUITABILITY','KITCHEN_GUEST_PATH_SEPARATION','CONTINUOUS_USEFUL_LIVING','NONFUNCTIONAL_WALL_EXCLUSION'}
-          assert len(d['criteria'])==4 and {r['id'] for r in d['criteria']}==ids
-          for k in ('accepted','qualified','display_allowed','delivery_allowed'):assert d[k] is False
-          for r in d['criteria']:
-              assert r['current_state']=='UNKNOWN'
-              for k in ('sources','paraphrase','required_data','conditional_pass','fail_examples','missing_profile','missing_evidence','existing_checker','proposed_tests'):assert r[k]
-              assert type(r['missing_rule']) is list and r['missing_rule_status']
-              assert r['known_rule_scope']
-              assert len(r['proposed_tests'])==5
-              for s in r['sources']:
-                  assert s['readback']=='VERIFIED' and s['revision_id']
-                  assert type(s['start_index']) is int and type(s['end_index']) is int and 0<s['start_index']<s['end_index']
-                  assert s['document_id'] in ('17X8Q5nsiFBmJqAodCQpIfewsDIUeP5eosc3D72ALi3s','1S1Rv6s-ugQmMkiAfbOAZNEaicgDnRKK7GpyeqyxRMK8')
-                  if s['start_index']>118000:assert s['document_id'].startswith('1S1Rv6')
-          print('PASS: four catalog records, locators, required fields, twenty proposed cases, false authority.')
-          print('STRUCTURE_ONLY: no plan tests, no source re-fetch in CI, no model or evaluator executed.')
-          PY
-          git diff --exit-code
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.18'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1
+      - name: Current source-linked condition inventory
+        run: python -B studies/p20_catalog_audit.py
+      - name: Actual primitive and decision tests on synthetic data, no generator
+        run: python -B -m unittest discover -s studies -p test_p20_catalog.py -v
+      - run: git diff --exit-code

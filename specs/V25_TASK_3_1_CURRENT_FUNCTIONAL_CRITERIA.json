@@ -148,7 +148,7 @@
           "requirement": "Preserve requested unit count, approved programme and actual sleep-role/capacity identity.",
           "required_witness": "Exact typed request/programme/registry binding, same-model source replay.",
           "current_implementation": "inventory; PROGRAM_IDENTITY:*",
-          "runtime_condition_result": "Identity mismatch maps to runtime FAIL; malformed/incomplete source evidence does not prove architecture infeasible.",
+          "runtime_condition_result": "PROGRAM_IDENTITY exceptions caught inside assess map to FAIL; earlier domain/origin rejection can prevent assessment. Malformed/incomplete source evidence does not prove architecture infeasible.",
           "implementation_gap": "No general net-geometry programme selection across families.",
           "profile_or_calibration_gap": "None for preserving a specified programme.",
           "aggregate_effect": "No condition result grants aggregate PASS. Preserve known violations, missing evidence and out-of-scope separately.",
