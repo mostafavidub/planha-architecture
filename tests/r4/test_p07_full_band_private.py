@@ -86,6 +86,27 @@ class P07Tests(unittest.TestCase):
    self.assertFalse((d/'receipt.json').exists())
    self.assertEqual((d/'partial-private.txt').read_bytes(),b'synthetic partial')
    self.assertEqual(p.decode((d/'terminal-unverified.json').read_bytes()),o)
+ def test_monitored_direct_and_nested_save_callers_without_stock_execution(self):
+  results=[]
+  def only_control():
+   def save():pass
+   def retain():save()
+   def unrelated():save()
+   def observed(code,_):
+    self.assertIs(code,save.__code__)
+    f=p.capture_parent(sys._getframe(1),only_control.__code__,retain.__code__)
+    results.append(f is not None)
+   mm=sys.monitoring;tool=4;e=mm.events.PY_START
+   mm.use_tool_id(tool,'synthetic-checkpoint-seam')
+   mm.register_callback(tool,e,observed)
+   mm.set_local_events(tool,save.__code__,e)
+   try:
+    save();retain()
+    with self.assertRaisesRegex(ValueError,'P07_CAPTURE_PARENT'):unrelated()
+   finally:
+    mm.set_local_events(tool,save.__code__,0);mm.free_tool_id(tool)
+  only_control()
+  self.assertEqual(results,[True,False])
  def test_native_checkpoint_order_and_private_write_preserved(self):
   with tempfile.TemporaryDirectory() as t:
    d=Path(t);v={'sink':1,'prep':2}

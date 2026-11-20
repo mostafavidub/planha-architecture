@@ -119,6 +119,12 @@ def bind_packet(v,cfg):
    str((ENGINE/'assemble114.py').relative_to(ROOT)),str((ENGINE/'contract114.py').relative_to(ROOT))}<=set(v['snap']),'P07_SNAPSHOT_CLOSURE')
  s.bind_receipt(v['receipt'],v['raw'],CHOICE,v['profile'],v['core'],props,m,v['snap'],cfg['nonce'])
  return mh
+def capture_parent(f,child_code,retain_code):
+ caller=f.f_back
+ if caller.f_code is child_code:return caller
+ if caller.f_code is retain_code and caller.f_back.f_code is child_code:return None
+ raise ValueError('P07_CAPTURE_PARENT')
+
 def worker(output):
  import search114
  import scipy.optimize._milp as sm
@@ -126,9 +132,9 @@ def worker(output):
  cfg_bytes=read(output/'launch.json');cfg=decode(cfg_bytes);cfg_valid(cfg)
  need(private_dir(output) and source()==cfg['source'] and inputs()==cfg['inputs'] and cfg['start']<=time.monotonic()<cfg['deadline'],'P07_WORKER_INPUT')
  s=stock()
- saves=[x for x in s.child.__code__.co_consts if isinstance(x,types.CodeType) and x.co_name=='save']
- need(len(saves)==1,'P07_STOCK_CAPTURE_CODE')
- save=saves[0]
+ locals_code={k:[x for x in s.child.__code__.co_consts if isinstance(x,types.CodeType) and x.co_name==k] for k in ('save','retain')}
+ need(all(len(x)==1 for x in locals_code.values()),'P07_STOCK_CAPTURE_CODE')
+ save=locals_code['save'][0];retain=locals_code['retain'][0]
  watch={search114.propose.__code__:'producer',sm.milp.__code__:'milp',sm._highs_wrapper.__code__:'highs'}
  need(search114.milp.__code__ is opt.milp.__code__ is sm.milp.__code__,'P07_MILP_ALIAS')
  proof={'schema':'P07_WORKER_OBSERVATION_V1','nonce':cfg['nonce'],'choice':CHOICE,'config_sha256':sha(cfg_bytes),
@@ -138,8 +144,9 @@ def worker(output):
   try:
    need(time.monotonic()<cfg['deadline'],'P07_WORKER_CUTOFF')
    if code is save:
-    need(f.f_back.f_code is s.child.__code__,'P07_CAPTURE_PARENT')
-    l=f.f_back.f_locals
+    parent=capture_parent(f,s.child.__code__,retain)
+    if parent is None:return # Only inner stock save of its original reports; not a capture hook.
+    l=parent.f_locals
     if l['out'].get('stage')=='INDEPENDENT_REPLAY' and 'capture_sha256' not in proof:
      v=retained_packet(l,cfg)
      proof['capture_sha256']=write(output/'packet-checkpoint.json',v,native_order=True)
@@ -218,7 +225,10 @@ def archive_report(output,cfg,wait):
     ((state=='SEARCH_TIMEOUT_NO_WITNESS' and j==1 and i is False) or
      (state=='NO_PROPOSAL_IN_THIS_TOPOLOGY' and j in (2,3,4) and i is False) or
      (state=='ROUNDED_PROPOSAL_REJECTED' and j in (0,1) and i is True)),'P07_NO_WITNESS_TELEMETRY')
-  result.update(state='VERIFIED_BOUNDED_NO_WITNESS_NO_INFEASIBILITY_CLAIM',producer_status=state)
+  label=('VERIFIED_SOLVER_FAULT_NO_INFEASIBILITY_CLAIM' if p.get('solver_status') in (3,4) else
+         'VERIFIED_SOLVER_TIMEOUT_NO_WITNESS' if state=='SEARCH_TIMEOUT_NO_WITNESS' else
+         'VERIFIED_BOUNDED_NO_WITNESS_NO_INFEASIBILITY_CLAIM')
+  result.update(state=label,producer_status=state)
  else:
   need(s['state']=='FULL_REPORTS_RETAINED_NOT_QUALIFIED' and s['producer_status']=='PROPOSAL_ONLY'
    and p['starts']['milp']==1 and type(p.get('solver_status'))is int and p['solver_status'] in (0,1) and p['incumbent']is True
@@ -288,8 +298,9 @@ def final_result(root,deadline,fn):
    v={'state':'FAILED_CLOSED','error_code':str(e) if re.fullmatch('P07_[A-Z0-9_]+',str(e)) else 'UNCLASSIFIED_VALIDATION_ERROR',**DENIED}
   except Exception as e:v={'state':'FAILED_CLOSED','error_type':type(e).__name__,**DENIED}
  except Cutoff:v={'state':'DEADLINE_EXPIRED_PRIVATE_PARTIAL_ONLY',**DENIED}
+ except KeyboardInterrupt:v={'state':'INTERRUPTED_PRIVATE_PARTIAL_ONLY',**DENIED}
  finally:signal.setitimer(signal.ITIMER_REAL,0)
- if v['state'] in ('FAILED_CLOSED','DEADLINE_EXPIRED_PRIVATE_PARTIAL_ONLY'):
+ if v['state'] in ('FAILED_CLOSED','DEADLINE_EXPIRED_PRIVATE_PARTIAL_ONLY','INTERRUPTED_PRIVATE_PARTIAL_ONLY'):
   a=root/'receipt.json'
   if a.exists():os.replace(a,root/'forensic-late-receipt.json')
   write(root/'terminal-unverified.json',v)
