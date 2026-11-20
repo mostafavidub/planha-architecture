@@ -35,6 +35,7 @@ FACT={'schema','finding_id','code','unit','scope','evidence_digest','model_diges
       'source_digest','original_report_digest','variant_digest','layers','geometry','detail'}
 MANIFEST={'schema','context_digest','finding_digests'}
 GEOM={'frame_digest','model_digest','variant_digest','boxes'}
+FRAME={'schema','unit','axes','origin','model_digest','context_digest'}
 KIND={PLANNED:{'entry_panel_overlap','kitchen_motion_overlap'},DETACHED:{'detached_aperture'}}
 CAP=24
 
@@ -66,9 +67,12 @@ def box(v):
  a,b,c,d=map(dimension,v)
  need(a<c and b<d,'P37_BOX_POSITIVE')
  return a,b,c,d
-def base(ctx,manifest,expected):
+def base(ctx,frame,manifest,expected):
  need(exact(ctx,CTX) and ctx['schema']=='P37_ARCHIVE_CONTEXT_V1'
    and all(hexn(ctx[k])for k in CTX-{'schema'}),'P37_CONTEXT')
+ need(exact(frame,FRAME) and frame['schema']=='P37_FRONT_REAR_WORLD_FRAME_V1' and frame['unit']=='metre'
+  and frame['axes']==['WORLD_X_RIGHT','WORLD_Y_UP'] and frame['origin']==['0','0'] and frame['model_digest']==ctx['model_digest']
+  and hexn(frame['context_digest']) and digest(frame)==ctx['frame_digest'],'P37_FRAME_DATUM')
  h=digest(ctx)
  need(exact(manifest,MANIFEST) and manifest['schema']=='P37_EXTERNAL_ARCHIVE_MANIFEST_V1'
    and manifest['context_digest']==h and hexn(expected) and digest(manifest)==expected,'P37_INDEPENDENT_MANIFEST')
@@ -79,18 +83,37 @@ PROFILE='public_all_seat_motion_occupied_and_kitchen_exclusion'
 def detail_binding(f,scope):
  d=f['detail']
  if scope==ACTUAL:
-  need(d=={'route':'guest_dining','reason':'NO_CONNECTED_BODY_ROUTE','profile':PROFILE},
-   'P37_ORIGINAL_OCCURRENCE_DETAIL')
+  need(exact(d,{'route','reason','profile','original_pointer'}) and d['route']=='guest_dining'
+   and d['reason']=='NO_CONNECTED_BODY_ROUTE' and d['profile']==PROFILE,'P37_ORIGINAL_OCCURRENCE_DETAIL')
+  x=d['original_pointer']
+  need(exact(x,{'namespace','ordinal','child_index','source_record_sha256','child_record_sha256'})
+   and x['namespace']=='errors' and all(type(x[k])is int and 0<=x[k]<CAP for k in ('ordinal','child_index'))
+   and all(hexn(x[k])for k in ('source_record_sha256','child_record_sha256')),'P37_ORIGINAL_POINTER')
  if scope==PLANNED:
   need(exact(d,{'route','profile','body_m'}) and d['route']=='guest_dining' and d['profile']==PROFILE
    and dimension(d['body_m'])==F('0.7'),'P37_PLANNED_METHOD_DETAIL')
  if scope==DETACHED:
-  need(exact(d,{'original_width_m','detached_width_m','body_m','width_deficit_m','opening_id','host_id','operation_mode'})
+  need(exact(d,{'original_width_m','detached_width_m','body_m','width_deficit_m','opening_id','host_id','operation_mode','aperture_axis','opening_before_digest','opening_after_digest','operation_after_digest'})
    and d['opening_id']==f['unit']+'.entry' and d['host_id']==f['unit']+'.unit_boundary'
-   and d['operation_mode']=='SOURCE_LINEAR_SLIDE_NO_HINGE','P37_DETACHED_METHOD_DETAIL')
+   and d['operation_mode']=='SOURCE_LINEAR_SLIDE_NO_HINGE' and d['aperture_axis']=='WORLD_X'
+   and all(hexn(d[k])for k in ('opening_before_digest','opening_after_digest','operation_after_digest'))
+   and d['opening_before_digest']!=d['opening_after_digest'],'P37_DETACHED_METHOD_DETAIL')
   original,new,body,lack=map(dimension,(d['original_width_m'],d['detached_width_m'],d['body_m'],d['width_deficit_m']))
   need((original,new,body,lack)==(F('1.3'),F('0.6'),F('0.7'),F('0.1'))
    and original>=body>new and body-new==lack,'P37_DETACHED_WIDTHS')
+def box_evidence(f,x):
+ need(exact(x,{'kind','rect','unit','element_ref','element_binding','segment_index','area_m2'})
+   and type(x['kind'])is str and x['kind'] in KIND[f['scope']] and x['unit']==f['unit'],'P37_GEOMETRY_KIND')
+ kind=x['kind'];a,b,c,d=box(x['rect'])
+ need(dimension(x['area_m2'])==(c-a)*(d-b),'P37_GEOMETRY_AREA')
+ if kind=='kitchen_motion_overlap':
+  need(x['element_ref']=='kitchen_motion:4' and x['element_binding']=='SOURCE_ROLE_INDEX_ONLY','P37_ELEMENT_ID_OR_ROLE')
+ else:need(x['element_ref']==f['unit']+'.entry' and x['element_binding']=='SOURCE_OPENING_ID','P37_ELEMENT_ID_OR_ROLE')
+ if kind=='detached_aperture':
+  need(x['segment_index']is None and c-a==dimension(f['detail']['detached_width_m']),'P37_DETACHED_APERTURE_RECT_WIDTH')
+ else:
+  need(type(x['segment_index'])is int and 0<=x['segment_index']<CAP,'P37_PLANNED_SEGMENT')
+ return kind
 def bound_fact(ctx,fp,f):
  need(exact(f,FACT) and f['schema']=='P37_TYPED_FINDING_V1' and idn(f['finding_id'])
   and type(f['code'])is str and f['unit'] in ('A','B') and hexn(f['evidence_digest']),'P37_FINDING_TYPE')
@@ -115,8 +138,7 @@ def bound_fact(ctx,fp,f):
   and g['variant_digest']==v and type(g['boxes'])is list and 0<len(g['boxes'])<=CAP,'P37_GEOMETRY_BASIS')
  ks=set()
  for x in g['boxes']:
-  need(exact(x,{'kind','rect'}) and type(x['kind'])is str and x['kind'] in KIND[scope],'P37_GEOMETRY_KIND')
-  box(x['rect']);ks.add(x['kind'])
+  ks.add(box_evidence(f,x))
  need(ks==KIND[scope],'P37_GEOMETRY_INCOMPLETE')
  return state
 NAMESPACES=('errors','pending','original_pending','not_evaluated','out_of_scope')
@@ -129,42 +151,63 @@ def check_ledger(ctx,ledger):
   items=vals[name]
   need(type(items)is list and len(items)<=80,'P37_LEDGER_ENTRIES')
   for order,x in enumerate(items):
-   need(exact(x,{'ordinal','code','rule_id','source_record_sha256'}) and type(x['ordinal'])is int and x['ordinal']==order
+   need(exact(x,{'ordinal','code','rule_id','source_record_sha256','child_occurrences'}) and type(x['ordinal'])is int and x['ordinal']==order
     and (x['code'] is None or type(x['code'])is str) and (x['rule_id'] is None or type(x['rule_id'])is str)
     and hexn(x['source_record_sha256']),'P37_LEDGER_ENTRY')
-def report(ctx,facts,ledger,*,trusted_manifest,expected_manifest_digest):
- t,pins=base(ctx,trusted_manifest,expected_manifest_digest)
+   ch=x['child_occurrences']
+   need(type(ch)is list and len(ch)<=CAP,'P37_LEDGER_CHILDREN')
+   if x['code']=='MISSING_REQUIRED_ACTIVITY_ROUTES' and name=='errors':
+    need(len(ch)==2 and {a.get('unit')for a in ch}=={'A','B'},'P37_SCOPED_ORIGINAL_COVERAGE')
+    for i,a in enumerate(ch):
+     need(exact(a,{'unit','child_index','child_record_sha256'}) and type(a['child_index'])is int and a['child_index']==i
+      and hexn(a['child_record_sha256']),'P37_LEDGER_CHILD')
+   else:need(ch==[],'P37_NONLOCALIZABLE_LEDGER_INVENTORY_ONLY')
+def report(ctx,frame,facts,ledger,*,trusted_manifest,expected_manifest_digest):
+ t,pins=base(ctx,frame,trusted_manifest,expected_manifest_digest)
  check_ledger(ctx,ledger)
  need(type(facts)is list and len(facts)<=CAP,'P37_FINDING_LIST')
- before=digest([ctx,facts,ledger,trusted_manifest])
- rows=[];seen=set()
+ before=digest([ctx,frame,facts,ledger,trusted_manifest])
+ ledger_expected={(r['ordinal'],z['child_index']):(r,z) for r in ledger['namespaces']['errors']
+  if r['code']=='MISSING_REQUIRED_ACTIVITY_ROUTES' for z in r['child_occurrences']}
+ need(len(ledger_expected) in (0,2),'P37_SCOPED_ORIGINAL_COVERAGE')
+ occurrences=set();rows=[];seen=set()
  for f in facts:
   state=bound_fact(ctx,pins,f)
   k=f['finding_id'];need(k not in seen,'P37_DUPLICATE_FINDING');seen.add(k)
+  if f['scope']==ACTUAL:
+   pointer=f['detail']['original_pointer']
+   at=(pointer['ordinal'],pointer['child_index'])
+   need(at in ledger_expected and at not in occurrences,'P37_ORIGINAL_POINTER_UNIQUE')
+   r,z=ledger_expected[at]
+   need(pointer['source_record_sha256']==r['source_record_sha256'] and pointer['child_record_sha256']==z['child_record_sha256']
+    and f['unit']==z['unit'],'P37_ORIGINAL_RAW_RECORD_BINDING')
+   occurrences.add(at)
   rows.append({'finding_id':k,'code':f['code'],'unit':f['unit'],'location_status':state,'scope':f['scope'],
    'evidence_digest':f['evidence_digest'],'layers':dict(f['layers']),
-   'variant_digest':f['variant_digest'],'details':None if f['detail'] is None else dict(f['detail']),'geometry_digest':None if f['geometry'] is None else digest(f['geometry']),
+   'variant_digest':f['variant_digest'],'details':None if f['detail']is None else json.loads(json.dumps(f['detail'])),'geometry':None if f['geometry']is None else json.loads(json.dumps(f['geometry'])),'geometry_digest':None if f['geometry'] is None else digest(f['geometry']),
    'reason':'MISSING_EVIDENCE' if state=='NOT_LOCALIZABLE'else 'UNSUPPORTED_CODE' if state=='UNSUPPORTED_CODE'else
      'PLANNED_NOT_ACTUAL_ROUTE' if f['scope']==PLANNED else'DETACHED_NOT_ORIGINAL'})
  need(seen==set(pins),'P37_FINDING_SET')
- need(digest([ctx,facts,ledger,trusted_manifest])==before,'P37_MUTATION')
+ need(occurrences==set(ledger_expected),'P37_SCOPED_ORIGINAL_COVERAGE')
+ need(digest([ctx,frame,facts,ledger,trusted_manifest])==before,'P37_MUTATION')
  lines=['گزارش تشخیصی محدود، نه تأیید طرح یا مجوز تحویل.',
         'خطا، موارد معوق، موارد ارزیابی‌نشده و موارد خارج از دامنه جدا نگه داشته شده‌اند.']
  for r in rows:
-  lines.append('واحد '+r['unit']+': '+TITLES.get(r['code'],'کد پشتیبانی‌نشده؛ محل اعلام نمی‌شود.'))
+  lines.append('واحد '+r['unit']+': '+TITLES.get(r['code'],'کد پشتیبانی‌نشده؛ محل اعلام نمی‌شود.')+' | شناسهٔ شاهد: '+r['finding_id'])
   if r['location_status']=='NOT_LOCALIZABLE':lines.append('شاهد کافی برای تعیین محل یا علتِ نبود مسیر نداریم.')
   if r['scope']==PLANNED:lines.append('نشان فقط روی مسیر پیشنهادی است؛ مسیر واقعی ثبت نشده و علت یکتا اثبات نشده است.')
   if r['scope']==DETACHED:lines.append('در نسخهٔ جداشده عرض بازشو از ۱٫۳ به ۰٫۶ متر رسید؛ برای بدن ۰٫۷ متری، ۰٫۱ متر کم است. این نقص به مدل اصلی نسبت داده نمی‌شود.')
   lines.extend(LABELS[k]+': '+LAYER_LABELS[r['layers'][k]] for k in LAYERS)
  return {'schema':'P37_ARCHIVED_PRIVATE_DIAGNOSTICS_V1','context_digest':t,'model_digest':ctx['model_digest'],
   'frame_digest':ctx['frame_digest'],'source_digest':ctx['source_digest'],'original_report_digest':ctx['original_report_digest'],
-  'findings':rows,'original_report_namespaces':{k:[dict(x)for x in ledger['namespaces'][k]]for k in NAMESPACES},'persian_report':'\n'.join(lines)+'\n','private_overlay_contains_whole_model':False,**AUTH}
+  'world_frame':dict(frame),'findings':rows,'original_report_namespaces':json.loads(json.dumps(ledger['namespaces'])),
+  'unmapped_ledger_records_are_nonlocation_inventory_only':True,'persian_report':'\n'.join(lines)+'\n','private_overlay_contains_whole_model':False,**AUTH}
 def decimal(v):
  with localcontext()as c:
   c.prec=23
   return format(Decimal(v.numerator)/Decimal(v.denominator),'.10f')
-def overlay(ctx,fact,*,trusted_manifest,expected_manifest_digest):
- h,pins=base(ctx,trusted_manifest,expected_manifest_digest)
+def overlay(ctx,frame,fact,*,trusted_manifest,expected_manifest_digest):
+ h,pins=base(ctx,frame,trusted_manifest,expected_manifest_digest)
  state=bound_fact(ctx,pins,fact)
  need(state in ('LOCATED_PLANNED_WITNESS','LOCATED_DETACHED_CONTROL'),'P37_OVERLAY_NO_VERIFIED_LOCATION')
  xs=[(x['kind'],box(x['rect'])) for x in fact['geometry']['boxes']]
@@ -175,8 +218,12 @@ def overlay(ctx,fact,*,trusted_manifest,expected_manifest_digest):
  colors={'entry_panel_overlap':'#963445','kitchen_motion_overlap':'#165a8a','detached_aperture':'#79531e'}
  shapes=[]
  for k,(a,b,c,d) in xs:
+  need(F(decimal(c-a))>0 and F(decimal(d-b))>0,'P37_OVERLAY_ZERO_RENDERED_SPAN')
   shapes.append(f'<rect data-kind="{k}" x="{decimal(a-x0)}" y="{decimal(y1-d)}" width="{decimal(c-a)}" height="{decimal(d-b)}" fill="{colors[k]}"/>')
  svg=f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {decimal(x1-x0)} {decimal(y1-y0)}" data-finding="{attrs}"><title>Private scoped diagnostic</title>'+''.join(shapes)+'</svg>'
  return {'schema':'P37_PRIVATE_FINDING_SVG_V1','context_digest':h,'finding_id':fact['finding_id'],'scope':fact['scope'],
   'geometry_digest':digest(fact['geometry']),'frame_digest':ctx['frame_digest'],'model_digest':ctx['model_digest'],
-  'variant_digest':fact['variant_digest'],'svg':svg,'whole_model_embedded':False,**AUTH}
+  'variant_digest':fact['variant_digest'],'world_frame':dict(frame),'world_bbox_m':list(map(str,(x0,y0,x1,y1))),
+  'local_from_world':{'matrix':[[1,0],[0,-1]],'translation_m':[str(-x0),str(y1)]},
+  'world_from_local':{'matrix':[[1,0],[0,-1]],'translation_m':[str(x0),str(y1)]},
+  'svg_rounding_decimal_places':10,'svg':svg,'whole_model_embedded':False,**AUTH}
