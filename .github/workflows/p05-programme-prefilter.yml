@@ -25,4 +25,6 @@ jobs:
         run: python -B -m unittest test_programme_prefilter_p05 -v
       - name: CLI smoke with named public synthetic dimensions
         run: python -B app/local_integration/programme_prefilter_p05.py --body '{"W":"13","L":"6","n":2}'
+      - name: Current launcher boundary regression, no solver
+        run: python -B -m unittest discover -s tests/r4 -p test_current_entry_launch_x03.py -v
       - run: git diff --exit-code
