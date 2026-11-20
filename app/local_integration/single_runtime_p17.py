@@ -1,5 +1,5 @@
 """One n1 HTTP attempt, fixed P15 family; full temporary evidence, no public raw."""
-import copy,hashlib,json,math,os,signal,subprocess,sys,tempfile,time,uuid
+import copy,hashlib,json,math,os,re,signal,subprocess,sys,tempfile,time,uuid
 from pathlib import Path
 import single_model_p15 as p
 import single_evaluation_p17 as binding
@@ -105,7 +105,8 @@ def worker(folder):
              historical_status=reports['historical_physical']['status'],historical_errors=len(reports['historical_physical']['errors']),
              access_state=reports['access']['state'],raw_archive_durable=False)
  except Exception as ex:
-  out.update(state='FAILED_CLOSED',error_type=type(ex).__name__)
+  code=str(ex)
+  out.update(state='FAILED_CLOSED',error_type=type(ex).__name__,error_code=code if re.fullmatch(r'[A-Z][A-Z0-9_]{0,95}',code)else'NON_ENUM_EXCEPTION')
   raise
  finally:
   out['source_integrity_verified']=binding.source_audit()==before
@@ -155,7 +156,7 @@ def run_bound(body,deadline):
   term=terminal(usable,source_ok,deadline,time.monotonic(),bool(summary.get('model_digest')),summary['state']);usable=term['usable']
   row={'nonce':request['nonce'],'state':summary['state']if usable else term['state'],'observed_worker_state':summary['state'],'model_digest':summary.get('model_digest')if usable else None,'observed_model_digest':summary.get('model_digest'),'runtime_digest':p.digest(summary),
        'receipt_verified':usable,'solver_status':summary.get('solver_status'),'solver_seconds':summary.get('solver_seconds'),
-       'stage':summary.get('stage'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
+       'stage':summary.get('stage'),'error_type':summary.get('error_type'),'error_code':summary.get('error_code'),'physical_status':summary.get('physical_status'),'physical_errors':summary.get('physical_errors'),
        'physical_pending':summary.get('physical_pending'),'historical_status':summary.get('historical_status'),'historical_errors':summary.get('historical_errors'),
        'current_states':summary.get('current_states'),'actual_negatives':summary.get('negatives'),
        'timed_out':timed,'returncode':proc.returncode,'wait_completed':proc.poll()is not None,
