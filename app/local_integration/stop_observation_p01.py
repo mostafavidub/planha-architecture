@@ -27,7 +27,7 @@ def source_snapshot():
  if physical.is_symlink()or hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()!='16a16f20af2603ea67a2cb631954342462fe73a0':raise ValueError('P01_PHYSICAL_SOURCE_PIN')
  out['single_physical_p17.py']=hashlib.sha256(data).hexdigest()
  path=ROOT/'app/local_integration/stop_observation_p01.py'
- if Path(__file__).resolve()!=path.resolve()or Path(inspect.getsourcefile(observe)).resolve()!=path.resolve():raise ValueError('P01_IMPORT_PATH')
+ if Path(__file__).resolve()!=path.resolve()or any(Path(inspect.getsourcefile(fn)).resolve()!=path.resolve()for fn in (observe,snapshot,safe,solver_observation,physical_observation,source_snapshot)):raise ValueError('P01_IMPORT_PATH')
  out['self']=hashlib.sha256(path.read_bytes()).hexdigest()
  return out
 def decode(data):

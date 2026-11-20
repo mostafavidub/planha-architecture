@@ -65,6 +65,12 @@ class Observation(unittest.TestCase):
    bad=copy.deepcopy(out);bad.update(change);bad['record_digest']=s.digest({k:v for k,v in bad.items()if k!='record_digest'});self.assertIsNone(s.safe(bad,sha))
  def test_actual_source_pins(self):
   snap=s.source_snapshot();self.assertIn('single_physical_p17.py',snap);self.assertIn('search114.py',snap)
+ def test_shadow_snapshot_rejected_before_call(self):
+  called=[]
+  def shadow(*a,**kw):called.append(True);raise AssertionError('MUST_NOT_CALL')
+  with patch.object(s,'snapshot',shadow):
+   with self.assertRaisesRegex(ValueError,'P01_IMPORT_PATH'):s.source_snapshot()
+  self.assertEqual(called,[])
  def test_start_failure_is_retained_before_cleanup(self):
   with patch.object(r.binding,'source_audit',return_value={'controlled':True}),patch.object(r.subprocess,'Popen',side_effect=OSError('PRIVATE FREE TEXT')):
    with self.assertRaises(r.DiagnosticFailure)as caught:r.run_bound(BODY,time.monotonic()+30)

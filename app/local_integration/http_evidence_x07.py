@@ -50,7 +50,8 @@ def guard():
   snap[name]=hashlib.sha256(data).hexdigest()
  for mod,fn,name in [(live,live.bind_completed,'live_program_scheduler.py'),(live,live.preflight,'live_program_scheduler.py'),
   (decision,decision.assemble,'current_four_decision.py'),(runtime,decision.transport,'front_rear_runtime_adapter.py'),
-  (contract,decision.digest,'same_version_front_rear_contract.py'),(boundary,boundary.check_model_domain,'current_entry_boundary_x03.py')]:
+  (contract,decision.digest,'same_version_front_rear_contract.py'),(boundary,boundary.check_model_domain,'current_entry_boundary_x03.py'),
+  (stop,stop.source_snapshot,'stop_observation_p01.py'),(stop,stop.snapshot,'stop_observation_p01.py'),(stop,stop.observe,'stop_observation_p01.py')]:
   expected=(ROOT/'app/local_integration'/name).resolve()
   need(Path(mod.__file__).resolve()==expected and Path(inspect.getsourcefile(fn)).resolve()==expected,'X07_IMPORT_PATH')
  selfpath=ROOT/'app/local_integration/http_evidence_x07.py'
