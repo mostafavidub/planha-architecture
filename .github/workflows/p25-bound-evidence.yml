@@ -1,0 +1,25 @@
+name: P25 scoped isolated evidence verification
+on:
+  push:
+    paths:
+      - 'studies/p25_bound_evidence.py'
+      - 'studies/test_p25_bound_evidence.py'
+      - '.github/workflows/p25-bound-evidence.yml'
+permissions:
+  contents: read
+jobs:
+  pure-synthetic-no-solver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Synthetic report binding on unchanged source, no artifact or generation
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          PYTHONPATH: studies:app/local_integration:app/reconstruction357/planha_general150_runtime_work
+        run: python -B -m unittest discover -s studies -p test_p25_bound_evidence.py -v
