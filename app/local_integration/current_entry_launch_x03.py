@@ -23,7 +23,7 @@ def withholding_guard():
  return hashlib.sha256(data).hexdigest()
 def evidence_guard():
  path=ROOT/'app/local_integration/http_evidence_x07.py';data=path.read_bytes()
- need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='5d3579b01f10e3692aa01d23f9cc0d31e62e3aa8','CURRENT_EVIDENCE_SOURCE_CHANGED')
+ need(hashlib.sha1(b'blob '+str(len(data)).encode()+bytes([0])+data).hexdigest()=='ac8952500c6d6d98b4a3615c2a57b292e6fbfc70','CURRENT_EVIDENCE_SOURCE_CHANGED')
  module=importlib.import_module('http_evidence_x07')
  for fn in (module.run_bound,module.consume,module.guard):
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
