@@ -1,6 +1,7 @@
 name: Current entry domain boundary X03
 on:
   workflow_dispatch:
+  pull_request:
   push:
     paths:
       - 'app/local_integration/current_entry_boundary_x03.py'
@@ -8,6 +9,7 @@ on:
       - 'app/local_integration/current_entry_launch_x03.py'
       - 'tests/r4/test_current_entry_launch_x03.py'
       - 'specs/current_entry_inventory_x03.json'
+      - 'specs/current_entry_inventory_x03_current.json'
       - 'tests/r4/test_current_entry_boundary_x03.py'
       - '.github/workflows/r4-current-entry-boundary-x03.yml'
 permissions:
@@ -24,7 +26,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install numpy==2.4.6 scipy==1.17.1
-      - run: python -B app/local_integration/current_entry_inventory_x03.py
+      - run: python -B app/local_integration/current_entry_inventory_x03.py --current
       - run: python -B -m unittest discover -s tests/r4 -p test_current_entry_boundary_x03.py -v
       - env:
           PYTHONPATH: app/local_integration

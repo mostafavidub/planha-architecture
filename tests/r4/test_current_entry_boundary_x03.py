@@ -105,7 +105,7 @@ class BoundaryTests(unittest.TestCase):
     for call in calls:
      with self.assertRaises((ValueError,InputError)):call()
  def test_inventory_is_static_and_pinned(self):
-  from current_entry_inventory_x03 import scan
-  result=scan();self.assertGreater(len(result['rows']),200)
+  from current_entry_inventory_x03 import ROOT, scan
+  result=scan(ROOT / "specs/current_entry_inventory_x03_current.json");self.assertGreater(len(result['rows']),200)
   self.assertEqual(result['literal_legacy_import_isolation'],'NOT_IMPLEMENTED')
 if __name__=='__main__':unittest.main()
