@@ -41,7 +41,7 @@
     },
     ".github/workflows/p36-capability-projection.yml": {
       "classification": "REVIEWED_SOURCE_IDENTITY_ONLY",
-      "blob": "54e5bfbdd673dac39c3dfdfd88d9b27d6e479ab2"
+      "blob": "9955350aa1b38658682ac01e3b1399acce31aec2"
     },
     ".github/workflows/public-api-batch50.yml": {
       "blob": "43cd3a1e6fea33f0514805bfd3dfd7d3e6d3635a",
