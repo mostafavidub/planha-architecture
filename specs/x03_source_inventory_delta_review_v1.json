@@ -1,0 +1,369 @@
+{
+  "schema": "X03_SOURCE_INVENTORY_DELTA_REVIEW_V1",
+  "purpose": "Read-only review evidence. No runtime or CI consumer. No execution or merge authority.",
+  "candidate_commit": "fb2f0d1d391e40575315aeb90e613cd00d4e3832",
+  "historical_manifest": "specs/current_entry_inventory_x03.json",
+  "historical_manifest_blob": "4d3a5b85bbcfa742ad9219e8190e00f81dfdb070",
+  "files": [
+    {
+      "path": ".github/workflows/historical-engine-batch50.yml",
+      "blob": "1ddd2add678b9e80da02fc327fffccc2ce893f52",
+      "commit": "b21592e02e26fd9d92577ea81855b5b6b7e93e7c",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p01-stop-observation.yml",
+      "blob": "5f3fac736e04a7c184caab096a3a7ef62cad2611",
+      "commit": "906fc0bf33bdd0111c101256de9e05a0c0ded939",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p03-input-contract.yml",
+      "blob": "56621ee39204061d6a5cae8712b9f8ef490fa63c",
+      "commit": "6ad44e3331c573ae9aa81894650a2833a923f1d2",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p05-programme-prefilter.yml",
+      "blob": "6655dc47fe987babf3c3d00afa1cf5abac4b19c5",
+      "commit": "c1c7b5c4ca7db25068699d71d521429a326d32b2",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p08-presolve-diagnostic.yml",
+      "blob": "457121b2b7ddee3d33e22f88c27331f44c105813",
+      "commit": "bc8d966dddd6345b7d890d9efd83fb4510fa769d",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p15-single-model.yml",
+      "blob": "f5d60b5d03a182e36e13a53b34ab1bcd61cb406a",
+      "commit": "93bdf0e7e29d4165701b8abd93b75f27749a4e70",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p17-single-api.yml",
+      "blob": "51b5513d2a6f24630852a26d291e516cd1548323",
+      "commit": "e6703adf92d154fc23b40d65fd1989fd0f498bd7",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p32a-status.yml",
+      "blob": "5e636160335b8fef53e2b707f5504b1e568ae379",
+      "commit": "b7445bde59f1a480c07a5d4f0806ef5600a954d3",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/p36-capability-projection.yml",
+      "blob": "2b5ab082ea2c2f1f75bfac43db156108bedb5cc0",
+      "commit": "220be66e3b3ea15b4460305847c80c16e8de672a",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/public-api-batch50.yml",
+      "blob": "43cd3a1e6fea33f0514805bfd3dfd7d3e6d3635a",
+      "commit": "856376a97e22cb1c64a5ed548ce0cbcd15ade138",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-cause-regression108.yml",
+      "blob": "1044773a40f0d3c3fdc3591c7b5e875347141c8b",
+      "commit": "a3c070237e8a00ae662489c88ac37f9b5dbfdfe5",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-current-matrix211.yml",
+      "blob": "05200e73f6b0f0b955e0534ebe0405336ec4e3f4",
+      "commit": "4ae9b597e33b4f2b65c5a5aa5a8215a0ff272b86",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-disclosure311.yml",
+      "blob": "bdc2231a46a1e302bc3be8e9b39aa67ec897dc18",
+      "commit": "8061ece6f2d57314aad55bfa4b97f15a6d65e05d",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-http-evidence-x07.yml",
+      "blob": "5fb2e67d4edd0de323e6dd16c59d281391ef2a89",
+      "commit": "7a4b11e9f0fc6b8c2b86eaac02613130df13f7e8",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-http-withholding-x04.yml",
+      "blob": "0fe3d56d1244afc75536ab2b2fca2026461f98b4",
+      "commit": "017c47c806da39174daa03ce71a8fbc576b5d316",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-planned-witness108.yml",
+      "blob": "042bb8e7cc4343f3a30fccb24269182f6079096a",
+      "commit": "1f77c504e4fe1645ede21ce50115e4e36ae38cbd",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-public-navigation310.yml",
+      "blob": "a146c6e3364d213ce87f4148e08f126b48e338e3",
+      "commit": "7af2c91aa789ab364208979f875a383b6d8bf38d",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-semantic-descriptor301.yml",
+      "blob": "025c54d7a33fbb5cd274fd2475a312df00c7ce7e",
+      "commit": "d7ef1537702e50f918d187ab40b7ddfdf6d2064e",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-source-inventory-x05.yml",
+      "blob": "57fcaa8607043e70f290334ae933a1580384418f",
+      "commit": "aaca9ea322ce7e5951a488330c979c880ef2c2cb",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/r4-structural-pair302.yml",
+      "blob": "bd91468655186c5a77d5452137965534db6cc477",
+      "commit": "8f4dc80417512a167acd16feef13ace38d51561d",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/capability_p36.py",
+      "blob": "36dd1636e8c3a73329853fba22a69e72eb5f5031",
+      "commit": "ef4e4aed1647bc8cabf383ffbe58cbcf4bb47fe3",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/cause_parent_witness108.py",
+      "blob": "0693ef9c20c0c8a367e59331bcb5e6064e3c37a2",
+      "commit": "a3c070237e8a00ae662489c88ac37f9b5dbfdfe5",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/cause_regression108.py",
+      "blob": "ca6853222856d0620dcc49c718751ca9c78ed1ce",
+      "commit": "105658c1d9ac757765265608c961a750be8af2d5",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/cause_regression_support108.py",
+      "blob": "343758e578800ee3aa26c61629e9e80a79705af1",
+      "commit": "6fe759023bfa8c51eb98fc9b17ec514532f8d825",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/compound_panel_candidate108.py",
+      "blob": "2116843f25ea430f5b41dd38cf728715c3c56944",
+      "commit": "1f77c504e4fe1645ede21ce50115e4e36ae38cbd",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/current_entry_inventory_x05.py",
+      "blob": "8b276af7e5262dff58639b2b4a941561e257b84c",
+      "commit": "c5ee5d978bd5c77fc9b56be115a23f4cd99d76cc",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/current_matrix211.py",
+      "blob": "47815c3ba4d4aa9481dae53513a5161059016135",
+      "commit": "24adb4f8e1dec32107155d9e88e2c0742c62ffc5",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/guest_master_p11.py",
+      "blob": "3bac2538375766a97d237d06faae9b28ef0f0d9a",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/http_evidence_x07.py",
+      "blob": "36e36679af7fd1858818f52b7f538f3d4558b5a2",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/http_withholding_x04.py",
+      "blob": "5207b00d3e30ac1a194a6605d50c26fd554f5c0d",
+      "commit": "bbf8210aa09d5faae6d7f03a7aaa800910a3afef",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/one_bed_pair_p14.py",
+      "blob": "b0c3aa24fcaf99c84b2798b085a38f2485ff00fa",
+      "commit": "afb298d920a4a8b43c45c2c969e501fe3aca2382",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/parametric_pair_p04.py",
+      "blob": "b93ade7658abc1a48f7f2abce08842732d0717de",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/planned_witness_chain108.py",
+      "blob": "dfc788713fd5830f7c5257a2c3a645b60c11718c",
+      "commit": "b6682851cb15b65cc8c8210496b5e841d5b5fd34",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/planned_witness_contract108.py",
+      "blob": "d48b3355d148bb78dc8038acaf56e7e3d666b254",
+      "commit": "b6682851cb15b65cc8c8210496b5e841d5b5fd34",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/planned_witness_support108.py",
+      "blob": "845038df0f2b66ff9fcd2ee423f69757220ea190",
+      "commit": "1f77c504e4fe1645ede21ce50115e4e36ae38cbd",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/programme_prefilter_p05.py",
+      "blob": "928d07ef8dc42b9ed49057dd7568bdc1c98552c5",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/public_program_dispatch_p17.py",
+      "blob": "65a9b9cb4a77925e442837429a5fa1e176860d2d",
+      "commit": "9032ebaea0e4c685b9306cbdfe7815f459bcd9c9",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_access_p15.py",
+      "blob": "72a497a872ca446bf0d172f4e5971d44d3638d4c",
+      "commit": "93bdf0e7e29d4165701b8abd93b75f27749a4e70",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_assembler_p15.py",
+      "blob": "778189cccaba7e9e4e7fcd29b2a1f6f7c280386b",
+      "commit": "6cd00f456a40d23c23999dc111cf344ad08f025c",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_current_programme_evaluator_p17.py",
+      "blob": "7ac2f8efcddab91bba747b7e232393ef6bda45a3",
+      "commit": "1c93dfad22c4c16abcce72fd97a384e6b529c097",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_decision_p17.py",
+      "blob": "717362f62c8eaef45ae065d0770d5517c44b7bbe",
+      "commit": "c154f3d715fc42f3ce60a73dadad58b52657da98",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_evaluation_p17.py",
+      "blob": "23956db2458c1d0c416c5c39a24ec3b521766845",
+      "commit": "bbf8210aa09d5faae6d7f03a7aaa800910a3afef",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_model_p15.py",
+      "blob": "434b7633cdccd8d006baa8a22bbef2e006062730",
+      "commit": "93bdf0e7e29d4165701b8abd93b75f27749a4e70",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_physical_p17.py",
+      "blob": "16a16f20af2603ea67a2cb631954342462fe73a0",
+      "commit": "1c93dfad22c4c16abcce72fd97a384e6b529c097",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_runtime_p17.py",
+      "blob": "ca33f86aa6ca0d23aa59fa366698c268f9c7c936",
+      "commit": "2f058ffafdb8763d6ced85c80d0051cd4de6c873",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_source_guest_route_evaluator_p17.py",
+      "blob": "e32189f2de3cea1545fba2c391468565dc4a0353",
+      "commit": "1c93dfad22c4c16abcce72fd97a384e6b529c097",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_source_living_evaluator_p17.py",
+      "blob": "cee0eb2d5262b99b553f38ef11c3a77a03e1cb10",
+      "commit": "1c93dfad22c4c16abcce72fd97a384e6b529c097",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/single_source_wall_function_evaluator_p17.py",
+      "blob": "8beab5c8b68d50458fd8edb10de3608ec5c1b2ca",
+      "commit": "1c93dfad22c4c16abcce72fd97a384e6b529c097",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/stop_observation_p01.py",
+      "blob": "e5421221179a78ad8e313a5e86ba8e000bc26b79",
+      "commit": "652fcfbed5320ff7ae3744431a8c90fea2296cf6",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/structural_pair302.py",
+      "blob": "df2d3d5c11f898a0517d81ca72e0359c0950cc11",
+      "commit": "fcf6f6ea0bb7625536c35ee5351daab18d49491e",
+      "kind": "ADDED"
+    },
+    {
+      "path": "app/local_integration/test_programme_prefilter_p05.py",
+      "blob": "6faa4a572f9c178359c03d555b0b0cb964c41a0e",
+      "commit": "56588ed8cac22b1fec431106259d9f32660388f6",
+      "kind": "ADDED"
+    },
+    {
+      "path": ".github/workflows/v25-criteria-catalog.yml",
+      "blob": "3f3d7a1a188dd20f1c39bd9d0046f856232205bb",
+      "commit": "83b77df2a366ce503219a2c2d7970eaba9b906f7",
+      "kind": "CHANGED"
+    },
+    {
+      "path": ".github/workflows/v25-live-programme-scheduler.yml",
+      "blob": "838a12cf32c2b98e44d9151e4cd6f063ba7a54ff",
+      "commit": "bf5d3cad73b332418a3d4fffe104955fe63fdc19",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/current_entry_boundary_x03.py",
+      "blob": "a0a3b751ebe3d452b10eff8fa65f9c23ff30ad1c",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/current_entry_launch_x03.py",
+      "blob": "e643be77fe0fe571fbae765b5818d16557fb0983",
+      "commit": "fb2f0d1d391e40575315aeb90e613cd00d4e3832",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/live_program_scheduler.py",
+      "blob": "104a8f84baac13501223013d1f370c14aba214aa",
+      "commit": "bf5d3cad73b332418a3d4fffe104955fe63fdc19",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/public_wln_server.py",
+      "blob": "42adc68199afcac2faaf5426b5cf070304eb8682",
+      "commit": "56a21e81dc0043ec44ffb464848ea362a52e84b0",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/report_lifecycle112.py",
+      "blob": "d81edb5ba406bc74f8a9d28d382c1920df06781c",
+      "commit": "c930f72f5b354892df0adf86b60b9820250df324",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/request_trace109.py",
+      "blob": "a992bc89c70f2e2a3ee7a5c361d87830ed8e0f52",
+      "commit": "c930f72f5b354892df0adf86b60b9820250df324",
+      "kind": "CHANGED"
+    },
+    {
+      "path": "app/local_integration/source_fit_candidate207.py",
+      "blob": "8f56cc4cba74bd8c184bb6f820e60971911e4b44",
+      "commit": "caacb652bcf904893f8078a92b5d3b200f515074",
+      "kind": "CHANGED"
+    }
+  ]
+}
