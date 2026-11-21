@@ -1,0 +1,23 @@
+name: P38 isolated archived quality coverage synthetic checks
+on:
+  push:
+    branches: [p38-archived-quality-coverage-review]
+    paths:
+      - 'studies/p38_archived_quality_coverage.py'
+      - 'tests/r4/test_p38_archived_quality_coverage.py'
+      - '.github/workflows/p38-archived-quality-coverage.yml'
+permissions:
+  contents: read
+jobs:
+  fixture-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B -m unittest discover -s tests/r4 -p test_p38_archived_quality_coverage.py -v
+      - run: git diff --exit-code
