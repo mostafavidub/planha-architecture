@@ -33,9 +33,15 @@ def public_summary(result,body=None):
   'plan_count_available':0,'plan_payload':None,'download_available':False,
   **{k:False for k in AUTH}}
 def with_capability(summary,kind,body,envelope=None,pf=None,result=None):
- # Projection is additive only; no false fallback or response replacement.
- try:return {**summary,'capability':capability.disclose(kind=kind,body=body,envelope=envelope,preflight=pf,result=result)}
- except Exception:return summary
+ # Keep the original response and explicitly withhold capability on projection failure.
+ try:
+  disclosure=capability.disclose(kind=kind,body=body,envelope=envelope,preflight=pf,result=result)
+ except Exception:
+  disclosure={'schema':capability.SCHEMA,'request_digest':hashlib.sha256(body).hexdigest() if type(body) is bytes else None,
+   'input_state':'UNASSESSED','capability_state':'NOT_VERIFIED','canonical_case':None,'selected_study':None,
+   'evidence_state':'NOT_VERIFIED','evidence_contract':None,'production_supported':False,'product_available':False,
+   **{k:False for k in AUTH}}
+ return {**summary,'capability':disclosure}
 
 class Handler(BaseHTTPRequestHandler):
  protocol_version='HTTP/1.0'

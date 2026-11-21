@@ -4,6 +4,7 @@
  let busy=false,requestSequence=0;
  const capabilityLabel=document.querySelector("#capability-status");
  const capabilityText={
+  NOT_VERIFIED:"پشتیبانی: وضعیت قابلیت تأیید نشده است.",
   INVALID_INPUT:"پشتیبانی: ورودی نامعتبر است.",
   WIRE_UNSUPPORTED:"پشتیبانی: قالب ارسال این ورودی پشتیبانی نمی‌شود.",
   VALID_UNSUPPORTED:"پشتیبانی: ورودی معتبر است؛ اجرای آزمایشی برای این ترکیب آماده نیست.",
@@ -24,6 +25,8 @@
   const status=c.capability_state;
   const s=response.status,summary=data.schema==="PUBLIC_WLN_STUDY_SUMMARY_V1",errors=data.schema==="PUBLIC_WLN_ERROR_SET_V1";
   const matches={
+   NOT_VERIFIED:c.input_state==="UNASSESSED"&&c.canonical_case===null&&c.selected_study===null&&
+    c.evidence_state==="NOT_VERIFIED"&&c.evidence_contract===null,
    INVALID_INPUT:s===422&&errors&&data.primary_status===422,
    WIRE_UNSUPPORTED:s===409&&errors&&data.primary_status===409,
    VALID_UNSUPPORTED:s===409&&summary&&data.input_valid===true&&typeof data.status==="string"&&data.status.startsWith("UNSUPPORTED"),

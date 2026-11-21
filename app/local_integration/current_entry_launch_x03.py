@@ -29,7 +29,7 @@ def evidence_guard():
   need(Path(inspect.getsourcefile(fn)).resolve()==path.resolve(),'CURRENT_EVIDENCE_IMPORT_PATH')
  module.guard()
  return hashlib.sha256(data).hexdigest()
-P17_PINS={"stop_observation_p01.py":"e5421221179a78ad8e313a5e86ba8e000bc26b79","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"caa08b72ed09082ae0a9fee7f9e42471eaaf6354","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"ca33f86aa6ca0d23aa59fa366698c268f9c7c936","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
+P17_PINS={"stop_observation_p01.py":"e5421221179a78ad8e313a5e86ba8e000bc26b79","public_program_dispatch_p17.py":"65a9b9cb4a77925e442837429a5fa1e176860d2d","public_wln_server.py":"42adc68199afcac2faaf5426b5cf070304eb8682","single_current_programme_evaluator_p17.py":"7ac2f8efcddab91bba747b7e232393ef6bda45a3","single_decision_p17.py":"717362f62c8eaef45ae065d0770d5517c44b7bbe","single_evaluation_p17.py":"23956db2458c1d0c416c5c39a24ec3b521766845","single_physical_p17.py":"16a16f20af2603ea67a2cb631954342462fe73a0","single_runtime_p17.py":"ca33f86aa6ca0d23aa59fa366698c268f9c7c936","single_source_guest_route_evaluator_p17.py":"e32189f2de3cea1545fba2c391468565dc4a0353","single_source_living_evaluator_p17.py":"cee0eb2d5262b99b553f38ef11c3a77a03e1cb10","single_source_wall_function_evaluator_p17.py":"8beab5c8b68d50458fd8edb10de3608ec5c1b2ca"}
 def single_guard():
  observed={}
  for name,pin in P17_PINS.items():
@@ -53,7 +53,7 @@ def capacity_guard():
 
 CAPABILITY_PINS={
  'capability_p36.py':'36dd1636e8c3a73329853fba22a69e72eb5f5031',
- 'public_wln.js':'674a4ebf185f9c24f08def31e272481627210de4',
+ 'public_wln.js':'81b1713dd5b2f845b84dc5337b2e39530d5aaa1a',
  'public_wln.html':'49d4d7342e150cd8ae6b2574b9ef364dfc0bd099'}
 def capability_guard():
  observed={}
