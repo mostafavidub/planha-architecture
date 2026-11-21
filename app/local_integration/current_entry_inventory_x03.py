@@ -10,8 +10,9 @@ def blob(data):
 def read_source(path):
  p=ROOT/path
  return str(p.readlink()).encode()if p.is_symlink()else p.read_bytes()
-def scan():
- manifest=json.loads(MANIFEST.read_text());rows=[];dynamic=[]
+def scan(manifest_path=MANIFEST):
+ manifest_bytes=manifest_path.read_bytes()
+ manifest=json.loads(manifest_bytes);rows=[];dynamic=[]
  for path,record in manifest['files'].items():
   data=read_source(path)
   if blob(data)!=record['blob']:raise ValueError('INVENTORY_SOURCE_CHANGED')
@@ -32,16 +33,21 @@ def scan():
   rows.append(row)
  # New top-level integration modules/workflows require a new reviewed inventory.
  observed={p.relative_to(ROOT).as_posix()for p in (ROOT/'app/local_integration').glob('*.py')}
- observed|={p.relative_to(ROOT).as_posix()for p in (ROOT/'.github/workflows').glob('*')if p.is_file()}
+ observed|={p.relative_to(ROOT).as_posix()for p in (ROOT/'.github/workflows').glob('*')if p.is_file() or p.is_symlink()}
  expected=set(manifest['top_level_paths'])|set(manifest['inventory_self_paths'])
  if observed!=expected:raise ValueError('UNREGISTERED_CURRENT_SURFACE_REVIEW_REQUIRED')
+ if manifest_path.read_bytes()!=manifest_bytes:raise ValueError('INVENTORY_MANIFEST_CHANGED_DURING_READ')
  before=manifest['files']
  if any(blob(read_source(p))!=r['blob']for p,r in before.items()):raise ValueError('INVENTORY_CHANGED_DURING_READ')
  return {'schema':'CURRENT_ENTRY_INVENTORY_X03_V1','rows':rows,'dynamic_unresolved':dynamic,
   'scope':'Pinned selected integration Python plus all workflows at this revision; not every repository callable or runtime dynamic target',
   'registered_dispatch_is_not_python_isolation':True,'literal_legacy_import_isolation':'NOT_IMPLEMENTED',
-  'source_manifest_digest':hashlib.sha256(MANIFEST.read_bytes()).hexdigest()}
+  'source_manifest_digest':hashlib.sha256(manifest_bytes).hexdigest()}
 if __name__=='__main__':
- out=scan()
+ import argparse
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--current', action='store_true')
+ args=parser.parse_args()
+ out=scan(ROOT/'specs/current_entry_inventory_x03_current.json') if args.current else scan()
  print(json.dumps({'schema':out['schema'],'file_count':len(out['rows']),'dynamic_unresolved_count':len(out['dynamic_unresolved']),
   'inventory_digest':hashlib.sha256(json.dumps(out,sort_keys=True).encode()).hexdigest(),'literal_legacy_import_isolation':'NOT_IMPLEMENTED'}))
