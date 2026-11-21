@@ -39,6 +39,10 @@
       "blob": "5e636160335b8fef53e2b707f5504b1e568ae379",
       "classification": "REVIEWED_SOURCE_IDENTITY_ONLY"
     },
+    ".github/workflows/p36-capability-projection.yml": {
+      "classification": "REVIEWED_SOURCE_IDENTITY_ONLY",
+      "blob": "9955350aa1b38658682ac01e3b1399acce31aec2"
+    },
     ".github/workflows/public-api-batch50.yml": {
       "blob": "43cd3a1e6fea33f0514805bfd3dfd7d3e6d3635a",
       "classification": "REVIEWED_SOURCE_IDENTITY_ONLY"
@@ -551,6 +555,10 @@
       "blob": "107fdee7f63cbab76e6344df8e42c790120b86d5",
       "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
     },
+    "app/local_integration/capability_p36.py": {
+      "classification": "REVIEWED_SOURCE_IDENTITY_ONLY",
+      "blob": "36dd1636e8c3a73329853fba22a69e72eb5f5031"
+    },
     "app/local_integration/cause_directed_candidate108.py": {
       "blob": "5851a0e98162776ca292b40a5707d0ef8f477c8b",
       "classification": "CORE_ONLY_PRIMITIVE_NO_CURRENT_RAW_CAPABILITY"
@@ -604,7 +612,7 @@
       "classification": "REVIEWED_SOURCE_IDENTITY_ONLY"
     },
     "app/local_integration/current_entry_launch_x03.py": {
-      "blob": "2e199b265b0bae148f97a58ea5ad20692269d7e9",
+      "blob": "e643be77fe0fe571fbae765b5818d16557fb0983",
       "classification": "SERVER_OWNED_CURRENT_LAUNCHER"
     },
     "app/local_integration/current_four_decision.py": {
@@ -904,7 +912,7 @@
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/public_wln_server.py": {
-      "blob": "872dfcf0551379355183e21e0a675af3e19730fc",
+      "blob": "42adc68199afcac2faaf5426b5cf070304eb8682",
       "classification": "CURRENT_DOMAIN_GUARDED_OR_PREEXISTING_VALIDATED_INTERFACE"
     },
     "app/local_integration/r4_baseline_audit.py": {
@@ -1146,6 +1154,7 @@
     ".github/workflows/p15-single-model.yml",
     ".github/workflows/p17-single-api.yml",
     ".github/workflows/p32a-status.yml",
+    ".github/workflows/p36-capability-projection.yml",
     ".github/workflows/public-api-batch50.yml",
     ".github/workflows/r4-ap07-core-scheduler206.yml",
     ".github/workflows/r4-baseline-audit.yml",
@@ -1270,6 +1279,7 @@
     "app/local_integration/audit_public_delivery_surface.py",
     "app/local_integration/automatic_program_search.py",
     "app/local_integration/bounded_repair_chain.py",
+    "app/local_integration/capability_p36.py",
     "app/local_integration/cause_directed_candidate108.py",
     "app/local_integration/cause_directed_chain108.py",
     "app/local_integration/cause_directed_contract108.py",
@@ -1464,6 +1474,7 @@
     "audit_public_delivery_surface.py",
     "automatic_program_search.py",
     "bounded_repair_chain.py",
+    "capability_p36.py",
     "cause_directed_candidate108.py",
     "cause_directed_chain108.py",
     "cause_directed_contract108.py",

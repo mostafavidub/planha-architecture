@@ -1,0 +1,39 @@
+name: P36 scoped capability projection controls
+on:
+  push:
+    branches: [p36-capability-projection-review, main]
+    paths:
+      - 'specs/current_entry_inventory_x03_current.json'
+      - 'app/local_integration/capability_p36.py'
+      - 'app/local_integration/public_wln_server.py'
+      - 'app/local_integration/current_entry_launch_x03.py'
+      - 'app/local_integration/public_wln.js'
+      - 'app/local_integration/public_wln.html'
+      - 'tests/r4/test_capability_p36.py'
+      - 'tests/r4/test_public_input_errors403.py'
+      - 'tests/r4/test_capability_p36_ui.cjs'
+      - '.github/workflows/p36-capability-projection.yml'
+permissions:
+  contents: read
+jobs:
+  no-solver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install numpy==2.4.6 scipy==1.17.1 playwright==1.58.0
+      - run: python -B -m unittest discover -s tests/r4 -p test_capability_p36.py -v
+      - env:
+          PYTHONPATH: app/local_integration
+        run: python -B -m unittest discover -s tests/r4 -p test_public_input_errors403.py -v
+      - run: node tests/r4/test_capability_p36_ui.cjs
+      - run: python -m playwright install --with-deps chromium
+      - run: python -B tests/r4/run_status_p32a.py

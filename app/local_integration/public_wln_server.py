@@ -2,6 +2,7 @@
 import argparse,json,threading,time,hashlib
 import stop_observation_p01 as stop
 import programme_prefilter_p05 as capacity
+import capability_p36 as capability
 from http_withholding_x04 import Boundary
 from public_program_dispatch_p17 import run_bound
 from pathlib import Path
@@ -31,6 +32,17 @@ def public_summary(result,body=None):
   'remaining':['Variable-dimension automatic programme search incomplete','One-bedroom adapter not ready','Current functional quality/profile checks unresolved'],
   'plan_count_available':0,'plan_payload':None,'download_available':False,
   **{k:False for k in AUTH}}
+def with_capability(summary,kind,body,envelope=None,pf=None,result=None):
+ # Keep the original response and explicitly withhold capability on projection failure.
+ try:
+  disclosure=capability.disclose(kind=kind,body=body,envelope=envelope,preflight=pf,result=result)
+ except Exception:
+  disclosure={'schema':capability.SCHEMA,'request_digest':hashlib.sha256(body).hexdigest() if type(body) is bytes else None,
+   'input_state':'UNASSESSED','capability_state':'NOT_VERIFIED','canonical_case':None,'selected_study':None,
+   'evidence_state':'NOT_VERIFIED','evidence_contract':None,'production_supported':False,'product_available':False,
+   **{k:False for k in AUTH}}
+ return {**summary,'capability':disclosure}
+
 class Handler(BaseHTTPRequestHandler):
  protocol_version='HTTP/1.0'
  def setup(self):
@@ -68,8 +80,11 @@ class Handler(BaseHTTPRequestHandler):
   accepted_at=time.monotonic() # Complete body received; before input preflight/source checks.
   try:
    envelope=parse_public(body);verify_public(body,envelope);pf=preflight(body)
-  except InputError as ex:self.reply(ex.status,input_error_response(ex));return
-  except Exception:self.reply(500,{'code':'INPUT_VALIDATION_FAILED_CLOSED','generation_started':False,**{k:False for k in AUTH}});return
+  except InputError as ex:
+   kind='WIRE_UNSUPPORTED' if ex.status==409 else 'INVALID_INPUT'
+   self.reply(ex.status,with_capability(input_error_response(ex),kind,body));return
+  except Exception:
+   self.reply(500,with_capability({'code':'INPUT_VALIDATION_FAILED_CLOSED','generation_started':False,**{k:False for k in AUTH}},'SERVER_RESULT_UNAVAILABLE',body));return
   observation=None
   observes_capacity=envelope['canonical_request']['unit_count']==2
   def capture():
@@ -82,7 +97,7 @@ class Handler(BaseHTTPRequestHandler):
    try:return capacity.attach_http(summary,body,observation,envelope['canonical_request_digest'])
    except Exception:return summary # Advisory projection cannot replace the existing response.
   def project(result):
-   summary=public_summary(result,body)
+   summary=with_capability(public_summary(result,body),'STUDY_PERMITTED',body,envelope,pf,result)
    # Dispatch already settled. Omit optional measurement when close to X04 cutoff.
    if not observes_capacity or time.monotonic()>=accepted_at+179:return summary
    capture()
@@ -90,9 +105,13 @@ class Handler(BaseHTTPRequestHandler):
   if not pf['execution_ready']:
    capture()
    summary=public_summary({'preflight':pf,'state':pf['state'],'stop_record':stop.unsupported(body)},body)
-   self.reply(409,with_capacity(summary));return
-  if not LOCK.acquire(blocking=False):self.reply(409,{'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}});return
+   self.reply(409,with_capacity(with_capability(summary,'VALID_UNSUPPORTED',body,envelope,pf)));return
+  if not LOCK.acquire(blocking=False):
+   self.reply(409,with_capability({'code':'STUDY_BUSY_NO_QUEUE','retry_automatic':False,**{k:False for k in AUTH}},'STUDY_BUSY',body,envelope,pf));return
   status,value=HTTP_BOUNDARY.execute(body,accepted_at=accepted_at,lock=LOCK,run=lambda b:run_bound(b,run_live,deadline=accepted_at+180),project=project)
+  if status!=200:
+   kind='STUDY_RESULT_WITHHELD' if status==504 else 'SERVER_RESULT_UNAVAILABLE'
+   value=with_capability(value,kind,body,envelope,pf)
   self.reply(status,value)
 def server(port=0):return ThreadingHTTPServer(('127.0.0.1',port),Handler)
 if __name__=='__main__':
