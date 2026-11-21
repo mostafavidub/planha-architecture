@@ -60,24 +60,29 @@ def synth():
     rp['source_capacity_state']='PASS_SCOPED'
     rp['reports']={'replay':replay,'capacity':{'errors':[],'pending':[],
         'evidence':{'model_hash':mh,'scope':'Synthetic','status':'PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY',
-                    'units':[{'unit':u,'actual_places':{'sleeping_places':4}} for u in 'AB']}}}
+                    'units':[{'unit':u,'residents_study':4,'actual_places':{'sleeping_places':4}} for u in 'AB']}}}
+    def remainder(cid, n):
+        rr=['synthetic']*n
+        for i,text in p.REMAINING[cid].items():rr[i]=text
+        return rr
     rr=[{'state':'PASS_SOURCE_PROFILE_ROUTE_ONLY','id':n,'body_m':'7/10',
          'path':[[0,0],[0,1]],'segments':1,'floor_digest':H,'obstacle_digest':H,'ownership_digest':H,
-         'wc_exception':'TEST' if n=='entry_WC' else None} for n in p.ROUTES]
+         'floor_roles':['living','entry_circulation','dining','kitchen']+(['bath'] if n=='entry_WC' else []),
+         'wc_exception':p.WC_EXCEPTION if n=='entry_WC' else None} for n in p.ROUTES]
     rg=reports[p.G]
-    rg['remaining']=['synthetic']*5
+    rg['remaining']=remainder(p.G,5)
     rg['units']=[{'unit':u,'routes':copy.deepcopy(rr),'kitchen_operation_digest':H,'destination_bindings':{
         'WC':{'module_hash':H,'activity_id':'WC_use'}, 'dining':{'module_hash':H,'seat_id':'test'},
         'living':{'fixture_id':'test','activity_id':'test'}}} for u in 'AB']
     rl=reports[p.L]
-    rl['remaining']=['synthetic']*4
+    rl['remaining']=remainder(p.L,4)
     rl['units']=[{'unit':u,'actual_seat_endpoints':[],'shorter_organisation_comparison':{'state':'NOT_RUN'},
         'activity_phase_coverage':{'exit_and_simultaneous_group_use':'NOT_FULLY_VERIFIED'},
         'area_accounting':{'verified_useful_living_area_m2':None},
         'studies':[{'domain':'AUTHORIZED_LIVING_AND_CIRCULATION_ACCESS','all_targets_connected':True,
                     'routes':[{'state':'PASS_ACCESS_WITNESS_ONLY'}]}]} for u in 'AB']
     rw=reports[p.W]
-    rw['walls']=[{'privacy_scope':'synthetic'}]; rw['remaining']=['synthetic']*4
+    rw['walls']=[{'privacy_scope':'synthetic'}]; rw['remaining']=remainder(p.W,4)
     rw['counts']=dict(all_source_walls=1,boundary_dependency_probes=0,non_module_inventory_only=0,zero_unique_material_probes=0)
     ad={k:const(r) for k,r in reports.items()}
     dec={**FALSE,'schema':'SAME_MODEL_CURRENT_FOUR_DECISION_V1','integrity_verified':True,
@@ -191,6 +196,8 @@ class Coverage(unittest.TestCase):
     def test_guest_missing_fixture_and_wrong_body_no_pass(self):
         for mod in (lambda x:x['destination_bindings']['living'].pop('fixture_id'),
                     lambda x:x['routes'][0].update(body_m='.7'),
+                    lambda x:x['routes'][2].update(wc_exception='Unverified exception'),
+                    lambda x:x['routes'][0]['floor_roles'].append('bath'),
                     lambda x:x['routes'].pop(0)):
             v=self.case();mod(v['reports'][p.G]['units'][0])
             self.assertEqual(self.rows(v)['P20_GUEST_FOUR_ROUTES']['diagnostic_result'],'INDETERMINATE')
@@ -206,15 +213,31 @@ class Coverage(unittest.TestCase):
     def test_legacy_missing_rule_retained_but_profile_normalized(self):
         v=self.rows(); q=v['P20_PROGRAM_QUALITY_FLOOR']
         self.assertIn('MISSING_RULE',q['archived_runtime_explicit_states'])
+        self.assertIn({'kind':'MISSING_RULE','code':ROW[1]},q['archived_findings'])
         self.assertEqual(q['diagnostic_reason'],'PROFILE_NOT_READY')
         self.assertEqual(v['P20_CORE_ENGINEERING']['diagnostic_reason'],'OUT_OF_SCOPE')
         self.assertEqual(v['P20_CORE_ENGINEERING']['diagnostic_result'],'NOT_EVALUATED')
         self.assertIsNone(v['P20_CORE_ENGINEERING']['archived_runtime_explicit_states'])
 
+    def test_remaining_position_alone_is_no_evidence(self):
+        v=self.case()
+        v['reports'][p.G]['remaining'][0]='Unrelated'
+        v['reports'][p.W]['remaining'][3]='Unrelated'
+        rows=self.rows(v)
+        self.assertEqual(rows['P20_GUEST_FIRST_LIVING']['reason_code'],'EVIDENCE_ABSENT')
+        self.assertEqual(rows['P20_CORE_ENGINEERING']['reason_code'],'EVIDENCE_ABSENT')
+
     def test_capacity_failure_only_bind_real_source_code(self):
         v=self.case(); cap=v['reports'][p.P]['reports']['capacity']
-        cap['errors']=[{'code':'ACTUAL_CAPACITY_SHORTFALL'}]
+        cap['errors']=[{'code':'ACTUAL_CAPACITY_SHORTFALL','group':'sleeping_places','unit':'A'}]
+        self.assertEqual(self.rows(v)['P20_PROGRAM_CAPACITY']['diagnostic_result'],'INDETERMINATE')
+        cap['evidence']['units'][0]['actual_places']['sleeping_places']=3
         self.assertEqual(self.rows(v)['P20_PROGRAM_CAPACITY']['diagnostic_result'],'FAIL_SCOPED')
+        cap['errors'][0]['group']='dining_seats'
+        self.assertEqual(self.rows(v)['P20_PROGRAM_CAPACITY']['diagnostic_result'],'INDETERMINATE')
+        cap['errors'][0].update(group='sleeping_places',unit='wrong')
+        self.assertEqual(self.rows(v)['P20_PROGRAM_CAPACITY']['diagnostic_result'],'INDETERMINATE')
+        cap['errors'][0]['unit']='A'
         cap['evidence']['model_hash']='c'*64
         self.assertEqual(self.rows(v)['P20_PROGRAM_CAPACITY']['diagnostic_result'],'INDETERMINATE')
 

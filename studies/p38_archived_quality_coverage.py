@@ -30,6 +30,15 @@ REQUIRED = {
  G:{COMMON,*(DIR+i+'.py' for i in ('current_programme_evaluator','guest_four_route_diagnostic','kitchen_guest_review','source_guest_route_evaluator'))},
  L:{COMMON,*(DIR+i+'.py' for i in ('fixed_route_clearance_diagnostic','kitchen_guest_review','living_connectivity_diagnostic','source_guest_route_evaluator','source_living_evaluator'))},
  W:{COMMON,*(DIR+i+'.py' for i in ('current_programme_evaluator','source_wall_counterfactual','source_wall_function_evaluator'))}}
+REMAINING = {
+ G:{0:'First-living/principal organisation unproved',
+    4:'This actual-work-area profile differs from historical whole-kitchen-floor exclusion; it does not overwrite that FAIL'},
+ L:{0:'Calibrated activity/ergonomic/quality profiles unavailable',
+    1:'Coherent furnishing and all simultaneous use/exit scenarios unproved'},
+ W:{0:'Alternative placement/shorter organisation per wall not proven',
+    2:'Fresh rerouted access and full privacy scenarios not evaluated by this probe',
+    3:'Core/shell non-module walls inventoried only, no removal authorization'}}
+WC_EXCEPTION = 'Only target body intersection with own WC fixture; all remaining WC fixture material stays obstacle'
 SOURCE_FOR = dict(zip((P,G,L,W), (DIR+'current_programme_evaluator.py', DIR+'source_guest_route_evaluator.py',
     DIR+'source_living_evaluator.py', DIR+'source_wall_function_evaluator.py')))
 FA = {
@@ -300,6 +309,7 @@ def profile_rows(case, cat):
     count=[u.get('actual_places',{}).get('sleeping_places') for u in places]
     cap_ok=([u.get('unit') for u in places]==['A','B'] and
             all(type(n) is int and n==4 for n in count)
+            and all(type(u.get('residents_study')) is int and u['residents_study']==4 for u in places)
             and p.get('source_capacity_state')=='PASS_SCOPED'
             and ev.get('status')=='PASS_ACTUAL_INSTANCE_PLANAR_CAPACITY'
             and ev.get('model_hash')==case['model_digest'] and cap.get('errors')==[] and cap.get('pending')==[])
@@ -308,13 +318,24 @@ def profile_rows(case, cat):
     pp += [('reports','capacity','evidence','units',i,'actual_places','sleeping_places')
            for i,u in enumerate(places) if 'sleeping_places' in u.get('actual_places',{})]
     for i,e in enumerate(cap.get('errors',[])):
-        if e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' and ev.get('model_hash')==case['model_digest']:
-            cap_states.append('ACTUAL_CAPACITY_SHORTFALL'); pp.append(('reports','capacity','errors',i))
+        matching=[(j,u) for j,u in enumerate(places) if u.get('unit')==e.get('unit')]
+        bound=len(matching)==1
+        if bound:
+            j,u=matching[0]
+            actual=u.get('actual_places',{}).get('sleeping_places')
+            required=u.get('residents_study')
+            bound=(type(actual) is int and type(required) is int
+                   and 0<=actual<required==4)
+        if (e.get('code')=='ACTUAL_CAPACITY_SHORTFALL' and e.get('group')=='sleeping_places'
+                and e.get('unit') in ('A','B') and bound and ev.get('model_hash')==case['model_digest']):
+            cap_states.append('ACTUAL_CAPACITY_SHORTFALL'); pp.extend(
+                [('reports','capacity','errors',i),('reports','capacity','evidence','units',j,'residents_study')])
     add(P,'PROGRAM_CAPACITY','PLANAR_CAPACITY_ONLY' if cap_ok else 'MISSING_EVIDENCE',
         'PLANAR_SLEEP_CAPACITY_ONLY',pp,cap_states,cap_ok,{'sleep_places':count})
     def pf(id, codes, diagnostic, reason):
         pairs=[(i,f) for i,f in enumerate(p.get('findings',[])) if f.get('code') in codes]
         add(P,id,diagnostic,reason,[('findings',i) for i,f in pairs],[f['kind'] for i,f in pairs])
+        out[id]['archived_findings']=[{'kind':f['kind'],'code':f['code']} for _,f in pairs]
     pf('PROGRAM_ALTERNATIVES',{'AP07_ALTERNATIVE_SEQUENCE_AND_PARETO_SELECTION'},'MISSING_EVIDENCE','ALTERNATIVE_SEQUENCE_EVIDENCE_MISSING')
     pf('PROGRAM_QUALITY_FLOOR',{'CALIBRATED_ROOM_UNIT_QUALITY_AND_ERGONOMIC_SCENARIOS','OPERATIONAL_QUALITY_DIMENSIONS_AND_ACCEPTANCE_ANCHORS_OPEN'},'PROFILE_NOT_READY','OPERATIONAL_QUALITY_PROFILE_OPEN')
     pf('PROGRAM_PREFILTER',{'NET_CAPACITY_PREFILTER_SOURCE_BOUND_NOT_AVAILABLE'},'NOT_RUN','PREFILTER_NOT_EVALUATED')
@@ -344,15 +365,19 @@ def profile_rows(case, cat):
                          and type(x.get('path')) is list and len(x['path'])>=2
                          and type(x.get('segments')) is int and x['segments']>0
                          and all(H64.fullmatch(x.get(k,'')) for k in ('floor_digest','obstacle_digest','ownership_digest'))
-                         and (extra!='wc' or bool(x.get('wc_exception'))) for _,x in rows)
+                         and x.get('floor_roles')==['living','entry_circulation','dining','kitchen']+(['bath'] if x['id']=='entry_WC' else [])
+                         and x.get('wc_exception')==(WC_EXCEPTION if x['id']=='entry_WC' else None) for _,x in rows)
                  and (extra!='work' or H64.fullmatch(u.get('kitchen_operation_digest',''))))
         add(G,id,'SOURCE_PROFILE_ONLY' if ok else 'MISSING_EVIDENCE',
             reason if ok else 'NO_VALID_SCOPED_WITNESS',paths,states,ok,per)
     guest('GUEST_FOUR_ROUTES',ROUTES,'FOUR_SCOPED_GUEST_ROUTES')
     guest('GUEST_WORK_EXCLUSION',ROUTES,'SCOPED_KITCHEN_WORK_EXCLUSION','work')
     guest('GUEST_PRIVATE_ACCESS',('entry_WC',),'SCOPED_PUBLIC_WC_ACCESS','wc')
+    def rempaths(cid,*indices):
+        v=case['reports'][cid].get('remaining',[])
+        return [('remaining',i) for i in indices if i<len(v) and v[i]==REMAINING[cid][i]]
     def remaining(cid,index,id,tag,reason):
-        add(cid,id,tag,reason,[('remaining',index)])
+        add(cid,id,tag,reason,rempaths(cid,index))
     remaining(G,0,'GUEST_FIRST_LIVING','MISSING_EVIDENCE','PRINCIPAL_FIRST_LIVING_UNPROVED')
     remaining(G,4,'GUEST_KITCHEN_LABEL','PROFILE_SCOPE_DIFFERENCE','DIFFERENT_KITCHEN_PROFILES')
     lp=lambda key:[('units',i,key) for i,u in enumerate(l['units']) if key in u]
@@ -371,22 +396,22 @@ def profile_rows(case, cat):
          if 'verified_useful_living_area_m2' in pointer(l,i)])
     add(L,'LIVING_SHORTER_ALTERNATIVE','MISSING_EVIDENCE','SHORTER_ORGANIZATION_NOT_RUN',
         lp('shorter_organisation_comparison'),[u['shorter_organisation_comparison']['state'] for u in l['units']])
-    add(L,'LIVING_GROUP_USE','PROFILE_NOT_READY','GROUP_USE_PROFILE_OPEN',
-        [('remaining',0),('remaining',1)]+lp('activity_phase_coverage'),
+    add(L,'LIVING_GROUP_USE','PROFILE_NOT_READY' if rempaths(L,0) else 'MISSING_EVIDENCE','GROUP_USE_PROFILE_OPEN',
+        rempaths(L,0,1)+lp('activity_phase_coverage'),
         [u['activity_phase_coverage']['exit_and_simultaneous_group_use'] for u in l['units']])
     add(W,'WALL_SOURCE_INVENTORY','MEASURED_ONLY','WALL_INVENTORY_AND_BOUNDARY_PROBES_ONLY',
         [('walls',),('counts',)],measure={k:w['counts'][k] for k in ('all_source_walls','boundary_dependency_probes','non_module_inventory_only')})
     add(W,'WALL_VIEW_ONLY','IMPLEMENTATION_GAP','VIEW_ONLY_CLASSIFICATION_NOT_IMPLEMENTED',
-        [('walls',),('remaining',2)])
+        [('walls',)]+rempaths(W,2))
     add(W,'WALL_ALIAS_MATERIAL','MEASURED_ONLY','ALIAS_MATERIAL_GEOMETRY_ONLY',
         [('walls',),('counts','zero_unique_material_probes')],measure=w['counts']['zero_unique_material_probes'])
     remaining(W,0,'WALL_ALTERNATIVE','MISSING_EVIDENCE','FRESH_WALL_ALTERNATIVE_UNPROVED')
     priv=[('walls',i,'privacy_scope') for i,r in enumerate(w['walls']) if 'privacy_scope' in r]
     add(W,'WALL_PRIVACY_TARGETS','PARTIAL_SCOPE','LIMITED_PRIVACY_TARGET_SET',
-        priv+[('remaining',2)],measure={'scoped_rows':len(priv)})
+        priv+rempaths(W,2),measure={'scoped_rows':len(priv)})
     add(W,'CORE_ENGINEERING','OUT_OF_SCOPE','CORE_ENGINEERING_OUTSIDE_SELECTED_SCOPE',
-        [('remaining',3)],[ ])
-    if out['CORE_ENGINEERING']['diagnostic_result']=='INDETERMINATE':
+        rempaths(W,3))
+    if out['CORE_ENGINEERING']['diagnostic_reason']=='OUT_OF_SCOPE' and out['CORE_ENGINEERING']['diagnostic_result']=='INDETERMINATE':
         out['CORE_ENGINEERING']['diagnostic_result']='NOT_EVALUATED'
     # Criterion errors are also retained verbatim in the outer archive report, not guessed for a subcondition.
     return [out[i] for ids in IDS.values() for i in ids]
