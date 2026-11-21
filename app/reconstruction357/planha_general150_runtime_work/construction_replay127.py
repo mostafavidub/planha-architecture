@@ -23,7 +23,12 @@ def verify(model,context):
   if not isinstance(context,dict)or context.get('operation')!='generate_from_dimensions':raise ValueError('NOT_INTERNAL_NEW_DIMENSION_CONTEXT')
   if context.get('baseline_model_hash')is not None or context.get('existing_plan_id')is not None:raise ValueError('REVISION_MISLABELED_NEW')
   trace=context['construction_trace']
-  if trace['schema']!='CONSTRUCTION_TRACE127_PAIR_V1':raise ValueError('TRACE_SCHEMA')
+  if trace['schema']=='CONSTRUCTION_TRACE127_PAIR_V2':
+   core_choice=trace.get('core_choice')
+   if core_choice not in ('COMPACT','FULL_BAND'):raise ValueError('UNKNOWN_CORE_CHOICE')
+  elif trace['schema']=='CONSTRUCTION_TRACE127_PAIR_V1' and 'core_choice' not in trace:
+   core_choice=None
+  else:raise ValueError('TRACE_SCHEMA')
   raw=trace['raw']
   if not isinstance(raw,dict)or set(raw)!={'W','L','n','requested_count'}:raise ValueError('DIMENSIONS_PROTOCOL_FIELDS_ONLY')
   from contract114 import parse,S
@@ -46,7 +51,7 @@ def verify(model,context):
   key=(rev,mh,digest(context))
   if key not in _CACHE:
    from constructor127 import build
-   packet=build(copy.deepcopy(raw),trace['family'],copy.deepcopy(proposals['A']),copy.deepcopy(proposals['B']))
+   packet=build(copy.deepcopy(raw),trace['family'],copy.deepcopy(proposals['A']),copy.deepcopy(proposals['B']),core_choice=core_choice)
    if packet['family']!=trace['family']or packet['unit_proposal_hashes']!=hashes:raise ValueError('CONSTRUCTOR_ASSIGNMENT_BINDING')
    if digest(packet['world_model'])!=mh or digest(packet['local_model'])!=trace['local_model_hash']or digest(packet['core'])!=trace['core_hash']:raise ValueError('WHOLE_PAIR_REPLAY_MISMATCH')
    if packet.get('admission_claim')is not False:raise ValueError('CONSTRUCTOR_MUST_NOT_ADMIT')

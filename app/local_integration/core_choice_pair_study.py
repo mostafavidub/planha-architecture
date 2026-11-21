@@ -192,8 +192,8 @@ def child(folder,choice,nonce):
   model=assemble114.assemble(W,L,core,proposals['A'],unit_proposals=proposals);out['construction_observed']=True;check()
   model,_=transport(model);bind_program(model,profile);pin('assembled_model',model)
   packet={'family':'FRONT_REAR','local_model':model,'world_model':model,'core':core,'unit_proposal_hashes':{k:digest(v)for k,v in proposals.items()},'admission_claim':False}
-  # This original trace is deliberately NOT a claim that legacy127 supports corechoice.
-  ctx=constructor127.context(raw,packet,proposals);check()
+  replay_choice='FULL_BAND' if choice=='FRONT_REAR_FULL_BAND114' else 'COMPACT'
+  ctx=constructor127.context(raw,packet,proposals,core_choice=replay_choice);check()
   bundle,_=transport({'packet':packet,'context':ctx});bp=digest(bundle);packet=bundle['packet'];ctx=bundle['context'];model=packet['world_model']
   receipt=make_receipt(raw,choice,profile,core,proposals,model,snap,nonce);pin('receipt',receipt)
   out.update(stage='INDEPENDENT_REPLAY',model_digest=digest(model),receipt_digest=digest(receipt),program_digest=digest(model['program']));save()
